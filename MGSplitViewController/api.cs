@@ -1,3 +1,8 @@
+//
+// MIT X11 licensed
+// 
+// Copyright 2010 Novell, Inc
+//
 using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
