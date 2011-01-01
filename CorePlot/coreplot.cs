@@ -82,10 +82,10 @@ namespace MonoMac.CorePlot {
 		NSDecimal LabelingOrigin { get; set;  }
 
 		[Export ("titleLocation")]
-		NSDecimal titleLocation { get; set;  }
+		NSDecimal TitleLocation { get; set;  }
 
 		[Export ("defaultTitleLocation")]
-		NSDecimal defaultTitleLocation { get;  }
+		NSDecimal DefaultTitleLocation { get;  }
 
 		[Export ("majorIntervalLength")]
 		NSDecimal MajorIntervalLength { get; set;  }
