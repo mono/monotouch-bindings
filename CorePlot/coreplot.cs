@@ -56,21 +56,27 @@ namespace MonoMac.CorePlot {
 	[BaseType (typeof (NSObject))]
 	[Model]
 	interface CPAxisDelegate {
-		[Abstract]
+		[Abstract, DelegateName ("CPAxisPredicate"), DefaultValue (false)]
 		[Export ("axisShouldRelabel:")]
 		bool AxisShouldRelabel (CPAxis axis);
 
-		[Abstract]
+		[Abstract, DelegateName ("CPAxisPredicate")]
 		[Export ("axisDidRelabel:")]
 		void AxisDidRelabel (CPAxis axis);
 
-		[Abstract]
+		[Abstract, DelegateName ("CPAxisNSSetPredicate"), DefaultValue (false)]
 		[Export ("axis:shouldUpdateAxisLabelsAtLocations:")]
 		bool ShouldUpdateAxisLablesAtLocations (CPAxis axis, NSSet locations);
 	}
 
-	[BaseType (typeof (CPLayer))]
+	[BaseType (typeof (CPLayer), Delegates=new string [] {"WeakDelegate"}, Events=new Type [] { typeof (CPAxisDelegate)})]
 	interface CPAxis {
+		[Export ("delegates"), NullAllowed, New]
+		NSObject WeakDelegate { get; set;  }
+
+		[Wrap ("WeakDelegate"), New]
+		CPAxisDelegate Delegate { get; set; }
+
 		[Export ("axisLineStyle")]
 		CPLineStyle AxisLineStyle { get; set;  }
 
