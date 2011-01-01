@@ -1,0 +1,22 @@
+CorePlot
+========
+
+Binding to the CorePlot open source library for MonoTouch and MonoMac.
+
+	iOS Warning: this wont build with the released MonoTouch (as
+	of January 1st 2011), as it requires a couple of changes to
+	the base libraries to bind a few routines (it uses
+	constructors that were flagged as internal in MonoTouch that
+	should have been public).
+
+You can use the binaries provided in the meantime.
+
+To build from source:
+
+	For iOS:
+	   make ios
+	
+	For OSX:
+	   make osx
+
+MIT X11 licensed
