@@ -109,10 +109,9 @@ namespace Atomcraft
 		[Export ("useStandby", ArgumentSemantic.Assign)]
 		bool UseStandby { get; set; }
 		
-		/* // Skip for now... I don't quite get it...
 		//@property (nonatomic, retain) ATMSoundFX *sound;
 		[Export ("sound", ArgumentSemantic.Retain)]
-		ATMSoundFX Sound { get; set; }*/
+		ATMSoundFX Sound { get; set; }
 		
 		#endregion
 		
@@ -252,12 +251,10 @@ namespace Atomcraft
 		void HudDidDisappear (ATMHud _hud);
 	}
 	
-	[Model]
 	[BaseType (typeof (NSObject))]
-	interface ATMHudView {
-
+	interface ATMHudView { }
 	
-
-	}
+	[BaseType (typeof (NSObject))]
+	interface ATMSoundFX { }
 }
 
