@@ -165,7 +165,7 @@ namespace Atomcraft
 		//accessoryPositions:(NSArray *)positions 
 		//showActivities:(NSArray *)flags;
 		[Export ("addToQueueWithCaptions:images:accessoryPositions:showActivities:")]
-		void AddToQueue(string[] captions, NSArray[] images, NSNumber[] positions, NSNumber[] flags);
+		void AddToQueue(string[] captions, NSArray images, NSNumber[] positions, NSNumber[] flags);
 	
 		//- (void)clearQueue;
 		[Export ("clearQueue")]
