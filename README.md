@@ -45,3 +45,4 @@ Authors
 =======
 Miguel de Icaza
 Geoff Norton
+Chris Hardy (chrisntr)
