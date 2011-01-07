@@ -2,15 +2,14 @@ Atomcraft HUD
 =============
 
 This folder contains the bindings for the Atomcraft HUD library.
-This is currently bound to version 1.1.1 of the library found below;
-http://www.atomcraft.de/blog/2010/12/29/atomhud-1-1-1/
+This is currently bound to version [1.1.1 of the library](http://www.atomcraft.de/blog/2010/12/29/atomhud-1-1-1/)
 
 Please help and fix any bugs/issues that you see.
 
 Build
 ===== 
 Navigate to this directory in terminal and run the following command
-/Developer/MonoTouch/usr/bin/btouch Atomcraft.cs Enum.cs
+	/Developer/MonoTouch/usr/bin/btouch Atomcraft.cs Enum.cs
 This will produce you a Atomcraft.dll which you can use in your MonoTouch projects.
 
 You will also need to make sure you have the libAtomHUD.a in your project

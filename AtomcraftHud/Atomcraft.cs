@@ -109,10 +109,9 @@ namespace Atomcraft
 		[Export ("useStandby", ArgumentSemantic.Assign)]
 		bool UseStandby { get; set; }
 		
-		/* // Skip for now... I don't quite get it...
 		//@property (nonatomic, retain) ATMSoundFX *sound;
 		[Export ("sound", ArgumentSemantic.Retain)]
-		ATMSoundFX Sound { get; set; }*/
+		ATMSoundFX Sound { get; set; }
 		
 		#endregion
 		
@@ -152,7 +151,7 @@ namespace Atomcraft
 		
 		//- (void)setProgress:(CGFloat)progress;
 		[Export ("setProgress:")]
-		void SetFixedSize (double size);
+		void SetProgress (float size);
 		
 		//- (void)addToQueueWithCaption:(NSString *)caption 
 		//image:(UIImage *)image 
@@ -166,7 +165,7 @@ namespace Atomcraft
 		//accessoryPositions:(NSArray *)positions 
 		//showActivities:(NSArray *)flags;
 		[Export ("addToQueueWithCaptions:images:accessoryPositions:showActivities:")]
-		void AddToQueue(string[] captions, UIImage[] images, NSNumber[] positions, NSNumber[] flags);
+		void AddToQueue(string[] captions, NSArray images, NSNumber[] positions, NSNumber[] flags);
 	
 		//- (void)clearQueue;
 		[Export ("clearQueue")]
@@ -252,12 +251,10 @@ namespace Atomcraft
 		void HudDidDisappear (ATMHud _hud);
 	}
 	
-	[Model]
 	[BaseType (typeof (NSObject))]
-	interface ATMHudView {
-
+	interface ATMHudView { }
 	
-
-	}
+	[BaseType (typeof (NSObject))]
+	interface ATMSoundFX { }
 }
 
