@@ -1,7 +1,6 @@
 MONOMAC=/cvs/monomac
 
-all:
-	echo Run make with one of: make osx or make ios
+all: ios
 
 osx: CorePlotMacOS.dll
 

@@ -7,6 +7,17 @@ applications.
 
 If you would like to get your binding added, contact us.
 
+To build MonoTouch bindings:
+
+	To build, run `make' on the toplevel directory to build all
+	iOS, or if you only want to build a specific module run `make'
+	on the specific directory.
+
+To build OSX bindings:
+
+	Run `make osx' at the toplevel directory, or go into the
+	specific directory and run `make osx'
+
 License
 =======
 
