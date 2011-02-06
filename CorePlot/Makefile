@@ -23,3 +23,5 @@ ios/enums.cs: enums.cs
 	-mkdir ios
 	sed 's/MonoMac/MonoTouch/g' < $^ > $@
 
+clean: 
+	-rm *dll
