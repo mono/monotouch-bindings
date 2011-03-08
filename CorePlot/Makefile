@@ -12,7 +12,7 @@ CorePlotMacOS.dll: coreplot.cs enums.cs
 
 CorePlotiOS.dll: ios/coreplot.cs ios/enums.cs
 	-mkdir ios
-	/Developer/MonoTouch/usr/bin/btouch -e ios/coreplot.cs ios/enums.cs --out=CorePlotiOS.dll --tmpdir=ios
+	/Developer/MonoTouch/usr/bin/btouch -d=MONOTOUCH -e ios/coreplot.cs ios/enums.cs --out=CorePlotiOS.dll --tmpdir=ios
 
 ios/coreplot.cs: coreplot.cs
 	-mkdir ios

@@ -13,6 +13,11 @@ using MonoMac.ObjCRuntime;
 using System;
 using System.Drawing;
 using MonoMac.CoreAnimation;
+#if MONOTOUCH
+using MonoTouch.UIKit;
+#else
+using MonoMac.AppKit;
+#endif
 
 namespace MonoMac.CorePlot {
 
@@ -577,10 +582,10 @@ namespace MonoMac.CorePlot {
 		[Export ("applyTheme:")]
 		void ApplyTheme (CPTheme theme);
 
-		[Abstract, Export ("newPlotSpace")]
+		[Export ("newPlotSpace")]
 		CPPlotSpace NewPlotSpace ();
 
-		[Abstract, Export ("newAxisSet")]
+		[Export ("newAxisSet")]
 		CPAxisSet NewAxisSet ();
 	}
 	
@@ -1314,16 +1319,63 @@ namespace MonoMac.CorePlot {
 		[Export ("applyThemeToGraph:")]
 		void ApplyThemeToGraph (CPGraph graph);
 
-		[Abstract, Export ("newGraph")]
+		[Export ("newGraph")]
 		NSObject NewGraph ();
 
-		[Abstract, Export ("applyThemeToBackground:")]
+		[Export ("applyThemeToBackground:")]
 		void ApplyThemeToBackground (CPGraph graph);
 
-		[Abstract, Export ("applyThemeToPlotArea:")]
+		[Export ("applyThemeToPlotArea:")]
 		void ApplyThemeToPlotArea (CPPlotAreaFrame plotAreaFrame);
 
-		[Abstract, Export ("applyThemeToAxisSet:")]
+		[Export ("applyThemeToAxisSet:")]
 		void ApplyThemeToAxisSet (CPAxisSet axisSet);
+
+#if false
+		[Field ("kCPDarkGradientTheme")]
+		NSString DarkGradientTheme { get; }
+
+		[Field ("kCPPlainWhiteTheme")]
+		NSString PlainWhiteTheme { get; }
+		
+		[Field ("kCPPlainBlackTheme")]
+		NSString PlainBlackTheme { get; }
+		
+		[Field ("kCPSlateTheme")]
+		NSString SlateTheme { get; }
+		
+		[Field ("kCPStocksTheme")]
+		NSString StocksTheme { get; }
+#endif
 	}
+
+	[BaseType (typeof (CPGraph))]
+	interface CPGraphXY {
+		[Export ("initWithFrame:xScaleType:yScaleType:")]
+		IntPtr Constructor (RectangleF frame, CPScaleType xScaleType, CPScaleType yScaleType);
+	}
+
+#if MONOTOUCH
+	[BaseType (typeof (UIView))]
+	interface CPGraphHostingView {
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (RectangleF frame);
+
+		[Export ("hostedGraph")]
+		CPGraph HostedGraph { get; set; }
+
+		[Export ("collapsesLayers")]
+		bool CollapsesLayers { get; set; }
+				
+	}
+#else
+	[BaseType (typeof (NSView))]
+	interface CPGraphHostingView {
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (RectangleF frame);
+
+		[Export ("hostedLayer")]
+		CPLayer HostedLayer { get; set; }
+	}
+#endif
 }
