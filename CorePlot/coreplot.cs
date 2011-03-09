@@ -1072,7 +1072,7 @@ namespace MonoMac.CorePlot {
 		double DoubleForPlot (CPPlot plot, CPPlotField forFieldEnum, int index);
 
 		[Export ("dataForPlot:field:recordIndexRange:")]
-		/*CPNumericData*/ IntPtr DataForPlot (CPPlot plot, CPPlotField forFieldEnum, NSRange indexRange);
+		CPNumericData DataForPlot (CPPlot plot, CPPlotField forFieldEnum, NSRange indexRange);
 
 		[Export ("recordIndexRangeForPlot:plotRange:")]
 		NSRange RecordIndexRange (CPPlot forPlot, CPPlotRange plotRange);

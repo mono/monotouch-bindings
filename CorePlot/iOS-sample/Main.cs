@@ -112,7 +112,7 @@ namespace iOSsample
 					LineColor = CPColor.GreenColor
 				},
 				// For Kang, check this out:
-				//DataSource = new MySource ()
+				DataSource = new MySource ()
 			};
 			graph.AddPlot (dataSourceLinePlot);
 		}
