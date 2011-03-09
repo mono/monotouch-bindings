@@ -327,10 +327,10 @@ namespace MonoMac.CorePlot {
 	[Model]
 	interface CPBarPlotDataSource {
 		[Export ("barFillForBarPlot:recordIndex:")]
-		CPFill GetBarFill (CPBarPlot barPlot, uint recordIndex);
+		CPFill GetBarFill (CPBarPlot barPlot, int recordIndex);
 
 		[Export ("barLabelForBarPlot:recordIndex:")]
-		CPTextLayer GetBarLabel (CPBarPlot barPlot, uint recordIndex);
+		CPTextLayer GetBarLabel (CPBarPlot barPlot, int recordIndex);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -338,7 +338,7 @@ namespace MonoMac.CorePlot {
 	interface CPBarPlotDelegate {
 		[Abstract]
 		[Export ("barPlot:barWasSelectedAtRecordIndex:")]
-		void BarSelected (CPBarPlot plot, uint recordIndex);
+		void BarSelected (CPBarPlot plot, int recordIndex);
 	}
 	
 	[BaseType (typeof (CPAnnotationHostLayer))]
@@ -998,10 +998,10 @@ namespace MonoMac.CorePlot {
 	[Model]
 	interface CPPieChartDataSource {
 		[Export ("sliceFillForPieChart:recordIndex:")]
-		CPFill GetSliceFill (CPPieChart pieChart, uint recordIndex);
+		CPFill GetSliceFill (CPPieChart pieChart, int recordIndex);
 
 		[Export ("sliceLabelForPieChart:recordIndex:")]
-		CPTextLayer GetSliceLabel (CPPieChart pieChart, uint recordIndex);
+		CPTextLayer GetSliceLabel (CPPieChart pieChart, int recordIndex);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1009,7 +1009,7 @@ namespace MonoMac.CorePlot {
 	interface CPPieChartDelegate {
 		[Abstract]
 		[Export ("pieChart:sliceWasSelectedAtRecordIndex:")]
-		void SliceSelected (CPPieChart plot, uint recordIndex);
+		void SliceSelected (CPPieChart plot, int recordIndex);
 
 	}
 
@@ -1035,7 +1035,7 @@ namespace MonoMac.CorePlot {
 
 		[Static]
 		[Export ("defaultPieSliceColorForIndex:")]
-		CPColor DefaultPieSliceColorForIndex (uint pieSliceIndex);
+		CPColor DefaultPieSliceColorForIndex (int pieSliceIndex);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1076,7 +1076,7 @@ namespace MonoMac.CorePlot {
 
 	[BaseType (typeof (CPAnnotationHostLayer))]
 	interface CPPlot {
-		[Export ("CPPlotDataSource"), NullAllowed]
+		[Export ("dataSource"), NullAllowed]
 		CPPlotDataSource DataSource { get; set;  }
 
 		[Export ("identifier")]
@@ -1191,7 +1191,7 @@ namespace MonoMac.CorePlot {
 		NSObject [] FieldIdentifiersForCoordinate (CPCoordinate coord);
 
 		[Export ("positionLabelAnnotation:forIndex:")]
-		void PositionLabelAnnotationforIndex (CPPlotSpaceAnnotation label, uint index);
+		void PositionLabelAnnotationforIndex (CPPlotSpaceAnnotation label, int index);
 	}
 
 	[BaseType (typeof (CPAnnotationHostLayer))]
@@ -1757,22 +1757,20 @@ namespace MonoMac.CorePlot {
 	[BaseType (typeof (CPPlotDataSource))]
 	[Model]
 	interface CPScatterPlotDataSource {
-		[Abstract]
 		[Export ("symbolsForScatterPlot:recordIndexRange:")]
 		CPPlotSymbol [] GetSymbols (CPScatterPlot plot, NSRange indexRange);
 
-		[Abstract]
 		[Export ("symbolForScatterPlot:recordIndex:")]
-		CPPlotSymbol SymbolForScatterPlotrecordIndex (CPScatterPlot plot, uint recordIndex);
+		CPPlotSymbol GetSymbol (CPScatterPlot plot, int recordIndex);
 
 	}
 
-	[BaseType (typeof ())]
+	[BaseType (typeof (NSObject))]
 	[Model]
 	interface CPScatterPlotDelegate {
 		[Abstract]
 		[Export ("scatterPlot:plotSymbolWasSelectedAtRecordIndex:")]
-		void PlotSymbolSelected (CPScatterPlot plot, uint recordIndex);
+		void PlotSymbolSelected (CPScatterPlot plot, int recordIndex);
 	}
 
 	[BaseType (typeof (CPPlot))]

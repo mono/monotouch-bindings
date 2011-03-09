@@ -71,6 +71,10 @@ namespace MonoMac.CorePlot {
 		NumberBelowRange, NumberInRange, NumberAboveRange
 	}
 
+	public enum CPScatterPlotInterpolation {
+		Linear, Stepped, Histogram
+	}
+	
 	public enum CPGradientBlendingMode {
 		Linear, Chromatic, InverseChromatic
 	}
