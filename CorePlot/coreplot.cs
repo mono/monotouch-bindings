@@ -1371,7 +1371,7 @@ namespace MonoMac.CorePlot {
 		NSObject Identifier { get; set;  }
 
 		[Export ("allowsUserInteraction")]
-		bool allowsUserInteraction { get; set;  }
+		bool AllowsUserInteraction { get; set;  }
 
 		[Export ("graph")]
 		CPGraph Graph { get; set;  }
@@ -1630,19 +1630,19 @@ namespace MonoMac.CorePlot {
 		void ApplyThemeToAxisSet (CPAxisSet axisSet);
 
 #if false
-		[Field ("kCPDarkGradientTheme")]
+		[Field ("kCPDarkGradientTheme", "__Internal")]
 		NSString DarkGradientTheme { get; }
 
-		[Field ("kCPPlainWhiteTheme")]
+		[Field ("kCPPlainWhiteTheme", "__Internal")]
 		NSString PlainWhiteTheme { get; }
 		
-		[Field ("kCPPlainBlackTheme")]
+		[Field ("kCPPlainBlackTheme", "__Internal")]
 		NSString PlainBlackTheme { get; }
 		
-		[Field ("kCPSlateTheme")]
+		[Field ("kCPSlateTheme", "__Internal")]
 		NSString SlateTheme { get; }
 		
-		[Field ("kCPStocksTheme")]
+		[Field ("kCPStocksTheme", "__Internal")]
 		NSString StocksTheme { get; }
 #endif
 	}
