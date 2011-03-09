@@ -112,7 +112,7 @@ namespace iOSsample
 					LineColor = CPColor.GreenColor
 				},
 				// For Kang, check this out:
-				DataSource = new MySource ()
+				DataSource = new RandomSamplesSource ()
 			};
 			graph.AddPlot (dataSourceLinePlot);
 		}
@@ -124,16 +124,18 @@ namespace iOSsample
 		}
 	}
 	
-	public class MySource : CPScatterPlotDataSource {
+	public class RandomSamplesSource : CPScatterPlotDataSource {
 		List<PointF> data;
 		
-		public MySource ()
+		public RandomSamplesSource ()
 		{
 			Random r = new Random ();
 			
 			data = new List<PointF> ();
-			for (int i = 0; i < 100; i++)
-				data.Add (new PointF (i * 0.5f, (float)(10 * r.NextDouble () - 5)));
+			for (int i = 0; i < 100; i++){
+				var y = i;
+				data.Add (new PointF (i * 0.5f, (float) y));
+			}
 		}
 	
 		public override int NumberOfRecordsForPlot (CPPlot plot)
