@@ -496,7 +496,7 @@ namespace MonoMac.CorePlot {
 		[Export ("initWithImage:")]
 		IntPtr Constructor (CPImage anImage);
 
-		[Abstract, Export ("fillRect:inContext:")]
+		[Export ("fillRect:inContext:")]
 		void FillRect (RectangleF theRect, CGContext inContext);
 
 		[Export ("fillPathInContext:")]
@@ -794,6 +794,20 @@ namespace MonoMac.CorePlot {
 		[Export ("pixelAlign")]
 		void PixelAlign ();
 
+#if MONOTOUCH
+		[Export ("uiColor")]
+		UIColor Color { get; }
+
+		[Export ("imageOfLayer")]
+		UIImage GetImageOfLayer ();
+
+#else
+		[Export ("nsColor")]
+		NSColor Color { get; }
+
+		[Export ("imageOfLayer")]
+		NSImage GetImageOfLayer ();
+#endif
 		//
 		// From CPResponder
 		//
@@ -1045,31 +1059,24 @@ namespace MonoMac.CorePlot {
 		[Export ("numberOfRecordsForPlot:")]
 		int NumberOfRecordsForPlot (CPPlot plot);
 
-		[Abstract]
 		[Export ("numbersForPlot:field:recordIndexRange:")]
 		NSNumber [] NumbersForPlot (CPPlot forPlot, CPPlotField forFieldEnum, NSRange indexRange);
 
-		[Abstract]
 		[Export ("numberForPlot:field:recordIndex:")]
 		NSNumber NumberForPlot (CPPlot plot, CPPlotField forFieldEnum, int index);
 
-		[Abstract]
 		[Export ("doublesForPlot:field:recordIndexRange:")]
 		IntPtr DoublesForPlot (CPPlot plot, CPPlotField forFieldEnum, NSRange indexRange);
 
-		[Abstract]
 		[Export ("doubleForPlot:field:recordIndex:")]
 		double DoubleForPlot (CPPlot plot, CPPlotField forFieldEnum, int index);
 
-		[Abstract]
 		[Export ("dataForPlot:field:recordIndexRange:")]
 		/*CPNumericData*/ IntPtr DataForPlot (CPPlot plot, CPPlotField forFieldEnum, NSRange indexRange);
 
-		[Abstract]
 		[Export ("recordIndexRangeForPlot:plotRange:")]
 		NSRange RecordIndexRange (CPPlot forPlot, CPPlotRange plotRange);
 
-		[Abstract]
 		[Export ("dataLabelForPlot:recordIndex:")]
 		CPLayer DataLabelForPlot (CPPlot plot, int recordIndex);
 	}
