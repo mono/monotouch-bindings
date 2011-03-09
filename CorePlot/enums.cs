@@ -38,6 +38,12 @@ namespace MonoMac.CorePlot {
 		None, Fixed
 	}
 
+	[StructLayout (LayoutKind.Sequential)]
+	public struct CPConstraints {
+		public CPConstraint Lower;
+		public CPConstraint Upper;
+	}
+
 	public enum CPRectAnchor {
 		BottomLeft, Bottom, BottomRight, Left, Right, TopLeft, Top, TopRight, Center
 	}
@@ -56,6 +62,11 @@ namespace MonoMac.CorePlot {
 		public int ByteOrder;
 	}
 
+	public enum CPPieDirection {
+		Clockwise,
+		CounterClockwise
+	}
+	
 	public enum CPPlotRangeComparisonResult {
 		NumberBelowRange, NumberInRange, NumberAboveRange
 	}
@@ -78,5 +89,33 @@ namespace MonoMac.CorePlot {
 
 	public enum CPPlotCachePrecision {
 		Auto, Double, Decimal
+	}
+
+	public enum CPPlotField {
+		ScatterPlotFieldX = 0,
+		ScatterPlotFieldY = 0,
+			
+		PieChartWidth = 0,
+		PieChartWidthNormalized = 1,
+		PieChartSliceWidhtSum = 2,
+			
+		BarLocation = 2,
+		BarLength = 3,
+
+		TradingRangeX = 0,
+		TradingRangeOpen = 1,
+		TradingRangeHigh = 2,
+		TradingRangeLow = 3,
+		TradingRangeClose = 4,
+	}
+
+	public enum CPPlotSymbolType {
+		None, Rectangle, Ellipse, Diamond, Triangle,
+		Star, Pentagon, Hexaon, Cross, Plus, Dash,
+		Snow, Custom
+	}
+
+	public enum CPTradingRangePlotStyle {
+		OHLC, CandleStick
 	}
 }
