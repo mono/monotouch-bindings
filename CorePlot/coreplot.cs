@@ -1753,6 +1753,66 @@ namespace MonoMac.CorePlot {
 		CPXYAxis YAxis { get; }
 	}
 	
+
+	[BaseType (typeof (CPPlotDataSource))]
+	[Model]
+	interface CPScatterPlotDataSource {
+		[Abstract]
+		[Export ("symbolsForScatterPlot:recordIndexRange:")]
+		CPPlotSymbol [] GetSymbols (CPScatterPlot plot, NSRange indexRange);
+
+		[Abstract]
+		[Export ("symbolForScatterPlot:recordIndex:")]
+		CPPlotSymbol SymbolForScatterPlotrecordIndex (CPScatterPlot plot, uint recordIndex);
+
+	}
+
+	[BaseType (typeof ())]
+	[Model]
+	interface CPScatterPlotDelegate {
+		[Abstract]
+		[Export ("scatterPlot:plotSymbolWasSelectedAtRecordIndex:")]
+		void PlotSymbolSelected (CPScatterPlot plot, uint recordIndex);
+	}
+
+	[BaseType (typeof (CPPlot))]
+	interface CPScatterPlot {
+		[Export ("dataLineStyle")]
+		CPLineStyle DataLineStyle { get; set;  }
+
+		[Export ("plotSymbol")]
+		CPPlotSymbol PlotSymbol { get; set;  }
+
+		[Export ("areaFill")]
+		CPFill AreaFill { get; set;  }
+
+		[Export ("areaFill2")]
+		CPFill AreaFill2 { get; set;  }
+
+#if DECIMAL
+		[Export ("areaBaseValue")]
+		NSDecimal AreaBaseValue { get; set;  }
+
+		[Export ("areaBaseValue2")]
+		NSDecimal AreaBaseValue2 { get; set;  }
+#endif
+
+		[Export ("interpolation")]
+		CPScatterPlotInterpolation Interpolation { get; set;  }
+
+		[Export ("plotSymbolMarginForHitDetection")]
+		float PlotSymbolMarginForHitDetection { get; set;  }
+
+		[Export ("indexOfVisiblePointClosestToPlotAreaPoint:")]
+		int IndexOfVisiblePointClosestToPlotAreaPoint (PointF viewPoint);
+
+		[Export ("plotAreaPointOfVisiblePointAtIndex:")]
+		PointF PlotAreaPointOfVisiblePointAtIndex (int index);
+
+		[Export ("plotSymbolForRecordIndex:")]
+		CPPlotSymbol PlotSymbolForRecordIndex (int index);
+	}
+
 #if MONOTOUCH
 	[BaseType (typeof (UIView))]
 	interface CPGraphHostingView {
