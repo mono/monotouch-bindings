@@ -85,6 +85,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CorePlotiOS.dll</HintPath>
     </Reference>
+    <Reference Include="MonoTouch.Dialog, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MonoTouch.Dialog.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -96,6 +100,7 @@
       <DependentUpon>MainWindow.xib</DependentUpon>
     </Compile>
     <Compile Include="Main.cs" />
+    <Compile Include="ScatterPlot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xib" />
