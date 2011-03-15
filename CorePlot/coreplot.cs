@@ -1023,11 +1023,12 @@ namespace MonoMac.CorePlot {
 	interface CPPieChartDelegate {
 		[Abstract]
 		[Export ("pieChart:sliceWasSelectedAtRecordIndex:")]
+		[EventArgs ("CPPieChartSliceSelected")]
 		void SliceSelected (CPPieChart plot, int recordIndex);
 
 	}
 
-	[BaseType (typeof (CPPlot))]
+	[BaseType (typeof (CPPlot), Delegates=new string [] {"WeakDelegate"}, Events=new Type [] { typeof (CPPieChartDelegate)})]
 	interface CPPieChart {
 		[Export ("pieRadius")]
 		float PieRadius { get; set;  }
@@ -1776,11 +1777,11 @@ namespace MonoMac.CorePlot {
 	[Model]
 	interface CPScatterPlotDelegate {
 		[Abstract]
-		[Export ("scatterPlot:plotSymbolWasSelectedAtRecordIndex:")]
+		[Export ("scatterPlot:plotSymbolWasSelectedAtRecordIndex:"), EventArgs ("CPScatterSymbolSelected")]
 		void PlotSymbolSelected (CPScatterPlot plot, int recordIndex);
 	}
 
-	[BaseType (typeof (CPPlot))]
+	[BaseType (typeof (CPPlot), Delegates=new string [] {"WeakDelegate"}, Events=new Type [] { typeof (CPScatterPlotDelegate)})]
 	interface CPScatterPlot {
 		[Export ("dataLineStyle")]
 		CPLineStyle DataLineStyle { get; set;  }
