@@ -13,6 +13,10 @@ namespace iOSsample
 	{
 		static void Main (string[] args)
 		{
+			var j = NSNumber.FromDouble (1);
+			var dec = j.NSDecimalValue;
+			Console.WriteLine (dec);
+			
 			try {
 				UIApplication.Main (args);
 			} catch (Exception e){

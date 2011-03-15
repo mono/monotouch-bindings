@@ -124,33 +124,36 @@ namespace iOSsample
 			var space = graph.DefaultPlotSpace as CPXYPlotSpace;
 			space.ScaleToFitPlots (new CPPlot [] { dataSourceLinePlot });
 			
+			// Setting these will lock the scrolling on each direction:
+			//space.GlobalXRange = new CPPlotRange (NSNumber.FromDouble (-1).NSDecimalValue, NSNumber.FromDouble (10).NSDecimalValue);
+			//space.GlobalYRange = new CPPlotRange (NSNumber.FromDouble (-5).NSDecimalValue, NSNumber.FromDouble (10).NSDecimalValue);
 		}
 	}
 	public class RandomSamplesSource : CPScatterPlotDataSource {
-		List<PointF> data;
+		public List<PointF> Data;
 		
 		public RandomSamplesSource ()
 		{
 			Random r = new Random ();
 			
-			data = new List<PointF> ();
+			Data = new List<PointF> ();
 			for (int i = 0; i < 100; i++){
 				var y = i;
-				data.Add (new PointF (i * 0.5f, (float) y));
+				Data.Add (new PointF (i * 0.5f, (float) y));
 			}
 		}
 	
 		public override int NumberOfRecordsForPlot (CPPlot plot)
 		{
-			return data.Count;
+			return Data.Count;
 		}
 		
 		public override NSNumber NumberForPlot (CPPlot plot, CPPlotField forFieldEnum, int index)
 		{
 			if (forFieldEnum == CPPlotField.ScatterPlotFieldX)
-				return data [index].X;
+				return Data [index].X;
 			else
-				return data [index].Y;
+				return Data [index].Y;
 		}
 		
 		public override CPPlotSymbol GetSymbol (CPScatterPlot plot, int recordIndex)

@@ -220,7 +220,7 @@ namespace MonoMac.CorePlot {
 		[Export ("removeBackgroundLimitBand:")]
 		void RemoveBackgroundLimitBand (CPLimitBand limitBand);
 
-		[Abstract, Export ("viewPointForCoordinateDecimalNumber:")]
+		[Export ("viewPointForCoordinateDecimalNumber:")]
 		PointF ViewPointForCoordinateDecimalNumber (NSDecimal coordinateDecimalNumber);
 
 		[Export ("drawGridLinesInContext:isMajor:")]
@@ -1384,7 +1384,7 @@ namespace MonoMac.CorePlot {
 		[Export ("plotAreaViewPointForDoublePrecisionPlotPoint:")]
 		PointF PlotAreaViewPoint (double plotPoint);
 
-		[Abstract, Export ("plotAreaViewPointForPlotPoint:")]
+		[Export ("plotAreaViewPointForPlotPoint:")]
 		PointF PlotAreaViewPoint (NSDecimal forPlotPoint);
 
 		[Export ("plotPoint:forPlotAreaViewPoint:")]
