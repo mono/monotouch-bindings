@@ -105,9 +105,25 @@ namespace iOSsample
 					LineColor = CPColor.GreenColor
 				},
 				// For Kang, check this out:
-				DataSource = new RandomSamplesSource ()
+				DataSource = new RandomSamplesSource (),
+				PlotSymbolMarginForHitDetection = 5,
 			};
 			graph.AddPlot (dataSourceLinePlot);
+			
+			// Create a plot for the selection marker
+			var selectionPlot = new CPScatterPlot () {
+				CachePrecision = CPPlotCachePrecision.Double,
+				DataLineStyle = new CPLineStyle () {
+					LineWidth = 3,
+					LineColor = CPColor.RedColor
+				},
+				//DataSource = new SelectionSource (graph)
+			};
+			graph.AddPlot (selectionPlot);	
+			
+			var space = graph.DefaultPlotSpace as CPXYPlotSpace;
+			space.ScaleToFitPlots (new CPPlot [] { dataSourceLinePlot });
+			
 		}
 	}
 	public class RandomSamplesSource : CPScatterPlotDataSource {
@@ -140,6 +156,57 @@ namespace iOSsample
 		public override CPPlotSymbol GetSymbol (CPScatterPlot plot, int recordIndex)
 		{
 			return CPPlotSymbol.DiamondPlotSymbol;	
+		}
+	}
+	
+	public class SelectionSource : CPScatterPlotDataSource {
+		CPGraph graph;
+		
+		public SelectionSource (CPGraph graph)
+		{
+			this.graph = graph;
+		}
+		
+		public override int NumberOfRecordsForPlot (CPPlot plot)
+		{
+			return 5;
+		}
+		
+		public override NSNumber NumberForPlot (CPPlot plot, CPPlotField forFieldEnum, int index)
+		{
+			var space = graph.DefaultPlotSpace as CPXYPlotSpace;
+			
+			switch (forFieldEnum){
+			case CPPlotField.ScatterPlotFieldX:
+				switch (index){
+				case 0:
+					return NSNumber.FromDouble (space.GlobalXRange.MinLimitDouble);
+					
+				case 1:
+					return NSNumber.FromDouble (space.GlobalXRange.MaxLimitDouble);
+					
+				case 2:
+				case 3:
+				case 4:
+					return 1;
+				}
+				break;
+				
+			case CPPlotField.ScatterPlotFieldY:
+				switch (index){
+				case 0:
+				case 1:
+				case 2:
+					return 1;
+				case 3:
+					return NSNumber.FromDouble (space.GlobalYRange.MinLimitDouble);
+					
+				case 4:
+					return NSNumber.FromDouble (space.GlobalYRange.MaxLimitDouble);
+				}
+				break;
+			}
+			return NSNumber.FromDouble (2);
 		}
 	}
 

@@ -30,8 +30,6 @@ namespace iOSsample
 		{
 			window.MakeKeyAndVisible ();
 			
-			
-			
 			var root = new RootElement ("CorePlot Samples"){
 				new Section () {
 					new RootElement ("XYGraph", r => new ScatterPlot ())

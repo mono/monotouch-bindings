@@ -97,7 +97,7 @@ namespace MonoMac.CorePlot {
 
 	public enum CPPlotField {
 		ScatterPlotFieldX = 0,
-		ScatterPlotFieldY = 0,
+		ScatterPlotFieldY = 1,
 			
 		PieChartWidth = 0,
 		PieChartWidthNormalized = 1,
