@@ -6,16 +6,13 @@ using MonoTouch.ObjCRuntime;
 
 /*
  * Updated 24/8/2010, Chris Branson, updated to RedLaser SDK 2.8.2
+ * 
+ * Updated 16/2/2010, Chris Branson, updated to RedLaser SDK 2.9.2
  *
 */
 
 namespace RedLaser
 {
-	//#define kBarcodeTypeSTICKY 0x8
-	//#define kBarcodeTypeEAN13 0x1
-	//#define kBarcodeTypeUPCE 0x2
-	//#define kBarcodeTypeEAN8 0x4
-	
 	[BaseType (typeof (NSObject))]
 	[Model]
 	interface BarcodePickerControllerDelegate {
@@ -34,6 +31,9 @@ namespace RedLaser
 		
 		[Export ("barcodePickerControllerDidAppear:")]
 		void PickerAppeared (BarcodePickerController controller);
+		
+		[Export ("barcodePickerControllerWillAppear:")]
+		void PickerAppearing (BarcodePickerController controller);
 	}
 	
 	[BaseType (typeof (UIViewController))]
@@ -50,6 +50,9 @@ namespace RedLaser
 		[Export ("cancel")]
 		void Cancel ();
 		
+		[Export ("turnFlash:")]
+		void TurnFlash (bool enabled);
+		
 		[Export ("overlayDelegate", ArgumentSemantic.Retain)][NullAllowed]
 		NSObject WeakOverlayDelegate { get; set; }
 		
@@ -61,6 +64,9 @@ namespace RedLaser
 		
 		[Wrap ("WeakDelegate")]
 		BarcodePickerControllerDelegate Delegate { get; set; }
+		
+		[Export ("hasFlash", ArgumentSemantic.Assign)]
+		bool HasFlash { get; set; }
 		
 		[Export ("scanUPCE", ArgumentSemantic.Assign)]
 		bool ScanUPCE { get; set; }
@@ -74,8 +80,26 @@ namespace RedLaser
 		[Export ("scanSTICKY", ArgumentSemantic.Assign)]
 		bool ScanSTICKY { get; set; }
 		
+		[Export ("scanQRCODE", ArgumentSemantic.Assign)]
+		bool ScanQRCODE { get; set; }
+		
+		[Export ("scanCODE128", ArgumentSemantic.Assign)]
+		bool ScanCODE128 { get; set; }
+		
+		[Export ("scanCODE39", ArgumentSemantic.Assign)]
+		bool ScanCODE39 { get; set; }
+		
+		[Export ("scanDATAMATRIX", ArgumentSemantic.Assign)]
+		bool ScanDATAMATRIX { get; set; }
+		
+		[Export ("scanITF", ArgumentSemantic.Assign)]
+		bool ScanITF { get; set; }
+		
 		[Export ("activeRegion", ArgumentSemantic.Assign)]
 		System.Drawing.RectangleF ActiveRegion { get; set; }
+		
+		[Export ("lastRect", ArgumentSemantic.Assign)]
+		System.Drawing.RectangleF LastRect { get; set; }
 		
 		[Export ("orientation", ArgumentSemantic.Assign)]
 		MonoTouch.UIKit.UIImageOrientation Orientation { get; set; }
@@ -84,4 +108,4 @@ namespace RedLaser
 		MonoTouch.UIKit.UIView CameraView { get; set; }
 		
 	}
-} 
+}
