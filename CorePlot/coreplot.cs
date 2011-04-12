@@ -88,7 +88,6 @@ namespace MonoMac.CorePlot {
 		[Export ("coordinate")]
 		CPCoordinate Coordinate { get; set;  }
 
-#if DECIMAL
 		[Export ("labelingOrigin")]
 		NSDecimal LabelingOrigin { get; set;  }
 
@@ -100,7 +99,6 @@ namespace MonoMac.CorePlot {
 
 		[Export ("majorIntervalLength")]
 		NSDecimal MajorIntervalLength { get; set;  }
-#endif
 
 		[Export ("tickDirection")]
 		CPSign TickDirection { get; set;  }
@@ -222,10 +220,9 @@ namespace MonoMac.CorePlot {
 		[Export ("removeBackgroundLimitBand:")]
 		void RemoveBackgroundLimitBand (CPLimitBand limitBand);
 
-#if DECIMAL
 		[Abstract, Export ("viewPointForCoordinateDecimalNumber:")]
 		PointF ViewPointForCoordinateDecimalNumber (NSDecimal coordinateDecimalNumber);
-#endif
+
 		[Export ("drawGridLinesInContext:isMajor:")]
 		void DrawGridLines (CGContext context, bool major);
 
@@ -250,10 +247,8 @@ namespace MonoMac.CorePlot {
 		[Export ("alignment")]
 		CPAlignment Alignment { get; set;  }
 
-#if DECIMAL
 		[Export ("tickLocation")]
 		NSDecimal TickLocation { get; set;  }
-#endif
 
 		[Export ("initWithText:textStyle:")]
 		IntPtr Constructor (string newText, CPTextStyle style);
@@ -305,10 +300,9 @@ namespace MonoMac.CorePlot {
 		[Export ("barsAreHorizontal")]
 		bool BarsAreHorizontal { get; set;  }
 
-#if DECIMAL
 		[Export ("baseValue")]
 		NSDecimal BaseValue { get; set;  }
-#endif
+
 		[Export ("plotRange")]
 		CPPlotRange PlotRange { get; set;  }
 
@@ -1172,10 +1166,8 @@ namespace MonoMac.CorePlot {
 		[Export ("cachedDoubleForField:recordIndex:")]
 		double CachedDoubleForField (CPPlotField forFieldEnum, int index);
 
-#if DECIMAL
 		[Export ("cachedDecimalForField:recordIndex:")]
 		NSDecimal CachedDecimalForField (CPPlotField forFieldEnum, int index);
-#endif
 
 		[Export ("cacheNumbers:forField:")]
 		void CacheNumbers (NSObject numbers, CPPlotField forFieldEnum);
@@ -1269,7 +1261,6 @@ namespace MonoMac.CorePlot {
 
 	[BaseType (typeof (NSObject))]
 	interface CPPlotRange {
-#if DECIMAL
 		[Export ("location")]
 		NSDecimal Location { get; set;  }
 
@@ -1300,7 +1291,7 @@ namespace MonoMac.CorePlot {
 
 		[Export ("compareToDecimal:")]
 		CPPlotRangeComparisonResult CompareToDecimal (NSDecimal number);
-#endif
+
 		[Export ("locationDouble")]
 		double LocationDouble { get;  }
 
@@ -1393,13 +1384,12 @@ namespace MonoMac.CorePlot {
 		[Export ("plotAreaViewPointForDoublePrecisionPlotPoint:")]
 		PointF PlotAreaViewPoint (double plotPoint);
 
-#if DECIMAL
 		[Abstract, Export ("plotAreaViewPointForPlotPoint:")]
 		PointF PlotAreaViewPoint (NSDecimal forPlotPoint);
 
 		[Export ("plotPoint:forPlotAreaViewPoint:")]
 		void PlotPointforPlotAreaViewPoint (ref NSDecimal plotPoint, PointF plotAreaViewPoint);
-#endif
+
 		[Export ("doublePrecisionPlotPoint:forPlotAreaViewPoint:")]
 		void PlotPoint (ref double plotPoint, PointF plotAreaViewPoint);
 
@@ -1741,10 +1731,8 @@ namespace MonoMac.CorePlot {
 
 	[BaseType (typeof (CPAxis))]
 	interface CPXYAxis {
-#if DECIMAL
 		[Export ("orthogonalCoordinateDecimal")]
 		NSDecimal OrthogonalCoordinateDecimal { get; set;  }
-#endif
 //[Export ("constraints")]
 //CPConstraints Constraints { get; set;  }
 
@@ -1795,13 +1783,11 @@ namespace MonoMac.CorePlot {
 		[Export ("areaFill2")]
 		CPFill AreaFill2 { get; set;  }
 
-#if DECIMAL
 		[Export ("areaBaseValue")]
 		NSDecimal AreaBaseValue { get; set;  }
 
 		[Export ("areaBaseValue2")]
 		NSDecimal AreaBaseValue2 { get; set;  }
-#endif
 
 		[Export ("interpolation")]
 		CPScatterPlotInterpolation Interpolation { get; set;  }
