@@ -57,10 +57,10 @@ namespace RedLaser
 		BarcodeResult AssociatedBarcode { get; }
 		
 		[Export ("firstScanTime", ArgumentSemantic.Retain)]
-		DateTime FirstScanTime { get; }
+		NSDate FirstScanTime { get; }
 		
 		[Export ("mostRecentScanTime", ArgumentSemantic.Retain)]
-		DateTime MostRecentScanTime { get; }
+		NSDate MostRecentScanTime { get; }
 		
 		[Export ("barcodeLocation", ArgumentSemantic.Retain)]
 		NSObject[] BarcodeLocation { get; }
