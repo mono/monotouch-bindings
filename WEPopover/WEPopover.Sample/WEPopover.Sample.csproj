@@ -11,7 +11,7 @@
     <RootNamespace>WEPopover.Sample</RootNamespace>
     <MainNibFile>MainWindow.xib</MainNibFile>
     <AssemblyName>WEPopoverSample</AssemblyName>
-    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,7 +28,7 @@
     <MtouchUseSGen>false</MtouchUseSGen>
     <MtouchUseThumb>false</MtouchUseThumb>
     <MtouchArch>ARMv6</MtouchArch>
-    <MtouchExtraArgs>-v -v -v -gcc_flags "-framework CoreGraphics -framework CoreFoundation -framework UIKit -L${ProjectDir} -lWEPopover -force_load ${ProjectDir}/libWEPopover.a" -v -v -v</MtouchExtraArgs>
+    <MtouchExtraArgs>-v -v -v -gcc_flags "-L${ProjectDir} -lWEPopover -force_load ${ProjectDir}/libWEPopover.a"</MtouchExtraArgs>
     <MtouchI18n />
     <MtouchMinimumOS>3.0</MtouchMinimumOS>
   </PropertyGroup>
@@ -62,7 +62,7 @@
     <MtouchUseThumb>false</MtouchUseThumb>
     <MtouchArch>ARMv6</MtouchArch>
     <MtouchUseLlvm>false</MtouchUseLlvm>
-    <MtouchExtraArgs>-v -v -v -gcc_flags "-L${ProjectDir} -lTestFlight -force_load ${ProjectDir}/libTestFlight.a"</MtouchExtraArgs>
+    <MtouchExtraArgs>--gcc_flags "-L${ProjectDir} -lTestFlight -force_load ${ProjectDir}/libTestFlight.a"</MtouchExtraArgs>
     <MtouchI18n />
     <MtouchSdkVersion>4.3</MtouchSdkVersion>
     <MtouchLink>None</MtouchLink>
@@ -113,4 +113,9 @@
     <Page Include="RootViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties InternalTargetFrameworkVersion="IPhone" />
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>

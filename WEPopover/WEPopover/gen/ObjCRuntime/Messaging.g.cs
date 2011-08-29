@@ -40,10 +40,6 @@ namespace WEPopover {
 			const string LIBOBJC_DYLIB = "/usr/lib/libobjc.dylib";
 
 		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSend")]
-		public extern static void void_objc_msgSend_RectangleF_UInt32_bool (IntPtr receiver, IntPtr selector, RectangleF arg1, UInt32 arg2, bool arg3);
-		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSendSuper")]
-		public extern static void void_objc_msgSendSuper_RectangleF_UInt32_bool (IntPtr receiver, IntPtr selector, RectangleF arg1, UInt32 arg2, bool arg3);
-		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSend")]
 		public extern static void void_objc_msgSend_RectangleF_IntPtr_UInt32 (IntPtr receiver, IntPtr selector, RectangleF arg1, IntPtr arg2, UInt32 arg3);
 		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSendSuper")]
 		public extern static void void_objc_msgSendSuper_RectangleF_IntPtr_UInt32 (IntPtr receiver, IntPtr selector, RectangleF arg1, IntPtr arg2, UInt32 arg3);

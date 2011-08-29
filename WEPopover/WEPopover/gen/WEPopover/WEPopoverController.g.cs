@@ -123,12 +123,14 @@ namespace WEPopover {
 		}
 
 		[Export ("presentPopoverFromRect:")]
-		public virtual void PresentFromRect (System.Drawing.RectangleF rect, MonoTouch.UIKit.UIPopoverArrowDirection direction, bool animated)
+		public virtual void PresentFromRect (System.Drawing.RectangleF rect, MonoTouch.UIKit.UIView view, MonoTouch.UIKit.UIPopoverArrowDirection direction, bool animated)
 		{
+			if (view == null)
+				throw new ArgumentNullException ("view");
 			if (IsDirectBinding) {
-				WEPopover.Messaging.void_objc_msgSend_RectangleF_UInt32_bool (this.Handle, selPresentPopoverFromRect, rect, (UInt32)direction, animated);
+				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSend_RectangleF_IntPtr_UInt32_bool (this.Handle, selPresentPopoverFromRect, rect, view.Handle, (UInt32)direction, animated);
 			} else {
-				WEPopover.Messaging.void_objc_msgSendSuper_RectangleF_UInt32_bool (this.SuperHandle, selPresentPopoverFromRect, rect, (UInt32)direction, animated);
+				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSendSuper_RectangleF_IntPtr_UInt32_bool (this.SuperHandle, selPresentPopoverFromRect, rect, view.Handle, (UInt32)direction, animated);
 			}
 		}
 

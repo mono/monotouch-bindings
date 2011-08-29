@@ -18,25 +18,45 @@ namespace WEPopover.Sample
 	// The name AppDelegate is referenced in the MainWindow.xib file.
 	public partial class AppDelegate : UIApplicationDelegate
 	{
+		UIButton button;
 		WEPopoverController controller;
 		UIViewController viewController;
 		// This method is invoked when the application has loaded its UI and its ready to run
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
+			button = UIButton.FromType(UIButtonType.RoundedRect);
+			button.Frame = new RectangleF(100, 100, 100,100);
+			button.SetTitle("FOO", UIControlState.Normal);
+			button.TouchDown += HandleButtonTouchDown;
+			
 			viewController = new UIViewController();
 			viewController.View.Frame = new System.Drawing.RectangleF(0, 0, 100, 100);
 			
-			
 			controller = new WEPopoverController(viewController);
-			controller.ContentSize = new System.Drawing.SizeF(100 ,100);
 			
-			controller.PresentFromRect(new RectangleF(0, 0, 100, 100), UIPopoverArrowDirection.Left, true);
-			
-			
-//			window.AddSubview (navigationController.View);
+			window.AddSubview(button);
 			window.MakeKeyAndVisible ();
 			
 			return true;
+		}
+
+		void HandleButtonTouchDown (object sender, EventArgs e)
+		{
+			using(var pool = new NSAutoreleasePool())
+			{
+				pool.BeginInvokeOnMainThread(()=>
+             	{
+					try {
+						
+					controller.ContentSize = new System.Drawing.SizeF(100 ,100);
+					controller.PresentFromRect(new RectangleF(0, 0, 100, 100), UIPopoverArrowDirection.Left, true);
+			
+					} catch (Exception ex) {
+						throw ex;
+					}
+				});
+				
+			}
 		}
 
 		// This method is required in iPhoneOS 3.0
