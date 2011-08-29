@@ -21,7 +21,7 @@ namespace WEPopover.Sample
 		UIButton button;
 		WEPopoverController controller;
 		UIViewController viewController;
-		// This method is invoked when the application has loaded its UI and its ready to run
+		RectangleF rect;
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			button = UIButton.FromType(UIButtonType.RoundedRect);
@@ -33,6 +33,8 @@ namespace WEPopover.Sample
 			viewController.View.Frame = new System.Drawing.RectangleF(0, 0, 100, 100);
 			
 			controller = new WEPopoverController(viewController);
+			
+			rect = new RectangleF(20, 20, 100, 100);
 			
 			window.AddSubview(button);
 			window.MakeKeyAndVisible ();
@@ -48,8 +50,8 @@ namespace WEPopover.Sample
              	{
 					try {
 						
-					controller.ContentSize = new System.Drawing.SizeF(100 ,100);
-					controller.PresentFromRect(new RectangleF(0, 0, 100, 100), UIPopoverArrowDirection.Left, true);
+					controller.ContentSize = new SizeF(100 ,100);
+					controller.PresentFromRect(rect, window, UIPopoverArrowDirection.Left, true);
 			
 					} catch (Exception ex) {
 						throw ex;

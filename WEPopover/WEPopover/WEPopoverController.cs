@@ -63,12 +63,6 @@ namespace WEPopover
 		[Export("popoverControllerShouldDismissPopover:")]
 		bool ShouldDismissPopover(WEPopoverController popover);
 	}
-	
-	/*
-	 * /Developer/MonoTouch/usr/bin/btouch WEPopoverController.cs WEPopoverContainerView.cs WEPopoverParentView.cs WETouchableView.cs --outdir=gen -ns=WEPopover --unsafe --sourceonly=genfiles
-	 * /Developer/MonoTouch/usr/bin/smcs -out:WEPopover.dll `cat genfiles` -unsafe -r:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -target:library
-	 * -v -v -v -v --gcc_flags "-framework CoreGraphics -framework CoreFoundation -framework UIKit -L${ProjectDir} -lWEPopover -force_load ${ProjectDir}/libWEPopover.a"
-	 */
 }
 
 
