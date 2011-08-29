@@ -1,4 +1,4 @@
-IOS=AtomcraftHud FacebookConnect MGSplitViewController RedLaser Tapku
+IOS=AtomcraftHud FacebookConnect MGSplitViewController RedLaser Tapku AdJitsu
 OSX=
 DUAL=CorePlot
 
