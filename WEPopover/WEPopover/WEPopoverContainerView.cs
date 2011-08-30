@@ -10,7 +10,7 @@ namespace WEPopover
 	[BaseType(typeof(UIView))]
 	public interface WEPopoverContainerView
 	{
-		[Export("initWithSize:")]
+		[Export("initWithSize:anchorRect:displayArea::permittedArrowDirections:properties:")]
 		IntPtr Constructor(SizeF size, RectangleF achorRect, RectangleF displayArea, UIPopoverArrowDirection direction);
 		
 		[Export("arrowDirection")]
@@ -19,7 +19,7 @@ namespace WEPopover
 		[Export("contentView")]
 		UIView ContentView { get; set; }
 		
-		[Export("updatePositionWithAnchorRect:")]
+		[Export("updatePositionWithAnchorRect:displayArea:permittedArrowDirections:")]
 		void UpdatePosition(RectangleF anchorRect, Rectangle area, UIPopoverArrowDirection direction);	
 	}
 	

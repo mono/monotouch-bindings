@@ -22,8 +22,12 @@ namespace WEPopover
 		UIPopoverArrowDirection ArrowDirection { get; }
 		
 		[NullAllowed]
-		[Export("delegate", ArgumentSemantic.Assign)]
-		WEPopoverControllerDelegate Delegate { get; set; }
+		[Export ("delegate", ArgumentSemantic.Assign)]  
+		NSObject WeakDelegate { get; set; }
+		
+		[NullAllowed]
+		[Wrap ("WeakDelegate")]
+		WEPopoverControllerDelegate Delegate { get; set; }  
 		
 		[Export("popoverContentSize", ArgumentSemantic.Assign)]
 		SizeF ContentSize { get; set; }
@@ -43,23 +47,24 @@ namespace WEPopover
 		[Export("dismissPopoverAnimated:")]
 		void DismissAnimated(bool animated);
 		
-		[Export("presentPopoverFromBarButtonItem:")]
+		[Export("presentPopoverFromBarButtonItem:permittedArrowDirections:animated:")]
 		void PresentFromBarButtonItem(UIBarButtonItem item, UIPopoverArrowDirection direction, bool animated);
 		
-		[Export("presentPopoverFromRect:")]
+		[Export("presentPopoverFromRect:inView:permittedArrowDirections:animated:")]
 		void PresentFromRect(RectangleF rect, UIView view, UIPopoverArrowDirection direction, bool animated);
 		
-		[Export("repositionPopoverFromRect:")]
+		[Export("repositionPopoverFromRect:inView:permittedArrowDirections:")]
 		void RepositionFromRect(RectangleF rect, UIView view, UIPopoverArrowDirection direction);
 		
 	}
 	
-	[Model]
 	[BaseType(typeof(NSObject))]
+	[Model]
 	public interface WEPopoverControllerDelegate
 	{
 		[Export("popoverControllerDidDismissPopover:")]
 		void DidDismissPopover(WEPopoverController popover);
+		
 		[Export("popoverControllerShouldDismissPopover:")]
 		bool ShouldDismissPopover(WEPopoverController popover);
 	}

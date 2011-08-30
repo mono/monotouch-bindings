@@ -40,8 +40,8 @@ namespace WEPopover {
 		static IntPtr selSetArrowDirection = Selector.GetHandle ("setArrowDirection:");
 		static IntPtr selContentView = Selector.GetHandle ("contentView");
 		static IntPtr selSetContentView = Selector.GetHandle ("setContentView:");
-		static IntPtr selInitWithSize = Selector.GetHandle ("initWithSize:");
-		static IntPtr selUpdatePositionWithAnchorRect = Selector.GetHandle ("updatePositionWithAnchorRect:");
+		static IntPtr selInitWithSizeAnchorRectDisplayAreaPermittedArrowDirectionsProperties = Selector.GetHandle ("initWithSize:anchorRect:displayArea::permittedArrowDirections:properties:");
+		static IntPtr selUpdatePositionWithAnchorRectDisplayAreaPermittedArrowDirections = Selector.GetHandle ("updatePositionWithAnchorRect:displayArea:permittedArrowDirections:");
 
 		static IntPtr class_ptr = Class.GetHandle ("WEPopoverContainerView");
 
@@ -73,24 +73,24 @@ namespace WEPopover {
 
 		public WEPopoverContainerView (IntPtr handle) : base (handle) {}
 
-		[Export ("initWithSize:")]
+		[Export ("initWithSize:anchorRect:displayArea::permittedArrowDirections:properties:")]
 		public WEPopoverContainerView (System.Drawing.SizeF size, System.Drawing.RectangleF achorRect, System.Drawing.RectangleF displayArea, MonoTouch.UIKit.UIPopoverArrowDirection direction) : base (NSObjectFlag.Empty)
 		{
 			IsDirectBinding = GetType ().Assembly == global::WEPopover.Messaging.this_assembly;
 			if (IsDirectBinding) {
-				Handle = WEPopover.Messaging.IntPtr_objc_msgSend_SizeF_RectangleF_RectangleF_UInt32 (this.Handle, selInitWithSize, size, achorRect, displayArea, (UInt32)direction);
+				Handle = WEPopover.Messaging.IntPtr_objc_msgSend_SizeF_RectangleF_RectangleF_UInt32 (this.Handle, selInitWithSizeAnchorRectDisplayAreaPermittedArrowDirectionsProperties, size, achorRect, displayArea, (UInt32)direction);
 			} else {
-				Handle = WEPopover.Messaging.IntPtr_objc_msgSendSuper_SizeF_RectangleF_RectangleF_UInt32 (this.SuperHandle, selInitWithSize, size, achorRect, displayArea, (UInt32)direction);
+				Handle = WEPopover.Messaging.IntPtr_objc_msgSendSuper_SizeF_RectangleF_RectangleF_UInt32 (this.SuperHandle, selInitWithSizeAnchorRectDisplayAreaPermittedArrowDirectionsProperties, size, achorRect, displayArea, (UInt32)direction);
 			}
 		}
 
-		[Export ("updatePositionWithAnchorRect:")]
+		[Export ("updatePositionWithAnchorRect:displayArea:permittedArrowDirections:")]
 		public virtual void UpdatePosition (System.Drawing.RectangleF anchorRect, System.Drawing.Rectangle area, MonoTouch.UIKit.UIPopoverArrowDirection direction)
 		{
 			if (IsDirectBinding) {
-				WEPopover.Messaging.void_objc_msgSend_RectangleF_Rectangle_UInt32 (this.Handle, selUpdatePositionWithAnchorRect, anchorRect, area, (UInt32)direction);
+				WEPopover.Messaging.void_objc_msgSend_RectangleF_Rectangle_UInt32 (this.Handle, selUpdatePositionWithAnchorRectDisplayAreaPermittedArrowDirections, anchorRect, area, (UInt32)direction);
 			} else {
-				WEPopover.Messaging.void_objc_msgSendSuper_RectangleF_Rectangle_UInt32 (this.SuperHandle, selUpdatePositionWithAnchorRect, anchorRect, area, (UInt32)direction);
+				WEPopover.Messaging.void_objc_msgSendSuper_RectangleF_Rectangle_UInt32 (this.SuperHandle, selUpdatePositionWithAnchorRectDisplayAreaPermittedArrowDirections, anchorRect, area, (UInt32)direction);
 			}
 		}
 

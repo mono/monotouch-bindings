@@ -53,9 +53,9 @@ namespace WEPopover {
 		static IntPtr selSetPassthroughViews = Selector.GetHandle ("setPassthroughViews:");
 		static IntPtr selInitWithContentViewController = Selector.GetHandle ("initWithContentViewController:");
 		static IntPtr selDismissPopoverAnimated = Selector.GetHandle ("dismissPopoverAnimated:");
-		static IntPtr selPresentPopoverFromBarButtonItem = Selector.GetHandle ("presentPopoverFromBarButtonItem:");
-		static IntPtr selPresentPopoverFromRect = Selector.GetHandle ("presentPopoverFromRect:");
-		static IntPtr selRepositionPopoverFromRect = Selector.GetHandle ("repositionPopoverFromRect:");
+		static IntPtr selPresentPopoverFromBarButtonItemPermittedArrowDirectionsAnimated = Selector.GetHandle ("presentPopoverFromBarButtonItem:permittedArrowDirections:animated:");
+		static IntPtr selPresentPopoverFromRectInViewPermittedArrowDirectionsAnimated = Selector.GetHandle ("presentPopoverFromRect:inView:permittedArrowDirections:animated:");
+		static IntPtr selRepositionPopoverFromRectInViewPermittedArrowDirections = Selector.GetHandle ("repositionPopoverFromRect:inView:permittedArrowDirections:");
 
 		static IntPtr class_ptr = Class.GetHandle ("WEPopoverController");
 
@@ -110,39 +110,39 @@ namespace WEPopover {
 			}
 		}
 
-		[Export ("presentPopoverFromBarButtonItem:")]
+		[Export ("presentPopoverFromBarButtonItem:permittedArrowDirections:animated:")]
 		public virtual void PresentFromBarButtonItem (MonoTouch.UIKit.UIBarButtonItem item, MonoTouch.UIKit.UIPopoverArrowDirection direction, bool animated)
 		{
 			if (item == null)
 				throw new ArgumentNullException ("item");
 			if (IsDirectBinding) {
-				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSend_IntPtr_UInt32_bool (this.Handle, selPresentPopoverFromBarButtonItem, item.Handle, (UInt32)direction, animated);
+				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSend_IntPtr_UInt32_bool (this.Handle, selPresentPopoverFromBarButtonItemPermittedArrowDirectionsAnimated, item.Handle, (UInt32)direction, animated);
 			} else {
-				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSendSuper_IntPtr_UInt32_bool (this.SuperHandle, selPresentPopoverFromBarButtonItem, item.Handle, (UInt32)direction, animated);
+				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSendSuper_IntPtr_UInt32_bool (this.SuperHandle, selPresentPopoverFromBarButtonItemPermittedArrowDirectionsAnimated, item.Handle, (UInt32)direction, animated);
 			}
 		}
 
-		[Export ("presentPopoverFromRect:")]
+		[Export ("presentPopoverFromRect:inView:permittedArrowDirections:animated:")]
 		public virtual void PresentFromRect (System.Drawing.RectangleF rect, MonoTouch.UIKit.UIView view, MonoTouch.UIKit.UIPopoverArrowDirection direction, bool animated)
 		{
 			if (view == null)
 				throw new ArgumentNullException ("view");
 			if (IsDirectBinding) {
-				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSend_RectangleF_IntPtr_UInt32_bool (this.Handle, selPresentPopoverFromRect, rect, view.Handle, (UInt32)direction, animated);
+				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSend_RectangleF_IntPtr_UInt32_bool (this.Handle, selPresentPopoverFromRectInViewPermittedArrowDirectionsAnimated, rect, view.Handle, (UInt32)direction, animated);
 			} else {
-				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSendSuper_RectangleF_IntPtr_UInt32_bool (this.SuperHandle, selPresentPopoverFromRect, rect, view.Handle, (UInt32)direction, animated);
+				MonoTouch.ObjCRuntime.Messaging.void_objc_msgSendSuper_RectangleF_IntPtr_UInt32_bool (this.SuperHandle, selPresentPopoverFromRectInViewPermittedArrowDirectionsAnimated, rect, view.Handle, (UInt32)direction, animated);
 			}
 		}
 
-		[Export ("repositionPopoverFromRect:")]
+		[Export ("repositionPopoverFromRect:inView:permittedArrowDirections:")]
 		public virtual void RepositionFromRect (System.Drawing.RectangleF rect, MonoTouch.UIKit.UIView view, MonoTouch.UIKit.UIPopoverArrowDirection direction)
 		{
 			if (view == null)
 				throw new ArgumentNullException ("view");
 			if (IsDirectBinding) {
-				WEPopover.Messaging.void_objc_msgSend_RectangleF_IntPtr_UInt32 (this.Handle, selRepositionPopoverFromRect, rect, view.Handle, (UInt32)direction);
+				WEPopover.Messaging.void_objc_msgSend_RectangleF_IntPtr_UInt32 (this.Handle, selRepositionPopoverFromRectInViewPermittedArrowDirections, rect, view.Handle, (UInt32)direction);
 			} else {
-				WEPopover.Messaging.void_objc_msgSendSuper_RectangleF_IntPtr_UInt32 (this.SuperHandle, selRepositionPopoverFromRect, rect, view.Handle, (UInt32)direction);
+				WEPopover.Messaging.void_objc_msgSendSuper_RectangleF_IntPtr_UInt32 (this.SuperHandle, selRepositionPopoverFromRectInViewPermittedArrowDirections, rect, view.Handle, (UInt32)direction);
 			}
 		}
 
@@ -213,17 +213,17 @@ namespace WEPopover {
 
 		}
 
-		WEPopover.WEPopoverControllerDelegate __mt_Delegate_var;
-		public virtual WEPopoverControllerDelegate Delegate {
+		MonoTouch.Foundation.NSObject __mt_WeakDelegate_var;
+		public virtual NSObject WeakDelegate {
 			[Export ("delegate", ArgumentSemantic.Assign)]
 			get {
-				WEPopoverControllerDelegate ret;
+				NSObject ret;
 				if (IsDirectBinding) {
-					ret = (WEPopoverControllerDelegate) Runtime.GetNSObject (MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSend (this.Handle, selDelegate));
+					ret = (NSObject) Runtime.GetNSObject (MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSend (this.Handle, selDelegate));
 				} else {
-					ret = (WEPopoverControllerDelegate) Runtime.GetNSObject (MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSendSuper (this.SuperHandle, selDelegate));
+					ret = (NSObject) Runtime.GetNSObject (MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSendSuper (this.SuperHandle, selDelegate));
 				}
-				__mt_Delegate_var = ret;
+				__mt_WeakDelegate_var = ret;
 				return ret;
 			}
 
@@ -234,8 +234,13 @@ namespace WEPopover {
 				} else {
 					MonoTouch.ObjCRuntime.Messaging.void_objc_msgSendSuper_IntPtr (this.SuperHandle, selSetDelegate, value == null ? IntPtr.Zero : value.Handle);
 				}
-				__mt_Delegate_var = value;
+				__mt_WeakDelegate_var = value;
 			}
+		}
+
+		public WEPopoverControllerDelegate Delegate {
+			get { return WeakDelegate as WEPopoverControllerDelegate; }
+			set { WeakDelegate = value; }
 		}
 
 		public virtual System.Drawing.SizeF ContentSize {

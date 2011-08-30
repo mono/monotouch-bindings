@@ -18,25 +18,34 @@ namespace WEPopover.Sample
 	// The name AppDelegate is referenced in the MainWindow.xib file.
 	public partial class AppDelegate : UIApplicationDelegate
 	{
+		UINavigationController navController;
 		UIButton button;
-		WEPopoverController controller;
+		WEPopoverController popController;
 		UIViewController viewController;
-		RectangleF rect;
+		RectangleF rect = new RectangleF(0, 0, 100, 100);
+		
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
+		{	
+			navController = new UINavigationController();
+			navController.View.BackgroundColor = UIColor.Red;
+			
 			button = UIButton.FromType(UIButtonType.RoundedRect);
 			button.Frame = new RectangleF(100, 100, 100,100);
 			button.SetTitle("FOO", UIControlState.Normal);
 			button.TouchDown += HandleButtonTouchDown;
 			
+			navController.View.AddSubview(button);
+			
 			viewController = new UIViewController();
-			viewController.View.Frame = new System.Drawing.RectangleF(0, 0, 100, 100);
+			viewController.View.BackgroundColor = UIColor.Blue;
+			viewController.View.Frame = new RectangleF(0, 0, 50, 50);
 			
-			controller = new WEPopoverController(viewController);
+			popController = new WEPopoverController(viewController);
+			popController.Delegate = new PopoverDelegate();
+			popController.ContentSize = new SizeF(50, 50);
 			
-			rect = new RectangleF(20, 20, 100, 100);
 			
-			window.AddSubview(button);
+			window.RootViewController = navController;
 			window.MakeKeyAndVisible ();
 			
 			return true;
@@ -50,8 +59,9 @@ namespace WEPopover.Sample
              	{
 					try {
 						
-					controller.ContentSize = new SizeF(100 ,100);
-					controller.PresentFromRect(rect, window, UIPopoverArrowDirection.Left, true);
+						popController.ContentSize = new SizeF(50 ,50);
+						popController.PresentFromRect(rect, navController.View, UIPopoverArrowDirection.Left, true);
+						
 			
 					} catch (Exception ex) {
 						throw ex;
@@ -59,6 +69,19 @@ namespace WEPopover.Sample
 				});
 				
 			}
+		}
+		
+		public class PopoverDelegate : WEPopoverControllerDelegate
+		{
+			public override void DidDismissPopover (WEPopoverController popover)
+			{
+				Console.WriteLine(popover.ContentSize);
+			}
+			public override bool ShouldDismissPopover (WEPopoverController popover)
+			{
+				return true;
+			}
+			
 		}
 
 		// This method is required in iPhoneOS 3.0
