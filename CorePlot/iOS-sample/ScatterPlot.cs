@@ -9,15 +9,15 @@ namespace iOSsample
 {
 	// A convenience class to show samples
 	public class PlotViewController : UIViewController {
-		CPGraphHostingView host;
-		protected CPGraph Graph;
+		CPTGraphHostingView host;
+		protected CPTGraph Graph;
 		
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
 			// Host the graph
-			host = new CPGraphHostingView (new RectangleF (10, 40, 300, 300)) {
+			host = new CPTGraphHostingView (new RectangleF (10, 40, 300, 300)) {
 				HostedGraph = Graph
 			};
 			View.AddSubview (host);
@@ -26,7 +26,7 @@ namespace iOSsample
 	}
 	
 	public class ScatterPlot : PlotViewController { 
-		CPXYGraph graph;
+		CPTXYGraph graph;
 
 		public ScatterPlot ()
 		{
@@ -38,19 +38,19 @@ namespace iOSsample
 		
 		void SetupGraph ()
 		{
-			var theme = CPTheme.ThemeNamed ("Plain Black");
+			var theme = CPTTheme.ThemeNamed ("Plain Black");
 			
-			graph = new CPXYGraph (new RectangleF (0, 0, 300, 300), CPScaleType.Linear, CPScaleType.Linear){
+			graph = new CPTXYGraph (new RectangleF (0, 0, 300, 300), CPTScaleType.Linear, CPTScaleType.Linear){
 				PaddingLeft = 10,
 				PaddingRight = 10,
 				PaddingTop = 10,
 				PaddingBottom = 10,
 				Title = "My graph",
 				
-				TitleTextStyle = new CPTextStyle () {
+				TitleTextStyle = new CPTMutableTextStyle () {
 					FontSize = 18,
 					FontName = "Helvetica",
-					Color = CPColor.GrayColor
+					Color = CPTColor.GrayColor
 				},
 			};
 			graph.ApplyTheme (theme);
@@ -61,21 +61,21 @@ namespace iOSsample
 			var plotspace = graph.DefaultPlotSpace;
 			plotspace.AllowsUserInteraction = true;
 			
-			var major = new CPLineStyle () {
+			var major = new CPTLineStyle () {
 				LineWidth = .75f,
-				LineColor = CPColor.FromGenericGray (0.2f).ColorWithAlphaComponent (.75f)
+				LineColor = CPTColor.FromGenericGray (0.2f).ColorWithAlphaComponent (.75f)
 			};
 			
-			var minor = new CPLineStyle () {
+			var minor = new CPTLineStyle () {
 				LineWidth = .25f,
-				LineColor = CPColor.WhiteColor.ColorWithAlphaComponent (0.1f)
+				LineColor = CPTColor.WhiteColor.ColorWithAlphaComponent (0.1f)
 			};
 			
-			var axisSet = (CPXYAxisSet) graph.AxisSet;
+			var axisSet = (CPTXYAxisSet) graph.AxisSet;
 			
 			// Label x with a fixed interval policy
 			var x = axisSet.XAxis;
-			x.LabelingPolicy = CPAxisLabelingPolicy.PolicyAutomatic;
+			x.LabelingPolicy = CPTAxisLabelingPolicy.Automatic;
 			x.MinorTicksPerInterval = 4;
 			x.PreferredNumberOfMajorTicks = 8;
 			x.MajorGridLineStyle = major;
@@ -85,7 +85,7 @@ namespace iOSsample
 
 			// Label y with an automatic label policy. 
     		var y = axisSet.YAxis;
-		    y.LabelingPolicy = CPAxisLabelingPolicy.PolicyAutomatic;
+		    y.LabelingPolicy = CPTAxisLabelingPolicy.Automatic;
 		    y.MinorTicksPerInterval = 4;
 		    y.PreferredNumberOfMajorTicks = 8;
 		    y.MajorGridLineStyle = major;
@@ -98,11 +98,11 @@ namespace iOSsample
 		void SetupScatterPlots ()
 		{
 		    // Create a plot that uses the data source method
-        	var dataSourceLinePlot = new CPScatterPlot () {
-				CachePrecision = CPPlotCachePrecision.Double,
-				DataLineStyle = new CPLineStyle () {
+        	var dataSourceLinePlot = new CPTScatterPlot () {
+				CachePrecision = CPTPlotCachePrecision.Double,
+				DataLineStyle = new CPTLineStyle () {
 					LineWidth = 2,
-					LineColor = CPColor.GreenColor
+					LineColor = CPTColor.GreenColor
 				},
 				// For Kang, check this out:
 				DataSource = new RandomSamplesSource (),
@@ -111,25 +111,25 @@ namespace iOSsample
 			graph.AddPlot (dataSourceLinePlot);
 			
 			// Create a plot for the selection marker
-			var selectionPlot = new CPScatterPlot () {
-				CachePrecision = CPPlotCachePrecision.Double,
-				DataLineStyle = new CPLineStyle () {
+			var selectionPlot = new CPTScatterPlot () {
+				CachePrecision = CPTPlotCachePrecision.Double,
+				DataLineStyle = new CPTLineStyle () {
 					LineWidth = 3,
-					LineColor = CPColor.RedColor
+					LineColor = CPTColor.RedColor
 				},
 				//DataSource = new SelectionSource (graph)
 			};
 			graph.AddPlot (selectionPlot);	
 			
-			var space = graph.DefaultPlotSpace as CPXYPlotSpace;
-			space.ScaleToFitPlots (new CPPlot [] { dataSourceLinePlot });
+			var space = graph.DefaultPlotSpace as CPTXYPlotSpace;
+			space.ScaleToFitPlots (new CPTPlot [] { dataSourceLinePlot });
 			
 			// Setting these will lock the scrolling on each direction:
 			//space.GlobalXRange = new CPPlotRange (NSNumber.FromDouble (-1).NSDecimalValue, NSNumber.FromDouble (10).NSDecimalValue);
 			//space.GlobalYRange = new CPPlotRange (NSNumber.FromDouble (-5).NSDecimalValue, NSNumber.FromDouble (10).NSDecimalValue);
 		}
 	}
-	public class RandomSamplesSource : CPScatterPlotDataSource {
+	public class RandomSamplesSource : CPTScatterPlotDataSource {
 		public List<PointF> Data;
 		
 		public RandomSamplesSource ()
@@ -143,44 +143,44 @@ namespace iOSsample
 			}
 		}
 	
-		public override int NumberOfRecordsForPlot (CPPlot plot)
+		public override int NumberOfRecordsForPlot (CPTPlot plot)
 		{
 			return Data.Count;
 		}
 		
-		public override NSNumber NumberForPlot (CPPlot plot, CPPlotField forFieldEnum, int index)
+		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, int index)
 		{
-			if (forFieldEnum == CPPlotField.ScatterPlotFieldX)
+			if (forFieldEnum == CPTPlotField.ScatterPlotFieldX)
 				return Data [index].X;
 			else
 				return Data [index].Y;
 		}
 		
-		public override CPPlotSymbol GetSymbol (CPScatterPlot plot, int recordIndex)
+		public override CPTPlotSymbol GetSymbol (CPTScatterPlot plot, int recordIndex)
 		{
-			return CPPlotSymbol.DiamondPlotSymbol;	
+			return CPTPlotSymbol.DiamondPlotSymbol;	
 		}
 	}
 	
-	public class SelectionSource : CPScatterPlotDataSource {
-		CPGraph graph;
+	public class SelectionSource : CPTScatterPlotDataSource {
+		CPTGraph graph;
 		
-		public SelectionSource (CPGraph graph)
+		public SelectionSource (CPTGraph graph)
 		{
 			this.graph = graph;
 		}
 		
-		public override int NumberOfRecordsForPlot (CPPlot plot)
+		public override int NumberOfRecordsForPlot (CPTPlot plot)
 		{
 			return 5;
 		}
 		
-		public override NSNumber NumberForPlot (CPPlot plot, CPPlotField forFieldEnum, int index)
+		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, int index)
 		{
-			var space = graph.DefaultPlotSpace as CPXYPlotSpace;
+			var space = graph.DefaultPlotSpace as CPTXYPlotSpace;
 			
 			switch (forFieldEnum){
-			case CPPlotField.ScatterPlotFieldX:
+			case CPTPlotField.ScatterPlotFieldX:
 				switch (index){
 				case 0:
 					return NSNumber.FromDouble (space.GlobalXRange.MinLimitDouble);
@@ -195,7 +195,7 @@ namespace iOSsample
 				}
 				break;
 				
-			case CPPlotField.ScatterPlotFieldY:
+			case CPTPlotField.ScatterPlotFieldY:
 				switch (index){
 				case 0:
 				case 1:
