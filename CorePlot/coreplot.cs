@@ -118,11 +118,32 @@ namespace MonoMac.CorePlot {
 		[Export ("title")]
 		string Title { get; set;  }
 
+		[Export ("titleRotation")]
+		float TitleRotation { get; set; }
+		
 		[Export ("labelingPolicy")]
 		CPTAxisLabelingPolicy LabelingPolicy { get; set;  }
 
 		[Export ("labelOffset")]
 		float LabelOffset { get; set;  }
+
+		[Export ("minorTickLabelOffset")]
+		float MinorTickLabelOffset { get; set; }
+		
+		[Export ("minorTickLabelRotation")]
+		float MinorTickLabelRotation { get; set; }
+
+		[Export ("minorTickLabelAlignment")]
+		CPTAlignment MinorTickLabelAlignment { get; set; }
+
+		[Export ("minorTickLabelTextStyle")]
+		CPTTextStyle MinorTickLabelTextStyle { get; set; }
+
+		[Export ("minorTickLabelFormatter")]
+		NSNumberFormatter MinorTickLabelFormatter { get; set; }
+		
+		[Export ("minorTickAxisLabels")]
+		NSSet MinorTickAxisLabels { get; set; }
 
 		[Export ("labelRotation")]
 		float LabelRotation { get; set;  }
@@ -182,7 +203,7 @@ namespace MonoMac.CorePlot {
 		NSObject AlternatingBandFills { get; set;  }
 
 		[Export ("backgroundLimitBands")]
-		/* NSMutableArray */ NSArray BackgroundLimitBands { get;  }
+		NSArray BackgroundLimitBands { get;  }
 
 		[Export ("plotSpace")]
 		CPTPlotSpace PlotSpace { get; set;  }
@@ -285,11 +306,17 @@ namespace MonoMac.CorePlot {
 
 	[BaseType (typeof (CPTPlot))]
 	interface CPTBarPlot {
+		[Export ("barWidthsAreInViewCoordinates")]
+		bool BarWidthsAreInViewCoordinates { get; set; }
+		
 		[Export ("barWidth")]
-		float BarWidth { get; set;  }
+		NSDecimal BarWidth { get; set;  }
 
 		[Export ("barOffset")]
-		float BarOffset { get; set;  }
+		NSDecimal BarOffset { get; set;  }
+
+		[Export ("barCornerRadius")]
+		float BarCornerRadius { get; set;  }
 
 		[Export ("lineStyle")]
 		CPTLineStyle LineStyle { get; set;  }
@@ -303,6 +330,9 @@ namespace MonoMac.CorePlot {
 		[Export ("baseValue")]
 		NSDecimal BaseValue { get; set;  }
 
+		[Export ("barBaseVary")]
+		bool BarBaseVary { get; set; }
+
 		[Export ("plotRange")]
 		CPTPlotRange PlotRange { get; set;  }
 
@@ -315,6 +345,17 @@ namespace MonoMac.CorePlot {
 		[Static]
 		[Export ("tubularBarPlotWithColor:horizontalBars:")]
 		CPTBarPlot CreateTubularBarPlot (CPTColor color, bool horizontalBars);
+
+#if false
+		[Field ("CPTBarPlotBindingBarLocations", "__Internal")]
+		NSString BindingBarLocations { get; }
+
+		[Field ("CPTBarPlotBindingBarTips", "__Internal")]
+		NSString BindingBarTips { get; }
+
+		[Field ("CPTBarPlotBindingBarBases", "__Internal")]
+		NSString BindingBarBases { get; }
+#endif
 	}
 
 	[BaseType (typeof (CPTPlotDataSource))]
@@ -597,7 +638,7 @@ namespace MonoMac.CorePlot {
 		string Title { get; set;  }
 
 		[Export ("titleTextStyle")]
-		CPTTextStyle TitleTextStyle { get; set;  }
+		CPTMutableTextStyle TitleTextStyle { get; set;  }
 
 		[Export ("titleDisplacement")]
 		PointF TitleDisplacement { get; set;  }
@@ -641,6 +682,9 @@ namespace MonoMac.CorePlot {
 		[Export ("removePlot:")]
 		void RemovePlot (CPTPlot plot);
 
+		[Export ("removePlotWithIdentifier:")]
+		void RemovePlot (NSObject identifier);
+
 		[Export ("insertPlot:atIndex:")]
 		void InsertPlot (CPTPlot plot, int index);
 
@@ -670,6 +714,15 @@ namespace MonoMac.CorePlot {
 
 		[Export ("newAxisSet")]
 		CPTAxisSet NewAxisSet ();
+
+		[Export ("legent")]
+		CPTLegend Legend { get; set; }
+
+		[Export ("legendAnchor")]
+		CPTRectAnchor LegendAnchor { get; set; }
+
+		[Export ("legendDisplacement")]
+		PointF LegendDisplacement { get; set; }
 	}
 	
 	[BaseType (typeof (CPTLayer))]
@@ -867,41 +920,27 @@ namespace MonoMac.CorePlot {
 	}
 
 	[BaseType (typeof (NSObject))]
-	[Model]
-	interface CPTLineStyleDelegate {
-		[Abstract]
-		[Export ("lineStyleDidChange:")]
-		void LineStyleDidChange (CPTLineStyle lineStyle);
-	}
-
-	[BaseType (typeof (NSObject), Delegates=new string [] {"WeakDelegate"}, Events=new Type [] { typeof (CPTLineStyleDelegate)})]
 	interface CPTLineStyle {
-		[Export ("delegates"), NullAllowed]
-		NSObject WeakDelegate { get; set;  }
-
-		[Wrap ("WeakDelegate")]
-		CPTLineStyleDelegate Delegate { get; set; }
-
 		[Export ("lineCap")]
-		CGLineCap LineCap { get; set;  }
+		CGLineCap LineCap { get; set; }
 
 		[Export ("lineJoin")]
-		CGLineJoin LineJoin { get; set;  }
+		CGLineJoin LineJoin { get; set; }
 
 		[Export ("miterLimit")]
-		float MiterLimit { get; set;  }
+		float MiterLimit { get; set; }
 
 		[Export ("lineWidth")]
-		float LineWidth { get; set;  }
+		float LineWidth { get; set; }
 
 		[Export ("dashPattern")]
-		NSArray DashPattern { get; set;  }
+		NSArray DashPattern { get; set; }
 
 		[Export ("patternPhase")]
-		float PatternPhase { get; set;  }
+		float PatternPhase { get; set; }
 
 		[Export ("lineColor")]
-		CPTColor LineColor { get; set;  }
+		CPTColor LineColor { get; set; }
 
 		[Static]
 		[Export ("lineStyle")]
@@ -909,6 +948,10 @@ namespace MonoMac.CorePlot {
 
 		[Export ("setLineStyleInContext:")]
 		void SetLineStyleInContext (CGContext theContext);
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CPTMutableLineStyle {
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1010,6 +1053,12 @@ namespace MonoMac.CorePlot {
 
 		[Export ("sliceLabelForPieChart:recordIndex:")]
 		CPTTextLayer GetSliceLabel (CPTPieChart pieChart, int recordIndex);
+
+		[Export ("radialOffsetForPieChart:recordIndex:")]
+		float GetRaidlOffset (CPTPieChart pieChart, int recordIndex);
+
+		[Export ("legendTitleForPieChart:recordIndex:")]
+		string GetLegendTitle (CPTPieChart pieChart, int recordIndex);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1042,6 +1091,12 @@ namespace MonoMac.CorePlot {
 		[Export ("borderLineStyle")]
 		CPTLineStyle BorderLineStyle { get; set;  }
 
+		[Export ("pieInnerRadius")]
+		float PieInnerRadius { get; set; }
+
+		[Export ("overlayFill")]
+		CPTFill OverlayFill { get; set; }
+		
 		[Static]
 		[Export ("defaultPieSliceColorForIndex:")]
 		CPTColor DefaultPieSliceColorForIndex (int pieSliceIndex);
@@ -1084,6 +1139,9 @@ namespace MonoMac.CorePlot {
 		[Export ("identifier")]
 		NSObject Identifier { get; set;  }
 
+		[Export ("title")]
+		string Title { get; set; }
+		
 		[Export ("plotSpace")]
 		CPTPlotSpace PlotSpace { get; set;  }
 
@@ -1121,7 +1179,7 @@ namespace MonoMac.CorePlot {
 		int LabelField { get; set;  }
 
 		[Export ("labelTextStyle")]
-		CPTTextStyle LabelTextStyle { get; set;  }
+		CPTMutableTextStyle LabelTextStyle { get; set;  }
 
 		[Export ("labelFormatter")]
 		NSObject /* NSNumberFormatter */ LabelFormatter { get; set;  }
@@ -1181,8 +1239,17 @@ namespace MonoMac.CorePlot {
 		[Export ("plotRangeForCoordinate:")]
 		CPTPlotRange PlotRangeForCoordinate (CPTCoordinate coord);
 
+		[Export ("numberOfLegendEntries")]
+		int NumberOfLegendEntries { get; }
+
+		[Export ("titleForLegendEntryAtIndex:")]
+		string GetTitleForLegendEntry (int index);
+
+	        [Export ("drawSwatchForLegend:atIndex:inRect:inContext:")]
+		void DrawSwatch (CPTLegend legent, int index, RectangleF rect, CGContext context);
+
 		[Export ("numberOfFields")]
-		int NumberOfFields ();
+		int NumberOfFields { get; }
 
 		[Export ("fieldIdentifiers")]
 		NSObject [] FieldIdentifiers ();
@@ -1194,6 +1261,24 @@ namespace MonoMac.CorePlot {
 		void PositionLabelAnnotationforIndex (CPTPlotSpaceAnnotation label, int index);
 	}
 
+	[BaseType (typeof (CPTPlot))]
+	interface CPTRangePlot {
+		[Export ("barLineStyle")]
+		CPTLineStyle BarLineStyle { get; set; }
+
+		[Export ("barWidth")]
+		float BarWidth { get; set; }
+		
+		[Export ("gapHeight")]
+		float GapHeight { get; set; }
+		
+		[Export ("gapWidth")]
+		float GapWidth { get; set; }
+
+		[Export ("areaFill")]
+		CPTFill AreaFill { get; set; }
+	}
+	
 	[BaseType (typeof (CPTAnnotationHostLayer))]
 	interface CPTPlotArea {
 		[Export ("minorGridLineGroup")]
@@ -1273,6 +1358,9 @@ namespace MonoMac.CorePlot {
 		[Export ("minLimit")]
 		NSDecimal MinLimit { get;  }
 
+		[Export ("midPoint")]
+		NSDecimal MidPoint { get; }
+		
 		[Export ("maxLimit")]
 		NSDecimal MaxLimit { get;  }
 
@@ -1399,9 +1487,18 @@ namespace MonoMac.CorePlot {
 		[Export ("plotRangeForCoordinate:")]
 		CPTPlotRange GetPlotRange (CPTCoordinate coordinate);
 
+		[Export ("setScaleType:forCoordinate:")]
+		void SetScaleType (CPTScaleType scaleType, CPTCoordinate forCoordinate);
+
+		[Export ("scaleTypeForCoordinate")]
+		CPTScaleType GetScaleType (CPTCoordinate forCoordinate);
+		
 		[Export ("scaleToFitPlots:")]
 		void ScaleToFitPlots (CPTPlot [] plots);
 
+		[Export ("scaleBy:aboutPoint:")]
+		void Scale (float interactionScale, PointF interactionPoint);
+		
 		//
 		// From CPTResponder
 		//
@@ -1526,11 +1623,11 @@ namespace MonoMac.CorePlot {
 		[Export ("customPlotSymbolWithPath:")]
 		CPTPlotSymbol CustomPlotSymbolFromPath (CGPath Path);
 
-		[Export ("renderInContext:atPoint:")]
-		void RenderInContext (CGContext inContext, PointF centerPoint);
+		[Export ("renderInContext:atPoint:scale:")]
+		void RenderInContext (CGContext inContext, PointF centerPoint, float scale);
 
-		[Export ("renderAsVectorInContext:atPoint:")]
-		void RenderAsVector (CGContext inContext, PointF centerPoint);
+		[Export ("renderAsVectorInContext:atPoint:scale:")]
+		void RenderAsVector (CGContext inContext, PointF centerPoint, float scale);
 	}
 
 	[BaseType (typeof (CPTLayer))]
@@ -1550,6 +1647,8 @@ namespace MonoMac.CorePlot {
 		[Export ("sizeToFit")]
 		void SizeToFit ();
 
+		[Export ("sizeThatFits")]
+		SizeF SizeThatFits { get; set; }
 	}
 	
 	[BaseType (typeof (NSObject))]
@@ -1584,8 +1683,8 @@ namespace MonoMac.CorePlot {
 		[Export ("sizeWithTextStyle:")]
 		SizeF SizeWithTextStyle (CPTTextStyle style);
 
-		[Export ("drawAtPoint:withTextStyle:inContext:")]
-		void DrawAtPointwithTextStyleinContext (PointF point, CPTTextStyle style, CGContext context);
+		[Export ("drawInRect:withTextStyle:inContext:")]
+		void Draw (RectangleF rectangle, CPTTextStyle style, CGContext context);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1665,6 +1764,12 @@ namespace MonoMac.CorePlot {
 		[Export ("lineStyle")]
 		CPTLineStyle LineStyle { get; set;  }
 
+		[Export ("increaseLineStyle")]
+		CPTLineStyle IncreaseLineStyle { get; set; }
+		
+		[Export ("decreaseLineStyle")]
+		CPTLineStyle DecreaseLineStyle { get; set; }
+		
 		[Export ("increaseFill")]
 		CPTFill IncreaseFill { get; set;  }
 
@@ -1679,10 +1784,6 @@ namespace MonoMac.CorePlot {
 
 		[Export ("stickLength")]
 		float StickLength { get; set;  }
-
-		[Export ("barCornerRadius")]
-		float BarCornerRadius { get; set;  }
-
 	}
 
 	[BaseType (typeof (CPTTheme))]
@@ -1805,6 +1906,109 @@ namespace MonoMac.CorePlot {
 		CPTPlotSymbol PlotSymbolForRecordIndex (int index);
 	}
 
+	[BaseType (typeof (NSObject))]
+	[Model]
+	interface CPTLegendDelegate {
+		[Export ("legend:shouldDrawSwatchAtIndex:forPlot:inRect:inContext:")]
+		bool ShouldDrawSwatch (int index, CPTPlot plot, RectangleF rect, CGContext context);
+	}
+
+	[BaseType (typeof (CPTBorderedLayer))]
+	interface CPTLegend {
+		[Export ("textStyle")]
+		CPTTextStyle TextStyle { get; set;  }
+
+		[Export ("swatchSize")]
+		SizeF SwatchSize { get; set;  }
+
+		[Export ("swatchBorderLineStyle")]
+		CPTLineStyle SwatchBorderLineStyle { get; set;  }
+
+		[Export ("swatchCornerRadius")]
+		float SwatchCornerRadius { get; set;  }
+
+		[Export ("swatchFill")]
+		CPTFill SwatchFill { get; set;  }
+
+		[Export ("layoutChanged")]
+		bool LayoutChanged { get;  }
+
+		[Export ("numberOfRows")]
+		int Rows { get; set;  }
+
+		[Export ("numberOfColumns")]
+		int Columns { get; set;  }
+
+		[Export ("equalRows")]
+		bool EqualRows { get; set;  }
+
+		[Export ("equalColumns")]
+		bool EqualColumns { get; set;  }
+
+		[Export ("rowHeights")]
+		NSNumber [] RowHeights { get; set;  }
+
+		[Export ("rowHeightsThatFit")]
+		NSNumber RowHeightsThatFit { get;  }
+
+		[Export ("columnWidths")]
+		NSNumber [] ColumnWidths { get; set;  }
+
+		[Export ("columnWidthsThatFit")]
+		NSNumber [] ColumnWidthsThatFit { get;  }
+
+		[Export ("columnMargin")]
+		float ColumnMargin { get; set;  }
+
+		[Export ("rowMargin")]
+		float RowMargin { get; set;  }
+
+		[Export ("titleOffset")]
+		float TitleOffset { get; set;  }
+
+		[Static]
+		[Export ("legendWithPlots:")]
+		CPTLegend FromPlots  (CPTPlot [] newPlots);
+
+		[Static]
+		[Export ("legendWithGraph:")]
+		CPTLegend FromGraph (CPTGraph graph);
+
+		[Export ("initWithPlots:")]
+		IntPtr Constructor (CPTPlot [] newPlots);
+
+		[Export ("initWithGraph:")]
+		IntPtr Constructor (CPTGraph graph);
+
+		[Export ("allPlots")]
+		CPTPlot [] AllPlots { get; }
+
+		[Export ("plotAtIndex:")]
+		CPTPlot GetPlot (int atIndex);
+
+		[Export ("plotWithIdentifier:")]
+		CPTPlot GetPlot (NSObject identifier);
+
+		[Export ("addPlot:")]
+		void AddPlot (CPTPlot plot);
+
+		[Export ("insertPlot:atIndex:")]
+		void Insert (CPTPlot plot, int index);
+
+		[Export ("removePlot:")]
+		void RemovePlot (CPTPlot plot);
+
+		[Export ("removePlotWithIdentifier:")]
+		void RemovePlot (NSObject identifier);
+
+		[Export ("setLayoutChanged")]
+		void SetLayoutChanged ();
+	}
+
+	[BaseType (typeof (CPTTextStyle))]
+	interface CPTMutableTextStyle {
+	}
+	
 #if MONOTOUCH
 	[BaseType (typeof (UIView))]
 	interface CPTGraphHostingView {
@@ -1816,6 +2020,9 @@ namespace MonoMac.CorePlot {
 
 		[Export ("collapsesLayers")]
 		bool CollapsesLayers { get; set; }
+
+		[Export ("allowPinchScaling")]
+		bool AllowPinchScaling { get; set; }
 				
 	}
 #else

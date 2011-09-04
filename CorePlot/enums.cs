@@ -18,7 +18,7 @@ namespace MonoMac.CorePlot {
 	}
 
 	public enum CPTScaleType {
-		Linear, LogN, Log10, Angular, DateTime, Category
+		Linear, Log, Angular, DateTime, Category
 	}
 
 	public enum CPTCoordinate {
@@ -88,7 +88,7 @@ namespace MonoMac.CorePlot {
 	}
 
 	public enum CPTAxisLabelingPolicy {
-		None, LocationsProvided, FixedInternal, PolicyAutomatic, PolicyLogarithmic
+		None, LocationsProvided, FixedInternal, Automatic, EqualDivisions
 	}
 
 	public enum CPTPlotCachePrecision {
@@ -104,13 +104,21 @@ namespace MonoMac.CorePlot {
 		PieChartSliceWidhtSum = 2,
 			
 		BarLocation = 2,
-		BarLength = 3,
+		BarTip = 3,
+		BarBase = 4,
 
 		TradingRangeX = 0,
 		TradingRangeOpen = 1,
 		TradingRangeHigh = 2,
 		TradingRangeLow = 3,
 		TradingRangeClose = 4,
+
+		RangePlotFieldX = 0,
+		RangePlotFieldY = 1,
+		RangePlotFieldHigh = 2,
+		RangePlotFieldLow = 3,
+		RangePlotFieldLeft = 4,
+		RangePlotFieldRight = 5,
 	}
 
 	public enum CPTPlotSymbolType {
@@ -121,5 +129,9 @@ namespace MonoMac.CorePlot {
 
 	public enum CPTTradingRangePlotStyle {
 		OHLC, CandleStick
+	}
+
+	public enum CPTTextAlignment {
+		Left, Center, Right
 	}
 }
