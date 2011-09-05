@@ -36,7 +36,10 @@ namespace iOSsample
 			
 			var root = new RootElement ("CorePlot Samples"){
 				new Section () {
-					new RootElement ("XYGraph", r => new ScatterPlot ())
+					new RootElement ("XYGraph", r => new ScatterPlot ()),
+					new RootElement ("BarChart", r => new BarPlot ()),
+					new RootElement ("PieChart", r => new PiePlot ()),
+					new RootElement ("RangePlot", r => new RangePlot ())
 				}
 			};
 					                 
