@@ -51,7 +51,7 @@ namespace iOSsample
 		{
 			var plotspace = graph.DefaultPlotSpace;
 			//TODO: This would crash
-			//plotspace.AllowsUserInteraction = true;
+			plotspace.AllowsUserInteraction = true;
 			
 			var major = new CPTLineStyle () {
 				LineWidth = .75f,
@@ -90,7 +90,6 @@ namespace iOSsample
 				BarOffset = (NSDecimal)(-0.25),
 				Identifier = (NSString) "Bar Plot 1"
 			};
-
 			graph.AddPlot (barPlot);	
 
 			barPlot.Fill = new CPTFill (CPTColor.BrownColor);

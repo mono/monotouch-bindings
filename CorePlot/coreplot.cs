@@ -47,13 +47,13 @@ namespace MonoMac.CorePlot {
 		[Export ("annotations")]
 		CPTAnnotation [] Annotations { get; }
 
-		[Export ("addAnnotation:")]
+		[Export ("addAnnotation:"), PostGet ("Annotations")]
 		void Add (CPTAnnotation annotation);
 
-		[Export ("removeAnnotation:")]
+		[Export ("removeAnnotation:"), PostGet ("Annotations")]
 		void Remove (CPTAnnotation annotation);
 
-		[Export ("removeAllAnnotations")]
+		[Export ("removeAllAnnotations"), PostGet ("Annotations")]
 		void RemoveAll ();
 	}
 
@@ -203,7 +203,7 @@ namespace MonoMac.CorePlot {
 		NSObject AlternatingBandFills { get; set;  }
 
 		[Export ("backgroundLimitBands")]
-		NSArray BackgroundLimitBands { get;  }
+		CPTLimitBand [] BackgroundLimitBands { get;  }
 
 		[Export ("plotSpace")]
 		CPTPlotSpace PlotSpace { get; set;  }
@@ -235,10 +235,10 @@ namespace MonoMac.CorePlot {
 		[Export ("filteredMinorTickLocations:")]
 		NSSet FilteredMinorTickLocations (NSSet allLocations);
 
-		[Export ("addBackgroundLimitBand:")]
+		[Export ("addBackgroundLimitBand:"), PostGet ("BackgroundLimitBands")]
 		void AddBackgroundLimitBand (CPTLimitBand limitBand);
 
-		[Export ("removeBackgroundLimitBand:")]
+		[Export ("removeBackgroundLimitBand:"), PostGet ("BackgroundLimitBands")]
 		void RemoveBackgroundLimitBand (CPTLimitBand limitBand);
 
 		[Export ("viewPointForCoordinateDecimalNumber:")]
@@ -673,22 +673,22 @@ namespace MonoMac.CorePlot {
 		[Export ("plotWithIdentifier:")]
 		CPTPlot PlotWithIdentifier (NSObject identifier);
 
-		[Export ("addPlot:")]
+		[Export ("addPlot:"), PostGet ("AllPlots")]
 		void AddPlot (CPTPlot plot);
 
-		[Export ("addPlot:toPlotSpace:")]
+		[Export ("addPlot:toPlotSpace:"), PostGet ("AllPlots")]
 		void AddPlot (CPTPlot plot, CPTPlotSpace toPlotSpace);
 
-		[Export ("removePlot:")]
+		[Export ("removePlot:"), PostGet ("AllPlots")]
 		void RemovePlot (CPTPlot plot);
 
-		[Export ("removePlotWithIdentifier:")]
+		[Export ("removePlotWithIdentifier:"), PostGet ("AllPlots")]
 		void RemovePlot (NSObject identifier);
 
-		[Export ("insertPlot:atIndex:")]
+		[Export ("insertPlot:atIndex:"), PostGet ("AllPlots")]
 		void InsertPlot (CPTPlot plot, int index);
 
-		[Export ("insertPlot:atIndex:intoPlotSpace:")]
+		[Export ("insertPlot:atIndex:intoPlotSpace:"), PostGet ("AllPlots")]
 		void InsertPlot (CPTPlot plot, int index, CPTPlotSpace intoPlotSpace);
 
 		[Export ("allPlotSpaces")]
@@ -700,10 +700,10 @@ namespace MonoMac.CorePlot {
 		[Export ("plotSpaceWithIdentifier:")]
 		CPTPlotSpace PlotSpaceWithIdentifier (NSObject identifier);
 
-		[Export ("addPlotSpace:")]
+		[Export ("addPlotSpace:"), PostGet ("PlotSpaces")]
 		void AddPlotSpace (CPTPlotSpace space);
 
-		[Export ("removePlotSpace:")]
+		[Export ("removePlotSpace:"), PostGet ("PlotSpaces")]
 		void RemovePlotSpace (CPTPlotSpace plotSpace);
 
 		[Export ("applyTheme:")]
@@ -1989,16 +1989,16 @@ namespace MonoMac.CorePlot {
 		[Export ("plotWithIdentifier:")]
 		CPTPlot GetPlot (NSObject identifier);
 
-		[Export ("addPlot:")]
+		[Export ("addPlot:"), PostGet ("AllPlots")]
 		void AddPlot (CPTPlot plot);
 
-		[Export ("insertPlot:atIndex:")]
+		[Export ("insertPlot:atIndex:"), PostGet ("AllPlots")]
 		void Insert (CPTPlot plot, int index);
 
-		[Export ("removePlot:")]
+		[Export ("removePlot:"), PostGet ("AllPlots")]
 		void RemovePlot (CPTPlot plot);
 
-		[Export ("removePlotWithIdentifier:")]
+		[Export ("removePlotWithIdentifier:"), PostGet ("AllPlots")]
 		void RemovePlot (NSObject identifier);
 
 		[Export ("setLayoutChanged")]

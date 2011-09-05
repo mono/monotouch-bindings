@@ -6,7 +6,7 @@ osx: CorePlotMacOS.dll
 
 ios: CorePlotiOS.dll
 
-BUILD_FLAGS=-unsafe -target:library -nowarn:436
+BUILD_FLAGS=-unsafe -target:library -nowarn:436 -nowarn:219
 
 CorePlotMacOS.dll: coreplot.cs enums.cs extras.cs Makefile
 	-mkdir osx
