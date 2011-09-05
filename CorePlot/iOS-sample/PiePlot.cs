@@ -48,10 +48,7 @@ namespace iOSsample
 		void SetupAxes ()
 		{
 			
-			graph.PlotAreaFrame.MasksToBorder = false;
-			//TODO: This would crash
-			//pieGraph.AxisSet = null;
-			
+			graph.PlotAreaFrame.MasksToBorder = false;			
 			
 			var axisSet = (CPTXYAxisSet)graph.AxisSet;
 			var x = axisSet.XAxis;
@@ -84,9 +81,9 @@ namespace iOSsample
 				BorderLineStyle = CPTLineStyle.LineStyle,
 				SliceLabelOffset = 0.0f
 			};
-
+			
 			//TODO: This is giving a white overlay??
-			//piePlot.OverlayFill = new CPTFill(overlayGradient);
+			piePlot.OverlayFill = new CPTFill(overlayGradient);
 	
 			var inputData = new List<float> () {60, 20,40};
 			piePlot.DataSource = new PieSourceData (inputData);

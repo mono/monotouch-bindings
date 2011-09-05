@@ -368,7 +368,7 @@ namespace MonoMac.CorePlot {
 		CPTTextLayer GetBarLabel (CPTBarPlot barPlot, int recordIndex);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof (CPTPlotSpaceDelegate))]
 	[Model]
 	interface CPTBarPlotDelegate {
 		[Abstract]
@@ -1423,31 +1423,31 @@ namespace MonoMac.CorePlot {
 	[BaseType (typeof (NSObject))]
 	[Model]
 	interface CPTPlotSpaceDelegate {
-		[Abstract, DelegateName ("CPTEventPointPredicate"), DefaultValue (false)]
+		[DelegateName ("CPTEventPointPredicate"), DefaultValue (false)]
 		[Export ("plotSpace:shouldHandlePointingDeviceDownEvent:atPoint:")]
 		bool ShouldHandlePointingDeviceDownEvent (CPTPlotSpace space, NSObject evt, PointF point);
 
-		[Abstract, DelegateName ("CPTEventPointPredicate"), DefaultValue (false)]
+		[DelegateName ("CPTEventPointPredicate"), DefaultValue (false)]
 		[Export ("plotSpace:shouldHandlePointingDeviceDraggedEvent:atPoint:")]
 		bool ShouldHandlePointingDeviceDraggedEvent (CPTPlotSpace space, NSObject evt, PointF point);
 
-		[Abstract, DelegateName ("CPTEventPredicate"), DefaultValue (false)]
+		[DelegateName ("CPTEventPredicate"), DefaultValue (false)]
 		[Export ("plotSpace:shouldHandlePointingDeviceCancelledEvent:")]
 		bool ShouldHandlePointingDeviceCancelledEvent (CPTPlotSpace space, NSObject evt);
 
-		[Abstract, DelegateName ("CPTEventPointPredicate"), DefaultValue (false)]
+		[DelegateName ("CPTEventPointPredicate"), DefaultValue (false)]
 		[Export ("plotSpace:shouldHandlePointingDeviceUpEvent:atPoint:")]
 		bool ShouldHandlePointingDeviceUpEvent (CPTPlotSpace space, NSObject evt, PointF atPoint);
 		
-		[Abstract, DelegateName ("CPTDisplacement"), DefaultValueFromArgument ("proposedDisplacementVector")]
+		[DelegateName ("CPTDisplacement"), DefaultValueFromArgument ("proposedDisplacementVector")]
 		[Export ("plotSpace:willDisplaceBy:")]
 		PointF WillDisplaceBy (CPTPlotSpace space, PointF proposedDisplacementVector);
 
-		[Abstract, DelegateName ("CPTWillChangePlotRange"), DefaultValueFromArgument ("toNewRange")]
+		[DelegateName ("CPTWillChangePlotRange"), DefaultValueFromArgument ("toNewRange")]
 		[Export ("plotSpace:willChangePlotRangeTo:forCoordinate:")]
 		CPTPlotRange WillChangePlotRange (CPTPlotSpace space, CPTPlotRange toNewRange, CPTCoordinate forCoordinate);
 
-		[Abstract, EventArgs ("CPTPlotChanged")]
+		[EventArgs ("CPTPlotChanged")]
 		[Export ("plotSpace:didChangePlotRangeForCoordinate:")]
 		void DidChangePlotRange (CPTPlotSpace space, CPTCoordinate forCoordinate);
 	}

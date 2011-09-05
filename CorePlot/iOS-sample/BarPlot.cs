@@ -50,8 +50,8 @@ namespace iOSsample
 		void SetupAxes ()
 		{
 			var plotspace = graph.DefaultPlotSpace;
-			//TODO: This would crash
 			plotspace.AllowsUserInteraction = true;
+			plotspace.Delegate = new MyBarDelegate ();
 			
 			var major = new CPTLineStyle () {
 				LineWidth = .75f,
@@ -111,16 +111,12 @@ namespace iOSsample
 		}
 	}
 	
-//TODO: Is the delegate missing?
-
-//	#pragma mark -
-//#pragma mark CPTBarPlot delegate method
-//
-//-(void)barPlot:(CPTBarPlot *)plot barWasSelectedAtRecordIndex:(NSUInteger)index
-//{
-//	NSLog(@"barWasSelectedAtRecordIndex %d", index);
-//}
-
+	public class MyBarDelegate : CPTBarPlotDelegate {
+		public override void BarSelected (CPTBarPlot plot, int recordIndex)
+		{
+			Console.WriteLine ("Selected at {0}", recordIndex);
+		}
+	}
 
 	public class BarSourceData : CPTBarPlotDataSource
 	{
