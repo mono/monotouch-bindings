@@ -11,10 +11,10 @@ namespace Atomcraft
 		
 		#region Delegates
 		
-		[Export ("delegate"), NullAllowed]
-		NSObject WeakDelegate { get; set; }
+		[Export ("delegate"), NullAllowed, New]
+		NSObject WeakDelegate { get; set;  }
 
-		[Wrap ("WeakDelegate")]
+		[Wrap ("WeakDelegate"), New]
 		ATMHudDelegate Delegate { get; set; }
 		
 		#endregion

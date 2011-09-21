@@ -2,7 +2,7 @@ Atomcraft HUD
 =============
 
 This folder contains the bindings for the Atomcraft HUD library.
-This is currently bound to version 1.1.1 of the library.
+This is currently bound to version [1.1.1 of the library](http://www.atomcraft.de/blog/2010/12/29/atomhud-1-1-1/)
 
 Please help and fix any bugs/issues that you see.
 
