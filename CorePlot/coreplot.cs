@@ -1744,8 +1744,8 @@ namespace MonoMac.CorePlot {
 #endif
 	}
 
-#if false
-	// missing: NSNumberFormatter
+
+	// No longer missing NSNumberFormatter
 	[BaseType (typeof (NSNumberFormatter))]
 	interface CPTTimeFormatter {
 		[Export ("dateFormatter")]
@@ -1757,7 +1757,7 @@ namespace MonoMac.CorePlot {
 		[Export ("initWithDateFormatter:")]
 		IntPtr Constructor (NSDateFormatter reference);
 	}
-#endif
+
 
 	[BaseType (typeof (CPTPlot))]
 	interface CPTTradingRangePlot {
