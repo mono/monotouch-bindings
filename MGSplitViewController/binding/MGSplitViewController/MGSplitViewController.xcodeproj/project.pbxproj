@@ -1,0 +1,251 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		257B3C2E1445E6A4000B1693 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257B3C2D1445E6A4000B1693 /* Foundation.framework */; };
+		257B3C341445E6A4000B1693 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B3C331445E6A4000B1693 /* MGSplitViewController.m */; };
+		257B3C3E1445E714000B1693 /* MGSplitCornersView.h in Headers */ = {isa = PBXBuildFile; fileRef = 257B3C3A1445E714000B1693 /* MGSplitCornersView.h */; };
+		257B3C3F1445E714000B1693 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B3C3B1445E714000B1693 /* MGSplitCornersView.m */; };
+		257B3C401445E714000B1693 /* MGSplitDividerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 257B3C3C1445E714000B1693 /* MGSplitDividerView.h */; };
+		257B3C411445E714000B1693 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B3C3D1445E714000B1693 /* MGSplitDividerView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		257B3C2A1445E6A4000B1693 /* libMGSplitViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMGSplitViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		257B3C2D1445E6A4000B1693 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		257B3C311445E6A4000B1693 /* MGSplitViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MGSplitViewController-Prefix.pch"; sourceTree = "<group>"; };
+		257B3C321445E6A4000B1693 /* MGSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
+		257B3C331445E6A4000B1693 /* MGSplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
+		257B3C3A1445E714000B1693 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
+		257B3C3B1445E714000B1693 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
+		257B3C3C1445E714000B1693 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
+		257B3C3D1445E714000B1693 /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		257B3C271445E6A4000B1693 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				257B3C2E1445E6A4000B1693 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		257B3C1F1445E6A4000B1693 = {
+			isa = PBXGroup;
+			children = (
+				257B3C2F1445E6A4000B1693 /* MGSplitViewController */,
+				257B3C2C1445E6A4000B1693 /* Frameworks */,
+				257B3C2B1445E6A4000B1693 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		257B3C2B1445E6A4000B1693 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				257B3C2A1445E6A4000B1693 /* libMGSplitViewController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		257B3C2C1445E6A4000B1693 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				257B3C2D1445E6A4000B1693 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		257B3C2F1445E6A4000B1693 /* MGSplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				257B3C3A1445E714000B1693 /* MGSplitCornersView.h */,
+				257B3C3B1445E714000B1693 /* MGSplitCornersView.m */,
+				257B3C3C1445E714000B1693 /* MGSplitDividerView.h */,
+				257B3C3D1445E714000B1693 /* MGSplitDividerView.m */,
+				257B3C321445E6A4000B1693 /* MGSplitViewController.h */,
+				257B3C331445E6A4000B1693 /* MGSplitViewController.m */,
+				257B3C301445E6A4000B1693 /* Supporting Files */,
+			);
+			path = MGSplitViewController;
+			sourceTree = "<group>";
+		};
+		257B3C301445E6A4000B1693 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				257B3C311445E6A4000B1693 /* MGSplitViewController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		257B3C281445E6A4000B1693 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				257B3C3E1445E714000B1693 /* MGSplitCornersView.h in Headers */,
+				257B3C401445E714000B1693 /* MGSplitDividerView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		257B3C291445E6A4000B1693 /* MGSplitViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 257B3C371445E6A4000B1693 /* Build configuration list for PBXNativeTarget "MGSplitViewController" */;
+			buildPhases = (
+				257B3C261445E6A4000B1693 /* Sources */,
+				257B3C271445E6A4000B1693 /* Frameworks */,
+				257B3C281445E6A4000B1693 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGSplitViewController;
+			productName = MGSplitViewController;
+			productReference = 257B3C2A1445E6A4000B1693 /* libMGSplitViewController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		257B3C211445E6A4000B1693 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Xamarin;
+			};
+			buildConfigurationList = 257B3C241445E6A4000B1693 /* Build configuration list for PBXProject "MGSplitViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 257B3C1F1445E6A4000B1693;
+			productRefGroup = 257B3C2B1445E6A4000B1693 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				257B3C291445E6A4000B1693 /* MGSplitViewController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		257B3C261445E6A4000B1693 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				257B3C341445E6A4000B1693 /* MGSplitViewController.m in Sources */,
+				257B3C3F1445E714000B1693 /* MGSplitCornersView.m in Sources */,
+				257B3C411445E714000B1693 /* MGSplitDividerView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		257B3C351445E6A4000B1693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		257B3C361445E6A4000B1693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		257B3C381445E6A4000B1693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/MGSplitViewController.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGSplitViewController/MGSplitViewController-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		257B3C391445E6A4000B1693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/MGSplitViewController.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGSplitViewController/MGSplitViewController-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		257B3C241445E6A4000B1693 /* Build configuration list for PBXProject "MGSplitViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				257B3C351445E6A4000B1693 /* Debug */,
+				257B3C361445E6A4000B1693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		257B3C371445E6A4000B1693 /* Build configuration list for PBXNativeTarget "MGSplitViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				257B3C381445E6A4000B1693 /* Debug */,
+				257B3C391445E6A4000B1693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 257B3C211445E6A4000B1693 /* Project object */;
+}

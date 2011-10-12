@@ -58,16 +58,16 @@ namespace MG {
 		[Export ("landscape")]
 		bool Landscape { [Bind ("isLandscape")] get; set; }
 
-		[Export ("toggleSplitOrientation")]
+		[Export ("toggleSplitOrientation:")]
 		void ToggleSplitOrientation (NSObject sender);
 
-		[Export ("toggleMasterBeforeDetail")]
+		[Export ("toggleMasterBeforeDetail:")]
 		void ToggleMasterBeforeDetail (NSObject sender);
 
-		[Export ("toggleMasterView")]
+		[Export ("toggleMasterView:")]
 		void ToggleMasterView (NSObject sender);
 
-		[Export ("showMasterPopover")]
+		[Export ("showMasterPopover:")]
 		void ShowMasterPopover (NSObject sender);
 
 		[Export ("isShowingMaster")]
@@ -128,7 +128,7 @@ namespace MG {
 		[Export ("allowsDragging:")]
 		bool AllowsDragging { get; set; }
 
-		[Export ("rect")]
+		[Export ("drawGripThumbInRect:")]
 		void DrawGripThumbInRect (RectangleF rect);
 	}
 }
