@@ -30,16 +30,10 @@ individually to the various C# events on the view, like this:
 Using Adjitsu.dll with your own Software
 ========================================
 
-To link this application with MonoTouch, make sure that your iPhone
-Build settings pass the following options to mtouch:
+Simply add AdJitsu.dll to your project's References and you are good to go!
 
-For Simulator:
-
-    --cxx --gcc_flags "-framework AVFoundation -framework CoreLocation -framework CoreMedia -framework CoreMotion -framework CoreText -framework MediaPlayer -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -L${ProjectDir} -lAdJitsuSDK -force_load ${ProjectDir}/libAdJitsuSDK.a -lxml2 -lsqlite3 -framework CoreGraphics -framework QuartzCore"
-
-For Device, you must add "--armv7" to the command line, make it look like this:
-
-    --armv7 --cxx --gcc_flags "-framework AVFoundation -framework CoreLocation -framework CoreMedia -framework CoreMotion -framework CoreText -framework MediaPlayer -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -L${ProjectDir} -lAdJitsuSDK -force_load ${ProjectDir}/libAdJitsuSDK.a -lxml2 -lsqlite3 -framework CoreGraphics -framework QuartzCore"
-
-The requirement for --armv7 is because AdJitsu does not ship libraries
-that will run on the older phones.
+Note: Projects using AdJitsu must target the ARMv7 architecture for devices.
+To configure your project to target ARMv7 in MonoDevelop, open your project
+options (Project > {ProjectName} Options > iPhone Build) and for the iPhone
+and iPad platforms (not iPhoneSimulator!), add "--armv7" to the field
+labaled: "Additional mtouch arguments".
