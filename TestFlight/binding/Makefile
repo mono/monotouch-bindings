@@ -11,7 +11,7 @@ TestFlightSDK$(VERSION).zip:
 	exit 1
 
 libTestFlight.a: TestFlightSDK$(VERSION).zip
-	unzip $^ $@ -d .
+	unzip -p $^ $@ > $@
 
 TestFlight.dll: Makefile AssemblyInfo.cs testflight.cs libTestFlight.a
 	$(BTOUCH) -e testflight.cs AssemblyInfo.cs --out=$@ --link-with=libTestFlight.a,libTestFlight.a
