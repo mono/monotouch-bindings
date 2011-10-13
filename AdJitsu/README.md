@@ -1,34 +1,37 @@
-Bindings to the Adjitsu library
+Bindings to the AdJitsu library
 ===============================
 
 MonoTouch bindings for the AdJitsu library.
+
 
 Building 
 ========
 
 To build the sample, load the solution into MonoDevelop and run it,
-the sample is a copy of the sample Adjitsu SDK app.  You need to
-obtain the libAdjitsuSDK.a yourself and place it in this directory.
+the sample is a copy of the sample Adjitsu SDK app.
 
 If you want to update the bindings to the Adjitsu library update the
-adjitsu.cs file and run the "make" command.
+adjitsu.cs file and run the "make" command. Not that you will need to
+obtain a copy of the AdJitsu native library from adjitsu.com.
+
 
 API
 ===
 
-The code lives in the Adjitsu namespace, with the AdjitsuView and
-AdjitsuViewDelegate classes.  This supports the MonoTouch dual event
-system: either use the Delegate property in the AdjitsuView to connect
-an instance of the AdjitsuViewDelegate, or you can connect
+The code lives in the AdJitsu namespace, with the AdJitsuView and
+AdJitsuViewDelegate classes.  This supports the MonoTouch dual event
+system: either use the Delegate property in the AdJitsuView to connect
+an instance of the AdJitsuViewDelegate, or you can connect
 individually to the various C# events on the view, like this:
 
-    ad = new AdjitsuView (bounds);
+    ad = new AdJitsuView (bounds);
     ad.FinishedLoadingScene += delegate {
         Console.WriteLine ("done");
     };
 
-Using Adjitsu.dll with your own Software
-========================================
+
+Using AdJitsu.dll with your own iOS App
+=======================================
 
 Simply add AdJitsu.dll to your project's References and you are good to go!
 
