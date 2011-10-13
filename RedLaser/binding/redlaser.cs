@@ -51,7 +51,7 @@ namespace RedLaser
 		string BarcodeString { get; }
 		
 		[Export ("extendedBarcodeString", ArgumentSemantic.Copy)]
-		int ExtendedBarcodeString { get; }
+		string ExtendedBarcodeString { get; }
 		
 		[Export ("associatedBarcode")]
 		BarcodeResult AssociatedBarcode { get; }
@@ -129,10 +129,7 @@ namespace RedLaser
 		void ReturnBarcode (string ean, NSDictionary info);
 		
 		[Export ("hasFlash")]
-		bool HasFlash ();
-		
-		[Export ("turnFlash:")]
-		void TurnFlash (bool enabled);
+		bool HasFlash { get; [Export ("turnFlash:")] set; }
 		
 		[Export ("overlay", ArgumentSemantic.Retain)]
 		CameraOverlayViewController Overlay { get; set; }
