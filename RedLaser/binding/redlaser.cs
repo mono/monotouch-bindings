@@ -7,6 +7,8 @@
  *
  * Updated 29/7/2011, Chris Branson, updated to RedLaser SDK 3.1.1
  *
+ * Updated 13/10/2011, Jeffrey Stedfast, updated to RedLaser SDK 3.1.2
+ *
  * This is the public API for the RedLaser SDK.
  *
 */
