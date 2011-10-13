@@ -1,5 +1,5 @@
 /*
- * PayPalDefs.cs: Core definitions
+ * enums.cs: Core definitions
  *
  * Author:
  *   Miguel de Icaza (miguel@xamarin.com)
