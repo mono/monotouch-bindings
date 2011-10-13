@@ -8,6 +8,7 @@ all: Tapku.dll
 
 tapkulibrary: 
 	git clone git@github.com:devinross/tapkulibrary.git
+	cd tapkulibrary && git reset --hard v1.0
 
 libTapku-i386.a: tapkulibrary
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
