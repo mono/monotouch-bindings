@@ -1,4 +1,4 @@
-IOS=AtomcraftHud FacebookConnect MGSplitViewController RedLaser Tapku AdJitsu
+IOS=AdJitsu ATMHud FacebookConnect GebePrinter MGSplitViewController PayPal RedLaser Tapku TestFlight Three20
 OSX=
 DUAL=CorePlot
 
