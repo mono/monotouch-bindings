@@ -176,10 +176,10 @@ namespace RedLaser
 		bool ScanEAN2 { get; set; }
 		
 		[Export ("activeRegion", ArgumentSemantic.Assign)]
-		System.Drawing.RectangleF ActiveRegion { get; set; }
+		RectangleF ActiveRegion { get; set; }
 		
 		[Export ("orientation", ArgumentSemantic.Assign)]
-		MonoTouch.UIKit.UIImageOrientation Orientation { get; set; }
+		UIImageOrientation Orientation { get; set; }
 		
 		[Export ("torchState", ArgumentSemantic.Assign)]
 		bool TorchState { get; set; }
