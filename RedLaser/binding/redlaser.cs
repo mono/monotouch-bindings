@@ -131,7 +131,7 @@ namespace RedLaser
 		void ReturnBarcode (string ean, NSDictionary info);
 		
 		[Export ("hasFlash")]
-		bool HasFlash { get; [Export ("turnFlash:")] set; }
+		bool FlashEnabled { get; [Bind ("turnFlash:")] set; }
 		
 		[Export ("overlay", ArgumentSemantic.Retain)]
 		CameraOverlayViewController Overlay { get; set; }
