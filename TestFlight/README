@@ -1,8 +1,21 @@
 TestFlight
 ==========
 
-Use this binding to use the TestFlight SDK. 
+This is a MonoTouch binding for the TestFlight SDK which can be found at
 
-To use this, you need to set the mtouch extra arguments to include a
-reference to the TestFlight SDK as described in the Linking With
-Native Libraries page on http://ios.xamarin.com
+     https://testflightapp.com/sdk/
+
+The current version of this binding is for TestFlight SDK 0.7.2
+
+
+Building
+========
+
+Run `make` in the binding directory to build TestFlight.dll
+
+
+Using TestFlight.dll with your own iOS App
+==========================================
+
+Simply add TestFlight.dll to your project's References in MonoDevelop and you
+are good to go!

@@ -6,20 +6,22 @@ available from:
 
 	  http://code.google.com/p/core-plot/
 
-This binding is for version 0.2.2 released on November 10, 2010
-
-	iOS Warning: this wont build with the released MonoTouch (as
-	of March 8th 2011), as I took a dependency on MonoTouch
-	4.0 and we are still fixing a few bugs there.
-
-You can use the binaries provided in the meantime.
-
-To build from source:
-
-	For iOS:
-	   make ios
-	
-	For OSX:
-	   make osx
+This binding is for version 0.4 released on July 7, 2011
 
 MIT X11 licensed
+
+
+Building
+========
+
+To build the bindings, run the `make` command from within the bindings
+directory.
+
+To build the sample project, open CorePlotSample.sln in MonoDevelop and run it.
+
+
+Using CorePlot.dll with your own iOS App
+======================================
+
+Simply add CorePlot.dll to your project's References in MonoDevelop and you are
+good to go!

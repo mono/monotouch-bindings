@@ -1,0 +1,278 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		252F23FA1446582500443CFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252F23F91446582500443CFD /* Foundation.framework */; };
+		252F24131446588200443CFD /* ATMHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 252F24061446588200443CFD /* ATMHud.h */; };
+		252F24141446588200443CFD /* ATMHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 252F24071446588200443CFD /* ATMHud.m */; };
+		252F24151446588200443CFD /* ATMHudDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 252F24081446588200443CFD /* ATMHudDelegate.h */; };
+		252F24161446588200443CFD /* ATMHudQueueItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 252F24091446588200443CFD /* ATMHudQueueItem.h */; };
+		252F24171446588200443CFD /* ATMHudQueueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 252F240A1446588200443CFD /* ATMHudQueueItem.m */; };
+		252F24181446588200443CFD /* ATMHudView.h in Headers */ = {isa = PBXBuildFile; fileRef = 252F240B1446588200443CFD /* ATMHudView.h */; };
+		252F24191446588200443CFD /* ATMHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 252F240C1446588200443CFD /* ATMHudView.m */; };
+		252F241A1446588200443CFD /* ATMProgressLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 252F240D1446588200443CFD /* ATMProgressLayer.h */; };
+		252F241B1446588200443CFD /* ATMProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 252F240E1446588200443CFD /* ATMProgressLayer.m */; };
+		252F241C1446588200443CFD /* ATMSoundFX.h in Headers */ = {isa = PBXBuildFile; fileRef = 252F240F1446588200443CFD /* ATMSoundFX.h */; };
+		252F241D1446588200443CFD /* ATMSoundFX.m in Sources */ = {isa = PBXBuildFile; fileRef = 252F24101446588200443CFD /* ATMSoundFX.m */; };
+		252F241E1446588200443CFD /* ATMTextLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 252F24111446588200443CFD /* ATMTextLayer.h */; };
+		252F241F1446588200443CFD /* ATMTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 252F24121446588200443CFD /* ATMTextLayer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		252F23F61446582500443CFD /* libatmhud-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libatmhud-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		252F23F91446582500443CFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		252F23FD1446582500443CFD /* atmhud-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "atmhud-sdk-Prefix.pch"; sourceTree = "<group>"; };
+		252F24061446588200443CFD /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHud.h; sourceTree = "<group>"; };
+		252F24071446588200443CFD /* ATMHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMHud.m; sourceTree = "<group>"; };
+		252F24081446588200443CFD /* ATMHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudDelegate.h; sourceTree = "<group>"; };
+		252F24091446588200443CFD /* ATMHudQueueItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudQueueItem.h; sourceTree = "<group>"; };
+		252F240A1446588200443CFD /* ATMHudQueueItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMHudQueueItem.m; sourceTree = "<group>"; };
+		252F240B1446588200443CFD /* ATMHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudView.h; sourceTree = "<group>"; };
+		252F240C1446588200443CFD /* ATMHudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMHudView.m; sourceTree = "<group>"; };
+		252F240D1446588200443CFD /* ATMProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMProgressLayer.h; sourceTree = "<group>"; };
+		252F240E1446588200443CFD /* ATMProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMProgressLayer.m; sourceTree = "<group>"; };
+		252F240F1446588200443CFD /* ATMSoundFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMSoundFX.h; sourceTree = "<group>"; };
+		252F24101446588200443CFD /* ATMSoundFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMSoundFX.m; sourceTree = "<group>"; };
+		252F24111446588200443CFD /* ATMTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMTextLayer.h; sourceTree = "<group>"; };
+		252F24121446588200443CFD /* ATMTextLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMTextLayer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		252F23F31446582500443CFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				252F23FA1446582500443CFD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		252F23EB1446582500443CFD = {
+			isa = PBXGroup;
+			children = (
+				252F23FB1446582500443CFD /* atmhud-sdk */,
+				252F23F81446582500443CFD /* Frameworks */,
+				252F23F71446582500443CFD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		252F23F71446582500443CFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				252F23F61446582500443CFD /* libatmhud-sdk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		252F23F81446582500443CFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				252F23F91446582500443CFD /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		252F23FB1446582500443CFD /* atmhud-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				252F24061446588200443CFD /* ATMHud.h */,
+				252F24071446588200443CFD /* ATMHud.m */,
+				252F24081446588200443CFD /* ATMHudDelegate.h */,
+				252F24091446588200443CFD /* ATMHudQueueItem.h */,
+				252F240A1446588200443CFD /* ATMHudQueueItem.m */,
+				252F240B1446588200443CFD /* ATMHudView.h */,
+				252F240C1446588200443CFD /* ATMHudView.m */,
+				252F240D1446588200443CFD /* ATMProgressLayer.h */,
+				252F240E1446588200443CFD /* ATMProgressLayer.m */,
+				252F240F1446588200443CFD /* ATMSoundFX.h */,
+				252F24101446588200443CFD /* ATMSoundFX.m */,
+				252F24111446588200443CFD /* ATMTextLayer.h */,
+				252F24121446588200443CFD /* ATMTextLayer.m */,
+				252F23FC1446582500443CFD /* Supporting Files */,
+			);
+			path = "atmhud-sdk";
+			sourceTree = "<group>";
+		};
+		252F23FC1446582500443CFD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				252F23FD1446582500443CFD /* atmhud-sdk-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		252F23F41446582500443CFD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				252F24131446588200443CFD /* ATMHud.h in Headers */,
+				252F24151446588200443CFD /* ATMHudDelegate.h in Headers */,
+				252F24161446588200443CFD /* ATMHudQueueItem.h in Headers */,
+				252F24181446588200443CFD /* ATMHudView.h in Headers */,
+				252F241A1446588200443CFD /* ATMProgressLayer.h in Headers */,
+				252F241C1446588200443CFD /* ATMSoundFX.h in Headers */,
+				252F241E1446588200443CFD /* ATMTextLayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		252F23F51446582500443CFD /* atmhud-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 252F24031446582500443CFD /* Build configuration list for PBXNativeTarget "atmhud-sdk" */;
+			buildPhases = (
+				252F23F21446582500443CFD /* Sources */,
+				252F23F31446582500443CFD /* Frameworks */,
+				252F23F41446582500443CFD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "atmhud-sdk";
+			productName = "atmhud-sdk";
+			productReference = 252F23F61446582500443CFD /* libatmhud-sdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		252F23ED1446582500443CFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Xamarin;
+			};
+			buildConfigurationList = 252F23F01446582500443CFD /* Build configuration list for PBXProject "atmhud-sdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 252F23EB1446582500443CFD;
+			productRefGroup = 252F23F71446582500443CFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				252F23F51446582500443CFD /* atmhud-sdk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		252F23F21446582500443CFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				252F24141446588200443CFD /* ATMHud.m in Sources */,
+				252F24171446588200443CFD /* ATMHudQueueItem.m in Sources */,
+				252F24191446588200443CFD /* ATMHudView.m in Sources */,
+				252F241B1446588200443CFD /* ATMProgressLayer.m in Sources */,
+				252F241D1446588200443CFD /* ATMSoundFX.m in Sources */,
+				252F241F1446588200443CFD /* ATMTextLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		252F24011446582500443CFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		252F24021446582500443CFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		252F24041446582500443CFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/atmhud_sdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "atmhud-sdk/atmhud-sdk-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		252F24051446582500443CFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/atmhud_sdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "atmhud-sdk/atmhud-sdk-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		252F23F01446582500443CFD /* Build configuration list for PBXProject "atmhud-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				252F24011446582500443CFD /* Debug */,
+				252F24021446582500443CFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		252F24031446582500443CFD /* Build configuration list for PBXNativeTarget "atmhud-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				252F24041446582500443CFD /* Debug */,
+				252F24051446582500443CFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 252F23ED1446582500443CFD /* Project object */;
+}
