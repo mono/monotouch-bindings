@@ -12,6 +12,7 @@ using MonoTouch.Foundation;
 
 namespace MonoTouch.TestFlight {
 
+	[BaseType (typeof (NSObject))]
 	public interface TestFlight {
 		[Static, Export ("addCustomEnvironmentInformation:forKey:")]
 		void AddCustomEnvironmentInformation (string information, string key);
