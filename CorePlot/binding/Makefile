@@ -19,6 +19,7 @@ CorePlot-$(VERSION).zip:
 
 CorePlot_$(VERSION)/License.txt: CorePlot-$(VERSION).zip
 	unzip -o $^ -x "__MACOSX/*" "*/.DS_Store"
+	touch CorePlot_$(VERSION)/License.txt
 	patch -p0 -i thumb.patch
 
 libCorePlot-CocoaTouch-i386.a: CorePlot_$(VERSION)/License.txt
