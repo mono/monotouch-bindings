@@ -32,7 +32,7 @@ namespace MonoMac.CorePlot {
 		CPTAnnotationHostLayer AnnotationHostLayer { get; set; }
 
 		[Export ("contentAnchorPoint")]
-		PointF ContenAnchorPoint { get; set; }
+		PointF ContentAnchorPoint { get; set; }
 
 		[Export ("displacement")]
 		PointF Displacement { get; set; }
