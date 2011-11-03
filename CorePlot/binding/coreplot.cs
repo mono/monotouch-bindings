@@ -501,7 +501,7 @@ namespace MonoMac.CorePlot {
 		//CPTConstraints Constraints { get; set;  }
 
 		[Export ("initWithPosition:lowerBound:upperBound:")]
-		IntPtr Cosntructor (float newPosition, float newLowerBound, float newUpperBound);
+		IntPtr Constructor (float newPosition, float newLowerBound, float newUpperBound);
 
 		[Export ("initWithAlignment:lowerBound:upperBound:")]
 		IntPtr Constructor (CPTAlignment newAlignment, float newLowerBound, float newUpperBound);
