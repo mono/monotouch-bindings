@@ -54,8 +54,8 @@ CorePlotMacOS.dll: Makefile coreplot.cs enums.cs extras.cs
 
 CorePlotiOS.dll: Makefile ios/coreplot.cs ios/enums.cs ios/extras.cs AssemblyInfo.cs libCorePlot-CocoaTouch.a
 	-mkdir -p ios
-	$(BTOUCH) -o $@ -d=MONOTOUCH -e ios/coreplot.cs ios/enums.cs --sourceonly=list --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
-	$(SMCS) $(BUILD_FLAGS) -out:CorePlotiOS.dll -define:MONOTOUCH @list AssemblyInfo.cs ios/enums.cs ios/extras.cs -r:monotouch.dll -res:libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
+	$(BTOUCH) -o $@ -d=MONOTOUCH -e ios/coreplot.cs ios/enums.cs --sourceonly=list --tmpdir=ios
+	$(SMCS) $(BUILD_FLAGS) -out:$@ -define:MONOTOUCH @list AssemblyInfo.cs ios/enums.cs ios/extras.cs -r:monotouch.dll -res:libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
 
 ios/coreplot.cs: coreplot.cs
 	-mkdir -p ios
