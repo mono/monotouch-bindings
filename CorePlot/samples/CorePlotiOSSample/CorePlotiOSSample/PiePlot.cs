@@ -81,7 +81,7 @@ namespace CorePlotiOSSample
 				StartAngle = (float)Math.PI / 4f, // 0.785398163397448309616f; //M_PI_4;
 				SliceDirection = CPTPieDirection.CounterClockwise,
 				BorderLineStyle = CPTLineStyle.LineStyle,
-				SliceLabelOffset = 0.0f
+				//SliceLabelOffset = 0.0f
 			};
 			
 			//TODO: This is giving a white overlay??
