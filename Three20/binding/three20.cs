@@ -1975,7 +1975,7 @@ namespace Three20
 	interface TTStyleSheet
 	{
 		[Static, Export ("globalStyleSheet")]
-		TTStyleSheet GlobalStyleSheet { get; [Bind ("setGlobalStyleSheet")] set; }
+		TTStyleSheet GlobalStyleSheet { get; set; }
 		
 		[Export ("styleWithSelector:")]
 		TTStyle StyleWithSelector (string selector);
