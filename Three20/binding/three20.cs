@@ -1974,6 +1974,9 @@ namespace Three20
 	[BaseType (typeof (NSObject))]
 	interface TTStyleSheet
 	{
+		[Static, Export ("globalStyleSheet")]
+		TTStyleSheet GlobalStyleSheet { get; [Bind ("setGlobalStyleSheet")] set; }
+		
 		[Export ("styleWithSelector:")]
 		TTStyle StyleWithSelector (string selector);
 
