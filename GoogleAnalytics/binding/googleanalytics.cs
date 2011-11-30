@@ -21,8 +21,9 @@ namespace GoogleAnalytics {
 		[Export ("stopTracker")]
 		void StopTracker ();
 
-		[Export ("trackPageview:withError:")]
-		bool TrackPageView (string pageUrl, out NSError nsError);
+		// Not supported until Google fixes their library
+		//[Export ("trackPageview:withError:")]
+		//bool TrackPageView (string pageUrl, out NSError nsError);
 
 		[Export ("trackEvent:action:label:value:withError:")]
 		bool TrackEvent (string category, string action, string label, int value, out NSError nsError);
