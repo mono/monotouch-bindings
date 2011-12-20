@@ -9,7 +9,7 @@ using MonoTouch.UIKit;
 namespace ATMHud {
 	//@interface ATMHud : UIViewController {
 	[BaseType (typeof (UIViewController), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] { typeof (ATMHudDelegate)})]
-	interface ATMHudViewController {
+	interface ATMHud {
 		#region Delegates
 		
 		[Export ("delegate"), NullAllowed]
@@ -116,7 +116,7 @@ namespace ATMHud {
 		
 		//+ (NSString *)buildInfo;
 		[Static, Export ("buildInfo")]
-		string BuildInfo ();
+		string BuildInfo { get; }
 		
 		//- (void)setCaption:(NSString *)caption;
 		[Export ("setCaption:")]
