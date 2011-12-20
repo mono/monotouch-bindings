@@ -6,7 +6,7 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.CoreAnimation;
 using MonoTouch.UIKit;
 
-namespace ATMHud {
+namespace MonoTouch.AtmHud {
 	//@interface ATMHud : UIViewController {
 	[BaseType (typeof (UIViewController), Name="ATMHud", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] { typeof (AtmHudDelegate)})]
 	interface AtmHud {
@@ -110,7 +110,7 @@ namespace ATMHud {
 		
 		//- (id)initWithDelegate:(id)hudDelegate;
 		[Export ("initWithDelegate:")]
-		IntPtr Constructor (AtmHudDelegate hudDelegate);
+		IntPtr Constructor ([NullAllowed] AtmHudDelegate hudDelegate);
 		
 		#region Methods
 		
@@ -124,8 +124,8 @@ namespace ATMHud {
 		
 		//- (void)setImage:(UIImage *)image;
 		[Export ("setImage:")]
-		void SetImage (UIImage image);
-		
+		void SetImage ([NullAllowed] UIImage image);
+
 		//- (void)setActivity:(BOOL)flag;
 		[Export ("setActivity:")]
 		void SetActivity (bool activity);
@@ -238,7 +238,7 @@ namespace ATMHud {
 		string Caption { get; set; }
 		
 		//@property (nonatomic, retain) UIImage *image;
-		[Export ("image")]
+		[Export ("image"), NullAllowed]
 		UIImage Image { get; set; }
 		
 		//@property (nonatomic, assign) BOOL showActivity;

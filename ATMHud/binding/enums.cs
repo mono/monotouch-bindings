@@ -1,6 +1,6 @@
 using System;
 
-namespace ATMHud {
+namespace MonoTouch.AtmHud {
 	public enum AtmHudAccessoryPosition {
 		Top,
 		Right,
