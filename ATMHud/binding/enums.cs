@@ -1,14 +1,14 @@
 using System;
 
-namespace ATMHud {
-	public enum ATMHudAccessoryPosition {
+namespace MonoTouch.AtmHud {
+	public enum AtmHudAccessoryPosition {
 		Top,
 		Right,
 		Bottom,
 		Left
 	}
 	
-	public enum ATMHudApplyMode {
+	public enum AtmHudApplyMode {
 		Show = 0,
 		Update,
 		Hide

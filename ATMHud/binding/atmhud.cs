@@ -6,17 +6,17 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.CoreAnimation;
 using MonoTouch.UIKit;
 
-namespace ATMHud {
+namespace MonoTouch.AtmHud {
 	//@interface ATMHud : UIViewController {
-	[BaseType (typeof (UIViewController), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] { typeof (ATMHudDelegate)})]
-	interface ATMHudViewController {
+	[BaseType (typeof (UIViewController), Name="ATMHud", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] { typeof (AtmHudDelegate)})]
+	interface AtmHud {
 		#region Delegates
 		
 		[Export ("delegate"), NullAllowed]
 		NSObject WeakDelegate { get; set; }
 		
 		[Wrap ("WeakDelegate")]
-		ATMHudDelegate Delegate { get; set; }
+		AtmHudDelegate Delegate { get; set; }
 		
 		#endregion
 		
@@ -86,17 +86,17 @@ namespace ATMHud {
 		[Export ("hideSound", ArgumentSemantic.Retain)]
 		string HideSound { get; set; }
 		
-		//@property (nonatomic, assign) ATMHudAccessoryPosition accessoryPosition;
+		//@property (nonatomic, assign) AtmHudAccessoryPosition accessoryPosition;
 		[Export ("accessoryPosition", ArgumentSemantic.Assign)]
-		ATMHudAccessoryPosition AccessoryPosition { get; set; }
+		AtmHudAccessoryPosition AccessoryPosition { get; set; }
 		
-		//@property (nonatomic, retain) ATMHudView *__view;
+		//@property (nonatomic, retain) AtmHudView *__view;
 		[Export ("__view", ArgumentSemantic.Retain)]
-		ATMHudView HudView { get; set; }
+		AtmHudView HudView { get; set; }
 		
 		//@property (nonatomic, retain) ATMSoundFX *sound;
 		[Export ("sound", ArgumentSemantic.Retain)]
-		ATMSoundFX Sound { get; set; }
+		AtmSoundFX Sound { get; set; }
 		
 		//@property (nonatomic, retain) NSMutableArray *displayQueue;
 		[Export ("displayQueue", ArgumentSemantic.Retain)]
@@ -110,13 +110,13 @@ namespace ATMHud {
 		
 		//- (id)initWithDelegate:(id)hudDelegate;
 		[Export ("initWithDelegate:")]
-		IntPtr Constructor (ATMHudDelegate hudDelegate);
+		IntPtr Constructor ([NullAllowed] AtmHudDelegate hudDelegate);
 		
 		#region Methods
 		
 		//+ (NSString *)buildInfo;
 		[Static, Export ("buildInfo")]
-		string BuildInfo ();
+		string BuildInfo { get; }
 		
 		//- (void)setCaption:(NSString *)caption;
 		[Export ("setCaption:")]
@@ -124,8 +124,8 @@ namespace ATMHud {
 		
 		//- (void)setImage:(UIImage *)image;
 		[Export ("setImage:")]
-		void SetImage (UIImage image);
-		
+		void SetImage ([NullAllowed] UIImage image);
+
 		//- (void)setActivity:(BOOL)flag;
 		[Export ("setActivity:")]
 		void SetActivity (bool activity);
@@ -142,9 +142,9 @@ namespace ATMHud {
 		[Export ("setProgress:")]
 		void SetProgress (float progress);
 		
-		//- (void)addQueueItem:(ATMHudQueueItem *)item;
+		//- (void)addQueueItem:(AtmHudQueueItem *)item;
 		[Export ("addQueueItem:")]
-		void AddToQueue (ATMHudQueueItem item);
+		void AddToQueue (AtmHudQueueItem item);
 		
 		//- (void)addQueueItems:(NSArray *)items;
 		[Export ("addQueueItems:")]
@@ -191,46 +191,46 @@ namespace ATMHud {
 	
 	
 	[Model]
-	[BaseType (typeof (NSObject))]
-	interface ATMHudDelegate {
-		//- (void)userDidTapHud:(ATMHud *)_hud;
+	[BaseType (typeof (NSObject), Name="ATMHudDelegate")]
+	interface AtmHudDelegate {
+		//- (void)userDidTapHud:(AtmHud *)_hud;
 		[Abstract]//, DelegateName ("UserTappedHud")]
 		[Export ("userDidTapHud:")]
-		void UserDidTapHud (ATMHudViewController hud);
+		void UserDidTapHud (AtmHud hud);
 		
-		//- (void)hudWillAppear:(ATMHud *)_hud;
+		//- (void)hudWillAppear:(AtmHud *)_hud;
 		[Abstract]//, DelegateName ("HudWillAppear")]
 		[Export ("hudWillAppear:")]
-		void HudWillAppear (ATMHudViewController hud);
+		void HudWillAppear (AtmHud hud);
 		
-		//- (void)hudDidAppear:(ATMHud *)_hud;
+		//- (void)hudDidAppear:(AtmHud *)_hud;
 		[Abstract]//, DelegateName ("HudDidAppear")]
 		[Export ("hudDidAppear:")]
-		void HudDidAppear (ATMHudViewController hud);
+		void HudDidAppear (AtmHud hud);
 		
-		//- (void)hudWillUpdate:(ATMHud *)_hud;
+		//- (void)hudWillUpdate:(AtmHud *)_hud;
 		[Abstract]//, DelegateName ("HudWillUpdate")]
 		[Export ("hudWillUpdate:")]
-		void HudWillUpdate (ATMHudViewController hud);
+		void HudWillUpdate (AtmHud hud);
 		
-		//- (void)hudDidUpdate:(ATMHud *)_hud;
+		//- (void)hudDidUpdate:(AtmHud *)_hud;
 		[Abstract]//, DelegateName ("HudDidUpdate")]
 		[Export ("hudDidUpdate:")]
-		void HudDidUpdate (ATMHudViewController hud);
+		void HudDidUpdate (AtmHud hud);
 		
-		//- (void)hudWillDisappear:(ATMHud *)_hud;
+		//- (void)hudWillDisappear:(AtmHud *)_hud;
 		[Abstract]//, DelegateName ("HudWillDisappear")]
 		[Export ("hudWillDisappear:")]
-		void HudWillDisappear (ATMHudViewController hud);
+		void HudWillDisappear (AtmHud hud);
 		
-		//- (void)hudDidDisappear:(ATMHud *)_hud;
+		//- (void)hudDidDisappear:(AtmHud *)_hud;
 		[Abstract]//, DelegateName ("HudDidDisappear")]
 		[Export ("hudDidDisappear:")]
-		void HudDidDisappear (ATMHudViewController hud);
+		void HudDidDisappear (AtmHud hud);
 	}
 	
-	[BaseType (typeof (NSObject))]
-	interface ATMHudQueueItem {
+	[BaseType (typeof (NSObject), Name="ATMHudQueueItem")]
+	interface AtmHudQueueItem {
 		#region Properties
 		
 		//@property (nonatomic, retain) NSString *caption;
@@ -238,16 +238,16 @@ namespace ATMHud {
 		string Caption { get; set; }
 		
 		//@property (nonatomic, retain) UIImage *image;
-		[Export ("image")]
+		[Export ("image"), NullAllowed]
 		UIImage Image { get; set; }
 		
 		//@property (nonatomic, assign) BOOL showActivity;
 		[Export ("showActivity")]
 		bool ShowActivity { get; set; }
 		
-		//@property (nonatomic, assign) ATMHudAccessoryPosition accessoryPosition;
+		//@property (nonatomic, assign) AtmHudAccessoryPosition accessoryPosition;
 		[Export ("accessoryPosition")]
-		ATMHudAccessoryPosition AccessoryPosition { get; set; }
+		AtmHudAccessoryPosition AccessoryPosition { get; set; }
 		
 		//@property (nonatomic, assign) UIActivityIndicatorViewStyle activityStyle;
 		[Export ("activityStyle")]
@@ -256,8 +256,8 @@ namespace ATMHud {
 		#endregion
 	}
 	
-	[BaseType (typeof (NSObject))]
-	interface ATMHudView {
+	[BaseType (typeof (NSObject), Name="ATMHudView")]
+	interface AtmHudView {
 		#region Properties
 		
 		//@property (nonatomic, retain) NSString *caption;
@@ -276,9 +276,9 @@ namespace ATMHud {
 		[Export ("activityStyle")]
 		UIActivityIndicatorViewStyle ActivityStyle { get; set; }
 		
-		//@property (nonatomic, retain) ATMHud *p;
+		//@property (nonatomic, retain) AtmHud *p;
 		[Export ("p")]
-		ATMHudViewController ParentHudController { get; set; }
+		AtmHud ParentHudController { get; set; }
 		
 		//@property (nonatomic, assign) BOOL showActivity;
 		[Export ("showActivity")]
@@ -326,19 +326,19 @@ namespace ATMHud {
 		
 		//@property (nonatomic, retain) ATMTextLayer *captionLayer;
 		[Export ("captionLayer")]
-		ATMTextLayer CaptionLayer { get; set; }
+		AtmTextLayer CaptionLayer { get; set; }
 		
 		//@property (nonatomic, retain) ATMProgressLayer *progressLayer;
 		[Export ("progressLayer")]
-		ATMProgressLayer ProgressLayer { get; set; }
+		AtmProgressLayer ProgressLayer { get; set; }
 		
 		#endregion
 		
 		#region Constructors
 		
-		//- (id)initWithFrame:(CGRect)frame andController:(ATMHud *)c;
+		//- (id)initWithFrame:(CGRect)frame andController:(AtmHud *)c;
 		[Export ("initWithFrame:andController:")]
-		IntPtr Constructor (RectangleF frame, ATMHudViewController controller);
+		IntPtr Constructor (RectangleF frame, AtmHud controller);
 		
 		#endregion
 		
@@ -356,17 +356,17 @@ namespace ATMHud {
 		[Export ("calculate")]
 		void Calculate ();
 		
-		//- (CGSize)calculateSizeForQueueItem:(ATMHudQueueItem *)item;
+		//- (CGSize)calculateSizeForQueueItem:(AtmHudQueueItem *)item;
 		[Export ("calculateSizeForQueueItem:")]
-		SizeF CalculateSize (ATMHudQueueItem item);
+		SizeF CalculateSize (AtmHudQueueItem item);
 		
 		//- (CGSize)sizeForActivityStyle:(UIActivityIndicatorViewStyle)style;
 		[Export ("sizeForActivityStyle:")]
 		SizeF SizeForActivityStyle (UIActivityIndicatorViewStyle style);
 		
-		//- (void)applyWithMode:(ATMHudApplyMode)mode;
+		//- (void)applyWithMode:(AtmHudApplyMode)mode;
 		[Export ("applyWithMode:")]
-		void Apply (ATMHudApplyMode mode);
+		void Apply (AtmHudApplyMode mode);
 		
 		//- (void)show;
 		[Export ("show")]
@@ -387,8 +387,8 @@ namespace ATMHud {
 		#endregion
 	}
 	
-	[BaseType (typeof (CALayer))]
-	interface ATMProgressLayer {
+	[BaseType (typeof (CALayer), Name="ATMProgressLayer")]
+	interface AtmProgressLayer {
 		#region Properties
 		
 		//@property (nonatomic, assign) CGFloat theProgress;
@@ -414,8 +414,8 @@ namespace ATMHud {
 		#endregion
 	}
 	
-	[BaseType (typeof (CALayer))]
-	interface ATMTextLayer {
+	[BaseType (typeof (CALayer), Name="ATMTextLayer")]
+	interface AtmTextLayer {
 		#region Properties
 		
 		//@property (nonatomic, assign) NSString *caption;
@@ -425,11 +425,11 @@ namespace ATMHud {
 		#endregion
 	}
 	
-	[BaseType (typeof (NSObject))]
-	interface ATMSoundFX {
+	[BaseType (typeof (NSObject), Name="ATMSoundFX")]
+	interface AtmSoundFX {
 		//+ (id)soundEffectWithContentsOfFile:(NSString *)aPath;
 		[Static, Export ("soundEffectWithContentsOfFile:")]
-		ATMSoundFX FromFile (string path);
+		AtmSoundFX FromFile (string path);
 		
 		//- (id)initWithContentsOfFile:(NSString *)path;
 		[Export ("initWithContentsOfFile:")]
