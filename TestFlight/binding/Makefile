@@ -13,8 +13,8 @@ TestFlightSDK$(VERSION).zip:
 libTestFlight.a: TestFlightSDK$(VERSION).zip
 	unzip -p $^ $@ > $@
 
-TestFlight.dll: Makefile AssemblyInfo.cs testflight.cs libTestFlight.a
-	$(BTOUCH) -e testflight.cs AssemblyInfo.cs --out=$@ --link-with=libTestFlight.a,libTestFlight.a
+TestFlight.dll: Makefile AssemblyInfo.cs testflight.cs testflight-cplusplus.cs libTestFlight.a
+	$(BTOUCH) -e testflight.cs AssemblyInfo.cs -x:testflight-cplusplus.cs --out=$@ --link-with=libTestFlight.a,libTestFlight.a
 
 clean:
 	-rm -f *.a *.dll
