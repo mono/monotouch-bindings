@@ -2,11 +2,13 @@
 // Facebook sample
 //
 using System;
+using System.Collections.Generic;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.Dialog;
 using MonoTouch.FacebookConnect;
 using System.Drawing;
+using System.Json;
 
 namespace sample {
 	[Register ("AppDelegate")]
@@ -20,22 +22,30 @@ namespace sample {
 		Facebook facebook;
 		DialogViewController dvc;
 		UIWindow window;
+		UINavigationController nav;
 		
 		void SetupUI ()
 		{
 			var sessionDelegate = new SessionDelegate (this); 
 			facebook = new Facebook (AppId, sessionDelegate);
+
+			var defaults = NSUserDefaults.StandardUserDefaults;
+			if (defaults ["FBAccessTokenKey"] != null && defaults ["FBExpirationDateKey"] != null){
+				facebook.AccessToken = defaults ["FBAccessTokenKey"] as NSString;
+				facebook.ExpirationDate = defaults ["FBExpirationDateKey"] as NSDate;
+			}
 			
-			var root = new RootElement ("Facebook Sample"){
-				new Section ("Facebook Connect Sample App") {
-					new StringElement ("Login to Facebook", Login)
-				}
-			};
-			dvc = new DialogViewController (root);
+			dvc = new DialogViewController (null);
+			nav = new UINavigationController (dvc);
+			
+			if (facebook.IsSessionValid)
+				ShowLoggedIn ();
+			else
+				ShowLoggedOut ();
+			
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			window.MakeKeyAndVisible ();
-			window.RootViewController = dvc;
-			
+			window.RootViewController = nav;
 		}
 
 		void Login ()
@@ -46,16 +56,145 @@ namespace sample {
 				ShowLoggedIn ();
 		}
 		
-		void ShowLoggedIn ()
+		void UninstallFromFacebook ()
 		{
-			dvc.Root = new RootElement ("You are logged in to Facebook");
+			facebook.GraphRequest ("me/permissions", new NSMutableDictionary (), "DELETE", Handle (delegate {
+				ShowMessage ("Success", "The application has been uninstall form Facebook");
+
+				// Clear out authentication values
+				facebook.AccessToken = null;
+				facebook.ExpirationDate = null;
+				ShowLoggedOut ();
+			}));
+		}
+		
+		void GrantUserLikes ()
+		{
+			facebook.Authorize (new string [] { "user_likes" });
+		}
+		
+		// Method called back by all of the various Requests* methods
+		void RequestsCallback (NSUrl url)
+		{
+			var collection = System.Web.HttpUtility.ParseQueryString (url.Query);
+			int count = 0;
+			foreach (var k in collection.AllKeys){
+				if (k.StartsWith ("request_ids"))
+					count++;
+			}
+			ShowMessage ("Request Result", "Successfully sent " + count + " requests");
+		}
+		
+		void RequestsToMany ()
+		{
+			var gift = new JsonObject ();
+			gift.Add ("social_karma", new JsonPrimitive (5));
+			gift.Add ("badge_of_awesomeness", new JsonPrimitive (1));
+			
+			var parameters = NSMutableDictionary.FromObjectsAndKeys (
+				new object [] { "Learn how to make your iOS apps social", "Check this out", gift.ToString () },
+				new object [] { "message", "notification_text", "data" });
+				
+			facebook.Dialog ("apprequests", parameters, DialogCallback (RequestsCallback));
+		}
+		
+		void PostUserWall ()
+		{
+			var json = new JsonObject ();
+			json.Add ("name", new JsonPrimitive ("Getting started"));
+			json.Add ("link", new JsonPrimitive ("http://github.com/mono/monotouch-bindings"));
+			
+			var parameters = NSMutableDictionary.FromObjectsAndKeys (
+				new object [] { "Test using MonoTouch/Facebook", "Hackbook for MonoTouch/iOS", "Some long boring text goes here", 
+				"http://xamarin.com", "http://www.facebookmobileweb.com/hackbook/img/facebook_icon_large.png", json.ToString ()},
+				new object [] { "name", "caption", "description", "link", "picture", "actions"});
+			facebook.Dialog ("feed", parameters, DialogCallback (url => {
+				var pars = System.Web.HttpUtility.ParseQueryString (url.Query);
+				if (pars ["post_id"] != null)
+					ShowMessage ("Success", "Got the message posted, id=" + pars ["post_id"]);
+			}));
+		}
+		
+		internal void ShowLoggedIn ()
+		{
+			dvc.Root = new RootElement ("Logged In") { 
+				new Section ("Options"){
+					new RootElement ("Login and Permissions") {
+						new Section ("Logging the user out", "You should include a button in your app to log the user out"){
+							new StringElement ("Logout", delegate { facebook.Logout (); })
+						}, 
+						new Section ("Uninstalling the App", "You can create a button so the user can uninstall the app from Facebook"){
+							new StringElement ("Uninstall app", UninstallFromFacebook)
+						}, 
+						new Section ("Asking for extended permissions", "If your app needs more than this basic information to function, you must request specific permissions from the user. For example, you might prompt the user to access their Likes in order to recommend related content for them automatically"){
+							new StringElement ("Grant the 'user_likes' permission", GrantUserLikes)
+						}
+					},
+					new RootElement ("Requests") {
+						new Section ("Request", "If you show the request dialog with no friend suggestions, it will automatically show friends that are using your app, as well as friends that have already used your app."){
+							new StringElement ("Send Request", RequestsToMany),
+						},
+#if false
+						new Section ("Invite friend not using app"){
+						}, 
+						new Section ("Request to App Friends"){
+						},
+						new Section ("Request to targeted friend"){
+						}
+#endif
+					},
+					new RootElement ("News feed") {
+						new Section ("Publish to the User's Wall"){
+							new StringElement ("Publish to your wall", PostUserWall)
+						}, 
+#if false
+						new Section ("Publish to friend's Wall"){
+						}
+#endif
+					},
+					new RootElement ("Graph API")
+				}
+			};
+		}
+							
+		internal void ShowLoggedOut ()
+		{
+			dvc.Root = new RootElement ("Facebook Sample"){
+				new Section ("Facebook Connect Sample App") {
+					new StringElement ("Login to Facebook", Login)
+				}
+			};
+			nav.PopToRootViewController (true);
+		}
+		
+		// Save authorization information
+		internal void SaveAuthorization ()
+		{
+			var defaults = NSUserDefaults.StandardUserDefaults;
+			defaults ["FBAccessTokenKey"] = new NSString (facebook.AccessToken);
+			defaults ["FBExpirationDateKey"] = facebook.ExpirationDate;
+			defaults.Synchronize ();
+		}
+		
+		internal void ClearAuthorization ()
+		{
+			var defaults = NSUserDefaults.StandardUserDefaults;
+			defaults.RemoveObject ("FBAccessTokenKey");
+			defaults.RemoveObject ("FBExpirationDateKey");
+			defaults.Synchronize ();
+		}	
+
+		void ShowMessage (string caption, string message, NSAction callback = null)
+		{
+			var alert = new UIAlertView (caption, message, null, "Ok");
+			if (callback != null)
+				alert.Dismissed += delegate { callback (); };
+			alert.Show ();
 		}
 		
 		void SetupError (string msg)
 		{
-				var alert = new UIAlertView ("Setup Error", msg, null, "Ok");
-				alert.Dismissed += delegate { Environment.Exit (1); };
-				alert.Show ();
+			ShowMessage ("Setup Error", msg, ()=>{Environment.Exit (1); });
 		}
 		
 		//
@@ -123,8 +262,22 @@ namespace sample {
 			// you can specify it here.
 			UIApplication.Main (args, null, "AppDelegate");
 		}
+			
+		FBRequestDelegate Handle (Action<FBRequest,NSObject> handler)
+		{
+				return new RequestHandler (handler);
+		}
+		
+		FBDialogDelegate DialogCallback (Action<NSUrl> callback)
+		{
+			return new DialogHandler (callback);
+		}
 	}
 		
+	// 
+	// The session FBSessionDelegate instance will let us get events informing us
+	// when the user has logged in/logged out or when his session becomes invalid
+	//
 	class SessionDelegate : FBSessionDelegate 
 	{
 		AppDelegate container;
@@ -136,11 +289,13 @@ namespace sample {
 
 		public override void DidLogin ()
 		{
-			// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			container.ShowLoggedIn ();
+			container.SaveAuthorization ();
 		}
 		public override void DidLogout ()
 		{
-			// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			container.ClearAuthorization ();
+			container.ShowLoggedOut ();
 		}
 		
 		public override void DidNotLogin (bool cancelled)
@@ -151,6 +306,51 @@ namespace sample {
 		public override void SessionInvalidated ()
 		{
 			// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+		}
+	}
+	
+	//
+	// Proxy class that turns method invocations into delegate calls
+	//
+	class RequestHandler : FBRequestDelegate {
+		static List<RequestHandler> handlers = new List<RequestHandler> ();
+		Action<FBRequest, NSObject> loadedHandler;
+		
+		public RequestHandler (Action<FBRequest, NSObject> loadedHandler)
+		{
+			handlers.Add (this);
+			this.loadedHandler = loadedHandler;
+		}
+		
+		public override void FailedWithError (FBRequest request, NSError error)
+		{
+			var u = new UIAlertView ("Request Error", "Failed with " + error.ToString (), null, "ok");
+			u.Dismissed += delegate {
+				handlers.Remove (this);
+			};
+			u.Show ();
+		}
+		
+		public override void RequestLoaded (FBRequest request, NSObject result)
+		{
+			loadedHandler (request, result);
+			handlers.Remove (this);
+		}
+	}
+	
+	// 
+	// Proxy call that turns method invocation into delegate calls
+	//
+	class DialogHandler : FBDialogDelegate {
+		Action<NSUrl> callback;
+		
+		public DialogHandler (Action<NSUrl> callback)
+		{
+			this.callback = callback;
+		}
+		public override void CompletedWithUrl (NSUrl url)
+		{
+			callback (url);
 		}
 	}
 }

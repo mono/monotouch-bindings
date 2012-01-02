@@ -4,9 +4,6 @@
 // Authors:
 //   Miguel de Icaza (miguel@xamarin.com)
 //
-// TODO:
-//   Enable the [Retains] to avoid requiring the user to keep a reference to this
-//   but the released MonoTouch binding generators produce broken C#
 //
 using System;
 using MonoTouch.Foundation;
@@ -33,10 +30,10 @@ namespace MonoTouch.FacebookConnect  {
 		string UrlSchemeSuffix { get; set;  }
 
 		[Export ("initWithAppId:andDelegate:"), PostGet ("WeakSessionDelegate")]
-		IntPtr Constructor (string appId, /* [Retain] */FBSessionDelegate del);
+		IntPtr Constructor (string appId, FBSessionDelegate del);
 
 		[Export ("initWithAppId:urlSchemeSuffix:andDelegate:"), PostGet ("WeakSessionDelegate")]
-		IntPtr Constructor (string appId, string urlSchemeSuffix, /* [Retain] */ FBSessionDelegate dele);
+		IntPtr Constructor (string appId, string urlSchemeSuffix, FBSessionDelegate dele);
 
 		[Export ("authorize:")]
 		void Authorize (string [] permissions);
@@ -143,16 +140,16 @@ namespace MonoTouch.FacebookConnect  {
 		void RequestLoading (FBRequest request);
 
 		[Export ("request:didReceiveResponse:")]
-		void RequestdidReceiveResponse (FBRequest request, NSUrlResponse response);
+		void ReceivedResponse (FBRequest request, NSUrlResponse response);
 
 		[Export ("request:didFailWithError:")]
-		void RequestdidFailWithError (FBRequest request, NSError error);
+		void FailedWithError (FBRequest request, NSError error);
 
 		[Export ("request:didLoad:")]
-		void RequestdidLoad (FBRequest request, NSObject result);
+		void RequestLoaded (FBRequest request, NSObject result);
 
 		[Export ("request:didLoadRawResponse:")]
-		void RequestdidLoadRawResponse (FBRequest request, NSData data);
+		void LoadedRawResponse (FBRequest request, NSData data);
 	}
 
 	[BaseType (typeof (UIView))]
