@@ -1,3 +1,13 @@
+//
+// facebook.cs: Bindings to the Facebook IOS SDK.
+//
+// Authors:
+//   Miguel de Icaza (miguel@xamarin.com)
+//
+// TODO:
+//   Enable the [Retains] to avoid requiring the user to keep a reference to this
+//   but the released MonoTouch binding generators produce broken C#
+//
 using System;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
@@ -14,19 +24,19 @@ namespace MonoTouch.FacebookConnect  {
 		NSDate ExpirationDate { get; set;  }
 
 		[Export ("sessionDelegate"), NullAllowed]
-		NSObject SessionDelegate { get; set;  }
+		NSObject WeakSessionDelegate { get; set;  }
 
-		[Wrap ("SessionDelegate")]
+		[Wrap ("WeakSessionDelegate")]
 		FBSessionDelegate Delegate { get; set; }
 
 		[Export ("urlSchemeSuffix")]
 		string UrlSchemeSuffix { get; set;  }
 
-		[Export ("initWithAppId:andDelegate:")]
-		IntPtr Constructor (string appId, FBSessionDelegate del);
+		[Export ("initWithAppId:andDelegate:"), PostGet ("WeakSessionDelegate")]
+		IntPtr Constructor (string appId, /* [Retain] */FBSessionDelegate del);
 
-		[Export ("initWithAppId:urlSchemeSuffix:andDelegate:")]
-		IntPtr Constructor (string appId, string urlSchemeSuffix, FBSessionDelegate del);
+		[Export ("initWithAppId:urlSchemeSuffix:andDelegate:"), PostGet ("WeakSessionDelegate")]
+		IntPtr Constructor (string appId, string urlSchemeSuffix, /* [Retain] */ FBSessionDelegate dele);
 
 		[Export ("authorize:")]
 		void Authorize (string [] permissions);

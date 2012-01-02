@@ -26,5 +26,8 @@ libFacebookSDK.a: libFacebook-i386.a libFacebook-armv6.a libFacebook-armv7.a
 FacebookConnect.dll: FacebookConnect.cs libFacebookSDK.a
 	/Developer/MonoTouch/usr/bin/btouch -e FacebookConnect.cs --out=$@ --link-with=libFacebookSDK.a,libFacebookSDK.a
 
+facebook.dll: facebook.cs enums.cs
+	/Developer/MonoTouch/usr/bin/btouch facebook.cs --out=$@ --link-with=libFacebookSDK.a,libFacebookSDK.a
+
 clean:
 	-rm -f *.a *.dll
