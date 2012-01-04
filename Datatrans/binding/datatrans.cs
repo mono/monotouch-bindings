@@ -167,7 +167,7 @@ namespace MonoTouch.Datatrans {
 
         //+ (id)textStyleWithFont:(UIFont *)font color:(UIColor *)color;
         [Static, Export("textStyleWithFont:color:")]
-        DtShadowTextStyle FromFont(UIFont font, UIColor color);
+        DtShadowTextStyle DtShadowTextStyleFromFont(UIFont font, UIColor color);
 
         //- (id)withShadowColor:(UIColor *)color andOffset:(CGSize)shadowOffset;
         [Export("withShadowColor:andOffset:")]
@@ -210,7 +210,7 @@ namespace MonoTouch.Datatrans {
 
         //+ (id)textStyleWithFont:(UIFont *)font color:(UIColor *)color;
         [Static, Export("textStyleWithFont:color:")]
-        DtSimpleTextStyle FromFont(UIFont font, UIColor color);
+        DtSimpleTextStyle DtSimpleTextStyleFromFont(UIFont font, UIColor color);
 
         #region methodes
 
