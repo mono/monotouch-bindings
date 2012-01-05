@@ -1,6 +1,6 @@
 using System;
 
-namespace MonoTouch.Datatrans {
+namespace Datatrans {
 
    public enum DtPaymentErrorCode {
 		Technical,

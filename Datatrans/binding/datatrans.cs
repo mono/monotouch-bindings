@@ -6,7 +6,7 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.CoreAnimation;
 using MonoTouch.UIKit;
 
-namespace MonoTouch.Datatrans {
+namespace Datatrans {
     
     //@interface DTVisualStyle : NSObject <NSCopying> {
     [BaseType(typeof(NSObject), Name = "DTVisualStyle")]

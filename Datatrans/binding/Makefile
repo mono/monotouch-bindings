@@ -1,7 +1,10 @@
-BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 VERSION=1.5.2
+BUILD_FLAGS=-unsafe -target:library -nowarn:436 -nowarn:219
+BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+SMCS=/Developer/MonoTouch/usr/bin/smcs
 
 all: Datatrans.dll
+
 
 iPhone_Library.zip: 
 	@echo "It appears that you do not have a copy of libdtipl.a (version $(VERSION)) which"
@@ -17,11 +20,16 @@ iPhone_Library.zip:
 	@echo
 	curl http://pilot.datatrans.biz/showcase/doc/iPhone_Library.zip > $@
 
+
 libdtipl.a: iPhone_Library.zip
 	unzip -p $< 'DTiPLv$(VERSION)/lib/libdtipl.a' > $@
 
-Datatrans.dll: Makefile datatrans.cs enums.cs AssemblyInfo.cs libdtipl.a
-	$(BTOUCH) -e datatrans.cs enums.cs AssemblyInfo.cs --out=$@ --link-with=libdtipl.a,libdtipl.a
+Datatrans.dll: Makefile Datatrans.cs enums.cs AssemblyInfo.cs libdtipl.a
+	-mkdir -p ios
+	$(BTOUCH) -o $@ -d=MONOTOUCH -e Datatrans.cs enums.cs --sourceonly=list -tmpdir=ios
+	$(SMCS) $(BUILD_FLAGS) -out:$@ -define:MONOTOUCH @list enums.cs AssemblyInfo.cs -r:monotouch.dll -res:libdtipl.a,libdtipl.a
+
 
 clean: 
 	-rm -f *.dll iPhone_Library.zip libdtipl.a
+
