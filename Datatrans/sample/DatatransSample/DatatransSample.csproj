@@ -24,7 +24,6 @@
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchLink>None</MtouchLink>
     <MtouchI18n />
-    <MtouchExtraArgs>-gcc_flags "-lxml2"</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -71,13 +70,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
-    <None Include="libdtipl.a">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="CinetoilePaymentContoller.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="dtipl-resources.bundle\pf_card.png" />
+    <Content Include="dtipl-resources.bundle\pf_card%402x.png" />
+    <Content Include="dtipl-resources.bundle\pf_efinance.png" />
+    <Content Include="dtipl-resources.bundle\pf_efinance%402x.png" />
+    <Content Include="dtipl-resources.bundle\Dutch.lproj\Localizable.strings" />
+    <Content Include="dtipl-resources.bundle\English.lproj\Localizable.strings" />
+    <Content Include="dtipl-resources.bundle\French.lproj\Localizable.strings" />
+    <Content Include="dtipl-resources.bundle\German.lproj\Localizable.strings" />
+    <Content Include="dtipl-resources.bundle\Italian.lproj\Localizable.strings" />
+    <Content Include="dtipl-resources.bundle\American_Express.pdf" />
+    <Content Include="dtipl-resources.bundle\Visa_Logo_VBV.pdf" />
+    <Content Include="dtipl-resources.bundle\VIScvv.gif" />
+    <Content Include="dtipl-resources.bundle\AMXcvv.gif" />
+    <Content Include="dtipl-resources.bundle\Diners_Club_Logo.pdf" />
+    <Content Include="dtipl-resources.bundle\DTCreditCardInputViewController.nib" />
+    <Content Include="dtipl-resources.bundle\DTPaymentAuthorizationViewController.nib" />
+    <Content Include="dtipl-resources.bundle\ECAcvv.gif" />
+    <Content Include="dtipl-resources.bundle\MasterCard_Logo_SecureCode.pdf" />
+    <Content Include="dtipl-resources.bundle\PayPal_Logo.pdf" />
+  </ItemGroup>
 </Project>

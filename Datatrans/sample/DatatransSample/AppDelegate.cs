@@ -18,7 +18,8 @@ namespace DatatransSample
 		UINavigationController nav;
 		DialogViewController dvc;
 		UIWindow window;
-		
+		DtPaymentController dtpc;
+		CinetoilePaymentContoller cpc;
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
 		// method you should instantiate the window, load the UI into it and then make the window
@@ -49,10 +50,10 @@ namespace DatatransSample
 				MerchantId = @"12345",
 				Refno = @"refno12345"
 			};
-
-            var paymentMethods = DtPaymentController.AllAvailablePaymentMethods();
 			
-			
+			cpc = new CinetoilePaymentContoller();
+			dtpc = DtPaymentController.FromDelegate(cpc, paymentRequest, DtPaymentController.AllAvailablePaymentMethods());
+			dtpc.PresentIn(nav, true);
 			// make the window visible
 			window.RootViewController = nav;
 			window.MakeKeyAndVisible ();
