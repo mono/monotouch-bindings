@@ -4,6 +4,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.TestFlight;
+using MonoTouch.Dialog;
 
 namespace TestFlightSample
 {
@@ -16,6 +17,8 @@ namespace TestFlightSample
 		// class-level declarations
 		UIWindow window;
 		TestFlightSampleViewController viewController;
+		private static NSUserDefaults prefs = NSUserDefaults.StandardUserDefaults;
+		
 
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -26,12 +29,25 @@ namespace TestFlightSample
 		//
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			TestFlight.TakeOff("yourTeamTokenHere");
+			TestFlight.TakeOff("8a2f26739dc3810018973494f39c9019_ODY2MjAxMS0xMC0wNCAxODozMDozOC4wMTk4Mzk");
 			
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
 			viewController = new TestFlightSampleViewController ("TestFlightSampleViewController", null);
-			window.RootViewController = viewController;
+			//window.RootViewController = viewController;
+			
+			var menu = new RootElement("Demos") { 
+				new Section ("Enter some stuff")
+				{
+					new EntryElement ("Name:", "", prefs.StringForKey("UserName")),
+					new EntryElement ("Email:", "", prefs.StringForKey("Email"))
+				} 
+			};
+
+			var dv = new DialogViewController (menu) { Autorotate = true };
+			
+			window.AddSubview(dv.View);
+			
 			window.MakeKeyAndVisible ();
 			
 			return true;
