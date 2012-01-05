@@ -1,3 +1,3 @@
 all: 
-	(cd bindings; make)
+	(cd binding; make)
 	
