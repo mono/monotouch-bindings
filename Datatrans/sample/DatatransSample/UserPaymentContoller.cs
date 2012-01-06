@@ -4,14 +4,14 @@ using Datatrans;
 
 namespace DatatransSample
 {
-	public class CinetoilePaymentContoller : DtPaymentControllerDelegate
+	public class UserPaymentContoller : DtPaymentControllerDelegate
 	{
 		private readonly UINavigationController _rootNavigation;
 		internal UINavigationController RootNavigation {
 			get { return _rootNavigation; }
 		}
 		
-		public CinetoilePaymentContoller(UINavigationController nav ) {
+		public UserPaymentContoller(UINavigationController nav ) {
 			_rootNavigation = nav;
 		}
 		

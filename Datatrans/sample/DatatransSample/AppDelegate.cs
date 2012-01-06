@@ -67,7 +67,7 @@ namespace DatatransSample
 								}
 							},
 							new BooleanElement ("ShowBackButton", false),
-							new BooleanElement ("Testing", false)
+							new BooleanElement ("Testing", true)
 						}
 					},
 					
