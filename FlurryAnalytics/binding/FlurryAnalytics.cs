@@ -1,6 +1,6 @@
 using System;
 using MonoTouch.Foundation;
-namespace FlurryAnalytics
+namespace Flurry
 {
 	[BaseType (typeof (NSObject))]
 	interface FlurryAnalytics {
@@ -81,9 +81,9 @@ namespace FlurryAnalytics
 		[Export ("setGender:")]
 		void SetGender (string gender);
 
-		[Static]
-		[Export ("setLatitude:longitude:horizontalAccuracy:verticalAccuracy:")]
-		void SetLocation (double latitude, double longitude, float horizontalAccuracy, float verticalAccuracy);
+		//[Static]
+		//[Export ("setLatitude:longitude:horizontalAccuracy:verticalAccuracy:")]
+		//void SetLocation (double latitude, double longitude, float horizontalAccuracy, float verticalAccuracy);
 
 		[Static]
 		[Export ("setSessionReportsOnCloseEnabled:")]
