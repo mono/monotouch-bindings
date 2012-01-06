@@ -1,4 +1,4 @@
-IOS=AdJitsu ATMHud FacebookConnect GebePrinter MGSplitViewController PayPal RedLaser Tapku TestFlight Three20
+IOS=AdJitsu ATMHud FacebookConnect GebePrinter MGSplitViewController PayPal RedLaser Tapku TestFlight Three20 Datatrans
 OSX=
 DUAL=CorePlot
 
