@@ -419,13 +419,13 @@ namespace Datatrans {
 
         //+ (NSArray *)allAvailablePaymentMethods;
         [Static, Export("allAvailablePaymentMethods")]
-        NSArray AllAvailablePaymentMethods();
+        string[] AllAvailablePaymentMethods();
 
         //+ (id)paymentControllerWithDelegate:(id<DTPaymentControllerDelegate>)delegate
         //                     paymentRequest:(DTPaymentRequest *)request
         //                     paymentMethods:(NSArray *)identifiers;
         [Static, Export("paymentControllerWithDelegate:paymentRequest:paymentMethods:")]
-        DtPaymentController FromDelegate(DtPaymentControllerDelegate dtDelegate, DtPaymentRequest request, NSArray identifiers);
+        DtPaymentController FromDelegate(DtPaymentControllerDelegate dtDelegate, DtPaymentRequest request, string[] dtPaymentMethods);
 
         //+ (id)paymentControllerWithDelegate:(id<DTPaymentControllerDelegate>)delegate
         //                     paymentRequest:(DTPaymentRequest *)request
@@ -465,15 +465,15 @@ namespace Datatrans {
         [Abstract]
         [Export("paymentController:didFailWithError:"), EventArgs("DtPaymentFail")]
         void DidFail(DtPaymentController controller, NSError error);
-
+		
+		//@optional
+		
         //- (void)paymentController:(DTPaymentController *)controller didCancelWithType:(DTPaymentCancellationType)cancellationType;
-        [Abstract]
         [Export("paymentController:didCancelWithType:"), EventArgs("DtPaymentCancel")]
         void DidCancel(DtPaymentController controller, DtPaymentCancellationType cancellationType);
 
         //- (BOOL)paymentController:(DTPaymentController *)controller shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation;
         //// Implement this method if the payment controller should support user interface orientations other than UIInterfaceOrientationPortrait.
-        [Abstract]
         [Export("paymentController:shouldAutorotateToInterfaceOrientation:"), DelegateName("DTInterfaceOrientation"), DefaultValue(false)]
         bool ShouldAutorotate(DtPaymentController controller, UIInterfaceOrientation toInterfaceOrientation);
 
