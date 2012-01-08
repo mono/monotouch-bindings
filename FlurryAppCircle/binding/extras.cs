@@ -32,7 +32,7 @@ using MonoTouch.NewsstandKit;
 using MonoTouch.GLKit;
 
 using OpenTK;
-namespace Flurry
+namespace FlurryAppCircle
 {
 	public partial class FlurryAppCircle : NSObject {
 		
@@ -60,7 +60,7 @@ namespace Flurry
 			var nsrewardMessage = new NSString (rewardMessage);
 			
 			MonoTouch.UIKit.UIView ret;
-			ret = (MonoTouch.UIKit.UIView) Runtime.GetNSObject (Flurry.Messaging.IntPtr_objc_msgSend_IntPtr_int_int_IntPtr_bool_IntPtr_IntPtr_bool_bool_IntPtr_IntPtr (class_ptr, selGetHookXLocYLocViewAttachToViewOrientationCanvasOrientationAutoRefreshCanvasAnimatedRewardMessageUserCookies, nshook.Handle, x, y, view.Handle, attachToView, nsorientation.Handle, nscanvasOrientation.Handle, refresh, canvasAnimated, nsrewardMessage.Handle, userCookies.Handle));
+			ret = (MonoTouch.UIKit.UIView) Runtime.GetNSObject (Messaging.IntPtr_objc_msgSend_IntPtr_int_int_IntPtr_bool_IntPtr_IntPtr_bool_bool_IntPtr_IntPtr (class_ptr, selGetHookXLocYLocViewAttachToViewOrientationCanvasOrientationAutoRefreshCanvasAnimatedRewardMessageUserCookies, nshook.Handle, x, y, view.Handle, attachToView, nsorientation.Handle, nscanvasOrientation.Handle, refresh, canvasAnimated, nsrewardMessage.Handle, userCookies.Handle));
 			nshook.Dispose ();
 			nsorientation.Dispose ();
 			nscanvasOrientation.Dispose ();
@@ -86,7 +86,7 @@ namespace Flurry
 			var nsorientation = new NSString (orientation);
 			var nsmessage = new NSString (message);
 			
-			Flurry.Messaging.void_objc_msgSend_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr (class_ptr, selOpenTakeoverOrientationRewardImageRewardMessageUserCookies, nshook.Handle, nsorientation.Handle, image.Handle, nsmessage.Handle, userCookies.Handle);
+			Messaging.void_objc_msgSend_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr (class_ptr, selOpenTakeoverOrientationRewardImageRewardMessageUserCookies, nshook.Handle, nsorientation.Handle, image.Handle, nsmessage.Handle, userCookies.Handle);
 			nshook.Dispose ();
 			nsorientation.Dispose ();
 			nsmessage.Dispose ();
@@ -95,10 +95,6 @@ namespace Flurry
 	}
 	
 	public partial class Messaging {
-		static internal System.Reflection.Assembly this_assembly = typeof (Messaging).Assembly;
-
-		const string LIBOBJC_DYLIB = "/usr/lib/libobjc.dylib";
-
 		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSend")]
 		public extern static IntPtr IntPtr_objc_msgSend_IntPtr_int_int_IntPtr_bool_IntPtr_IntPtr_bool_bool_IntPtr_IntPtr (IntPtr receiver, IntPtr selector, IntPtr arg1, int arg2, int arg3, IntPtr arg4, bool arg5, IntPtr arg6, IntPtr arg7, bool arg8, bool arg9, IntPtr arg10, IntPtr arg11);
 		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSendSuper")]

@@ -1,7 +1,7 @@
 using System;
 using MonoTouch.UIKit;
 using MonoTouch.Foundation;
-namespace Flurry
+namespace FlurryAppCircle
 {
 	[BaseType (typeof (NSObject))]
 	[Model]
