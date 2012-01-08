@@ -1,6 +1,6 @@
 using System;
 using MonoTouch.Foundation;
-namespace Flurry
+namespace FlurryAnalytics
 {
 	[BaseType (typeof (NSObject))]
 	interface FlurryAnalytics {

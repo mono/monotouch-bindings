@@ -32,7 +32,7 @@ using MonoTouch.NewsstandKit;
 using MonoTouch.GLKit;
 
 using OpenTK;
-namespace Flurry
+namespace FlurryAnalytics
 {
 	public partial class FlurryAnalytics : NSObject {
 		
@@ -41,14 +41,10 @@ namespace Flurry
 		[Export ("setLatitude:longitude:horizontalAccuracy:verticalAccuracy:")]
 		public static void SetLocation (System.Double latitude, System.Double longitude, float horizontalAccuracy, float verticalAccuracy)
 		{
-			Flurry.Messaging.void_objc_msgSend_Double_Double_float_float (class_ptr, selSetLatitudeLongitudeHorizontalAccuracyVerticalAccuracy, latitude, longitude, horizontalAccuracy, verticalAccuracy);
+			Messaging.void_objc_msgSend_Double_Double_float_float (class_ptr, selSetLatitudeLongitudeHorizontalAccuracyVerticalAccuracy, latitude, longitude, horizontalAccuracy, verticalAccuracy);
 		}
 	}
 	public partial class Messaging {
-		static internal System.Reflection.Assembly this_assembly = typeof (Messaging).Assembly;
-
-		const string LIBOBJC_DYLIB = "/usr/lib/libobjc.dylib";
-
 		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSend")]
 		public extern static void void_objc_msgSend_Double_Double_float_float (IntPtr receiver, IntPtr selector, Double arg1, Double arg2, float arg3, float arg4);
 		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSendSuper")]
