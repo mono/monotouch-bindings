@@ -21,8 +21,8 @@ namespace MonoTouch.PayPal {
 		void PaymentSuccess (string payKey, PayPalPaymentStatus paymentStatus);
 
 		[Abstract]
-		[Export ("paymentFailedWithCorrelationID:andErrorCode:andErrorMessage:")]
-		void PaymentFailed (string correlationID, string errorCode, string errorMessage);
+		[Export ("paymentFailedWithCorrelationID:")]
+		void PaymentFailed (string correlationID);
 
 		[Abstract]
 		[Export ("paymentCanceled")]
@@ -31,7 +31,7 @@ namespace MonoTouch.PayPal {
 		[Abstract]
 		[Export ("paymentLibraryExit")]
 		void PaymentLibraryExit ();
-
+		
 		[Export ("adjustAmountsForAddress:andCurrency:andAmount:andTax:andShipping:andErrorCode:")]
 		PayPalAmounts AdjustAmounts (PayPalAddress address, string currency, NSDecimalNumber amount, NSDecimalNumber tax, NSDecimalNumber shipping, out int payPalAmountErrorCode);
 
@@ -71,9 +71,6 @@ namespace MonoTouch.PayPal {
 		[Export ("feePayer")]
 		PayPalFeePayer FeePayer { get; set;  }
 
-		[Export ("payPalContext")]
-		PayPalContext PayPalContext { get; set;  }
-
 		[Export ("payment")]
 		PayPalAdvancedPayment Payment { get;  }
 
@@ -81,7 +78,11 @@ namespace MonoTouch.PayPal {
 		PayPalPreapprovalDetails PreapprovalDetails { get;  }
 
 		[Export ("payButtons")]
-		NSObject []PayButtons { get; set;  }
+		UIButton []PayButtons { get; set;  }
+		
+
+		[Export ("responseMessage")]
+		NSMutableDictionary ResponseMessage { get; set;  }
 
 		[Static]
 		[Export ("getInstance")]
@@ -120,12 +121,12 @@ namespace MonoTouch.PayPal {
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface PPReceiverPaymentDetails {
+	interface PayPalReceiverPaymentDetails {
 		[Export ("recipient")]
 		string Recipient { get; set;  }
 
 		[Export ("subTotal")]
-		NSDecimalNumber SubTotal { get; set;  }
+		double SubTotal { get; set;  }
 
 		[Export ("isPrimary")]
 		bool IsPrimary { get; set;  }
@@ -149,11 +150,14 @@ namespace MonoTouch.PayPal {
 		string MerchantName { get; set;  }
 
 		[Export ("total")]
-		NSDecimalNumber Total { get;  }
+		double Total { get;  }
 	}
 
 	[BaseType (typeof (NSObject))]
 	interface PayPalAddress {
+		[Export ("name")]
+		string Name { get;  }
+		
 		[Export ("street1")]
 		string Street1 { get;  }
 
@@ -179,7 +183,7 @@ namespace MonoTouch.PayPal {
 		string PaymentCurrency { get; set;  }
 
 		[Export ("subTotal")]
-		NSDecimalNumber SubTotal { get; set;  }
+		double SubTotal { get; set;  }
 
 		[Export ("recipient")]
 		string Recipient { get; set;  }
@@ -215,7 +219,7 @@ namespace MonoTouch.PayPal {
 		string PaymentCurrency { get; set;  }
 
 		[Export ("receiverPaymentDetails")]
-		PPReceiverPaymentDetails [] ReceiverPaymentDetails { get; set;  }
+		PayPalReceiverPaymentDetails [] ReceiverPaymentDetails { get; set;  }
 
 		[Export ("merchantName")]
 		string MerchantName { get; set;  }
@@ -227,19 +231,19 @@ namespace MonoTouch.PayPal {
 		string Memo { get; set;  }
 
 		[Export ("subtotal")]
-		NSDecimalNumber Subtotal { get;  }
+		double Subtotal { get;  }
 
 		[Export ("tax")]
-		NSDecimalNumber Tax { get;  }
+		double Tax { get;  }
 
 		[Export ("shipping")]
-		NSDecimalNumber Shipping { get;  }
+		double Shipping { get;  }
 
 		[Export ("total")]
-		NSDecimalNumber Total { get;  }
+		double Total { get;  }
 
 		[Export ("singleReceiver")]
-		PPReceiverPaymentDetails SingleReceiver { get;  }
+		PayPalReceiverPaymentDetails SingleReceiver { get;  }
 
 		[Export ("isPersonal")]
 		bool IsPersonal { get;  }
@@ -247,14 +251,17 @@ namespace MonoTouch.PayPal {
 
 	[BaseType (typeof (NSObject))]
 	interface PayPalAmounts {
+		[Export ("currency")]
+		string Currency { get; set;  }
+
 		[Export ("payment_amount")]
-		NSDecimalNumber PaymentAmount { get; set;  }
+		double PaymentAmount { get; set;  }
 
 		[Export ("tax")]
-		NSDecimalNumber Tax { get; set;  }
+		double Tax { get; set;  }
 
 		[Export ("shipping")]
-		NSDecimalNumber Shipping { get; set;  }
+		double Shipping { get; set;  }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -305,10 +312,10 @@ namespace MonoTouch.PayPal {
 	[BaseType (typeof (NSObject))]
 	interface PayPalInvoiceData {
 		[Export ("totalTax")]
-		NSDecimalNumber TotalTax { get; set;  }
+		double TotalTax { get; set;  }
 
 		[Export ("totalShipping")]
-		NSDecimalNumber TotalShipping { get; set;  }
+		double TotalShipping { get; set;  }
 
 		[Export ("invoiceItems")]
 		PayPalInvoiceItem [] InvoiceItems { get; set;  }
@@ -338,22 +345,22 @@ namespace MonoTouch.PayPal {
 		string MerchantName { get; set;  }
 
 		[Export ("maxNumPayments")]
-		uint MaxNumPayments { get; set;  }
+		int MaxNumPayments { get; set;  }
 
 		[Export ("maxPerPayment")]
-		NSDecimalNumber MaxPerPayment { get; set;  }
+		double MaxPerPayment { get; set;  }
 
 		[Export ("currency")]
 		string Currency { get; set;  }
 
 		[Export ("maxTotalAmountOfAllPayments")]
-		NSDecimalNumber MaxTotalAmountOfAllPayments { get; set;  }
+		double MaxTotalAmountOfAllPayments { get; set;  }
 
 		[Export ("startDate")]
-		NSDate StartDate { get; set;  }
+		DateTime StartDate { get; set;  }
 
 		[Export ("endDate")]
-		NSDate EndDate { get; set;  }
+		DateTime EndDate { get; set;  }
 
 		[Export ("approved")]
 		bool Approved { get; set;  }
@@ -371,7 +378,7 @@ namespace MonoTouch.PayPal {
 		PayPalDayOfWeek DayOfWeek { get; set;  }
 
 		[Export ("maxNumPaymentsPerPeriod")]
-		uint MaxNumPaymentsPerPeriod { get; set;  }
+		int MaxNumPaymentsPerPeriod { get; set;  }
 
 		[Export ("ipnUrl")]
 		string IpnUrl { get; set;  }
@@ -385,6 +392,9 @@ namespace MonoTouch.PayPal {
 
 	[BaseType (typeof (NSObject))]
 	interface PayPalReceiverAmounts {
+		[Export("amounts")]
+		PayPalAmounts Amounts {get;set;}
+		
 		[Export ("recipient")]
 		string Recipient { get; set;  }
 	}
