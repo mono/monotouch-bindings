@@ -46,11 +46,11 @@ namespace DatatransSample
 					},
 					
 					new RootElement ("DtPaymentRequest"){
-						new Section (){
+						new Section ("Payement request", "Contact Datatrans to get a valid iPhone MerchantId. 1000011011 from the doc will not work."){
 							new EntryElement ("Amount", null, "6400"),
 							new EntryElement ("CurrencyCode", null, "CHF"),
 							new EntryElement ("PriceDescription", null, "CHF 64.-"),
-							new EntryElement ("MerchantId", "Provided by Datatrans", "1000011011"),
+							new EntryElement ("MerchantId", "Provided by Datatrans", "12345"),
 							new EntryElement ("Refno", null, "refno12345"),
 							new EntryElement ("MerchantName", null, "Test Datatrans"),
 						}
@@ -137,7 +137,10 @@ namespace DatatransSample
 				AmountInSmallestCurrencyUnit = amount,
 				CurrencyCode = currency,
 				LocalizedPriceDescription = price,
-				MerchantId = merchantid, // provided by datatrans
+				MerchantId = merchantid, // The MerchantId is provided by datatrans 
+				                         // 10000011011 from doc will not work
+				                         // 1000011643 from doc will not work neither
+				                         // contact Datatrans to have a working iPhone test account
 				Refno = refno,
 				LocalizedMerchantName = merchantname
 				
@@ -156,14 +159,60 @@ namespace DatatransSample
 					payementMethod.Add(e.Caption);
 				}
 			}
+			var pma = payementMethod.ToArray();
 			
+			Debug(paymentRequest);
+			Debug(po);
+			Debug(pma);
 			
 			cpc = new UserPaymentContoller(nav);
-			dtpc = DtPaymentController.FromDelegate(cpc, paymentRequest, payementMethod.ToArray());
+			dtpc = DtPaymentController.FromDelegate(cpc, paymentRequest, pma);
 			dtpc.PaymentOptions = po;
 			dtpc.PresentIn(nav, true);	
 		}
 		
+		void Debug(DtPaymentRequest pr) {
+		
+			
+			Console.WriteLine();
+			Console.WriteLine("DtPaymentRequest");
+			Console.WriteLine("   AmountInSmallestCurrencyUnit: {0}", pr.AmountInSmallestCurrencyUnit);
+			Console.WriteLine("   CurrencyCode: {0}", pr.CurrencyCode);
+			Console.WriteLine("   LocalizedPriceDescription: {0}", pr.LocalizedPriceDescription);
+			Console.WriteLine("   Refno: {0}", pr.Refno);
+			Console.WriteLine("   LocalizedMerchantName: {0}", pr.LocalizedMerchantName);
+			Console.WriteLine("   MerchantId: {0}", pr.MerchantId);
+			Console.WriteLine();
+			
+		}
+		
+		
+		void Debug(DtPaymentOptions po) {
+		
+			
+			Console.WriteLine();
+			Console.WriteLine("DtPaymentOptions");
+			Console.WriteLine("   HideToolbarSecurityInfo: {0}", po.HideToolbarSecurityInfo);
+			Console.WriteLine("   ReturnsCreditCard: {0}", po.ReturnsCreditCard);
+			Console.WriteLine("   ShowAuthorizationConfirmationScreen: {0}", po.ShowAuthorizationConfirmationScreen);
+			Console.WriteLine("   ShowBackButtonOnFirstScreen: {0}", po.ShowBackButtonOnFirstScreen);
+			Console.WriteLine("   Testing: {0}", po.Testing);
+			Console.WriteLine();
+			
+		}
+		
+		void Debug(string[] pm) {
+		
+			
+			Console.WriteLine();
+			Console.WriteLine("payementMethod");
+			foreach(var p in pm) {
+				Console.WriteLine("   {0}", p);
+				
+			}
+			Console.WriteLine();
+			
+		}
 		
 		void DtPayementControllerStatic() {
 			
@@ -172,7 +221,10 @@ namespace DatatransSample
 				AmountInSmallestCurrencyUnit = 100,
 				CurrencyCode = @"CHF",
 				LocalizedPriceDescription = @"CHF 1.-",
-				MerchantId = @"1000011643", // provided by datatrans
+				MerchantId = @"12345",   // The MerchantId is provided by datatrans 
+				                         // 10000011011 from doc will not work
+				                         // 1000011643 from doc will not work neither
+				                         // contact Datatrans to have a working iPhone test account
 				Refno = @"testld",
 				LocalizedMerchantName = "11643"
 				
