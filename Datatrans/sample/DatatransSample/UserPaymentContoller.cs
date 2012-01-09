@@ -30,7 +30,7 @@ namespace DatatransSample
 				
 		public override void DidCancel (DtPaymentController controller, DtPaymentCancellationType cancellationType)
 		{
-			RootNavigation.PopViewControllerAnimated(true);
+			RootNavigation.PopToRootViewController(true);
 		}
 		
 		

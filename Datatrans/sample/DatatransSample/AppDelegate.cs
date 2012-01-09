@@ -19,7 +19,7 @@ namespace DatatransSample
 		DialogViewController dvc;
 		UIWindow window;
 		DtPaymentController dtpc;
-		CinetoilePaymentContoller cpc;
+		UserPaymentContoller cpc;
 		RootElement rootNode;
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -62,8 +62,8 @@ namespace DatatransSample
 							new RootElement ("ReturnsCreditCard", new RadioGroup (0)){
 								new Section (){
 									new RadioElement ("Never"),
-									new RadioElement ("DefaultYes"),
-									new RadioElement ("DefaultNo")
+									new RadioElement ("SelectableDefaultYes"),
+									new RadioElement ("SelectableDefaultNo")
 								}
 							},
 							new BooleanElement ("ShowBackButton", false),
@@ -145,7 +145,7 @@ namespace DatatransSample
 			
 			var po = new DtPaymentOptions() {
 				HideToolbarSecurityInfo = hideToolbar,
-				ReturnsCreditCard = DtPaymentReturnsCreditCard.Never,
+				ReturnsCreditCard = dprcc,
 				ShowBackButtonOnFirstScreen = showBack,
 				Testing = testing
 			};
@@ -158,7 +158,7 @@ namespace DatatransSample
 			}
 			
 			
-			cpc = new CinetoilePaymentContoller(nav);
+			cpc = new UserPaymentContoller(nav);
 			dtpc = DtPaymentController.FromDelegate(cpc, paymentRequest, payementMethod.ToArray());
 			dtpc.PaymentOptions = po;
 			dtpc.PresentIn(nav, true);	
@@ -192,7 +192,7 @@ namespace DatatransSample
 				DtPaymentMethod.PostFinanceEFinance };
 			
 			
-			cpc = new CinetoilePaymentContoller(nav);
+			cpc = new UserPaymentContoller(nav);
 			dtpc = DtPaymentController.FromDelegate(cpc, paymentRequest, payementMethod);
 			dtpc.PaymentOptions = po;
 			dtpc.PresentIn(nav, true);	
