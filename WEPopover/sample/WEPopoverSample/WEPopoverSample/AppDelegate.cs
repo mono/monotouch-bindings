@@ -17,7 +17,6 @@ using System.Collections.Generic;
 using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using WEPopover;
 
 namespace WEPopoverSample
 {
