@@ -1,9 +1,9 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 
-all: Parse.dll
+all: Redpark.dll
 
-Parse.dll: Makefile AssemblyInfo.cs Parse.cs Parse.a
-	$(BTOUCH) -unsafe Parse.cs AssemblyInfo.cs --out=$@ --link-with=Parse.a,Parse.a
+Redpark.dll: Makefile AssemblyInfo.cs RedParkSerial.cs enums.cs libRscMgrUniv.a 
+	$(BTOUCH)  RedParkSerial.cs AssemblyInfo.cs enums.cs --out=$@ --link-with=libRscMgrUniv.a,libRscMgrUniv.a
 
 clean:
 	-rm -f *.a *.dll

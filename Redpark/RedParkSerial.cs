@@ -1,9 +1,23 @@
+using System;
+using MonoTouch.Foundation;
+using System.Drawing;
+using MonoTouch.UIKit;
+using MonoTouch.ObjCRuntime;
 namespace Redpark {
 	
-	[BaseType (typeof (NSObject))]
+	//[BaseType (typeof (NSObject), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (RscMgrDelegate)})]
+	[BaseType(typeof(NSObject))]
 	interface RscMgr {
-		[Export ("setDelegate:delegate")]
-		void SetDelegatee (RscMgrDelegate theDelegate );
+		
+
+		//[Export ("setDelegate:delegate"), NullAllowed]
+		//NSObject WeakDelegate {set; }
+
+		//[Wrap ("WeakDelegate")]
+		//RscMgrDelegate Delegate { get; set; }
+		
+		[Export ("setDelegate:")]
+		void SetDelegate (RscMgrDelegate theDelegate );
 
 		[Export ("init")]
 		NSObject Init ();
@@ -24,10 +38,10 @@ namespace Redpark {
 		void SetStopBits (StopBitsType stopBits);
 
 		[Export ("write:Length:")]
-		int Write (UInt8 data, UInt32 length);
+		int Write (short data, UInt32 length);
 
 		[Export ("read:Length:")]
-		int Read (UInt8 data, UInt32 length);
+		int Read (short data, UInt32 length);
 
 		[Export ("getReadBytesAvailable")]
 		int GetReadBytesAvailable ();
@@ -60,7 +74,7 @@ namespace Redpark {
 		void GetPortStatusport (serialPortStatus portStatus);
 		 */
 		[Export ("writeRscMessage:Length:MsgData:")]
-		int WriteRsc (int cmd, int len, UInt8 msgData);
+		int WriteRsc (int cmd, int len, uint msgData);
 
 	}
 
@@ -72,7 +86,7 @@ namespace Redpark {
 		void CableConnected (string protocol);
 
 		[Abstract]
-		[Export ("cableDisconnected")]
+		[Export ("cableDisconnected:")]
 		void CableDisconnected ();
 
 		[Abstract]

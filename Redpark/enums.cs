@@ -1,3 +1,9 @@
+using System;
+using MonoTouch.Foundation;
+using System.Drawing;
+using MonoTouch.UIKit;
+using MonoTouch.ObjCRuntime;
+using System.Runtime.InteropServices;
 namespace Redpark
 {
 	public enum DataSizeType
