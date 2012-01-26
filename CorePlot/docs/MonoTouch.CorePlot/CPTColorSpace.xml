@@ -1,0 +1,136 @@
+<Type Name="CPTColorSpace" FullName="MonoTouch.CorePlot.CPTColorSpace">
+  <TypeSignature Language="C#" Value="public class CPTColorSpace : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTColorSpace extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>CorePlotiOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CPTColorSpace", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTColorSpace ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTColorSpace (MonoTouch.CoreGraphics.CGColorSpace colorSpace);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.CoreGraphics.CGColorSpace colorSpace) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCGColorSpace:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="colorSpace" Type="MonoTouch.CoreGraphics.CGColorSpace" />
+      </Parameters>
+      <Docs>
+        <param name="colorSpace">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTColorSpace (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTColorSpace (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ColorSpace">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGColorSpace ColorSpace { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CoreGraphics.CGColorSpace ColorSpace" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("cgColorSpace")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreGraphics.CGColorSpace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GenericRGBSpace">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTColorSpace GenericRGBSpace { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTColorSpace GenericRGBSpace" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("genericRGBSpace")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTColorSpace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

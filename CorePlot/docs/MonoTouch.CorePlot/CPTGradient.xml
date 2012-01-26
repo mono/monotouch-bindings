@@ -1,0 +1,684 @@
+<Type Name="CPTGradient" FullName="MonoTouch.CorePlot.CPTGradient">
+  <TypeSignature Language="C#" Value="public class CPTGradient : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTGradient extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>CorePlotiOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CPTGradient", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTGradient ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTGradient (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTGradient (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddColorStop">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTGradient AddColorStop (MonoTouch.CorePlot.CPTColor color, float position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTGradient AddColorStop(class MonoTouch.CorePlot.CPTColor color, float32 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addColorStop:atPosition:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="color" Type="MonoTouch.CorePlot.CPTColor" />
+        <Parameter Name="position" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="color">To be added.</param>
+        <param name="position">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Angle">
+      <MemberSignature Language="C#" Value="public virtual float Angle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Angle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("angle")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAngle:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AquaNormalGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient AquaNormalGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient AquaNormalGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("aquaNormalGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AquaPressedGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient AquaPressedGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient AquaPressedGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("aquaPressedGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AquaSelectedGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient AquaSelectedGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient AquaSelectedGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("aquaSelectedGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BlendingMode">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTGradientBlendingMode BlendingMode { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.CorePlot.CPTGradientBlendingMode BlendingMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("blendingMode")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradientBlendingMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Create">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient Create (MonoTouch.CorePlot.CPTColor beginningColor, MonoTouch.CorePlot.CPTColor endingColor);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.CorePlot.CPTGradient Create(class MonoTouch.CorePlot.CPTColor beginningColor, class MonoTouch.CorePlot.CPTColor endingColor) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("gradientWithBeginningColor:endingColor:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="beginningColor" Type="MonoTouch.CorePlot.CPTColor" />
+        <Parameter Name="endingColor" Type="MonoTouch.CorePlot.CPTColor" />
+      </Parameters>
+      <Docs>
+        <param name="beginningColor">To be added.</param>
+        <param name="endingColor">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Create">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient Create (MonoTouch.CorePlot.CPTColor beginningColor, MonoTouch.CorePlot.CPTColor endingColor, float beginningPosition, float endingPosition);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.CorePlot.CPTGradient Create(class MonoTouch.CorePlot.CPTColor beginningColor, class MonoTouch.CorePlot.CPTColor endingColor, float32 beginningPosition, float32 endingPosition) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("gradientWithBeginningColor:endingColor:beginningPosition:endingPosition:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="beginningColor" Type="MonoTouch.CorePlot.CPTColor" />
+        <Parameter Name="endingColor" Type="MonoTouch.CorePlot.CPTColor" />
+        <Parameter Name="beginningPosition" Type="System.Single" />
+        <Parameter Name="endingPosition" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="beginningColor">To be added.</param>
+        <param name="endingColor">To be added.</param>
+        <param name="beginningPosition">To be added.</param>
+        <param name="endingPosition">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawSwatch">
+      <MemberSignature Language="C#" Value="public virtual void DrawSwatch (System.Drawing.Rectangle inRectangle, MonoTouch.CoreGraphics.CGContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DrawSwatch(valuetype System.Drawing.Rectangle inRectangle, class MonoTouch.CoreGraphics.CGContext context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("drawSwatchInRect:inContext:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inRectangle" Type="System.Drawing.Rectangle" />
+        <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
+      </Parameters>
+      <Docs>
+        <param name="inRectangle">To be added.</param>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FillPath">
+      <MemberSignature Language="C#" Value="public virtual void FillPath (MonoTouch.CoreGraphics.CGContext inContext);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void FillPath(class MonoTouch.CoreGraphics.CGContext inContext) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fillPathInContext:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inContext" Type="MonoTouch.CoreGraphics.CGContext" />
+      </Parameters>
+      <Docs>
+        <param name="inContext">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FillRect">
+      <MemberSignature Language="C#" Value="public virtual void FillRect (System.Drawing.RectangleF rectangle, MonoTouch.CoreGraphics.CGContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void FillRect(valuetype System.Drawing.RectangleF rectangle, class MonoTouch.CoreGraphics.CGContext context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fillRect:inContext:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="rectangle" Type="System.Drawing.RectangleF" />
+        <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
+      </Parameters>
+      <Docs>
+        <param name="rectangle">To be added.</param>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GradientType">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTGradientType GradientType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.CorePlot.CPTGradientType GradientType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("gradientType")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setGradientType:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradientType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GradientWithAlphaComponent">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTGradient GradientWithAlphaComponent (float alpha);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTGradient GradientWithAlphaComponent(float32 alpha) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("gradientWithAlphaComponent:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="alpha" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="alpha">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GradientWithBlendingMode">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTGradient GradientWithBlendingMode (MonoTouch.CorePlot.CPTGradientBlendingMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTGradient GradientWithBlendingMode(valuetype MonoTouch.CorePlot.CPTGradientBlendingMode mode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("gradientWithBlendingMode:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="mode" Type="MonoTouch.CorePlot.CPTGradientBlendingMode" />
+      </Parameters>
+      <Docs>
+        <param name="mode">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HydrogenSpectrumGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient HydrogenSpectrumGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient HydrogenSpectrumGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("hydrogenSpectrumGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NewColorAtPosition">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGColor NewColorAtPosition (float position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CoreGraphics.CGColor NewColorAtPosition(float32 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("newColorAtPosition:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreGraphics.CGColor</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NewColorStop">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGColor NewColorStop (int atIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CoreGraphics.CGColor NewColorStop(int32 atIndex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("newColorStopAtIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreGraphics.CGColor</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="atIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="atIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RainbowGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient RainbowGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient RainbowGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("rainbowGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveColorStop">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTGradient RemoveColorStop (int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTGradient RemoveColorStop(int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeColorStopAtIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveColorStop">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTGradient RemoveColorStop (float position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTGradient RemoveColorStop(float32 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeColorStopAtPosition:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SourceListSelectedGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient SourceListSelectedGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient SourceListSelectedGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sourceListSelectedGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SourceListUnselectedGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient SourceListUnselectedGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient SourceListUnselectedGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sourceListUnselectedGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnifiedDarkGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient UnifiedDarkGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient UnifiedDarkGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("unifiedDarkGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnifiedNormalGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient UnifiedNormalGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient UnifiedNormalGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("unifiedNormalGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnifiedPressedGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient UnifiedPressedGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient UnifiedPressedGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("unifiedPressedGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnifiedSelectedGradient">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTGradient UnifiedSelectedGradient { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTGradient UnifiedSelectedGradient" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("unifiedSelectedGradient")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGradient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

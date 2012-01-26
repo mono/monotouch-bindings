@@ -1,0 +1,1089 @@
+<Type Name="CPTPlot" FullName="MonoTouch.CorePlot.CPTPlot">
+  <TypeSignature Language="C#" Value="public class CPTPlot : MonoTouch.CorePlot.CPTAnnotationHostLayer" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTPlot extends MonoTouch.CorePlot.CPTAnnotationHostLayer" />
+  <AssemblyInfo>
+    <AssemblyName>CorePlotiOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.CorePlot.CPTAnnotationHostLayer</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CPTPlot", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPlot ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPlot (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPlot (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CachedDataCount">
+      <MemberSignature Language="C#" Value="public virtual int CachedDataCount { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 CachedDataCount" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("cachedDataCount")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CachedDecimalForField">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDecimal CachedDecimalForField (MonoTouch.CorePlot.CPTPlotField forFieldEnum, int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype MonoTouch.Foundation.NSDecimal CachedDecimalForField(valuetype MonoTouch.CorePlot.CPTPlotField forFieldEnum, int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cachedDecimalForField:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="forFieldEnum" Type="MonoTouch.CorePlot.CPTPlotField" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CachedDoubleForField">
+      <MemberSignature Language="C#" Value="public virtual double CachedDoubleForField (MonoTouch.CorePlot.CPTPlotField forFieldEnum, int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance float64 CachedDoubleForField(valuetype MonoTouch.CorePlot.CPTPlotField forFieldEnum, int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cachedDoubleForField:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="forFieldEnum" Type="MonoTouch.CorePlot.CPTPlotField" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CachedNumberForField">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSNumber CachedNumberForField (MonoTouch.CorePlot.CPTPlotField forFieldEnum, int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSNumber CachedNumberForField(valuetype MonoTouch.CorePlot.CPTPlotField forFieldEnum, int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cachedNumberForField:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSNumber</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="forFieldEnum" Type="MonoTouch.CorePlot.CPTPlotField" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CachedNumbersForField">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTMutableNumericData CachedNumbersForField (MonoTouch.CorePlot.CPTPlotField forFieldEnum);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTMutableNumericData CachedNumbersForField(valuetype MonoTouch.CorePlot.CPTPlotField forFieldEnum) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cachedNumbersForField:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTMutableNumericData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="forFieldEnum" Type="MonoTouch.CorePlot.CPTPlotField" />
+      </Parameters>
+      <Docs>
+        <param name="forFieldEnum">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CacheNumbers">
+      <MemberSignature Language="C#" Value="public virtual void CacheNumbers (MonoTouch.Foundation.NSObject numbers, MonoTouch.CorePlot.CPTPlotField forFieldEnum);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CacheNumbers(class MonoTouch.Foundation.NSObject numbers, valuetype MonoTouch.CorePlot.CPTPlotField forFieldEnum) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cacheNumbers:forField:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="numbers" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="forFieldEnum" Type="MonoTouch.CorePlot.CPTPlotField" />
+      </Parameters>
+      <Docs>
+        <param name="numbers">To be added.</param>
+        <param name="forFieldEnum">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CacheNumbers">
+      <MemberSignature Language="C#" Value="public virtual void CacheNumbers (MonoTouch.Foundation.NSObject numbers, MonoTouch.CorePlot.CPTPlotField forFieldEnum, int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CacheNumbers(class MonoTouch.Foundation.NSObject numbers, valuetype MonoTouch.CorePlot.CPTPlotField forFieldEnum, int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cacheNumbers:forField:atRecordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="numbers" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="forFieldEnum" Type="MonoTouch.CorePlot.CPTPlotField" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="numbers">To be added.</param>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CachePrecision">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTPlotCachePrecision CachePrecision { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.CorePlot.CPTPlotCachePrecision CachePrecision" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("cachePrecision")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setCachePrecision:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotCachePrecision</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataNeedsReloading">
+      <MemberSignature Language="C#" Value="public virtual bool DataNeedsReloading { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DataNeedsReloading" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("dataNeedsReloading")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataSource">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTPlotDataSource DataSource { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTPlotDataSource DataSource" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("dataSource")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDataSource:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotDataSource</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DecimalDataType">
+      <MemberSignature Language="C#" Value="public virtual IntPtr DecimalDataType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int DecimalDataType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("decimalDataType")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteData">
+      <MemberSignature Language="C#" Value="public virtual void DeleteData (MonoTouch.Foundation.NSRange indexRange);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DeleteData(valuetype MonoTouch.Foundation.NSRange indexRange) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("deleteDataInIndexRange:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
+      </Parameters>
+      <Docs>
+        <param name="indexRange">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DoubleDataType">
+      <MemberSignature Language="C#" Value="public virtual IntPtr DoubleDataType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int DoubleDataType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("doubleDataType")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DoublePrecisionCache">
+      <MemberSignature Language="C#" Value="public virtual bool DoublePrecisionCache { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DoublePrecisionCache" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("doublePrecisionCache")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawSwatch">
+      <MemberSignature Language="C#" Value="public virtual void DrawSwatch (MonoTouch.CorePlot.CPTLegend legent, int index, System.Drawing.RectangleF rect, MonoTouch.CoreGraphics.CGContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DrawSwatch(class MonoTouch.CorePlot.CPTLegend legent, int32 index, valuetype System.Drawing.RectangleF rect, class MonoTouch.CoreGraphics.CGContext context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("drawSwatchForLegend:atIndex:inRect:inContext:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="legent" Type="MonoTouch.CorePlot.CPTLegend" />
+        <Parameter Name="index" Type="System.Int32" />
+        <Parameter Name="rect" Type="System.Drawing.RectangleF" />
+        <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
+      </Parameters>
+      <Docs>
+        <param name="legent">To be added.</param>
+        <param name="index">To be added.</param>
+        <param name="rect">To be added.</param>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FieldIdentifiers">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject[] FieldIdentifiers ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSObject[] FieldIdentifiers() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fieldIdentifiers")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject[]</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FieldIdentifiersForCoordinate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject[] FieldIdentifiersForCoordinate (MonoTouch.CorePlot.CPTCoordinate coord);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSObject[] FieldIdentifiersForCoordinate(valuetype MonoTouch.CorePlot.CPTCoordinate coord) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fieldIdentifiersForCoordinate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="coord" Type="MonoTouch.CorePlot.CPTCoordinate" />
+      </Parameters>
+      <Docs>
+        <param name="coord">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTitleForLegendEntry">
+      <MemberSignature Language="C#" Value="public virtual string GetTitleForLegendEntry (int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance string GetTitleForLegendEntry(int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("titleForLegendEntryAtIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Identifier">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject Identifier { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject Identifier" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("identifier")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setIdentifier:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InsertData">
+      <MemberSignature Language="C#" Value="public virtual void InsertData (int index, int numberOfRecords);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void InsertData(int32 index, int32 numberOfRecords) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("insertDataAtIndex:numberOfRecords:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+        <Parameter Name="numberOfRecords" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="numberOfRecords">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LabelField">
+      <MemberSignature Language="C#" Value="public virtual int LabelField { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 LabelField" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("labelField")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLabelField:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LabelFormatter">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject LabelFormatter { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject LabelFormatter" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("labelFormatter")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLabelFormatter:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LabelOffset">
+      <MemberSignature Language="C#" Value="public virtual float LabelOffset { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 LabelOffset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("labelOffset")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLabelOffset:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LabelRotation">
+      <MemberSignature Language="C#" Value="public virtual float LabelRotation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 LabelRotation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("labelRotation")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLabelRotation:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LabelTextStyle">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTMutableTextStyle LabelTextStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTMutableTextStyle LabelTextStyle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("labelTextStyle")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLabelTextStyle:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTMutableTextStyle</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NeedsRelabel">
+      <MemberSignature Language="C#" Value="public virtual bool NeedsRelabel { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool NeedsRelabel" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("needsRelabel")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumberOfFields">
+      <MemberSignature Language="C#" Value="public virtual int NumberOfFields { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 NumberOfFields" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("numberOfFields")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumberOfLegendEntries">
+      <MemberSignature Language="C#" Value="public virtual int NumberOfLegendEntries { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 NumberOfLegendEntries" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("numberOfLegendEntries")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumbersFromDataSource">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject NumbersFromDataSource (MonoTouch.CorePlot.CPTPlotField forFieldEnum, MonoTouch.Foundation.NSRange indexRange);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSObject NumbersFromDataSource(valuetype MonoTouch.CorePlot.CPTPlotField forFieldEnum, valuetype MonoTouch.Foundation.NSRange indexRange) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("numbersFromDataSourceForField:recordIndexRange:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="forFieldEnum" Type="MonoTouch.CorePlot.CPTPlotField" />
+        <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
+      </Parameters>
+      <Docs>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="indexRange">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlotArea">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTPlotArea PlotArea { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTPlotArea PlotArea" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("plotArea")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotArea</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlotRangeForCoordinate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTPlotRange PlotRangeForCoordinate (MonoTouch.CorePlot.CPTCoordinate coord);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTPlotRange PlotRangeForCoordinate(valuetype MonoTouch.CorePlot.CPTCoordinate coord) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("plotRangeForCoordinate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotRange</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="coord" Type="MonoTouch.CorePlot.CPTCoordinate" />
+      </Parameters>
+      <Docs>
+        <param name="coord">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlotRangeForField">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTPlotRange PlotRangeForField (MonoTouch.CorePlot.CPTPlotField forFieldEnum);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTPlotRange PlotRangeForField(valuetype MonoTouch.CorePlot.CPTPlotField forFieldEnum) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("plotRangeForField:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotRange</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="forFieldEnum" Type="MonoTouch.CorePlot.CPTPlotField" />
+      </Parameters>
+      <Docs>
+        <param name="forFieldEnum">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlotSpace">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTPlotSpace PlotSpace { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTPlotSpace PlotSpace" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("plotSpace")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPlotSpace:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSpace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PositionLabelAnnotationforIndex">
+      <MemberSignature Language="C#" Value="public virtual void PositionLabelAnnotationforIndex (MonoTouch.CorePlot.CPTPlotSpaceAnnotation label, int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PositionLabelAnnotationforIndex(class MonoTouch.CorePlot.CPTPlotSpaceAnnotation label, int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("positionLabelAnnotation:forIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="label" Type="MonoTouch.CorePlot.CPTPlotSpaceAnnotation" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="label">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Relabel">
+      <MemberSignature Language="C#" Value="public virtual void Relabel ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Relabel() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("relabel")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RelabelIndexRange">
+      <MemberSignature Language="C#" Value="public virtual void RelabelIndexRange (MonoTouch.Foundation.NSRange indexRange);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RelabelIndexRange(valuetype MonoTouch.Foundation.NSRange indexRange) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("relabelIndexRange:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
+      </Parameters>
+      <Docs>
+        <param name="indexRange">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReloadData">
+      <MemberSignature Language="C#" Value="public virtual void ReloadData ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReloadData() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("reloadData")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReloadDataIfNeeded">
+      <MemberSignature Language="C#" Value="public virtual void ReloadDataIfNeeded ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReloadDataIfNeeded() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("reloadDataIfNeeded")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReloadDataInIndexRange">
+      <MemberSignature Language="C#" Value="public virtual void ReloadDataInIndexRange (MonoTouch.Foundation.NSRange indexRange);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReloadDataInIndexRange(valuetype MonoTouch.Foundation.NSRange indexRange) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("reloadDataInIndexRange:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
+      </Parameters>
+      <Docs>
+        <param name="indexRange">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDataNeedsReloading">
+      <MemberSignature Language="C#" Value="public virtual void SetDataNeedsReloading ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetDataNeedsReloading() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setDataNeedsReloading")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetNeedsRelabel">
+      <MemberSignature Language="C#" Value="public virtual void SetNeedsRelabel ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetNeedsRelabel() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setNeedsRelabel")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Title">
+      <MemberSignature Language="C#" Value="public virtual string Title { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Title" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("title")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setTitle:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

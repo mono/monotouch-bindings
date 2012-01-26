@@ -1,0 +1,137 @@
+<Type Name="PFPush" FullName="Parse.PFPush">
+  <TypeSignature Language="C#" Value="public class PFPush : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PFPush extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Parse</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("PFPush", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFPush ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFPush (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFPush (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFPush (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Subscribe">
+      <MemberSignature Language="C#" Value="public static bool Subscribe (string channel, out MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Subscribe(string channel, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("subscribeToChannel:withError:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="channel" Type="System.String" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="channel">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

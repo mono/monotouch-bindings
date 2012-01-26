@@ -1,0 +1,395 @@
+<Type Name="FlurryAdDelegate" FullName="FlurryAppCircle.FlurryAdDelegate">
+  <TypeSignature Language="C#" Value="public abstract class FlurryAdDelegate : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit FlurryAdDelegate extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>FlurryAppCircle</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FlurryAdDelegate", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAdDelegate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAdDelegate (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAdDelegate (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAdDelegate (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AppLaunched">
+      <MemberSignature Language="C#" Value="public abstract void AppLaunched (string hook, MonoTouch.Foundation.NSDictionary cookies);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AppLaunched(string hook, class MonoTouch.Foundation.NSDictionary cookies) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("appLaunched:userCookies:userCookies")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+        <Parameter Name="cookies" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <param name="cookies">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BannerCollapsed">
+      <MemberSignature Language="C#" Value="public abstract void BannerCollapsed (string hook);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BannerCollapsed(string hook) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("bannerCollapsed:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BannerExpanded">
+      <MemberSignature Language="C#" Value="public abstract void BannerExpanded (string hook);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BannerExpanded(string hook) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("bannerExpanded:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanvasWillClose">
+      <MemberSignature Language="C#" Value="public abstract void CanvasWillClose ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CanvasWillClose() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("canvasWillClose")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanvasWillDisplay">
+      <MemberSignature Language="C#" Value="public abstract void CanvasWillDisplay (string hook);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CanvasWillDisplay(string hook) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("canvasWillDisplay:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataAvailable">
+      <MemberSignature Language="C#" Value="public abstract void DataAvailable ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DataAvailable() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dataAvailable")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataUnavailable">
+      <MemberSignature Language="C#" Value="public abstract void DataUnavailable ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DataUnavailable() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dataUnavailable")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TakeoverWillClose">
+      <MemberSignature Language="C#" Value="public abstract void TakeoverWillClose ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void TakeoverWillClose() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("takeoverWillClose")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TakeoverWillDisplay">
+      <MemberSignature Language="C#" Value="public abstract void TakeoverWillDisplay (string hook);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void TakeoverWillDisplay(string hook) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("takeoverWillDisplay:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VideoAvailable">
+      <MemberSignature Language="C#" Value="public abstract void VideoAvailable ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void VideoAvailable() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("videoAvailable")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VideoDidFinish">
+      <MemberSignature Language="C#" Value="public abstract void VideoDidFinish (string hook, MonoTouch.Foundation.NSDictionary userCookies);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void VideoDidFinish(string hook, class MonoTouch.Foundation.NSDictionary userCookies) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("videoDidFinish:withUserCookies:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+        <Parameter Name="userCookies" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <param name="userCookies">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VideoDidNotFinish">
+      <MemberSignature Language="C#" Value="public abstract void VideoDidNotFinish (string hook);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void VideoDidNotFinish(string hook) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("videoDidNotFinish:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VideoUnavailable">
+      <MemberSignature Language="C#" Value="public abstract void VideoUnavailable ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void VideoUnavailable() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("videoUnavailable")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

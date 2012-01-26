@@ -1,0 +1,284 @@
+<Type Name="CPTTradingRangePlot" FullName="MonoTouch.CorePlot.CPTTradingRangePlot">
+  <TypeSignature Language="C#" Value="public class CPTTradingRangePlot : MonoTouch.CorePlot.CPTPlot" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTTradingRangePlot extends MonoTouch.CorePlot.CPTPlot" />
+  <AssemblyInfo>
+    <AssemblyName>CorePlotiOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.CorePlot.CPTPlot</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CPTTradingRangePlot", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTTradingRangePlot ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTTradingRangePlot (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTTradingRangePlot (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BarWidth">
+      <MemberSignature Language="C#" Value="public virtual float BarWidth { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 BarWidth" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("barWidth")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setBarWidth:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DecreaseFill">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTFill DecreaseFill { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTFill DecreaseFill" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("decreaseFill")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDecreaseFill:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTFill</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DecreaseLineStyle">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTLineStyle DecreaseLineStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTLineStyle DecreaseLineStyle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("decreaseLineStyle")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDecreaseLineStyle:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTLineStyle</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IncreaseFill">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTFill IncreaseFill { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTFill IncreaseFill" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("increaseFill")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setIncreaseFill:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTFill</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IncreaseLineStyle">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTLineStyle IncreaseLineStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTLineStyle IncreaseLineStyle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("increaseLineStyle")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setIncreaseLineStyle:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTLineStyle</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LineStyle">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTLineStyle LineStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTLineStyle LineStyle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("lineStyle")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLineStyle:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTLineStyle</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlotStyle">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTTradingRangePlotStyle PlotStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.CorePlot.CPTTradingRangePlotStyle PlotStyle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("plotStyle")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPlotStyle:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTTradingRangePlotStyle</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StickLength">
+      <MemberSignature Language="C#" Value="public virtual float StickLength { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 StickLength" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("stickLength")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setStickLength:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

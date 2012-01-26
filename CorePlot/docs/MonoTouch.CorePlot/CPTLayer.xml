@@ -1,0 +1,750 @@
+<Type Name="CPTLayer" FullName="MonoTouch.CorePlot.CPTLayer">
+  <TypeSignature Language="C#" Value="public class CPTLayer : MonoTouch.CoreAnimation.CALayer" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTLayer extends MonoTouch.CoreAnimation.CALayer" />
+  <AssemblyInfo>
+    <AssemblyName>CorePlotiOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.CoreAnimation.CALayer</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CPTLayer", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTLayer ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTLayer (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTLayer (System.Drawing.RectangleF newFrame);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Drawing.RectangleF newFrame) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithFrame:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="newFrame" Type="System.Drawing.RectangleF" />
+      </Parameters>
+      <Docs>
+        <param name="newFrame">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTLayer (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyMaskToContext">
+      <MemberSignature Language="C#" Value="public virtual void ApplyMaskToContext (MonoTouch.CoreGraphics.CGContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ApplyMaskToContext(class MonoTouch.CoreGraphics.CGContext context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("applyMaskToContext:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplySublayerMask">
+      <MemberSignature Language="C#" Value="public virtual void ApplySublayerMask (MonoTouch.CoreGraphics.CGContext toContext, MonoTouch.CorePlot.CPTLayer forSublayer, System.Drawing.PointF offset);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ApplySublayerMask(class MonoTouch.CoreGraphics.CGContext toContext, class MonoTouch.CorePlot.CPTLayer forSublayer, valuetype System.Drawing.PointF offset) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("applySublayerMaskToContext:forSublayer:withOffset:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="toContext" Type="MonoTouch.CoreGraphics.CGContext" />
+        <Parameter Name="forSublayer" Type="MonoTouch.CorePlot.CPTLayer" />
+        <Parameter Name="offset" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="toContext">To be added.</param>
+        <param name="forSublayer">To be added.</param>
+        <param name="offset">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Color">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor Color { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor Color" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("uiColor")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultZPosition">
+      <MemberSignature Language="C#" Value="public static float DefaultZPosition { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property float32 DefaultZPosition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultZPosition")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetImageOfLayer">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIImage GetImageOfLayer ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.UIKit.UIImage GetImageOfLayer() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("imageOfLayer")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIImage</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetPDFRepresentationOfLayer">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSData GetPDFRepresentationOfLayer ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSData GetPDFRepresentationOfLayer() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dataForPDFRepresentationOfLayer")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSData</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Graph">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTGraph Graph { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTGraph Graph" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("CPTGraph")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setCPTGraph:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTGraph</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InnerBorderPath">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGPath InnerBorderPath { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CoreGraphics.CGPath InnerBorderPath" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("innerBorderPath")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setInnerBorderPath:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LayoutAndRender">
+      <MemberSignature Language="C#" Value="public virtual void LayoutAndRender (MonoTouch.CoreGraphics.CGContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void LayoutAndRender(class MonoTouch.CoreGraphics.CGContext context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("layoutAndRenderInContext:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LayoutManager">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTLayoutManager LayoutManager { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTLayoutManager LayoutManager" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("layoutManager")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLayoutManager:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTLayoutManager</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Maskingpath">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGPath Maskingpath { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CoreGraphics.CGPath Maskingpath" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("maskingPath")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MasksToBorder">
+      <MemberSignature Language="C#" Value="public virtual bool MasksToBorder { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool MasksToBorder" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("masksToBorder")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setMasksToBorder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OuterBorderPath">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGPath OuterBorderPath { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CoreGraphics.CGPath OuterBorderPath" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("outerBorderPath")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setOuterBorderPath:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PaddingBottom">
+      <MemberSignature Language="C#" Value="public virtual float PaddingBottom { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 PaddingBottom" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("paddingBottom")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPaddingBottom:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PaddingLeft">
+      <MemberSignature Language="C#" Value="public virtual float PaddingLeft { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 PaddingLeft" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("paddingLeft")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPaddingLeft:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PaddingRight">
+      <MemberSignature Language="C#" Value="public virtual float PaddingRight { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 PaddingRight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("paddingRight")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPaddingRight:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PaddingTop">
+      <MemberSignature Language="C#" Value="public virtual float PaddingTop { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 PaddingTop" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("paddingTop")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPaddingTop:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PixelAlign">
+      <MemberSignature Language="C#" Value="public virtual void PixelAlign ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PixelAlign() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("pixelAlign")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PointingDeviceCancelledEvent">
+      <MemberSignature Language="C#" Value="public virtual bool PointingDeviceCancelledEvent (MonoTouch.Foundation.NSObject theEvent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool PointingDeviceCancelledEvent(class MonoTouch.Foundation.NSObject theEvent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("pointingDeviceCancelledEvent:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="theEvent" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="theEvent">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PointingDeviceDown">
+      <MemberSignature Language="C#" Value="public virtual bool PointingDeviceDown (MonoTouch.Foundation.NSObject theEvent, System.Drawing.PointF interactionPoint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool PointingDeviceDown(class MonoTouch.Foundation.NSObject theEvent, valuetype System.Drawing.PointF interactionPoint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("pointingDeviceDownEvent:atPoint:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="theEvent" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="interactionPoint" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="theEvent">To be added.</param>
+        <param name="interactionPoint">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PointingDeviceDragged">
+      <MemberSignature Language="C#" Value="public virtual bool PointingDeviceDragged (MonoTouch.Foundation.NSObject theEvent, System.Drawing.PointF interactionPoint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool PointingDeviceDragged(class MonoTouch.Foundation.NSObject theEvent, valuetype System.Drawing.PointF interactionPoint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("pointingDeviceDraggedEvent:atPoint:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="theEvent" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="interactionPoint" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="theEvent">To be added.</param>
+        <param name="interactionPoint">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PointingDeviceUp">
+      <MemberSignature Language="C#" Value="public virtual bool PointingDeviceUp (MonoTouch.Foundation.NSObject theEvent, System.Drawing.PointF interactionPoint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool PointingDeviceUp(class MonoTouch.Foundation.NSObject theEvent, valuetype System.Drawing.PointF interactionPoint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("pointingDeviceUpEvent:atPoint:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="theEvent" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="interactionPoint" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="theEvent">To be added.</param>
+        <param name="interactionPoint">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RecursivelyRender">
+      <MemberSignature Language="C#" Value="public virtual void RecursivelyRender (MonoTouch.CoreGraphics.CGContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RecursivelyRender(class MonoTouch.CoreGraphics.CGContext context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("recursivelyRenderInContext:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenderAsVector">
+      <MemberSignature Language="C#" Value="public virtual void RenderAsVector (MonoTouch.CoreGraphics.CGContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RenderAsVector(class MonoTouch.CoreGraphics.CGContext context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("renderAsVectorInContext:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SublayerMaskingPath">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGPath SublayerMaskingPath { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CoreGraphics.CGPath SublayerMaskingPath" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sublayerMaskingPath")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SublayersExcludedFromAutomaticLayout">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSSet SublayersExcludedFromAutomaticLayout { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSSet SublayersExcludedFromAutomaticLayout" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sublayersExcludedFromAutomaticLayout")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSSet</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UseFastRendering">
+      <MemberSignature Language="C#" Value="public virtual bool UseFastRendering { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UseFastRendering" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("useFastRendering")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

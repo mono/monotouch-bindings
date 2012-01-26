@@ -1,0 +1,309 @@
+<Type Name="PFACL" FullName="Parse.PFACL">
+  <TypeSignature Language="C#" Value="public class PFACL : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PFACL extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Parse</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("PFACL", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFACL ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFACL (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFACL (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFACL (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ACL">
+      <MemberSignature Language="C#" Value="public static Parse.PFACL ACL ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFACL ACL() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("ACL")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFACL</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ACLWithUser">
+      <MemberSignature Language="C#" Value="public static Parse.PFACL ACLWithUser (Parse.PFUser user);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFACL ACLWithUser(class Parse.PFUser user) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("ACLWithUser:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFACL</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="user" Type="Parse.PFUser" />
+      </Parameters>
+      <Docs>
+        <param name="user">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPublicReadAccess">
+      <MemberSignature Language="C#" Value="public virtual void SetPublicReadAccess (bool allowed);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetPublicReadAccess(bool allowed) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setPublicReadAccess:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allowed" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="allowed">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPublicWriteAccess">
+      <MemberSignature Language="C#" Value="public virtual void SetPublicWriteAccess (bool allowed);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetPublicWriteAccess(bool allowed) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setPublicWriteAccess:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allowed" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="allowed">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetReadAccessforUser">
+      <MemberSignature Language="C#" Value="public virtual void SetReadAccessforUser (bool allowed, Parse.PFUser user);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetReadAccessforUser(bool allowed, class Parse.PFUser user) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setReadAccess:forUser:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allowed" Type="System.Boolean" />
+        <Parameter Name="user" Type="Parse.PFUser" />
+      </Parameters>
+      <Docs>
+        <param name="allowed">To be added.</param>
+        <param name="user">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetReadAccessforUserId">
+      <MemberSignature Language="C#" Value="public virtual void SetReadAccessforUserId (bool allowed, string userId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetReadAccessforUserId(bool allowed, string userId) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setReadAccess:forUserId:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allowed" Type="System.Boolean" />
+        <Parameter Name="userId" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="allowed">To be added.</param>
+        <param name="userId">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWriteAccessforUser">
+      <MemberSignature Language="C#" Value="public virtual void SetWriteAccessforUser (bool allowed, Parse.PFUser user);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetWriteAccessforUser(bool allowed, class Parse.PFUser user) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setWriteAccess:forUser:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allowed" Type="System.Boolean" />
+        <Parameter Name="user" Type="Parse.PFUser" />
+      </Parameters>
+      <Docs>
+        <param name="allowed">To be added.</param>
+        <param name="user">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWriteAccessforUserId">
+      <MemberSignature Language="C#" Value="public virtual void SetWriteAccessforUserId (bool allowed, string userId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetWriteAccessforUserId(bool allowed, string userId) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setWriteAccess:forUserId:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allowed" Type="System.Boolean" />
+        <Parameter Name="userId" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="allowed">To be added.</param>
+        <param name="userId">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

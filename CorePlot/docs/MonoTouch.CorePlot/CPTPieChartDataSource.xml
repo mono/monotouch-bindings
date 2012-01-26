@@ -1,0 +1,184 @@
+<Type Name="CPTPieChartDataSource" FullName="MonoTouch.CorePlot.CPTPieChartDataSource">
+  <TypeSignature Language="C#" Value="public class CPTPieChartDataSource : MonoTouch.CorePlot.CPTPlotDataSource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTPieChartDataSource extends MonoTouch.CorePlot.CPTPlotDataSource" />
+  <AssemblyInfo>
+    <AssemblyName>CorePlotiOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.CorePlot.CPTPlotDataSource</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CPTPieChartDataSource", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPieChartDataSource ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPieChartDataSource (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPieChartDataSource (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetLegendTitle">
+      <MemberSignature Language="C#" Value="public virtual string GetLegendTitle (MonoTouch.CorePlot.CPTPieChart pieChart, int recordIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance string GetLegendTitle(class MonoTouch.CorePlot.CPTPieChart pieChart, int32 recordIndex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("legendTitleForPieChart:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pieChart" Type="MonoTouch.CorePlot.CPTPieChart" />
+        <Parameter Name="recordIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="pieChart">To be added.</param>
+        <param name="recordIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRaidlOffset">
+      <MemberSignature Language="C#" Value="public virtual float GetRaidlOffset (MonoTouch.CorePlot.CPTPieChart pieChart, int recordIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance float32 GetRaidlOffset(class MonoTouch.CorePlot.CPTPieChart pieChart, int32 recordIndex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("radialOffsetForPieChart:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pieChart" Type="MonoTouch.CorePlot.CPTPieChart" />
+        <Parameter Name="recordIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="pieChart">To be added.</param>
+        <param name="recordIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSliceFill">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTFill GetSliceFill (MonoTouch.CorePlot.CPTPieChart pieChart, int recordIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTFill GetSliceFill(class MonoTouch.CorePlot.CPTPieChart pieChart, int32 recordIndex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("sliceFillForPieChart:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTFill</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pieChart" Type="MonoTouch.CorePlot.CPTPieChart" />
+        <Parameter Name="recordIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="pieChart">To be added.</param>
+        <param name="recordIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSliceLabel">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTTextLayer GetSliceLabel (MonoTouch.CorePlot.CPTPieChart pieChart, int recordIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.CorePlot.CPTTextLayer GetSliceLabel(class MonoTouch.CorePlot.CPTPieChart pieChart, int32 recordIndex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("sliceLabelForPieChart:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTTextLayer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pieChart" Type="MonoTouch.CorePlot.CPTPieChart" />
+        <Parameter Name="recordIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="pieChart">To be added.</param>
+        <param name="recordIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

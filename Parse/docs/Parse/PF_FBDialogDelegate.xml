@@ -1,0 +1,246 @@
+<Type Name="PF_FBDialogDelegate" FullName="Parse.PF_FBDialogDelegate">
+  <TypeSignature Language="C#" Value="public abstract class PF_FBDialogDelegate : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit PF_FBDialogDelegate extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Parse</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("PF_FBDialogDelegate", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PF_FBDialogDelegate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PF_FBDialogDelegate (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PF_FBDialogDelegate (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PF_FBDialogDelegate (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DialogComplete">
+      <MemberSignature Language="C#" Value="public abstract void DialogComplete (MonoTouch.Foundation.NSUrl url);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DialogComplete(class MonoTouch.Foundation.NSUrl url) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dialogCompleteWithUrl:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+      </Parameters>
+      <Docs>
+        <param name="url">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DialogComplete">
+      <MemberSignature Language="C#" Value="public abstract void DialogComplete (Parse.PF_FBDialog dialog);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DialogComplete(class Parse.PF_FBDialog dialog) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dialogDidComplete:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dialog" Type="Parse.PF_FBDialog" />
+      </Parameters>
+      <Docs>
+        <param name="dialog">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DialogDidFail">
+      <MemberSignature Language="C#" Value="public abstract void DialogDidFail (Parse.PF_FBDialog dialog, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DialogDidFail(class Parse.PF_FBDialog dialog, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dialog:didFailWithError:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dialog" Type="Parse.PF_FBDialog" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="dialog">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DialogDidNotComplete">
+      <MemberSignature Language="C#" Value="public abstract void DialogDidNotComplete (MonoTouch.Foundation.NSUrl url);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DialogDidNotComplete(class MonoTouch.Foundation.NSUrl url) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dialogDidNotCompleteWithUrl:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+      </Parameters>
+      <Docs>
+        <param name="url">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DialogDidNotComplete">
+      <MemberSignature Language="C#" Value="public abstract void DialogDidNotComplete (Parse.PF_FBDialog dialog);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DialogDidNotComplete(class Parse.PF_FBDialog dialog) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dialogDidNotComplete:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dialog" Type="Parse.PF_FBDialog" />
+      </Parameters>
+      <Docs>
+        <param name="dialog">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DialogShouldOpenURLInExternalBrowser">
+      <MemberSignature Language="C#" Value="public abstract bool DialogShouldOpenURLInExternalBrowser (Parse.PF_FBDialog dialog, MonoTouch.Foundation.NSUrl url);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool DialogShouldOpenURLInExternalBrowser(class Parse.PF_FBDialog dialog, class MonoTouch.Foundation.NSUrl url) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dialog:shouldOpenURLInExternalBrowser:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dialog" Type="Parse.PF_FBDialog" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+      </Parameters>
+      <Docs>
+        <param name="dialog">To be added.</param>
+        <param name="url">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

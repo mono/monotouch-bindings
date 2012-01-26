@@ -1,0 +1,681 @@
+<Type Name="FlurryAnalytics" FullName="FlurryAnalytics.FlurryAnalytics">
+  <TypeSignature Language="C#" Value="public class FlurryAnalytics : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FlurryAnalytics extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>FlurryAnalytics</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FlurryAnalytics", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAnalytics ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAnalytics (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAnalytics (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAnalytics (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EndTimedEvent">
+      <MemberSignature Language="C#" Value="public static void EndTimedEvent (string eventName, MonoTouch.Foundation.NSDictionary parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void EndTimedEvent(string eventName, class MonoTouch.Foundation.NSDictionary parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("endTimedEvent:withParameters:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventName" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="eventName">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFlurryAgentVersion">
+      <MemberSignature Language="C#" Value="public static string GetFlurryAgentVersion ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string GetFlurryAgentVersion() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getFlurryAgentVersion")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogAllPageViews">
+      <MemberSignature Language="C#" Value="public static void LogAllPageViews (MonoTouch.Foundation.NSObject target);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogAllPageViews(class MonoTouch.Foundation.NSObject target) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logAllPageViews:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="target">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogError">
+      <MemberSignature Language="C#" Value="public static void LogError (string errorID, string message, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogError(string errorID, string message, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logError:message:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="errorID" Type="System.String" />
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="errorID">To be added.</param>
+        <param name="message">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogError">
+      <MemberSignature Language="C#" Value="public static void LogError (string errorID, string message, MonoTouch.Foundation.NSException exception);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogError(string errorID, string message, class MonoTouch.Foundation.NSException exception) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logError:message:exception:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="errorID" Type="System.String" />
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="exception" Type="MonoTouch.Foundation.NSException" />
+      </Parameters>
+      <Docs>
+        <param name="errorID">To be added.</param>
+        <param name="message">To be added.</param>
+        <param name="exception">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogEvent">
+      <MemberSignature Language="C#" Value="public static void LogEvent (string eventName);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogEvent(string eventName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logEvent:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="eventName">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogEvent">
+      <MemberSignature Language="C#" Value="public static void LogEvent (string eventName, MonoTouch.Foundation.NSDictionary parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogEvent(string eventName, class MonoTouch.Foundation.NSDictionary parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logEvent:withParameters:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventName" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="eventName">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogEvent">
+      <MemberSignature Language="C#" Value="public static void LogEvent (string eventName, bool timed);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogEvent(string eventName, bool timed) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logEvent:timed:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventName" Type="System.String" />
+        <Parameter Name="timed" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="eventName">To be added.</param>
+        <param name="timed">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogEvent">
+      <MemberSignature Language="C#" Value="public static void LogEvent (string eventName, MonoTouch.Foundation.NSDictionary parameters, bool timed);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogEvent(string eventName, class MonoTouch.Foundation.NSDictionary parameters, bool timed) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logEvent:withParameters:timed:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventName" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="timed" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="eventName">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="timed">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogPageView">
+      <MemberSignature Language="C#" Value="public static void LogPageView ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogPageView() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logPageView")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAge">
+      <MemberSignature Language="C#" Value="public static void SetAge (int age);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetAge(int32 age) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setAge:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="age" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="age">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAppVersion">
+      <MemberSignature Language="C#" Value="public static void SetAppVersion (string version);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetAppVersion(string version) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setAppVersion:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="version" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="version">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDebugLog">
+      <MemberSignature Language="C#" Value="public static void SetDebugLog (bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetDebugLog(bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setDebugLogEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetEventLogging">
+      <MemberSignature Language="C#" Value="public static void SetEventLogging (bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetEventLogging(bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setEventLoggingEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGender">
+      <MemberSignature Language="C#" Value="public static void SetGender (string gender);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetGender(string gender) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setGender:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="gender" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="gender">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetLocation">
+      <MemberSignature Language="C#" Value="public static void SetLocation (double latitude, double longitude, float horizontalAccuracy, float verticalAccuracy);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetLocation(float64 latitude, float64 longitude, float32 horizontalAccuracy, float32 verticalAccuracy) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setLatitude:longitude:horizontalAccuracy:verticalAccuracy:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="latitude" Type="System.Double" />
+        <Parameter Name="longitude" Type="System.Double" />
+        <Parameter Name="horizontalAccuracy" Type="System.Single" />
+        <Parameter Name="verticalAccuracy" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="latitude">To be added.</param>
+        <param name="longitude">To be added.</param>
+        <param name="horizontalAccuracy">To be added.</param>
+        <param name="verticalAccuracy">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetSecureTransportEnabled">
+      <MemberSignature Language="C#" Value="public static void SetSecureTransportEnabled (bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetSecureTransportEnabled(bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setSecureTransportEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetSessionContinue">
+      <MemberSignature Language="C#" Value="public static void SetSessionContinue (int seconds);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetSessionContinue(int32 seconds) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setSessionContinueSeconds:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="seconds" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="seconds">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetSessionReportsOnClose">
+      <MemberSignature Language="C#" Value="public static void SetSessionReportsOnClose (bool sendSessionReportsOnClose);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetSessionReportsOnClose(bool sendSessionReportsOnClose) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setSessionReportsOnCloseEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sendSessionReportsOnClose" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="sendSessionReportsOnClose">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetSessionReportsOnPause">
+      <MemberSignature Language="C#" Value="public static void SetSessionReportsOnPause (bool setSessionReportsOnPauseEnabled);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetSessionReportsOnPause(bool setSessionReportsOnPauseEnabled) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setSessionReportsOnPauseEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="setSessionReportsOnPauseEnabled" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="setSessionReportsOnPauseEnabled">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShowErrorInLog">
+      <MemberSignature Language="C#" Value="public static void SetShowErrorInLog (bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetShowErrorInLog(bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setShowErrorInLogEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetUserID">
+      <MemberSignature Language="C#" Value="public static void SetUserID (string userID);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetUserID(string userID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setUserID:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="userID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="userID">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartSession">
+      <MemberSignature Language="C#" Value="public static void StartSession (string apiKey);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void StartSession(string apiKey) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startSession:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="apiKey" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="apiKey">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

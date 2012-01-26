@@ -1,0 +1,569 @@
+<Type Name="CPTPlotSymbol" FullName="MonoTouch.CorePlot.CPTPlotSymbol">
+  <TypeSignature Language="C#" Value="public class CPTPlotSymbol : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTPlotSymbol extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>CorePlotiOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CPTPlotSymbol", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPlotSymbol ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPlotSymbol (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPlotSymbol (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CrossPlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol CrossPlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol CrossPlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("crossPlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CustomPlotSymbolFromPath">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol CustomPlotSymbolFromPath (MonoTouch.CoreGraphics.CGPath Path);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.CorePlot.CPTPlotSymbol CustomPlotSymbolFromPath(class MonoTouch.CoreGraphics.CGPath Path) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("customPlotSymbolWithPath:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Path" Type="MonoTouch.CoreGraphics.CGPath" />
+      </Parameters>
+      <Docs>
+        <param name="Path">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CustomSymbolPath">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGPath CustomSymbolPath { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CoreGraphics.CGPath CustomSymbolPath" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("customSymbolPath")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setCustomSymbolPath:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DashPlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol DashPlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol DashPlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("dashPlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiamondPlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol DiamondPlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol DiamondPlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("diamondPlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EllipsePlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol EllipsePlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol EllipsePlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("ellipsePlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Fill">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTFill Fill { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTFill Fill" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("fill")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setFill:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTFill</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HexagonPlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol HexagonPlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol HexagonPlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("hexagonPlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LineStyle">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTLineStyle LineStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.CorePlot.CPTLineStyle LineStyle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("lineStyle")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLineStyle:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTLineStyle</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PentagonPlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol PentagonPlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol PentagonPlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("pentagonPlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol PlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol PlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("plotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlusPlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol PlusPlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol PlusPlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("plusPlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RectanglePlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol RectanglePlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol RectanglePlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("rectanglePlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenderAsVector">
+      <MemberSignature Language="C#" Value="public virtual void RenderAsVector (MonoTouch.CoreGraphics.CGContext inContext, System.Drawing.PointF centerPoint, float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RenderAsVector(class MonoTouch.CoreGraphics.CGContext inContext, valuetype System.Drawing.PointF centerPoint, float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("renderAsVectorInContext:atPoint:scale:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inContext" Type="MonoTouch.CoreGraphics.CGContext" />
+        <Parameter Name="centerPoint" Type="System.Drawing.PointF" />
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="inContext">To be added.</param>
+        <param name="centerPoint">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenderInContext">
+      <MemberSignature Language="C#" Value="public virtual void RenderInContext (MonoTouch.CoreGraphics.CGContext inContext, System.Drawing.PointF centerPoint, float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RenderInContext(class MonoTouch.CoreGraphics.CGContext inContext, valuetype System.Drawing.PointF centerPoint, float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("renderInContext:atPoint:scale:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inContext" Type="MonoTouch.CoreGraphics.CGContext" />
+        <Parameter Name="centerPoint" Type="System.Drawing.PointF" />
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="inContext">To be added.</param>
+        <param name="centerPoint">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Size">
+      <MemberSignature Language="C#" Value="public virtual System.Drawing.SizeF Size { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Drawing.SizeF Size" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("size")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSize:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Drawing.SizeF</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SnowPlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol SnowPlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol SnowPlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("snowPlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StarPlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol StarPlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol StarPlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("starPlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SymbolType">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CorePlot.CPTPlotSymbolType SymbolType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.CorePlot.CPTPlotSymbolType SymbolType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("symbolType")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSymbolType:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbolType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TrianglePlotSymbol">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CorePlot.CPTPlotSymbol TrianglePlotSymbol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.CorePlot.CPTPlotSymbol TrianglePlotSymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("trianglePlotSymbol")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CorePlot.CPTPlotSymbol</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UsesEvenOddClipRule">
+      <MemberSignature Language="C#" Value="public virtual bool UsesEvenOddClipRule { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UsesEvenOddClipRule" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("usesEvenOddClipRule")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUsesEvenOddClipRule:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,500 @@
+<Type Name="FlurryAppCircle" FullName="FlurryAppCircle.FlurryAppCircle">
+  <TypeSignature Language="C#" Value="public class FlurryAppCircle : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FlurryAppCircle extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>FlurryAppCircle</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FlurryAppCircle", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAppCircle ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAppCircle (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAppCircle (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FlurryAppCircle (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AppAdIsAvailable">
+      <MemberSignature Language="C#" Value="public static bool AppAdIsAvailable (string hook);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool AppAdIsAvailable(string hook) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("appAdIsAvailable:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAppAdCount">
+      <MemberSignature Language="C#" Value="public static int GetAppAdCount (string hook);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 GetAppAdCount(string hook) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getAppAdCount:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetHook">
+      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIView GetHook (string hook, int x, int y, MonoTouch.UIKit.UIView view);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.UIKit.UIView GetHook(string hook, int32 x, int32 y, class MonoTouch.UIKit.UIView view) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getHook:xLoc:yLoc:view:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIView</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+        <Parameter Name="x" Type="System.Int32" />
+        <Parameter Name="y" Type="System.Int32" />
+        <Parameter Name="view" Type="MonoTouch.UIKit.UIView" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <param name="view">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetHook">
+      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIView GetHook (string hook, int x, int y, MonoTouch.UIKit.UIView view, bool attachToView, string orientation, string canvasOrientation, bool refresh, bool canvasAnimated, string rewardMessage, MonoTouch.Foundation.NSDictionary userCookies);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.UIKit.UIView GetHook(string hook, int32 x, int32 y, class MonoTouch.UIKit.UIView view, bool attachToView, string orientation, string canvasOrientation, bool refresh, bool canvasAnimated, string rewardMessage, class MonoTouch.Foundation.NSDictionary userCookies) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getHook:xLoc:yLoc:view:attachToView:orientation:canvasOrientation:autoRefresh:canvasAnimated:rewardMessage:userCookies:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIView</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+        <Parameter Name="x" Type="System.Int32" />
+        <Parameter Name="y" Type="System.Int32" />
+        <Parameter Name="view" Type="MonoTouch.UIKit.UIView" />
+        <Parameter Name="attachToView" Type="System.Boolean" />
+        <Parameter Name="orientation" Type="System.String" />
+        <Parameter Name="canvasOrientation" Type="System.String" />
+        <Parameter Name="refresh" Type="System.Boolean" />
+        <Parameter Name="canvasAnimated" Type="System.Boolean" />
+        <Parameter Name="rewardMessage" Type="System.String" />
+        <Parameter Name="userCookies" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="attachToView">To be added.</param>
+        <param name="orientation">To be added.</param>
+        <param name="canvasOrientation">To be added.</param>
+        <param name="refresh">To be added.</param>
+        <param name="canvasAnimated">To be added.</param>
+        <param name="rewardMessage">To be added.</param>
+        <param name="userCookies">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetOffer">
+      <MemberSignature Language="C#" Value="public static bool GetOffer (string hookName, FlurryAppCircle.FlurryOffer flurryOffer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool GetOffer(string hookName, class FlurryAppCircle.FlurryOffer flurryOffer) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getOffer:withFlurryOfferContainer:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hookName" Type="System.String" />
+        <Parameter Name="flurryOffer" Type="FlurryAppCircle.FlurryOffer" />
+      </Parameters>
+      <Docs>
+        <param name="hookName">To be added.</param>
+        <param name="flurryOffer">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetOffer">
+      <MemberSignature Language="C#" Value="public static bool GetOffer (string hookName, FlurryAppCircle.FlurryOffer flurryOffer, MonoTouch.Foundation.NSDictionary userCookies);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool GetOffer(string hookName, class FlurryAppCircle.FlurryOffer flurryOffer, class MonoTouch.Foundation.NSDictionary userCookies) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getOffer:withFlurryOfferContainer:userCookies:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hookName" Type="System.String" />
+        <Parameter Name="flurryOffer" Type="FlurryAppCircle.FlurryOffer" />
+        <Parameter Name="userCookies" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="hookName">To be added.</param>
+        <param name="flurryOffer">To be added.</param>
+        <param name="userCookies">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetOfferCount">
+      <MemberSignature Language="C#" Value="public static int GetOfferCount (string hookName);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 GetOfferCount(string hookName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getOfferCount:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hookName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="hookName">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenCatalog">
+      <MemberSignature Language="C#" Value="public static void OpenCatalog (string hook, string canvasOrientation, bool canvasAnimated);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OpenCatalog(string hook, string canvasOrientation, bool canvasAnimated) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("openCatalog:canvasOrientation:canvasAnimated:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+        <Parameter Name="canvasOrientation" Type="System.String" />
+        <Parameter Name="canvasAnimated" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <param name="canvasOrientation">To be added.</param>
+        <param name="canvasAnimated">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenTakeover">
+      <MemberSignature Language="C#" Value="public static void OpenTakeover (string hook, string orientation, MonoTouch.UIKit.UIImage image, string message, MonoTouch.Foundation.NSDictionary userCookies);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OpenTakeover(string hook, string orientation, class MonoTouch.UIKit.UIImage image, string message, class MonoTouch.Foundation.NSDictionary userCookies) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("openTakeover:orientation:rewardImage:rewardMessage:userCookies:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hook" Type="System.String" />
+        <Parameter Name="orientation" Type="System.String" />
+        <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="userCookies" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="hook">To be added.</param>
+        <param name="orientation">To be added.</param>
+        <param name="image">To be added.</param>
+        <param name="message">To be added.</param>
+        <param name="userCookies">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PeekOffer">
+      <MemberSignature Language="C#" Value="public static bool PeekOffer (string hookName, FlurryAppCircle.FlurryOffer flurryOffer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PeekOffer(string hookName, class FlurryAppCircle.FlurryOffer flurryOffer) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("peekOffer:withFlurryOfferContainer:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hookName" Type="System.String" />
+        <Parameter Name="flurryOffer" Type="FlurryAppCircle.FlurryOffer" />
+      </Parameters>
+      <Docs>
+        <param name="hookName">To be added.</param>
+        <param name="flurryOffer">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveHook">
+      <MemberSignature Language="C#" Value="public static void RemoveHook (MonoTouch.UIKit.UIView banner);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RemoveHook(class MonoTouch.UIKit.UIView banner) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeHook:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="banner" Type="MonoTouch.UIKit.UIView" />
+      </Parameters>
+      <Docs>
+        <param name="banner">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAppCircleDelegate">
+      <MemberSignature Language="C#" Value="public static void SetAppCircleDelegate (MonoTouch.Foundation.NSObject thedelegate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetAppCircleDelegate(class MonoTouch.Foundation.NSObject thedelegate) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setAppCircleDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="thedelegate" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="thedelegate">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetEnabled">
+      <MemberSignature Language="C#" Value="public static void SetEnabled (bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetEnabled(bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setAppCircleEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateHook">
+      <MemberSignature Language="C#" Value="public static void UpdateHook (MonoTouch.UIKit.UIView banner);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void UpdateHook(class MonoTouch.UIKit.UIView banner) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("updateHook:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="banner" Type="MonoTouch.UIKit.UIView" />
+      </Parameters>
+      <Docs>
+        <param name="banner">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

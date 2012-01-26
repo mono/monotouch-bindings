@@ -1,0 +1,813 @@
+<Type Name="PFQuery" FullName="Parse.PFQuery">
+  <TypeSignature Language="C#" Value="public class PFQuery : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PFQuery extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Parse</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("PFQuery", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFQuery ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFQuery (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFQuery (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFQuery (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFQuery (string newClassName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string newClassName) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithClassName:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="newClassName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="newClassName">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassName">
+      <MemberSignature Language="C#" Value="public virtual string ClassName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ClassName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("className")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setClassName:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CountObjects">
+      <MemberSignature Language="C#" Value="public virtual int CountObjects (MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance int32 CountObjects(class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("countObjects:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CountObjectsAsync">
+      <MemberSignature Language="C#" Value="public virtual void CountObjectsAsync (MonoTouch.Foundation.NSObject target, MonoTouch.ObjCRuntime.Selector selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CountObjectsAsync(class MonoTouch.Foundation.NSObject target, class MonoTouch.ObjCRuntime.Selector selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("countObjectsInBackgroundWithTarget:selector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="selector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="target">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FindObjects">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSArray FindObjects (MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSArray FindObjects(class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("findObjects:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSArray</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FindObjectsAsync">
+      <MemberSignature Language="C#" Value="public virtual void FindObjectsAsync (MonoTouch.Foundation.NSObject target, MonoTouch.ObjCRuntime.Selector selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void FindObjectsAsync(class MonoTouch.Foundation.NSObject target, class MonoTouch.ObjCRuntime.Selector selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("findObjectsInBackgroundWithTarget:selector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="selector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="target">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetObject">
+      <MemberSignature Language="C#" Value="public virtual Parse.PFObject GetObject (string objectId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Parse.PFObject GetObject(string objectId) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getObjectWithId:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFObject</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectId" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="objectId">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetObject">
+      <MemberSignature Language="C#" Value="public virtual Parse.PFObject GetObject (string objectId, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Parse.PFObject GetObject(string objectId, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getObjectWithId:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFObject</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectId" Type="System.String" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="objectId">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetObject">
+      <MemberSignature Language="C#" Value="public static Parse.PFObject GetObject (string objectClass, string objectId);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFObject GetObject(string objectClass, string objectId) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getObjectOfClass:objectId:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFObject</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectClass" Type="System.String" />
+        <Parameter Name="objectId" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="objectClass">To be added.</param>
+        <param name="objectId">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetObject">
+      <MemberSignature Language="C#" Value="public static Parse.PFObject GetObject (string objectClass, string objectId, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFObject GetObject(string objectClass, string objectId, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getObjectOfClass:objectId:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFObject</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectClass" Type="System.String" />
+        <Parameter Name="objectId" Type="System.String" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="objectClass">To be added.</param>
+        <param name="objectId">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetObjectAsync">
+      <MemberSignature Language="C#" Value="public virtual void GetObjectAsync (string objectId, MonoTouch.Foundation.NSObject target, MonoTouch.ObjCRuntime.Selector selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void GetObjectAsync(string objectId, class MonoTouch.Foundation.NSObject target, class MonoTouch.ObjCRuntime.Selector selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getObjectInBackgroundWithId:target:selector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectId" Type="System.String" />
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="selector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="objectId">To be added.</param>
+        <param name="target">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetUserObject">
+      <MemberSignature Language="C#" Value="public static Parse.PFUser GetUserObject (string objectId);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFUser GetUserObject(string objectId) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getUserObjectWithId:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFUser</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectId" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="objectId">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetUserObject">
+      <MemberSignature Language="C#" Value="public static Parse.PFUser GetUserObject (string objectId, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFUser GetUserObject(string objectId, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getUserObjectWithId:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFUser</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectId" Type="System.String" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="objectId">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Limit">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSNumber Limit { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSNumber Limit" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("limit")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLimit:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSNumber</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Order">
+      <MemberSignature Language="C#" Value="public virtual string Order { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Order" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("order")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setOrder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OrderByAscending">
+      <MemberSignature Language="C#" Value="public virtual void OrderByAscending (string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OrderByAscending(string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("orderByAscending:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OrderByDescending">
+      <MemberSignature Language="C#" Value="public virtual void OrderByDescending (string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OrderByDescending(string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("orderByDescending:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Query">
+      <MemberSignature Language="C#" Value="public static Parse.PFQuery Query (string className);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFQuery Query(string className) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("queryWithClassName:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFQuery</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="className" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="className">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueryForUser">
+      <MemberSignature Language="C#" Value="public static Parse.PFQuery QueryForUser ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFQuery QueryForUser() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("queryForUser")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFQuery</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Skip">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSNumber Skip { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSNumber Skip" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("skip")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSkip:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSNumber</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WhereKeycontainedIn">
+      <MemberSignature Language="C#" Value="public virtual void WhereKeycontainedIn (string key, MonoTouch.Foundation.NSArray array);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WhereKeycontainedIn(string key, class MonoTouch.Foundation.NSArray array) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("whereKey:containedIn:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="array" Type="MonoTouch.Foundation.NSArray" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="array">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WhereKeyequalTo">
+      <MemberSignature Language="C#" Value="public virtual void WhereKeyequalTo (string key, MonoTouch.Foundation.NSObject inObject);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WhereKeyequalTo(string key, class MonoTouch.Foundation.NSObject inObject) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("whereKey:equalTo:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="inObject" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="inObject">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WhereKeygreaterThan">
+      <MemberSignature Language="C#" Value="public virtual void WhereKeygreaterThan (string key, MonoTouch.Foundation.NSObject inObject);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WhereKeygreaterThan(string key, class MonoTouch.Foundation.NSObject inObject) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("whereKey:greaterThan:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="inObject" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="inObject">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WhereKeygreaterThanOrEqualTo">
+      <MemberSignature Language="C#" Value="public virtual void WhereKeygreaterThanOrEqualTo (string key, MonoTouch.Foundation.NSObject inObject);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WhereKeygreaterThanOrEqualTo(string key, class MonoTouch.Foundation.NSObject inObject) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("whereKey:greaterThanOrEqualTo:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="inObject" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="inObject">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WhereKeylessThan">
+      <MemberSignature Language="C#" Value="public virtual void WhereKeylessThan (string key, MonoTouch.Foundation.NSObject inObject);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WhereKeylessThan(string key, class MonoTouch.Foundation.NSObject inObject) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("whereKey:lessThan:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="inObject" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="inObject">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WhereKeylessThanOrEqualTo">
+      <MemberSignature Language="C#" Value="public virtual void WhereKeylessThanOrEqualTo (string key, MonoTouch.Foundation.NSObject inObject);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WhereKeylessThanOrEqualTo(string key, class MonoTouch.Foundation.NSObject inObject) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("whereKey:lessThanOrEqualTo:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="inObject" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="inObject">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WhereKeynotEqualTo">
+      <MemberSignature Language="C#" Value="public virtual void WhereKeynotEqualTo (string key, MonoTouch.Foundation.NSObject inObject);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WhereKeynotEqualTo(string key, class MonoTouch.Foundation.NSObject inObject) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("whereKey:notEqualTo:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="inObject" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="inObject">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

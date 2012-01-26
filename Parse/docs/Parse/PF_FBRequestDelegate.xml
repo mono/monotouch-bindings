@@ -1,0 +1,225 @@
+<Type Name="PF_FBRequestDelegate" FullName="Parse.PF_FBRequestDelegate">
+  <TypeSignature Language="C#" Value="public abstract class PF_FBRequestDelegate : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit PF_FBRequestDelegate extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Parse</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("PF_FBRequestDelegate", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PF_FBRequestDelegate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PF_FBRequestDelegate (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PF_FBRequestDelegate (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PF_FBRequestDelegate (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidFailWithError">
+      <MemberSignature Language="C#" Value="public abstract void DidFailWithError (Parse.PF_FBRequest request, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidFailWithError(class Parse.PF_FBRequest request, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("request:didFailWithError:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Parse.PF_FBRequest" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="request">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidLoad">
+      <MemberSignature Language="C#" Value="public abstract void DidLoad (Parse.PF_FBRequest request, MonoTouch.Foundation.NSObject result);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidLoad(class Parse.PF_FBRequest request, class MonoTouch.Foundation.NSObject result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("request:didLoad:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Parse.PF_FBRequest" />
+        <Parameter Name="result" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="request">To be added.</param>
+        <param name="result">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidLoadRawResponse">
+      <MemberSignature Language="C#" Value="public abstract void DidLoadRawResponse (Parse.PF_FBRequest request, MonoTouch.Foundation.NSData data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidLoadRawResponse(class Parse.PF_FBRequest request, class MonoTouch.Foundation.NSData data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("request:didLoadRawResponse:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Parse.PF_FBRequest" />
+        <Parameter Name="data" Type="MonoTouch.Foundation.NSData" />
+      </Parameters>
+      <Docs>
+        <param name="request">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Loading">
+      <MemberSignature Language="C#" Value="public abstract void Loading (Parse.PF_FBRequest request);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Loading(class Parse.PF_FBRequest request) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestLoading:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Parse.PF_FBRequest" />
+      </Parameters>
+      <Docs>
+        <param name="request">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReceiveResponse">
+      <MemberSignature Language="C#" Value="public abstract void ReceiveResponse (Parse.PF_FBRequest request, MonoTouch.Foundation.NSUrlResponse response);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReceiveResponse(class Parse.PF_FBRequest request, class MonoTouch.Foundation.NSUrlResponse response) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("request:didReceiveResponse:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="Parse.PF_FBRequest" />
+        <Parameter Name="response" Type="MonoTouch.Foundation.NSUrlResponse" />
+      </Parameters>
+      <Docs>
+        <param name="request">To be added.</param>
+        <param name="response">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

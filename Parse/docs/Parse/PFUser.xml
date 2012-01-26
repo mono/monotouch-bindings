@@ -1,0 +1,882 @@
+<Type Name="PFUser" FullName="Parse.PFUser">
+  <TypeSignature Language="C#" Value="public class PFUser : Parse.PFObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PFUser extends Parse.PFObject" />
+  <AssemblyInfo>
+    <AssemblyName>Parse</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Parse.PFObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("PFUser", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFUser ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFUser (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFUser (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PFUser (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CurrentUser">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSObject CurrentUser ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.Foundation.NSObject CurrentUser() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("currentUser")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Email">
+      <MemberSignature Language="C#" Value="public virtual string Email { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Email" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("email")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setEmail:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Facebook">
+      <MemberSignature Language="C#" Value="public static Parse.PF_Facebook Facebook ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PF_Facebook Facebook() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("facebook")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PF_Facebook</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Facebook">
+      <MemberSignature Language="C#" Value="public static Parse.PF_Facebook Facebook (Parse.PF_FBSessionDelegate fbDelegate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PF_Facebook Facebook(class Parse.PF_FBSessionDelegate fbDelegate) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("facebookWithDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PF_Facebook</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fbDelegate" Type="Parse.PF_FBSessionDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="fbDelegate">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FacebookAccessToken">
+      <MemberSignature Language="C#" Value="public virtual string FacebookAccessToken { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string FacebookAccessToken" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("facebookAccessToken")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FacebookExpirationDate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate FacebookExpirationDate { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate FacebookExpirationDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("facebookExpirationDate")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FacebookId">
+      <MemberSignature Language="C#" Value="public virtual string FacebookId { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string FacebookId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("facebookId")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasFacebook">
+      <MemberSignature Language="C#" Value="public virtual bool HasFacebook ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool HasFacebook() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("hasFacebook")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsAuthenticated">
+      <MemberSignature Language="C#" Value="public virtual bool IsAuthenticated ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool IsAuthenticated() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("isAuthenticated")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsNew">
+      <MemberSignature Language="C#" Value="public virtual bool IsNew { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsNew" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isNew")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LinkToFacebook">
+      <MemberSignature Language="C#" Value="public virtual void LinkToFacebook (MonoTouch.Foundation.NSArray permissions, MonoTouch.Foundation.NSObject target, MonoTouch.ObjCRuntime.Selector selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void LinkToFacebook(class MonoTouch.Foundation.NSArray permissions, class MonoTouch.Foundation.NSObject target, class MonoTouch.ObjCRuntime.Selector selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("linkToFacebook:target:selector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="permissions" Type="MonoTouch.Foundation.NSArray" />
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="selector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="permissions">To be added.</param>
+        <param name="target">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogIn">
+      <MemberSignature Language="C#" Value="public static Parse.PFUser LogIn (string username, string password);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFUser LogIn(string username, string password) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logInWithUsername:password:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFUser</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="username" Type="System.String" />
+        <Parameter Name="password" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="username">To be added.</param>
+        <param name="password">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogIn">
+      <MemberSignature Language="C#" Value="public static Parse.PFUser LogIn (string username, string password, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFUser LogIn(string username, string password, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logInWithUsername:password:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFUser</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="username" Type="System.String" />
+        <Parameter Name="password" Type="System.String" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="username">To be added.</param>
+        <param name="password">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogInAsycnc">
+      <MemberSignature Language="C#" Value="public static void LogInAsycnc (string username, string password);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogInAsycnc(string username, string password) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logInWithUsernameInBackground:password:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="username" Type="System.String" />
+        <Parameter Name="password" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="username">To be added.</param>
+        <param name="password">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogInAsync">
+      <MemberSignature Language="C#" Value="public static void LogInAsync (string username, string password, MonoTouch.Foundation.NSObject target, MonoTouch.ObjCRuntime.Selector selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogInAsync(string username, string password, class MonoTouch.Foundation.NSObject target, class MonoTouch.ObjCRuntime.Selector selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logInWithUsernameInBackground:password:target:selector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="username" Type="System.String" />
+        <Parameter Name="password" Type="System.String" />
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="selector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="username">To be added.</param>
+        <param name="password">To be added.</param>
+        <param name="target">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogInWithFacebook">
+      <MemberSignature Language="C#" Value="public static void LogInWithFacebook (MonoTouch.Foundation.NSArray permissions, MonoTouch.Foundation.NSObject target, MonoTouch.ObjCRuntime.Selector selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogInWithFacebook(class MonoTouch.Foundation.NSArray permissions, class MonoTouch.Foundation.NSObject target, class MonoTouch.ObjCRuntime.Selector selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logInWithFacebook:target:selector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="permissions" Type="MonoTouch.Foundation.NSArray" />
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="selector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="permissions">To be added.</param>
+        <param name="target">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogOut">
+      <MemberSignature Language="C#" Value="public static void LogOut ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogOut() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logOut")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Password">
+      <MemberSignature Language="C#" Value="public virtual string Password { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Password" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("password")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPassword:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RequestPasswordReset">
+      <MemberSignature Language="C#" Value="public static bool RequestPasswordReset (string email);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool RequestPasswordReset(string email) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestPasswordResetForEmail:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="email" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="email">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RequestPasswordReset">
+      <MemberSignature Language="C#" Value="public static bool RequestPasswordReset (string email, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool RequestPasswordReset(string email, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestPasswordResetForEmail:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="email" Type="System.String" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="email">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RequestPasswordResetAsync">
+      <MemberSignature Language="C#" Value="public static void RequestPasswordResetAsync (string email);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RequestPasswordResetAsync(string email) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestPasswordResetForEmailInBackground:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="email" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="email">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RequestPasswordResetAsync">
+      <MemberSignature Language="C#" Value="public static void RequestPasswordResetAsync (string email, MonoTouch.Foundation.NSObject target, MonoTouch.ObjCRuntime.Selector selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RequestPasswordResetAsync(string email, class MonoTouch.Foundation.NSObject target, class MonoTouch.ObjCRuntime.Selector selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestPasswordResetForEmailInBackground:withTarget:selector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="email" Type="System.String" />
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="selector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="email">To be added.</param>
+        <param name="target">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SessionToken">
+      <MemberSignature Language="C#" Value="public virtual string SessionToken { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string SessionToken" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sessionToken")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSessionToken:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SignUp">
+      <MemberSignature Language="C#" Value="public virtual bool SignUp (MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool SignUp(class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("signUp:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SignUpAsync">
+      <MemberSignature Language="C#" Value="public virtual void SignUpAsync ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SignUpAsync() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("signUpInBackground")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SignUpAsync">
+      <MemberSignature Language="C#" Value="public virtual void SignUpAsync (MonoTouch.Foundation.NSObject target, MonoTouch.ObjCRuntime.Selector selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SignUpAsync(class MonoTouch.Foundation.NSObject target, class MonoTouch.ObjCRuntime.Selector selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("signUpInBackgroundWithTarget:selector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="selector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="target">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnlinkFromFacebook">
+      <MemberSignature Language="C#" Value="public virtual bool UnlinkFromFacebook ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool UnlinkFromFacebook() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("unlinkFromFacebook")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnlinkFromFacebook">
+      <MemberSignature Language="C#" Value="public virtual bool UnlinkFromFacebook (MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool UnlinkFromFacebook(class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("unlinkFromFacebookWithError:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnlinkFromFacebookAsync">
+      <MemberSignature Language="C#" Value="public virtual void UnlinkFromFacebookAsync (MonoTouch.Foundation.NSObject target, MonoTouch.ObjCRuntime.Selector selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UnlinkFromFacebookAsync(class MonoTouch.Foundation.NSObject target, class MonoTouch.ObjCRuntime.Selector selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("unlinkFromFacebookInBackgroundWithTarget:selector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="selector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="target">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="User">
+      <MemberSignature Language="C#" Value="public static Parse.PFUser User ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Parse.PFUser User() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("user")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Parse.PFUser</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Username">
+      <MemberSignature Language="C#" Value="public virtual string Username { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Username" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("username")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUsername:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
