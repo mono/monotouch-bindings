@@ -1,0 +1,31 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="Facebook" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libFacebookSDK.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV6 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="facebook">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="MonoTouch.FacebookConnect">
+      <Type Name="Facebook" Kind="Class" />
+      <Type Name="FBDialog" Kind="Class" />
+      <Type Name="FBDialogDelegate" Kind="Class" />
+      <Type Name="FBRequest" Kind="Class" />
+      <Type Name="FBRequestDelegate" Kind="Class" />
+      <Type Name="FBRequestState" Kind="Enumeration" />
+      <Type Name="FBSessionDelegate" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>Facebook</Title>
+</Overview>

@@ -1,3 +1,3 @@
-all: 
-	(cd binding; make)
-	
+ASSEMBLY=Facebook.dll
+include ../Rules.make
+
