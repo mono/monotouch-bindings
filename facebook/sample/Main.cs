@@ -138,7 +138,7 @@ namespace sample {
 						new Section ("Invite friend not using app"){
 						}, 
 						new Section ("Request to App Friends"){
-						},
+						}, 
 						new Section ("Request to targeted friend"){
 						}
 #endif
