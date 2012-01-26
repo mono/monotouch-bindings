@@ -1,0 +1,242 @@
+<Type Name="MGSplitViewControllerDelegate" FullName="MG.MGSplitViewControllerDelegate">
+  <TypeSignature Language="C#" Value="public class MGSplitViewControllerDelegate : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit MGSplitViewControllerDelegate extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>MGSplitViewController</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("MGSplitViewControllerDelegate", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public MGSplitViewControllerDelegate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public MGSplitViewControllerDelegate (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public MGSplitViewControllerDelegate (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConstraintSplitPosition">
+      <MemberSignature Language="C#" Value="public virtual void ConstraintSplitPosition (MG.MGSplitViewController svc, float proposedPosition, System.Drawing.SizeF viewSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ConstraintSplitPosition(class MG.MGSplitViewController svc, float32 proposedPosition, valuetype System.Drawing.SizeF viewSize) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("splitViewController:constraintSplitPosition:splitViewSize:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="svc" Type="MG.MGSplitViewController" />
+        <Parameter Name="proposedPosition" Type="System.Single" />
+        <Parameter Name="viewSize" Type="System.Drawing.SizeF" />
+      </Parameters>
+      <Docs>
+        <param name="svc">To be added.</param>
+        <param name="proposedPosition">To be added.</param>
+        <param name="viewSize">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PopoverController">
+      <MemberSignature Language="C#" Value="public virtual void PopoverController (MG.MGSplitViewController svc, MonoTouch.UIKit.UIPopoverController popovercontroller, MonoTouch.UIKit.UIViewController viewController);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PopoverController(class MG.MGSplitViewController svc, class MonoTouch.UIKit.UIPopoverController popovercontroller, class MonoTouch.UIKit.UIViewController viewController) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("splitViewController:popoverController:willPresentViewController:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="svc" Type="MG.MGSplitViewController" />
+        <Parameter Name="popovercontroller" Type="MonoTouch.UIKit.UIPopoverController" />
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+      </Parameters>
+      <Docs>
+        <param name="svc">To be added.</param>
+        <param name="popovercontroller">To be added.</param>
+        <param name="viewController">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillChangeSplitOrientation">
+      <MemberSignature Language="C#" Value="public virtual void WillChangeSplitOrientation (MG.MGSplitViewController svc, bool isVertical);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WillChangeSplitOrientation(class MG.MGSplitViewController svc, bool isVertical) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("splitViewController:willChangeSplitOrientationToVertical:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="svc" Type="MG.MGSplitViewController" />
+        <Parameter Name="isVertical" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="svc">To be added.</param>
+        <param name="isVertical">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillHideViewController">
+      <MemberSignature Language="C#" Value="public virtual void WillHideViewController (MG.MGSplitViewController svc, MonoTouch.UIKit.UIViewController viewController, MonoTouch.UIKit.UIBarButtonItem barButtonItem, MonoTouch.UIKit.UIPopoverController popoverController);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WillHideViewController(class MG.MGSplitViewController svc, class MonoTouch.UIKit.UIViewController viewController, class MonoTouch.UIKit.UIBarButtonItem barButtonItem, class MonoTouch.UIKit.UIPopoverController popoverController) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("splitViewController:willHideViewController:withBarButtonItem:forPopoverController:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="svc" Type="MG.MGSplitViewController" />
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="barButtonItem" Type="MonoTouch.UIKit.UIBarButtonItem" />
+        <Parameter Name="popoverController" Type="MonoTouch.UIKit.UIPopoverController" />
+      </Parameters>
+      <Docs>
+        <param name="svc">To be added.</param>
+        <param name="viewController">To be added.</param>
+        <param name="barButtonItem">To be added.</param>
+        <param name="popoverController">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillMoveSplit">
+      <MemberSignature Language="C#" Value="public virtual void WillMoveSplit (MG.MGSplitViewController svc, float position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WillMoveSplit(class MG.MGSplitViewController svc, float32 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("splitViewController:willMoveSplitToPosition:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="svc" Type="MG.MGSplitViewController" />
+        <Parameter Name="position" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="svc">To be added.</param>
+        <param name="position">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillShowViewController">
+      <MemberSignature Language="C#" Value="public virtual void WillShowViewController (MG.MGSplitViewController svc, MonoTouch.UIKit.UIViewController viewController, MonoTouch.UIKit.UIBarButtonItem barButtonItem);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WillShowViewController(class MG.MGSplitViewController svc, class MonoTouch.UIKit.UIViewController viewController, class MonoTouch.UIKit.UIBarButtonItem barButtonItem) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("splitViewController:willShowViewController:invalidatingBarButtonItem:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="svc" Type="MG.MGSplitViewController" />
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="barButtonItem" Type="MonoTouch.UIKit.UIBarButtonItem" />
+      </Parameters>
+      <Docs>
+        <param name="svc">To be added.</param>
+        <param name="viewController">To be added.</param>
+        <param name="barButtonItem">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

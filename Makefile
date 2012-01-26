@@ -1,4 +1,4 @@
-IOS=AdJitsu ATMHud FacebookConnect GebePrinter MGSplitViewController PayPal RedLaser Tapku TestFlight Three20
+IOS=AdJitsu ATMHud facebook FlurryAnalytics FlurryAppCircle  GebePrinter GoogleAdMobAds  MGSplitViewController Parse PayPal RedLaser Tapku TestFlight Three20 UrbanAirship
 OSX=
 DUAL=CorePlot
 
@@ -12,10 +12,10 @@ osx:
 	make build-specific TARGET=osx DIRS="$(OSX)"
 
 build:
-	for i in $(DIRS); do (cd $$i; make); done
+	for i in $(DIRS); do (cd $$i && make); done
 
 build-specific:
-	for i in $(DIRS); do (cd $$i; make $(TARGET)); done
+	for i in $(DIRS); do (cd $$i && make $(TARGET)); done
 
 clean:
 	for i in $(IOS) $(OSX) $(DUAL); do (cd $$i; make clean); done
