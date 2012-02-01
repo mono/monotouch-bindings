@@ -1,0 +1,234 @@
+<Type Name="PayPalPaymentDelegate" FullName="MonoTouch.PayPal.PayPalPaymentDelegate">
+  <TypeSignature Language="C#" Value="public abstract class PayPalPaymentDelegate : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit PayPalPaymentDelegate extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>PayPalMPL</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("PayPalPaymentDelegate", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PayPalPaymentDelegate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PayPalPaymentDelegate (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PayPalPaymentDelegate (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AdjustAmounts">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.PayPal.PayPalAmounts AdjustAmounts (MonoTouch.PayPal.PayPalAddress address, string currency, MonoTouch.Foundation.NSDecimalNumber amount, MonoTouch.Foundation.NSDecimalNumber tax, MonoTouch.Foundation.NSDecimalNumber shipping, out int payPalAmountErrorCode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.PayPal.PayPalAmounts AdjustAmounts(class MonoTouch.PayPal.PayPalAddress address, string currency, class MonoTouch.Foundation.NSDecimalNumber amount, class MonoTouch.Foundation.NSDecimalNumber tax, class MonoTouch.Foundation.NSDecimalNumber shipping, int32 payPalAmountErrorCode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("adjustAmountsForAddress:andCurrency:andAmount:andTax:andShipping:andErrorCode:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.PayPal.PayPalAmounts</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="address" Type="MonoTouch.PayPal.PayPalAddress" />
+        <Parameter Name="currency" Type="System.String" />
+        <Parameter Name="amount" Type="MonoTouch.Foundation.NSDecimalNumber" />
+        <Parameter Name="tax" Type="MonoTouch.Foundation.NSDecimalNumber" />
+        <Parameter Name="shipping" Type="MonoTouch.Foundation.NSDecimalNumber" />
+        <Parameter Name="payPalAmountErrorCode" Type="System.Int32&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="address">To be added.</param>
+        <param name="currency">To be added.</param>
+        <param name="amount">To be added.</param>
+        <param name="tax">To be added.</param>
+        <param name="shipping">To be added.</param>
+        <param name="payPalAmountErrorCode">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AdjustAmountsAdvanced">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.PayPal.PayPalReceiverAmounts[] AdjustAmountsAdvanced (MonoTouch.PayPal.PayPalAddress Address, string currency, MonoTouch.PayPal.PayPalReceiverAmounts[] receiverAmounts, out int PayPalAmountErrorCode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.PayPal.PayPalReceiverAmounts[] AdjustAmountsAdvanced(class MonoTouch.PayPal.PayPalAddress Address, string currency, class MonoTouch.PayPal.PayPalReceiverAmounts[] receiverAmounts, int32 PayPalAmountErrorCode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("adjustAmountsAdvancedForAddress:andCurrency:andReceiverAmounts:andErrorCode:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.PayPal.PayPalReceiverAmounts[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Address" Type="MonoTouch.PayPal.PayPalAddress" />
+        <Parameter Name="currency" Type="System.String" />
+        <Parameter Name="receiverAmounts" Type="MonoTouch.PayPal.PayPalReceiverAmounts[]" />
+        <Parameter Name="PayPalAmountErrorCode" Type="System.Int32&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Address">To be added.</param>
+        <param name="currency">To be added.</param>
+        <param name="receiverAmounts">To be added.</param>
+        <param name="PayPalAmountErrorCode">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PaymentCanceled">
+      <MemberSignature Language="C#" Value="public abstract void PaymentCanceled ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PaymentCanceled() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("paymentCanceled")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PaymentFailed">
+      <MemberSignature Language="C#" Value="public abstract void PaymentFailed (string correlationID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PaymentFailed(string correlationID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("paymentFailedWithCorrelationID:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="correlationID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="correlationID">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PaymentLibraryExit">
+      <MemberSignature Language="C#" Value="public abstract void PaymentLibraryExit ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PaymentLibraryExit() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("paymentLibraryExit")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PaymentSuccess">
+      <MemberSignature Language="C#" Value="public abstract void PaymentSuccess (string payKey, MonoTouch.PayPal.PayPalPaymentStatus paymentStatus);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PaymentSuccess(string payKey, valuetype MonoTouch.PayPal.PayPalPaymentStatus paymentStatus) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("paymentSuccessWithKey:andStatus:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="payKey" Type="System.String" />
+        <Parameter Name="paymentStatus" Type="MonoTouch.PayPal.PayPalPaymentStatus" />
+      </Parameters>
+      <Docs>
+        <param name="payKey">To be added.</param>
+        <param name="paymentStatus">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

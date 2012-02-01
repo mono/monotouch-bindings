@@ -1,0 +1,48 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="PayPalMPL" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libPayPalMPL.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV6 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, "-lxml2 -lz", ForceLoad=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="MonoTouch.PayPal">
+      <Type Name="PayPal" Kind="Class" />
+      <Type Name="PayPalAddress" Kind="Class" />
+      <Type Name="PayPalAdvancedPayment" Kind="Class" />
+      <Type Name="PayPalAmountErrorCode" Kind="Enumeration" />
+      <Type Name="PayPalAmounts" Kind="Class" />
+      <Type Name="PayPalButtonText" Kind="Enumeration" />
+      <Type Name="PayPalButtonType" Kind="Enumeration" />
+      <Type Name="PayPalContext" Kind="Class" />
+      <Type Name="PayPalDayOfWeek" Kind="Enumeration" />
+      <Type Name="PayPalEnvironment" Kind="Enumeration" />
+      <Type Name="PayPalFailureType" Kind="Enumeration" />
+      <Type Name="PayPalFeePayer" Kind="Enumeration" />
+      <Type Name="PayPalInitializationStatus" Kind="Enumeration" />
+      <Type Name="PayPalInvoiceData" Kind="Class" />
+      <Type Name="PayPalInvoiceItem" Kind="Class" />
+      <Type Name="PayPalPayment" Kind="Class" />
+      <Type Name="PayPalPaymentDelegate" Kind="Class" />
+      <Type Name="PayPalPaymentPeriod" Kind="Enumeration" />
+      <Type Name="PayPalPaymentStatus" Kind="Enumeration" />
+      <Type Name="PayPalPaymentSubType" Kind="Enumeration" />
+      <Type Name="PayPalPaymentType" Kind="Enumeration" />
+      <Type Name="PayPalPreapprovalDetails" Kind="Class" />
+      <Type Name="PayPalReceiverAmounts" Kind="Class" />
+      <Type Name="PayPalReceiverPaymentDetails" Kind="Class" />
+    </Namespace>
+    <Namespace Name="paypal">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>PayPalMPL</Title>
+</Overview>

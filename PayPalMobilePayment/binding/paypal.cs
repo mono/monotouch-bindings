@@ -7,6 +7,7 @@
  * Copyright 2011 Xamarin, Inc.
  */
 
+using System;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.ObjCRuntime;
