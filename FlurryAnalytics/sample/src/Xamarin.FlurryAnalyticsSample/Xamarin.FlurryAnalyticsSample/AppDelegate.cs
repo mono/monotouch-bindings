@@ -35,7 +35,6 @@ namespace Xamarin.FlurryAnalyticsSample
 //		    NSSetUncaughtExceptionHandler (Marshal.GetFunctionPointerForDelegate (UncaughtExceptionHandlerAction));
 			
 //			FA.FlurryAnalytics.StartSession("YOUR_API_KEY");
-			FA.FlurryAnalytics.StartSession("EHBIHF8XMGFVVP5YQZ9E");
 //			FA.FlurryAnalytics.SetSessionReportsOnPause(true);
 			
 			_Window = new UIWindow(UIScreen.MainScreen.Bounds);
