@@ -14,26 +14,27 @@ all: GoogleAnalytics.dll
 GoogleAnalyticsiOS_1.4.tar.gz:
 	curl -O http://dl.google.com/gaformobileapps/GoogleAnalyticsiOS_1.4.tar.gz
 
-STUBS = armv6.o armv7.o i386.o
-
-armv6.o: stub.m
-	$(CLANG) -c -arch armv6 stub.m -o armv6.o
-
-armv7.o: stub.m
-	$(CLANG) -c -arch armv7 stub.m -o armv7.o
-
-i386.o: stub.m Makefile
-	clang -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -fobjc-abi-version=2 -fobjc-legacy-dispatch -c -arch i386 stub.m -o i386.o 
+#STUBS = armv6.o armv7.o i386.o
+#
+#armv6.o: stub.m
+#	$(CLANG) -c -arch armv6 stub.m -o armv6.o
+#
+#armv7.o: stub.m
+#	$(CLANG) -c -arch armv7 stub.m -o armv7.o
+#
+#i386.o: stub.m Makefile
+#	clang -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -fobjc-abi-version=2 -fobjc-legacy-dispatch -c -arch i386 stub.m -o i386.o 
 
 
 libFixedGoogleAnalytics.a: libGoogleAnalytics_NoThumb.a $(STUBS)
-	lipo libGoogleAnalytics_NoThumb.a -thin armv6 -output libarmv6.a
-	ar -q libarmv6.a armv6.o
-	lipo libGoogleAnalytics_NoThumb.a -thin armv7 -output libarmv7.a
-	ar -q libarmv7.a armv7.o
-	lipo libGoogleAnalytics_NoThumb.a -thin i386 -output libi386.a
-	ar -q libi386.a i386.o
-	lipo -create libarmv6.a libarmv7.a libi386.a -output libFixedGoogleAnalytics.a 
+	cp libGoogleAnalytics_NoThumb.a libFixedGoogleAnalytics.a
+#	lipo libGoogleAnalytics_NoThumb.a -thin armv6 -output libarmv6.a
+#	ar -q libarmv6.a armv6.o
+#	lipo libGoogleAnalytics_NoThumb.a -thin armv7 -output libarmv7.a
+#	ar -q libarmv7.a armv7.o
+#	lipo libGoogleAnalytics_NoThumb.a -thin i386 -output libi386.a
+#	ar -q libi386.a i386.o
+#	lipo -create libarmv6.a libarmv7.a libi386.a -output libFixedGoogleAnalytics.a 
 
 libGoogleAnalytics_NoThumb.a: GoogleAnalyticsiOS_1.4.tar.gz
 	tar xOzvf GoogleAnalyticsiOS_1.4.tar.gz 'Google Analytics SDK/Library/libGoogleAnalytics_NoThumb.a' > $@
