@@ -22,16 +22,16 @@ namespace GoogleAnalytics {
 		void StopTracker ();
 
 		// Not supported until Google fixes their library
-		//[Export ("trackPageview:withError:")]
-		//bool TrackPageView (string pageUrl, out NSError nsError);
+		[Export ("trackPageview:withError:")]
+		bool TrackPageView (string pageUrl, out NSError nsError);
 
 		[Export ("trackEvent:action:label:value:withError:")]
 		bool TrackEvent (string category, string action, string label, int value, out NSError nsError);
 
-		[Export ("setCustomVariableAtIndex:name:value:scope:withError")]
+		[Export ("setCustomVariableAtIndex:name:value:scope:withError:")]
 		bool SetCustomVariable (int index, string name, string value, GanCVScope scope, out NSError nsError);
 		
-		[Export ("setCustomVariableAtIndex:name:value:withError")]
+		[Export ("setCustomVariableAtIndex:name:value:withError:")]
 		bool SetCustomVariable (int index, string name, string value, out NSError nsError);
 
 		[Export ("addTransaction:totalPrice:storeName:totalTax:shippingCost:withError:")]

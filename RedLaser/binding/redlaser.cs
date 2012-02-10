@@ -115,6 +115,9 @@ namespace RedLaser
 	*/
 	[BaseType (typeof (UIViewController))]
 	interface BarcodePickerController {
+		[Export ("prepareToScan")]
+		void PrepareToScan ();
+		
 		[Export ("pauseScanning")]
 		void PauseScanning ();
 		
