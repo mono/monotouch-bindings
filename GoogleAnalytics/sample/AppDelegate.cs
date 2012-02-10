@@ -14,7 +14,7 @@ namespace sample
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		UIWindow window;
-		const string account = "UA-27277921-1";
+		const string account = "youraccoutid";
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{			
 			GoogleAnalytics.GANTracker.SharedTracker.StartTracker(account,60,null);
