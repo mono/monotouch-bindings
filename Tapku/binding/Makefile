@@ -30,7 +30,7 @@ TapkuLibrary.dll: AssemblyInfo.cs Tapku.cs lib$(TARGET)Universal.a
 	make libTapkuLibrary-armv6.a
 	make libTapkuLibrary-armv7.a
 	make libTapkuLibraryUniversal.a
-	$(BTOUCH)  Tapku.cs AssemblyInfo.cs --out=$@ --link-with=libTapkuLibraryUniversal.a,libTapkuLibraryUniversal.a -x=extras.cs
+	$(BTOUCH)  Tapku.cs AssemblyInfo.cs Enums.cs --out=$@ --link-with=libTapkuLibraryUniversal.a,libTapkuLibraryUniversal.a
 
 clean:
 	-rm -f *.a *.dll

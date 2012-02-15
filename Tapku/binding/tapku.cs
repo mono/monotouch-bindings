@@ -561,14 +561,106 @@ namespace Tapku
 
     [BaseType (typeof (UITableViewCell))]
     interface TKTextViewCell {
+        [Export("textView")]
+        UITextView TextView { get; set; }
     }
 
     [BaseType (typeof (UIViewController))]
     interface TKViewController {
+        [Export("addActiveRequest:")]
+        void AddActiveRequest(TKHTTPRequest request);
+
+        [Export("activeRequestCount")]
+        int ActiveRequestCount();
+
+        [Export("removeActiveRequest:")]
+        void RemoveActiveRequest(TKHTTPRequest request);
+
+        [Export("cancelActiveRequests")]
+        void CancelActiveRequests();
     }
 
     [BaseType (typeof (UIWindow))]
     interface TKWindow {
+    }
+
+
+    [BaseType(typeof(NSOperation))]
+    interface TKHTTPRequest {
+        [Export("initWithURL:")]
+        IntPtr Constructor(NSUrl url);
+
+        [Export("requestWithURLRequest:")]
+        IntPtr Constructor(NSUrlRequest request);
+
+        [Static, Export("requestWithURL")]
+        TKHTTPRequest RequestWithURL(NSUrl url);
+
+        [Static, Export("requestWithURLRequest:")]
+        TKHTTPRequest RequestWithUrlRequest(NSUrlRequest request);
+
+        [Export("URL")]
+        NSUrl Url { get; set; }
+
+        [Export("URLRequest")]
+        NSUrlRequest Request { get; set; }
+        
+        [Export("tag", ArgumentSemantic.Assign)]
+        int Tag { get; set; }
+
+        [Export("showNetworkActivity", ArgumentSemantic.Assign)]
+        bool ShowNetworkActivity { get; set; }
+
+        [Export("didStartSelector", ArgumentSemantic.Assign)]
+        Selector DidStartSelector { get; set; }
+
+        [Export("didFinishSelector", ArgumentSemantic.Assign)]
+        Selector DidFinishSelector { get; set; }
+
+        [Export("didFailSelector", ArgumentSemantic.Assign)]
+        Selector DidFailSelector { get; set; }
+
+        [Export("downloadDestinationPath", ArgumentSemantic.Copy)]
+        string DownloadDestinationPath { get; set; }
+
+        [Export("temporaryFileDownloadPath", ArgumentSemantic.Copy)]
+        string TemporaryFileDownloadPath { get; set; }
+
+        [Export("error", ArgumentSemantic.Copy)]
+        NSError Error { get; set; }
+
+        [Export("statusCode", ArgumentSemantic.Assign)]
+        int StatusCode { get; set; }
+
+        [Export("responseHeaders")]
+        NSDictionary ResponseHeaders { get; set; }
+
+        [Export("responseData")]
+        NSData ResponseData { get; }
+
+        [Export("startAsynchronous")]
+        void StartAsync();
+
+        [Static, Export("isNetworkInUse")]
+        bool IsNetworkInUse();
+
+        [Static, Export("setShouldUpdateNetworkActivityIndicator:")]
+        void SetShouldUpdateNetworkActivityIndicator(bool shouldUpdate);
+
+        [Export ("progressDelegate", ArgumentSemantic.None)][NullAllowed]
+        NSObject WeakDelegate { get; set; }
+
+        [Wrap ("WeakDelegate")]
+        TKHTTPRequestProgressDelegate Delegate { get; set; }
+    }
+
+
+    [BaseType(typeof(NSObject))]
+    [Model]
+    interface TKHTTPRequestProgressDelegate {
+        [Export("request:didReceiveTotalBytes:ofExpectedBytes:")]
+        void ReceivedBytes(TKHTTPRequest request, int received, int totalExpected);
+        
     }
 
 
