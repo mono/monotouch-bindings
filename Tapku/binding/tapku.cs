@@ -7,388 +7,568 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.CoreGraphics;
 using MonoTouch.MapKit;
 using MonoTouch.CoreLocation;
+using MonoTouch.CoreAnimation;
 
 namespace Tapku
 {
-    [BaseType(typeof(UITableViewCell))]
-    interface ABTableViewCell
-    {
-        [Export("drawContentView:")]
-        void DrawContentView(RectangleF r);
+    
+    [BaseType (typeof (UIView))]
+    interface TKLoadingView {
+        [Export ("message")]
+        string Message { get; set;  }
+
+        [Export ("radius")]
+        float Radius { get; set;  }
+
+        [Export ("initWithTitle:message:")]
+        IntPtr Constructor (string title, string message);
+
+        [Export ("initWithTitle:")]
+        IntPtr Constructor (string title);
+
+        [Export ("startAnimating")]
+        void StartAnimating ();
+
+        [Export ("stopAnimating")]
+        void StopAnimating ();
 
     }
 
+    [BaseType (typeof (UIAlertView))]
+    interface TKProgressAlertView {
+        [Export ("progressBar")]
+        TKProgressBarView ProgressBar { get;  }
 
-    [BaseType(typeof(ABTableViewCell))]
-    interface FSIndicatorCell
-    {
-        [Export("text", ArgumentSemantic.Copy)]
-        string Text { get; set; }
+        [Export ("label")]
+        UILabel Label { get;  }
 
-        [Export("count", ArgumentSemantic.Assign)]
-        int Count { get; set; }
+        [Export ("initWithProgressTitle:")]
+        IntPtr Constructor (string title);
 
-    }
+        [Export ("show")]
+        void Show ();
 
-
-    [BaseType(typeof(ABTableViewCell))]
-    interface FSSubtitleCell
-    {
-        [Export("title", ArgumentSemantic.Copy)]
-        string Title { get; set; }
-
-        [Export("subtitle", ArgumentSemantic.Copy)]
-        string Subtitle { get; set; }
+        [Export ("hide")]
+        void Hide ();
 
     }
 
+    [BaseType (typeof (UIView))]
+    interface TKProgressBarView {
+        [Export ("progress")]
+        float Progress { get; set;  }
 
-    [BaseType(typeof(UIView))]
-    interface LoadingHUDView
-    {
-        [Export("title", ArgumentSemantic.Copy)]
-        string Title { get; set; }
-
-        [Export("message", ArgumentSemantic.Copy)]
-        string Message { get; set; }
-
-        [Export("initWithTitle:message:")]
-        IntPtr Constructor(string ttl, string msg);
-
-        [Export("initWithTitle:")]
-        IntPtr Constructor(string ttl);
+        [Export ("initWithStyle:")]
+        IntPtr Constructor (TKProgressBarViewStyle style);
 
     }
 
+    [BaseType (typeof (UIView))]
+    interface TKProgressCircleView {
+        [Export ("progress")]
+        float Progress { get; set;  }
 
-    [BaseType(typeof(UITableViewCell))]
-    interface TKButtonCell
-    {
-        [Export("text", ArgumentSemantic.Copy)]
-        string Text { get; set; }
+        [Export ("twirlMode")]
+        bool TwirlMode { [Bind ("isTwirling")] get; set;  }
 
-    }
-
-
-    [BaseType(typeof(UIView))]
-    interface TKCalendarMonthView
-    {
-        [Export("lines")]
-        int Lines { get; }
-
-        [Export("weekdayOfFirst")]
-        int WeekdayOfFirst { get; }
-
-        [Export("dateOfFirst")]
-        NSDate DateOfFirst { get; }
-
-        [Export("initWithFrame:startDate:today:marked:")]
-        IntPtr Constructor(RectangleF frame, NSDate theDate, int todayDay, NSArray marksArray);
-
-        [Export("setDate:today:marked:")]
-        void SetDate(NSDate firstOfMonth, int dayOfDate, NSArray marksArray);
-
-        [Export("selectDay:")]
-        void SelectDay(int theDayNumber);
+        [Export ("setProgress:animated:")]
+        void SetProgress (float progress, bool animated);
 
     }
 
+    [BaseType (typeof (UIView))]
+    interface TapDetectingView {
+        //[Export ("<TapDetectingViewDelegate>")]
+        //NSObject <TapDetectingViewDelegate> { get; set;  }
 
-    [BaseType(typeof(NSObject))]
+    }
+
+    /*[BaseType (typeof ())]
     [Model]
-    interface TKCalendarMonthViewDelegate
-    {
-        [Export("calendarMonth:dateWasSelected:")]
-        void CalendarMonthDateWasSelected(TKCalendarMonthView calendarMonth, int integer);
+    interface TapDetectingViewDelegate {
+        [Abstract]
+        [Export ("tapDetectingView:gotSingleTapAtPoint:")]
+        void TapDetectingViewgotSingleTapAtPoint (TapDetectingView view, PointF tapPoint);
 
-        [Export("calendarMonth:previousMonthDayWasSelected:")]
-        void CalendarMonthPreviousMonthDayWasSelected(TKCalendarMonthView calendarMonth, int day);
+        [Abstract]
+        [Export ("tapDetectingView:gotDoubleTapAtPoint:")]
+        void TapDetectingViewgotDoubleTapAtPoint (TapDetectingView view, PointF tapPoint);
 
-        [Export("calendarMonth:nextMonthDayWasSelected:")]
-        void CalendarMonthNextMonthDayWasSelected(TKCalendarMonthView calendarMonth, int day);
+        [Abstract]
+        [Export ("tapDetectingView:gotTwoFingerTapAtPoint:")]
+        void TapDetectingViewgotTwoFingerTapAtPoint (TapDetectingView view, PointF tapPoint);
 
-    }
+    }*/
 
+    [BaseType (typeof (NSObject))]
+    interface TKAlertCenter {
+        [Static]
+        [Export ("defaultCenter")]
+        TKAlertCenter DefaultCenter { get; }
 
-    [BaseType(typeof(UIView))]
-    interface TKCalendarDayView
-    {
-        [Export("str", ArgumentSemantic.Copy)]
-        string Str { get; set; }
+        [Export ("postAlertWithMessage:image:")]
+        void PostAlert (string message, UIImage image);
 
-        [Export("selected", ArgumentSemantic.Assign)]
-        bool Selected { get; set; }
-
-        [Export("active", ArgumentSemantic.Assign)]
-        bool Active { get; set; }
-
-        [Export("today", ArgumentSemantic.Assign)]
-        bool Today { get; set; }
-
-        [Export("marked", ArgumentSemantic.Assign)]
-        bool Marked { get; set; }
+        [Export ("postAlertWithMessage:")]
+        void PostAlert (string message);
 
     }
 
+    [BaseType (typeof (UIApplicationDelegate))]
+    interface TKAppDelegate {
+        [Export ("window")]
+        TKWindow Window { get; set;  }
 
-    [BaseType(typeof(UIView))]
-    interface TKCalendarView
-    {
-        [Export("monthString", ArgumentSemantic.Copy)]
-        string MonthString { get; set; }
-
-        [Export("initWithFrame:delegate:")]
-        IntPtr Constructor(RectangleF frame, IntPtr Delegate);
+        [Export ("applicationDidStartup:")]
+        void ApplicationDidStartup (UIApplication application);
 
     }
 
+    [BaseType (typeof (UITableViewCell))]
+    interface TKButtonCell {
+    }
 
-    [BaseType(typeof(NSObject))]
+    [BaseType (typeof (TapDetectingView))]
+    interface TKCalendarDayEventView {
+        [Export ("id")]
+        NSNumber Id { get; set;  }
+
+        [Export ("startDate")]
+        NSDate StartDate { get; set;  }
+
+        [Export ("endDate")]
+        NSDate EndDate { get; set;  }
+
+        [Export ("title")]
+        string Title { get; set;  }
+
+        [Export ("location")]
+        string Location { get; set;  }
+
+        [Export ("balloonColorTop")]
+        UIColor BalloonColorTop { get; set;  }
+
+        [Export ("balloonColorBottom")]
+        UIColor BalloonColorBottom { get; set;  }
+
+        [Export ("textColor")]
+        UIColor TextColor { get; set;  }
+
+        [Export ("setupCustomInitialisation")]
+        void SetupCustomInitialisation ();
+
+        [Static]
+        [Export ("eventViewWithFrame:id:startDate:endDate:title:location:")]
+        NSObject EventView (RectangleF frame, NSNumber id, NSDate startDate, NSDate endDate, string title, string location);
+
+    }
+
+    [BaseType (typeof (UIView))]
+    interface TKCalendarDayTimelineView {
+        [Export ("scrollView")]
+        UIScrollView scrollView { get;  }
+
+        [Export ("timelineView")]
+        TKTimelineView timelineView { get;  }
+
+        [Export ("events")]
+        NSArray events { get; set;  }
+
+        [Export ("currentDay")]
+        NSDate currentDay { get; set;  }
+
+        //[Export ("<TKCalendarDayTimelineViewDelegate>")]
+        //NSObject <TKCalendarDayTimelineViewDelegate> { get; set;  }
+
+        [Export ("timelineColor")]
+        UIColor TimelineColor { get; set;  }
+
+        [Export ("hourColor")]
+        UIColor HourColor { get; set;  }
+
+        [Export ("is24hClock")]
+        bool Is24hClock { get; set;  }
+
+        [Export ("setupCustomInitialisation")]
+        void SetupCustomInitialisation ();
+
+        [Export ("reloadDay")]
+        void ReloadDay ();
+
+    }
+
+    [BaseType (typeof (NSObject))]
     [Model]
-    interface TKCalendarViewDelegate
-    {
-        [Export("calendarView:dateWasSelected:ofMonth:")]
-        void CalendarView(TKCalendarView calendar, int integer, NSDate monthDate);
+    interface TKCalendarDayTimelineViewDelegate {
+        [Abstract]
+        [Export ("calendarDayTimelineView:eventsForDate:")]
+        NSArray CalendarDayTimelineVieweventsForDate (TKCalendarDayTimelineView calendarDayTimeline, NSDate eventDate);
 
-        [Export("calendarView:itemsForDaysInMonth:")]
-        NSArray CalendarView(TKCalendarView calendar, NSDate monthDate);
+        [Abstract]
+        [Export ("calendarDayTimelineView:eventViewWasSelected:")]
+        void CalendarDayTimelineVieweventViewWasSelected (TKCalendarDayTimelineView calendarDayTimeline, TKCalendarDayEventView eventView);
 
-        [Export("calendarView:willShowMonth:")]
-        void CalendarViewWillShowMonth(TKCalendarView calendar, NSDate monthDate);
-
-    }
-
-
-    [BaseType(typeof(UIViewController))]
-    interface TKCalendarViewController
-    {
-        [Export("calendarView", ArgumentSemantic.Retain)]
-        TKCalendarView CalendarView { get; set; }
+        [Abstract]
+        [Export ("calendarDayTimelineView:eventDateWasSelected:")]
+        void CalendarDayTimelineVieweventDateWasSelected (TKCalendarDayTimelineView calendarDayTimeline, NSDate eventDate);
 
     }
 
+    [BaseType (typeof (TapDetectingView))]
+    interface TKTimelineView {
+        [Export ("times")]
+        NSArray Times { get;  }
 
-    [BaseType(typeof(UIView))]
-    interface TKEmptyView
-    {
-        [Export("title", ArgumentSemantic.Retain)]
-        UILabel Title { get; set; }
+        [Export ("periods")]
+        NSArray Periods { get;  }
 
-        [Export("subtitle", ArgumentSemantic.Retain)]
-        UILabel Subtitle { get; set; }
+        [Export ("hourColor")]
+        UIColor HourColor { get; set;  }
 
-        [Export("mask", ArgumentSemantic.Retain)]
-        UIImage Mask { get; set; }
+        [Export ("is24hClock")]
+        bool Is24hClock { get; set;  }
 
-    }
-
-
-    [BaseType(typeof(UIView))]
-    interface TKDropShadowImage
-    {
-        [Export("mask", ArgumentSemantic.Retain)]
-        UIImage Mask { get; set; }
+        [Export ("setupCustomInitialisation")]
+        void SetupCustomInitialisation ();
 
     }
 
-
-    [BaseType(typeof(UIView))]
-    interface TKGradientImage
-    {
-        [Export("mask", ArgumentSemantic.Retain)]
-        UIImage Mask { get; set; }
+    [BaseType (typeof (UIViewController))]
+    interface TKCalendarDayViewController {
+        [Export ("calendarDayTimelineView")]
+        TKCalendarDayTimelineView CalendarDayTimelineView { get; set;  }
 
     }
 
-
-    [BaseType(typeof(NSObject))]
-    interface TKGlobal
-    {
-    }
-
-
-    [BaseType(typeof(UITableViewCell))]
-    interface TKLabelCell
-    {
-        [Export("label", ArgumentSemantic.Retain)]
-        UILabel Label { get; set; }
+    [BaseType (typeof (TKCalendarMonthViewController))]
+    interface TKCalendarMonthTableViewController {
+        [Export ("updateTableOffset:")]
+        void UpdateTableOffset (bool animated);
 
     }
 
+    [BaseType (typeof (UIView))]
+    interface TKCalendarMonthView {
+        //[Export ("<TKCalendarMonthViewDelegate>")]
+        //NSObject <TKCalendarMonthViewDelegate> { get; set;  }
 
-    [BaseType(typeof(TKLabelCell))]
-    interface TKLabelFieldCell
-    {
-        [Export("field", ArgumentSemantic.Retain)]
-        UILabel Field { get; set; }
+        //[Export ("<TKCalendarMonthViewDataSource>")]
+        //NSObject <TKCalendarMonthViewDataSource> { get; set;  }
 
-    }
+        [Export ("dateSelected")]
+        NSDate DateSelected ();
 
+        [Export ("monthDate")]
+        NSDate MonthDate ();
 
-    [BaseType(typeof(TKLabelCell))]
-    interface TKLabelSwitchCell
-    {
-        [Export("switcher", ArgumentSemantic.Retain)]
-        UISwitch Switcher { get; set; }
+        [Export ("selectDate:")]
+        void SelectDate (NSDate date);
 
-    }
-
-
-    [BaseType(typeof(TKLabelCell))]
-    interface TKLabelTextViewCell
-    {
-        [Export("textView", ArgumentSemantic.Retain)]
-        UITextView TextView { get; set; }
+        [Export ("reload")]
+        void Reload ();
 
     }
 
-
-    [BaseType(typeof(NSObject))]
+    /*[BaseType (typeof ())]
     [Model]
-    interface TKOverlayViewDelegate
-    {
-        [Export("didTouchAtPoint:")]
-        void DidTouchAtPoint(PointF point);
+    interface TKCalendarMonthViewDelegate {
+        [Export ("calendarMonthView:didSelectDate:")]
+        void CalendarMonthViewdidSelectDate (TKCalendarMonthView monthView, NSDate date);
+
+        [Export ("calendarMonthView:monthShouldChange:animated:")]
+        bool CalendarMonthViewmonthShouldChangeanimated (TKCalendarMonthView monthView, NSDate month, bool animated);
+
+        [Export ("calendarMonthView:monthWillChange:animated:")]
+        void CalendarMonthViewmonthWillChangeanimated (TKCalendarMonthView monthView, NSDate month, bool animated);
+
+        [Export ("calendarMonthView:monthDidChange:animated:")]
+        void CalendarMonthViewmonthDidChangeanimated (TKCalendarMonthView monthView, NSDate month, bool animated);
+
+    }*/
+
+    /*[BaseType (typeof ())]
+    [Model]
+    interface TKCalendarMonthViewDataSource {
+    }*/
+
+    [BaseType (typeof (UIViewController))]
+    interface TKCalendarMonthViewController {
+        [Export ("monthView")]
+        TKCalendarMonthView MonthView { get; set;  }
+
+        [Export ("initWithSunday:")]
+        IntPtr Constructor (bool sundayFirst);
 
     }
 
+    [BaseType (typeof (UIView))]
+    interface TKCoverflowCoverView {
+        [Export ("image")]
+        UIImage Image { get; set;  }
 
-    [BaseType(typeof(UIView))]
-    interface TKMapView
-    {
-        [Export("pinMode")]
-        bool PinMode { get; }
+        [Export ("gradientLayer")]
+        CAGradientLayer GradientLayer { get; set;  }
 
-        [Export("mapView", ArgumentSemantic.Retain)]
-        MKMapView MapView { get; set; }
-
-        [Export("setPinMode:")]
-        void SetPinMode(bool pinMode);
+        [Export ("baseline")]
+        float Baseline { get; set;  }
 
     }
 
+    [BaseType (typeof (UIScrollView), Delegates = new string [] { "WeakDelegate" },
+		   Events = new Type [] { typeof (TKCoverflowViewDelegate)} )]
+    interface TKCoverflowView {
+        //[Export ("<TKCoverflowViewDataSource>")]
+        //NSObject <TKCoverflowViewDataSource> { get; set;  }
 
-    [BaseType(typeof(UIView))]
-    interface TKOverlayView
-    {
-    }
+        [Export ("coverSize")]
+        SizeF CoverSize { get; set;  }
 
+        [Export ("numberOfCovers")]
+        int NumberOfCovers { get; set;  }
 
-    [BaseType(typeof(UIView))]
-    interface TKOverviewHeaderView
-    {
-        [Export("title", ArgumentSemantic.Retain)]
-        UILabel Title { get; set; }
+        [Export ("coverSpacing")]
+        float CoverSpacing { get; set;  }
 
-        [Export("subtitle", ArgumentSemantic.Retain)]
-        UILabel Subtitle { get; set; }
+        [Export ("coverAngle")]
+        float CoverAngle { get; set;  }
 
-        [Export("indicator", ArgumentSemantic.Retain)]
-        TKOverviewIndicatorView Indicator { get; set; }
+        [Export ("currentIndex")]
+        int CurrentIndex { get; set;  }
 
-    }
+        [Export ("dequeueReusableCoverView")]
+        TKCoverflowCoverView DequeueReusableCoverView ();
 
+        [Export ("coverAtIndex:")]
+        TKCoverflowCoverView CoverAtIndex (int index);
 
-    [BaseType(typeof(UIView))]
-    interface TKOverviewIndicatorView
-    {
-        //[Export("color", ArgumentSemantic.Assign)]
-        //TKOverviewIndicatorViewColor Color { get; set; }
+        [Export ("indexOfFrontCoverView")]
+        int IndexOfFrontCoverView ();
 
-        [Export("text", ArgumentSemantic.Copy)]
-        string Text { get; set; }
+        [Export ("bringCoverAtIndexToFront:animated:")]
+        void BringCoverAtIndexToFront(int index, bool animated);
 		
-        //[Export("initWithColor:")]
-        //IntPtr Constructor(TKOverviewIndicatorViewColor colour);
+		[Export ("coverflowDelegate"), NullAllowed]
+		NSObject WeakCoverFlowDelegate { get; set; }
+
+		[Wrap ("WeakCoverFlowDelegate")]
+		TKCoverflowViewDelegate CoverFlowDelegate { get; set; }
+				
+		[Export ("dataSource"), NullAllowed]
+		TKCoverflowViewDataSource DataSource { get; set;  }
 
     }
 
-
-    [BaseType(typeof(NSObject))]
-    interface TKPlace
-    {
-        [Export("coordinate", ArgumentSemantic.Assign)]
-        CLLocationCoordinate2D Coordinate { get; set; }
-
-        [Export("color", ArgumentSemantic.Assign)]
-        MKPinAnnotationColor Color { get; set; }
-
-    }
-
-
-    [BaseType(typeof(UITableViewCell))]
-    interface TKSwitchCell
-    {
-        [Export("text", ArgumentSemantic.Copy)]
-        string Text { get; set; }
-
-        [Export("slider", ArgumentSemantic.Assign)]
-        UISwitch Slider { get; set; }
-
-    }
-
-
-    [BaseType(typeof(UITableViewCell))]
-    interface TKTextViewCell
-    {
-        [Export("textView", ArgumentSemantic.Retain)]
-        UITextView TextView { get; set; }
-
-    }
-
-
-    [BaseType(typeof(NSObject))]
+    [BaseType (typeof (UIScrollViewDelegate))]
     [Model]
-    interface TKTimeGraphDelegate
-    {
-        [Export("titleForTimeGraph:")]
-        string TitleForTimeGraph(TKTimeGraph graph);
+    interface TKCoverflowViewDelegate {
+        [Abstract]
+		[EventArgs("CoverWasBroughtToFront")]
+        [Export ("coverflowView:coverAtIndexWasBroughtToFront:")]
+        void CoverAtIndexWasBroughtToFront (TKCoverflowView coverflowView, int index);
 
-        [Export("goalValueForTimeGraph:")]
-        NSNumber GoalValueForTimeGraph(TKTimeGraph graph);
-
-        [Export("numberofPointsOnTimeGraph:")]
-        int NumberofPointsOnTimeGraph(TKTimeGraph graph);
-
-        [Export("timeGraph:yValueForPoint:")]
-        NSNumber TimeGraphYValueForPoint(TKTimeGraph graph, int x);
-
-        [Export("timeGraph:xLabelForPoint:")]
-        string TimeGraphXLabelForPoint(TKTimeGraph graph, int x);
-
-        [Export("timeGraph:yLabelForValue:")]
-        string TimeGraphYLabelForValue(TKTimeGraph graph, float value);
+        [Abstract]
+		[EventArgs("CoverWasDoubleTapped")]
+        [Export ("coverflowView:coverAtIndexWasDoubleTapped:")]
+        void CoverAtIndexWasDoubleTapped (TKCoverflowView coverflowView, int index);
 
     }
 
-
-    [BaseType(typeof(UIView))]
-    interface TKTimeGraph
-    {
-        [Export("data", ArgumentSemantic.Retain)]
-        NSArray Data { get; set; }
-
-        [Export("setTitle:")]
-        void SetTitle(string str);
+    [BaseType (typeof (NSObject))]
+    [Model]
+    interface TKCoverflowViewSource {
+        [Abstract]
+        [Export ("coverflowView:coverAtIndex:"), DelegateName ("TKCoverflowCoverFlowAtIndex"), DefaultValue (null)]
+        TKCoverflowCoverView CoverflowViewcoverAtIndex (TKCoverflowView coverflowView, int index);
 
     }
 
+    [BaseType (typeof (NSObject))]
+    [Model]
+    interface TKCoverflowViewDataSource {
+        [Abstract]
+        [Export ("coverflowView:coverAtIndex:")]
+        TKCoverflowCoverView CoverflowViewcoverAtIndex (TKCoverflowView coverflowView, int index);
+    }
 
-    [BaseType(typeof(UIView))]
-    interface TKTimeGraphPointsView
-    {
-        [Export("data", ArgumentSemantic.Retain)]
-        NSArray Data { get; set; }
+    [BaseType (typeof (UIView))]
+    interface TKEmptyView {
+        [Export ("imageView")]
+        UIImageView ImageView { get; set;  }
+
+        [Export ("titleLabel")]
+        UILabel TitleLabel { get; set;  }
+
+        [Export ("subtitleLabel")]
+        UILabel SubtitleLabel { get; set;  }
+
+        [Export ("initWithFrame:mask:title:subtitle:")]
+        IntPtr Constructor (RectangleF frame, UIImage image, string titleString, string subtitleString);
+
+        [Export ("initWithFrame:emptyViewImage:title:subtitle:")]
+        IntPtr Constructor (RectangleF frame, TKEmptyViewImage image, string titleString, string subtitleString);
+
+        [Export ("setImage:")]
+        void SetImage (UIImage image);
+
+        [Export ("setEmptyImage:")]
+        void SetEmptyImage (TKEmptyViewImage image);
 
     }
 
+    [BaseType (typeof (UIViewController))]
+    interface TKGraphController {
 
-    [BaseType(typeof(UIView))]
-    interface TKTimeGraphIndicator
-    {
-        [Export("initWithFrame:title:sideUp:")]
-        IntPtr Constructor(RectangleF frame, string str, bool up);
+    }
 
+    [BaseType (typeof (NSObject))]
+    interface TKImageCenter {
+        [Export ("queue")]
+        NSOperationQueue Queue { get; set;  }
+
+        [Export ("images")]
+        NSMutableDictionary Images { get; set;  }
+
+        [Static]
+        [Export ("sharedImageCenter")]
+        TKImageCenter SharedImageCenter { get; }
+
+        [Export ("imageAtURL:queueIfNeeded:")]
+        UIImage ImageAtURL (string url, bool addToQueue);
+
+        [Export ("adjustImageRecieved:")]
+        UIImage AdjustImageRecieved (UIImage image);
+
+        [Export ("clearImages")]
+        void ClearImages ();
+
+    }
+
+    [BaseType (typeof (TKTableViewCell))]
+    interface TKIndicatorCell {
+        [Export ("text")]
+        string Text { get; set;  }
+
+        [Export ("count")]
+        int Count { get; set;  }
+
+    }
+
+    [BaseType (typeof (UITableViewCell))]
+    interface TKLabelCell {
+    }
+
+    [BaseType (typeof (TKLabelCell))]
+    interface TKLabelFieldCell {
+    }
+
+    [BaseType (typeof (TKLabelCell))]
+    interface TKLabelSwitchCell {
+    }
+
+    [BaseType (typeof (TKLabelCell))]
+    interface TKLabelTextFieldCell {
+    }
+
+    [BaseType (typeof (TKLabelCell))]
+    interface TKLabelTextViewCell {
+    }
+
+    [BaseType (typeof (NSObject))]
+    interface TKMapPlace {
+        [Export ("coordinate")]
+        CLLocationCoordinate2D Coordinate { get; set;  }
+
+        [Export ("color")]
+        MKPinAnnotationColor Color { get; set;  }
+
+        [Export ("title", ArgumentSemantic.Copy)]
+        string Title { get; set;  }
+
+    }
+
+    [BaseType (typeof (UIView))]
+    interface TKMapView {
+
+        [Export ("pinMode")]
+        bool PinMode { get; set;  }
+
+        [Export ("mapView")]
+        MKMapView MapView { get; set;  }
+
+        [Export ("initWithFrame:")]
+        IntPtr Constructor (RectangleF frame);
+
+        [Export ("delegate"), NullAllowed]
+        NSObject WeakDelegate { get; set;  }
+
+        [Wrap ("WeakDelegate")]
+        TKMapViewDelegate Delegate { get; set; }
+    }
+
+    [BaseType (typeof (NSObject))]
+    [Model]
+    interface TKMapViewDelegate {
+
+        [Export ("didPlacePinAtCoordinate:")]
+        void DidPlacePin (TKMapView mapView, CLLocationCoordinate2D location);
+    }
+
+    [BaseType (typeof (UINavigationController))]
+    interface TKNavigationController {
+        [Export ("initWithRootViewController:")]
+        IntPtr Constructor (UIViewController rootViewController);
+    }
+
+    [BaseType (typeof (UINavigationItem))]
+    interface TKNavigationItem {
+    }
+
+    [BaseType (typeof (UINavigationBar))]
+    interface TKNavigationBar {
+    }
+
+    [BaseType (typeof (UITableViewCell))]
+    interface TKSwitchCell {
+        [Export ("slider")]
+        UISwitch Slider { get; set;  }
+
+    }
+
+    [BaseType (typeof (UITableViewCell))]
+    interface TKTableViewCell {
+    }
+
+    [BaseType (typeof (TKViewController))]
+    interface TKTableViewController {
+        [Export ("tableView")]
+        UITableView TableView { get; set;  }
+
+        [Export ("loadingView")]
+        UIView LoadingView { get; set;  }
+
+        [Export ("emptyView")]
+        TKEmptyView EmptyView { get; set;  }
+
+        [Export ("searchBar")]
+        UISearchBar SearchBar { get; set;  }
+
+        [Export ("searchBarDisplayController")]
+        UISearchDisplayController SearchBarDisplayController { get; set;  }
+
+        [Export ("initWithStyle:")]
+        IntPtr Constructor (UITableViewStyle style);
+    }
+
+    [BaseType (typeof (UITableViewCell))]
+    interface TKTextViewCell {
+    }
+
+    [BaseType (typeof (UIViewController))]
+    interface TKViewController {
+    }
+
+    [BaseType (typeof (UIWindow))]
+    interface TKWindow {
     }
 
 
