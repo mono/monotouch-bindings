@@ -1911,6 +1911,18 @@ namespace Three20
 
 		[Export ("getElementByClassName:")]
 		TTStyledNode GetElementByClassName (string className);
+		
+		[Static, Export ("textFromXHTML:")]
+		TTStyledText TextFromXHTML (string source);
+		
+		[Static, Export ("textFromXHTML:lineBreaks:URLs:")]
+		TTStyledText TextFromXHTML (string source, bool lineBreaks, bool URLs);
+		
+		[Static, Export ("textWithURLs:")]
+		TTStyledText TextWithURLs (string source);
+		
+		[Static, Export ("textWithURLs:lineBreaks:")]
+		TTStyledText TextWithURLs (string source, bool lineBreaks);
 	}
 
 	[BaseType (typeof (NSObject))]
