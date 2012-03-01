@@ -47,7 +47,7 @@ namespace FlurryAnalytics
 	public partial class Messaging {
 		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSend")]
 		public extern static void void_objc_msgSend_Double_Double_float_float (IntPtr receiver, IntPtr selector, Double arg1, Double arg2, float arg3, float arg4);
-		[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSendSuper")]
-		public extern static void void_objc_msgSendSuper_Double_Double_float_float (IntPtr receiver, IntPtr selector, Double arg1, Double arg2, float arg3, float arg4);
+		//[DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSendSuper")]
+		//public extern static void void_objc_msgSendSuper_Double_Double_float_float (IntPtr receiver, IntPtr selector, Double arg1, Double arg2, float arg3, float arg4);
 	}
 }

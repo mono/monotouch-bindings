@@ -102,9 +102,9 @@ namespace FlurryAppCircle
 		[Export ("getHook:xLoc:yLoc:view:")]
 		UIView GetHook (string hook, int x, int y, UIView view);
 
-		[Static]
-		[Export ("getHook:xLoc:yLoc:view:attachToView:orientation:canvasOrientation:autoRefresh:canvasAnimated:rewardMessage:userCookies:")]
-		UIView GetHook (string hook, int x, int y, UIView view, bool attachToView, string orientation, string canvasOrientation, bool refresh, bool canvasAnimated, string rewardMessage, NSDictionary userCookies);
+		//[Static]
+		//[Export ("getHook:xLoc:yLoc:view:attachToView:orientation:canvasOrientation:autoRefresh:canvasAnimated:rewardMessage:userCookies:")]
+		//UIView GetHook (string hook, int x, int y, UIView view, bool attachToView, string orientation, string canvasOrientation, bool refresh, bool canvasAnimated, string rewardMessage, NSDictionary userCookies);
 
 		[Static]
 		[Export ("updateHook:")]
