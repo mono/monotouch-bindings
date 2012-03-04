@@ -312,6 +312,9 @@ namespace Tapku
         [Export ("baseline")]
         float Baseline { get; set;  }
 
+        [Export("initWithFrame:")]
+        IntPtr Constructor(RectangleF frame);
+
     }
 
     [BaseType (typeof (UIScrollView), Delegates = new string [] { "WeakDelegate" },
@@ -355,6 +358,13 @@ namespace Tapku
 				
 		[Export ("dataSource"), NullAllowed]
 		TKCoverflowViewDataSource DataSource { get; set;  }
+
+        [Export("initWithFrame:")]
+        IntPtr Constructor(RectangleF frame);
+        
+        [Export("setNumberOfCovers:")]
+        void SetNumberOfCovers(int coverCount);
+
 
     }
 
@@ -420,28 +430,45 @@ namespace Tapku
 
     }
 
-    [BaseType (typeof (NSObject))]
-    interface TKImageCenter {
-        [Export ("queue")]
-        NSOperationQueue Queue { get; set;  }
+    [BaseType(typeof(NSCache))]
+    interface TKImageCache {
 
-        [Export ("images")]
-        NSMutableDictionary Images { get; set;  }
+        [Export("cacheDirectoryName", ArgumentSemantic.Copy)]
+        string CacheDirectory { get; set; }
 
-        [Static]
-        [Export ("sharedImageCenter")]
-        TKImageCenter SharedImageCenter { get; }
+        [Export("notificationName", ArgumentSemantic.Copy)]
+        string NotificationName { get; set; }
 
-        [Export ("imageAtURL:queueIfNeeded:")]
-        UIImage ImageAtURL (string url, bool addToQueue);
+        [Export("timeTillRefreshCache", ArgumentSemantic.Assign)]
+        double TimeTillRefreshCache { get; set; }
 
-        [Export ("adjustImageRecieved:")]
-        UIImage AdjustImageRecieved (UIImage image);
+        [Export("imageForKey:url:queueIfNeeded:")]
+        UIImage GetImage(string key, NSUrl url, bool queueIfNeeded);
 
-        [Export ("clearImages")]
-        void ClearImages ();
+        [Export("imageForKey:url:queueIfNeeded:tag:")]
+        UIImage GetImage(string key, NSUrl url, bool queueIfNeeded, int tag);
+
+        [Export("cachedImageForKey:")]
+        UIImage FindCachedImage(string key);
+
+        [Export("imageExistsWithKey:")]
+        bool DoesImageExist(string key);
+
+        [Export("cancelOperations")]
+        void CancelOperations();
+
+        [Export("clearCachedImages")]
+        void ClearCachedImages();
+
+        [Export("removeCachedImagesFromDiskOlderThanTime:")]
+        void ClearCachedImages(double interval);
+
+        [Export("initWithCacheDirectoryName:")]
+        IntPtr Constructor(string directoryName);
 
     }
+
+
 
     [BaseType (typeof (TKTableViewCell))]
     interface TKIndicatorCell {
@@ -475,21 +502,21 @@ namespace Tapku
 
     [BaseType (typeof (NSObject))]
     interface TKMapPlace {
-        [Export ("coordinate")]
-        CLLocationCoordinate2D Coordinate { get; set;  }
-
-        [Export ("color")]
-        MKPinAnnotationColor Color { get; set;  }
 
         [Export ("title", ArgumentSemantic.Copy)]
         string Title { get; set;  }
 
+        [Export ("coordinate")]
+        CLLocationCoordinate2D Coordinate { get; set;  }
+
+        [Export ("color")]
+        MKPinAnnotationColor Color { get; set; }
     }
 
     [BaseType (typeof (UIView))]
     interface TKMapView {
 
-        [Export ("pinMode")]
+        [Export ("pinMode", ArgumentSemantic.Assign)]
         bool PinMode { get; set;  }
 
         [Export ("mapView")]
@@ -510,7 +537,7 @@ namespace Tapku
     interface TKMapViewDelegate {
 
         [Export ("didPlacePinAtCoordinate:")]
-        void DidPlacePin (TKMapView mapView, CLLocationCoordinate2D location);
+        void DidPlacePin(CLLocationCoordinate2D location);
     }
 
     [BaseType (typeof (UINavigationController))]

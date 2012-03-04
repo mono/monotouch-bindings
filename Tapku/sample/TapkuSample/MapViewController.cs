@@ -11,48 +11,51 @@ namespace TapkuSample
 {
 	public partial class MapViewController : UIViewController
 	{
-		TKMapView mapView;
+		public TKMapView MapView { get; private set; }
 		
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			
-			mapView = new TKMapView(View.Bounds);
-			mapView.Delegate = new MyMap();
+			MapView = new TKMapView(View.Bounds);
+			MapView.Delegate = new MyMapViewDelegate(this);
 			
-//			mapView.Did (sender, e) => {
-//				using (TKMapPlace place = new TKMapPlace())
-//				{
-//					place.Title = String.Format("{0}, {1}",	
-//				}
-////				TKMapPlace *place = [[TKMapPlace alloc] init];
-////	place.title = [NSString stringWithFormat:@"%f,%f",location.latitude,location.longitude];
-////	NSLog(@"(%f,%f)",location.latitude,location.longitude);
-////	place.coordinate = location;
-////	[mapView.mapView addAnnotation:place];
-////	[place release];
-//
-//			};
-			View.AddSubview(mapView);
+			View.AddSubview(MapView);
 			
-			NavigationItem.RightBarButtonItem = new UIBarButtonItem("Add Pin", UIBarButtonItemStyle.Bordered, (sender2, e2) => {
-				if(mapView.PinMode){
-					mapView.MapView.MapType = MKMapType.Standard;
-					NavigationItem.RightBarButtonItem.Style = UIBarButtonItemStyle.Bordered;
-				}else{
-					mapView.MapView.MapType = MKMapType.Hybrid;
-					NavigationItem.RightBarButtonItem.Style = UIBarButtonItemStyle.Done;
-				}
-				
-				mapView.PinMode = !mapView.PinMode;
-			});
+			NavigationItem.RightBarButtonItem = new UIBarButtonItem("Add Pin", UIBarButtonItemStyle.Bordered, Handle_AddPin);
 		}
 		
-		public class MyMap : TKMapViewDelegate
+		private void Handle_AddPin(object sender, EventArgs e) 
 		{
-			public override void DidPlacePin (TKMapView mapView, CLLocationCoordinate2D location)
+			if(MapView.PinMode){
+				MapView.MapView.MapType = MKMapType.Standard;
+				NavigationItem.RightBarButtonItem.Style = UIBarButtonItemStyle.Bordered;
+			}else{
+				MapView.MapView.MapType = MKMapType.Hybrid;
+				NavigationItem.RightBarButtonItem.Style = UIBarButtonItemStyle.Done;
+			}
+			
+			MapView.PinMode = !MapView.PinMode;
+		}
+		
+		public class MyMapViewDelegate : TKMapViewDelegate
+		{
+			MapViewController _mapViewController;
+			public MyMapViewDelegate(MapViewController viewController)
+				: base()
 			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+				_mapViewController = viewController;
+			}
+			
+			public override void DidPlacePin(CLLocationCoordinate2D location)
+			{
+				var place = new TKMapPlace();
+				var title = string.Format("Lat: {0}, Lng: {1}", location.Latitude, location.Longitude);
+				Console.WriteLine("Added Pin at " + title);
+				
+				place.Title = title;
+				place.Coordinate = location;
+				_mapViewController.MapView.MapView.AddAnnotationObject(place);
 			}
 		}
 		

@@ -13,23 +13,32 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System;
+using System.Linq;
 using MonoTouch.UIKit;
 using MonoTouch.CoreGraphics;
 using System.Drawing;
 using Tapku;
+using System.IO;
+using MonoTouch.Foundation;
 
 namespace TapkuSample
 {
 	public class CoverflowViewController : UIViewController
 	{
 		TKCoverflowView coverflow;
-		public UIImage[] covers;
+		public UIImage[] Covers { get; private set; }
+		
 		public CoverflowViewController ()
 		{
 		}
 		public override bool ShouldAutorotateToInterfaceOrientation (UIInterfaceOrientation toInterfaceOrientation)
 		{
-			return toInterfaceOrientation == UIInterfaceOrientation.LandscapeLeft || toInterfaceOrientation == UIInterfaceOrientation.LandscapeRight;
+			bool isPhone = UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone;
+			if(isPhone) {
+				return (toInterfaceOrientation == UIInterfaceOrientation.LandscapeRight);
+			}
+			
+			return true;
 		}
 		
 		public override void LoadView ()
@@ -38,98 +47,73 @@ namespace TapkuSample
 			rect = CGAffineTransform.CGRectApplyAffineTransform (rect, CGAffineTransform.MakeRotation ((float)(90f * Math.PI / 180f)));
 			rect.Location = PointF.Empty;
 			this.View = new UIView (rect);
+			
 			this.View.BackgroundColor = UIColor.White;
 			this.View.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+			
 			rect = this.View.Bounds;
 			rect.Height = 1000;
 			
-			coverflow = new TKCoverflowView ();
-			coverflow.Frame = this.View.Bounds;
+			coverflow = new TKCoverflowView(this.View.Bounds);
 			coverflow.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
-			
-			coverflow.CoverAtIndexWasBroughtToFront += delegate(object sender, CoverWasBroughtToFrontEventArgs e) {
-				
-			};
-			coverflow.CoverAtIndexWasDoubleTapped += delegate(object sender, CoverWasDoubleTappedEventArgs e) {
-				
-			};
-			
+			coverflow.Delegate = new CoverDelegate();
 			coverflow.DataSource = new CoverDataSource(this);
-			//coverflow.CoverflowViewcoverAtIndex = CoverflowViewcoverAtIndex;
-			//coverflow.
 			
 			if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad) {
 				coverflow.CoverSpacing = 100;
 				coverflow.CoverSize = new SizeF (300, 300);
 			}
+			
 			this.View.AddSubview (coverflow);
-			/*
-	if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone){
-		
-		UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		btn.frame = CGRectMake(0,0,100,20);
-		[btn setTitle:@"# Covers" forState:UIControlStateNormal];
-		[btn addTarget:self action:@selector(changeNumberOfCovers) forControlEvents:UIControlEventTouchUpInside];
-		[self.view addSubview:btn];
-	}else{
-		
-		UIBarButtonItem *nocoversitem = [[UIBarButtonItem alloc] initWithTitle:@"# Covers" 
-																  style:UIBarButtonItemStyleBordered 
-																 target:self action:@selector(changeNumberOfCovers)];
-		
-		UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-								  
-		self.toolbarItems = [NSArray arrayWithObjects:flex,nocoversitem,nil];
-		[nocoversitem release];
-		[flex release];
-	}
-		
-
-	CGSize s = self.view.bounds.size;
-	
-	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	[infoButton addTarget:self action:@selector(info) forControlEvents:UIControlEventTouchUpInside];
-	infoButton.frame = CGRectMake(s.width-50, 5, 50, 30);
-	[self.view addSubview:infoButton];
-	*/
 		}
-		TKCoverflowCoverView CoverflowViewcoverAtIndex (TKCoverflowView coverflowView, int index)
-			{
-				var cover = coverflowView.DequeueReusableCoverView();
-				if(cover == null)
-				{
-					cover = new TKCoverflowCoverView();
-					cover.Frame = new RectangleF(0,0,224,300);
-					cover.Baseline = 224;
-				}
-				cover.Image = covers[index];
-				return cover;
-			}
+		
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad();
-			covers = new UIImage[]{
-				new UIImage("Images/coverflow_ipad/cover_1.jpg"),
-				new UIImage("Images/coverflow_ipad/cover_2.jpg"),
-				new UIImage("Images/coverflow_ipad/cover_3.jpg"),
-				new UIImage("Images/coverflow_ipad/cover_4.jpg"),
-				new UIImage("Images/coverflow_ipad/cover_5.jpg"),
-				new UIImage("Images/coverflow_ipad/cover_6.jpg"),
-				new UIImage("Images/coverflow_ipad/cover_7.jpg"),
-				new UIImage("Images/coverflow_ipad/cover_8.jpg"),
-				new UIImage("Images/coverflow_ipad/cover_9.jpg"),
-			};
-			coverflow.NumberOfCovers = 580;
+			
+			if(UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone) {
+				Covers = new UIImage[]{
+					UIImage.FromBundle("Images/coverflow_iphone/cover_1.jpg"),
+					UIImage.FromBundle("Images/coverflow_iphone/cover_2.jpg"),
+					UIImage.FromBundle("Images/coverflow_iphone/cover_3.jpg"),
+					UIImage.FromBundle("Images/coverflow_iphone/cover_4.jpg"),
+					UIImage.FromBundle("Images/coverflow_iphone/cover_5.jpg"),
+					UIImage.FromBundle("Images/coverflow_iphone/cover_6.jpg"),
+					UIImage.FromBundle("Images/coverflow_iphone/cover_7.jpg"),
+					UIImage.FromBundle("Images/coverflow_iphone/cover_8.jpg"),
+					UIImage.FromBundle("Images/coverflow_iphone/cover_9.jpg"),
+				};
+			}
+			else {
+				Covers = new UIImage[]{
+					UIImage.FromBundle("Images/coverflow_ipad/ipadcover_1.jpg"),
+					UIImage.FromBundle("Images/coverflow_ipad/ipadcover_2.jpg"),
+					UIImage.FromBundle("Images/coverflow_ipad/ipadcover_3.jpg"),
+					UIImage.FromBundle("Images/coverflow_ipad/ipadcover_4.jpg"),
+					UIImage.FromBundle("Images/coverflow_ipad/ipadcover_5.jpg"),
+					UIImage.FromBundle("Images/coverflow_ipad/ipadcover_6.jpg"),
+					UIImage.FromBundle("Images/coverflow_ipad/ipadcover_7.jpg"),
+					UIImage.FromBundle("Images/coverflow_ipad/ipadcover_8.jpg"),
+					UIImage.FromBundle("Images/coverflow_ipad/ipadcover_9.jpg"),
+				};
+			}
+			
+			coverflow.SetNumberOfCovers(580);
 		}
 		
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
-			coverflow.BringCoverAtIndexToFront(covers.Length * 2,false);
+			coverflow.BringCoverAtIndexToFront(Covers.Length * 2, false);
 		}
 		
 		public class CoverDelegate : TKCoverflowViewDelegate
 		{
+			public CoverDelegate()
+				: base() 
+			{
+			}
+			
 			public override void CoverAtIndexWasBroughtToFront (TKCoverflowView coverflowView, int index)
 			{
 				Console.WriteLine("Front " + index);
@@ -138,30 +122,38 @@ namespace TapkuSample
 			#region implemented abstract members of Tapku.TKCoverflowViewDelegate
 			public override void CoverAtIndexWasDoubleTapped (TKCoverflowView coverflowView, int index)
 			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+				Console.WriteLine("Cover At Index {0} was Double Tapped", index);
 			}
 			#endregion
 		}
+		
+
 		public class CoverDataSource : TKCoverflowViewDataSource
 		{
-			CoverflowViewController Vc;
+			
+			CoverflowViewController _viewController;
 			public CoverDataSource (CoverflowViewController vc)
 			{
-				Vc = vc;
+				_viewController = vc;
 			}
 			public override TKCoverflowCoverView CoverflowViewcoverAtIndex (TKCoverflowView coverflowView, int index)
 			{
 				var cover = coverflowView.DequeueReusableCoverView();
-				if(cover == null)
-				{
-					cover = new TKCoverflowCoverView();
-					cover.Frame = new RectangleF(0,0,224,300);
+				if(cover == null) {
+					bool isPhone = UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone;
+					var frame = isPhone ? new RectangleF(0, 0, 224, 300) : new RectangleF(0, 0, 300, 600);
+					
+					cover = new TKCoverflowCoverView(frame);
+//					cover.Baseline = isPhone ? 224 : 300;
 					cover.Baseline = 224;
 				}
-				cover.Image = Vc.covers[index];
+				
+				var coverIndex = index % _viewController.Covers.Length;
+				cover.Image = _viewController.Covers[coverIndex];
 				return cover;
 			}
 		}
+		
 		
 	}
 	

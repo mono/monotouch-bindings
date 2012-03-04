@@ -10,31 +10,18 @@ namespace TapkuSample
 {
 	public partial class ImageCenterViewController : UITableViewController
 	{
+		public string[] UrlData { get; private set; }
+		public TKImageCache ImageCache { get; private set; }
 		
-		public string[] urlData;
 		
 		//loads the ImageCenterViewController.xib file and connects it to this object
-		public ImageCenterViewController ()		
+		public ImageCenterViewController ()
+			: base()
 		{
-			TableView.Source = new MyTableViewSource(this);
-			NSNotificationCenter.DefaultCenter.AddObserver(new NSString("newImage"), (obj) => {
-				foreach (var cell in TableView.VisibleCells)
-				{
-					if(cell.ImageView.Image == null)
-					{
-						int i = TableView.IndexPathForCell(cell).Row % urlData.Length;
-						var image = TKImageCenter.SharedImageCenter.ImageAtURL(urlData[i], false);
-						
-						if(image != null)
-						{
-							cell.ImageView.Image = image;
-							cell.SetNeedsLayout();
-						}
-					}
-				}
-			});
 			
-			urlData = new string[] {"http://farm3.static.flickr.com/2797/4196552800_a5de0f3627_t.jpg",
+			TableView.Source = new MyTableViewSource(this);
+			
+			UrlData = new string[] {"http://farm3.static.flickr.com/2797/4196552800_a5de0f3627_t.jpg",
 				"http://farm3.static.flickr.com/2380/2417672368_a41257399f_t.jpg",
 				"http://farm3.static.flickr.com/2063/2181373837_b32a7e36fd_t.jpg",
 				"http://farm4.static.flickr.com/3018/2458286264_8e5bae7ec3_t.jpg",
@@ -50,18 +37,41 @@ namespace TapkuSample
 				"http://farm4.static.flickr.com/3369/3659337053_180878a026_t.jpg",
 			};
 			
+			ImageCache = new TKImageCache("images");
+			ImageCache.NotificationName = "newImageCache";
+			
+			
+			NSNotificationCenter.DefaultCenter.AddObserver(new NSString("newImageCache"), (obj) => {
+				foreach (var cell in TableView.VisibleCells)
+				{
+					if(cell.ImageView.Image == null)
+					{
+						int i = TableView.IndexPathForCell(cell).Row % UrlData.Length;
+						var url = new NSUrl(UrlData[i]);
+						var image = ImageCache.GetImage(i.ToString(), url, false);
+						
+						if(image != null)
+						{
+							cell.ImageView.Image = image;
+							cell.SetNeedsLayout();
+						}
+					}
+				}
+			});
+			
 		}
 		
 		public override void LoadView ()
 		{
 			base.LoadView ();
 			
-			TableView.RowHeight = 120;
-			TableView.AllowsSelection = false;
+			this.TableView.RowHeight = 120;
+			this.TableView.AllowsSelection = false;
 			
-			var v = new UIView(new RectangleF(0f, 0f, 320f, 100f));
-			var lab = new UILabel(RectangleF.Inflate(v.Bounds, 20f, 20f));
-			lab.Text = "The image center handles large amounts of network image requests. Good for things like twitter avatars.";
+			var v = new UIView(new RectangleF(0f, 0f, 320.0f, 100.0f));
+			var lab = new UILabel(new RectangleF(40, 20, 260, 80));
+
+			lab.Text = @"The image cache handles large amounts of network image requests. Good for things like twitter avatars.";
 			lab.Lines = 3;
 			lab.Font = UIFont.BoldSystemFontOfSize(13);
 			lab.TextColor = UIColor.Gray;
@@ -72,11 +82,11 @@ namespace TapkuSample
 		
 		public class MyTableViewSource : UITableViewSource
 		{
-			ImageCenterViewController _icvc;
+			ImageCenterViewController _parentViewController;
 			
-			public MyTableViewSource(ImageCenterViewController icvc)
+			public MyTableViewSource(ImageCenterViewController parent)
 			{
-				_icvc = icvc;	
+				_parentViewController = parent;
 			}
 			
 			public override int NumberOfSections (UITableView tableView)
@@ -86,7 +96,7 @@ namespace TapkuSample
 			
 			public override int RowsInSection (UITableView tableview, int section)
 			{
-				return _icvc.urlData.Length * 3;
+				return _parentViewController.UrlData.Length * 3;
 			}
 			
 			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
@@ -99,8 +109,9 @@ namespace TapkuSample
 				cell.TextLabel.Text = String.Format("Cell {0}", indexPath.Row);
 				var i = indexPath.Row;
 				
-				var index = i % _icvc.urlData.Length;
-				var image = TKImageCenter.SharedImageCenter.ImageAtURL(_icvc.urlData[index], true);
+				var index = i % _parentViewController.UrlData.Length;
+				var url = new NSUrl(_parentViewController.UrlData[index]);
+				var image = _parentViewController.ImageCache.GetImage(index.ToString(), url, true);
 				cell.ImageView.Image = image;
     
     			return cell;

@@ -14,8 +14,7 @@ namespace TapkuSample
 		{
 			Title = "Alerts";
 			NavigationItem.RightBarButtonItem = new UIBarButtonItem("Tap Me", UIBarButtonItemStyle.Bordered, (sender, e) => {
-				
-				//TKAlertCenter.DefaultCenter.PostAlert("Beer!", UIImage.FromFile("Images/beer.png"));
+				TKAlertCenter.DefaultCenter.PostAlert("Beer!", UIImage.FromFile("Images/beer.png"));
 			});
 		}
 		
@@ -33,7 +32,6 @@ namespace TapkuSample
 			
 			TKAlertCenter.DefaultCenter.PostAlert("Hi");
 			TKAlertCenter.DefaultCenter.PostAlert("This is the alert system");
-			//TKAlertCenter.DefaultCenter.PostAlert("Use images too!", UIImage.FromFile("Images/beer.png"));
 		}
 		
 		public override bool ShouldAutorotateToInterfaceOrientation (UIInterfaceOrientation toInterfaceOrientation)
