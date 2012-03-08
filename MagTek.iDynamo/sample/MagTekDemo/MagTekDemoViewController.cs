@@ -120,7 +120,7 @@ namespace MagTekDemo
 			}
 		}
 		
-		partial void onClearScreen (NSObject sender)
+		partial void OnClearScreen (NSObject sender)
 		{
 			command.Text = "";
 			ClearLabels ();
@@ -129,7 +129,7 @@ namespace MagTekDemo
 			glSwipeCount = 0;
 		}
 		
-		partial void onDisplayResponse (NSObject sender)
+		partial void OnDisplayResponse (NSObject sender)
 		{
 			//DisplayData ();
 			/*
@@ -144,7 +144,7 @@ namespace MagTekDemo
 			}*/
 		}
 		
-		partial void onSendMessageToDevice (NSObject sender)
+		partial void OnSendMessageToDevice (NSObject sender)
 		{
 			mtSCRALib.SendCommandToDevice (command.Text);
 		}
