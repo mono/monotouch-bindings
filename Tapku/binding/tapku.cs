@@ -317,11 +317,8 @@ namespace Tapku
 
     }
 
-    [BaseType (typeof (UIScrollView), Delegates = new string [] { "WeakDelegate" },
-		   Events = new Type [] { typeof (TKCoverflowViewDelegate)} )]
+    [BaseType(typeof(UIScrollView))]
     interface TKCoverflowView {
-        //[Export ("<TKCoverflowViewDataSource>")]
-        //NSObject <TKCoverflowViewDataSource> { get; set;  }
 
         [Export ("coverSize")]
         SizeF CoverSize { get; set;  }
@@ -351,10 +348,10 @@ namespace Tapku
         void BringCoverAtIndexToFront(int index, bool animated);
 		
 		[Export ("coverflowDelegate"), NullAllowed]
-		NSObject WeakCoverFlowDelegate { get; set; }
+		NSObject WeakCoverflowDelegate { get; set; }
 
-		[Wrap ("WeakCoverFlowDelegate")]
-		TKCoverflowViewDelegate CoverFlowDelegate { get; set; }
+		[Wrap ("WeakCoverflowDelegate")]
+		TKCoverflowViewDelegate CoverflowDelegate { get; set; }
 				
 		[Export ("dataSource"), NullAllowed]
 		TKCoverflowViewDataSource DataSource { get; set;  }

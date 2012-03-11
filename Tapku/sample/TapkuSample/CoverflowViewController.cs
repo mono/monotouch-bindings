@@ -25,8 +25,12 @@ namespace TapkuSample
 {
 	public class CoverflowViewController : UIViewController
 	{
-		TKCoverflowView coverflow;
 		public UIImage[] Covers { get; private set; }
+		
+		TKCoverflowView coverflow;
+		TKCoverflowViewDelegate _coverFlowDelegate;
+		TKCoverflowViewDataSource _coverFlowDataSource;
+		
 		
 		public CoverflowViewController ()
 		{
@@ -44,7 +48,8 @@ namespace TapkuSample
 		public override void LoadView ()
 		{
 			var rect = UIScreen.MainScreen.Bounds;
-			rect = CGAffineTransform.CGRectApplyAffineTransform (rect, CGAffineTransform.MakeRotation ((float)(90f * Math.PI / 180f)));
+			
+			rect = CGAffineTransform.CGRectApplyAffineTransform (rect, CGAffineTransform.MakeRotation ((float)(90.0f * Math.PI / 180.0f)));
 			rect.Location = PointF.Empty;
 			this.View = new UIView (rect);
 			
@@ -54,10 +59,13 @@ namespace TapkuSample
 			rect = this.View.Bounds;
 			rect.Height = 1000;
 			
+			_coverFlowDelegate = new CoverDelegate();
+			_coverFlowDataSource = new CoverDataSource(this);
+			
 			coverflow = new TKCoverflowView(this.View.Bounds);
 			coverflow.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
-			coverflow.Delegate = new CoverDelegate();
-			coverflow.DataSource = new CoverDataSource(this);
+			coverflow.CoverflowDelegate = _coverFlowDelegate;
+			coverflow.DataSource = _coverFlowDataSource;
 			
 			if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad) {
 				coverflow.CoverSpacing = 100;
@@ -110,7 +118,6 @@ namespace TapkuSample
 		public class CoverDelegate : TKCoverflowViewDelegate
 		{
 			public CoverDelegate()
-				: base() 
 			{
 			}
 			
@@ -123,6 +130,16 @@ namespace TapkuSample
 			public override void CoverAtIndexWasDoubleTapped (TKCoverflowView coverflowView, int index)
 			{
 				Console.WriteLine("Cover At Index {0} was Double Tapped", index);
+				
+				var cover = coverflowView.CoverAtIndex(index);
+				
+				if(cover == null)
+					return;
+				
+				UIView.BeginAnimations("coverFlowViewTapAnimation");
+				UIView.SetAnimationDuration(1);
+				UIView.SetAnimationTransition(UIViewAnimationTransition.FlipFromLeft, cover, true);
+				UIView.CommitAnimations();
 			}
 			#endregion
 		}
@@ -132,19 +149,22 @@ namespace TapkuSample
 		{
 			
 			CoverflowViewController _viewController;
+			
 			public CoverDataSource (CoverflowViewController vc)
+				: base()
 			{
 				_viewController = vc;
 			}
+			
 			public override TKCoverflowCoverView CoverflowViewcoverAtIndex (TKCoverflowView coverflowView, int index)
 			{
 				var cover = coverflowView.DequeueReusableCoverView();
+				
 				if(cover == null) {
 					bool isPhone = UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone;
 					var frame = isPhone ? new RectangleF(0, 0, 224, 300) : new RectangleF(0, 0, 300, 600);
 					
 					cover = new TKCoverflowCoverView(frame);
-//					cover.Baseline = isPhone ? 224 : 300;
 					cover.Baseline = 224;
 				}
 				

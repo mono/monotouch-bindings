@@ -46,7 +46,8 @@ namespace TapkuSample
 				{
 					
 					new StringElement("Coverflow", () => {
-						dvc.ActivateController(new CoverflowViewController());
+						dvc.PresentModalViewController(new CoverflowViewController(), true);
+//						dvc.ActivateController(new CoverflowViewController());
 					}),
 					new StringElement("Month Grid Calendar", () => {
 						dvc.ActivateController(new DemoCalendarMonth());
