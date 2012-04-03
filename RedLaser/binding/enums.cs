@@ -28,12 +28,12 @@ namespace RedLaser
 	}
 	
 	public enum RedLaserStatus {
-		RLState_EvalModeReady = 1,
-		RLState_LicensedModeReady = 2,
+		EvalModeReady = 1,
+		LicensedModeReady = 2,
 		
-		RLState_MissingOSLibraries = -1,
-		RLState_NoCamera = -2,
-		RLState_BadLicense = -3,
-		RLState_ScanLimitReached = -4,
+		MissingOSLibraries = -1,
+		NoCamera = -2,
+		BadLicense = -3,
+		ScanLimitReached = -4,
 	}
 }

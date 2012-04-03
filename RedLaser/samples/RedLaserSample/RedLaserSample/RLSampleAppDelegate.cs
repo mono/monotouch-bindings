@@ -31,6 +31,8 @@ namespace RedLaserSample
 		
 			window.AddSubview (viewController.View);
             window.MakeKeyAndVisible ();
+			var status = RedLaser.RedLaser.CheckReadyStatus();
+			Console.WriteLine(status);
 		}
 	}
 }

@@ -35,9 +35,7 @@ namespace RedLaser
 		MissingOSLibraries this is especially important, as the SDK will probably 
 		crash if used. See the documentation. 
 	*/
-	
-	//[Export ("RL_CheckReadyStatus")]
-	//RedLaserStatus CheckReadyStatus();
+
 
 	/*******************************************************************************
 		BarcodeResult
