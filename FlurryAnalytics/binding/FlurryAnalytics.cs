@@ -58,7 +58,7 @@ namespace FlurryAnalytics
 
 		[Static]
 		[Export ("endTimedEvent:withParameters:")]
-		void EndTimedEvent (string eventName, NSDictionary parameters);
+		void EndTimedEvent (string eventName, [NullAllowed]NSDictionary parameters);
 	
 		// automatically track page view on UINavigationController or UITabBarController
 		[Static]
