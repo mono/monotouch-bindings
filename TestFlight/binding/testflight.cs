@@ -30,5 +30,11 @@ namespace MonoTouch.TestFlight {
 
 		[Static, Export ("openFeedbackView")]
 		void OpenFeedbackView ();
+
+		[Static, Export ("submitFeedback:")]
+		void SubmitFeedback (string feedback);
+
+		[Static, Export ("setDeviceIdentifier:")]
+		void SetDeviceIdentifier (string deviceIdentifer);
 	}
 }
