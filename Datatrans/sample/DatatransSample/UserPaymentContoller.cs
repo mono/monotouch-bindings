@@ -19,11 +19,14 @@ namespace DatatransSample
 		public override void DidSucceed (DtPaymentController controller, DtPaymentRequest request)
 		{
 			Console.WriteLine("DidSucceed:");
+			RootNavigation.PopToRootViewController(true);
+			
 		}
 
 		public override void DidFail (DtPaymentController controller, MonoTouch.Foundation.NSError error)
 		{
 			Console.WriteLine("DidFail:");
+			RootNavigation.PopToRootViewController(true);
 		}
 
 		#endregion
