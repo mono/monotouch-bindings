@@ -1,5 +1,5 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-XBUILD=/Developer/usr/bin/xcodebuild
+XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 PROJECT_ROOT=tapkulibrary/src
 PROJECT=$(PROJECT_ROOT)/TapkuLibrary.xcodeproj
 TARGET=TapkuLibrary

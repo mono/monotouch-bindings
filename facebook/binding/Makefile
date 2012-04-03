@@ -1,4 +1,4 @@
-XBUILD=/Developer/usr/bin/xcodebuild
+XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 PROJECT_ROOT=facebook-ios-sdk/src
 PROJECT=$(PROJECT_ROOT)/facebook-ios-sdk.xcodeproj
 TARGET=facebook-ios-sdk

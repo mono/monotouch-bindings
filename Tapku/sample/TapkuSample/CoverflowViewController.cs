@@ -158,7 +158,11 @@ namespace TapkuSample
 			
 			public override TKCoverflowCoverView CoverflowViewcoverAtIndex (TKCoverflowView coverflowView, int index)
 			{
-				var cover = coverflowView.DequeueReusableCoverView();
+				TKCoverflowCoverView cover = null;
+				try{
+					cover = coverflowView.DequeueReusableCoverView();
+				}catch{
+				}
 				
 				if(cover == null) {
 					bool isPhone = UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone;

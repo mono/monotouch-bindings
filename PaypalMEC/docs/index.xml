@@ -1,0 +1,28 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="PayPalMECL" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libPayPalEC.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV6 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, "-lxml2 -lz", ForceLoad=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="MonoTouch.PayPal">
+      <Type Name="DeviceReferenceTokenDelegate" Kind="Class" />
+      <Type Name="PayPal" Kind="Class" />
+      <Type Name="PayPalButtonType" Kind="Enumeration" />
+      <Type Name="PayPalEnvironment" Kind="Enumeration" />
+    </Namespace>
+    <Namespace Name="paypal">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>PayPalMECL</Title>
+</Overview>
