@@ -6,7 +6,7 @@ using System;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using System.Drawing;
-using GoogleAdMobAds;
+using AlexTouch.GoogleAdMobAds;
 
 namespace sample
 {
@@ -14,7 +14,7 @@ namespace sample
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		UIWindow window;
-		GADBannerView bannerView;
+		GADBannerView ad;
 		UIViewController vc;
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
@@ -24,12 +24,36 @@ namespace sample
 			window.RootViewController = vc;
 			window.MakeKeyAndVisible ();
 			
-			bannerView = new GADBannerView(new RectangleF(new PointF(0,vc.View.Frame.Height - GADBannerView.GAD_SIZE_320x50.Height),GADBannerView.GAD_SIZE_320x50));
-			bannerView.AdUnitID = "MY_BANNER_UNIT_ID";
-			bannerView.RootViewController = vc;
-			
-			vc.View.AddSubview(bannerView);
-			bannerView.LoadRequest(new GADRequest());
+			ad = new GADBannerView(new RectangleF(new PointF(0,0), GADBannerView.GAD_SIZE_320x50))
+	        {
+	            AdUnitID = "Use Your AdMob Id here",
+	            RootViewController = vc //or your RootViewController  
+	        };
+	
+	        ad.DidReceiveAd += delegate 
+	        {
+	            vc.View.AddSubview(ad);
+	            Console.WriteLine("AD Received");
+	        };
+	
+	        ad.DidFailToReceiveAdWithError += delegate(object sender, GADBannerViewDidFailWithErrorEventArgs e) {
+	            Console.WriteLine(e.Error);
+	        };
+	
+	        ad.WillPresentScreen += delegate {
+	            Console.WriteLine("showing new screen");
+	        };
+	
+	        ad.WillLeaveApplication += delegate {
+	            Console.WriteLine("I will leave application");
+	        };
+	
+	        ad.WillDismissScreen += delegate {
+	            Console.WriteLine("Dismissing opened screen");
+	        };
+	
+	        Console.Write("Requesting Ad");
+	        ad.LoadRequest(new GADRequest());
 			
 			return true;
 		}
