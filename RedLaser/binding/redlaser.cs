@@ -45,7 +45,7 @@ namespace RedLaser
 	[BaseType (typeof (NSObject))]
 	interface BarcodeResult {
 		[Export ("barcodeType")]
-		int BarcodeType { get; }
+		RLBarcodeType BarcodeType { get; }
 		
 		[Export ("barcodeString")]
 		string BarcodeString { get; }
@@ -70,18 +70,10 @@ namespace RedLaser
 		BarcodePickerControllerDelegate
 
 		The delegate receives messages about the results of a scan.
-
-		barcodePickerController:didScanBarcode:withInfo: is the legacy API;
-		barcodePickerController:returnResults: is the new API that supports multiple
-		barcode capture.
 	*/
 	[BaseType (typeof (NSObject))]
 	[Model]
 	interface BarcodePickerControllerDelegate {
-		// - (void) barcodePickerController:(BarcodePickerController*)picker didScanBarcode:(NSString*)ean withInfo:(NSDictionary*)info;
-		[Export ("barcodePickerController:didScanBarcode:withInfo:")]
-		void BarcodeScanned (BarcodePickerController picker, string ean, NSDictionary info);
-		
 		// - (void) barcodePickerController:(BarcodePickerController*)picker returnResults:(NSSet *)results;
 		[Export ("barcodePickerController:returnResults:")]
 		void ReturnResults (BarcodePickerController picker, NSSet results);
@@ -113,14 +105,14 @@ namespace RedLaser
 	*/
 	[BaseType (typeof (UIViewController))]
 	interface BarcodePickerController {
-		[Export ("prepareToScan")]
-		void PrepareToScan ();
-		
 		[Export ("pauseScanning")]
 		void PauseScanning ();
 		
 		[Export ("resumeScanning")]
 		void ResumeScanning ();
+
+		[Export ("prepareToScan")]
+		void PrepareToScan ();
 		
 		[Export ("clearResultsSet")]
 		void ClearResultsSet ();
