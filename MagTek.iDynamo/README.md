@@ -21,6 +21,19 @@ Sample
 The sample program in sample/ is a partial port of MagTek's sample iDynamo
 program, it covers about half of the features in it.
 
+ARMv7 support
+=============
+
+The downloaded static library contains duplicate symbols for ARMv7 that
+results in an error when linking ARMv7 projects (e.g. for an iPad app).
+The fix requires some minor surgery on the static library:
+	* split the .a into both an armv6 and armv7 .a (lipo -thin) 
+	* decompress the armv7.a (ar -x)
+	* the duplicate will overwrite themselves, no work required
+	* recompress the armv7.a library (libtool -static)
+	* merge the (old) armv6 and the new armv7 libraries (lip -create)
+	* rebuild the bindings
+
 License
 =======
 
