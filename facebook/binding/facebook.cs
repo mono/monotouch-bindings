@@ -37,6 +37,15 @@ namespace MonoTouch.FacebookConnect  {
 
 		[Export ("authorize:")]
 		void Authorize (string [] permissions);
+		
+		[Export ("extendAccessToken")]
+		void ExtendAccessToken();
+		
+		[Export ("extendAccessTokenIfNeeded")]
+		void ExtendAccessTokenIfNeeded();
+		
+		[Export ("shouldExtendAccessToken")]
+		bool ShouldExtendAccessToken();
 
 		[Export ("handleOpenURL:")]
 		bool HandleOpenURL (NSUrl url);
@@ -77,6 +86,9 @@ namespace MonoTouch.FacebookConnect  {
 
 		[Export ("fbDidNotLogin:")]
 		void DidNotLogin (bool cancelled);
+		
+		[Export ("fbDidExtendToken:expiresAt")]
+		void DidExtendToken(string accessToken, NSDate expiresAt);
 
 		[Export ("fbDidLogout")]
 		void DidLogout ();
