@@ -25,14 +25,14 @@ namespace MillennialMedia
 		UIViewController RootViewController { get; set;  }
 
 		[Static]
-		[Export ("adWithFrame:type:typeapid:apiddelegate:aDelegateloadAd:loadAdstartTimer:startTimer")]
-		MMAdView FromRect (RectangleF aFrame, MMAdType adType, string typeId , MMAdDelegate theDelegate , bool loadAdStartTimer, bool startTimer );
+		[Export ("adWithFrame:type:apid:delegate:loadAd:startTimer:")]
+		MMAdView FromRect (RectangleF aFrame, MMAdType adType, string apid , MMAdDelegate theDelegate , bool loadAdStartTimer, bool startTimer );
 
-		[Export ("interstitialWithType:typeapid:apiddelegate:loadAd:loadAd")]
+		[Export ("interstitialWithType:apid:delegate:loadAd:")]
 		MMAdView FromType (MMAdType adType, string typeId, MMAdDelegate aDelegate, bool loadAd );
 
 		[Static]
-		[Export ("startSynchronousConversionTrackerWithGoalId:goalid")]
+		[Export ("startSynchronousConversionTrackerWithGoalId:")]
 		void StartTracker (string goalId );
 
 		[Static]
@@ -40,7 +40,7 @@ namespace MillennialMedia
 		string Version ();
 
 		[Static]
-		[Export ("updateLocation:currentLocation")]
+		[Export ("updateLocation:")]
 		void UpdateLocation (CLLocation currentLocation );
 
 		[Export ("refreshAd")]
@@ -69,22 +69,22 @@ namespace MillennialMedia
 		[Export ("accelerometerEnabled")]
 		bool AccelerometerEnabled ();
 
-		[Export ("adRequestSucceeded:adView")]
+		[Export ("adRequestSucceeded:")]
 		void AdRequestSucceededadView (MMAdView adView);
 
-		[Export ("adRequestFailed:adView")]
+		[Export ("adRequestFailed:")]
 		void AdRequestFailedadView (MMAdView adView);
 
-		[Export ("adDidRefresh:adView")]
+		[Export ("adDidRefresh:")]
 		void AdDidRefreshadView (MMAdView adView );
 
-		[Export ("adWasTapped:adView")]
+		[Export ("adWasTapped:")]
 		void AdWasTappedadView (MMAdView adView );
 
-		[Export ("adRequestIsCaching:adView")]
+		[Export ("adRequestIsCaching:")]
 		void AdRequestIsCachingadView (MMAdView adView );
 
-		[Export ("adRequestFinishedCaching:adViewsuccessful:didSucceed")]
+		[Export ("adRequestFinishedCaching:successful:")]
 		void AdRequestFinishedCachingadViewsuccessfuldidSucceed (MMAdView adView, bool sucess );
 
 		[Export ("applicationWillTerminateFromAd")]
