@@ -1,5 +1,5 @@
+XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-XBUILD=/Developer/usr/bin/xcodebuild
 PROJECT_ROOT=MGSPlitViewController
 PROJECT=$(PROJECT_ROOT)/MGSplitViewController.xcodeproj
 TARGET=MGSplitViewController
