@@ -1,7 +1,7 @@
+XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BUILD_FLAGS=-unsafe -target:library -nowarn:436 -nowarn:219
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
-XBUILD=/Developer/usr/bin/xcodebuild
 MONOMAC=/cvs/monomac
 VERSION=0.9
 

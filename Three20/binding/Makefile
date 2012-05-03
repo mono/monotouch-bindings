@@ -1,8 +1,8 @@
 SDKS=libThree20SDK.a libThree20CoreSDK.a libThree20NetworkSDK.a libThree20StyleSDK.a libThree20UISDK.a libThree20UICommonSDK.a libThree20UINavigatorSDK.a
+XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 STAMPS=simulator.stamp armv6.stamp armv7.stamp
 MODULES=Core Network Style UI UICommon UINavigator
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-XBUILD=/Developer/usr/bin/xcodebuild
 PROJECT_ROOT=three20/src/Three20
 PROJECT=$(PROJECT_ROOT)/Three20.xcodeproj
 BUILD_ROOT=three20/Build/Products

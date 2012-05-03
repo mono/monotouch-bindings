@@ -1,5 +1,5 @@
+XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-XBUILD=/Developer/usr/bin/xcodebuild
 PROJECT_ROOT=atmhud-sdk
 PROJECT=$(PROJECT_ROOT)/atmhud-sdk.xcodeproj
 TARGET=atmhud-sdk
