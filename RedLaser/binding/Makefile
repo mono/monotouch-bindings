@@ -1,6 +1,6 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-BUILDVER=build139
-VERSION=3.2.4
+BUILDVER=build154
+VERSION=3.3.0
 
 all: RedLaser.dll
 
