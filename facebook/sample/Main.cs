@@ -58,7 +58,7 @@ namespace sample {
 		
 		void UninstallFromFacebook ()
 		{
-			facebook.GraphRequest ("me/permissions", new NSMutableDictionary (), "DELETE", Handle (delegate {
+			facebook.GraphRequest ("me/permissions", new NSMutableDictionary (), "DELETE", Handler (delegate {
 				ShowMessage ("Success", "The application has been uninstall form Facebook");
 
 				// Clear out authentication values
@@ -108,13 +108,21 @@ namespace sample {
 				new object [] { "Test using MonoTouch/Facebook", "Hackbook for MonoTouch/iOS", "Some long boring text goes here", 
 				"http://xamarin.com", "http://www.facebookmobileweb.com/hackbook/img/facebook_icon_large.png", json.ToString ()},
 				new object [] { "name", "caption", "description", "link", "picture", "actions"});
-			facebook.Dialog ("feed", parameters, DialogCallback (url => {
+			
+			_wallDialogHandler = DialogCallback (url => {
+				
+				if (url.Query == null)
+					return;
+				
 				var pars = System.Web.HttpUtility.ParseQueryString (url.Query);
 				if (pars ["post_id"] != null)
 					ShowMessage ("Success", "Got the message posted, id=" + pars ["post_id"]);
-			}));
+			});
+			
+			facebook.Dialog ("feed", parameters, _wallDialogHandler);
 		}
 		
+		private FBDialogDelegate _wallDialogHandler;		
 		internal void ShowLoggedIn ()
 		{
 			dvc.Root = new RootElement ("Logged In") { 
@@ -244,9 +252,9 @@ namespace sample {
 		
 		// Pre-4.2 callback
 		// This method is called back when Facebook has authenticated us in the Web UI
-		public override void HandleOpenURL (UIApplication application, NSUrl url)
+		public override bool HandleOpenURL (UIApplication application, NSUrl url)
 		{
-			facebook.HandleOpenURL (url);
+			return facebook.HandleOpenURL (url);
 		}
 		
 		// Post 4.2 callback
@@ -263,7 +271,7 @@ namespace sample {
 			UIApplication.Main (args, null, "AppDelegate");
 		}
 			
-		FBRequestDelegate Handle (Action<FBRequest,NSObject> handler)
+		FBRequestDelegate Handler (Action<FBRequest,NSObject> handler)
 		{
 				return new RequestHandler (handler);
 		}
