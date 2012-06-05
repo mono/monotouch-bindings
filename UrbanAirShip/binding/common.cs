@@ -9,6 +9,170 @@ using MonoTouch.UIKit;
 
 namespace UrbanAirship
 {
+	[BaseType (typeof (NSObject))]
+	interface UAirship {
+		[Export ("deviceToken")]
+		string DeviceToken { get; set;  }
+
+		[Export ("analytics")]
+		UAAnalytics Analytics { get; set;  }
+
+		[Export ("server")]
+		string Server { get; set;  }
+
+		[Export ("appId")]
+		string AppId { get; set;  }
+
+		[Export ("appSecret")]
+		string AppSecret { get; set;  }
+
+		[Export ("deviceTokenHasChanged")]
+		bool DeviceTokenHasChanged { get; set;  }
+
+		[Export ("ready")]
+		bool Ready { get; set;  }
+
+		[Static]
+		[Export ("setLogging:")]
+		void SetLogging (bool enabled);
+
+		[Static]
+		[Export ("takeOff:")]
+		void TakeOff (NSDictionary options);
+
+		[Static]
+		[Export ("land")]
+		void Land ();
+
+		[Static]
+		[Export ("shared")]
+		UAirship Shared { get; }
+
+		[Export ("registerDeviceToken:")]
+		void RegisterDeviceToken (NSData token);
+
+//		[Export ("registerDeviceTokenWithExtraInfo:")]
+//		void RegisterDeviceToken (NSDictionary info);
+
+		[Export ("registerDeviceToken:withAlias:")]
+		void RegisterDeviceToken (NSData token, string alias);
+
+		[Export ("registerDeviceToken:withExtraInfo:")]
+		void RegisterDeviceToken (NSData token, NSDictionary info);
+
+		[Export ("unRegisterDeviceToken")]
+		void UnRegisterDeviceToken ();
+
+	}
+
+	[Static]
+	interface UAirshipTakeOffOptions
+	{
+		[Static, Field ("UAirshipTakeOffOptionsAirshipConfigKey", "__Internal")]
+		NSString AirshipConfigKey { get; }
+		
+		[Static, Field ("UAirshipTakeOffOptionsLaunchOptionsKey", "__Internal")]
+		NSString LaunchOptionsKey { get; }
+		
+		[Static, Field ("UAirshipTakeOffOptionsAnalyticsKey", "__Internal")]
+		NSString AnalyticsKey { get; }
+		
+		[Static, Field ("UAirshipTakeOffOptionsDefaultUsernameKey", "__Internal")]
+		NSString DefaultUsernameKey { get; }
+		
+		[Static, Field ("UAirshipTakeOffOptionsDefaultPasswordKey", "__Internal")]
+		NSString DefaultPasswordKey { get; }
+	}
+	
+	[BaseType (typeof (NSObject), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(UAPushNotificationDelegate)})]
+	interface UAPush {
+		[Export ("useCustomUI")]
+		NSObject UseCustomUI { get; set;  }
+
+		[Export ("openApnsSettings:animated:")]
+		void OpenApnsSettings(UIViewController viewController, bool animated);
+		
+		[Export ("closeApnsSettingsAnimated:")]
+		void CloseApnsSettings(bool animated);
+		
+		[Export ("land")]
+		void Land();
+
+		[Static]
+		[Export ("shared")]
+		UAPush Shared { get; }
+		
+		[Export ("registerForRemoteNotificationTypes:")]
+		void RegisterForRemoteNotificationTypes (UIRemoteNotificationType types);
+
+		[Export ("registerDeviceToken:")]
+		void RegisterDeviceToken (NSData token);
+		
+		[Export ("updateRegistration")]
+		void UpdateRegistration();
+		
+		[Export ("addTagToCurrentDevice:")]
+		void AddTagToCurrentDevice(string tag);
+		
+		[Export ("removeTagFromCurrentDevice:")]
+		void RemoveTagFromCurrentDevice(string tag);
+		
+		[Export ("updateAlias:")]
+		void UpdateAlias (string value);
+		
+		[Export ("updateTags:")]
+		void UpdateTags(string[] value);
+		
+		[Export ("setQuietTimeFrom:to:withTimeZone:")]
+		void SetQuietTime(NSDate from, NSDate to, NSTimeZone tz);
+		
+		[Export ("disableQuietTime")]
+		void DisableQuietTime();
+		
+		[Export ("enableAutobadge:")]
+		void EnableAutobadge (bool enabled);
+		
+		[Export ("setBadgeNumber:")]
+		void SetBadgeNumber (int badgeNumber);
+		
+		[Export ("resetBadge")]
+		void ResetBadge();
+		
+		[Export("handleNotification:applicationState:")]
+		void HandleNotification(NSDictionary notification, UIApplicationState state);
+		
+		[Export("pushTypeString:")]
+		string PushTypeString (UIRemoteNotificationType types);
+
+		[Wrap ("WeakDelegate")]
+		UAPushNotificationDelegate WeakDelegate { get; set; }
+
+	}
+
+	[BaseType (typeof(NSObject))]
+	[Model]
+	interface UAPushNotificationDelegate
+	{
+		[Export ("displayNotificationAlert:")]
+		void DisplayNotificationAlert (string alertMessage);
+
+		[Export ("displayLocalizedNotificationAlert:")]
+		void DisplayLocalizedNotificationAlert (NSDictionary alertDict);
+
+		[Export ("playNotificationSound:")]
+		void PlayNotificationSound (string sound);
+
+		[Export ("handleNotification:withCustomPayload:"), EventArgs ("NotificationWithCustomPayload")]
+		void HandleNotificationWithCustomPayload (NSDictionary notification, NSDictionary customPayload);
+
+		[Export ("handleBadgeUpdate:")]
+		void HandleBadgeUpdate (int badgeNumber);
+
+		[Export ("handleBackgroundNotification:")]
+		void HandleBackgroundNotification (NSDictionary notification);
+
+	}
+
 	[BaseType (typeof(NSObject), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(UAHTTPConnectionDelegate)})]
 	interface UAAnalytics
 	{
@@ -120,7 +284,7 @@ namespace UrbanAirship
 	{
 		[Static]
 		[Export ("formattedDateRelativeToNow:")]
-		string FormattedDateRelativeToNow (DateTime date);
+		string FormattedDateRelativeToNow (NSDate date);
 
 	}
 	
