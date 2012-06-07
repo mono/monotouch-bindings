@@ -18,7 +18,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.ObjCRuntime;
-using Parse;
+using ParseLib;
 
 namespace ParseStarterProject
 {
@@ -43,7 +43,7 @@ namespace ParseStarterProject
 		{
 			NSUrlResponse url;
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			Parse.Parse.SetApplicationId("appid","clientkey");
+			ParseLib.Parse.SetApplicationIdclientKey("appid","clientkey");
 			NSError error = new NSError();
 			
 			PFObject testObject= PFObject.FromName("TestObject");
