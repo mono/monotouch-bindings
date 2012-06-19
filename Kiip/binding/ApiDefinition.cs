@@ -37,10 +37,10 @@ namespace Kiip
 		KPManagerDelegate Delegate { get; set; }
 
 		[Export ("initWithKey:secret:")]
-		KPManager Constructor (string key, string secret);
+		IntPtr Constructor (string key, string secret);
 
 		[Export ("initWithKey:secret:testFrequency:")]
-		KPManager Constructor (string key, string secret, int frequency);
+		IntPtr Constructor (string key, string secret, int frequency);
 
 		[Export ("deviceIdentifier")]
 		string DeviceIdentifier ();

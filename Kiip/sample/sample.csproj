@@ -79,9 +79,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="Kiip">
-      <HintPath>..\binding\Kiip.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -117,5 +114,11 @@
     <Content Include="..\..\..\..\Downloads\Kiip\Kiip-iOS-SDK-v1\Kiip-v1.0.17\Images\spinner-bg%402x.png">
       <Link>spinner-bg%402x.png</Link>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\binding\binding.csproj">
+      <Project>{C4E421D9-589F-4266-AA61-6722E60DD628}</Project>
+      <Name>binding</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
