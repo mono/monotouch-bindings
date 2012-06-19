@@ -8,7 +8,7 @@ namespace ParseLib
 
 	public delegate void PFBooleanResult (bool succeeded, NSError error);
 	public delegate void PFIntegerResult (int number, NSError error);
-	public delegate void PFArrayResult (NSArray objects, NSError error);
+	public delegate void PFArrayResult (PFObject[] objects, NSError error);
 	public delegate void PFObjectResult (PFObject theObject, NSError error);
 	public delegate void PFSetResult(NSSet channels, NSError error);
 	public delegate void PFUserResult (PFUser user, NSError error);

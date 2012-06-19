@@ -19,19 +19,20 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.ObjCRuntime;
 using ParseLib;
+using MonoTouch.Dialog;
 
 namespace ParseStarterProject
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
 	// User Interface of the application, as well as listening (and optionally responding) to 
 	// application events from iOS.
+
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
 		UIWindow window;
-		//ParseStarterProjectViewController viewController;
-
+		DialogViewController dvc;
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
 		// method you should instantiate the window, load the UI into it and then make the window
@@ -41,20 +42,65 @@ namespace ParseStarterProject
 		//
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			NSUrlResponse url;
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			ParseLib.Parse.SetApplicationIdclientKey("appid","clientkey");
-			NSError error = new NSError();
-			
-			PFObject testObject= PFObject.FromName("TestObject");
-			
-			testObject.SetObjectforKey(new NSString("bar"),"foo");
-			testObject.Save(out error);
-			//viewController = new ParseStarterProjectViewController ();
-			//window.RootViewController = viewController;
+			ParseLib.Parse.SetApplicationIdclientKey("appid","clientid");
+			dvc = new DialogViewController(CreateRoot());
+			window.RootViewController = new UINavigationController(dvc);
 			window.MakeKeyAndVisible ();
-			
 			return true;
+		}
+		
+		EntryElement nameElement;
+		EntryElement scoreElement;
+		RadioGroup dificultyGroup;
+		RootElement CreateRoot()
+		{
+			nameElement = new EntryElement("Name","","");
+			scoreElement = new EntryElement("Score","","");
+			dificultyGroup = new RadioGroup(1);
+			return new RootElement("Parse"){
+				new Section("Add a score!"){
+					nameElement,
+					scoreElement,
+					new RootElement ("Dificulty",dificultyGroup){
+						new Section ("Dificulty"){
+							new RadioElement ("Easy"),
+							new RadioElement ("Medium"),
+							new RadioElement ("Hard"),
+						},
+					},
+				},
+				new Section()
+				{
+					new StringElement("Submit Score",submitScore),
+				},
+				new Section()
+				{
+					new StringElement("View High Scores", viewHighScores),
+				}
+			};
+		}
+		void viewHighScores()
+		{
+			dvc.ActivateController(new HighScoreViewController());
+		}
+		void submitScore()
+		{
+			nameElement.FetchValue();
+			scoreElement.FetchValue();
+			var gameScore = new GameScore()
+			{
+				Player = nameElement.Value,
+				Score = int.Parse(scoreElement.Value),
+				Dificulty = (GameDificulty)dificultyGroup.Selected,
+			};
+			var pfobj = gameScore.ToPfObject();
+			Console.WriteLine(pfobj);
+
+			pfobj.SaveAsync((success,error)=>{
+				UIAlertView alert = new UIAlertView(pfobj.ClassName,string.Format("Success: {0}",success),null,"Ok");
+				alert.Show();
+			});
 		}
 	}
 }
