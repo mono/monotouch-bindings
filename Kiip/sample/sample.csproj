@@ -96,29 +96,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Content Include="..\..\..\..\Downloads\Kiip\Kiip-iOS-SDK-v1\Kiip-v1.0.17\Images\close.png">
-      <Link>close.png</Link>
-    </Content>
-    <Content Include="..\..\..\..\Downloads\Kiip\Kiip-iOS-SDK-v1\Kiip-v1.0.17\Images\close%402x.png">
-      <Link>close%402x.png</Link>
-    </Content>
-    <Content Include="..\..\..\..\Downloads\Kiip\Kiip-iOS-SDK-v1\Kiip-v1.0.17\Images\notification-portrait.png">
-      <Link>notification-portrait.png</Link>
-    </Content>
-    <Content Include="..\..\..\..\Downloads\Kiip\Kiip-iOS-SDK-v1\Kiip-v1.0.17\Images\notification-portrait%402x.png">
-      <Link>notification-portrait%402x.png</Link>
-    </Content>
-    <Content Include="..\..\..\..\Downloads\Kiip\Kiip-iOS-SDK-v1\Kiip-v1.0.17\Images\spinner-bg.png">
-      <Link>spinner-bg.png</Link>
-    </Content>
-    <Content Include="..\..\..\..\Downloads\Kiip\Kiip-iOS-SDK-v1\Kiip-v1.0.17\Images\spinner-bg%402x.png">
-      <Link>spinner-bg%402x.png</Link>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\binding\binding.csproj">
       <Project>{C4E421D9-589F-4266-AA61-6722E60DD628}</Project>
       <Name>binding</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="close.png" />
+    <Content Include="close%402x.png" />
+    <Content Include="notification-portrait.png" />
+    <Content Include="notification-portrait%402x.png" />
+    <Content Include="spinner-bg.png" />
+    <Content Include="spinner-bg%402x.png" />
   </ItemGroup>
 </Project>
