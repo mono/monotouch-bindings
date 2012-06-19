@@ -57,7 +57,7 @@ namespace ParseStarterProject
 		{
 			nameElement = new EntryElement("Name","","");
 			scoreElement = new EntryElement("Score","","");
-			dificultyGroup = new RadioGroup(1);
+			dificultyGroup = new RadioGroup(0);
 			return new RootElement("Parse"){
 				new Section("Add a score!"){
 					nameElement,

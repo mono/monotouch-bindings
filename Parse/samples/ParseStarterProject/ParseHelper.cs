@@ -58,7 +58,7 @@ namespace ParseStarterProject
 			foreach(var prop in type.GetProperties())
 			{
 				string keyName = Attribute.IsDefined(prop,typeof(DataMemberAttribute)) ? ((DataMemberAttribute)Attribute.GetCustomAttribute(prop,typeof(DataMemberAttribute))).Name : prop.Name;
-				if(!keys.Contains(keyName) && keyName != "UpdatedAt" && keyName != "CreatedAt")
+				if(!keys.Contains(keyName) && keyName != "UpdatedAt" && keyName != "CreatedAt" && keyName != "ObjectId")
 					continue;
 				if(keyName == "UpdatedAt")
 				{
@@ -73,11 +73,14 @@ namespace ParseStarterProject
 				else if(keyName == "ObjectId")
 				{
 					prop.SetValue(obj,pfObj.ObjectId,null);
+					continue;
 				}
 				if(prop.PropertyType == typeof(DateTime))
 					prop.SetValue (obj,DateTime.ParseExact(pfObj.ObjectForKey(keyName).ToString(),"s",CultureInfo.InvariantCulture),null);
 				else if (prop.PropertyType.IsEnum)
 					prop.SetValue (obj,Enum.Parse(prop.PropertyType, pfObj.ObjectForKey(keyName).ToString()),null);
+				else if(prop.PropertyType == typeof(String))					
+					prop.SetValue (obj,pfObj.ObjectForKey(keyName).ToString(),null);
 				else
 					prop.SetValue (obj,Convert.ChangeType(pfObj.ObjectForKey(keyName).ToString(),prop.PropertyType),null);
 			}
