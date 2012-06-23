@@ -96,17 +96,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\binding\binding.csproj">
-      <Project>{C4E421D9-589F-4266-AA61-6722E60DD628}</Project>
-      <Name>binding</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="close.png" />
     <Content Include="close%402x.png" />
     <Content Include="notification-portrait.png" />
     <Content Include="notification-portrait%402x.png" />
     <Content Include="spinner-bg.png" />
     <Content Include="spinner-bg%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\binding\binding.csproj">
+      <Project>{C4E421D9-589F-4266-AA61-6722E60DD628}</Project>
+      <Name>binding</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

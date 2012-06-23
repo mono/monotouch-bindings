@@ -31,6 +31,7 @@ namespace sample
 		// class-level declarations
 		UIWindow window;
 		MainViewController viewController;
+		public static List<NSDictionary> Rewards = new List<NSDictionary>();
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
 		// method you should instantiate the window, load the UI into it and then make the window
@@ -41,124 +42,90 @@ namespace sample
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			var Manager = new KPManager("APIKEY","SECRET");
-			KPManager.SharedManager = Manager;
+			KPManager.SharedManager =  new KPManager("AppKey","AppSecret",100);
 			KPManager.SharedManager.DidStartSession += DidStartSession;
-			//Manager.Delegate = new myDelegate();
-			KPManager.SharedManager.StartSession();
+			KPManager.SharedManager.DidUpdateLocation += DidUpdateLocation;
+			KPManager.SharedManager.DidEndSession += DidEndSession;
+			KPManager.SharedManager.DidGetActivePromos += DidGetActivePromos;
+			KPManager.SharedManager.DidUnlockAchievement += DidUnlockAchievement;
+			KPManager.SharedManager.DidUpdateLeaderboard += DidUpdateLeaderboard;
+			KPManager.SharedManager.DidReceiveError += DidReceiveError;
+			KPManager.SharedManager.WillPresentNotification += WillPresentNotification;
+			KPManager.SharedManager.DidReceiveContent += DidReceiveContent;
+			KPManager.SharedManager.DidCloseNotification += DidCloseNotification;
+			KPManager.SharedManager.DidCloseWebView += DidCloseWebView;
+			KPManager.SharedManager.DidPresentNotification += DidPresentNotification;
+
+			//Manager.Delegate = new MyDelegate();
+
 			viewController = new MainViewController ();
 			window.RootViewController = viewController;
 			window.MakeKeyAndVisible ();
 			
 			return true;
 		}
-		class myDelegate : KPManagerDelegate
+
+		void DidPresentNotification (object sender, EventArgs e)
 		{
-			#region KPManagerDelegate implementation
-			public void WillPresentNotification (string rid)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidPresentNotification (string rid)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void WillCloseNotification (string rid)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidCloseNotification (string rid)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void WillShowWebView (string rid)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidShowWebView (string rid)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void WillCloseWebView (string rid)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidCloseWebView (string rid)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidStartSession (KPManager manager, NSDictionary resource)
-			{
-				
-				Console.WriteLine("Session started");
-				if(resource == null)
-				{
-					var alert = new UIAlertView("Kiip","Session created: No Promo",null,"OK");
-					alert.Show();
-					return;
-				}
-	
-				NSMutableDictionary reward = new NSMutableDictionary(resource);
-				reward.SetValueForKey(NSNumber.FromInt32((int)KPViewPosition.FullScreen),new NSString("position"));
-				KPManager.SharedManager.PresentReward(reward);
-				(new UIAlertView("Kiip","Session created: Promo",null,"Ok")).Show();;
-			}
-
-			public void DidEndSession (KPManager manager)
-			{
-				Console.WriteLine("DidEndSession");
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidUnlockAchievement (KPManager manager, NSDictionary resource)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidGetActivePromos (KPManager manager, NSArray promos)
-			{
-				Console.WriteLine("DidEndSession");
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidUpdateLocation (KPManager manager)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidUpdateLeaderboard (KPManager manager, NSDictionary resource)
-			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidReceiveError (KPManager manager, NSError error)
-			{
-				Console.WriteLine("DidEndSession");
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidStartSwarm (string leaderboard_id)
-			{
-				Console.WriteLine("DidEndSession");
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-
-			public void DidReceiveContent (string content, int quantity, NSDictionary receipt)
-			{
-				Console.WriteLine("DidEndSession");
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
-			}
-			#endregion
+			Console.WriteLine("Did present Notification");
 		}
 
+		void DidCloseWebView (object sender, EventArgs e)
+		{
+			Console.WriteLine("Did close webview");
+		}
+
+		void DidCloseNotification (object sender, EventArgs e)
+		{
+			Console.WriteLine("Did Close");
+		}
+
+		void DidReceiveContent (object sender, KiipStringIntDictEventArgs e)
+		{
+			Console.WriteLine("Did revceive content");
+		}
+
+		void WillPresentNotification (object sender, EventArgs e)
+		{
+			Console.WriteLine("Will present notification");
+		}
+
+		void DidReceiveError (object sender, KiipManagerErrEventArgs e)
+		{
+			Console.WriteLine(e.Error);
+		}
+
+		void DidUpdateLeaderboard (object sender, KiipManagerDictEventArgs e)
+		{
+			Console.WriteLine("Did Update Leader Board");
+		}
+
+		void DidUnlockAchievement (object sender, KiipManagerDictEventArgs e)
+		{
+			Console.WriteLine("Did Unlock Achievment");
+			if(e.Resource != null)
+			{
+				if(viewController.ToggleAction)
+					KPManager.SharedManager.PresentReward(e.Resource);
+				else
+					Rewards.Add (e.Resource);
+			}
+		}
+
+		void DidGetActivePromos (object sender, KiipManagerArrayEventArgs e)
+		{
+			Console.WriteLine("Current Active Promos:\r\n" +e.Promos.ToString() );
+		}
+
+		void DidEndSession (object sender, EventArgs e)
+		{
+			Console.WriteLine("Did End Session");
+		}
+
+		void DidUpdateLocation (object sender, EventArgs e)
+		{
+			Console.WriteLine("Did update location");
+		}
 		void DidStartSession(object sender, KiipManagerDictEventArgs evt)
 		{
 			Console.WriteLine("Session started");
@@ -174,8 +141,94 @@ namespace sample
 			KPManager.SharedManager.PresentReward(reward);
 			(new UIAlertView("Kiip","Session created: Promo",null,"Ok")).Show();;
 		}
+		/*
+		class MyDelegate : KPManagerDelegate
+		{
+			public override void DidStartSession (KPManager manager, NSDictionary resource)
+			{
+				Console.WriteLine("Did Start");
+			}
+			public override void DidGetActivePromos (KPManager manager, NSArray promos)
+			{
+				Console.WriteLine("Did get active promos");
+			}
+			public override void WillShowWebView (string rid)
+			{
+				Console.WriteLine("WillShowWebView");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void DidShowWebView (string rid)
+			{
+				Console.WriteLine("WillShowWebView");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void WillCloseWebView (string rid)
+			{
+				Console.WriteLine("WillShowWebView");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void DidCloseWebView (string rid)
+			{
+				Console.WriteLine("WillShowWebView");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
 
+			public override void DidUnlockAchievement (KPManager manager, NSDictionary resource)
+			{
+				Console.WriteLine("WillShowWebView");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void DidUpdateLeaderboard (KPManager manager, NSDictionary resource)
+			{
+				Console.WriteLine("WillShowWebView");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void DidUpdateLocation (KPManager manager)
+			{
+				Console.WriteLine("WillShowWebView");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void DidStartSwarm (string leaderboard_id)
+			{
+				Console.WriteLine("WillShowWebView");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
 
+			public override void DidEndSession (KPManager manager)
+			{
+				Console.WriteLine("DidEndSession");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void DidReceiveContent (string content, int quantity, NSDictionary receipt)
+			{
+				Console.WriteLine("Did Recieve Content");
+			}
+			public override void DidReceiveError (KPManager manager, NSError error)
+			{
+				Console.WriteLine("error:" + error);
+			}
+			public override void WillPresentNotification (string rid)
+			{
+				Console.WriteLine("WillPresentNotification");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void DidPresentNotification (string rid)
+			{
+				Console.WriteLine("DidPresentNotification");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void WillCloseNotification (string rid)
+			{
+				Console.WriteLine("WillCloseNotification");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+			public override void DidCloseNotification (string rid)
+			{
+				Console.WriteLine("DidCloseNotification");
+				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+			}
+		}
+		*/
 	}
 }
 

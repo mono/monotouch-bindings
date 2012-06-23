@@ -23,6 +23,7 @@ namespace sample
 {
 	public partial class MainViewController : UIViewController
 	{
+		KPViewPosition kPViewPosition = KPViewPosition.Top;
 		public MainViewController () : base ("MainViewController", null)
 		{
 		}
@@ -45,6 +46,7 @@ namespace sample
 		void toggleSwitchValueChanged (object sender, EventArgs e)
 		{
 			Console.WriteLine("ChangeD");
+			UIApplication.SharedApplication.SetStatusBarHidden(!toggleStatusBar.On,UIStatusBarAnimation.Slide);
 		}
 		
 		public override void ViewDidUnload ()
@@ -67,28 +69,48 @@ namespace sample
 
 		partial void saveLeaderboard ()
 		{
-			throw new System.NotImplementedException ();
+			leaderboard_id.ResignFirstResponder();
+			KPManager.SharedManager.UpdateScore(100,leaderboard_id.Text);
 		}
 		partial void setLocation ()
 		{
-			throw new System.NotImplementedException ();
+			KPManager.SharedManager.UpdateLocation(37.7753,-122.4189);
 		}
 		partial void showFullscreen ()
 		{
-			throw new System.NotImplementedException ();
+			while(AppDelegate.Rewards.Count > 0)
+			{
+				var reward = AppDelegate.Rewards[0];
+				reward.SetValueForKey (new NSNumber((int)KPViewPosition.FullScreen),new NSString("position"));
+				KPManager.SharedManager.PresentReward(reward);
+				AppDelegate.Rewards.Remove(reward);
+			}
 		}
 		partial void showNotification ()
 		{
-			throw new System.NotImplementedException ();
+			kPViewPosition = kPViewPosition == KPViewPosition.Top ? KPViewPosition.Bottom : KPViewPosition.Top;
+			while(AppDelegate.Rewards.Count > 0)
+			{
+				var reward = AppDelegate.Rewards[0];
+				reward.SetValueForKey (new NSNumber((int)kPViewPosition),new NSString("position"));
+				KPManager.SharedManager.PresentReward(reward);
+				AppDelegate.Rewards.Remove(reward);
+			}
 		}
 
 		partial void unlockAchievement ()
 		{
-			throw new System.NotImplementedException ();
+			achievement_id.ResignFirstResponder();
+			KPManager.SharedManager.UnlockAchievement(achievement_id.Text,new string[]{"movies","music"});
 		}
 		partial void getActivePromos ()
 		{
 			KPManager.SharedManager.GetActivePromos();
+		}
+
+		public bool ToggleAction
+		{
+			get{return toggleAction.On;}
 		}
 
 	}
