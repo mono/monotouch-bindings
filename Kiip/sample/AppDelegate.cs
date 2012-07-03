@@ -42,7 +42,9 @@ namespace sample
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			KPManager.SharedManager =  new KPManager("AppKey","AppSecret",100);
+
+						
+			KPManager.SharedManager =  new KPManager("799cd5dabaae331d900801f0ac86a672","85c521a809899003bbec3e7b418ce391",100);
 			KPManager.SharedManager.DidStartSession += DidStartSession;
 			KPManager.SharedManager.DidUpdateLocation += DidUpdateLocation;
 			KPManager.SharedManager.DidEndSession += DidEndSession;
@@ -64,6 +66,7 @@ namespace sample
 			
 			return true;
 		}
+
 
 		void DidPresentNotification (object sender, EventArgs e)
 		{
