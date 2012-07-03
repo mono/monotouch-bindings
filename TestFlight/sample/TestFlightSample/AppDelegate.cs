@@ -4,8 +4,6 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.TestFlight;
-using MonoTouch.Dialog;
-
 namespace TestFlightSample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -34,20 +32,9 @@ namespace TestFlightSample
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
 			viewController = new TestFlightSampleViewController ("TestFlightSampleViewController", null);
-			//window.RootViewController = viewController;
 			
-			var menu = new RootElement("Demos") { 
-				new Section ("Enter some stuff")
-				{
-					new EntryElement ("Name:", "", prefs.StringForKey("UserName")),
-					new EntryElement ("Email:", "", prefs.StringForKey("Email"))
-				} 
-			};
+			window.RootViewController = viewController;
 
-			var dv = new DialogViewController (menu) { Autorotate = true };
-			
-			window.AddSubview(dv.View);
-			
 			window.MakeKeyAndVisible ();
 			
 			return true;
