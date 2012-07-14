@@ -375,6 +375,9 @@ namespace Couchbase
 
 		[Field ("kCouchDatabaseChangeNotification", "__Internal")]
 		NSString ChangeNotification { get; }
+
+		[Export ("tracksChanges")]
+		bool TracksChanges { get; set; }
 	}
 
 
@@ -412,6 +415,32 @@ namespace Couchbase
 
 	}
 
+
+	[BaseType (typeof (CouchServer))]
+	interface CouchTouchDBServer {
+		[Export ("error")]
+		NSError Error { get;  }
+
+		[Static, Export ("sharedInstance")]
+		CouchTouchDBServer SharedInstance { get; }
+
+		[Export ("initWithServerPath:")]
+		IntPtr Constructor (string serverPath);
+
+		[Export ("initWithURL:")]
+		IntPtr Constructor (NSUrl url);
+
+		[Export ("close")]
+		void Close ();
+
+		// Bind TDServer for this
+		//[Export ("tellTDServer:")]
+		//void InvokeOnTDServerThread (Action<TDServer> run);
+
+		//[Export ("tellTDDatabaseNamed:to:")]
+		//void InvokeOnTDServerThread (string dbName, Action<TDDatabase> block);
+
+	}
 
 	[BaseType (typeof (CouchResource))]
 	interface CouchDocument {
@@ -601,7 +630,7 @@ namespace Couchbase
 	delegate void Emit (NSObject key, NSObject value);
 	delegate void TDMap (NSDictionary doc, Emit emit);
 	delegate NSObject TDReduce (NSObject [] keys, NSObject [] values, bool rereduce);
-	delegate bool TDValidation (TDRevision revision, NSObject context);
+	delegate bool TDValidation (TDRevision revision, TDValidationContext context);
 	delegate bool TDFilter (TDRevision revision);
 
 	[BaseType (typeof (CouchDocument))]
@@ -1095,6 +1124,40 @@ namespace Couchbase
 		[Export ("setterKey:")]
 		string SetterKey (Selector sel);
 
+	}
+
+	[BaseType (typeof (NSObject))]
+	[Model]
+	interface TDValidationContext {
+		[Abstract]
+		[Export ("currentRevision")]
+		TDRevision CurrentRevision { get;  }
+
+		[Abstract]
+		[Export ("errorType")]
+		TDStatus ErrorType { get; set;  }
+
+		[Abstract]
+		[Export ("errorMessage")]
+		string ErrorMessage { get; set;  }
+
+		[Abstract]
+		[Export ("changedKeys")]
+		NSObject [] ChangedKeys { get;  }
+
+		[Abstract]
+		[Export ("allowChangesOnlyTo:")]
+		bool AllowChangesOnlyTo (NSObject [] allowedKeys);
+
+		[Abstract]
+		[Export ("disallowChangesTo:")]
+		bool DisallowChangesTo (NSObject [] disallowedKeys);
+
+#if false
+		[Abstract]
+		[Export ("enumerateChanges:")]
+		bool EnumerateChanges (TDChangeEnumeratorBlock enumerator);
+#endif
 	}
 
 }
