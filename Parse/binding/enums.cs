@@ -2,7 +2,7 @@ using System;
 
 namespace ParseLib
 {
-	public enum PFCachePolicy
+	public enum ParseCachePolicy
 	{
 		IgnoreCache = 0,
 		CacheOnly,
@@ -12,7 +12,7 @@ namespace ParseLib
 		CacheThenNetwork
 	}
 
-	public enum PFSignUpFields
+	public enum ParseSignUpFields
 	{
 		UsernameAndPassword = 0,
 		Email = 1 << 0,
@@ -22,7 +22,7 @@ namespace ParseLib
 		Default = UsernameAndPassword | Email | SignUpButton | DismissButton
 	}
 
-	public enum PFLogInFields
+	public enum ParseLogInFields
 	{
 		None = 0,
 		UsernameAndPassword = 1 << 0,
@@ -36,7 +36,7 @@ namespace ParseLib
 		Default = UsernameAndPassword | LogInButton | SignUpButton | PasswordForgotten | DismissButton
 	}
 	
-	public enum PF_MBProgressHUDMode
+	public enum ParseMBProgressHUDMode
 	{
 		/** Progress is shown using an UIActivityIndicatorView. This is the default. */
 		Indeterminate,
@@ -46,18 +46,21 @@ namespace ParseLib
 		CustomView
 	}
 
-	public enum PF_MBProgressHUDAnimation
+	public enum ParseMBProgressHUDAnimation
 	{
 		/** Opacity animation */
 		Fade,
 		/** Opacity + scale animation */
 		Zoom
-	} 
-	public enum PF_FBRequestState {
-	   Ready,
-	   Loading,
-	   Complete,
-	   Error
-	};
+	}
+
+	public enum ParseFBRequestState
+	{
+		Ready,
+		Loading,
+		Complete,
+		Error
+	}
+	;
 
 }

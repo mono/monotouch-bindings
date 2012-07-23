@@ -5,21 +5,29 @@ using MonoTouch.UIKit;
 
 namespace ParseLib
 {
+	public delegate void ParseBooleanResult (bool succeeded,NSError error);
 
-	public delegate void PFBooleanResult (bool succeeded, NSError error);
-	public delegate void PFIntegerResult (int number, NSError error);
-	public delegate void PFArrayResult (PFObject[] objects, NSError error);
-	public delegate void PFObjectResult (PFObject theObject, NSError error);
-	public delegate void PFSetResult(NSSet channels, NSError error);
-	public delegate void PFUserResult (PFUser user, NSError error);
-	public delegate void PFDataResult (NSData data, NSError error);
-	public delegate void PFDataStreamResult (NSInputStream data, NSError error);
-	public delegate void PFErrorResult(NSError error);
-	public delegate void PFProgress (int percentDone);
+	public delegate void ParseIntegerResult (int number,NSError error);
 
+	public delegate void ParseArrayResult (ParseObject[] objects,NSError error);
 
-	[BaseType (typeof (NSObject))]
-	public interface Parse {
+	public delegate void ParseObjectResult (ParseObject theObject,NSError error);
+
+	public delegate void ParseSetResult (NSSet channels,NSError error);
+
+	public delegate void ParseUserResult (ParseUser user,NSError error);
+
+	public delegate void ParseDataResult (NSData data,NSError error);
+
+	public delegate void ParseDataStreamResult (NSInputStream data,NSError error);
+
+	public delegate void ParseErrorResult (NSError error);
+
+	public delegate void ParseProgress (int percentDone);
+
+	[BaseType (typeof(NSObject))]
+	public interface Parse
+	{
 
 		[Static]
 		[Export ("setApplicationId:clientKey:")]
@@ -35,25 +43,25 @@ namespace ParseLib
 
 		[Static]
 		[Export ("getApplicationId")]
-		string ApplicationId{get;}
+		string ApplicationId{ get; }
 
 		[Static]
 		[Export ("getClientKey")]
-		string ClientKey{get;}
+		string ClientKey{ get; }
 
 
 	}
 	
-	
-	[BaseType (typeof (NSObject))]
-	public interface PFACL {
+	[BaseType (typeof(NSObject), Name="PFACL")]
+	public interface ParseACL
+	{
 		[Static]
 		[Export ("ACL")]
-		PFACL ACL ();
+		ParseACL ACL ();
 
 		[Static]
 		[Export ("ACLWithUser:")]
-		PFACL ACL (PFUser user);
+		ParseACL ACL (ParseUser user);
 
 		[Export ("setPublicReadAccess:")]
 		void SetPublicReadAccess (bool allowed);
@@ -80,16 +88,16 @@ namespace ParseLib
 		bool GetWriteAccess (string userId);
 
 		[Export ("setReadAccess:forUser:")]
-		void SetReadAccess (bool allowed, PFUser user);
+		void SetReadAccess (bool allowed, ParseUser user);
 
 		[Export ("getReadAccessForUser:")]
-		bool GetReadAccess (PFUser user);
+		bool GetReadAccess (ParseUser user);
 
 		[Export ("setWriteAccess:forUser:")]
-		void SetWriteAccess (bool allowed, PFUser user);
+		void SetWriteAccess (bool allowed, ParseUser user);
 
 		[Export ("getWriteAccessForUser:")]
-		bool GetWriteAccess (PFUser user);
+		bool GetWriteAccess (ParseUser user);
 
 		[Export ("getReadAccessForRoleWithName:")]
 		bool GetReadAccessForRoleName (string name);
@@ -104,49 +112,49 @@ namespace ParseLib
 		void SetWriteAccessforRoleName (bool allowed, string name);
 
 		[Export ("getReadAccessForRole:")]
-		bool GetReadAccess (PFRole role);
+		bool GetReadAccess (ParseRole role);
 
 		[Export ("setReadAccess:forRole:")]
-		void SetReadAccess (bool allowed, PFRole role);
+		void SetReadAccess (bool allowed, ParseRole role);
 
 		[Export ("getWriteAccessForRole:")]
-		bool GetWriteAccess (PFRole role);
+		bool GetWriteAccess (ParseRole role);
 
 		[Export ("setWriteAccess:forRole:")]
-		void SetWriteAccess (bool allowed, PFRole role);
+		void SetWriteAccess (bool allowed, ParseRole role);
 
 		[Static]
 		[Export ("setDefaultACL:withAccessForCurrentUser:")]
-		void SetDefaultACLAccess (PFACL acl, bool currentUserAccess);
+		void SetDefaultACLAccess (ParseACL acl, bool currentUserAccess);
 
 	}
 
-
-	[BaseType (typeof (NSObject))]
-	public interface PFFile {
+	[BaseType (typeof(NSObject), Name="PFFile")]
+	public interface ParseFile
+	{
 		[Export ("name")]
-		string Name { get;  }
+		string Name { get; }
 
 		[Export ("url")]
-		string Url { get;  }
+		string Url { get; }
 
 		[Export ("isDirty")]
-		bool IsDirty { get;  }
+		bool IsDirty { get; }
 
 		[Export ("isDataAvailable")]
-		bool IsDataAvailable { get;  }
+		bool IsDataAvailable { get; }
 
 		[Static]
 		[Export ("fileWithData:")]
-		PFFile FromData (NSData data);
+		ParseFile FromData (NSData data);
 
 		[Static]
 		[Export ("fileWithName:data:")]
-		PFFile FromData (string name, NSData data);
+		ParseFile FromData (string name, NSData data);
 
 		[Static]
 		[Export ("fileWithName:contentsAtPath:")]
-		PFFile FromPath (string name, string path);
+		ParseFile FromPath (string name, string path);
 
 		[Export ("save")]
 		bool Save ();
@@ -158,10 +166,10 @@ namespace ParseLib
 		void SaveAsync ();
 
 		[Export ("saveInBackgroundWithBlock:")]
-		void SaveAsync (PFBooleanResult result);
+		void SaveAsync (ParseBooleanResult result);
 
 		[Export ("saveInBackgroundWithBlock:progressBlock:")]
-		void SaveInBackgroundWithBlockprogressBlock (PFBooleanResult result, PFProgress progress);
+		void SaveInBackgroundWithBlockprogressBlock (ParseBooleanResult result, ParseProgress progress);
 
 		[Export ("saveInBackgroundWithTarget:selector:")]
 		void SaveAsync (NSObject target, Selector selector);
@@ -179,16 +187,16 @@ namespace ParseLib
 		NSInputStream GetDataStream (out NSError error);
 
 		[Export ("getDataInBackgroundWithBlock:")]
-		void GetDataAsync (PFDataResult result);
+		void GetDataAsync (ParseDataResult result);
 
 		[Export ("getDataStreamInBackgroundWithBlock:")]
-		void GetDataStreamAsync (PFDataStreamResult block);
+		void GetDataStreamAsync (ParseDataStreamResult block);
 
 		[Export ("getDataInBackgroundWithBlock:progressBlock:")]
-		void GetDataAsync (PFDataResult result, PFProgress progress);
+		void GetDataAsync (ParseDataResult result, ParseProgress progress);
 
 		[Export ("getDataStreamInBackgroundWithBlock:progressBlock:")]
-		void GetDataStreamAsync (PFDataStreamResult result, PFProgress progress);
+		void GetDataStreamAsync (ParseDataStreamResult result, ParseProgress progress);
 
 		[Export ("getDataInBackgroundWithTarget:selector:")]
 		void GetDataAsync (NSObject target, Selector selector);
@@ -198,89 +206,89 @@ namespace ParseLib
 
 	}
 
-	[BaseType (typeof (PFObject))]
-	public interface PFRole {
+	[BaseType (typeof(ParseObject), Name="PFRole")]
+	public interface ParseRole
+	{
 		[Export ("initWithName:")]
-		PFRole InitWithName (string name);
+		ParseRole InitWithName (string name);
 
 		[Export ("initWithName:acl:")]
-		PFRole InitWithNameacl (string name, PFACL acl);
+		ParseRole InitWithNameacl (string name, ParseACL acl);
 
 		[Static]
 		[Export ("roleWithName:")]
-		PFRole RoleWithName (string name);
+		ParseRole RoleWithName (string name);
 
 		[Static]
 		[Export ("roleWithName:acl:")]
-		PFRole RoleWithNameacl (string name, PFACL acl);
+		ParseRole RoleWithNameacl (string name, ParseACL acl);
 
 		[Export ("name")]
-		string name {get;set;}
+		string name { get; set; }
 
 		[Export ("users")]
-		PFRelation Users ();
+		ParseRelation Users ();
 
 		[Export ("roles")]
-		PFRelation Roles ();
+		ParseRelation Roles ();
 
 		[Export ("query")]
-		PFQuery Query ();
+		ParseQuery Query ();
 
 	}
-
 	
-	[BaseType (typeof (NSObject))]
-	public interface PFRelation {
+	[BaseType (typeof(NSObject), Name="PFRelation")]
+	public interface ParseRelation
+	{
 		[Export ("targetClass")]
-		string TargetClass { get; set;  }
+		string TargetClass { get; set; }
 
 		[Export ("key")]
-		string Key { get;  }
+		string Key { get; }
 
 		[Export ("query")]
-		PFQuery Query ();
+		ParseQuery Query ();
 
 		[Export ("addObject:")]
-		void AddObject (PFObject obj);
+		void AddObject (ParseObject obj);
 
 		[Export ("removeObject:")]
-		void RemoveObject (PFObject obj);
+		void RemoveObject (ParseObject obj);
 
 	}
 
-
-	[BaseType (typeof (NSObject))]
-	public interface PFObject {
+	[BaseType (typeof(NSObject), Name="PFObject")]
+	public interface ParseObject
+	{
 
 		[Static]
 		[Export ("objectWithClassName:")]
-		PFObject FromName (string className);
+		ParseObject FromName (string className);
 
 		[Static]
 		[Export ("objectWithoutDataWithClassName:objectId:")]
-		PFObject FromName (string className, string objectId);
+		ParseObject FromName (string className, string objectId);
 
 		[Export ("initWithClassName:")]
 		IntPtr Constructor (string newClassName);
 
-
 		[Export ("objectId")]
-		string ObjectId {get;set;}
+		string ObjectId { get; set; }
 
 		[Export ("updatedAt")]
-		NSDate UpdatedAt { get;  }
+		NSDate UpdatedAt { get; }
 
 		[Export ("createdAt")]
-		NSDate CreatedAt { get;  }
+		NSDate CreatedAt { get; }
 
 		[Export ("className")]
-		string ClassName { get;  }
+		string ClassName { get; }
 
 		[Export ("ACL")]
-		PFACL ACL { get; set;  }
+		ParseACL ACL { get; set; }
 
 		[Export ("allKeys")]
-		string[] AllKeys {get;}
+		string[] AllKeys { get; }
 
 		[Export ("objectForKey:")]
 		NSObject ObjectForKey (string key);
@@ -292,7 +300,7 @@ namespace ParseLib
 		void RemoveObjectForKey (string key);
 
 		[Export ("relationforKey:")]
-		PFRelation RelationforKey (string key);
+		ParseRelation RelationforKey (string key);
 
 		[Export ("incrementKey:")]
 		void IncrementKey (string key);
@@ -310,7 +318,7 @@ namespace ParseLib
 		void SaveAsync ();
 
 		[Export ("saveInBackgroundWithBlock:")]
-		void SaveAsync (PFBooleanResult result);
+		void SaveAsync (ParseBooleanResult result);
 
 		[Export ("saveInBackgroundWithTarget:selector:")]
 		void SaveAsync (NSObject target, Selector selector);
@@ -319,23 +327,23 @@ namespace ParseLib
 		void SaveEventually ();
 
 		[Export ("saveAll:")]
-		bool SaveAll (PFObject[] objects);
+		bool SaveAll (ParseObject[] objects);
 
 		[Static]
 		[Export ("saveAll:error:")]
-		bool SaveAll (PFObject[] objects,out NSError error);
+		bool SaveAll (ParseObject[] objects, out NSError error);
 
 		[Static]
 		[Export ("saveAllInBackground:")]
-		void SaveAllAsync (PFObject[] objects);
+		void SaveAllAsync (ParseObject[] objects);
 
 		[Static]
 		[Export ("saveAllInBackground:block:")]
-		void SaveAllAsync (PFObject[] objects, PFBooleanResult result);
+		void SaveAllAsync (ParseObject[] objects, ParseBooleanResult result);
 
 		[Static]
 		[Export ("saveAllInBackground:target:selector:")]
-		void SaveAllAsync (PFObject[] objects, NSObject target, Selector selector);
+		void SaveAllAsync (ParseObject[] objects, NSObject target, Selector selector);
 
 		[Export ("isDataAvailable")]
 		bool IsDataAvailable ();
@@ -347,7 +355,7 @@ namespace ParseLib
 		void Refresh (out NSError error);
 
 		[Export ("refreshInBackgroundWithBlock:")]
-		void RefreshAsync (PFObjectResult result);
+		void RefreshAsync (ParseObjectResult result);
 
 		[Export ("refreshInBackgroundWithTarget:selector:")]
 		void RefreshAsync (NSObject target, Selector selector);
@@ -359,54 +367,54 @@ namespace ParseLib
 		void Fetch (out NSError error);
 
 		[Export ("fetchIfNeeded")]
-		PFObject FetchIfNeeded ();
+		ParseObject FetchIfNeeded ();
 
 		[Export ("fetchIfNeeded:")]
-		PFObject FetchIfNeeded (out NSError error);
+		ParseObject FetchIfNeeded (out NSError error);
 
 		[Export ("fetchInBackgroundWithBlock:")]
-		void FetchAsync (PFObjectResult result);
+		void FetchAsync (ParseObjectResult result);
 
 		[Export ("fetchInBackgroundWithTarget:selector:")]
 		void FetchAsync (NSObject target, Selector selector);
 
 		[Export ("fetchIfNeededInBackgroundWithBlock:")]
-		void FetchIfNeededAsync (PFObjectResult result);
+		void FetchIfNeededAsync (ParseObjectResult result);
 
 		[Export ("fetchIfNeededInBackgroundWithTarget:selector:")]
 		void FetchIfNeededAsync (NSObject target, Selector selector);
 
 		[Static]
 		[Export ("fetchAll:")]
-		void FetchAll (PFObject[] objects);
+		void FetchAll (ParseObject[] objects);
 
 		[Static]
 		[Export ("fetchAll:error:")]
-		void FetchAll (PFObject[] objects,out NSError error);
+		void FetchAll (ParseObject[] objects, out NSError error);
 
 		[Static]
 		[Export ("fetchAllIfNeeded:")]
-		void FetchAllIfNeeded (PFObject[] objects);
+		void FetchAllIfNeeded (ParseObject[] objects);
 
 		[Static]
 		[Export ("fetchAllIfNeeded:error:")]
-		void FetchAllIfNeeded (PFObject[] objects,out NSError error);
+		void FetchAllIfNeeded (ParseObject[] objects, out NSError error);
 
 		[Static]
 		[Export ("fetchAllInBackground:block:")]
-		void FetchAllAsync (PFObject[] objects, PFArrayResult result);
+		void FetchAllAsync (ParseObject[] objects, ParseArrayResult result);
 
 		[Static]
 		[Export ("fetchAllInBackground:target:selector:")]
-		void FetchAllAsync (PFObject[] objects, NSObject target, Selector selector);
+		void FetchAllAsync (ParseObject[] objects, NSObject target, Selector selector);
 
 		[Static]
 		[Export ("fetchAllIfNeededInBackground:block:")]
-		void FetchAllIfNeededAsync (PFObject[] objects, PFArrayResult result);
+		void FetchAllIfNeededAsync (ParseObject[] objects, ParseArrayResult result);
 
 		[Static]
 		[Export ("fetchAllIfNeededInBackground:target:selector:")]
-		void FetchAllIfNeededAsync (PFObject[] objects, NSObject target, Selector selector);
+		void FetchAllIfNeededAsync (ParseObject[] objects, NSObject target, Selector selector);
 
 		[Export ("delete")]
 		bool Delete ();
@@ -418,7 +426,7 @@ namespace ParseLib
 		void DeleteInBackground ();
 
 		[Export ("deleteInBackgroundWithBlock:")]
-		void DeleteAsync (PFBooleanResult result);
+		void DeleteAsync (ParseBooleanResult result);
 
 		[Export ("deleteInBackgroundWithTarget:selector:")]
 		void DeleteAsync (NSObject target, Selector selector);
@@ -428,9 +436,9 @@ namespace ParseLib
 
 	}
 
-
-	[BaseType (typeof (NSObject))]
-	public interface PFPush {
+	[BaseType (typeof(NSObject), Name="PFPush")]
+	public interface ParsePush
+	{
 		[Export ("setChannel:")]
 		void SetChannel (string channel);
 
@@ -460,7 +468,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("sendPushMessageToChannel:withMessage:error:")]
-		bool SendPushMessage (string channel, string message,out  NSError error);
+		bool SendPushMessage (string channel, string message, out  NSError error);
 
 		[Static]
 		[Export ("sendPushMessageToChannelInBackground:withMessage:")]
@@ -468,7 +476,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("sendPushMessageToChannelInBackground:withMessage:block:")]
-		void SendPushMessageAsync (string channel, string message, PFBooleanResult result);
+		void SendPushMessageAsync (string channel, string message, ParseBooleanResult result);
 
 		[Static]
 		[Export ("sendPushMessageToChannelInBackground:withMessage:target:selector:")]
@@ -481,7 +489,7 @@ namespace ParseLib
 		void SendPushAsync ();
 
 		[Export ("sendPushInBackgroundWithBlock:")]
-		void SendPushAsync (PFBooleanResult result);
+		void SendPushAsync (ParseBooleanResult result);
 
 		[Export ("sendPushInBackgroundWithTarget:selector:")]
 		void SendPushAsync (NSObject target, Selector selector);
@@ -496,7 +504,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("sendPushDataToChannelInBackground:withData:block:")]
-		void SendPushData (string channel, NSDictionary data, PFBooleanResult result);
+		void SendPushData (string channel, NSDictionary data, ParseBooleanResult result);
 
 		[Static]
 		[Export ("sendPushDataToChannelInBackground:withData:target:selector:")]
@@ -516,7 +524,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("getSubscribedChannelsInBackgroundWithBlock:")]
-		void GetSubscribedChannelsAsync (PFSetResult result);
+		void GetSubscribedChannelsAsync (ParseSetResult result);
 
 		[Static]
 		[Export ("getSubscribedChannelsInBackgroundWithTarget:selector:")]
@@ -524,7 +532,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("subscribeToChannel:error:")]
-		bool SubscribeToChannel (string channel,out NSError error);
+		bool SubscribeToChannel (string channel, out NSError error);
 
 		[Static]
 		[Export ("subscribeToChannelInBackground:")]
@@ -532,7 +540,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("subscribeToChannelInBackground:block:")]
-		void SubscribeToChannelAsync (string channel, PFBooleanResult result);
+		void SubscribeToChannelAsync (string channel, ParseBooleanResult result);
 
 		[Static]
 		[Export ("subscribeToChannelInBackground:target:selector:")]
@@ -540,7 +548,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("unsubscribeFromChannel:error:")]
-		bool UnsubscribeFromChannel (string channel,out NSError error);
+		bool UnsubscribeFromChannel (string channel, out NSError error);
 
 		[Static]
 		[Export ("unsubscribeFromChannelInBackground:")]
@@ -548,26 +556,26 @@ namespace ParseLib
 
 		[Static]
 		[Export ("unsubscribeFromChannelInBackground:block:")]
-		void UnsubscribeFromChannelAsync (string channel, PFBooleanResult result);
+		void UnsubscribeFromChannelAsync (string channel, ParseBooleanResult result);
 
 		[Static]
 		[Export ("unsubscribeFromChannelInBackground:target:selector:")]
 		void UnsubscribeFromChannelAsync (string channel, NSObject target, Selector selector);
 
 	}
-
 	
-	[BaseType (typeof (NSObject))]
-	public interface PFQuery {
+	[BaseType (typeof(NSObject), Name="PFQuery")]
+	public interface ParseQuery
+	{
 		[Export ("className")]
-		string ClassName { get; set;  }
+		string ClassName { get; set; }
 
 		[Export ("maxCacheAge")]
-		double MaxCacheAge { get; set;  }
+		double MaxCacheAge { get; set; }
 
 		[Static]
 		[Export ("queryWithClassName:")]
-		PFQuery FromClassNAme (string className);
+		ParseQuery FromClassNAme (string className);
 
 		[Export ("initWithClassName:")]
 		IntPtr Constructor (string newClassName);
@@ -606,19 +614,19 @@ namespace ParseLib
 		void WhereKeyNotContainedIn (string key, NSArray array);
 
 		[Export ("whereKey:nearGeoPoint:")]
-		void WhereKeyNear (string key, PFGeoPoint geopoint);
+		void WhereKeyNear (string key, ParseGeoPoint geopoint);
 
 		[Export ("whereKey:nearGeoPoint:withinMiles:")]
-		void WhereKeyWithinMiles (string key, PFGeoPoint geopoint, double maxDistance);
+		void WhereKeyWithinMiles (string key, ParseGeoPoint geopoint, double maxDistance);
 
 		[Export ("whereKey:nearGeoPoint:withinKilometers:")]
-		void WhereKeyWithinKilometers (string key, PFGeoPoint geopoint, double maxDistance);
+		void WhereKeyWithinKilometers (string key, ParseGeoPoint geopoint, double maxDistance);
 
 		[Export ("whereKey:nearGeoPoint:withinRadians:")]
-		void WhereKeyWithinRadians (string key, PFGeoPoint geopoint, double maxDistance);
+		void WhereKeyWithinRadians (string key, ParseGeoPoint geopoint, double maxDistance);
 
 		[Export ("whereKey:withinGeoBoxFromSouthwest:toNortheast:")]
-		void WhereKeyWithinBox (string key, PFGeoPoint southwest, PFGeoPoint northeast);
+		void WhereKeyWithinBox (string key, ParseGeoPoint southwest, ParseGeoPoint northeast);
 
 		[Export ("whereKey:matchesRegex:")]
 		void WhereKeymatchesRegex (string key, string regex);
@@ -637,13 +645,13 @@ namespace ParseLib
 
 		[Static]
 		[Export ("orQueryWithSubqueries:")]
-		PFQuery OrQueryWithSubqueries (NSArray queries);
+		ParseQuery OrQueryWithSubqueries (NSArray queries);
 
 		[Export ("whereKey:matchesQuery:")]
-		void WhereKeymatchesQuery (string key, PFQuery query);
+		void WhereKeymatchesQuery (string key, ParseQuery query);
 
 		[Export ("whereKey:doesNotMatchQuery:")]
-		void WhereKeydoesNotMatchQuery (string key, PFQuery query);
+		void WhereKeydoesNotMatchQuery (string key, ParseQuery query);
 
 		[Export ("orderByAscending:")]
 		void OrderByAscending (string key);
@@ -658,51 +666,51 @@ namespace ParseLib
 		void AddDescendingOrder (string key);
 
 		[Export ("getObjectOfClass:objectId:")]
-		PFObject GetObjectOfClass (string objectClass, string objectId);
+		ParseObject GetObjectOfClass (string objectClass, string objectId);
 
 		[Static]
 		[Export ("getObjectOfClass:objectId:error:")]
-		PFObject GetObjectOfClass (string objectClass, string objectId,out NSError error);
+		ParseObject GetObjectOfClass (string objectClass, string objectId, out NSError error);
 
 		[Export ("getObjectWithId:")]
-		PFObject GetObject (string objectId);
+		ParseObject GetObject (string objectId);
 
 		[Export ("getObjectWithId:error:")]
-		PFObject GetObject (string objectId, out NSError error);
+		ParseObject GetObject (string objectId, out NSError error);
 
 		[Export ("getObjectInBackgroundWithId:block:")]
-		void GetObjectAsync (string objectId, PFObjectResult result);
+		void GetObjectAsync (string objectId, ParseObjectResult result);
 
 		[Export ("getObjectInBackgroundWithId:target:selector:")]
 		void GetObjectAsync (string objectId, NSObject target, Selector selector);
 
 		[Export ("getUserObjectWithId:")]
-		PFUser GetUserObject (string objectId);
+		ParseUser GetUserObject (string objectId);
 
 		[Static]
 		[Export ("getUserObjectWithId:error:")]
-		PFUser GetUserObject (string objectId,out NSError error);
+		ParseUser GetUserObject (string objectId, out NSError error);
 
 		[Export ("findObjects")]
-		PFObject[] FindObjects ();
+		ParseObject[] FindObjects ();
 
 		[Export ("findObjects:")]
-		PFObject[] FindObjects (out NSError error);
+		ParseObject[] FindObjects (out NSError error);
 
 		[Export ("findObjectsInBackgroundWithBlock:")]
-		void FindObjectsAsync (PFArrayResult result);
+		void FindObjectsAsync (ParseArrayResult result);
 
 		[Export ("findObjectsInBackgroundWithTarget:selector:")]
 		void FindObjectsAsync (NSObject target, Selector selector);
 
 		[Export ("getFirstObject")]
-		PFObject GetFirstObject ();
+		ParseObject GetFirstObject ();
 
 		[Export ("getFirstObject:")]
-		PFObject GetFirstObject (out NSError error);
+		ParseObject GetFirstObject (out NSError error);
 
 		[Export ("getFirstObjectInBackgroundWithBlock:")]
-		void GetFirstObjectAsync (PFObjectResult result);
+		void GetFirstObjectAsync (ParseObjectResult result);
 
 		[Export ("getFirstObjectInBackgroundWithTarget:selector:")]
 		void GetFirstObjectAsync (NSObject target, Selector selector);
@@ -714,7 +722,7 @@ namespace ParseLib
 		int CountObjects (out NSError error);
 
 		[Export ("countObjectsInBackgroundWithBlock:")]
-		void CountObjectsAsync(PFIntegerResult result);
+		void CountObjectsAsync (ParseIntegerResult result);
 
 		[Export ("countObjectsInBackgroundWithTarget:selector:")]
 		void CountObjectsAsync (NSObject target, Selector selector);
@@ -723,14 +731,13 @@ namespace ParseLib
 		void Cancel ();
 
 		[Export ("limit")]
-		int Limit {get;set;}
+		int Limit { get; set; }
 
 		[Export ("skip")]
-		int Skip {get;set;}
-
+		int Skip { get; set; }
 
 		[Export ("cachePolicy")]
-		PFCachePolicy CachePolicy {get;set;}
+		ParseCachePolicy CachePolicy { get; set; }
 
 		[Export ("hasCachedResult")]
 		bool HasCachedResult ();
@@ -743,66 +750,66 @@ namespace ParseLib
 		void ClearAllCachedResults ();
 
 		[Export ("trace")]
-		bool Trace {get;set;}
+		bool Trace { get; set; }
 
 	}
-
 	
-	[BaseType (typeof (NSObject))]
-	public interface PFGeoPoint {
+	[BaseType (typeof(NSObject), Name="PFGeoPoint")]
+	public interface ParseGeoPoint
+	{
 		[Export ("latitude")]
-		double Latitude { get; set;  }
+		double Latitude { get; set; }
 
 		[Export ("longitude")]
-		double Longitude { get; set;  }
+		double Longitude { get; set; }
 
 		[Static]
 		[Export ("geoPoint")]
-		PFGeoPoint GeoPoint ();
+		ParseGeoPoint GeoPoint ();
 
 		[Static]
 		[Export ("geoPointWithLatitude:longitude:")]
-		PFGeoPoint FromLatLong (double latitude, double longitude);
+		ParseGeoPoint FromLatLong (double latitude, double longitude);
 
 		[Export ("distanceInRadiansTo:")]
-		double DistanceInRadiansTo (PFGeoPoint point);
+		double DistanceInRadiansTo (ParseGeoPoint point);
 
 		[Export ("distanceInMilesTo:")]
-		double DistanceInMilesTo (PFGeoPoint point);
+		double DistanceInMilesTo (ParseGeoPoint point);
 
 		[Export ("distanceInKilometersTo:")]
-		double DistanceInKilometersTo (PFGeoPoint point);
+		double DistanceInKilometersTo (ParseGeoPoint point);
 
 	}
-
 	
-	[BaseType (typeof (PFObject))]
-	public interface PFUser {
+	[BaseType (typeof(ParseObject), Name="PFUser")]
+	public interface ParseUser
+	{
 		[Export ("sessionToken")]
-		string SessionToken { get; set;  }
+		string SessionToken { get; set; }
 
 		[Export ("isNew")]
-		bool IsNew { get;  }
+		bool IsNew { get; }
 
 		[Export ("username")]
-		string Username { get; set;  }
+		string Username { get; set; }
 
 		[Export ("password")]
-		string Password { get; set;  }
+		string Password { get; set; }
 
 		[Export ("email")]
-		string Email { get; set;  }
+		string Email { get; set; }
 
 		[Static]
 		[Export ("currentUser")]
-		PFUser CurrentUser ();
+		ParseUser CurrentUser ();
 
 		[Export ("isAuthenticated")]
 		bool IsAuthenticated ();
 
 		[Static]
 		[Export ("user")]
-		PFUser User ();
+		ParseUser User ();
 
 		[Static]
 		[Export ("enableAutomaticUser")]
@@ -818,18 +825,18 @@ namespace ParseLib
 		void SignUpAsync ();
 
 		[Export ("signUpInBackgroundWithBlock:")]
-		void SignUpAsync (PFBooleanResult result);
+		void SignUpAsync (ParseBooleanResult result);
 
 		[Export ("signUpInBackgroundWithTarget:selector:")]
 		void SignUpAsync (NSObject target, Selector selector);
 
 		[Static]
 		[Export ("logInWithUsername:password:")]
-		PFUser LogIn (string username, string password);
+		ParseUser LogIn (string username, string password);
 
 		[Static]
 		[Export ("logInWithUsername:password:error:")]
-		PFUser LogIn (string username, string password, out NSError error);
+		ParseUser LogIn (string username, string password, out NSError error);
 
 		[Static]
 		[Export ("logInWithUsernameInBackground:password:")]
@@ -841,7 +848,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("logInWithUsernameInBackground:password:block:")]
-		void LogInAsync (string username, string password, PFUserResult result);
+		void LogInAsync (string username, string password, ParseUserResult result);
 
 		[Static]
 		[Export ("logOut")]
@@ -865,20 +872,20 @@ namespace ParseLib
 
 		[Static]
 		[Export ("requestPasswordResetForEmailInBackground:block:")]
-		void RequestPasswordResetAsync (string email, PFBooleanResult result);
+		void RequestPasswordResetAsync (string email, ParseBooleanResult result);
 
 		[Static]
 		[Export ("query")]
-		PFQuery Query ();
+		ParseQuery Query ();
 
 	}
-
 	
-	[BaseType (typeof (NSObject))]
-	interface PFAnonymousUtils {
+	[BaseType (typeof(NSObject), Name="PFAnonymousUtils")]
+	interface ParseAnonymousUtils
+	{
 		[Static]
 		[Export ("logInWithBlock:")]
-		void LogInWithBlock (PFUserResult result);
+		void LogInWithBlock (ParseUserResult result);
 
 		[Static]
 		[Export ("logInWithTarget:selector:")]
@@ -886,81 +893,84 @@ namespace ParseLib
 
 		[Static]
 		[Export ("isLinkedWithUser:")]
-		bool IsLinkedWithUser (PFUser user);
+		bool IsLinkedWithUser (ParseUser user);
 
 	}
 
 
 	#region UI
 
-	[BaseType (typeof (UIScrollView))]
-	interface PFSignUpView {
+	[BaseType (typeof(UIScrollView), Name="PFSignUpView")]
+	interface ParseSignUpView
+	{
 		[Export ("logo")]
-		UIView Logo { get; set;  }
+		UIView Logo { get; set; }
 
 		[Export ("fields")]
-		PFSignUpFields Fields { get;  }
+		ParseSignUpFields Fields { get; }
 
 		[Export ("usernameField")]
-		UITextField UsernameField { get;  }
+		UITextField UsernameField { get; }
 
 		[Export ("passwordField")]
-		UITextField PasswordField { get;  }
+		UITextField PasswordField { get; }
 
 		[Export ("emailField")]
-		UITextField EmailField { get;  }
+		UITextField EmailField { get; }
 
 		[Export ("additionalField")]
-		UITextField AdditionalField { get;  }
+		UITextField AdditionalField { get; }
 
 		[Export ("signUpButton")]
-		UIButton SignUpButton { get;  }
+		UIButton SignUpButton { get; }
 
 		[Export ("dismissButton")]
-		UIButton DismissButton { get;  }
+		UIButton DismissButton { get; }
 
 		[Export ("initWithFields:fields")]
-		IntPtr Constructor (PFSignUpFields fields );
+		IntPtr Constructor (ParseSignUpFields fields);
 
 	}
-
 	
-	[BaseType (typeof (UIViewController), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PFSignUpViewControllerDelegate)})]
-	interface PFSignUpViewController {
+	[BaseType (typeof(UIViewController), Name="PFSignUpViewController", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(ParseSignUpViewControllerDelegate)})]
+	interface ParseSignUpViewController
+	{
 		[Export ("fields")]
-		PFSignUpFields Fields { get; set;  }
+		ParseSignUpFields Fields { get; set; }
 
 		[Export ("signUpView")]
-		PFSignUpView SignUpView { get;  }
+		ParseSignUpView SignUpView { get; }
 
 		[Export ("delegate"), NullAllowed]
 		NSObject WeakDelegate { get; set; }
 
 		[Wrap ("WeakDelegate")]
-		PFSignUpViewControllerDelegate Delegate { get; set; }
+		ParseSignUpViewControllerDelegate Delegate { get; set; }
 
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof(NSObject), Name="PFSignUpViewControllerDelegate")]
 	[Model]
-	interface PFSignUpViewControllerDelegate {
+	interface ParseSignUpViewControllerDelegate
+	{
 		[Export ("signUpViewController:shouldBeginSignUp:"), DefaultValue (true), DelegateName ("PF_VCDict")]
-		bool BeginSignUp (PFSignUpViewController signUpController, NSDictionary info);
+		bool BeginSignUp (ParseSignUpViewController signUpController, NSDictionary info);
 
 		[Export ("signUpViewController:didSignUpUser:"), EventArgs ("PF_VCUser")]
-		void SuccededLogin (PFSignUpViewController signUpController, PFUser user);
+		void SuccededLogin (ParseSignUpViewController signUpController, ParseUser user);
 
 		[Export ("signUpViewController:didFailToSignUpWithError:"), EventArgs ("PF_VCError")]
-		void FailedLogin (PFSignUpViewController signUpController, NSError error);
+		void FailedLogin (ParseSignUpViewController signUpController, NSError error);
 
 		[Export ("signUpViewControllerDidCancelSignUp:"), DelegateName ("PF_VC")]
-		void CanceledLogin (PFSignUpViewController signUpController);
+		void CanceledLogin (ParseSignUpViewController signUpController);
 
 	}
-
 	
-	[BaseType (typeof (UIView))]//, Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PF_EGORefreshTableHeaderDelegate)})]
-	interface PF_EGORefreshTableHeaderView {
+	[BaseType (typeof(UIView))]
+	//, Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PF_EGORefreshTableHeaderDelegate)})]
+	interface ParseRefreshTableHeaderView
+	{
 
 		[Export ("delegate"), NullAllowed]
 		NSObject WeakDelegate { get; set; }
@@ -982,123 +992,127 @@ namespace ParseLib
 
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof(NSObject), Name="PF_EGORefreshTableHeaderView")]
 	[Model]
-	interface PF_EGORefreshTableHeaderDelegate {
+	interface PF_EGORefreshTableHeaderDelegate
+	{
 		[Abstract]
-		[Export ("egoRefreshTableHeaderDataSourceIsLoading:")]//,DefaultValue(true), DelegateName ("PFView")]
-		bool IsLoading (PF_EGORefreshTableHeaderView view);
+		[Export ("egoRefreshTableHeaderDataSourceIsLoading:")]
+		//,DefaultValue(true), DelegateName ("PFView")]
+		bool IsLoading (ParseRefreshTableHeaderView view);
 
 		[Abstract]
-		[Export ("egoRefreshTableHeaderDataSourceLastUpdated:")]//, DefaultValue(null), DelegateName ("PFView")]
-		NSDate DataSourceLastUpdated (PF_EGORefreshTableHeaderView view);
+		[Export ("egoRefreshTableHeaderDataSourceLastUpdated:")]
+		//, DefaultValue(null), DelegateName ("PFView")]
+		NSDate DataSourceLastUpdated (ParseRefreshTableHeaderView view);
 
 	}
-
 	
-	[BaseType (typeof (UIView))]
-	interface PFLogInView {
+	[BaseType (typeof(UIView), Name="PFLogInView")]
+	interface ParseLogInView
+	{
 		[Export ("logo")]
-		UIView Logo { get; set;  }
+		UIView Logo { get; set; }
 
 		[Export ("fields")]
-		PFLogInFields Fields { get;  }
+		ParseLogInFields Fields { get; }
 
 		[Export ("usernameField")]
-		UITextField UsernameField { get;  }
+		UITextField UsernameField { get; }
 
 		[Export ("passwordField")]
-		UITextField PasswordField { get;  }
+		UITextField PasswordField { get; }
 
 		[Export ("passwordForgottenButton")]
-		UIButton PasswordForgottenButton { get;  }
+		UIButton PasswordForgottenButton { get; }
 
 		[Export ("logInButton")]
-		UIButton LogInButton { get;  }
+		UIButton LogInButton { get; }
 
 		[Export ("facebookButton")]
-		UIButton FacebookButton { get;  }
+		UIButton FacebookButton { get; }
 
 		[Export ("twitterButton")]
-		UIButton TwitterButton { get;  }
+		UIButton TwitterButton { get; }
 
 		[Export ("signUpButton")]
-		UIButton SignUpButton { get;  }
+		UIButton SignUpButton { get; }
 
 		[Export ("dismissButton")]
-		UIButton DismissButton { get;  }
+		UIButton DismissButton { get; }
 
 		[Export ("initWithFields:fields")]
-		IntPtr Constructor (PFLogInFields fields );
+		IntPtr Constructor (ParseLogInFields fields);
 
 	}
-
 	
-	[BaseType (typeof (UIViewController), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PFLogInViewControllerDelegate)})]
-	interface PFLogInViewController {
+	[BaseType (typeof(UIViewController), Name="PFLogInViewController", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(ParseLogInViewControllerDelegate)})]
+	interface ParseLogInViewController
+	{
 		[Export ("fields")]
-		PFLogInFields Fields { get; set;  }
+		ParseLogInFields Fields { get; set; }
 
 		[Export ("logInView")]
-		PFLogInView LogInView { get;  }
+		ParseLogInView LogInView { get; }
 
 		[Export ("delegate"), NullAllowed]
 		NSObject WeakDelegate { get; set; }
 
 		[Wrap ("WeakDelegate")]
-		PFLogInViewControllerDelegate Delegate { get; set; }
+		ParseLogInViewControllerDelegate Delegate { get; set; }
 
 		[Export ("facebookPermissions")]
-		NSArray FacebookPermissions { get; set;  }
+		NSArray FacebookPermissions { get; set; }
 
 		[Export ("signUpController")]
-		PFSignUpViewController SignUpController { get; set;  }
+		ParseSignUpViewController SignUpController { get; set; }
 
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof(NSObject), Name="PFLogInViewControllerDelegate")]
 	[Model]
-	interface PFLogInViewControllerDelegate {
+	interface ParseLogInViewControllerDelegate
+	{
 		[Export ("logInViewController:shouldBeginLogInWithUsername:password:"),DefaultValue(true), DelegateName ("PFShouldLogin")]
-		bool ShouldBeginLogIn (PFLogInViewController logInController, string username, string password);
+		bool ShouldBeginLogIn (ParseLogInViewController logInController, string username, string password);
 
 		[Export ("logInViewController:didLogInUser:"), EventArgs ("PFDidLogin")]
-		void SuccededLogin (PFLogInViewController logInController, PFUser user);
+		void SuccededLogin (ParseLogInViewController logInController, ParseUser user);
 
 		[Export ("logInViewController:didFailToLogInWithError:"), EventArgs ("PFFailedLogin")]
-		void FailedLogin (PFLogInViewController logInController, NSError error);
+		void FailedLogin (ParseLogInViewController logInController, NSError error);
 
 		[Export ("logInViewControllerDidCancelLogIn:"), DelegateName ("PFCanceledLogin")]
-		void CanceledLogin (PFLogInViewController logInController);
+		void CanceledLogin (ParseLogInViewController logInController);
 
 	}
-
 	
-	[BaseType (typeof (UITableViewController))]
-	interface PFQueryTableViewController {
+	[BaseType (typeof(UITableViewController), Name="PFQueryTableViewController")]
+	interface ParseQueryTableViewController
+	{
 		[Export ("className")]
-		string ClassName { get; set;  }
+		string ClassName { get; set; }
 
 		[Export ("keyToDisplay")]
-		string KeyToDisplay { get; set;  }
+		string KeyToDisplay { get; set; }
 
 		[Export ("pullToRefreshEnabled")]
-		bool PullToRefreshEnabled { get; set;  }
+		bool PullToRefreshEnabled { get; set; }
 
 		[Export ("paginationEnabled")]
-		bool PaginationEnabled { get; set;  }
+		bool PaginationEnabled { get; set; }
 
 		[Export ("objectsPerPage")]
-		uint ObjectsPerPage { get; set;  }
+		uint ObjectsPerPage { get; set; }
 
 		[Export ("isLoading")]
-		bool IsLoading { get; set;  }
+		bool IsLoading { get; set; }
 
 		[Export ("objects")]
-		PFObject[] Objects { get; set;  }
+		ParseObject[] Objects { get; set; }
 
 		[Export ("pageThatIsLoading")]
-		int PageThatIsLoading { get; set;  }
+		int PageThatIsLoading { get; set; }
 
 		[Export ("initWithStyle:className:")]
 		IntPtr Constructor (UITableViewStyle style, string aClassName);
@@ -1113,10 +1127,10 @@ namespace ParseLib
 		void ObjectsWillLoad ();
 
 		[Export ("objectAtIndex:")]
-		PFObject ObjectAtIndex (NSIndexPath indexPath);
+		ParseObject ObjectAtIndex (NSIndexPath indexPath);
 
 		[Export ("queryForTable")]
-		PFQuery QueryForTable ();
+		ParseQuery QueryForTable ();
 
 		[Export ("clear")]
 		void Clear ();
@@ -1131,80 +1145,80 @@ namespace ParseLib
 		void LoadNextPage ();
 
 		[Export ("tableView:cellForRowAtIndexPath:object:")]
-		UITableViewCell TableViewcellForRowAtIndexPathobject (UITableView tableView, NSIndexPath indexPath, PFObject obj);
+		UITableViewCell TableViewcellForRowAtIndexPathobject (UITableView tableView, NSIndexPath indexPath, ParseObject obj);
 
 		[Export ("tableView:cellForNextPageAtIndexPath:")]
 		UITableViewCell TableViewcellForNextPageAtIndexPath (UITableView tableView, NSIndexPath indexPath);
 
 	}
-
 	
-	[BaseType (typeof (UIView), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PF_MBProgressHUDDelegate)})]
-	interface PF_MBProgressHUD {
+	[BaseType (typeof(UIView), Name="PF_MBProgressHUD", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(ParseMBProgressHUDDelegate)})]
+	interface ParseMBProgressHUD
+	{
 		[Export ("customView")]
-		UIView CustomView { get; set;  }
+		UIView CustomView { get; set; }
 
 		[Export ("mode")]
-		PF_MBProgressHUDMode Mode { get; set;  }
+		ParseMBProgressHUDMode Mode { get; set; }
 
 		[Export ("animationType")]
-		PF_MBProgressHUDAnimation AnimationType { get; set;  }
+		ParseMBProgressHUDAnimation AnimationType { get; set; }
 
 		[Export ("delegate"), NullAllowed]
 		NSObject WeakDelegate { get; set; }
 
 		[Wrap ("WeakDelegate")]
-		PF_MBProgressHUDDelegate Delegate { get; set; }
+		ParseMBProgressHUDDelegate Delegate { get; set; }
 
 		[Export ("labelText")]
-		string LabelText { get; set;  }
+		string LabelText { get; set; }
 
 		[Export ("detailsLabelText")]
-		string DetailsLabelText { get; set;  }
+		string DetailsLabelText { get; set; }
 
 		[Export ("opacity")]
-		float Opacity { get; set;  }
+		float Opacity { get; set; }
 
 		[Export ("xOffset")]
-		float XOffset { get; set;  }
+		float XOffset { get; set; }
 
 		[Export ("yOffset")]
-		float YOffset { get; set;  }
+		float YOffset { get; set; }
 
 		[Export ("margin")]
-		float Margin { get; set;  }
+		float Margin { get; set; }
 
 		[Export ("dimBackground")]
-		bool DimBackground { get; set;  }
+		bool DimBackground { get; set; }
 
 		[Export ("graceTime")]
-		float GraceTime { get; set;  }
+		float GraceTime { get; set; }
 
 		[Export ("minShowTime")]
-		float MinShowTime { get; set;  }
+		float MinShowTime { get; set; }
 
 		[Export ("taskInProgress")]
-		bool TaskInProgress { get; set;  }
+		bool TaskInProgress { get; set; }
 
 		[Export ("removeFromSuperViewOnHide")]
-		bool RemoveFromSuperViewOnHide { get; set;  }
+		bool RemoveFromSuperViewOnHide { get; set; }
 
 		[Export ("labelFont")]
-		UIFont LabelFont { get; set;  }
+		UIFont LabelFont { get; set; }
 
 		[Export ("detailsLabelFont")]
-		UIFont DetailsLabelFont { get; set;  }
+		UIFont DetailsLabelFont { get; set; }
 
 		[Export ("progress")]
-		float Progress { get; set;  }
+		float Progress { get; set; }
 
 		[Static]
 		[Export ("showHUDAddedTo:animated:")]
-		PF_MBProgressHUD ShowHUDAdded (UIView view, bool animated);
+		ParseMBProgressHUD ShowHUDAdded (UIView view, bool animated);
 
 		[Static]
 		[Export ("hideHUDForView:animated:")]
-		bool HideHUDForView(UIView view, bool animated);
+		bool HideHUDForView (UIView view, bool animated);
 
 		[Export ("initWithWindow:")]
 		IntPtr Constructor (UIWindow window);
@@ -1226,19 +1240,21 @@ namespace ParseLib
 
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof(NSObject), Name="PF_MBProgressHUDDelegate")]
 	[Model]
-	interface PF_MBProgressHUDDelegate {
+	interface ParseMBProgressHUDDelegate
+	{
 		[Abstract]
 		[Export ("hudWasHidden:"), DelegateName ("PF_MBHidden")]
-		void HudWasHidden (PF_MBProgressHUD hud);
+		void HudWasHidden (ParseMBProgressHUD hud);
 
 	}
 
-	[BaseType (typeof (UIView))]
-	interface PF_MBRoundProgressView {
+	[BaseType (typeof(UIView), Name="PF_MBRoundProgressView")]
+	interface ParseMBRoundProgressView
+	{
 		[Export ("progress")]
-		float Progress { get; set;  }
+		float Progress { get; set; }
 
 	}
 
@@ -1247,15 +1263,16 @@ namespace ParseLib
 
 	#region Facebook
 	
-	[BaseType (typeof (NSObject))]
-	interface PFFacebookUtils {
+	[BaseType (typeof(NSObject), Name="PFFacebookUtils")]
+	interface ParseFacebookUtils
+	{
 		[Static]
 		[Export ("facebook")]
-		PF_Facebook Facebook ();
+		ParseFacebook Facebook ();
 
 		[Static]
 		[Export ("facebookWithDelegate:")]
-		PF_Facebook Facebook (PF_FBSessionDelegate del);
+		ParseFacebook Facebook (ParseFBSessionDelegate del);
 
 		[Static]
 		[Export ("initializeWithApplicationId:")]
@@ -1263,11 +1280,11 @@ namespace ParseLib
 
 		[Static]
 		[Export ("isLinkedWithUser:")]
-		bool IsLinkedWithUser (PFUser user);
+		bool IsLinkedWithUser (ParseUser user);
 
 		[Static]
 		[Export ("logInWithPermissions:block:")]
-		void LogInAsync (NSArray permissions, PFUserResult result);
+		void LogInAsync (NSArray permissions, ParseUserResult result);
 
 		[Static]
 		[Export ("logInWithPermissions:target:selector:")]
@@ -1275,7 +1292,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("logInWithFacebookId:accessToken:expirationDate:block:")]
-		void LogInAsync (string facebookId, string accessToken, NSDate expirationDate, PFUserResult result);
+		void LogInAsync (string facebookId, string accessToken, NSDate expirationDate, ParseUserResult result);
 
 		[Static]
 		[Export ("logInWithFacebookId:accessToken:expirationDate:target:selector:")]
@@ -1283,87 +1300,87 @@ namespace ParseLib
 
 		[Static]
 		[Export ("linkUser:permissions:")]
-		void LinkUser (PFUser user, NSArray permissions);
+		void LinkUser (ParseUser user, NSArray permissions);
 
 		[Static]
 		[Export ("linkUser:permissions:block:")]
-		void LinkUserAsync (PFUser user, NSArray permissions, PFBooleanResult result);
+		void LinkUserAsync (ParseUser user, NSArray permissions, ParseBooleanResult result);
 
 		[Static]
 		[Export ("linkUser:permissions:target:selector:")]
-		void LinkUserAsync (PFUser user, NSArray permissions, NSObject target, Selector selector);
+		void LinkUserAsync (ParseUser user, NSArray permissions, NSObject target, Selector selector);
 
 		[Static]
 		[Export ("linkUser:facebookId:accessToken:expirationDate:block:")]
-		void LinkUserAsync (PFUser user, string facebookId, string accessToken, NSDate expirationDate, PFBooleanResult result);
+		void LinkUserAsync (ParseUser user, string facebookId, string accessToken, NSDate expirationDate, ParseBooleanResult result);
 
 		[Static]
 		[Export ("linkUser:facebookId:accessToken:expirationDate:target:selector:")]
-		void LinkUserAsync (PFUser user, string facebookId, string accessToken, NSDate expirationDate, NSObject target, Selector selector);
+		void LinkUserAsync (ParseUser user, string facebookId, string accessToken, NSDate expirationDate, NSObject target, Selector selector);
 
 		[Static]
 		[Export ("unlinkUser:")]
-		bool UnlinkUser (PFUser user);
+		bool UnlinkUser (ParseUser user);
 
 		[Static]
 		[Export ("unlinkUser:error:")]
-		bool UnlinkUser (PFUser user, out NSError error);
+		bool UnlinkUser (ParseUser user, out NSError error);
 
 		[Static]
 		[Export ("unlinkUserInBackground:")]
-		void UnlinkUserAsync (PFUser user);
+		void UnlinkUserAsync (ParseUser user);
 
 		[Static]
 		[Export ("unlinkUserInBackground:block:")]
-		void UnlinkUserAsync (PFUser user, PFBooleanResult result);
+		void UnlinkUserAsync (ParseUser user, ParseBooleanResult result);
 
 		[Static]
 		[Export ("unlinkUserInBackground:target:selector:")]
-		void UnlinkUserAsync (PFUser user, NSObject target, Selector selector);
+		void UnlinkUserAsync (ParseUser user, NSObject target, Selector selector);
 
 		[Static]
 		[Export ("shouldExtendAccessTokenForUser:")]
-		bool ShouldExtendAccessTokenForUser (PFUser user);
+		bool ShouldExtendAccessTokenForUser (ParseUser user);
 
 		[Static]
 		[Export ("extendAccessTokenForUser:target:selector:")]
-		void ExtendAccessTokenForUser(PFUser user, NSObject target, Selector selector);
+		void ExtendAccessTokenForUser (ParseUser user, NSObject target, Selector selector);
 
 		[Static]
 		[Export ("extendAccessTokenForUser:block:")]
-		void ExtendAccessTokenForUserAsync (PFUser user, PFBooleanResult result);
+		void ExtendAccessTokenForUserAsync (ParseUser user, ParseBooleanResult result);
 
 		[Static]
 		[Export ("extendAccessTokenIfNeededForUser:target:selector:")]
-		bool ExtendAccessTokenIfNeeded (PFUser user, NSObject target, Selector selector);
+		bool ExtendAccessTokenIfNeeded (ParseUser user, NSObject target, Selector selector);
 
 		[Static]
 		[Export ("extendAccessTokenIfNeededForUser:block:")]
-		bool ExtendAccessTokenIfNeededAsync (PFUser user, PFBooleanResult result);
+		bool ExtendAccessTokenIfNeededAsync (ParseUser user, ParseBooleanResult result);
 
 		[Static]
 		[Export ("handleOpenURL:")]
 		bool HandleOpenURL (NSUrl url);
 
 	}
-
 	
-	[BaseType (typeof (UIView), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PF_FBDialogDelegate)})]
-	interface PF_FBDialog {
+	[BaseType (typeof(UIView), Name="PF_FBDialog", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(ParseFBDialogDelegate)})]
+	interface ParseFBDialog
+	{
 		[Export ("delegate"), NullAllowed]
 		NSObject WeakDelegate { get; set; }
 
 		[Wrap ("WeakDelegate")]
-		PF_FBDialogDelegate Delegate { get; set; }
+		ParseFBDialogDelegate Delegate { get; set; }
 
 		[Export ("params")]
-		NSMutableDictionary Params { get; set;  }
+		NSMutableDictionary Params { get; set; }
 
 		[Export ("getStringFromUrl:needle:")]
 		string GetStringFromUrl (string url, string needle);
 
 		[Export ("initWithURL:loadingURLparams:paramsisViewInvisible:isViewInvisiblefrictionlessSettings:frictionlessSettingsdelegate:delegate")]
-		IntPtr Constructor (string loadingURL, NSMutableDictionary parameters, bool isViewInvisible, PF_FBFrictionlessRequestSettings frictionlessSettings, PF_FBDialogDelegate del );
+		IntPtr Constructor (string loadingURL, NSMutableDictionary parameters, bool isViewInvisible, ParseFBFrictionlessRequestSettings frictionlessSettings, ParseFBDialogDelegate del);
 
 		[Export ("show")]
 		void Show ();
@@ -1394,12 +1411,13 @@ namespace ParseLib
 
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof(NSObject), Name="PFFBDialogDelegate")]
 	[Model]
-	interface PF_FBDialogDelegate {
+	interface ParseFBDialogDelegate
+	{
 		[Abstract]
-		[Export ("dialogDidComplete:"), DelegateName ("PF_FBDialogArg")]
-		void DidComplete (PF_FBDialog dialog);
+		[Export ("dialogDidComplete:"), DelegateName ("ParseFBDialogArg")]
+		void DidComplete (ParseFBDialog dialog);
 
 		[Abstract]
 		[Export ("dialogCompleteWithUrl:"), DelegateName ("PFUrl")]
@@ -1410,30 +1428,30 @@ namespace ParseLib
 		void DidNotCompleteWithUrl (NSUrl url);
 
 		[Abstract]
-		[Export ("dialogDidNotComplete:"), DelegateName ("PF_FBDialogArg")]
-		void DidNotComplete (PF_FBDialog dialog);
+		[Export ("dialogDidNotComplete:"), DelegateName ("ParseFBDialogArg")]
+		void DidNotComplete (ParseFBDialog dialog);
 
 		[Abstract]
-		[Export ("dialog:didFailWithError:"), EventArgs ("PF_FBDialogError")]
-		void DidFail (PF_FBDialog dialog, NSError error);
+		[Export ("dialog:didFailWithError:"), EventArgs ("ParseFBDialogError")]
+		void DidFail (ParseFBDialog dialog, NSError error);
 
 		[Abstract]
-		[Export ("dialog:shouldOpenURLInExternalBrowser:"), DefaultValue(true), DelegateName ("PF_FBDialogUrl")]
-		bool ShouldOpenURLInExternalBrowser (PF_FBDialog dialog, NSUrl url);
+		[Export ("dialog:shouldOpenURLInExternalBrowser:"), DefaultValue(true), DelegateName ("ParseFBDialogUrl")]
+		bool ShouldOpenUrlInExternalBrowser (ParseFBDialog dialog, NSUrl url);
 
 	}
-
 	
-	[BaseType (typeof (NSObject))]
-	interface PF_FBFrictionlessRequestSettings {
+	[BaseType (typeof(NSObject), Name="PF_FBFrictionlessRequestSettings")]
+	interface ParseFBFrictionlessRequestSettings
+	{
 		[Export ("enabled")]
-		bool Enabled { get;  }
+		bool Enabled { get; }
 
 		[Export ("enableWithFacebook:")]
-		void EnableWithFacebook (PF_Facebook facebook);
+		void EnableWithFacebook (ParseFacebook facebook);
 
 		[Export ("reloadRecipientCacheWithFacebook:")]
-		void ReloadRecipientCacheWithFacebook (PF_Facebook facebook);
+		void ReloadRecipientCacheWithFacebook (ParseFacebook facebook);
 
 		[Export ("updateRecipientCacheWithRecipients:")]
 		void UpdateRecipientCacheWithRecipients (string[] ids);
@@ -1445,39 +1463,39 @@ namespace ParseLib
 		bool IsFrictionlessEnabledForRecipients (string[] fbids);
 
 	}
-
 	
-	[BaseType (typeof (NSObject), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PF_FBRequestDelegate)})]
-	interface PF_FBRequest {
+	[BaseType (typeof(NSObject), Name="PF_FBRequest", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(ParseFBRequestDelegate)})]
+	interface ParseFBRequest
+	{
 		[Export ("delegate"), NullAllowed]
 		NSObject WeakDelegate { get; set; }
 
 		[Wrap ("WeakDelegate")]
-		PF_FBRequestDelegate Delegate { get; set; }
+		ParseFBRequestDelegate Delegate { get; set; }
 
 		[Export ("url")]
-		string Url { get; set;  }
+		string Url { get; set; }
 
 		[Export ("httpMethod")]
-		string HttpMethod { get; set;  }
+		string HttpMethod { get; set; }
 
 		[Export ("params")]
-		NSMutableDictionary Params { get; set;  }
+		NSMutableDictionary Params { get; set; }
 
 		[Export ("connection")]
-		NSUrlConnection Connection { get; set;  }
+		NSUrlConnection Connection { get; set; }
 
 		[Export ("responseText")]
-		NSMutableData ResponseText { get; set;  }
+		NSMutableData ResponseText { get; set; }
 
 		[Export ("state")]
-		PF_FBRequestState State { get;  }
+		ParseFBRequestState State { get; }
 
 		[Export ("sessionDidExpire")]
-		bool SessionDidExpire { get;  }
+		bool SessionDidExpire { get; }
 
 		[Export ("error")]
-		NSError Error { get; set;  }
+		NSError Error { get; set; }
 
 		[Static]
 		[Export ("serializeURL:params:")]
@@ -1489,7 +1507,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("getRequestWithParams:paramshttpMethod:httpMethoddelegate:requestURL:url")]
-		PF_FBRequest GetRequest (NSMutableDictionary parameters, string httpMethod, PF_FBRequestDelegate del, string requestURL );
+		ParseFBRequest GetRequest (NSMutableDictionary parameters, string httpMethod, ParseFBRequestDelegate del, string requestURL);
 
 		[Export ("loading")]
 		bool Loading ();
@@ -1499,60 +1517,62 @@ namespace ParseLib
 
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof(NSObject), Name="PF_FBRequestDelegate")]
 	[Model]
-	interface PF_FBRequestDelegate {
+	interface ParseFBRequestDelegate
+	{
 		[Abstract]
-		[Export ("requestLoading:"), DelegateName ("PF_FBRequest")]
-		void RequestLoading (PF_FBRequest request);
+		[Export ("requestLoading:"), DelegateName ("ParseFBRequest")]
+		void RequestLoading (ParseFBRequest request);
 
 		[Abstract]
-		[Export ("request:didReceiveResponse:"), EventArgs ("PF_FBRequestResp")]
-		void DidReceiveResponse (PF_FBRequest request, NSUrlResponse response);
+		[Export ("request:didReceiveResponse:"), EventArgs ("ParseFBRequestResp")]
+		void DidReceiveResponse (ParseFBRequest request, NSUrlResponse response);
 
 		[Abstract]
-		[Export ("request:didFailWithError:"), EventArgs ("PF_FBRequestError")]
-		void DidFail (PF_FBRequest request, NSError error);
+		[Export ("request:didFailWithError:"), EventArgs ("ParseFBRequestError")]
+		void DidFail (ParseFBRequest request, NSError error);
 
 		[Abstract]
-		[Export ("request:didLoad:"), EventArgs ("PF_FBRequestObj")]
-		void DidLoad (PF_FBRequest request, NSObject result);
+		[Export ("request:didLoad:"), EventArgs ("ParseFBRequestObj")]
+		void DidLoad (ParseFBRequest request, NSObject result);
 
 		[Abstract]
-		[Export ("request:didLoadRawResponse:"), EventArgs ("PF_FBRequestData")]
-		void DidLoadRawResponse (PF_FBRequest request, NSData data);
+		[Export ("request:didLoadRawResponse:"), EventArgs ("ParseFBRequestData")]
+		void DidLoadRawResponse (ParseFBRequest request, NSData data);
 
 	}
-
 	
-	[BaseType (typeof (NSObject))]//, Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PF_FBSessionDelegate)})]
-	interface PF_Facebook {
+	[BaseType (typeof(NSObject), Name="PF_Facebook")]
+	//, Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (ParseFBSessionDelegate)})]
+	interface ParseFacebook
+	{
 		[Export ("accessToken")]
-		string AccessToken { get; set;  }
+		string AccessToken { get; set; }
 
 		[Export ("expirationDate")]
-		NSDate ExpirationDate { get; set;  }
+		NSDate ExpirationDate { get; set; }
 
 		[Export ("sessionDelegate"), NullAllowed]
-		PF_FBSessionDelegate SessionDelegate { get; set; }
+		ParseFBSessionDelegate SessionDelegate { get; set; }
 
 		//[Export ("sessionDelegate"), NullAllowed]
 		//NSObject WeakDelegate { get; set; }
 
 		//[Wrap ("WeakDelegate")]
-		//PF_FBSessionDelegate SessionDelegate { get; set; }
+		//ParseFBSessionDelegate SessionDelegate { get; set; }
 
 		[Export ("urlSchemeSuffix")]
-		string UrlSchemeSuffix { get; set;  }
+		string UrlSchemeSuffix { get; set; }
 
 		[Export ("isFrictionlessRequestsEnabled")]
-		bool IsFrictionlessRequestsEnabled { [Bind ("isFrictionlessRequestsEnabled")] get;  }
+		bool IsFrictionlessRequestsEnabled { [Bind ("isFrictionlessRequestsEnabled")] get; }
 
 		[Export ("initWithAppId:andDelegate:")]
-		IntPtr Constructor (string appId, PF_FBSessionDelegate del);
+		IntPtr Constructor (string appId, ParseFBSessionDelegate del);
 
 		[Export ("initWithAppId:urlSchemeSuffix:andDelegate:")]
-		IntPtr Constructor (string appId, string urlSchemeSuffix, PF_FBSessionDelegate del);
+		IntPtr Constructor (string appId, string urlSchemeSuffix, ParseFBSessionDelegate del);
 
 		[Export ("authorize:")]
 		void Authorize (NSArray permissions);
@@ -1573,28 +1593,28 @@ namespace ParseLib
 		void Logout ();
 
 		[Export ("logout:")]
-		void Logout (PF_FBSessionDelegate del);
+		void Logout (ParseFBSessionDelegate del);
 
 		[Export ("requestWithParams:andDelegate:")]
-		PF_FBRequest Request (NSMutableDictionary parameters, PF_FBRequestDelegate del);
+		ParseFBRequest Request (NSMutableDictionary parameters, ParseFBRequestDelegate del);
 
 		[Export ("requestWithMethodName:andParams:andHttpMethod:andDelegate:")]
-		PF_FBRequest Request (string methodName, NSMutableDictionary parameters, string httpMethod, PF_FBRequestDelegate del);
+		ParseFBRequest Request (string methodName, NSMutableDictionary parameters, string httpMethod, ParseFBRequestDelegate del);
 
 		[Export ("requestWithGraphPath:andDelegate:")]
-		PF_FBRequest RequestWithGraph (string graphPath, PF_FBRequestDelegate del);
+		ParseFBRequest RequestWithGraph (string graphPath, ParseFBRequestDelegate del);
 
 		[Export ("requestWithGraphPath:andParams:andDelegate:")]
-		PF_FBRequest RequestWithGraph (string graphPath, NSMutableDictionary parameters, PF_FBRequestDelegate del);
+		ParseFBRequest RequestWithGraph (string graphPath, NSMutableDictionary parameters, ParseFBRequestDelegate del);
 
 		[Export ("requestWithGraphPath:andParams:andHttpMethod:andDelegate:")]
-		PF_FBRequest RequestWithGraph (string graphPath, NSMutableDictionary parameters, string httpMethod, PF_FBRequestDelegate del);
+		ParseFBRequest RequestWithGraph (string graphPath, NSMutableDictionary parameters, string httpMethod, ParseFBRequestDelegate del);
 
 		[Export ("dialog:andDelegate:")]
-		void Dialog (string action, PF_FBDialogDelegate del);
+		void Dialog (string action, ParseFBDialogDelegate del);
 
 		[Export ("dialog:andParams:andDelegate:")]
-		void Dialog (string action, NSMutableDictionary parameters, PF_FBDialogDelegate del);
+		void Dialog (string action, NSMutableDictionary parameters, ParseFBDialogDelegate del);
 
 		[Export ("isSessionValid")]
 		bool IsSessionValid ();
@@ -1613,9 +1633,10 @@ namespace ParseLib
 
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof(NSObject), Name="PF_FBSessionDelegate")]
 	[Model]
-	interface PF_FBSessionDelegate {
+	interface ParseFBSessionDelegate
+	{
 		[Abstract]
 		[Export ("fbDidLogin")]
 		void DidLogin ();
@@ -1637,18 +1658,19 @@ namespace ParseLib
 		void SessionInvalidated ();
 
 	}
-
 	
-	[BaseType (typeof (PF_FBDialog))]
-	interface PF_FBLoginDialog {
+	[BaseType (typeof(ParseFBDialog), Name="PF_FBLoginDialog")]
+	interface ParseFBLoginDialog
+	{
 		[Export ("initWithURL:loginURLloginParams:delegate:")]
-		IntPtr Constructor (string url, NSMutableDictionary parameters, PF_FBLoginDialogDelegate del );
+		IntPtr Constructor (string url, NSMutableDictionary parameters, ParseFBLoginDialogDelegate del);
 
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof(NSObject), Name="PF_FBLoginDialogDelegate")]
 	[Model]
-	interface PF_FBLoginDialogDelegate {
+	interface ParseFBLoginDialogDelegate
+	{
 		[Abstract]
 		[Export ("fbDialogLogin:expirationDate:")]
 		void Login (string token, NSDate expirationDate);
@@ -1664,11 +1686,12 @@ namespace ParseLib
 
 	#region Twitter
 	
-	[BaseType (typeof (NSObject))]
-	interface PFTwitterUtils {
+	[BaseType (typeof(NSObject), Name="PFTwitterUtils")]
+	interface ParseTwitterUtils
+	{
 		[Static]
 		[Export ("twitter")]
-		PF_Twitter Twitter ();
+		ParseTwitter Twitter ();
 
 		[Static]
 		[Export ("initializeWithConsumerKey:consumerSecret:")]
@@ -1676,11 +1699,11 @@ namespace ParseLib
 
 		[Static]
 		[Export ("isLinkedWithUser:")]
-		bool IsLinkedWithUser (PFUser user);
+		bool IsLinkedWithUser (ParseUser user);
 
 		[Static]
 		[Export ("logInWithBlock:")]
-		void LogInAsync (PFUserResult result);
+		void LogInAsync (ParseUserResult result);
 
 		[Static]
 		[Export ("logInWithTarget:selector:")]
@@ -1688,7 +1711,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("logInWithTwitterId:screenName:authToken:authTokenSecret:block:")]
-		void LogInWithTwitterIdAsync (string twitterId, string screenName, string authToken, string authTokenSecret, PFUserResult result);
+		void LogInWithTwitterIdAsync (string twitterId, string screenName, string authToken, string authTokenSecret, ParseUserResult result);
 
 		[Static]
 		[Export ("logInWithTwitterId:screenName:authToken:authTokenSecret:target:selector:")]
@@ -1696,69 +1719,69 @@ namespace ParseLib
 
 		[Static]
 		[Export ("linkUser:")]
-		void LinkUser (PFUser user);
+		void LinkUser (ParseUser user);
 
 		[Static]
 		[Export ("linkUser:block:")]
-		void LinkUserAsync (PFUser user, PFBooleanResult result);
+		void LinkUserAsync (ParseUser user, ParseBooleanResult result);
 
 		[Static]
 		[Export ("linkUser:target:selector:")]
-		void LinkUserAsync (PFUser user, NSObject target, Selector selector);
+		void LinkUserAsync (ParseUser user, NSObject target, Selector selector);
 
 		[Static]
 		[Export ("linkUser:twitterId:screenName:authToken:authTokenSecret:block:")]
-		void LinkUserAsync (PFUser user, string twitterId, string screenName, string authToken, string authTokenSecret, PFBooleanResult result);
+		void LinkUserAsync (ParseUser user, string twitterId, string screenName, string authToken, string authTokenSecret, ParseBooleanResult result);
 
 		[Static]
 		[Export ("linkUser:twitterId:screenName:authToken:authTokenSecret:target:selector:")]
-		void LinkUserAsync (PFUser user, string twitterId, string screenName, string authToken, string authTokenSecret, NSObject target, Selector selector);
+		void LinkUserAsync (ParseUser user, string twitterId, string screenName, string authToken, string authTokenSecret, NSObject target, Selector selector);
 
 		[Static]
 		[Export ("unlinkUser:")]
-		bool UnlinkUser (PFUser user);
+		bool UnlinkUser (ParseUser user);
 
 		[Static]
 		[Export ("unlinkUser:error:")]
-		bool UnlinkUser (PFUser user, out NSError error);
+		bool UnlinkUser (ParseUser user, out NSError error);
 
 		[Static]
 		[Export ("unlinkUserInBackground:")]
-		void UnlinkUserAsync (PFUser user);
+		void UnlinkUserAsync (ParseUser user);
 
 		[Static]
 		[Export ("unlinkUserInBackground:block:")]
-		void UnlinkUserAsync (PFUser user, PFBooleanResult result);
+		void UnlinkUserAsync (ParseUser user, ParseBooleanResult result);
 
 		[Static]
 		[Export ("unlinkUserInBackground:target:selector:")]
-		void UnlinkUserAsync (PFUser user, NSObject target, Selector selector);
+		void UnlinkUserAsync (ParseUser user, NSObject target, Selector selector);
 
 	}
-
 	
-	[BaseType (typeof (NSObject))]
-	interface PF_Twitter {
+	[BaseType (typeof(NSObject), Name="PF_Twitter")]
+	interface ParseTwitter
+	{
 		[Export ("consumerKey")]
-		string ConsumerKey { get; set;  }
+		string ConsumerKey { get; set; }
 
 		[Export ("consumerSecret")]
-		string ConsumerSecret { get; set;  }
+		string ConsumerSecret { get; set; }
 
 		[Export ("authToken")]
-		string AuthToken { get; set;  }
+		string AuthToken { get; set; }
 
 		[Export ("authTokenSecret")]
-		string AuthTokenSecret { get; set;  }
+		string AuthTokenSecret { get; set; }
 
 		[Export ("userId")]
-		string UserId { get; set;  }
+		string UserId { get; set; }
 
 		[Export ("screenName")]
-		string ScreenName { get; set;  }
+		string ScreenName { get; set; }
 
 		[Export ("authorizeWithSuccess:failure:error:cancel:")]
-		void AuthorizeAsync (Action success, PFErrorResult error, Action failed);
+		void AuthorizeAsync (Action success, ParseErrorResult error, Action failed);
 
 		[Export ("signRequest:")]
 		void SignRequest (NSMutableUrlRequest request);
