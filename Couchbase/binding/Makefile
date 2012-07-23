@@ -1,9 +1,10 @@
-BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 
-all: Couchbase.dll
+Couchbase.dll: libCouchCocoa.a libTouchDB.a bin/Debug/Couchbase.dll
+	/Applications/MonoDevelop.app/Contents/MacOS/mdtool build
+	cp bin/Debug/Couchbase.dll .
 
-Couchbase.dll: Makefile AssemblyInfo.cs couchbase.cs Couchbase
-	$(BTOUCH)  couchbase.cs AssemblyInfo.cs --out=$@ --link-with=Couchbase,Couchbase
+foo:
+	git clone git://github.com/couchbaselabs/TouchDB-iOS.git
+	(cd TouchDB-iOS; git submodule init; git submodule update)
 
-clean:
-	-rm -f *.a *.dll
+
