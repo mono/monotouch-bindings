@@ -1797,6 +1797,11 @@ namespace Three20
 	[BaseType (typeof (TTStyledInlineBlock))]
 	interface TTStyledItalicNode
 	{
+		
+	}
+	[BaseType (typeof (TTStyledInlineBlock))]
+	interface TTStyledLinkNode
+	{
 		[Export ("highlighted")]
 		bool Highlighted { get; set; }
 
