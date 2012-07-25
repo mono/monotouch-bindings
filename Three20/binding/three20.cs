@@ -685,6 +685,10 @@ namespace Three20
 	[BaseType (typeof (NSObject))]
 	interface TTNavigator
 	{
+		[Static, Export("navigator")]
+		TTNavigator Navigator {get;set;}
+
+
 		[Wrap ("WeakDelegate")] 
 		TTNavigatorDelegate  Delegate { get; set; }
 
