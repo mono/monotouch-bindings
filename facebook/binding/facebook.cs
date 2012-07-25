@@ -12,6 +12,135 @@ using MonoTouch.UIKit;
 
 namespace MonoTouch.FacebookConnect  {
 
+	delegate void FBSessionStateHandler (FBSession session, FBSessionState state, NSError error);
+	delegate void FBSessionReauthorizeResultHandler (FBSession session, NSError error);
+
+	[BaseType (typeof (NSObject))]
+	interface FBSession {
+		[Export ("isOpen")]
+		bool IsOpen { get; }
+
+		[Export ("state")]
+		FBSessionState State { get; }
+
+		[Export ("appID")]
+		string AppID { get; }
+
+		[Export ("urlSchemeSuffix")]
+		string UrlSchemeSuffix { get; }
+
+		[Export ("accessToken")]
+		string AccessToken { get; }
+
+		[Export ("expirationDate")]
+		DateTime ExpirationDate { get; }
+
+		[Export ("permission")]
+		string [] Permissions { get; }
+
+//		[Export ("init")]
+//		IntPtr Constructor ();
+
+		[Export ("initWithPermissions:")]
+		IntPtr Constructor (string [] permissions);
+
+		[Export ("initWithAppID:permissions:urlSchemeSuffix:tokenCacheStrategy:")]
+		IntPtr Constructor (string appId, string urlSchemeSuffix, [NullAllowed]FBSessionTokenCachingStrategy strategy);
+
+		[Export ("openWithCompletionHandler:")]
+		void Open ([NullAllowed]FBSessionStateHandler handler);
+
+		[Export ("openWithBehavior:completionHandler:")]
+		void Open (FBSessionLoginBehavior behavior, [NullAllowed]FBSessionStateHandler handler);
+
+		[Export ("close")]
+		void Close ();
+
+		[Export ("reauthorizeWithPermissions:behavior:completionHandler:")]
+		void Reauthorize ([NullAllowed]string [] permissions, FBSessionLoginBehavior behavior, FBSessionReauthorizeResultHandler handler);
+
+		[Export ("handleOpenURL:")]
+		bool HandleOpenUrl (NSUrl url);
+
+		[Static]
+		[Export ("sessionOpen")]
+		FBSession SessionOpen ();
+
+		[Static]
+		[Export ("sessionOpenWithPermissions:completionHandler:")]
+		FBSession SessionOpen ([NullAllowed]string [] permissions, FBSessionStateHandler handler);
+
+
+		// TODO: Can activeSession, setActiveSession: be merged into a get/set property?
+		[Static]
+		[Export ("activeSession")]
+		FBSession GetActiveSession ();
+
+		[Static]
+		[Export ("setActiveSession:")]
+		FBSession SetActiveSession (FBSession session);
+
+		// TODO: these, too
+		[Static]
+		[Export ("setDefaultAppID:")]
+		void SetDefaultAppID (string appID);
+
+		[Static]
+		[Export ("defaultAppID")]
+		string GetDefaultAppID ();
+	}
+
+	[BaseType (typeof (NSObject))]
+	[Model]
+	interface FBSessionTokenCachingStrategy {
+//		[Export ("init")]
+//		IntPtr Constructor ();
+
+		[Export ("initWithUserDefaultTokenInformationKeyName:")]
+		IntPtr Constructor ([NullAllowed]string tokenInformationKeyName);
+
+		[Export ("cacheTokenInformation:")]
+		void CacheTokenInformation (NSDictionary tokenInformation);
+
+		[Export ("fetchTOkenInformation)]")]
+		NSDictionary FetchTokenInformation ();
+
+		[Export ("clearToken")]
+		void ClearToken ();
+
+		[Static]
+		[Export ("defaultInstance")]
+		FBSessionTokenCachingStrategy GetDefaultInstance ();
+
+		[Static]
+		[Export ("isValidTokenInformation:")]
+		bool IsValidTokenInformation (NSDictionary tokenInformation);
+
+		[Static]
+		[Field ("FBTokenInformationTokenKey", "__Internal")]
+		NSString FBTokenInformationTokenKey { get; }
+
+		[Static]
+		[Field ("FBTokenInformationExpirationDateKey", "__Internal")]
+		NSString FBTokenInformationExpirationDateKey { get; }
+
+		[Static]
+		[Field ("FBTokenInformationRefreshDateKey", "__Internal")]
+		NSString FBTokenInformationRefreshDateKey { get; }
+
+		[Static]
+		[Field ("FBTokenInformationUserFBIDKey", "__Internal")]
+		NSString FBTokenInformationUserFBIDKey { get; }
+
+		[Static]
+		[Field ("FBTokenInformationIsFacebookLoginKey", "__Internal")]
+		NSString FBTokenInformationIsFacebookLoginKey { get; }
+
+		[Static]
+		[Field ("FBTokenInformationPermissionsKey", "__Internal")]
+		NSString FBTokenInformationPermissionsKey { get; }
+	}
+
 	[BaseType (typeof (NSObject))]
 	interface Facebook {
 		[Export ("accessToken")]
