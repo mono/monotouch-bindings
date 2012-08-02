@@ -685,6 +685,10 @@ namespace Three20
 	[BaseType (typeof (NSObject))]
 	interface TTNavigator
 	{
+		[Static, Export("navigator")]
+		TTNavigator Navigator {get;set;}
+
+
 		[Wrap ("WeakDelegate")] 
 		TTNavigatorDelegate  Delegate { get; set; }
 
@@ -1796,6 +1800,11 @@ namespace Three20
 	//[BaseType (typeof (TTStyledInline))]
 	[BaseType (typeof (TTStyledInlineBlock))]
 	interface TTStyledItalicNode
+	{
+		
+	}
+	[BaseType (typeof (TTStyledInlineBlock))]
+	interface TTStyledLinkNode
 	{
 		[Export ("highlighted")]
 		bool Highlighted { get; set; }
