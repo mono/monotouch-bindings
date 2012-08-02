@@ -258,10 +258,20 @@ namespace sample {
 		}
 		
 		// Post 4.2 callback
-		public override void OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
 			Console.WriteLine ("Got: {0} and {1}", url, facebook.Handle);
-			 facebook.HandleOpenURL (url);
+			try 
+			{
+				facebook.HandleOpenURL (url);
+				return true;
+			}
+			catch (Exception ex) 
+			{   
+				Console.WriteLine ("A very bad thing happened : " + ex.Message );
+				return false;
+			}
+
 		}
 		
 		static void Main (string[] args)
