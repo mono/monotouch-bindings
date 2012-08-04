@@ -171,7 +171,7 @@ namespace ParseLib
 		[Export ("saveInBackgroundWithBlock:progressBlock:")]
 		void SaveInBackgroundWithBlockprogressBlock (ParseBooleanResult result, ParseProgress progress);
 
-		[Export ("saveInBackgroundWithTarget:selector:")]
+		[Export ("saveInBackgroundWithTarget:selector:"), Internal]
 		void SaveAsync (NSObject target, Selector selector);
 
 		[Export ("getData")]
@@ -198,7 +198,7 @@ namespace ParseLib
 		[Export ("getDataStreamInBackgroundWithBlock:progressBlock:")]
 		void GetDataStreamAsync (ParseDataStreamResult result, ParseProgress progress);
 
-		[Export ("getDataInBackgroundWithTarget:selector:")]
+		[Export ("getDataInBackgroundWithTarget:selector:"), Internal]
 		void GetDataAsync (NSObject target, Selector selector);
 
 		[Export ("cancel")]
