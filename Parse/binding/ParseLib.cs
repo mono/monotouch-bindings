@@ -976,7 +976,7 @@ namespace ParseLib
 		NSObject WeakDelegate { get; set; }
 
 		[Wrap ("WeakDelegate")]
-		PF_EGORefreshTableHeaderDelegate Delegate { get; set; }
+		Parse_EGORefreshTableHeaderDelegate Delegate { get; set; }
 
 		[Export ("refreshLastUpdatedDate")]
 		void RefreshLastUpdatedDate ();
@@ -994,7 +994,7 @@ namespace ParseLib
 
 	[BaseType (typeof(NSObject), Name="PF_EGORefreshTableHeaderView")]
 	[Model]
-	interface PF_EGORefreshTableHeaderDelegate
+	interface Parse_EGORefreshTableHeaderDelegate
 	{
 		[Abstract]
 		[Export ("egoRefreshTableHeaderDataSourceIsLoading:")]
@@ -1004,7 +1004,7 @@ namespace ParseLib
 		[Abstract]
 		[Export ("egoRefreshTableHeaderDataSourceLastUpdated:")]
 		//, DefaultValue(null), DelegateName ("PFView")]
-		NSDate DataSourceLastUpdated (ParseRefreshTableHeaderView view);
+		DateTime DataSourceLastUpdated (ParseRefreshTableHeaderView view);
 
 	}
 	
