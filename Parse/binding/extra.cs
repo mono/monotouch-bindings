@@ -187,43 +187,43 @@ namespace ParseLib {
 	}
 
 	partial class ParseFacebookUtils {
-		public void LogInAsync (NSArray permissions, NSAction callback)
+		public static void LogInAsync (NSArray permissions, NSAction callback)
 		{
 			var d = new NSActionDispatcher (callback);
 			LogInAsync (permissions, d, NSActionDispatcher.Selector);
 		}
 		
-		public void LogInAsync (string facebookId, string accessToken, NSDate expirationDate, NSAction callback)
+		public static void LogInAsync (string facebookId, string accessToken, NSDate expirationDate, NSAction callback)
 		{
 			var d = new NSActionDispatcher (callback);
 			LogInAsync (facebookId, accessToken, expirationDate, d, NSActionDispatcher.Selector);			
 		}
 		
-		public void LinkUserAsync (ParseUser user, NSArray permissions, NSAction callback)
+		public static void LinkUserAsync (ParseUser user, NSArray permissions, NSAction callback)
 		{
 			var d = new NSActionDispatcher (callback);
 			LinkUserAsync (user, permissions, d, NSActionDispatcher.Selector);			
 		}
 		
-		public void LinkUserAsync (ParseUser user, string facebookId, string accessToken, NSDate expirationDate, NSAction callback)
+		public static void LinkUserAsync (ParseUser user, string facebookId, string accessToken, NSDate expirationDate, NSAction callback)
 		{
 			var d = new NSActionDispatcher (callback);
 			LinkUserAsync (user, facebookId, accessToken, expirationDate, d, NSActionDispatcher.Selector);			
 		}
 		
-		public void UnlinkUserAsync (ParseUser user, NSAction callback)
+		public static void UnlinkUserAsync (ParseUser user, NSAction callback)
 		{
 			var d = new NSActionDispatcher (callback);
 			UnlinkUserAsync (user, d, NSActionDispatcher.Selector);			
 		}
 		
-		public void ExtendAccessTokenForUser (ParseUser user, NSAction callback)
+		public static void ExtendAccessTokenForUser (ParseUser user, NSAction callback)
 		{
 			var d = new NSActionDispatcher (callback);
 			ExtendAccessTokenForUser (user, d, NSActionDispatcher.Selector);			
 		}
 		
-		public bool ExtendAccessTokenIfNeeded (ParseUser user, NSAction callback)
+		public static bool ExtendAccessTokenIfNeeded (ParseUser user, NSAction callback)
 		{
 			var d = new NSActionDispatcher (callback);
 			return ExtendAccessTokenIfNeeded (user, d, NSActionDispatcher.Selector);			
