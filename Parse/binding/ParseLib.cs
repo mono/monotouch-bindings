@@ -782,10 +782,18 @@ namespace ParseLib
 
 	}
 
-	[BaseType (typeof(NSObject), Name="PFInstallation")]
+	[BaseType (typeof(ParseObject), Name="PFInstallation")]
 	public interface ParseInstallation
 	{
-	        [Export ("deviceType")]
+	        [Static]
+		[Export ("currentInstallation")]
+                ParseInstallation CurrentInstallation { get; }	
+	        
+	        [Static]
+		[Export ("query")]
+                ParseQuery CreateQuery ();	
+		
+		[Export ("deviceType")]
                 string DeviceType { get; }	
 
 	        [Export ("installationId")]
