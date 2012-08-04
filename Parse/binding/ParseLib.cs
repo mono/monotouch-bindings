@@ -781,6 +781,29 @@ namespace ParseLib
 		double DistanceInKilometersTo (ParseGeoPoint point);
 
 	}
+
+	[BaseType (typeof(NSObject), Name="PFInstallation")]
+	public interface ParseInstallation
+	{
+	        [Export ("deviceType")]
+                string DeviceType { get; }	
+
+	        [Export ("installationId")]
+                string InstallationId { get; }	
+
+	        [Export ("deviceToken")]
+                string DeviceToken { get; }	
+
+	        [Export ("badge")]
+                int Badge { get; }	
+
+	        [Export ("timeZone")]
+                string TimeZone { get; }	
+
+	        [Export ("channels")]
+                string[] Channels { get; set; }	
+
+	}
 	
 	[BaseType (typeof(ParseObject), Name="PFUser")]
 	public interface ParseUser
@@ -1011,7 +1034,7 @@ namespace ParseLib
 	[BaseType (typeof(UIView), Name="PFLogInView")]
 	interface ParseLogInView
 	{
-		[Export ("logo")]
+		[Export ("logo"), NullAllowed]
 		UIView Logo { get; set; }
 
 		[Export ("fields")]
