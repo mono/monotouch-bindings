@@ -287,6 +287,18 @@ namespace ParseLib
 		[Export ("ACL")]
 		ParseACL ACL { get; set; }
 
+		[Export ("addObject:forKey:")]
+		void AddObject (NSObject value, string key);
+
+		[Export ("addObjectsFromArray:forKey:")]
+		void AddObjects (NSObject[] values, string[] keys);
+
+		[Export ("addUniqueObject:forKey:")]
+		void AddUniqueObject (NSObject value, string key);
+
+		[Export ("addUniqueObjectsFromArray:forKey:")]
+		void AddUniqueObjects (NSObject[] values, string[] keys);
+
 		[Export ("allKeys")]
 		string[] AllKeys { get; }
 
@@ -296,8 +308,11 @@ namespace ParseLib
 		[Export ("setObject:forKey:")]
 		void SetObjectforKey (NSObject value, string key);
 
-		[Export ("removeObjectForKey:")]
-		void RemoveObjectForKey (string key);
+		[Export ("removeObject:forKey:")]
+		void RemoveObjectForKey (NSObject value, string key);
+
+		[Export ("removeObjectsInArray:forKey:")]
+		void RemoveObjectForKey (NSObject[] values, string[] keys);
 
 		[Export ("relationforKey:")]
 		ParseRelation RelationforKey (string key);
