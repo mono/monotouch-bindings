@@ -6,6 +6,7 @@
 //
 //
 using System;
+using MonoTouch.CoreLocation;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
@@ -56,6 +57,9 @@ namespace MonoTouch.FacebookConnect  {
 		[Export ("close")]
 		void Close ();
 
+		[Export ("closeAndClearTokenInformation")]
+		void CloseAndClearTokenInformation ();
+
 		[Export ("reauthorizeWithPermissions:behavior:completionHandler:")]
 		void Reauthorize ([NullAllowed]string [] permissions, FBSessionLoginBehavior behavior, FBSessionReauthorizeResultHandler handler);
 
@@ -63,13 +67,12 @@ namespace MonoTouch.FacebookConnect  {
 		bool HandleOpenUrl (NSUrl url);
 
 		[Static]
-		[Export ("sessionOpen")]
-		FBSession SessionOpen ();
+		[Export ("openActiveSessionWithAllowLoginUI:")]
+		bool OpenActiveSession(bool allowLoginUI);
 
 		[Static]
-		[Export ("sessionOpenWithPermissions:completionHandler:")]
-		FBSession SessionOpen ([NullAllowed]string [] permissions, FBSessionStateHandler handler);
-
+		[Export ("openActiveSessionWithPermissions:allowLoginUI:completionHandler:")]
+		bool OpenActiveSession([NullAllowed]string [] permissions, bool allowLoginUI, FBSessionStateHandler handler);
 
 		// TODO: Can activeSession, setActiveSession: be merged into a get/set property?
 		[Static]
@@ -141,223 +144,143 @@ namespace MonoTouch.FacebookConnect  {
 		NSString FBTokenInformationPermissionsKey { get; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	interface Facebook {
-		[Export ("accessToken")]
-		string AccessToken { get; set;  }
-
-		[Export ("expirationDate")]
-		NSDate ExpirationDate { get; set;  }
-
-		[Export ("sessionDelegate"), NullAllowed]
-		NSObject WeakSessionDelegate { get; set;  }
-
-		[Wrap ("WeakSessionDelegate")]
-		FBSessionDelegate Delegate { get; set; }
-
-		[Export ("urlSchemeSuffix")]
-		string UrlSchemeSuffix { get; set;  }
-
-		[Export ("initWithAppId:andDelegate:"), PostGet ("WeakSessionDelegate")]
-		IntPtr Constructor (string appId, FBSessionDelegate del);
-
-		[Export ("initWithAppId:urlSchemeSuffix:andDelegate:"), PostGet ("WeakSessionDelegate")]
-		IntPtr Constructor (string appId, string urlSchemeSuffix, FBSessionDelegate dele);
-
-		[Export ("authorize:")]
-		void Authorize (string [] permissions);
-		
-		[Export ("extendAccessToken")]
-		void ExtendAccessToken();
-		
-		[Export ("extendAccessTokenIfNeeded")]
-		void ExtendAccessTokenIfNeeded();
-		
-		[Export ("shouldExtendAccessToken")]
-		bool ShouldExtendAccessToken();
-
-		[Export ("handleOpenURL:")]
-		bool HandleOpenURL (NSUrl url);
-
-		[Export ("logout")]
-		void Logout ();
-
-		[Export ("requestWithParams:andDelegate:")]
-		FBRequest Request (NSMutableDictionary parameters, FBRequestDelegate del);
-
-		[Export ("requestWithMethodName:andParams:andHttpMethod:andDelegate:")]
-		FBRequest Request (string methodName, NSMutableDictionary parameters, string httpMethod, FBRequestDelegate del);
-
-		[Export ("requestWithGraphPath:andDelegate:")]
-		FBRequest GraphRequest (string graphPath, FBRequestDelegate del);
-
-		[Export ("requestWithGraphPath:andParams:andDelegate:")]
-		FBRequest GraphRequest (string graphPath, NSMutableDictionary parameters, FBRequestDelegate del);
-
-		[Export ("requestWithGraphPath:andParams:andHttpMethod:andDelegate:")]
-		FBRequest GraphRequest (string graphPath, NSMutableDictionary parameters, string httpMethod, FBRequestDelegate del);
-
-		[Export ("dialog:andDelegate:")]
-		void Dialog (string action, FBDialogDelegate del);
-
-		[Export ("dialog:andParams:andDelegate:")]
-		void Dialog (string action, NSMutableDictionary parameters, FBDialogDelegate del);
-
-		[Export ("isSessionValid")]
-		bool IsSessionValid { get; }
-	}
-
-	[BaseType (typeof (NSObject))]
-	[Model]
-	interface FBSessionDelegate {
-		[Export ("fbDidLogin")]
-		void DidLogin ();
-
-		[Export ("fbDidNotLogin:")]
-		void DidNotLogin (bool cancelled);
-		
-		[Export ("fbDidExtendToken:expiresAt")]
-		void DidExtendToken(string accessToken, NSDate expiresAt);
-
-		[Export ("fbDidLogout")]
-		void DidLogout ();
-
-		[Export ("fbSessionInvalidated")]
-		void SessionInvalidated ();
-	}	
+	delegate void FBRequestHandler(FBRequestConnection connection, NSObject result, NSError error);
 
 	[BaseType (typeof (NSObject))]
 	interface FBRequest {
-		[Export ("delegate"), NullAllowed]
-		NSObject WeakDelegate { get; set;  }
-
-		[Wrap ("WeakDelegate")]
-		FBRequestDelegate Delegate { get; set; }
-
-		[Export ("url")]
-		string Url { get; set;  }
-
-		[Export ("httpMethod")]
+		[Export ("HTTPMethod")]
 		string HttpMethod { get; set;  }
 
-		[Export ("params")]
-		NSMutableDictionary Parameters { get; set;  }
+		[Export ("graphObject")]
+		FBGraphObject GraphObject { get; set; }
 
-		[Export ("connection")]
-		NSUrlConnection Connection { get; set;  }
+		[Export ("graphPath")]
+		string GraphPath { get; set; }
 
-		[Export ("responseText")]
-		NSMutableData ResponseText { get; set;  }
+                [Export ("parameters")]
+                NSMutableDictionary Parameters { get; set; }
 
-		[Export ("state")]
-		FBRequestState State { get;  }
+		[Export ("restMethod")]
+		string RestMethod { get; set; }
 
-		[Export ("error")]
-		NSError Error { get; set;  }
+		[Export ("session")]
+		FBSession Session { get; set; }
+
+		[Export ("initWithSession:graphPath:")]
+		IntPtr Constructor([NullAllowed]FBSession session, string graphPath);
+
+		[Export ("initWithSession:graphPath:parameters:HTTPMethod:")]
+		IntPtr Constructor([NullAllowed]FBSession session, string graphPath, NSDictionary parameters, string HTTPMethod);
+
+		[Export ("initForPostWithSession:graphPath:graphObject:")]
+		IntPtr Constructor([NullAllowed]FBSession session, string graphPath, FBGraphObject graphObject);
+
+		// This constructor overload collides with initWithSession:graphPath:parameters:HTTPMethod:.
+                // How on earth can I fix this?
+		//
+		//[Export ("initWithSession:restMethod:parameters:HTTPMethod:")]
+		//IntPtr Constructor([NullAllowed]FBSession session, string restMethod, NSDictionary parameters, string HTTPMethod);
+
+		[Export ("startWithCompletionHandler:")]
+		FBRequestConnection Start(FBRequestHandler handler);
 
 		[Static]
-		[Export ("serializeURL:params:")]
-		string Serialize (string baseUrl, NSDictionary parameters);
+		[Export ("requestForMe")]
+		FBRequest RequestForMe();
 
 		[Static]
-		[Export ("serializeURL:params:httpMethod:")]
-		string Serialize (string baseUrl, NSDictionary parameters, string httpMethod);
+		[Export ("requestForMyFriends")]
+		FBRequest RequestForMyFriends();
 
 		[Static]
-		[Export ("getRequestWithParams:httpMethod:delegate:requestURL:")]
-		FBRequest GetRequest (NSMutableDictionary parameters, string method , FBRequestDelegate httpMethodDelegatedelegate, string url);
+		[Export ("requestForPlacesSearchAtCoordinate:radiusInMeters:resultsLimit:searchText:")]
+		FBRequest RequestForPlacesSearch(CLLocationCoordinate2D coordinate, int radius, int limit, string searchText);
 
-		[Export ("loading")]
-		bool Loading ();
+		[Static]
+		[Export ("requestForPostStatusUpdate:")]
+		FBRequest RequestForPostStatusUpdate(string message);
 
-		[Export ("connect")]
-		void Connect ();
+		[Static]
+		[Export ("requestForPostStatusUpdate:place:tags:")]
+		// TODO: Replace NSArray with NSFastEnumeration if possible.
+		FBRequest RequestForPostStatusUpdate(string message, [NullAllowed]NSObject place, NSArray tags);
+
+		[Static]
+		[Export ("requestForPostWithGraphPath:graphObject:")]
+		FBRequest RequestForPost(string graphPath, FBGraphObject graphObject);
+
+		[Static]
+		[Export ("requestForUploadPhoto:")]
+		FBRequest RequestForUploadPhoto(UIImage photo);
+
+		[Static]
+		[Export ("requestWithGraphPath:parameters:HTTPMethod:")]
+		FBRequest RequestWithGraphPath(string graphPath, NSDictionary parameters, string HTTPMethod);
 	}
 
-	[BaseType (typeof (NSObject))]
-	[Model]
-	interface FBRequestDelegate {
-		[Export ("requestLoading:")]
-		void RequestLoading (FBRequest request);
 
-		[Export ("request:didReceiveResponse:")]
-		void ReceivedResponse (FBRequest request, NSUrlResponse response);
+	// TODO: finish this binding
+	[BaseType (typeof(NSObject))]
+	interface FBRequestConnection {
+		[Export ("initWithTimeout:")]
+		IntPtr Constructor(double timeout);
 
-		[Export ("request:didFailWithError:")]
-		void FailedWithError (FBRequest request, NSError error);
+		[Export ("urlRequest")]
+		NSMutableUrlRequest UrlRequest { get; set; }
 
-		[Export ("request:didLoad:")]
-		void RequestLoaded (FBRequest request, NSObject result);
+		[Export ("urlResponse")]
+		NSHttpUrlResponse UrlResponse { get; set; }
 
-		[Export ("request:didLoadRawResponse:")]
-		void LoadedRawResponse (FBRequest request, NSData data);
+		[Export ("addRequest:completionHandler:")]
+		void AddRequest(FBRequest request, FBRequestHandler handler);
+
+		[Export ("addRequest:completionHandler:batchEntryName:")]
+		void AddRequest(FBRequest request, FBRequestHandler handler, string name);
+
+		[Export ("cancel")]
+		void Cancel();
+
+		[Export ("start")]
+		void Start();
+
+		[Static]
+		[Export ("startForMeWithCompletionHandler:")]
+		FBRequestConnection StartForMe(FBRequestHandler handler);
+
+		[Static]
+		[Export ("startForMyFriendsWithCompletionHandler:")]
+		FBRequestConnection StartForMyFriends(FBRequestHandler handler);
+
+		[Static]
+		[Export ("startForPlacesSearchAtCoordinate:radiusInMeters:resultsLimit:searchText:completionHandler:")]
+		FBRequestConnection StartForPlacesSearch(CLLocationCoordinate2D coordinate, int radius, int limit, string searchText, FBRequestHandler handler);
+
+		[Static]
+		[Export ("startForPostStatusUpdate:completionHandler:")]
+		FBRequestConnection StartForPostStatusUpdate(string message, FBRequestHandler handler);
+
+		[Static]
+		[Export ("startForPostStatusUpdate:place:tags:completionHandler:")]
+		FBRequestConnection StartForPostStatusUpdate(string message, [NullAllowed]NSObject place, NSArray tags, FBRequestHandler handler);
+
+		[Static]
+		[Export ("startForPostWithGraphPath:graphObject:completionHandler:")]
+		FBRequestConnection StartForPostWithGraphPath(string graphPath, FBGraphObject graphObject, FBRequestHandler handler);
+
+		[Static]
+		[Export ("startForUploadPhoto:completionHandler:")]
+		FBRequestConnection StartForUploadPhoto(UIImage photo, FBRequestHandler handler);
+
+		[Static]
+		[Export ("startWithGraphPath:completionHandler:")]
+		FBRequestConnection StartWithGraphPath(string graphPath, FBRequestHandler handler);
+
+		[Static]
+		[Export ("startWithGraphPath:parameters:HTTPMethod:completionHandler:")]
+		FBRequestConnection StartWithGraphPath(string graphPath, NSDictionary parameters, string HTTPMethod, FBRequestHandler handler);
 	}
 
-	[BaseType (typeof (UIView))]
-	interface FBDialog {
-		[Export ("delegate"), NullAllowed]
-		NSObject WeakDelegate { get; set;  }
-
-		[Wrap ("WeakDelegate")]
-		FBDialogDelegate Delegate { get; set; }
-
-		[Export ("params")]
-		NSMutableDictionary Parameters { get; set;  }
-
-		[Export ("getStringFromUrl:needle:")]
-		string GetString (string url, string needle );
-
-		[Export ("initWithURL:params:delegate:")]
-		IntPtr Constructor (string url, NSMutableDictionary parameters , FBDialogDelegate del);
-
-		[Export ("show")]
-		void Show ();
-
-		[Export ("load")]
-		void Load ();
-
-		[Export ("loadURL:get:")]
-		void LoadUrl (string url, NSDictionary getParams);
-
-		[Export ("dismissWithSuccess:animated:")]
-		void Dismiss (bool success, bool animated);
-
-		[Export ("dismissWithError:animated:")]
-		void Dismiss (NSError error, bool animated);
-
-		[Export ("dialogWillAppear")]
-		void DialogWillAppear ();
-
-		[Export ("dialogWillDisappear")]
-		void DialogWillDisappear ();
-
-		[Export ("dialogDidSucceed:")]
-		void DialogDidSucceed (NSUrl url);
-
-		[Export ("dialogDidCancel:")]
-		void DialogDidCancel (NSUrl url);
-	}
-
-	[BaseType (typeof (NSObject))]
-	[Model]
-	interface FBDialogDelegate {
-		[Export ("dialogDidComplete:")]
-		void Completed (FBDialog dialog);
-
-		[Export ("dialogCompleteWithUrl:")]
-		void CompletedWithUrl (NSUrl url);
-
-		[Export ("dialogDidNotCompleteWithUrl:")]
-		void NotCompletedWithUrl (NSUrl url);
-
-		[Export ("dialogDidNotComplete:")]
-		void NotCompleted (FBDialog dialog);
-
-		[Export ("dialog:didFailWithError:")]
-		void Failed (FBDialog dialog, NSError error);
-
-		[Export ("dialog:shouldOpenURLInExternalBrowser:")]
-		bool ShouldOpenUrl (FBDialog dialog, NSUrl url);
-
+	[BaseType (typeof(NSObject))]
+	interface FBGraphObject {
 	}
 }
