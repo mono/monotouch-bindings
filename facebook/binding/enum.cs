@@ -23,4 +23,19 @@ namespace MonoTouch.FacebookConnect  {
 		WithNoFallbackToWebView,
 		ForcingWebView,
 	}
+
+	public enum FBFriendSortOrdering {
+		FBFriendSortByFirstName,
+		FBFriendSortByLastName,
+	}
+
+	public enum FBFriendDisplayOrdering {
+		FBFriendDisplayByFirstName,
+		FBFriendDisplayByLastName,
+	}
+
+	public enum FBProfilePictureCropping {
+		FBProfilePictureCroppingSquare,
+		FBProfilePictureCroppingOriginal,
+	}
 }

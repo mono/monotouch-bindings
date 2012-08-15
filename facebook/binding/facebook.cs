@@ -281,6 +281,305 @@ namespace MonoTouch.FacebookConnect  {
 	}
 
 	[BaseType (typeof(NSObject))]
+	interface FBCacheDescriptor {
+		[Static]
+		[Export ("prefetchAndCacheForSession:")]
+		void PrefetchCache(FBSession session);
+	}
+
+	[Model]
+	[BaseType (typeof(NSObject))]
+	interface FBViewControllerDelegate {
+		[Export ("facebookViewControllerCancelWasPressed:")]
+		void Cancel (UIViewController sender);
+
+		[Export ("facebookViewControllerDoneWasPressed:")]
+		void Done (UIViewController sender);
+	}
+
+	delegate void FBModalCompletionHandler(FBViewController sender, bool donePressed);
+
+	[BaseType (typeof(UIViewController))]
+	interface FBViewController {
+		[Export ("cancelButton")]
+		UIBarButtonItem CancelButton { get; set; }
+
+		[Export ("canvasView")]
+		UIView CanvasView { get; }
+
+		[Export ("delegate")]
+		FBViewControllerDelegate Delegate { get; set; }
+
+		[Export ("doneButton")]
+		UIBarButtonItem DoneButton { get; set; }
+
+		[Export ("presentModallyFromViewController:animated:handler:")]
+		void PresentModally(UIViewController viewController, bool animated, FBModalCompletionHandler handler);
+	}
+
+	[BaseType (typeof(FBViewController))]
+	interface FBFriendPickerViewController {
+		[Export ("spinner")]
+		UIActivityIndicatorView Spinner { get; set; }
+
+		[Export ("tableView")]
+		UITableView TableView { get; set; }
+
+		[Export ("allowsMultipleSelections")]
+		bool AllowsMultipleSelections { get; set; }
+
+		[Export ("itemPicturesEnabled")]
+		bool ItemPicturesEnabled { get; set; }
+
+		[Export ("fieldsForRequest")]
+		NSSet FieldsForRequest { get; set; }
+
+		[Export ("session")]
+		FBSession Session { get; set; }
+
+		[Export ("userID")]
+		string UserID { get; set; }
+
+		[Export ("selection")]
+		NSArray Selection { get; }
+
+		[Export ("sortOrdering")]
+		FBFriendSortOrdering SortOrdering { get; set; }
+
+		[Export ("displayOrdering")]
+		FBFriendDisplayOrdering DisplayOrdering { get; set; }
+
+		[Export ("initWithCoder:")]
+		IntPtr Constructor (NSCoder aDecoder);
+
+		[Export ("initWithNibName:bundle:")]
+		IntPtr Constructor ([NullAllowed]NSString nibName, [NullAllowed]NSBundle nibBundle);
+
+		[Export ("configureUsingCachedDescriptor:")]
+		void ConfigureUsingCachedDescriptor(FBCacheDescriptor cacheDescriptor);
+
+		[Export ("loadData")]
+		void LoadData();
+
+		[Export ("updateView")]
+		void UpdateView();
+
+		[Export ("clearSelection")]
+		void ClearSelection();
+
+		[Static]
+		[Export ("cacheDescriptor")]
+		FBCacheDescriptor CacheDescriptor();
+
+		[Static]
+		[Export ("cacheDescriptorWithUserID:fieldsForRequest:")]
+		FBCacheDescriptor CacheDescriptor (string userID, NSSet fieldsForRequest);
+	}
+
+	[BaseType (typeof(FBViewController))]
+	interface FBPlacePickerViewController {
+		[Export ("spinner")]
+		UIActivityIndicatorView Spinner { get; set; }
+
+		[Export ("tableView")]
+		UITableView TableView { get; set; }
+
+		[Export ("fieldsForRequest")]
+		NSSet FieldsForRequest { get; set; }
+
+		[Export ("itemPicturesEnabled")]
+		bool ItemPicturesEnabled { get; set; }
+
+		[Export ("locationCoordinate")]
+		CLLocationCoordinate2D LocationCoordinate { get; set; }
+
+		[Export ("radiusInMeters")]
+		int RadiusInMeters { get; set; }
+
+		[Export ("resultsLimit")]
+		int ResultsLimit { get; set; }
+
+		[Export ("searchText")]
+		string SearchText { get; set; }
+
+		[Export ("session")]
+		FBSession Session { get; set; }
+
+		[Export ("selection")]
+		NSArray Selection { get; }
+
+		[Export ("initWithCoder:")]
+		IntPtr Constructor (NSCoder aDecoder);
+
+		[Export ("initWithNibName:bundle:")]
+		IntPtr Constructor ([NullAllowed]NSString nibName, [NullAllowed]NSBundle nibBundle);
+
+		[Export ("configureUsingCachedDescriptor:")]
+		void ConfigureUsingCachedDescriptor(FBCacheDescriptor cacheDescriptor);
+
+		[Export ("loadData")]
+		void LoadData();
+
+		[Export ("clearSelection")]
+		void ClearSelection();
+
+		[Static]
+		[Export ("cacheDescriptorWithLocationCoordinate:radiusInMeters:searchText:resultsLimit:fieldsForRequest:")]
+		FBCacheDescriptor CacheDescriptor (CLLocationCoordinate2D locationCoordinate,
+						   int radiusInMeters, string searchText, int resultsLimit,
+						   NSSet fieldsForRequest);
+	}
+
+	[Model]
+	[BaseType (typeof(NSObject))]
+	interface FBLoginViewDelegate {
+		[Export ("loginViewShowingLoggedInUser:")]
+		void LoginViewShowingLoggedInUser (FBLoginView loginView);
+
+		[Export ("loginViewFetchedUserInfo:user:")]
+		void LoginViewFetchedUserInfo (FBLoginView loginView, FBGraphUser user);
+
+		[Export ("loginViewShowingLoggedOutUser:")]
+		void LoginViewShowingLoggedOutUser (FBLoginView loginView);
+	}
+
+	[BaseType (typeof(UIView))]
+	interface FBLoginView {
+		[Export ("permissions")]
+		NSArray Permissions { get; set; }
+
+		[Export ("delegate")]
+		FBLoginViewDelegate Delegate { get; set; }
+
+		[Export ("initWithPermissions:")]
+		IntPtr Constructor (NSArray permissions);
+	}
+	
+	[BaseType (typeof(UIView))]
+	interface FBProfilePictureView {
+		[Export ("profileID")]
+		string ProfileID { get; set; }
+
+		[Export ("pictureCropping")]
+		FBProfilePictureCropping PictureCropping { get; set; }
+
+		[Export ("initWithProfileID:pictureCropping:")]
+		IntPtr Constructor (string profileID, FBProfilePictureCropping pictureCropping);
+	}
+
+	[BaseType (typeof(FBViewController))]
+	interface FBUserSettingsViewController {
+		[Export ("permissions")]
+		NSArray Permissions { get; set; }
+	}
+
+	[BaseType (typeof(NSObject))]
+	interface FBSettings {
+		[Static]
+		[Export ("loggingBehavior")]
+		NSSet LoggingBehavior ();
+
+		[Static]
+		[Export ("publishInstall:")]
+		void PublishInstall (string appID);
+
+		[Static]
+		[Export ("setLoggingBehavior:")]
+		void SetLoggingBehavior (NSSet loggingBehavior);
+
+		[Static]
+		[Export ("setShouldAutoPublishInstall:")]
+		void SetShouldAutoPublishInstall (bool autoPublishInstall);
+
+		[Static]
+		[Export ("shouldAutoPublishInstall")]
+		bool ShouldAutoPublishInstall ();
+	}
+
+	[BaseType (typeof(NSObject))]
 	interface FBGraphObject {
+		[Export ("count")]
+		uint Count();
+		
+		[Export ("objectForKey:")]
+		NSObject ObjectForKey (NSObject aKey);
+
+		[Export ("keyEnumerator")]
+		NSEnumerator KeyEnumerator();
+
+		[Export ("removeObjectForKey:")]
+		void Remove (NSObject aKey);
+
+		[Export ("setObject:forKey:")]
+		void Set (NSObject anObject, NSObject aKey);
+	}
+
+	[BaseType (typeof(FBGraphObject))]
+	interface FBGraphUser {
+		[Export ("id")]
+		string Id { get; set; }
+
+		[Export ("name")]
+		string Name { get; set; }
+
+		[Export ("first_name")]
+		string FirstName { get; set; }
+
+		[Export ("last_name")]
+		string LastName { get; set; }
+
+		[Export ("middle_name")]
+		string MiddleName { get; set; }
+
+		[Export ("link")]
+		string Link { get; set; }
+
+		[Export ("username")]
+		string Username { get; set; }
+
+		[Export ("birthday")]
+		string Birthday { get; set; }
+
+		[Export ("location")]
+		FBGraphLocation Location { get; set; }
+	}
+
+	[BaseType (typeof(FBGraphObject))]
+	interface FBGraphLocation {
+		[Export ("street")]
+		string Street { get; set; }
+
+		[Export ("city")]
+		string City { get; set; }
+
+		[Export ("state")]
+		string State { get; set; }
+
+		[Export ("country")]
+		string Country { get; set; }
+
+		[Export ("zip")]
+		string Zip { get; set; }
+
+		[Export ("latitude")]
+		NSNumber Latitude { get; set; }
+
+		[Export ("longitude")]
+		NSNumber Longitude { get; set; }
+	}
+
+	[BaseType (typeof(FBGraphObject))]
+	interface FBGraphPlace {
+		[Export ("id")]
+		string Id { get; set; }
+
+		[Export ("name")]
+		string Name { get; set; }
+
+		[Export ("category")]
+		string Category { get; set; }
+
+		[Export ("location")]
+		FBGraphLocation Location { get; set; }
 	}
 }
