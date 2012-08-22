@@ -341,6 +341,9 @@ namespace ParseLib
 		[Export ("saveEventually")]
 		void SaveEventually ();
 
+		[Export ("saveEventually:")]
+		void SaveEventually (ParseBooleanResult result);
+
 		[Export ("saveAll:")]
 		bool SaveAll (ParseObject[] objects);
 
@@ -661,6 +664,9 @@ namespace ParseLib
 		[Static]
 		[Export ("orQueryWithSubqueries:")]
 		ParseQuery OrQueryWithSubqueries (NSArray queries);
+
+		[Export ("whereKey:matchesKey:inQuery:")]
+		void WhereKeyInQuery (string key, string keyMatch, ParseQuery query);
 
 		[Export ("whereKey:matchesQuery:")]
 		void WhereKeymatchesQuery (string key, ParseQuery query);
@@ -1167,7 +1173,7 @@ namespace ParseLib
 		IntPtr Constructor (string aClassName);
 
 		[Export ("objectsDidLoad:")]
-		void ObjectsDidLoad (NSError error);
+		void ObjectsDidLoad ([NullAllowed] NSError error);
 
 		[Export ("objectsWillLoad")]
 		void ObjectsWillLoad ();
@@ -1195,7 +1201,6 @@ namespace ParseLib
 
 		[Export ("tableView:cellForNextPageAtIndexPath:")]
 		UITableViewCell TableViewcellForNextPageAtIndexPath (UITableView tableView, NSIndexPath indexPath);
-
 	}
 	
 	[BaseType (typeof(UIView), Name="PF_MBProgressHUD", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(ParseMBProgressHUDDelegate)})]
@@ -1302,6 +1307,38 @@ namespace ParseLib
 		[Export ("progress")]
 		float Progress { get; set; }
 
+	}
+
+	[BaseType (typeof(UIImageView), Name="PFImageView")]
+	interface ParseImageView
+	{
+		[Export ("file")]
+		ParseFile File { get; set; }
+
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (System.Drawing.RectangleF frame);
+
+		[Export ("initWithImage:")]
+		IntPtr Constructor (UIImage image);
+
+		[Export ("initWithImage:highlightedImage")]
+		IntPtr Constructor (UIImage image, UIImage highlightedImage);
+
+		[Export ("loadInBackground")]
+		void LoadInBackground();
+
+		[Export ("loadInBackground:")]
+		void LoadInBackground(ParseImageResult result);
+	}
+
+	[BaseType (typeof(UITableViewCell), Name="PFTableViewCell")]
+	interface ParseTableViewCell
+	{
+		[Export ("imageView")]
+		ParseImageView ImageView { get; set; }
+
+		[Export ("initWithStyle:reuseIdentifier:")]
+		IntPtr Constructor (UITableViewCellStyle style, string reuseIdentifier);
 	}
 
 
