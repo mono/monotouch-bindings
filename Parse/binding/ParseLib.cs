@@ -25,7 +25,7 @@ namespace ParseLib
 
 	public delegate void ParseProgress (int percentDone);
 
-	public delegate void ParseImageResult (UIImage image,NSError error);;
+	public delegate void ParseImageResult (UIImage image,NSError error);
 
 	[BaseType (typeof(NSObject))]
 	public interface Parse
