@@ -17,4 +17,25 @@ namespace MonoTouch.Cocos2D {
 		public PointF ControlPoint1;
 		public PointF ControlPoint2;
 	}
+
+	public enum CCDirectorProjection {
+		TwoD,
+		ThreeD,
+		Custom,
+		Default = TwoD,
+	}
+
+	public enum CCTexture2DPixelFormat {
+		Rgba8888,
+		Rgb888,
+		Rgb565,
+		A8,
+		I8,
+		AI88,
+		Rgba4444,
+		Rgb5a1,
+		Pvrtc4,
+		Pvrtc2,
+		Default = Rgba8888
+	}
 }

@@ -3,13 +3,17 @@
 //
 // Author:
 //   Miguel de Icaza
+//   Stephane Delcroix
 //
 // Copyright 2011 Xamarin, Inc.
+// Copyright 2012 S. Delcroix
 //
+
 using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
+using MonoTouch.UIKit;
 
 namespace MonoTouch.Cocos2D {
 	
@@ -65,8 +69,8 @@ namespace MonoTouch.Cocos2D {
 		[Export ("action")]
 		CCAction CreateAction ();
 
-		[Export ("init")]
-		IntPtr Constructor ();
+		//[Export ("init")]
+		//IntPtr Constructor ();
 
 		//[Export ("copyWithZone:")]
 		//NSObject CopyFromZone (NSZone zone );
@@ -96,6 +100,25 @@ namespace MonoTouch.Cocos2D {
 		[Export ("reverse")]
 		CCFiniteTimeAction Reverse ();
 
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCNode {
+		[Export ("zOrder")]
+		int ZOrder { get; set; }
+
+		[Export ("vertexZ")]
+		float VertexZ { get; set; }	
+
+		[Static]
+		[Export ("node")]
+		CCNode Node { get; }
+
+		[Export ("addChild:")]
+		void Add (CCNode child);
+
+		[Export ("position")]
+		PointF Position { get; set; }
 	}
 
 	[BaseType (typeof (CCAction))]
@@ -464,4 +487,96 @@ namespace MonoTouch.Cocos2D {
 
 	}
 
+	[BaseType (typeof (NSObject))]
+	interface CCSpriteFrame {
+		[Export ("rect")]
+		RectangleF Rect { get; set; }
+
+		[Export ("rectInPixels")]
+		RectangleF RectInPixels { get; set; }
+
+		[Export ("rotated")]
+		bool Rotated { get; set; }	
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCTexture2D {
+		[Static]
+		[Export("defaultAlphaPixelFormat")]
+		CCTexture2DPixelFormat DefaultAlphaPixelFormat { get; set; }
+
+		[Static]
+		[Export ("PVRImageHavePremultipliedAlpha")]
+		bool PVRImageHavePremultipliedAlpha { set; }
+	}
+
+	[BaseType (typeof (UIView))]
+	interface CCGLView {
+		[Static]
+		[Export ("viewWithFrame:")]
+		CCGLView View (RectangleF frame);
+	}
+
+	[BaseType (typeof(UIViewController))]
+	interface CCDirector {
+		[Static]
+		[Export ("sharedDirector")]
+		CCDirector SharedDirector { get; set; }
+
+		[Export ("displayStats")]
+		bool DisplayStats { get; set; }
+
+		[Export ("animationInterval")]
+		double AnimationInterval { get; set; }
+
+		[Export ("projection")]
+		CCDirectorProjection Projection { set; }
+
+		[Export ("pushScene:")]
+		void Push (CCScene scene);
+
+		[Export ("winSize")]
+		SizeF WinSize { get; }
+
+		[Export ("winSizeInPixels")]
+		SizeF WinSizeInPixels { get; }
+	} 
+
+	[BaseType (typeof (CCNode))]
+	interface CCScene {
+		
+	}
+
+	[BaseType (typeof (CCDirector))]
+	interface CCDirectorIOS {
+		[Export ("projection:")]
+		CCDirectorProjection Projection { set; }
+
+		[Export ("enableRetinaDisplay:")]
+		bool EnableRetinaDisplay (bool enableRetina);
+	}
+
+	[BaseType (typeof (CCNode))]
+	interface CCLayer {
+		[Export ("registerWithTouchDispatcher")]
+		void RegisterWithTouchDispatcher ();
+
+		[Export ("isTouchEnabled")]
+		bool IsTouchEnabled { get; set; }
+
+		[Export ("isAccelerometerEnabled")]
+		bool IsAccelerometerEnabled { get; set; }
+	}
+
+	[BaseType (typeof (CCSprite))]
+	interface CCLabelTTF {
+		[Static]
+		[Export ("labelWithString:fontName:fontSize:")]
+		CCLabelTTF Label (string label, string fontName, float fontSize);
+
+	}
+
+	[BaseType (typeof (CCNode))]
+	interface CCSprite {
+	}
 }
