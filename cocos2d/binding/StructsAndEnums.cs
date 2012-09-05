@@ -1,5 +1,5 @@
 //
-// enums.cs: Definitions used by Cocos2D
+// StructsAndEnums.cs: Definitions used by Cocos2D
 //
 // Author:
 //   Miguel de Icaza
@@ -16,6 +16,51 @@ namespace MonoTouch.Cocos2D {
 		public PointF EndPosition;
 		public PointF ControlPoint1;
 		public PointF ControlPoint2;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Color3B {
+		public byte R;
+		public byte G;
+		public byte B;
+
+		public Color3B (byte r, byte g, byte b) {
+			R = r;
+			G = g;
+			B = b;
+		}
+
+		public static Color3B White { get {return new Color3B(0xff,0xff,0xff);}}
+		public static Color3B Yellow { get {return new Color3B(0xff,0xff,0);}}
+		public static Color3B Blue { get {return new Color3B(0,0,0xff);}}
+		public static Color3B Green { get {return new Color3B(0,0xff,0);}}
+		public static Color3B Red { get {return new Color3B(0xff,0,0);}}
+		public static Color3B Magenta { get {return new Color3B(0xff, 0, 0xff);}}
+		public static Color3B Black { get {return new Color3B(0,0,0);}}
+		public static Color3B Orange { get {return new Color3B(0xff,0x7f,0);}}
+		public static Color3B Gray { get {return new Color3B(0xa6,0xa6,0xa6);}}
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Color4B {
+		public byte R;
+		public byte G;
+		public byte B;
+		public byte A;
+
+		public Color4B (byte r, byte g, byte b, byte a) {
+			R = r;
+			G = g;
+			B = b;
+			A = a;
+		}
+
+		public Color4B (Color3B color, byte a) {
+			R = color.R;
+			G = color.G;
+			B = color.B;
+			A = a;
+		}
 	}
 
 	public enum CCDirectorProjection {
@@ -37,5 +82,12 @@ namespace MonoTouch.Cocos2D {
 		Pvrtc4,
 		Pvrtc2,
 		Default = Rgba8888
+	}
+
+	public enum Orientation {
+		LeftOver = 0,
+		RightOver = 1,
+		UpOver = 0,
+		DownOver = 1,
 	}
 }
