@@ -16,6 +16,8 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
 
 namespace MonoTouch.Cocos2D {
+
+	delegate void NSCallbackWithSender (NSObject sender);
 	
 	[BaseType (typeof (NSObject))]
 	interface CCActionManager {
@@ -110,15 +112,41 @@ namespace MonoTouch.Cocos2D {
 		[Export ("vertexZ")]
 		float VertexZ { get; set; }	
 
-		[Static]
-		[Export ("node")]
-		CCNode Node { get; }
+		[Export ("skewX")]
+		float SkewX { get; set; }
+
+		[Export ("rotation")]
+		float Rotation { get; set; }
+
+		[Export ("scale")]
+		float Scale { get; set; }
+
+		[Export ("scaleX")]
+		float ScaleX { get; set; }
+
+		[Export ("scaleY")]
+		float ScaleY { get; set; }
+
+		[Export ("position")]
+		PointF Position { get; set; }
+
+		[Export ("camera")]
+		CCCamera Camera { get; }
 
 		[Export ("addChild:")]
 		void Add (CCNode child);
 
-		[Export ("position")]
-		PointF Position { get; set; }
+		[Export ("scheduleUpdate")]
+		void ScheduleUpdate ();
+
+		[Export ("scheduleUpdateWithPriority:")]
+		void ScheduleUpdate (int priority);
+
+		[Export ("unscheduleUpdate")]
+		void UnscheduleUpdate ();
+
+		[Export ("scheduleOnce:delay:")]
+		void ScheduleOnce (Selector sel, float delay);
 	}
 
 	[BaseType (typeof (CCAction))]
@@ -506,8 +534,8 @@ namespace MonoTouch.Cocos2D {
 		CCTexture2DPixelFormat DefaultAlphaPixelFormat { get; set; }
 
 		[Static]
-		[Export ("PVRImageHavePremultipliedAlpha")]
-		bool PVRImageHavePremultipliedAlpha { set; }
+		[Export ("PVRImagesHavePremultipliedAlpha")]
+		bool PVRImageHavePremultipliedAlpha { [Bind ("PVRImagesHavePremultipliedAlpha:")]set; }
 	}
 
 	[BaseType (typeof (UIView))]
@@ -532,6 +560,9 @@ namespace MonoTouch.Cocos2D {
 		[Export ("projection")]
 		CCDirectorProjection Projection { set; }
 
+		[Export ("replaceScene:")]
+		void ReplaceScene (CCScene scene);
+
 		[Export ("pushScene:")]
 		void Push (CCScene scene);
 
@@ -540,6 +571,21 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("winSizeInPixels")]
 		SizeF WinSizeInPixels { get; }
+
+		[Export ("nextDeltaTimeZero")]
+		bool NextDeltaTimeZero { get; set; }
+
+		[Export ("purgeCachedData")]
+		void PurgeCachedData ();
+
+		[Export ("end")]
+		void End ();
+
+		[Export ("startAnimation")]
+		void StartAnimation ();
+
+		[Export ("stopAnimation")]
+		void StopAnimation ();
 	} 
 
 	[BaseType (typeof (CCNode))]
@@ -549,11 +595,23 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCDirector))]
 	interface CCDirectorIOS {
-		[Export ("projection:")]
+		[Export ("projection")]
 		CCDirectorProjection Projection { set; }
 
 		[Export ("enableRetinaDisplay:")]
 		bool EnableRetinaDisplay (bool enableRetina);
+
+		[Export ("startAnimation")]
+		void StartAnimation ();
+
+		[Export ("stopAnimation")]
+		void StopAnimation ();
+
+		[Export ("animationInterval")]
+		double AnimationInterval { set; }
+
+		[Export ("calculateDeltaTime")]
+		void CalculateDeltaTime ();
 	}
 
 	[BaseType (typeof (CCNode))]
@@ -566,17 +624,341 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("isAccelerometerEnabled")]
 		bool IsAccelerometerEnabled { get; set; }
+
+		[Export ("onEnter")]
+		void OnEnter ();
+	}
+
+	[BaseType (typeof (CCLayer))]
+	interface CCLayerColor {
+		[Export ("initWithColor:width:height:")]
+		CCLayerColor Constructor (Color4B color, float width, float height);
+
+		[Export ("initWithColor")]
+		CCLayerColor Constructor (Color4B color);
+
+		[Export ("changeWidth:")]
+		void ChangeWidth (float width);
+
+		[Export ("changeHeight:")]
+		void ChangeHeight (float height);
+
+		[Export ("changeWidth:height:")]
+		void ChangeSize (float width, float height);
+
+		[Export ("opacity")]
+		byte Opacity { get; }
+
+		[Export ("color")]
+		Color3B Color { get; }
 	}
 
 	[BaseType (typeof (CCSprite))]
 	interface CCLabelTTF {
-		[Static]
-		[Export ("labelWithString:fontName:fontSize:")]
-		CCLabelTTF Label (string label, string fontName, float fontSize);
+		[Export ("initWithString:fontName:fontSize:")]
+		CCLabelTTF Constructor (string label, string fontName, float fontSize);
 
 	}
 
 	[BaseType (typeof (CCNode))]
 	interface CCSprite {
+		[Export ("initWithTexture:rect:rotated:")]
+		CCSprite Constructor (CCTexture2D texture, RectangleF rect, bool rotated);
+
+		[Export ("initWithTexture:rect:")]
+		CCSprite Constructor (CCTexture2D texture, RectangleF rect);
+
+		[Export ("initWithTexture:rect:")]
+		CCSprite Constructor (CCTexture2D texture);
+
+		[Export ("initWithFile:")]
+		CCSprite Constructor (string filename);
+
+		[Export ("initWithFile:rect:")]
+		CCSprite Constructor (string filename, RectangleF rect);
+
+//		[Export ("initWithCGImage:key:")]
+//		CCSprite Constructor (CGImage image, string key);
+
+		[Export ("description")]
+//		[Override]
+		string ToString ();
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCFileUtils {
+		[Export ("iPhoneRetinaDisplaySuffix")]
+		string IPhoneRetinaDisplaySuffix { get; [Bind ("setiPhoneRetinaDisplaySuffix:")] set; }
+
+		[Export ("iPadSuffix")]
+		string IPadSuffix { get; [Bind ("setiPadSuffix:")] set; }
+
+		[Export ("iPadRetinaDisplaySuffix")]
+		string IPadRetinaDisplaySuffix { get; [Bind ("setiPadRetinaDisplaySuffix:")] set; }
+
+		[Export ("enableFallbackSuffixes")]
+		bool EnableFallbackSuffixes { get; set; }
+
+		[Static]
+		[Export ("sharedFileUtils")]
+		CCFileUtils SharedFileUtils { get; }
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCCamera {
+		[Static]
+		[Export ("getZeye")]
+		float ZEye { get; }
+	}
+
+	[BaseType (typeof (CCScene))]
+	interface CCTransitionScene {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionScene Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionSceneOriented {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionSceneOriented Constructor (float duration, CCScene scene);
+
+		[Export ("initWithDuration:scene:orientation:")]
+		CCTransitionSceneOriented Constructor (float duration, CCScene scene, Orientation orientation);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionRotoZoom {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionRotoZoom Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionJumpZoom {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionJumpZoom Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionMoveInL {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionMoveInL Constructor (float duration, CCScene scene);
+
+		[Export ("initScenes")]
+		void InitScenes ();
+
+		[Export ("action")]
+		CCActionInterval Action { get; }
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionMoveInR {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionMoveInR Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionMoveInT {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionMoveInT Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionMoveInB {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionMoveInB Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionSlideInL {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionSlideInL Constructor (float duration, CCScene scene);
+
+		[Export ("initScenes")]
+		void InitScenes ();
+
+		[Export ("action")]
+		CCActionInterval Action { get; }
+	}
+
+	[BaseType (typeof (CCTransitionSlideInL))]
+	interface CCTransitionSlideInR {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionSlideInR Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionSlideInL))]
+	interface CCTransitionSlideInB {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionSlideInB Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionSlideInL))]
+	interface CCTransitionSlideInT {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionSlideInT Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionShrinkGrow {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionShrinkGrow Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionSceneOriented))]
+	interface CCTransitionFlipX {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionFlipX Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionSceneOriented))]
+	interface CCTransitionFlipY {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionFlipY Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionSceneOriented))]
+	interface CCTransitionFlipAnguled {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionFlipAnguled Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionSceneOriented))]
+	interface CCTransitionZoomFlipX {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionZoomFlipX Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionSceneOriented))]
+	interface CCTransitionZoomFlipY {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionZoomFlipY Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionSceneOriented))]
+	interface CCTransitionZoomFlipAngular {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionZoomFlipAngular Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionFade {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionFade Constructor (float duration, CCScene scene);
+
+		[Export ("initWithDuration:scene:withColor:")]
+		CCTransitionFade Constructor (float duration, CCScene scene, Color3B color);
+	}
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionCrossFade {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionCrossFade Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionTurnOffTiles {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionTurnOffTiles Constructor (float duration, CCScene scene);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionSplitCols {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionSplitCols Constructor (float duration, CCScene scene);
+
+		[Export ("action")]
+		CCActionInterval Action { get; }
+	}
+
+	[BaseType (typeof (CCTransitionSplitCols))]
+	interface CCTransitionSplitRows {
+		[Export ("initWithDuration:scene:")]
+		CCTransitionSplitRows Constructor (float duration, CCScene scene);
+	}
+	
+	[BaseType (typeof (CCNode))]
+	interface CCMenuItem {
+		[Export ("initWithBlock:")]
+		CCMenuItem Constructor (NSCallbackWithSender callback);
+		
+		[Export ("setBlock:")]
+		void SetCallback (NSCallbackWithSender callback);		
+
+		[Export ("rect")]
+		RectangleF Rect { get; }
+
+		[Export ("isEnabled")]
+		bool IsEnabled { get; }
+	}
+
+	[BaseType (typeof (CCMenuItem))]
+	interface CCMenuItemLabel {
+		[Export ("initWithLabel:block:")]
+		CCMenuItemLabel Constructor (CCNode label, NSCallbackWithSender callback);
+
+		[Export ("string")]
+		string Label { set; }
+
+		[Export ("isEnabled")]
+		bool IsEnabled { set; }
+	}
+
+	[BaseType (typeof (CCMenuItemLabel))]
+	interface CCMenuItemFont {
+		
+		[Static]
+		[Export ("fontSize")]
+		uint DefaultFontSize { get; set; }
+
+		[Static]
+		[Export ("fontName")]
+		string DefaultFontName { get; set; }
+
+		[Export ("fontSize")]
+		uint FontSize { get; set; }
+
+		[Export ("fontName")]
+		string FontName { get; set; }
+
+		[Export ("initWithString:block:")]
+		CCMenuItemFont Constructor (string value, NSCallbackWithSender callback);
+	}
+
+	[BaseType (typeof (CCLayer))]
+	interface CCMenu {
+		[Export ("opacity")]
+		byte Opacity { get; }
+
+		[Export ("color")]
+		Color3B Color { get; }
+
+		[Export ("enabled")]
+		bool Enabled { get; set; }
+
+		[Export ("initWithArray:")]
+		CCMenu Constructor (CCMenuItem[] items);
+
+		[Export ("alignItemsVertically")]
+		void AlignItemsVertically ();
+
+		[Export ("alignItemsVerticallyWithPadding:")]
+		void AlignItemsVertically (float padding);
+
+		[Export ("alignItemsHorizontally")]
+		void AlignItemsHorizontally ();
+			
+		[Export ("alignItemsHorizontallyWithPadding:")]
+		void AlignItemsHorizontally (float padding);
+
+		[Internal]
+		[Export ("alignItemsInColumns:")]
+		void AlignItemsInColumns (NSNumber firstItem, IntPtr itemPtr);
+
+		[Internal]
+		[Export ("alignItemsInRows:")]
+		void AlignItemsInRows (NSNumber firstItem, IntPtr itemPtr);
+
+		[Export ("handlerPriority")]
+		int HandlerPriority { set; }
+
 	}
 }
