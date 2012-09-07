@@ -36,6 +36,21 @@ namespace MonoTouch.Cocos2D {
 			action ();
 		}
 	}
+	
+	public partial class CCNode {
+		static CCScheduler scheduler = CCDirector.SharedDirector.Scheduler;
+		public const uint RepeatForever = uint.MaxValue - 1;
+
+		public void Schedule (NSAction callback, float interval=0, uint repeat=RepeatForever, float delay=0)
+		{
+			scheduler.Schedule(NSActionDispatcher.Selector, new NSActionDispatcher(callback), interval, !IsRunning, repeat, delay);
+		}
+
+		public void ScheduleOnce (NSAction callback, float delay)
+		{
+			Schedule (callback, repeat:0, delay:delay);
+		}
+	}
 
 	public partial class CCMenuItemLabel {
 		public CCMenuItemLabel (NSCallbackWithSender callback) : base (callback)

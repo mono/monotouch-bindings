@@ -18,7 +18,47 @@ using MonoTouch.UIKit;
 namespace MonoTouch.Cocos2D {
 
 	delegate void NSCallbackWithSender (NSObject sender);
+
+	[BaseType (typeof (NSObject))]
+	interface CCAction {
+		[Export ("originalTarget")]
+		NSObject OriginalTarget { get;  }
+
+		[Export ("tag")]
+		int Tag { get; set;  }
+
+		[Export ("target")]
+		NSObject Target { get; }
+
+		//[Export ("copyWithZone:")]
+		//CCAction CopyFromZone (NSZone zone );
+
+		[Export ("isDone")]
+		bool IsDone { get; }
+
+		[Export ("startWithTarget:")]
+		void Start (NSObject target);
+
+		[Export ("stop")]
+		void Stop ();
+
+		[Export ("step:")]
+		void Step (float ccTime);
+
+		[Export ("update:")]
+		void Update (float time);
+	}
 	
+	[BaseType (typeof (CCAction))]
+	interface CCFiniteTimeAction {
+		[Export ("duration")]
+		float Duration { get; set; }
+
+		[Export ("reverse")]
+		CCFiniteTimeAction Reverse ();
+
+	}
+
 	[BaseType (typeof (NSObject))]
 	interface CCActionManager {
 		[Export ("sharedManager")]
@@ -57,55 +97,10 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface CCAction {
-		[Export ("originalTarget")]
-		NSObject OriginalTarget { get;  }
-
-		[Export ("tag")]
-		int Tag { get; set;  }
-
-		[Export ("idtarget")]
-		NSObject Target { get; }
-
-		[Static]
-		[Export ("action")]
-		CCAction CreateAction ();
-
-		//[Export ("init")]
-		//IntPtr Constructor ();
-
-		//[Export ("copyWithZone:")]
-		//NSObject CopyFromZone (NSZone zone );
-
-		[Export ("isDone")]
-		bool IsDone { get; }
-
-		[Export ("startWithTarget:")]
-		void StartWithTarget (NSObject target);
-
-		[Export ("stop")]
-		void Stop ();
-
-		[Export ("step:")]
-		void Step (float ccTime);
-
-		[Export ("update:")]
-		void Update (float time);
-
-	}
-
-	[BaseType (typeof (CCAction))]
-	interface CCFiniteTimeAction {
-		[Export ("duration")]
-		float Duration { get; set; }
-
-		[Export ("reverse")]
-		CCFiniteTimeAction Reverse ();
-
-	}
-
-	[BaseType (typeof (NSObject))]
 	interface CCNode {
+
+		//Note to self, don't bind schedule*, we can do a better job than this
+
 		[Export ("zOrder")]
 		int ZOrder { get; set; }
 
@@ -136,17 +131,8 @@ namespace MonoTouch.Cocos2D {
 		[Export ("addChild:")]
 		void Add (CCNode child);
 
-		[Export ("scheduleUpdate")]
-		void ScheduleUpdate ();
-
-		[Export ("scheduleUpdateWithPriority:")]
-		void ScheduleUpdate (int priority);
-
-		[Export ("unscheduleUpdate")]
-		void UnscheduleUpdate ();
-
-		[Export ("scheduleOnce:delay:")]
-		void ScheduleOnce (Selector sel, float delay);
+		[Export ("isRunning")]
+		bool IsRunning { get; }
 	}
 
 	[BaseType (typeof (CCAction))]
@@ -586,6 +572,9 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("stopAnimation")]
 		void StopAnimation ();
+
+		[Export ("scheduler")]
+		CCScheduler Scheduler { get; set; }
 	} 
 
 	[BaseType (typeof (CCNode))]
@@ -959,6 +948,39 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("handlerPriority")]
 		int HandlerPriority { set; }
+	}
 
+	[BaseType (typeof (NSObject))]
+	interface CCScheduler {
+		[Export ("timeScale")]
+		float TimeScale { get; set; }
+
+		[Export ("scheduleSelector:forTarget:interval:paused:repeat:delay:")]
+		[Internal]
+		void Schedule (Selector selector, NSObject target, float interval, bool paused, uint repeat, float delay);
+
+		[Export ("scheduleSelector:forTarget:interval:paused:")]
+		[Internal]
+		void Schedule (Selector selector, NSObject target, float interval, bool paused);
+
+		[Export ("scheduleUpdateForTarget:priority:paused:")]
+		[Internal]
+		void ScheduleUpdate (NSObject target, int priority, bool paused);
+
+		[Export ("unscheduleSelector:forTarget:")]
+		[Internal]
+		void Unschedule (Selector sel, NSObject target);
+
+		[Export ("unscheduleUpdateForTarget:")]
+		[Internal]
+		void UnscheduleUpdate (NSObject target);
+
+		[Export ("unscheduleAllSelectorsForTarget:")]
+		[Internal]
+		void UnscheduleAllSelectors (NSObject target);
+
+		[Export ("unscheduleAllSelectors")]
+		[Internal]
+		void UnscheduleAllSelectors ();
 	}
 }
