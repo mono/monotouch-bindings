@@ -32,8 +32,47 @@ namespace MonoTouch.Cocos2D {
 		[Preserve (Conditional = true)]
 		public void Apply ()
 		{
-			Console.WriteLine ("hey, dispatcher calling");
 			action ();
+		}
+	}
+	
+	[Register ("__My_NSActionDispatcherWithNode")]
+	internal class NSActionDispatcherWithNode : NSObject {
+
+		public static Selector Selector = new Selector ("apply");
+
+		Action<CCNode> action;
+
+		public NSActionDispatcherWithNode (Action<CCNode> action)
+		{
+			this.action = action;
+		}
+
+		[Export ("apply")]
+		[Preserve (Conditional = true)]
+		public void Apply (CCNode node)
+		{
+			action (node);
+		}
+	}
+
+	[Register ("__My_NSActionDispatcherWithFloat")]
+	internal class NSActionDispatcherWithFloat : NSObject {
+
+		public static Selector Selector = new Selector ("apply");
+
+		Action<float> action;
+
+		public NSActionDispatcherWithFloat (Action<float> action)
+		{
+			this.action = action;
+		}
+
+		[Export ("apply")]
+		[Preserve (Conditional = true)]
+		public void Apply (float timer)
+		{
+			action (timer);
 		}
 	}
 	
@@ -41,12 +80,12 @@ namespace MonoTouch.Cocos2D {
 		static CCScheduler scheduler = CCDirector.SharedDirector.Scheduler;
 		public const uint RepeatForever = uint.MaxValue - 1;
 
-		public void Schedule (NSAction callback, float interval=0, uint repeat=RepeatForever, float delay=0)
+		public void Schedule (Action<float> callback, float interval=0, uint repeat=RepeatForever, float delay=0)
 		{
-			scheduler.Schedule(NSActionDispatcher.Selector, new NSActionDispatcher(callback), interval, !IsRunning, repeat, delay);
+			scheduler.Schedule(NSActionDispatcherWithFloat.Selector, new NSActionDispatcherWithFloat(callback), interval, !IsRunning, repeat, delay);
 		}
 
-		public void ScheduleOnce (NSAction callback, float delay)
+		public void ScheduleOnce (Action<float> callback, float delay)
 		{
 			Schedule (callback, repeat:0, delay:delay);
 		}
@@ -57,6 +96,11 @@ namespace MonoTouch.Cocos2D {
 		{
 		}
 
+	}
+	public partial class CCMenuItemImage {
+		public CCMenuItemImage (string normalImageFile, string selectedImageFile, NSCallbackWithSender callback) : this (normalImageFile, selectedImageFile, null, callback)
+		{
+		} 
 	}
 
 	public partial class CCMenu {
@@ -92,5 +136,28 @@ namespace MonoTouch.Cocos2D {
 			Marshal.FreeHGlobal(pNativeArr);
 		}
 		
+	}
+
+	public partial class CCCallFunc {
+		public CCCallFunc (NSAction callback) : this (new NSActionDispatcher(callback), NSActionDispatcher.Selector)
+		{
+		}
+	}
+
+	public partial class CCCallFuncN {
+		public CCCallFuncN (Action<CCNode> callback) : this (new NSActionDispatcherWithNode(callback), NSActionDispatcherWithNode.Selector)
+		{
+		}
+	}
+
+	public partial class CCSpriteBatchNode {
+		const uint DEFAULTCAPACITY = 29; 
+		public CCSpriteBatchNode (CCTexture2D texture) : this (texture, DEFAULTCAPACITY)
+		{
+		}
+
+		public CCSpriteBatchNode (string filename) : this (filename, DEFAULTCAPACITY)
+		{
+		}
 	}
 }	
