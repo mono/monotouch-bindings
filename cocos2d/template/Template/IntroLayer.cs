@@ -35,7 +35,7 @@ namespace CC2DSharp
 			background.Position = new System.Drawing.PointF(size.Width/2, size.Height/2);
 			Add (background);
 
-			ScheduleOnce (()=>{
+			ScheduleOnce ((timer)=>{
 				CCDirector.SharedDirector.ReplaceScene (new CCTransitionTurnOffTiles (1f, HelloWorldLayer.Scene));
 			}, 1f);
 		}
