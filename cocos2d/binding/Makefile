@@ -6,9 +6,12 @@ PROJECT_ROOT=cocos2d-iphone-$(VERSION)
 PROJECT_TGZ=$(PROJECT_ROOT).tar.gz
 PROJECT=$(PROJECT_ROOT)/cocos2d-ios.xcodeproj
 TARGET=cocos2d
-CONFIGURATION=Debug
+CONFIGURATION=Release
 
 all: Cocos2D.dll
+
+debug: CONFIGURATION = Debug
+debug: all
 
 $(PROJECT_TGZ):
 	curl http://cocos2d-iphone.googlecode.com/files/$(PROJECT_TGZ) -o $(PROJECT_TGZ) 
@@ -42,3 +45,5 @@ clean:
 
 clean-all: clean
 	-rm -rf $(PROJECT_ROOT) $(PROJECT_TGZ) ios
+
+.PHONY: clean clean-all
