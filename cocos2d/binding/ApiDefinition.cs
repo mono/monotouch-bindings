@@ -14,6 +14,7 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
+using MonoTouch.CoreGraphics;
 
 namespace MonoTouch.Cocos2D {
 
@@ -143,11 +144,20 @@ namespace MonoTouch.Cocos2D {
 		[Export ("removeChildByTag:cleanup:")]
 		void Remove (int tag, bool cleanup);
 
+		[Export ("anchorPoint")]
+		PointF AnchorPoint { get; set; }
+
+		[Export ("anchorPointInPoints")]
+		PointF AnchorPointInPoints { get; }
+
 		[Export ("isRunning")]
 		bool IsRunning { get; }
 
 		[Export ("contentSize")]
 		SizeF ContentSize { get; set; }
+
+		[Export ("ignoreAnchorPointForPosition")]
+		bool IgnoreAnchorPointForPosition { get; set; }
 
 		[Export ("tag")]
 		int Tag { get; set; }
@@ -178,6 +188,9 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("visible")]
 		bool Visible { get; set; }
+
+		[Export ("nodeToParentTransform")]
+		CGAffineTransform NodeToParentTransform ();
 	}
 
 	[BaseType (typeof (CCAction))]
@@ -982,6 +995,9 @@ namespace MonoTouch.Cocos2D {
 		[Export ("description")]
 //		[Override]
 		string ToString ();
+
+		[Export ("dirty")]
+		bool Dirty { get; set; }
 	
 		[Export("opacity")]
 		byte Opacity { get; set; }
