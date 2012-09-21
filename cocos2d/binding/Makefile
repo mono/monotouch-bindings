@@ -23,15 +23,15 @@ lib$(TARGET)-i386.a: $(PROJECT)
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration $(CONFIGURATION) clean build
 	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphonesimulator/lib$(TARGET).a $@
 
-lib$(TARGET)-armv6.a: $(PROJECT)
-	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv6 -configuration $(CONFIGURATION) clean build
-	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/lib$(TARGET).a $@
-
 lib$(TARGET)-armv7.a: $(PROJECT)
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7 -configuration $(CONFIGURATION) clean build
 	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/lib$(TARGET).a $@
 
-lib$(TARGET).a: lib$(TARGET)-i386.a lib$(TARGET)-armv6.a lib$(TARGET)-armv7.a
+#lib$(TARGET)-armv7s.a: $(PROJECT)
+#	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7s -configuration $(CONFIGURATION) clean build
+#	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/lib$(TARGET).a $@
+
+lib$(TARGET).a: lib$(TARGET)-i386.a lib$(TARGET)-armv7.a #lib$(TARGET)-armv7s.a
 	lipo -create -output $@ $^
 
 Cocos2D.dll: ApiDefinition.cs StructsAndEnums.cs Extra.cs AssemblyInfo.cs lib$(TARGET).a
