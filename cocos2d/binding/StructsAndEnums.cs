@@ -90,4 +90,51 @@ namespace MonoTouch.Cocos2D {
 		UpOver = 0,
 		DownOver = 1,
 	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct BlendFunc {
+		public uint Src;
+		public uint Dst;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Vertex3F {
+		public float X;
+		public float Y;
+		public float Z;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Tex2F {
+		public float U;
+		public float V;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct V3F_C4B_T2F {
+		public Vertex3F Vertices;
+		public Color4B Colors;
+		public Tex2F TexCoords;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct V3F_C4B_T2F_Quad {
+		public V3F_C4B_T2F TopLeft;
+		public V3F_C4B_T2F BottomLeft;
+		public V3F_C4B_T2F TopRight;
+		public V3F_C4B_T2F BottomRight;
+	} 
+
+	public enum TextAlignment {
+		Left,
+		Center,
+		Right,
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Vertex2F {
+		public float X;
+		public float Y;
+	}
+	
 }

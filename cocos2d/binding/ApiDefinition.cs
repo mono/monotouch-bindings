@@ -14,11 +14,52 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
+using MonoTouch.CoreGraphics;
 
 namespace MonoTouch.Cocos2D {
 
 	delegate void NSCallbackWithSender (NSObject sender);
+
+	[BaseType (typeof (NSObject))]
+	interface CCAction {
+		[Export ("originalTarget")]
+		NSObject OriginalTarget { get;  }
+
+		[Export ("tag")]
+		int Tag { get; set;  }
+
+		[Export ("target")]
+		NSObject Target { get; }
+
+		//[Export ("copyWithZone:")]
+		//CCAction CopyFromZone (NSZone zone );
+
+		[Export ("isDone")]
+		bool IsDone { get; }
+
+		[Export ("startWithTarget:")]
+		void Start (NSObject target);
+
+		[Export ("stop")]
+		void Stop ();
+
+		[Export ("step:")]
+		void Step (float ccTime);
+
+		[Export ("update:")]
+		void Update (float time);
+	}
 	
+	[BaseType (typeof (CCAction))]
+	interface CCFiniteTimeAction {
+		[Export ("duration")]
+		float Duration { get; set; }
+
+		[Export ("reverse")]
+		CCFiniteTimeAction Reverse ();
+
+	}
+
 	[BaseType (typeof (NSObject))]
 	interface CCActionManager {
 		[Export ("sharedManager")]
@@ -57,55 +98,10 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface CCAction {
-		[Export ("originalTarget")]
-		NSObject OriginalTarget { get;  }
-
-		[Export ("tag")]
-		int Tag { get; set;  }
-
-		[Export ("idtarget")]
-		NSObject Target { get; }
-
-		[Static]
-		[Export ("action")]
-		CCAction CreateAction ();
-
-		//[Export ("init")]
-		//IntPtr Constructor ();
-
-		//[Export ("copyWithZone:")]
-		//NSObject CopyFromZone (NSZone zone );
-
-		[Export ("isDone")]
-		bool IsDone { get; }
-
-		[Export ("startWithTarget:")]
-		void StartWithTarget (NSObject target);
-
-		[Export ("stop")]
-		void Stop ();
-
-		[Export ("step:")]
-		void Step (float ccTime);
-
-		[Export ("update:")]
-		void Update (float time);
-
-	}
-
-	[BaseType (typeof (CCAction))]
-	interface CCFiniteTimeAction {
-		[Export ("duration")]
-		float Duration { get; set; }
-
-		[Export ("reverse")]
-		CCFiniteTimeAction Reverse ();
-
-	}
-
-	[BaseType (typeof (NSObject))]
 	interface CCNode {
+
+		//Note to self, don't bind schedule*, we can do a better job than this
+
 		[Export ("zOrder")]
 		int ZOrder { get; set; }
 
@@ -135,18 +131,66 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("addChild:")]
 		void Add (CCNode child);
+		
+		[Export ("addChild:z:")]
+		void Add (CCNode child, int zIndex);
+		
+		[Export ("addChild:z:tag:")]
+		void Add (CCNode child, int zIndex, int tag);
+		
+		[Export ("removeChild:cleanup:")]
+		void Remove (CCNode child, bool cleanup);
 
-		[Export ("scheduleUpdate")]
-		void ScheduleUpdate ();
+		[Export ("removeChildByTag:cleanup:")]
+		void Remove (int tag, bool cleanup);
 
-		[Export ("scheduleUpdateWithPriority:")]
-		void ScheduleUpdate (int priority);
+		[Export ("anchorPoint")]
+		PointF AnchorPoint { get; set; }
 
-		[Export ("unscheduleUpdate")]
-		void UnscheduleUpdate ();
+		[Export ("anchorPointInPoints")]
+		PointF AnchorPointInPoints { get; }
 
-		[Export ("scheduleOnce:delay:")]
-		void ScheduleOnce (Selector sel, float delay);
+		[Export ("isRunning")]
+		bool IsRunning { get; }
+
+		[Export ("contentSize")]
+		SizeF ContentSize { get; set; }
+
+		[Export ("ignoreAnchorPointForPosition")]
+		bool IgnoreAnchorPointForPosition { get; set; }
+
+		[Export ("tag")]
+		int Tag { get; set; }
+
+		[Export ("runAction:")]
+		void RunAction (CCAction action);
+
+		[Export ("stopAction:")]
+		void StopAction (CCAction action);
+
+		[Export ("stopAllActions")]
+		void StopAllActions ();
+
+		[Export ("stopActionByTag:")]
+		void StopAction (int tag);
+
+		[Export ("getActionByTag:")]
+		void GetActionByTag(int tag);
+
+		[Export ("numberOfRunningActions")]
+		int NumberOfRunningActions ();
+
+		[Export ("onEnter")]
+		void OnEnter ();
+
+		[Export ("getChildByTag:")]
+		CCNode GetChild (int tag);
+
+		[Export ("visible")]
+		bool Visible { get; set; }
+
+		[Export ("nodeToParentTransform")]
+		CGAffineTransform NodeToParentTransform ();
 	}
 
 	[BaseType (typeof (CCAction))]
@@ -223,7 +267,7 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCActionInterval))]
 	interface CCSequence {
 		[Static]
-		[Export ("actionsWithArray:actions")]
+		[Export ("actionsWithArray:")]
 		CCSequence FromActions (CCFiniteTimeAction [] actions);
 
 		[Static]
@@ -369,6 +413,27 @@ namespace MonoTouch.Cocos2D {
 
 	}
 
+	[BaseType (typeof(CCFiniteTimeAction))]
+	interface CCActionInstant {
+	}
+
+	[BaseType(typeof(CCActionInstant))]
+	interface CCCallFunc {
+		[Export ("initWithTarget:selector:")]
+		[Internal]
+		CCCallFunc Constructor (NSObject target, Selector selector);
+
+		[Export ("execute")]
+		void Execute ();
+	}
+	
+	[BaseType (typeof(CCCallFunc))]
+	interface CCCallFuncN {
+		[Export ("initWithTarget:selector:")]
+		[Internal]
+		CCCallFuncN Constructor (NSObject target, Selector selector);
+	}
+	
 	[BaseType (typeof (CCScaleTo))]
 	interface CCScaleBy {
 		[Static]
@@ -545,11 +610,23 @@ namespace MonoTouch.Cocos2D {
 		CCGLView View (RectangleF frame);
 	}
 
-	[BaseType (typeof(UIViewController))]
+	public delegate bool AutorotateCondition (UIInterfaceOrientation orientation);
+
+	[BaseType (typeof (NSObject))]
+	[Model]
+	interface CCDirectorDelegate {
+		//[Export ("updateProjection")]
+		//void UpdateProjection ();
+
+		[Export("shouldAutorotateToInterfaceOrientation:"), DefaultValue ("true"), DelegateName ("AutorotateCondition")]
+		bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation orientation);
+	}
+
+	[BaseType (typeof(UIViewController), Delegates=new string[]{"Delegate"}, Events=new Type[]{typeof(CCDirectorDelegate)})]
 	interface CCDirector {
-		[Static]
 		[Export ("sharedDirector")]
-		CCDirector SharedDirector { get; set; }
+		[Static]
+		CCDirector SharedDirector { get; }
 
 		[Export ("displayStats")]
 		bool DisplayStats { get; set; }
@@ -586,6 +663,22 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("stopAnimation")]
 		void StopAnimation ();
+
+		[Export ("scheduler")]
+		CCScheduler Scheduler { get; set; }
+	
+		[Export("convertToGL:")]
+		PointF ConvertToGL (PointF point);
+
+		[Export("convertToUI:")]
+		PointF ConvertToUI (PointF point);
+
+		[Export("delegate")]
+		[Internal]
+		CCDirectorDelegate Delegate { get; set; }
+
+		[Export ("runWithScene:")]
+		void Run (CCScene scene);
 	} 
 
 	[BaseType (typeof (CCNode))]
@@ -593,8 +686,21 @@ namespace MonoTouch.Cocos2D {
 		
 	}
 
+	[BaseType (typeof (NSObject))]
+	interface CCTouchDispatcher {
+		[Export("addStandardDelegate:priority:")]
+		void AddStandardDelegate(NSObject delegate_, int priority);
+
+		[Export("addTargetedDelegate:priority:")]
+		void AddTargetedDelegate(NSObject delegate_, int priority);
+	}	
+
 	[BaseType (typeof (CCDirector))]
 	interface CCDirectorIOS {
+	
+		[Export ("touchDispatcher")]
+		CCTouchDispatcher TouchDispatcher { get; set; }
+
 		[Export ("projection")]
 		CCDirectorProjection Projection { set; }
 
@@ -612,10 +718,57 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("calculateDeltaTime")]
 		void CalculateDeltaTime ();
+
+		[Export("convertToGL:")]
+		PointF ConvertToGL (PointF point);
+
+		[Export("convertToUI:")]
+		PointF ConvertToUI (PointF point);
+	}
+
+	[BaseType (typeof (CCDirectorIOS))]
+	interface CCDirectorDisplayLink {
+
+	}
+
+	interface CCTargetedTouchDelegate {
+		[Export ("ccTouchBegan:withEvent:")]
+		[PrologueSnippet ("return false;")]
+		bool OnTouchBegan(UITouch touch, UIEvent ev);
+
+		[Export ("ccTouchMoved:withEvent:")]
+		[PrologueSnippet ("return;")]
+		void OnTouchMoved(UITouch touch, UIEvent ev);
+
+		[Export ("ccTouchEnded:withEvent:")]
+		[PrologueSnippet ("return;")]
+		void OnTouchEnded(UITouch touch, UIEvent ev);
+
+		[Export ("ccTouchCancelled:withEvent:")]
+		[PrologueSnippet ("return;")]
+		void OnTouchCancelled(UITouch touch, UIEvent ev);
+	}
+
+	interface CCStandardTouchDelegate {
+		[Export ("ccTouchesBegan:withEvent:")]
+		[PrologueSnippet ("return;")]
+		void OnTouchesBegan(NSSet touches, UIEvent ev);
+
+		[Export ("ccTouchesMoved:withEvent:")]
+		[PrologueSnippet ("return;")]
+		void OnTouchesMoved(NSSet touches, UIEvent ev);
+
+		[Export ("ccTouchesEnded:withEvent:")]
+		[PrologueSnippet ("return;")]
+		void OnTouchesEnded(NSSet touches, UIEvent ev);
+
+		[Export ("ccTouchesCancelled:withEvent:")]
+		[PrologueSnippet ("return;")]
+		void OnTouchesCancelled(NSSet touches, UIEvent ev);	
 	}
 
 	[BaseType (typeof (CCNode))]
-	interface CCLayer {
+	interface CCLayer : CCStandardTouchDelegate, CCTargetedTouchDelegate {
 		[Export ("registerWithTouchDispatcher")]
 		void RegisterWithTouchDispatcher ();
 
@@ -625,8 +778,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("isAccelerometerEnabled")]
 		bool IsAccelerometerEnabled { get; set; }
 
-		[Export ("onEnter")]
-		void OnEnter ();
+
 	}
 
 	[BaseType (typeof (CCLayer))]
@@ -634,7 +786,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initWithColor:width:height:")]
 		CCLayerColor Constructor (Color4B color, float width, float height);
 
-		[Export ("initWithColor")]
+		[Export ("initWithColor:")]
 		CCLayerColor Constructor (Color4B color);
 
 		[Export ("changeWidth:")]
@@ -653,11 +805,171 @@ namespace MonoTouch.Cocos2D {
 		Color3B Color { get; }
 	}
 
+	interface CCLabelProtocol {
+		[Export ("string")]
+		string Label { get; set; }
+	}
+
+	interface CCRGBAProtocol {
+		[Export ("color")]
+		Color3B Color { get; set; }
+
+		[Export ("opacity")]
+		byte Opacity { get; set; }
+
+		[Export ("doesOpacityModifyRGB")]
+		bool OpacityModifyRGB { get;[Bind("opacityModifyRGB:")] set;}
+	}
+
 	[BaseType (typeof (CCSprite))]
-	interface CCLabelTTF {
+	interface CCLabelTTF : CCLabelProtocol {
 		[Export ("initWithString:fontName:fontSize:")]
 		CCLabelTTF Constructor (string label, string fontName, float fontSize);
 
+	}
+	
+	[BaseType (typeof(CCSpriteBatchNode))]
+	interface CCLabelBMFont : CCLabelProtocol, CCRGBAProtocol {
+		[Export("purgeCachedData")]
+		[Static]
+		void PurgeCachedData  ();
+
+		[Export("alignment")]
+		TextAlignment Alignment { get; set; }
+
+		[Export("fntFile")]
+		string FontFile { get; set; }
+
+		[Export("initWithString:fntFile:")]
+		CCLabelBMFont Constructor (string label, string fontFile);
+
+		[Export ("initWithString:fntFile:width:alignment:")]
+		CCLabelBMFont Constructor (string label, string fontFile, float width, TextAlignment alignment);
+
+		[Export ("initWithString:fntFile:width:alignment:imageOffset:")]
+		CCLabelBMFont Constructor (string label, string fontFile, float width, TextAlignment alignment, PointF offset);
+
+		[Export ("createFontChars")]
+		void CreateFontChars ();
+
+		[Export ("width")]
+		float Width { set; }
+	}
+
+	interface CCBlendProtocol {
+		[Export ("blendFunc")]
+		BlendFunc BlendFunc { get; set; }		
+	}
+
+	interface CCTextureProtocol : CCBlendProtocol {
+		[Export ("texture")]
+		CCTexture2D Texture { get; set; }
+	}
+
+	[BaseType (typeof(NSObject))]
+	interface CCTextureAtlas {
+		[Export ("totalQuads")]
+		uint TotalQuads { get; }
+
+		[Export("capacity")]
+		uint Capacity { get; }
+
+		[Export ("texture")]
+		CCTexture2D Texture { get; set; }
+
+		[Export ("quads")]
+		V3F_C4B_T2F_Quad Quads { get; set; }
+
+		[Export("initWithFile:capacity:")]
+		CCTextureAtlas Constructor (string fileName, uint capacity);
+
+		[Export("initWithTexture:capacity:")]
+		CCTextureAtlas Constructor (CCTexture2D texture, uint capacity);
+
+		[Export ("updateQuad:atIndex:")]
+		void UpdateQuad(V3F_C4B_T2F_Quad quad, uint atIndex);
+
+		[Export ("insertQuad:atIndex:")]
+		void InsertQuad(V3F_C4B_T2F_Quad quad, uint atIndex);
+
+		//[Export ("insertQuads:atIndex:amount:")]
+		//void InsertQuads(V3F_C4B_T2F_Quad quad, uint atIndex, uint amount);
+
+		[Export ("insertQuadFromIndex:atIndex:")]
+		void MoveQuad (uint fromIndex, uint toIndex);
+
+		[Export ("removeQuadAtIndex:")]
+		void RemoveQuadAtIndex (uint index);
+
+		[Export ("removeQuadsAtIndex:amount:")]
+		void RemoveQuadsAtIndex (uint index, uint amount);
+
+		[Export ("removeAllQuads")]
+		void RemoveAllQuads ();
+
+		[Export ("resizeCapacity:")]
+		bool Resize (uint n);
+
+		[Export ("increaseTotalQuadsWith:")]
+		void IncreaseTotalQuadsWith (uint amount);
+
+		[Export("moveQuadsFromIndex:amount:atIndex:")]
+		void MoveQuads(uint fromIndex, uint amount, uint toIndex);
+
+		[Export("moveQuadsFromIndex:to:")]
+		void MoveQuads(uint fromIndex, uint toIndex);
+
+		[Export("fillWithEmptyQuadsFromIndex:amount:")]
+		void FillWithEmptyQuads (uint fromIndex, uint amount);
+
+		[Export ("drawNumberOfQuads:")]
+		void DrawNumberOfQuads(uint n);
+
+		[Export ("drawNumberOfQuads:fromIndex:")]
+		void DrawNumberOfQuads(uint n, uint fromIndex);
+	}
+
+	[BaseType (typeof(NSObject))]
+	interface CCArray {
+	}
+
+	[BaseType (typeof (CCNode))] 
+	interface CCSpriteBatchNode : CCTextureProtocol {
+		[Export ("textureAtlas")]
+		CCTextureAtlas TextureAtlas { get; set; }
+
+		[Export ("descendants")]
+		CCArray Descendants { get; }
+
+		[Export ("initWithTexture:capacity:")]
+		CCSpriteBatchNode Constructor (CCTexture2D texture, uint capacity);
+
+		[Export ("initWithFile:capacity:")]
+		CCSpriteBatchNode Constructor (string filename, uint capacity);
+
+		[Export ("increaseAtlasCapacity")]
+		void IncreaseAtlasCapacity ();
+
+		[Export ("removeChildrenAtIndex:cleanup:")]
+		void RemoveChildAtIndex (uint index, bool cleanup);
+
+		[Export ("removeChild:cleanup:")]
+		void RemoveChild(CCSprite sprite, bool cleanup);
+
+		[Export ("insertChild:inAtlasIndex:")]
+		void InsertChild(CCSprite child, uint index);
+	
+		[Export ("appendChild:")]
+		void Append(CCSprite sprite);
+
+		[Export ("removeSpriteFromAtlas:")]
+		void RemoveSpriteFromAtlas(CCSprite sprite);
+
+		[Export ("rebuildIndexInOrder:atlasIndex:")]
+		uint RebuildIndexInOrder (CCSprite parent, uint altalIndex);
+
+		[Export ("atlasIndexForChild:atZ:")]
+		uint AtlasIndexForChild(CCSprite sprite, int atZ);
 	}
 
 	[BaseType (typeof (CCNode))]
@@ -683,6 +995,12 @@ namespace MonoTouch.Cocos2D {
 		[Export ("description")]
 //		[Override]
 		string ToString ();
+
+		[Export ("dirty")]
+		bool Dirty { get; set; }
+	
+		[Export("opacity")]
+		byte Opacity { get; set; }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -923,6 +1241,27 @@ namespace MonoTouch.Cocos2D {
 		CCMenuItemFont Constructor (string value, NSCallbackWithSender callback);
 	}
 
+	[BaseType (typeof(CCMenuItem))]
+	interface CCMenuItemSprite : CCRGBAProtocol
+	{
+		//TODO
+	}
+
+	[BaseType (typeof(CCMenuItemSprite))]
+	interface CCMenuItemImage {
+		[Export("initWithNormalImage:selectedImage:disabledImage:block:")]
+		CCMenuItemImage Constructor (string normalImageFile, string selectedImageFile, [NullAllowed]string disabledImageFile, NSCallbackWithSender callback);
+
+		[Export("normalSpriteFrame")]
+		CCSpriteFrame NormalSpriteFrame { set; }
+
+		[Export("selectedSpriteFrame")]
+		CCSpriteFrame SelectedSpriteFrame { set; }
+
+		[Export("disabledSpriteFrame")]
+		CCSpriteFrame DisabledSpriteFrame { set; }
+	}
+
 	[BaseType (typeof (CCLayer))]
 	interface CCMenu {
 		[Export ("opacity")]
@@ -959,6 +1298,39 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("handlerPriority")]
 		int HandlerPriority { set; }
+	}
 
+	[BaseType (typeof (NSObject))]
+	interface CCScheduler {
+		[Export ("timeScale")]
+		float TimeScale { get; set; }
+
+		[Export ("scheduleSelector:forTarget:interval:paused:repeat:delay:")]
+		[Internal]
+		void Schedule (Selector selector, NSObject target, float interval, bool paused, uint repeat, float delay);
+
+		[Export ("scheduleSelector:forTarget:interval:paused:")]
+		[Internal]
+		void Schedule (Selector selector, NSObject target, float interval, bool paused);
+
+		[Export ("scheduleUpdateForTarget:priority:paused:")]
+		[Internal]
+		void ScheduleUpdate (NSObject target, int priority, bool paused);
+
+		[Export ("unscheduleSelector:forTarget:")]
+		[Internal]
+		void Unschedule (Selector sel, NSObject target);
+
+		[Export ("unscheduleUpdateForTarget:")]
+		[Internal]
+		void UnscheduleUpdate (NSObject target);
+
+		[Export ("unscheduleAllSelectorsForTarget:")]
+		[Internal]
+		void UnscheduleAllSelectors (NSObject target);
+
+		[Export ("unscheduleAllSelectors")]
+		[Internal]
+		void UnscheduleAllSelectors ();
 	}
 }
