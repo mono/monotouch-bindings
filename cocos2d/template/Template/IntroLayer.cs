@@ -35,14 +35,9 @@ namespace CC2DSharp
 			background.Position = new System.Drawing.PointF(size.Width/2, size.Height/2);
 			Add (background);
 
-			ScheduleOnce (new Selector("makeTransition"), 1);
-		}
-
-		[Export("makeTransition")]
-		public void MakeTransition (float dt)
-		{
-			//CCDirector.SharedDirector.ReplaceScene (new CCTransitionFade (1f, HelloWorldLayer.Scene, Color3B.White));
-			CCDirector.SharedDirector.ReplaceScene (new CCTransitionTurnOffTiles (1f, HelloWorldLayer.Scene));
+			ScheduleOnce ((timer)=>{
+				CCDirector.SharedDirector.ReplaceScene (new CCTransitionTurnOffTiles (1f, HelloWorldLayer.Scene));
+			}, 1f);
 		}
 	}
 }
