@@ -1,102 +1,131 @@
 using System;
-using MonoTouch.Foundation;
 using System.Drawing;
+
+using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using MonoTouch.ObjCRuntime;
-namespace Redpark {
-	
-	//[BaseType (typeof (NSObject), Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (RscMgrDelegate)})]
-	[BaseType(typeof(NSObject))]
+
+namespace Redpark
+{
+	[BaseType (typeof (NSObject))]
 	interface RscMgr {
+
 		
+		[Export ("Delegate"), NullAllowed]
+		NSObject WeakDelegate { get; set; }
 
-		//[Export ("setDelegate:delegate"), NullAllowed]
-		//NSObject WeakDelegate {set; }
+		[Wrap ("WeakDelegate")]
+		RscMgrDelegate Delegate { get; set; }
 
-		//[Wrap ("WeakDelegate")]
-		//RscMgrDelegate Delegate { get; set; }
 		
-		[Export ("setDelegate:")]
-		void SetDelegate (RscMgrDelegate theDelegate );
-
-		[Export ("init")]
-		NSObject Init ();
-
+		//- (void) open;
 		[Export ("open")]
 		void Open ();
 
-		[Export ("setBaud:")]
-		void SetBaud (int baud);
-
+		//- (void) setBaud:(int)baud;
+		[Export ("Baud")]
+		int Baud {[Bind("getBaud")]get;set;}
+		
+		//- (void) setDataSize:(DataSizeType)dataSize;
 		[Export ("setDataSize:")]
 		void SetDataSize (DataSizeType dataSize);
 
+		//- (void) setParity:(ParityType)parity;
 		[Export ("setParity:")]
 		void SetParity (ParityType parity);
 
+		//- (void) setStopBits:(StopBitsType)stopBits;
 		[Export ("setStopBits:")]
 		void SetStopBits (StopBitsType stopBits);
-
+		
+		//- (int) write:(UInt8 *)data Length:(UInt32)length;
 		[Export ("write:Length:")]
-		int Write (short data, UInt32 length);
+		int Write (IntPtr data, UInt32 length);
 
+		//- (int) read:(UInt8 *)data Length:(UInt32)length;
 		[Export ("read:Length:")]
-		int Read (short data, UInt32 length);
+		int Read (IntPtr data, UInt32 length);
 
+		//- (int) getReadBytesAvailable;
 		[Export ("getReadBytesAvailable")]
-		int GetReadBytesAvailable ();
+		int GetReadBytesAvailable { get; }
 
+		//- (int) getModemStatus;
 		[Export ("getModemStatus")]
-		int GetModemStatus ();
+		int GetModemStatus { get; }
 
+		//- (BOOL) getDtr;
 		[Export ("getDtr")]
-		bool GetDtr ();
+		bool GetDtr { get; }
 
+		//- (BOOL) getRts;
 		[Export ("getRts")]
-		bool GetRts ();
+		bool GetRts { get; }
 
+		//- (void) setDtr:(BOOL)enable;
 		[Export ("setDtr:")]
 		void SetDtr (bool enable);
 
+		//- (void) setRts:(BOOL)enable;
 		[Export ("setRts:")]
 		void SetRts (bool enable);
+
+		[Export ("getStringFromBytesAvailable")]
+		string ReadToString();
+
+		[Export("getDataFromBytesAvailable")]
+		NSData ReadToNSData();
+
+
 		/*
+		//- (void) setPortConfig:(serialPortConfig *)config RequestStatus:(BOOL)reqStatus;
 		[Export ("setPortConfig:RequestStatus:")]
-		void SetPortConfigRequestStatus (SerialPortConfig config, bool reqStatus);
+		void SetPortConfig (serialPortConfig config, bool reqStatus);
 
+		//- (void) setPortControl:(serialPortControl *)control RequestStatus:(BOOL)reqStatus;
 		[Export ("setPortControl:RequestStatus:")]
-		void SetPortControlRequestStatus (SerialPortConfig control, bool reqStatus);
+		void SetPortControl (serialPortControl control, bool reqStatus);
 
-		[Export ("getPortConfig:portConfig")]
-		void GetPortConfig (SerialPortConfig config );
+		//- (void) getPortConfig:(serialPortConfig *) portConfig;
+		[Export ("getPortConfig:")]
+		void GetPortConfig (serialPortConfig portConfig);
 
-		[Export ("getPortStatus:portStatus")]
-		void GetPortStatusport (serialPortStatus portStatus);
+		//- (void) getPortStatus:(serialPortStatus *) portStatus;
+		[Export ("getPortStatus:")]
+		void GetPortStatus (serialPortStatus portStatus);
 		 */
+		//- (int) writeRscMessage:(int)cmd Length:(int)len MsgData:(UInt8 *)msgData;
 		[Export ("writeRscMessage:Length:MsgData:")]
-		int WriteRsc (int cmd, int len, uint msgData);
+		int WriteRscMessage (int cmd, int len, IntPtr msgData);
 
-	}
-
-	[BaseType (typeof (NSObject))]
-	[Model]
-	interface RscMgrDelegate {
-		[Abstract]
-		[Export ("cableConnected:")]
-		void CableConnected (string protocol);
-
-		[Abstract]
-		[Export ("cableDisconnected:")]
-		void CableDisconnected ();
-
-		[Abstract]
-		[Export ("portStatusChanged")]
-		void PortStatusChanged ();
-
-		[Abstract]
-		[Export ("readBytesAvailable:")]
-		void ReadBytesAvailable (UInt32 length);
+		//- (void) testGpsCable;
+		[Export ("testGpsCable")]
+		void TestGpsCable ();
 
 	}
 	
+	[Model]
+	[BaseType(typeof(NSObject))]
+	public interface RscMgrDelegate
+	{
+		// Redpark Serial Cable has been connected and/or application moved to foreground.
+		// protocol is the string which matched from the protocol list passed to initWithProtocol:
+		// - (void) cableConnected:(NSString *)protocol;
+		[Abstract, Export("cableConnected:")]
+		void CableConnected(string protocol);
+
+		[Abstract, Export ("cableDisconnected")]
+		void CableDisconnected ();
+		
+		[Abstract, Export("portStatusChanged")]
+		void PortStatusChanged();
+
+		[Abstract, Export ("readBytesAvailable:")]
+		void ReadBytesAvailable (int len);
+
+		[Export ("didReceivePortConfig")]
+		void DidReceivePortConfig ();
+
+		[Export ("didGpsLoopTest:")]
+		void DidGpsLoopTest (bool pass);
+	}
 }

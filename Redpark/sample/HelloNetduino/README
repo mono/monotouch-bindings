@@ -1,0 +1,66 @@
+/*
+In order to use this MonoTouch Sample app, you will need to install the following app on your NetDuino.
+
+
+*/
+
+using System;
+using System.IO.Ports;
+using System.Text;
+using System.Threading;
+using Microsoft.SPOT;
+using Microsoft.SPOT.Hardware;
+using SecretLabs.NETMF.Hardware.Netduino;
+
+namespace HelloRedPark
+{
+    public class Program
+    {
+        static SerialPort serial;
+        static OutputPort led = new OutputPort(Pins.ONBOARD_LED, false);
+        public static void Main()
+        {
+            // initialize the serial port for COM1 (using D0 & D1)
+            serial = new SerialPort(SerialPorts.COM1, 9600, Parity.None, 8, StopBits.One);
+            // open the serial-port, so we can send & receive data
+            serial.Open();
+            // add an event-handler for handling incoming data
+            serial.DataReceived += new SerialDataReceivedEventHandler(serial_DataReceived);
+            // wait forever...
+            Thread.Sleep(Timeout.Infinite);
+
+
+        }
+
+        static string Buffer = string.Empty;
+        static void serial_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            byte[] bytes = new byte[serial.BytesToRead];
+            serial.Read(bytes, 0, bytes.Length);
+            Buffer += new string(Encoding.UTF8.GetChars(bytes));
+    
+            // Have we received a full line of data?
+            int Pos = Buffer.IndexOf("\r\n");
+            while (Pos >= 0)
+            {
+                var text = Buffer.Substring(0, Pos);
+                //Clear out the old message;
+                Buffer = Buffer.Substring(Pos + 2);
+                Debug.Print(text);
+                led.Write(text == "On");
+                //Check for more messages
+                Pos = Buffer.IndexOf("\r\n");
+            }
+
+           
+        }
+        static void writeLine(string line)
+        {
+            byte[] utf8Bytes = System.Text.Encoding.UTF8.GetBytes(line);
+
+            // send the bytes over the serial-port
+            serial.Write(utf8Bytes, 0, utf8Bytes.Length);
+        }
+
+    }
+}
