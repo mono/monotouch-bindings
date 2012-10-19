@@ -48,7 +48,7 @@ namespace Jumpy
 		{
 			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			var glView = CCGLView.View(window.Bounds);
+			var glView = new CCGLView(window.Bounds);
 
 			director = (CCDirectorDisplayLink)CCDirector.SharedDirector;
 
