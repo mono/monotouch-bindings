@@ -5,7 +5,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace sample
+namespace Sample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
 	// User Interface of the application, as well as listening (and optionally responding) to 
@@ -15,6 +15,7 @@ namespace sample
 	{
 		// class-level declarations
 		UIWindow window;
+		SampleViewController viewController;
 
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -25,13 +26,10 @@ namespace sample
 		//
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
-			// If you have defined a view, add it here:
-			// window.AddSubview (navigationController.View);
-			
-			// make the window visible
+			viewController = new SampleViewController ();
+			window.RootViewController = viewController;
 			window.MakeKeyAndVisible ();
 			
 			return true;
