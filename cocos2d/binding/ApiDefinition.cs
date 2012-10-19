@@ -17,19 +17,78 @@ using MonoTouch.UIKit;
 using MonoTouch.CoreGraphics;
 
 namespace MonoTouch.Cocos2D {
+	
+	[BaseType (typeof (CCDirector))]
+	interface CCDirectorIOS {
+	
+		[Export ("touchDispatcher")]
+		CCTouchDispatcher TouchDispatcher { get; set; }
+
+		[Export ("contentScaleFactor")]
+		float ContentScaleFactor { [Bind ("contentScaleFactor")]get; }
+
+		[Export ("enableRetinaDisplay:")]
+		bool EnableRetinaDisplay (bool enableRetina);
+	}
+
+	[BaseType (typeof (CCDirectorIOS))]
+	interface CCDirectorDisplayLink {
+	}
+
+	[BaseType (typeof (UIView))]
+	interface CCGLView {
+		[Export ("initWithFrame:")]
+		CCGLView Constructor (RectangleF frame);
+
+		[Export ("initWithFrame:pixelFormat:")]
+		CCGLView Constuctor (RectangleF frame, string format);
+
+		[Export ("initWithFrame:pixelFormat:depthFormat:preserveBackBuffer:sharegroup:multiSampling:numberOfSamples:")]
+		CCGLView Constructor (RectangleF frame, string format, uint depth, bool retained, MonoTouch.OpenGLES.EAGLSharegroup sharegroup, bool sampling, uint nSamples);
+
+		[Export ("pixelFormat")]
+		string PixelFormat { get; set; }
+
+		[Export ("depthFormat")]
+		uint DepthFormat { get; set; }
+
+		[Export ("surfaceSize")]
+		SizeF SurfaceSize { get; }
+		
+		[Export ("context")]
+		MonoTouch.OpenGLES.EAGLContext Context { get; }
+
+		[Export ("multiSampling")]
+		bool MultiSampling { get; set; }
+		
+		[Export ("swapBuffers")]
+		void SwapBuffers ();
+
+		[Export ("lockOpenGLContext")]
+		void LockOpenGLContext ();
+
+		[Export ("unlockOpenGLContext")]
+		void UnlockOpenGLContext ();
+
+		[Export ("convertPointFromViewToSurface:")]
+		PointF ConvertPointFromViewToSurface(PointF point);
+			
+		[Export ("convertRectFromViewToSurface:")]
+		RectangleF ConvertRectFromViewToSurface (RectangleF rect);
+	}
 
 	delegate void NSCallbackWithSender (NSObject sender);
 
 	[BaseType (typeof (NSObject))]
 	interface CCAction {
+		[Export ("target")]
+		NSObject Target { get; }
+
 		[Export ("originalTarget")]
 		NSObject OriginalTarget { get;  }
 
 		[Export ("tag")]
 		int Tag { get; set;  }
-
-		[Export ("target")]
-		NSObject Target { get; }
 
 		//[Export ("copyWithZone:")]
 		//CCAction CopyFromZone (NSZone zone );
@@ -57,9 +116,274 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("reverse")]
 		CCFiniteTimeAction Reverse ();
-
 	}
 
+	[BaseType (typeof (CCAction))]
+	interface CCRepeatForever {
+		[Export ("innerAction")]
+		CCActionInterval InnerAction { get; set; }
+
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+	[BaseType (typeof (CCAction))]
+	interface CCSpeed {
+		[Export ("innerAction")]
+		CCActionInterval InnerAction { get; set;  }
+
+		[Export ("speed")]
+		float Speed  { get; set; }
+
+		[Export ("initWithAction:actionspeed:")]
+		IntPtr Constructor (CCActionInterval action, float rate);
+	}
+
+	[BaseType (typeof (CCAction))]
+	interface CCFollow {
+		[Export ("boundarySet")]
+		bool BoundarySet { get; set; }
+
+		[Export ("initWithTarget:")]
+		IntPtr Constructor (CCNode followedNode);
+
+		[Export ("initWithTarget:worldBoundary:")]
+		IntPtr Constructor (CCNode followedNode, RectangleF worldBoundary);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCActionCamera {
+		[Export ("startWithTarget:")]
+		void StartWithTarget (NSObject aTarget);
+	}
+
+	[BaseType (typeof (CCActionCamera))]
+	interface CCOrbitCamera {
+		[Export ("initWithDuration:radius:deltaRadius:angleZ:deltaAngleZ:angleX:deltaAngleX:")]
+		CCOrbitCamera Constructor (float duration, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX);
+
+		[Export("sphericalRadius:zenith:azimuth:")]
+		void Spherical (float radius, float zenith, float azimuth);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCActionEase {
+		[Export ("initWithAction:")]
+		CCActionEase Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseRateAction {
+		[Export("rate")]
+		float Rate { get; set; }
+	
+		[Export ("initWithAction:rate:")]
+		CCEaseRateAction Constructor (CCActionInterval action, float rate);
+	}
+
+	[BaseType (typeof (CCEaseRateAction))]
+	interface CCEaseIn {
+		[Export ("initWithAction:rate:")]
+		CCEaseIn Constructor (CCActionInterval action, float rate);
+	}
+
+	[BaseType (typeof (CCEaseRateAction))]
+	interface CCEaseOut {
+		[Export ("initWithAction:rate:")]
+		CCEaseOut Constructor (CCActionInterval action, float rate);
+	}
+
+	[BaseType (typeof (CCEaseRateAction))]
+	interface CCEaseInOut {
+		[Export ("initWithAction:rate:")]
+		CCEaseInOut Constructor (CCActionInterval action, float rate);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseExponentialIn {
+		[Export ("initWithAction:")]
+		CCEaseExponentialIn Constructor (CCActionInterval action);
+	}
+	
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseExponentialOut {
+		[Export ("initWithAction:")]
+		CCEaseExponentialOut Constructor (CCActionInterval action);
+	}
+	
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseExponentialInOut {
+		[Export ("initWithAction:")]
+		CCEaseExponentialInOut Constructor (CCActionInterval action);
+	}
+	
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseSineIn {
+		[Export ("initWithAction:")]
+		CCEaseSineIn Constructor (CCActionInterval action);
+	}
+	
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseSineOut {
+		[Export ("initWithAction:")]
+		CCEaseSineOut Constructor (CCActionInterval action);
+	}
+	
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseSineInOut {
+		[Export ("initWithAction:")]
+		CCEaseSineInOut Constructor (CCActionInterval action);
+	}
+	
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseElastic {
+		[Export ("period")]
+		float Period { get; set; }
+
+		[Export ("initWithAction:period:")]
+		CCEaseElastic Constructor (CCActionInterval action, float period);
+	}
+	
+	[BaseType (typeof (CCEaseElastic))]
+	interface CCEaseElasticIn {
+		[Export ("initWithAction:period:")]
+		CCEaseElasticIn Constructor (CCActionInterval action, float period);
+	}
+
+	[BaseType (typeof (CCEaseElastic))]
+	interface CCEaseElasticOut {
+		[Export ("initWithAction:period:")]
+		CCEaseElasticOut Constructor (CCActionInterval action, float period);
+	}
+
+	[BaseType (typeof (CCEaseElastic))]
+	interface CCEaseElasticInOut {
+		[Export ("initWithAction:period:")]
+		CCEaseElasticInOut Constructor (CCActionInterval action, float period);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseBounce {
+		[Export ("initWithAction:")]
+		CCActionEase Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCEaseBounce))]
+	interface CCEaseBounceIn {
+		[Export ("initWithAction:")]
+		CCEaseBounceIn Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCEaseBounce))]
+	interface CCEaseBounceOut {
+		[Export ("initWithAction:")]
+		CCEaseBounceOut Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCEaseBounce))]
+	interface CCEaseBounceInOut {
+		[Export ("initWithAction:")]
+		CCEaseBounceInOut Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseBackIn {
+		[Export ("initWithAction:")]
+		CCEaseBackIn Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseBackOut {
+		[Export ("initWithAction:")]
+		CCEaseBackOut Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseBackInOut {
+		[Export ("initWithAction:")]
+		CCEaseBackInOut Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCGridAction {
+		[Export ("gridSize")]
+		GridSize GridSize { get; set; }
+
+		[Export ("initWithSize:duration:")]
+		CCGridAction Constructor (GridSize gridSize, float duration);
+	}
+
+	[BaseType (typeof (CCGridAction))]
+	interface CCGrid3DAction {
+		[Export ("vertex:")]
+		Vertex3F GetVertex(GridSize pos);
+
+		[Export ("originalVertex:")]
+		Vertex3F GetOriginalVertex(GridSize pos);
+
+		[Export ("setVertex:vertex:")]
+		void SetVertex (GridSize pos, Vertex3F vertex);
+	}
+
+	[BaseType (typeof (CCGridAction))]
+	interface CCTiledGrid3DAction {
+		[Export ("tile:")]
+		Quad3 GetTile (GridSize pos);
+
+		[Export ("originalTile:")]
+		Quad3 GetOriginalTile (GridSize pos);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCAccelDeccelAmplitude {
+		[Export ("rate")]
+		float Rate { get; set; }
+
+		[Export ("initWithAction:duration:")]
+		CCAccelDeccelAmplitude Constructor (CCAction action, float duration);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCAccelAmplitude {
+		[Export ("rate")]
+		float Rate { get; set; }
+
+		[Export ("initWithAction:duration:")]
+		CCAccelAmplitude Constructor (CCAction action, float duration);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCDeccelAmplitude {
+		[Export ("rate")]
+		float Rate { get; set; }
+
+		[Export ("initWithAction:duration:")]
+		CCDeccelAmplitude Constructor (CCAction action, float duration);
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCStopGrid {
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCReuseGrid {
+		[Export ("initWithTimes:")]
+		CCReuseGrid Constructor (int times);
+	}
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCWaves3D {
+		[Export ("amplitude")]
+		float Amplitude { get; set; }
+	
+		[Export ("amplitudeRate")]
+		float AmplitudeRate { get; set; }
+
+		[Export ("initWithWaves:amplitude:grid:duration:")]
+		CCWaves3D Constructor (int waves, float amplitude, GridSize gridSize, float duration);
+	}
+
+	//TODO continue h
+	
 	[BaseType (typeof (NSObject))]
 	interface CCActionManager {
 		[Export ("sharedManager")]
@@ -244,6 +568,11 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	
+	[BaseType(typeof(CCNode))]
+	interface CCDrawNode {
+		
+	}
+
 	[BaseType (typeof (CCFiniteTimeAction))]
 	interface CCActionInterval {
 		[Export ("elapsed")]
@@ -603,13 +932,6 @@ namespace MonoTouch.Cocos2D {
 		bool PVRImageHavePremultipliedAlpha { [Bind ("PVRImagesHavePremultipliedAlpha:")]set; }
 	}
 
-	[BaseType (typeof (UIView))]
-	interface CCGLView {
-		[Static]
-		[Export ("viewWithFrame:")]
-		CCGLView View (RectangleF frame);
-	}
-
 	public delegate bool AutorotateCondition (UIInterfaceOrientation orientation);
 
 	[BaseType (typeof (NSObject))]
@@ -679,6 +1001,28 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("runWithScene:")]
 		void Run (CCScene scene);
+
+	
+		//[Export ("projection")]
+		//CCDirectorProjection Projection { set; }
+
+		//[Export ("startAnimation")]
+		//void StartAnimation ();
+
+		//[Export ("stopAnimation")]
+		//void StopAnimation ();
+
+		//[Export ("animationInterval")]
+		//double AnimationInterval { set; }
+
+		//[Export ("calculateDeltaTime")]
+		//void CalculateDeltaTime ();
+
+		//[Export("convertToGL:")]
+		//PointF ConvertToGL (PointF point);
+
+		//[Export("convertToUI:")]
+		//PointF ConvertToUI (PointF point);	
 	} 
 
 	[BaseType (typeof (CCNode))]
@@ -695,41 +1039,7 @@ namespace MonoTouch.Cocos2D {
 		void AddTargetedDelegate(NSObject delegate_, int priority);
 	}	
 
-	[BaseType (typeof (CCDirector))]
-	interface CCDirectorIOS {
-	
-		[Export ("touchDispatcher")]
-		CCTouchDispatcher TouchDispatcher { get; set; }
 
-		[Export ("projection")]
-		CCDirectorProjection Projection { set; }
-
-		[Export ("enableRetinaDisplay:")]
-		bool EnableRetinaDisplay (bool enableRetina);
-
-		[Export ("startAnimation")]
-		void StartAnimation ();
-
-		[Export ("stopAnimation")]
-		void StopAnimation ();
-
-		[Export ("animationInterval")]
-		double AnimationInterval { set; }
-
-		[Export ("calculateDeltaTime")]
-		void CalculateDeltaTime ();
-
-		[Export("convertToGL:")]
-		PointF ConvertToGL (PointF point);
-
-		[Export("convertToUI:")]
-		PointF ConvertToUI (PointF point);
-	}
-
-	[BaseType (typeof (CCDirectorIOS))]
-	interface CCDirectorDisplayLink {
-
-	}
 
 	interface CCTargetedTouchDelegate {
 		[Export ("ccTouchBegan:withEvent:")]
@@ -1333,4 +1643,242 @@ namespace MonoTouch.Cocos2D {
 		[Internal]
 		void UnscheduleAllSelectors ();
 	}
+
+	[BaseType (typeof (CCNode))]
+	interface CCParticleBatchNode {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleFire {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleFireworks {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleSun {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleGalaxy {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleFlower {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleMeteor {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleSpiral {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleExplosion {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleSmoke {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleSnow {
+	}
+
+	[BaseType (typeof (CCParticleSystemQuad))]
+	interface CCParticleRain {
+	}
+
+	[BaseType (typeof (CCNode))]
+	interface CCParticleSystem {
+		[Export ("active")]
+		bool Active { get; }
+
+		[Export ("particleCount")]
+		uint ParticleCount { get; set; }
+
+		[Export ("duration")]
+		float Duration { get; set; }
+
+		[Export ("sourcePosition")]
+		PointF SourcePosition { get; set; }
+
+		[Export ("posVar")]
+		PointF PositionVariance { get; set; }
+
+		[Export ("life")]
+		float Life { get; set; }
+
+		[Export ("lifeVar")]
+		float LifeVariance { get; set; }
+
+		[Export ("angle")]
+		float Angle { get; set; }
+
+		[Export ("angleVar")]
+		float AngleVariance { get; set; }
+
+		[Export ("gravity")]
+		PointF Gravity { get; set; }
+
+		[Export ("speed")]
+		float Speed { get; set; }
+
+		[Export ("speedVar")]
+		float SpeedVariance { get; set; }
+
+		[Export ("tangentialAccel")]
+		float TangentialAcceleration { get; set; }
+
+		[Export ("tangentialAccelVar")]
+		float TangentialAccelerationVariance { get; set; }
+
+		[Export ("radialAccel")]
+		float RadialAcceleration { get; set; }
+
+		[Export ("radialAccelVar")]
+		float RadialAccelerationVariance { get; set; }
+
+		[Export ("startRadius")]
+		float StartRadius { get; set; }
+
+		[Export ("startRadiusVar")]
+		float StartRadiusVariance { get; set; }
+
+		[Export ("endRadius")]
+		float EndRadius { get; set; }
+
+		[Export ("endRadiusVar")]
+		float EndRadiusVariance { get; set; }
+
+		[Export ("rotatePerSecond")]
+		float RotatePerSecond { get; set; }
+
+		[Export ("rotatePerSecondVar")]
+		float RotatePerSecondVariance { get; set; }
+
+		[Export ("startSize")]
+		float StartSize { get; set; }
+
+		[Export ("startSizeVar")]
+		float StartSizeVariance { get; set; }
+
+		[Export ("endSize")]
+		float EndSize { get; set; }
+
+		[Export ("endSizeVar")]
+		float EndSizeVariance { get; set; }
+
+		[Export ("startColor")]
+		Color4F StartColor { get; set; }
+
+		[Export ("startColorVar")]
+		Color4F StartColorVariance { get; set; }
+
+		[Export ("endColor")]
+		Color4F EndColor { get; set; }
+
+		[Export ("endColorVar")]
+		Color4F EndColorVariance { get; set; }
+
+		[Export ("startSpin")]
+		float StartSpin { get; set; }
+
+		[Export ("startSpinVar")]
+		float StartSpinVariance { get; set; }
+
+		[Export ("endSpin")]
+		float endSpin { get; set; }
+
+		[Export ("endSpinVar")]
+		float EndSpinVariance { get; set; }
+
+		[Export ("emissionRate")]
+		float EmissionRate { get; set; }
+
+		[Export ("totalParticles")]
+		uint TotalParticles { get; set; }
+
+		[Export ("texture")]
+		CCTexture2D Texture { get; set; }
+
+		[Export ("blendFunc")]
+		BlendFunc BlendFunc { get; set; }
+
+		[Export ("doesOpacityModifyRGB")]
+		bool OpacityModifyRGB { get;[Bind ("opacityModifyRGB:")] set; }
+		
+		[Export ("blendAdditive")]
+		bool BlendAdditive { get; set; }
+
+		[Export ("positionType")]
+		PositionType PositionType { get; set; }
+
+		[Export ("autoRemoveOnFinish")]
+		bool AutoRemoveOnFinish { get; set; }
+
+		[Export ("emitterMode")]
+		int EmitterMode { get; set; }
+
+		[Export ("batchNode")]
+		CCParticleBatchNode BatchNode { get; set; }
+
+		[Export ("atlasIndex")]
+		uint AtlasIndex { get; set; }
+
+		[Export ("initWithFile:")]
+		CCParticleSystem Constructor (string plistFile);
+
+		[Export ("initWithTotalParticles:")]
+		CCParticleSystem Constructor (uint numberOfParticles);
+
+		[Export ("stopSystem")]
+		void StopSystem ();
+			
+		[Export ("resetSystem")]
+		void ResetSystem ();
+
+		[Export ("isFull")]
+		bool IsFull { get; }
+	}
+
+	[BaseType (typeof (CCParticleSystem))]
+	interface CCParticleSystemQuad {
+	}
+
+#if ENABLE_CHIPMUNK_INTEGRATION
+	[BaseType(typeof(CCSprite))]
+	interface CCPhysicsSprite {
+		[Export ("initWithTexture:rect:rotated:")]
+		CCSprite Constructor (CCTexture2D texture, RectangleF rect, bool rotated);
+
+		[Export ("initWithTexture:rect:")]
+		CCSprite Constructor (CCTexture2D texture, RectangleF rect);
+
+		[Export ("initWithTexture:rect:")]
+		CCSprite Constructor (CCTexture2D texture);
+
+		[Export ("initWithFile:")]
+		CCSprite Constructor (string filename);
+
+		[Export ("initWithFile:rect:")]
+		CCSprite Constructor (string filename, RectangleF rect);
+
+		[Export("ignoreBodyRotation")]
+		bool IgnoreBodyRotation { get; set; }
+
+		[Export("body")]
+		IntPtr Body { get; set; }
+	}
+
+	[BaseType(typeof(CCDrawNode))]
+	interface CCPhysicsDebugNode {
+		[Export("debugNodeForCPSpace:")]
+		[Static]
+		CCPhysicsDebugNode DebugNode (IntPtr space);
+	}
+#endif
 }

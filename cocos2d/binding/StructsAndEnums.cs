@@ -63,6 +63,21 @@ namespace MonoTouch.Cocos2D {
 		}
 	}
 
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Color4F {
+		public float R;
+		public float G;
+		public float B;
+		public float A;
+
+		public Color4F (float r, float g, float b, float a) {
+			R = r;
+			G = g;
+			B = b;
+			A = a;
+		}
+	}
+
 	public enum CCDirectorProjection {
 		TwoD,
 		ThreeD,
@@ -117,6 +132,7 @@ namespace MonoTouch.Cocos2D {
 		public Tex2F TexCoords;
 	}
 
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct V3F_C4B_T2F_Quad {
 		public V3F_C4B_T2F TopLeft;
@@ -137,4 +153,36 @@ namespace MonoTouch.Cocos2D {
 		public float Y;
 	}
 	
+	[StructLayout (LayoutKind.Sequential)]
+	public struct GridSize {
+		public int X;
+		public int Y;
+
+		public GridSize (int x, int y){
+			X = x;
+			Y = y;
+		}
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Quad2 {
+		public Vertex2F TopLeft;
+		public Vertex2F TopRight;
+		public Vertex2F BottomLeft;
+		public Vertex2F BottomRight;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Quad3 {
+		public Vertex3F TopLeft;
+		public Vertex3F TopRight;
+		public Vertex3F BottomLeft;
+		public Vertex3F BottomRight;
+	}
+
+	public enum PositionType {
+		Free,
+		Relative,
+		Grouped,
+	}
 }
