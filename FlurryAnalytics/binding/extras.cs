@@ -34,7 +34,7 @@ using MonoTouch.GLKit;
 using OpenTK;
 namespace FlurryAnalytics
 {
-	public partial class FlurryAnalytics : NSObject {
+	public partial class Flurry : NSObject {
 		
 		static IntPtr selSetLatitudeLongitudeHorizontalAccuracyVerticalAccuracy = Selector.GetHandle ("setLatitude:longitude:horizontalAccuracy:verticalAccuracy:");
 		

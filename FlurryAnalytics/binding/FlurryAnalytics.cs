@@ -3,7 +3,7 @@ using MonoTouch.Foundation;
 namespace FlurryAnalytics
 {
 	[BaseType (typeof (NSObject))]
-	interface FlurryAnalytics {
+	interface Flurry {
 		[Static]
 		[Export ("setAppVersion:")]
 		void SetAppVersion (string version);
