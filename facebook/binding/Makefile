@@ -12,15 +12,15 @@ libFacebook-i386.a: facebook-ios-sdk
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphonesimulator/libfacebook_ios_sdk.a $@
 
-libFacebook-armv6.a: facebook-ios-sdk
-	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv6 -configuration Release clean build
-	-mv $(PROJECT_ROOT)/build/Release-iphoneos/libfacebook_ios_sdk.a $@
-
 libFacebook-armv7.a: facebook-ios-sdk
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7 -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphoneos/libfacebook_ios_sdk.a $@
 
-libFacebookSDK.a: libFacebook-i386.a libFacebook-armv6.a libFacebook-armv7.a
+libFacebook-armv7s.a: facebook-ios-sdk
+	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7s -configuration Release clean build
+	-mv $(PROJECT_ROOT)/build/Release-iphoneos/libfacebook_ios_sdk.a $@
+
+libFacebookSDK.a: libFacebook-i386.a libFacebook-armv7.a libFacebook-armv7s.a
 	lipo -create -output $@ $^
 
 Facebook.dll: facebook.cs enum.cs Makefile extensions.cs AssemblyInfo.cs libFacebookSDK.a
