@@ -1,4 +1,4 @@
 using System;
 using MonoTouch.ObjCRuntime;
 
-[assembly: LinkWith ("Parse", LinkTarget.Simulator | LinkTarget.ArmV7 | LinkTarget.ArmV7s, ForceLoad = true, Frameworks = "MobileCoreServices CoreGraphics SystemConfiguration AudioToolbox Security StoreKit")]
+[assembly: LinkWith ("Parse", LinkTarget.Simulator | LinkTarget.ArmV6 | LinkTarget.ArmV7, LinkerFlags = "-lsqlite3",Frameworks = "MobileCoreServices CoreGraphics SystemConfiguration AudioToolbox Security StoreKit AssetsLibrary Accounts AdSupport Social", ForceLoad = true)]
