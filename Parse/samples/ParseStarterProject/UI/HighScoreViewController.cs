@@ -34,13 +34,13 @@ namespace ParseStarterProject
 
 		public void GetHighScores()
 		{
-			PFQuery query = new PFQuery("GameScore");
+			ParseQuery query = new ParseQuery("GameScore");
 			query.Limit = 100;
 			query.OrderByDescending("Score");
 			query.FindObjectsAsync(FoundResults);
 		}
 
-		private void FoundResults(PFObject[] array, NSError error)
+		private void FoundResults(ParseObject[] array, NSError error)
 		{
 			var easySection = new Section("Easy");
 			var mediumSection = new Section("Medium");

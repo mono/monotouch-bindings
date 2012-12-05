@@ -26,10 +26,10 @@ namespace ParseStarterProject
 	public static class ParseHelper
 	{
 
-		public static PFObject ToPfObject(this object obj)
+		public static ParseObject ToPfObject(this object obj)
 		{
 			var type = obj.GetType();
-			var pfObj = PFObject.FromName(type.Name);
+			var pfObj = ParseObject.FromName(type.Name);
 			var properties = type.GetProperties();
 			foreach(var prop in properties)
 			{
@@ -49,7 +49,7 @@ namespace ParseStarterProject
 			return pfObj;
 		}
 
-		public static T ToObject<T> (this PFObject pfObj) where T : new ()
+		public static T ToObject<T> (this ParseObject pfObj) where T : new ()
 		{
 			T obj = new T();
 			var type = obj.GetType();
