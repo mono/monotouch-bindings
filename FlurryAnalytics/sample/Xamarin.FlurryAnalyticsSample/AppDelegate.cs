@@ -31,11 +31,8 @@ namespace Xamarin.FlurryAnalyticsSample
 
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-//			UncaughtExceptionHandlerAction = UncaughtExceptionHandler;
-//		    NSSetUncaughtExceptionHandler (Marshal.GetFunctionPointerForDelegate (UncaughtExceptionHandlerAction));
-			
-//			FA.FlurryAnalytics.StartSession("YOUR_API_KEY");
-//			FA.FlurryAnalytics.SetSessionReportsOnPause(true);
+		
+			FA.FlurryAnalytics.StartSession("YOUR_API_KEY");
 			
 			_Window = new UIWindow(UIScreen.MainScreen.Bounds);
 				 
