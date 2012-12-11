@@ -33,7 +33,7 @@ namespace ParseLib
 
 		[Static]
 		[Export ("setApplicationId:clientKey:")]
-		void SetApplicationIdclientKey (string applicationId, string clientKey);
+		void SetApplicationIdClientKey (string applicationId, string clientKey);
 
 		[Static]
 		[Export ("offlineMessagesEnabled:")]
