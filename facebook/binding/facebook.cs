@@ -97,6 +97,60 @@ namespace MonoTouch.FacebookConnect  {
 		void SessionInvalidated ();
 	}	
 
+	delegate void FBSessionStateHandler (FBSession session, FBSessionState status, NSError error);
+
+	delegate void FBSessionReauthorizeResultHandler (FBSession session, NSError error);
+
+	[BaseType (typeof (NSObject))]
+	interface FBSession {
+		[Static]
+		[Export ("openActiveSessionWithReadPermissions:allowLoginUI:completionHandler:")]
+		bool OpenActiveSession ([NullAllowed] string[] readPermissions, bool allowLoginUI, FBSessionStateHandler completion);
+
+		[Static]
+		[Export ("openActiveSessionWithPublishPermissions:defaultAudience:allowLoginUI:completionHandler:")]
+		bool OpenActiveSession (string[] publishPermissions, FBSessionDefaultAudience defaultAudience, bool allowLoginUI, FBSessionStateHandler completion);
+
+		[Static]
+		[Export ("openActiveSessionWithAllowLoginUI:")]
+		bool OpenActiveSession (bool allowLoginUI);
+
+		[Static]
+		[Export ("activeSession")]
+		FBSession ActiveSession { get; set; }
+
+		[Static]
+		[Export ("defaultAppID")]
+		string DefaultAppID { get; set; }
+
+		[Export ("isOpen")]
+		bool IsOpen { get; }
+
+		[Export ("accessToken", ArgumentSemantic.Copy)]
+		string AccessToken { get; }
+
+		[Export ("handleOpenURL:")]
+		bool HandleOpenURL (NSUrl url);
+
+		[Export ("handleDidBecomeActive")]
+		void HandleDidBecomeActive ();
+
+		[Export ("close")]
+		void Close ();
+
+		[Export ("closeAndClearTokenInformation")]
+		void CloseAndClearTokenInformation ();
+
+		[Export ("reauthorizeWithPermissions:behavior:completionHandler:")]
+		void ReauthorizeWithPermissions (string[] permissions, FBSessionLoginBehavior behavior, FBSessionReauthorizeResultHandler completion);
+
+		[Export ("reauthorizeWithReadPermissions:completionHandler:")]
+		void ReauthorizeWithReadPermissions (string[] permissions, FBSessionReauthorizeResultHandler completion);
+
+		[Export ("reauthorizeWithPublishPermissions:defaultAudience:completionHandler:")]
+		void ReauthorizeWithPublishPermissions (string[] permissions, FBSessionDefaultAudience defaultAudience, FBSessionReauthorizeResultHandler completion);
+	}
+
 	[BaseType (typeof (NSObject))]
 	interface FBRequest {
 		[Export ("delegate"), NullAllowed]

@@ -3,7 +3,7 @@
     <Assembly Name="Facebook" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libFacebookSDK.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV6 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true)</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libFacebookSDK.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, "-ObjC -lsqlite3", ForceLoad=true, Frameworks="CoreGraphics CoreLocation QuartzCore", WeakFrameworks="Accounts AdSupport Social")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
@@ -24,7 +24,13 @@
       <Type Name="FBRequest" Kind="Class" />
       <Type Name="FBRequestDelegate" Kind="Class" />
       <Type Name="FBRequestState" Kind="Enumeration" />
+      <Type Name="FBSession" Kind="Class" />
+      <Type Name="FBSessionDefaultAudience" Kind="Enumeration" />
       <Type Name="FBSessionDelegate" Kind="Class" />
+      <Type Name="FBSessionLoginBehavior" Kind="Enumeration" />
+      <Type Name="FBSessionReauthorizeResultHandler" Kind="Delegate" />
+      <Type Name="FBSessionState" Kind="Enumeration" />
+      <Type Name="FBSessionStateHandler" Kind="Delegate" />
     </Namespace>
   </Types>
   <Title>Facebook</Title>
