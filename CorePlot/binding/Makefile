@@ -27,10 +27,6 @@ libCorePlot-CocoaTouch-i386.a: CorePlot_$(VERSION)/License.txt
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
 	mv -f $(PROJECT_ROOT)/../build/Release-iphonesimulator/lib$(TARGET).a $@
 
-libCorePlot-CocoaTouch-armv6.a: CorePlot_$(VERSION)
-	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv6 -configuration Release clean build
-	mv -f $(PROJECT_ROOT)/../build/Release-iphoneos/lib$(TARGET).a $@
-
 libCorePlot-CocoaTouch-armv7.a: CorePlot_$(VERSION)
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7 -configuration Release clean build
 	mv -f $(PROJECT_ROOT)/../build/Release-iphoneos/lib$(TARGET).a $@
@@ -39,7 +35,7 @@ libCorePlot-CocoaTouch-armv7.a: CorePlot_$(VERSION)
 #libCorePlot-CocoaTouch.a: CorePlot-$(VERSION).zip
 #	unzip -p $^ CorePlot_$(VERSION)/Binaries/iOS/$@ > $@
 
-libCorePlot-CocoaTouch.a: libCorePlot-CocoaTouch-i386.a libCorePlot-CocoaTouch-armv6.a libCorePlot-CocoaTouch-armv7.a
+libCorePlot-CocoaTouch.a: libCorePlot-CocoaTouch-i386.a libCorePlot-CocoaTouch-armv7.a
 	lipo -create -output $@ $^
 
 CorePlotMacOS.dll: Makefile coreplot.cs enums.cs extras.cs

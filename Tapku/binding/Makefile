@@ -4,32 +4,25 @@ PROJECT_ROOT=tapkulibrary/src
 PROJECT=$(PROJECT_ROOT)/TapkuLibrary.xcodeproj
 TARGET=TapkuLibrary
 
-all: TapkuLibrary.dll
+all: Tapku.dll
 
+tapku-ios-sdk:
+	git clone git://github.com/devinross/tapkulibrary.git
 
-libTapkuLibrary-i386.a:
+libTapkuLibrary-i386.a: tapku-ios-sdk
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphonesimulator/lib$(TARGET).a $@
 
-
-libTapkuLibrary-armv6.a:
-	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv6 -configuration Release clean build
-	-mv $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
-
-libTapkuLibrary-armv7.a:
+libTapkuLibrary-armv7.a: tapku-ios-sdk
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7 -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
 
 
-libTapkuLibraryUniversal.a: lib$(TARGET)-armv7.a lib$(TARGET)-armv6.a lib$(TARGET)-i386.a
+libTapkuLibraryUniversal.a:  lib$(TARGET)-armv7.a lib$(TARGET)-i386.a
 	lipo -create -output $@ $^
 
 
-TapkuLibrary.dll: AssemblyInfo.cs Tapku.cs lib$(TARGET)Universal.a
-	make libTapkuLibrary-i386.a
-	make libTapkuLibrary-armv6.a
-	make libTapkuLibrary-armv7.a
-	make libTapkuLibraryUniversal.a
+Tapku.dll: AssemblyInfo.cs Tapku.cs lib$(TARGET)Universal.a
 	$(BTOUCH)  Tapku.cs AssemblyInfo.cs Enums.cs --out=$@ --link-with=libTapkuLibraryUniversal.a,libTapkuLibraryUniversal.a
 
 clean:
