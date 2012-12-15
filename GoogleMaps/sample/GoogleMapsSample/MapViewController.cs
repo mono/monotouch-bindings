@@ -22,11 +22,12 @@ namespace GoogleMapsSample
 			mapView.MyLocationEnabled = true ;
 			this.View = mapView;
 
-			GMSMarkerOptions options = new GMSMarkerOptions ();
-			options.Position = new CLLocationCoordinate2D(-33.8683, 151.2086);
-			options.Title = @"Sydney";
-			options.Snippet = @"Australia";
-			mapView.AddMarker (options);
+			var xamarinhq = new GMSMarkerOptions {
+				Title = "Xamarin HQ",
+				Snippet = "Where the magic happens.",
+				Position = new CLLocationCoordinate2D (37.797865, -122.402526)
+			};
+			mapView.AddMarker (xamarinhq);
 		}
 		public override void ViewWillAppear (bool animated)
 		{
