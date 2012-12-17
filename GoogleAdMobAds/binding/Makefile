@@ -8,7 +8,7 @@ googleadmobadssdkios.zip:
 	curl http://dl.google.com/googleadmobadssdk/googleadmobadssdkios.zip > $@
 
 libGoogleAdMobAds.a: googleadmobadssdkios.zip
-	unzip -p $< 'GoogleAdMobAdsSDK/libGoogleAdMobAds.a' > $@
+	unzip -p $< 'GoogleAdMobAdsSdkiOS-6.2.1/libGoogleAdMobAds.a' > $@
 
 # Note: The following rule works only with MonoTouch >= 5.0.3 due to a bug in btouch wrt the -x option
 #GoogleAdMobAds.dll: Makefile AssemblyInfo.cs admobads.cs enums.cs extensions.cs libGoogleAdMobAds.a
