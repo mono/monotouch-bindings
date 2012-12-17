@@ -6,8 +6,8 @@ CLANG=clang -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPho
 
 all: GoogleAnalytics.dll
 
-GoogleAnalyticsiOS_1.4.tar.gz:
-	curl -O http://dl.google.com/gaformobileapps/GoogleAnalyticsiOS_1.4.tar.gz
+GoogleAnalyticsiOS.zip:
+	curl -O http://dl.google.com/dl/gaformobileapps/googleanalyticsios.zip
 
 #STUBS = armv6.o armv7.o i386.o
 #
@@ -21,8 +21,8 @@ GoogleAnalyticsiOS_1.4.tar.gz:
 #	clang -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -fobjc-abi-version=2 -fobjc-legacy-dispatch -c -arch i386 stub.m -o i386.o 
 
 
-libGoogleAnalytics.a: GoogleAnalyticsiOS_1.4.tar.gz
-	tar xOzvf GoogleAnalyticsiOS_1.4.tar.gz 'Google Analytics SDK/Library/libGoogleAnalytics.a' > $@
+libGoogleAnalytics.a: GoogleAnalyticsiOS.zip
+	unzip -p $< 'GoogleAnalyticsiOS_2.0beta3/Library/libGoogleAnalytics.a' > $@
 
 GoogleAnalytics.dll: Makefile AssemblyInfo.cs googleanalytics.cs enums.cs libGoogleAnalytics.a
 	-mkdir -p ios

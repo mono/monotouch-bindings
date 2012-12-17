@@ -1,14 +1,14 @@
 namespace GoogleAnalytics {
 
-	public enum GanError : uint {
-		None = 0,
-		InvalidInput = 0xbade7a9,
-		EventsPerSessionLimit = 0xbad5704e,
-		NotStarted = 0xbada55,
-		DatabaseError = 0xbadbaddb
+	public enum GAIErrorCode {
+		// This error code indicates that there was no error. Never used.
+		NoError = 0,
+		
+		// This error code indicates that there was a database-related error.
+		DatabaseError,
+		
+		// This error code indicates that there was a network-related error.
+		NetworkError,
 	}
 
-	public enum GanCVScope {
-		Visitor = 1, Session, Page
-	}
 }
