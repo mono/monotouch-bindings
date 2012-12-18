@@ -7,7 +7,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using System.Drawing;
 using MonoTouch.Dialog;
-
+using GoogleAnalytics;
 namespace sample
 {
 	[Register ("AppDelegate")]
@@ -17,7 +17,9 @@ namespace sample
 		const string account = "youraccoutid";
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{			
-			GoogleAnalytics.GANTracker.SharedTracker.StartTracker(account,60,null);
+
+			var result = GoogleAnalytics.GAI.SharedInstance;
+			result.GetTracker(account);
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			window.RootViewController = new DialogViewController(CreateRoot());
 			window.MakeKeyAndVisible ();
@@ -38,22 +40,19 @@ namespace sample
 				new Section()
 				{
 					new StringElement("Track Event",delegate{
-						NSError error;
-						var success = GoogleAnalytics.GANTracker.SharedTracker.TrackEvent("Sample Data","Button Clicked","Xamarin!",1,out error);
-						Console.WriteLine(error);
-						ShowMessage(success ? "Success" : "Error",error == null ? "" : error.ToString());
+						var success = GAI.SharedInstance.DefaultTracker.TrackEvent("Sample Data","Button Clicked","Xamarin!",1);
+						//Console.WriteLine(error);
+						ShowMessage(success ? "Success" : "Error","");
 					}),
 					new StringElement("Track Page",delegate{
 						NSError error;
-						var success = GoogleAnalytics.GANTracker.SharedTracker.TrackPageView("HomePage",out error);
-						Console.WriteLine(error);
-						ShowMessage(success ? "Success" : "Error",error == null ? "" : error.ToString());
+						var success = GoogleAnalytics.GAI.SharedInstance.DefaultTracker.TrackView("HomePage");
+						ShowMessage(success ? "Success" : "Error","");
 					}),
 					new StringElement("Set Custom Variable",delegate{
 						NSError error;
-						var success = GoogleAnalytics.GANTracker.SharedTracker.SetCustomVariable(0,"Version",UIDevice.CurrentDevice.SystemVersion,out error);
-						Console.WriteLine(error);
-						ShowMessage(success ? "Success" : "Error",error == null ? "" : error.ToString());
+						var success = GoogleAnalytics.GAI.SharedInstance.DefaultTracker.Setvalue("Version",UIDevice.CurrentDevice.SystemVersion);
+						ShowMessage(success ? "Success" : "Error","");
 					}),
 				}
 			};

@@ -29,7 +29,7 @@ namespace GoogleAnalytics {
 		
 		[Static]
 		[Export ("sharedInstance")]
-		GAI SharedInstance ();
+		GAI SharedInstance { get; }
 		
 		[Export ("trackerWithTrackingId:")]
 		GAITracker GetTracker (string trackingId);
@@ -104,7 +104,7 @@ namespace GoogleAnalytics {
 		
 		[Abstract]
 		[Export ("trackEventWithCategory:withAction:withLabel:withValue:")]
-		bool TrackEventW(string category, string action, string label, NSNumber value);
+		bool TrackEvent(string category, string action, string label, NSNumber value);
 		
 		[Abstract]
 		[Export ("trackTransaction:")]
@@ -144,7 +144,7 @@ namespace GoogleAnalytics {
 		
 		[Abstract]
 		[Export ("setCustom:dimension:")]
-		bool SetCustomd (int index, string dimension);
+		bool SetCustom (int index, string dimension);
 		
 		[Abstract]
 		[Export ("setCustom:metric:")]
