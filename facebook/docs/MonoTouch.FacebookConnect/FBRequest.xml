@@ -217,6 +217,50 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetRequestForMe">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequest GetRequestForMe ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequest GetRequestForMe() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestForMe")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRequestForMyFriends">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequest GetRequestForMyFriends ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequest GetRequestForMyFriends() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestForMyFriends")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="HttpMethod">
       <MemberSignature Language="C#" Value="public virtual string HttpMethod { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string HttpMethod" />
@@ -362,6 +406,31 @@
         <param name="baseUrl">To be added.</param>
         <param name="parameters">To be added.</param>
         <param name="httpMethod">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Start">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBRequestConnection Start (MonoTouch.FacebookConnect.FBRequestHandler completion);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.FacebookConnect.FBRequestConnection Start(class MonoTouch.FacebookConnect.FBRequestHandler completion) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startWithCompletionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="completion" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="completion">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>

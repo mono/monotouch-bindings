@@ -151,6 +151,12 @@ namespace MonoTouch.FacebookConnect  {
 		void ReauthorizeWithPublishPermissions (string[] permissions, FBSessionDefaultAudience defaultAudience, FBSessionReauthorizeResultHandler completion);
 	}
 
+	delegate void FBRequestHandler (FBRequestConnection connection, NSObject result, NSError error);
+
+	[BaseType (typeof (NSObject))]
+	interface FBRequestConnection {
+	}
+
 	[BaseType (typeof (NSObject))]
 	interface FBRequest {
 		[Export ("delegate"), NullAllowed]
@@ -191,6 +197,17 @@ namespace MonoTouch.FacebookConnect  {
 		[Static]
 		[Export ("getRequestWithParams:httpMethod:delegate:requestURL:")]
 		FBRequest GetRequest (NSMutableDictionary parameters, string method , FBRequestDelegate httpMethodDelegatedelegate, string url);
+
+		[Export ("startWithCompletionHandler:")]
+		FBRequestConnection Start(FBRequestHandler completion);
+
+		[Static]
+		[Export ("requestForMe")]
+		FBRequest GetRequestForMe ();
+
+		[Static]
+		[Export ("requestForMyFriends")]
+		FBRequest GetRequestForMyFriends ();
 
 		[Export ("loading")]
 		bool Loading ();
