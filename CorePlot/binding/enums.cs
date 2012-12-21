@@ -103,9 +103,9 @@ namespace MonoMac.CorePlot {
 		PieChartWidthNormalized = 1,
 		PieChartSliceWidhtSum = 2,
 			
-		BarLocation = 2,
-		BarTip = 3,
-		BarBase = 4,
+		BarLocation = 0,
+		BarTip = 1,
+		BarBase = 2,
 
 		TradingRangeX = 0,
 		TradingRangeOpen = 1,
