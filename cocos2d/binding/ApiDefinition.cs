@@ -567,45 +567,64 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (float duration, CCAnimation animation, bool restoreOriginalFrame);
 	}
 
+
+	[BaseType (typeof (NSObject))]
+	interface CCAnimationFrame {
+		[Export ("spriteFrame")]
+		CCSpriteFrame SpriteFrame { get; set;  }
+
+		[Export ("delayUnits")]
+		float DelayUnits { get; set;  }
+
+		[Export ("userInfo")]
+		NSDictionary UserInfo { get; set;  }
+
+		[Export ("initWithSpriteFrame:delayUnits:userInfo:")]
+		IntPtr Constructor (CCSpriteFrame spriteFrame, float delayUnits, NSDictionary userInfo);
+	}
+
 	[BaseType (typeof (NSObject))]
 	interface CCAnimation {
-		[Export ("delay")]
-		float Delay { get; set;  }
+		[Export ("totalDelayUnits")]
+		float TotalDelayUnits { get;  }
+
+		[Export ("delayPerUnit")]
+		float DelayPerUnit { get; set;  }
+
+		[Export ("duration")]
+		float Duration { get;  }
 
 		[Export ("frames")]
 		CCSpriteFrame [] Frames { get; set;  }
 
-		[Export ("name")]
-		string Name { get; set; }
-
 		[Static]
+		[Obsolete ("Use the constructor")]
 		[Export ("animation")]
 		NSObject Create ();
 
-		[Obsolete ("Use the constructor")]
-		[Static]
-		[Export ("animationWithFrames:")]
-		CCAnimation FromFrames (CCSpriteFrame [] frames);
+		[Export ("restoreOriginalFrame")]
+		bool RestoreOriginalFrame { get; set;  }
 
-		[Obsolete ("Use the constructor")]
-		[Static]
-		[Export ("animationWithFrames:delay:")]
-		CCAnimation FromFrames (CCSpriteFrame [] frames, float delay);
+		[Export ("loops")]
+		int Loops { get; set;  }
 
-		[Export ("initWithFrames:")]
+		[Export ("initWithSpriteFrames:")]
 		IntPtr Constructor (CCSpriteFrame [] frames);
 
-		[Export ("initWithFrames:delay:")]
-		IntPtr Constructor (CCSpriteFrame [] frames, float delay);
+		[Export ("initWithSpriteFrames:delay:")]
+		IntPtr Constructor (CCSpriteFrame [] spriteFrames, float delay);
 
-		[Export ("addFrame:")]
-		void AddFrame (CCSpriteFrame frame);
+		[Export ("initWithAnimationFrames:delayPerUnit:loops:")]
+		IntPtr Constructor (CCSpriteFrame [] spriteFrames, float delayPerUnit, int loops);
 
-		[Export ("addFrameWithFilename:")]
-		void AddFrame (string filename);
+		[Export ("addSpriteFrame:")]
+		void AddSpriteFrame (CCSpriteFrame frame);
 
-		[Export ("addFrameWithTexture:rect:")]
-		void AddFrame (CCTexture2D texture, RectangleF rect);
+		[Export ("addSpriteFrameWithFilename:")]
+		void AddSpriteFrame (string spriteFilename);
+
+		[Export ("addSpriteFrameWithTexture:rect:")]
+		void AddSpriteFrame (CCTexture2D texture, RectangleF rect);
 
 	}
 
@@ -1895,5 +1914,123 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("afterRender:")]
 		void AfterRender (CCTexture2D texture);
+	}
+
+
+	[BaseType (typeof (CCTiledGrid3DAction))]
+	interface CCShakyTiles3D {
+		[Export ("initWithRange:shakeZ:grid:duration:")]
+		IntPtr Constructor (int range, bool shakeZ, Point gridSize, float duration);
+
+	}
+
+	[BaseType (typeof (CCTiledGrid3DAction))]
+	interface CCShatteredTiles3D {
+		[Export ("initWithRange:shatterZ:grid:duration:")]
+		IntPtr Constructor (int range, bool shatterZ, Point gridSize, float duration);
+
+	}
+
+	[BaseType (typeof (CCTiledGrid3DAction))]
+	interface CCShuffleTiles {
+		[Export ("initWithSeed:grid:duration:")]
+		IntPtr Constructor (int seed, Point gridSize, float duration);
+
+	}
+
+	[BaseType (typeof (CCTiledGrid3DAction))]
+	interface CCFadeOutTRTiles {
+	}
+
+	[BaseType (typeof (CCFadeOutTRTiles))]
+	interface CCFadeOutBLTiles {
+	}
+
+	[BaseType (typeof (CCFadeOutTRTiles))]
+	interface CCFadeOutUpTiles {
+	}
+
+	[BaseType (typeof (CCFadeOutUpTiles))]
+	interface CCFadeOutDownTiles {
+	}
+
+	[BaseType (typeof (CCTiledGrid3DAction))]
+	interface CCTurnOffTiles {
+		[Export ("initWithSeed:grid:duration:")]
+		IntPtr Constructor (int seed, Point gridSize, float duration);
+
+	}
+
+	[BaseType (typeof (CCTiledGrid3DAction))]
+	interface CCWavesTiles3D {
+		[Export ("amplitude")]
+		float Amplitude { get; set;  }
+
+		[Export ("amplitudeRate")]
+		float AmplitudeRate { get; set;  }
+
+		[Export ("initWithWaves:amplitude:grid:duration:")]
+		IntPtr Constructor (int waves, float amplitude, Point gridSize, float duration);
+
+	}
+
+	[BaseType (typeof (CCTiledGrid3DAction))]
+	interface CCJumpTiles3D {
+		[Export ("amplitude")]
+		float Amplitude { get; set;  }
+
+		[Export ("amplitudeRate")]
+		float AmplitudeRate { get; set;  }
+
+		[Export ("initWithJumps:amplitude:grid:duration:")]
+		IntPtr Constructor (int jumps, float amplitude, Point gridSize, float duration);
+	}
+
+	[BaseType (typeof (CCTiledGrid3DAction))]
+	interface CCSplitRows {
+		[Export ("initWithRows:duration:")]
+		IntPtr Constructor (int rows, float duration);
+
+	}
+
+	[BaseType (typeof (CCTiledGrid3DAction))]
+	interface CCSplitCols {
+		[Export ("initWithCols:duration:")]
+		IntPtr Constructor  (int cols, float durationuration);
+	}
+	
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCActionTween {
+		[Export ("initWithDuration:key:from:to:")]
+		IntPtr Constructor (float duration, NSString key, float from, float to);
+
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCAnimationCache {
+		[Static]
+		[Export ("sharedAnimationCache")]
+		CCAnimationCache SharedAnimationCache { get; }
+
+		[Static]
+		[Export ("purgeSharedAnimationCache")]
+		void PurgeSharedAnimationCache ();
+
+		[Export ("addAnimation:name:")]
+		void AddAnimation (CCAnimation animation, string name);
+
+		[Export ("removeAnimationByName:")]
+		void RemoveAnimation (string name);
+
+		[Export ("animationByName:")]
+		CCAnimation GetAnimation (string name);
+
+		[Export ("addAnimationsWithDictionary:")]
+		void AddAnimations (NSDictionary dictionary);
+
+		[Export ("addAnimationsWithFile:")]
+		void AddAnimationsFromFile (string plist);
+
 	}
 }
