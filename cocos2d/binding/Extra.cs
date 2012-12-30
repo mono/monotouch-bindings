@@ -160,4 +160,20 @@ namespace MonoTouch.Cocos2D {
 		{
 		}
 	}
+
+	public partial class CCPointArray {
+		public PointF this [int index] {
+			get {
+				return GetControlPoint (index);
+			}
+			set {
+				Replace (value, index);
+			}
+		}
+	}
+
+	public partial class CCCardianSpline {
+		[DllImport ("__Internal", EntryPoint="ccCardinalSplineAt")]
+		public extern static PointF GetPosition (PointF p0, PointF p1, PointF p2, PointF p3, float tension, float time);
+	}
 }	

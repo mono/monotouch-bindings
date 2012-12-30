@@ -15,6 +15,7 @@ using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
 using MonoTouch.CoreGraphics;
+using OpenTK;
 
 namespace MonoTouch.Cocos2D {
 
@@ -34,6 +35,11 @@ namespace MonoTouch.Cocos2D {
 		//[Export ("copyWithZone:")]
 		//CCAction CopyFromZone (NSZone zone );
 
+		// [Static, Export ("action")]
+		// Do not expose, as our constructor is just as good and
+		// this implementation does an autorelease as well, which
+		// requires more work on our part.
+
 		[Export ("isDone")]
 		bool IsDone { get; }
 
@@ -44,7 +50,7 @@ namespace MonoTouch.Cocos2D {
 		void Stop ();
 
 		[Export ("step:")]
-		void Step (float ccTime);
+		void Step (float deltaTime);
 
 		[Export ("update:")]
 		void Update (float time);
@@ -57,7 +63,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("reverse")]
 		CCFiniteTimeAction Reverse ();
-
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -95,6 +100,12 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("resumeTarget:")]
 		void ResumeTarget (NSObject target);
+
+		[Export ("pauseAllRunningActions")]
+		NSSet PauseAllRunningActions ();
+
+		[Export ("resumeTargets:")]
+		void ResumeTargets (NSSet targetsToResume);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -198,13 +209,13 @@ namespace MonoTouch.Cocos2D {
 		[Export ("innerAction")]
 		CCActionInterval InnerAction { get; set; }
 
-		[Static]
-		[Export ("actionWithAction:")]
-		CCRepeatForever FromAction (CCActionInterval action);
-
 		[Export ("initWithAction:")]
 		IntPtr Constructor (CCActionInterval action);
 
+		[Static]
+		[Obsolete ("Use the constructor")]
+		[Export ("actionWithAction:")]
+		CCRepeatForever FromAction (CCActionInterval action);
 	}
 
 	[BaseType (typeof (CCAction))]
@@ -215,12 +226,13 @@ namespace MonoTouch.Cocos2D {
 		[Export ("speed")]
 		float Speed  { get; set; }
 
+		[Export ("initWithAction:speed:")]
+		IntPtr Constructor (CCActionInterval action, float rate);
+
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithAction:speed:")]
 		NSObject FromAction (CCActionInterval action, float rate);
-
-		[Export ("initWithAction:actionspeed:")]
-		IntPtr Constructor (CCActionInterval action, float rate);
 	}
 
 	[BaseType (typeof (CCAction))]
@@ -230,9 +242,11 @@ namespace MonoTouch.Cocos2D {
 
 		[Static]
 		[Export ("actionWithTarget:")]
+		[Obsolete ("Use the constructor")]
 		CCFollow FromAction (CCNode followedNode);
-
+		
 		[Static]
+		[Obsolete ("Use the constructor")]
 		[Export ("actionWithTarget:worldBoundary:")]
 		CCFollow FromAction (CCNode followedNode, RectangleF worldBoundary);
 
@@ -243,12 +257,12 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (CCNode followedNode, RectangleF worldBoundary);
 	}
 
-	
 	[BaseType (typeof (CCFiniteTimeAction))]
 	interface CCActionInterval {
 		[Export ("elapsed")]
 		float Elapsed { get; }
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:")]
 		CCActionInterval Create (float duration);
@@ -261,7 +275,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("reverse")]
 		CCActionInterval Reverse ();
-
 	}
 
 	[BaseType (typeof (CCActionInterval))]
@@ -270,6 +283,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("actionsWithArray:")]
 		CCSequence FromActions (CCFiniteTimeAction [] actions);
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionOne:two:")]
 		CCSequence FromActions (CCFiniteTimeAction first, CCFiniteTimeAction second);
@@ -284,6 +298,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("innerAction")]
 		CCFiniteTimeAction InnerAction { get; set; }
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithAction:times:")]
 		NSObject FromAction (CCFiniteTimeAction [] actions, int count);
@@ -299,6 +314,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("actionsWithArray:")]
 		CCSpawn FromActions (CCFiniteTimeAction [] actions );
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionOne:onetwo:two")]
 		CCSpawn FromActions (CCFiniteTimeAction first , CCFiniteTimeAction second);
@@ -339,6 +355,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCMoveTo))]
 	interface CCMoveBy {
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:position:")]
 		CCMoveBy Create (float duration, PointF deltaPosition);
@@ -349,6 +366,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCActionInterval))]
 	interface CCSkewTo {
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:skewX:skewY:")]
 		CCSkewTo Create (float duration, float sx, float sy);
@@ -360,6 +378,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCSkewTo))]
 	interface CCSkewBy {
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:skewX:skewY:")]
 		CCSkewBy Create (float duration, float sx, float sy);
@@ -397,6 +416,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCActionInterval))]
 	interface CCScaleTo {
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:scale:")]
 		CCScaleTo Create (float duration, float scale);
@@ -404,6 +424,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initWithDuration:scale:s")]
 		IntPtr Constructor (float duration, float scale);
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:scaleX:scaleY:")]
 		CCScaleTo Create (float duration, float sx, float sy);
@@ -436,6 +457,7 @@ namespace MonoTouch.Cocos2D {
 	
 	[BaseType (typeof (CCScaleTo))]
 	interface CCScaleBy {
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:scale:")]
 		CCScaleBy Create (float duration, float scale);
@@ -443,6 +465,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initWithDuration:scale:s")]
 		IntPtr Constructor (float duration, float scale);
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:scaleX:scaleY:")]
 		CCScaleBy Create (float duration, float sx, float sy);
@@ -454,6 +477,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCActionInterval))]
 	interface CCBlink {
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:blinks:")]
 		NSObject Create (float duration, int blinks);
@@ -518,6 +542,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("animation")]
 		CCAnimation Animation { get; set; }
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithAnimation:")]
 		CCAnimate FromAnimation (CCAnimation animation);
@@ -525,6 +550,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initWithAnimation:a")]
 		IntPtr Constructor (CCAnimation animation);
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithAnimation:restoreOriginalFrame:")]
 		CCAnimate Create (CCAnimation animation , bool restoreOriginalFrame);
@@ -532,6 +558,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initWithAnimation:restoreOriginalFrame:")]
 		IntPtr Constructor (CCAnimation animation, bool restoreOriginalFrame);
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:animation:restoreOriginalFrame:")]
 		CCAnimate Create (float duration, CCAnimation animation, bool restoreOriginalFrame);
@@ -555,10 +582,12 @@ namespace MonoTouch.Cocos2D {
 		[Export ("animation")]
 		NSObject Create ();
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("animationWithFrames:")]
 		CCAnimation FromFrames (CCSpriteFrame [] frames);
 
+		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("animationWithFrames:delay:")]
 		CCAnimation FromFrames (CCSpriteFrame [] frames, float delay);
@@ -609,6 +638,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("viewWithFrame:")]
 		CCGLView View (RectangleF frame);
 	}
+
 
 	public delegate bool AutorotateCondition (UIInterfaceOrientation orientation);
 
@@ -854,6 +884,18 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("width")]
 		float Width { set; }
+	}
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCLiquid {
+		[Export ("amplitude")]
+		float Amplitude { get; set;  }
+
+		[Export ("amplitudeRate")]
+		float AmplitudeRate { get; set;  }
+
+		[Export ("initWithWaves:amplitude:grid:duration:")]
+		IntPtr Constructor (int waves, float amplitude, Point gridSize, float duration);
 	}
 
 	interface CCBlendProtocol {
@@ -1332,5 +1374,526 @@ namespace MonoTouch.Cocos2D {
 		[Export ("unscheduleAllSelectors")]
 		[Internal]
 		void UnscheduleAllSelectors ();
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCAccelAmplitude {
+		[Export ("rate")]
+		float Rate { get; set; }
+
+		[Export ("initWithAction:duration:")]
+		IntPtr Constructor (CCAction action, float d);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCAccelDeccelAmplitude {
+		[Export ("rate")]
+		float Rate { get; set; }
+
+		[Export ("initWithAction:duration:")]
+		IntPtr Constructor (CCAction action, float d);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCActionCamera {
+	}
+	
+	[BaseType (typeof (CCActionInterval))]
+	interface CCActionEase {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCFlipX3D {
+		[Export ("initWithDuration:")]
+		IntPtr Constructor (float duration);
+	}
+
+	[BaseType (typeof (CCFlipX3D))]
+	interface CCFlipY3D {
+		[Export ("initWithDuration:")]
+		IntPtr Constructor (float duration);
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCStopGrid {
+	}
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCTwirl {
+		[Export ("position")]
+		PointF Position { get; set;  }
+
+		[Export ("amplitude")]
+		float Amplitude { get; set;  }
+
+		[Export ("amplitudeRate")]
+		float AmplitudeRate { get; set;  }
+
+		[Export ("initWithPosition:twirls:amplitude:grid:duration:")]
+		IntPtr Constructor (PointF position, int twirls, float amplitude, Point gridSize, float duration);
+	}
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCWaves {
+		[Export ("amplitude")]
+		float Amplitude { get; set;  }
+
+		[Export ("amplitudeRate")]
+		float AmplitudeRate { get; set;  }
+
+		[Export ("initWithWaves:amplitude:horizontal:vertical:grid:duration:")]
+		IntPtr Constructor (int waves, float amplitude, bool horizontal, bool vertical, Point gridSize, float duration);
+
+	}
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCWaves3D {
+		[Export ("amplitude")]
+		float Amplitude { get; set;  }
+
+		[Export ("amplitudeRate")]
+		float AmplitudeRate { get; set;  }
+
+		[Export ("initWithWaves:amplitude:grid:duration:")]
+		IntPtr Constructor (int waves, float amplitude, Point gridSize, float duration);
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCShow {
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCHide {
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCToggleVisibility {
+	}
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCLens3D {
+		[Export ("lensEffect")]
+		float LensEffect { get; set;  }
+
+		[Export ("position")]
+		PointF Position { get; set;  }
+
+		[Export ("initWithPosition:radius:grid:duration:")]
+		IntPtr Constructor (PointF position, float radius, Point gridSize, float duration);
+
+	}
+
+	[BaseType (typeof (CCActionCamera))]
+	interface CCOrbitCamera {
+		[Export ("initWithDuration:radius:deltaRadius:angleZ:deltaAngleZ:angleX:deltaAngleX:")]
+		IntPtr Constructor (float duration, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX);
+
+		[Export ("sphericalRadius:zenith:azimuth")]
+		void Position (float sphericalRadius , float zenith , float azimuth);
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCPointArray {
+		[Export ("controlPoints")]
+		NSMutableArray ControlPoints { get; set; }
+
+		[Export ("initWithCapacity:")]
+		IntPtr Constructor (uint capacity);
+
+		[Export ("addControlPoint:")]
+		void Add (PointF controlPoint);
+
+		[Export ("insertControlPoint:atIndex:")]
+		void Insert (PointF controlPoint, int index);
+
+		[Export ("replaceControlPoint:atIndex:")]
+		void Replace (PointF controlPoint, int ndex);
+
+		[Export ("getControlPointAtIndex:"), Internal]
+		PointF GetControlPoint (int index);
+
+		[Export ("removeControlPointAtIndex:")]
+		void Remove (int index);
+
+		[Export ("count")]
+		int Count { get; }
+
+		[Export ("reverse")]
+		CCPointArray Reverse ();
+
+		[Export ("reverseInline")]
+		void ReverseInline ();
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCCardinalSplineTo {
+		[Export ("points")]
+		CCPointArray Points { get; set; }
+
+		[Export ("initWithDuration:points:tension:")]
+		IntPtr Constructor (float duration, CCPointArray points, float tension);
+
+	}
+
+	[BaseType (typeof (CCCardinalSplineTo))]
+	interface CCCardinalSplineBy {
+	}
+
+	[BaseType (typeof (CCCardinalSplineTo))]
+	interface CCCatmullRomTo {
+		[Export ("initWithDuration:points:")]
+		IntPtr Constructor (float duration, CCPointArray points);
+	}
+
+	[BaseType (typeof (CCCardinalSplineBy))]
+	interface CCCatmullRomBy {
+		[Export ("initWithDuration:points:")]
+		IntPtr Constructor (float duration, CCPointArray points);
+	}
+
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCRipple3D {
+		[Export ("position")]
+		PointF Position { get; set;  }
+
+		[Export ("amplitude")]
+		float Amplitude { get; set;  }
+
+		[Export ("amplitudeRate")]
+		float AmplitudeRate { get; set;  }
+
+		[Export ("initWithPosition:radius:waves:amplitude:grid:duration:")]
+		IntPtr Constructor (PointF position, float radius, int waves, float amplitude, Point gridSize, float duration);
+	}
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCShaky3D {
+		[Export ("initWithRange:shakeZ:grid:duration:")]
+		IntPtr Constructor (int range, bool shakeZ, Point gridSize, float duration);
+	}
+
+	[BaseType (typeof (CCGridAction))]
+	interface CCTiledGrid3DAction {
+		[Export ("initWithSize:duration:")]
+		IntPtr Constructor (Point gridSize, float duration);
+
+		[Export ("tile:")]
+		CCQuad3 GetTile (Point position);
+
+		[Export ("originalTile:")]
+		CCQuad3 GetOriginalTile (Point pos);
+
+		[Export ("setTile:coords:")]
+		void SetTil (Point pos, CCQuad3 coords);
+
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseBackIn {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseBackOut {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseBackInOut {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseBounce {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCEaseBounce))]
+	interface CCEaseBounceIn {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCEaseBounce))]
+	interface CCEaseBounceOut {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCEaseBounce))]
+	interface CCEaseBounceInOut {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseElastic {
+		[Export ("period")]
+		float Period { get; set; }
+		
+		[Export ("initWithAction:period:")]
+		IntPtr Constructor (CCActionInterval action , float period);
+	}
+
+	[BaseType (typeof (CCEaseElastic))]
+	interface CCEaseElasticIn {
+		[Export ("initWithAction:period:")]
+		IntPtr Constructor (CCActionInterval action , float period);
+	}
+
+	[BaseType (typeof (CCEaseElastic))]
+	interface CCEaseElasticInOut {
+		[Export ("initWithAction:period:")]
+		IntPtr Constructor (CCActionInterval action , float period);
+	}
+
+	[BaseType (typeof (CCEaseElastic))]
+	interface CCEaseElasticOut {
+		[Export ("initWithAction:period:")]
+		IntPtr Constructor (CCActionInterval action , float period);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseExponentialIn {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseExponentialInOut {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseExponentialOut {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCEaseRateAction))]
+	interface CCEaseIn {
+		[Export ("initWithAction:rate:")]
+		IntPtr Constructor (CCActionInterval action , float rate);
+	}
+
+	[BaseType (typeof (CCEaseRateAction))]
+	interface CCEaseInOut {
+		[Export ("initWithAction:rate:")]
+		IntPtr Constructor (CCActionInterval action , float rate);
+	}
+
+	[BaseType (typeof (CCEaseRateAction))]
+	interface CCEaseOut {
+		[Export ("initWithAction:rate:")]
+		IntPtr Constructor (CCActionInterval action , float rate);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseRateAction {
+		[Export ("floatrate")]
+		float Rate { get; set; }
+
+		[Export ("initWithAction:rate:")]
+		IntPtr Constructor (CCActionInterval action , float rate);
+	}
+	
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseSineIn {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseSineInOut {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionEase))]
+	interface CCEaseSineOut {
+		[Export ("initWithAction:")]
+		IntPtr Constructor (CCActionInterval action);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCDeccelAmplitude {
+		[Export ("rate")]
+		float Rate { get; set; }
+
+		[Export ("initWithAction:duration:")]
+		IntPtr Constructor (CCAction action, float d);
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCGridAction {
+		[Export ("gridSize")]
+		Point GridSize { get; set; }
+
+		[Export ("initWithSize:duration:")]
+		IntPtr Constructor (Point gridSize, float duration);
+
+		[Export ("grid")]
+		CCGridBase Grid ();
+	}
+
+	[BaseType (typeof (CCGridAction))]
+	interface CCGrid3DAction {
+		[Export ("vertex:")]
+		Vector3 GetVertex (Point pos);
+
+		[Export ("originalVertex:")]
+		Vector3 GetOriginalVertex (Point pos);
+
+		[Export ("setVertex:vertex:")]
+		void SetVertex (Point position, Vector3 vertex);
+
+		[Export ("initWithSize:duration:")]
+		IntPtr Constructor (Point gridSize, float duration);
+
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCReuseGrid {
+		[Export ("initWithTimes:")]
+		IntPtr Constructor (int times);
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCFlipX {
+		[Export ("initWithFlipX:")]
+		IntPtr Constructor (bool flipped);
+
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCFlipY {
+		[Export ("initWithFlipY:")]
+		IntPtr Constructor  (bool flipped);
+
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCPlace {
+		[Export ("initWithPosition:")]
+		IntPtr Constructor (PointF position);
+	}
+
+	[BaseType (typeof (CCActionInstant))]
+	interface CCCallBlock {
+		[Export ("initWithBlock:")]
+		IntPtr Constructor (NSAction action);
+
+		[Export ("execute")]
+		void Execute ();
+	}
+
+	[BaseType (typeof (CCGrid3DAction))]
+	interface CCPageTurn3D {
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCProgressTo {
+		[Export ("initWithDuration:percent:")]
+		IntPtr Constructor (float duration, float percent);
+
+	}
+
+	[BaseType (typeof (CCActionInterval))]
+	interface CCProgressFromTo {
+		[Export ("initWithDuration:from:to:")]
+		IntPtr Constructor (float duration, float fromPercentage, float toPercentage);
+
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCGridBase {
+		[Export ("active")]
+		bool Active { get; set;  }
+
+		[Export ("reuseGrid")]
+		int ReuseGrid { get; set;  }
+
+		[Export ("gridSize")]
+		Point GridSize { get;  }
+
+		[Export ("step")]
+		PointF Step { get; set;  }
+
+		[Export ("texture")]
+		CCTexture2D Texture { get; set;  }
+
+		[Export ("grabber")]
+		CCGrabber Grabber { get; set;  }
+
+		[Export ("isTextureFlipped")]
+		bool IsTextureFlipped { get; set;  }
+
+		[Export ("initWithSize:texture:flippedTexture:")]
+		IntPtr Constructor (Point gridSize, CCTexture2D texture, bool flippedTexture);
+
+		[Export ("initWithSize:")]
+		IntPtr Constructor (Point gridSize);
+
+		[Export ("beforeDraw")]
+		void BeforeDraw ();
+
+		[Export ("afterDraw:")]
+		void AfterDraw (CCNode target);
+
+		[Export ("blit")]
+		void Blit ();
+
+		[Export ("reuse")]
+		void Reuse ();
+
+		[Export ("calculateVertexPoints")]
+		void CalculateVertexPoints ();
+
+	}
+
+	[BaseType (typeof (CCGridBase))]
+	interface CCGrid3D {
+		[Export ("vertex:")]
+		Vector3 GetVertex (Point pos);
+
+		[Export ("originalVertex:")]
+		Vector3 GetOriginalVertex (Point pos);
+
+		[Export ("setVertex:vertex:")]
+		void SetVertex (Point pos, Vector3 vertex);
+
+	}
+
+	[BaseType (typeof (CCGridBase))]
+	interface CCTiledGrid3D {
+		[Export ("tile:")]
+		CCQuad3 GetTile (Point pos);
+
+		[Export ("originalTile:")]
+		CCQuad3 GetOriginalTile (Point pos);
+
+		[Export ("setTile:coords:")]
+		void SetTile (Point pos, CCQuad3 coords);
+
+	}	
+
+	[BaseType (typeof (NSObject))]
+	interface CCGrabber {
+		[Export ("grab:")]
+		void Grab (CCTexture2D texture);
+
+		[Export ("beforeRender:")]
+		void BeforeRender (CCTexture2D texture);
+
+		[Export ("afterRender:")]
+		void AfterRender (CCTexture2D texture);
 	}
 }

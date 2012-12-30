@@ -8,6 +8,7 @@
 //
 using System.Runtime.InteropServices;
 using System.Drawing;
+using OpenTK;
 
 namespace MonoTouch.Cocos2D {
 
@@ -123,18 +124,22 @@ namespace MonoTouch.Cocos2D {
 		public V3F_C4B_T2F BottomLeft;
 		public V3F_C4B_T2F TopRight;
 		public V3F_C4B_T2F BottomRight;
-	} 
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct CCQuad2 {
+		public Vector2 TopLeft, TopRight, BottomLeft, BottomRight;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct CCQuad3 {
+		public Vector3 BottomLeft, BottomRight, TopLeft, TopRight;
+	}
 
 	public enum TextAlignment {
 		Left,
 		Center,
 		Right,
-	}
-
-	[StructLayout (LayoutKind.Sequential)]
-	public struct Vertex2F {
-		public float X;
-		public float Y;
 	}
 	
 }
