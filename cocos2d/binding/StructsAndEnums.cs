@@ -64,6 +64,22 @@ namespace MonoTouch.Cocos2D {
 		}
 	}
 
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Color4F {
+		public float R;
+		public float G;
+		public float B;
+		public float A;
+
+		public Color4F (float r, float g, float b, float a) {
+			R = r;
+			G = g;
+			B = b;
+			A = a;
+		}
+	}
+
+
 	public enum CCDirectorProjection {
 		TwoD,
 		ThreeD,
@@ -141,5 +157,80 @@ namespace MonoTouch.Cocos2D {
 		Center,
 		Right,
 	}
+
+	public enum CCOSVersion {
+		iOSVersion_4_0   = 0x04000000,
+		iOSVersion_4_0_1 = 0x04000100,
+		iOSVersion_4_1   = 0x04010000,
+		iOSVersion_4_2   = 0x04020000,
+		iOSVersion_4_2_1 = 0x04020100,
+		iOSVersion_4_3   = 0x04030000,
+		iOSVersion_4_3_1 = 0x04030100,
+		iOSVersion_4_3_2 = 0x04030200,
+		iOSVersion_4_3_3 = 0x04030300,
+		iOSVersion_4_3_4 = 0x04030400,
+		iOSVersion_4_3_5 = 0x04030500,
+		iOSVersion_5_0   = 0x05000000,
+		iOSVersion_5_0_1 = 0x05000100,
+		iOSVersion_5_1_0 = 0x05010000,
+		iOSVersion_6_0_0 = 0x06000000,
+		
+		MacVersion_10_6  = 0x0a060000,
+		MacVersion_10_7  = 0x0a070000,
+		MacVersion_10_8  = 0x0a080000,
+	}
+
+	public enum CCParticleEmitterMode {
+		Gravity,
+		Radius
+	}
+
+	public enum CCPositionType {
+		Free, Relative, Grouped
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct CCParticleModeA {
+		public PointF Direction;
+		public float RadialAcceleration;
+		public float TangentialAcceleration;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct CCParticleModeB {
+		public float Angle;
+		public float DegreesPerSecond;
+		public float Radius;
+		public float DeltaRadius;
+	}
 	
+	[StructLayout (LayoutKind.Explicit)]
+	public struct CCParticleUnion {
+		[FieldOffset (0)]
+		CCParticleModeA A;
+
+		[FieldOffset (0)]
+		CCParticleModeB B;
+	}
+	
+	[StructLayout (LayoutKind.Sequential)]
+	public struct CCParticle {
+		public PointF Position;
+		public PointF StartPosition;
+
+		public Color4F Color;
+		public Color4F DeltaColor;
+
+		public float Size;
+		public float DeltaSize;
+
+		public float Rotation;
+		public float DeltaRotation;
+
+		public float TimeToLive;
+
+		public uint AtlasIndex;
+
+		public CCParticleUnion Mode;
+	}
 }

@@ -176,4 +176,20 @@ namespace MonoTouch.Cocos2D {
 		[DllImport ("__Internal", EntryPoint="ccCardinalSplineAt")]
 		public extern static PointF GetPosition (PointF p0, PointF p1, PointF p2, PointF p3, float tension, float time);
 	}
+
+	public partial class CCDirector {
+		[Obsolete ("Poorly named, use PushScene instead")]
+		public void Push (CCScene scene)
+		{
+			PushScene (scene);
+		}
+	}
+
+	public partial class CCLabelBMFont {
+		public float Width {
+			set {
+				SetWidth (value);
+			}
+		}
+	}
 }	
