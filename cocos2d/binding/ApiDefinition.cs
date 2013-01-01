@@ -9,6 +9,7 @@
 // Copyright 2012 S. Delcroix
 //
 // Missing:
+//    PostGets on types that contain children
 //    P/Invokes for CCDrawingPrimitives
 //    Manual bindings for CCLayerMultiplex, since it takes a va_list
 //    Manual bindings for CCMenuItemToggle's constructor
@@ -1651,32 +1652,46 @@ namespace MonoTouch.Cocos2D {
 		float TimeScale { get; set; }
 
 		[Export ("scheduleSelector:forTarget:interval:paused:repeat:delay:")]
-		[Internal]
-		void Schedule (Selector selector, NSObject target, float interval, bool paused, uint repeat, float delay);
+		void ScheduleSelector (Selector selector, NSObject target, float interval, bool paused, uint repeat, float delay);
 
 		[Export ("scheduleSelector:forTarget:interval:paused:")]
-		[Internal]
-		void Schedule (Selector selector, NSObject target, float interval, bool paused);
+		void ScheduleSelector (Selector selector, NSObject target, float interval, bool paused);
 
 		[Export ("scheduleUpdateForTarget:priority:paused:")]
-		[Internal]
 		void ScheduleUpdate (NSObject target, int priority, bool paused);
 
 		[Export ("unscheduleSelector:forTarget:")]
-		[Internal]
-		void Unschedule (Selector sel, NSObject target);
+		void UnscheduleSelector (Selector sel, NSObject target);
 
 		[Export ("unscheduleUpdateForTarget:")]
-		[Internal]
 		void UnscheduleUpdate (NSObject target);
 
 		[Export ("unscheduleAllSelectorsForTarget:")]
-		[Internal]
 		void UnscheduleAllSelectors (NSObject target);
 
 		[Export ("unscheduleAllSelectors")]
-		[Internal]
 		void UnscheduleAllSelectors ();
+
+		[Export ("update:")]
+		void Update (float deltaTime);
+
+		[Export ("pauseTarget:")]
+		void PauseTarget (NSObject target);
+
+		[Export ("resumeTarget:")]
+		void ResumeTarget (NSObject target);
+
+		[Export ("isTargetPaused:")]
+		bool IsTargetPaused (NSObject target);
+
+		[Export ("pauseAllTargets")]
+		NSSet PauseAllTargets ();
+
+		[Export ("pauseAllTargetsWithMinPriority:")]
+		NSSet PauseAllTargetsWithMinPriority (int minPriority);
+
+		[Export ("resumeTargets:")]
+		void ResumeTargets (NSSet targetsToResume);
 	}
 
 	[BaseType (typeof (CCActionInterval))]
@@ -2725,6 +2740,103 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("disableParticle:")]
 		void DisableParticle (uint particleIndex);
+
+	}
+
+	[BaseType (typeof (CCNode))]
+	interface CCProgressTimer {
+		[Export ("opacity")]
+		byte Opacity { get; set;  }
+
+		[Export ("type")]
+		CCProgressTimerType Type { get; set;  }
+
+		[Export ("reverseDirection")]
+		bool ReverseDirection { get; set;  }
+
+		[Export ("vertexData")]
+		V2F_C4B_T2F VertexData { get;  }
+
+		[Export ("vertexDataCount")]
+		int VertexDataCount { get;  }
+
+		[Export ("midpoint")]
+		PointF Midpoint { get; set;  }
+
+		[Export ("barChangeRate")]
+		PointF BarChangeRate { get; set;  }
+
+		[Export ("percentage")]
+		float Percentage { get; set;  }
+
+		[Export ("sprite")]
+		CCSprite Sprite { get; set;  }
+
+		[Export ("initWithSprite:")]
+		IntPtr Constructor (CCSprite sprite);
+	}
+
+	[BaseType (typeof (CCNode))]
+	interface CCRenderTexture {
+		[Export ("sprite")]
+		CCSprite Sprite { get; set;  }
+
+		[Export ("initWithWidth:height:pixelFormat:")]
+		IntPtr Constructor (int width, int height, CCTexture2DPixelFormat pixelFormat);
+
+		[Export ("initWithWidth:height:pixelFormat:depthStencilFormat:")]
+		IntPtr Constructor (int width, int height, CCTexture2DPixelFormat pixelFormat, uint openGLdepthStencilFormat);
+
+		[Export ("begin")]
+		void Begin ();
+
+		[Export ("beginWithClear:g:b:a:")]
+		void BeginWithClear (float red, float green, float blue, float alpha);
+
+		[Export ("beginWithClear:g:b:a:depth:")]
+		void BeginWithClear (float red, float green, float blue, float alpha, float depthValue);
+
+		[Export ("beginWithClear:g:b:a:depth:stencil:")]
+		void BeginWithClear (float red, float green, float blue, float alpha, float depthValue, int stencilValue);
+
+		[Export ("end")]
+		void End ();
+
+		[Export ("clear:g:b:a:")]
+		void Clear (float red, float green, float blue, float alpha);
+
+		[Export ("clearDepth:")]
+		void ClearDepth (float depthValue);
+
+		[Export ("clearStencil:")]
+		void ClearStencil (int stencilValue);
+
+		[Export ("newCGImage")]
+		CGImage NewCGImage ();
+
+		[Export ("saveToFile:")]
+		bool SaveToFile (string name);
+
+		[Export ("saveToFile:format:")]
+		bool SaveToFile (string name, CCImageFormat format);
+
+		[Export ("getUIImage")]
+		UIImage GetUIImage ();
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCTimer {
+		[Export ("interval")]
+		float Interval { get; set;  }
+
+		[Export ("initWithTarget:selector:")]
+		IntPtr Constructor (NSObject target, Selector selector);
+
+		[Export ("initWithTarget:selector:interval:repeat:delay:")]
+		IntPtr Constructor (NSObject target, Selector selector, float seconds, int repeat, float delay);
+
+		[Export ("update:")]
+		void Update (float deltaTime);
 
 	}
 }

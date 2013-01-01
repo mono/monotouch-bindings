@@ -87,6 +87,10 @@ namespace MonoTouch.Cocos2D {
 		Default = TwoD,
 	}
 
+	public enum CCImageFormat {
+		JPEG, PNG
+	}
+	
 	public enum CCTexture2DPixelFormat {
 		Rgba8888,
 		Rgb888,
@@ -127,6 +131,13 @@ namespace MonoTouch.Cocos2D {
 		public float V;
 	}
 
+	[StructLayout (LayoutKind.Sequential)]
+	public struct V2F_C4B_T2F {
+		public Vector2 Vertices;
+		public Color4B Colors;
+		public Tex2F  TexCoords;
+	}
+		
 	[StructLayout (LayoutKind.Sequential)]
 	public struct V3F_C4B_T2F {
 		public Vertex3F Vertices;
@@ -232,5 +243,9 @@ namespace MonoTouch.Cocos2D {
 		public uint AtlasIndex;
 
 		public CCParticleUnion Mode;
+	}
+
+	public enum CCProgressTimerType {
+		Radial, Bar
 	}
 }

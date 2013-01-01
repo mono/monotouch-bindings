@@ -82,13 +82,24 @@ namespace MonoTouch.Cocos2D {
 
 		public void Schedule (Action<float> callback, float interval=0, uint repeat=RepeatForever, float delay=0)
 		{
-			scheduler.Schedule(NSActionDispatcherWithFloat.Selector, new NSActionDispatcherWithFloat(callback), interval, !IsRunning, repeat, delay);
+			scheduler.ScheduleSelector(NSActionDispatcherWithFloat.Selector, new NSActionDispatcherWithFloat(callback), interval, !IsRunning, repeat, delay);
 		}
 
 		public void ScheduleOnce (Action<float> callback, float delay)
 		{
 			Schedule (callback, repeat:0, delay:delay);
 		}
+	}
+
+	public partial class CCScheduler {
+		public const uint RepeatForever = uint.MaxValue - 1;
+		public NSObject Schedule (Action<float> callback, float interval=0, bool paused=false, uint repeat=RepeatForever, float delay=0)
+		{
+			var token = new NSActionDispatcherWithFloat (callback);
+			ScheduleSelector (NSActionDispatcherWithFloat.Selector, token, interval, paused, repeat, delay);
+			return token;
+		}
+		
 	}
 
 	public partial class CCMenuItemLabel {
@@ -190,6 +201,12 @@ namespace MonoTouch.Cocos2D {
 			set {
 				SetWidth (value);
 			}
+		}
+	}
+
+	public partial class CCTimer {
+		public CCTimer (NSAction target) : this (new NSActionDispatcher (target), NSActionDispatcher.Selector)
+		{
 		}
 	}
 }	
