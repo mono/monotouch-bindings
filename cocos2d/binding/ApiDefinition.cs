@@ -10,6 +10,7 @@
 //
 // Missing:
 //    PostGets on types that contain children
+//       CCSpriteBatchNode
 //    P/Invokes for CCDrawingPrimitives
 //    Manual bindings for CCLayerMultiplex, since it takes a va_list
 //    Manual bindings for CCMenuItemToggle's constructor
@@ -17,6 +18,7 @@
 // For va_list, we could either:
 //   Add NSArray code in native land manually or
 //   Figure out a way of marshalling the data.
+//   Likely: contribute patches upstream to handle these
 //
 
 using System;
@@ -390,14 +392,8 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithDuration:")]
 		IntPtr Constructor (float duration);
-
-		[Export ("isDone")]
-		bool IsDone { get; }
-
-		[Export ("reverse")]
-		CCActionInterval Reverse ();
 	}
-
+	
 	[BaseType (typeof (CCActionInterval))]
 	interface CCSequence {
 		[Static]
@@ -759,6 +755,34 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("rotated")]
 		bool Rotated { get; set; }	
+
+                [Export ("offsetInPixels")]
+                PointF OffsetInPixels { get; set;  }
+
+                [Export ("originalSize")]
+                SizeF OriginalSize { get; set;  }
+
+                [Export ("originalSizeInPixels")]
+                SizeF OriginalSizeInPixels { get; set;  }
+
+                [Export ("texture")]
+                CCTexture2D Texture { get; set;  }
+
+                [Export ("textureFilename")]
+                string TextureFilename { get;  }
+
+                [Export ("initWithTexture:rect:")]
+                IntPtr Constructor (CCTexture2D texture, RectangleF rect);
+
+                [Export ("initWithTextureFilename:rect:")]
+                IntPtr Constructor (string filename, RectangleF rect);
+
+                [Export ("initWithTexture:rectInPixels:rotated:offset:originalSize:")]
+                IntPtr Constructor (CCTexture2D texture, RectangleF rect, bool rotated, PointF offset, SizeF originalSize);
+
+                [Export ("initWithTextureFilename:rectInPixels:rotated:offset:originalSize:")]
+                IntPtr Constructor (string filename, RectangleF rect, bool rotated, PointF offset, SizeF originalSize);
+
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -770,6 +794,73 @@ namespace MonoTouch.Cocos2D {
 		[Static]
 		[Export ("PVRImagesHavePremultipliedAlpha")]
 		bool PVRImageHavePremultipliedAlpha { [Bind ("PVRImagesHavePremultipliedAlpha:")]set; }
+
+		[Export ("pixelFormat")]
+		CCTexture2DPixelFormat PixelFormat { get;  }
+
+		[Export ("pixelsWide")]
+		int PixelsWide { get;  }
+
+		[Export ("pixelsHigh")]
+		int PixelsHigh { get;  }
+
+		[Export ("name")]
+		uint Name { get;  }
+
+		[Export ("contentSizeInPixels")]
+		SizeF ContentSizeInPixels { get;  }
+
+		[Export ("maxS")]
+		float MaxS { get; set;  }
+
+		[Export ("maxT")]
+		float MaxT { get; set;  }
+
+		[Export ("hasPremultipliedAlpha")]
+		bool HasPremultipliedAlpha { get;  }
+
+		[Export ("shaderProgram")]
+		CCGLProgram ShaderProgram { get; set;  }
+
+		[Export ("initWithData:pixelFormat:pixelsWide:pixelsHigh:contentSize:")]
+		IntPtr Constructor (IntPtr data, CCTexture2DPixelFormat pixelFormat, int width, int height, SizeF size);
+
+		[Export ("releaseData:")]
+		void ReleaseData (IntPtr data);
+
+		[Export ("keepData:length:")]
+		void KeepDatalength (IntPtr data, uint length);
+
+#if !MONOMAC
+		[Export ("resolutionType")]
+		CCResolutionType ResolutionType { get; }
+#endif
+
+		[Export ("contentSize")]
+		SizeF ContentSize ();
+
+		[Export ("drawAtPoint:")]
+		void DrawAtRect (PointF rect);
+		
+		[Export ("drawInRect:")]
+		void DrawInRect (RectangleF rect);
+
+#if MONOMAC
+		[Export ("initWithCGImage:")]
+		IntPtr Constructor (CGImage image);
+#else
+		[Export ("initWithCGImage:resolutionType:")]
+		IntPtr Constructor (CGImage image, CCResolutionType resolutionType);
+#endif
+
+		[Export ("initWithString:dimensions:hAlignment:vAlignment:fontName:fontSize:")]
+		IntPtr Constructor (string text, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, string fontName, float fontSize);
+
+		[Export ("initWithString:fontName:fontSize:")]
+		IntPtr Constructor (string text, string fontName, float fontSize);
+
+		[Export ("initWithPVRFile:")]
+		IntPtr Constructor (string pvrFile);
 	}
 
 	[BaseType (typeof (UIView))]
@@ -939,29 +1030,12 @@ namespace MonoTouch.Cocos2D {
 		[Export ("touchDispatcher")]
 		CCTouchDispatcher TouchDispatcher { get; set; }
 
-		[Export ("projection")]
-		CCDirectorProjection Projection { set; }
-
 		[Export ("enableRetinaDisplay:")]
 		bool EnableRetinaDisplay (bool enableRetina);
-
-		[Export ("startAnimation")]
-		void StartAnimation ();
-
-		[Export ("stopAnimation")]
-		void StopAnimation ();
-
-		[Export ("animationInterval")]
-		double AnimationInterval { set; }
 
 		[Export ("calculateDeltaTime")]
 		void CalculateDeltaTime ();
 
-		[Export("convertToGL:")]
-		PointF ConvertToGL (PointF point);
-
-		[Export("convertToUI:")]
-		PointF ConvertToUI (PointF point);
 	}
 
 	[BaseType (typeof (CCDirectorIOS))]
@@ -1097,7 +1171,7 @@ namespace MonoTouch.Cocos2D {
 		void PurgeCachedData  ();
 
 		[Export("alignment")]
-		TextAlignment Alignment { get; set; }
+		UITextAlignment Alignment { get; set; }
 
 		[Export("fntFile")]
 		string FontFile { get; set; }
@@ -1106,10 +1180,10 @@ namespace MonoTouch.Cocos2D {
 		CCLabelBMFont Constructor (string label, string fontFile);
 
 		[Export ("initWithString:fntFile:width:alignment:")]
-		IntPtr Constructor (string label, string fontFile, float width, TextAlignment alignment);
+		IntPtr Constructor (string label, string fontFile, float width, UITextAlignment alignment);
 
 		[Export ("initWithString:fntFile:width:alignment:imageOffset:")]
-		IntPtr Constructor (string label, string fontFile, float width, TextAlignment alignment, PointF offset);
+		IntPtr Constructor (string label, string fontFile, float width, UITextAlignment alignment, PointF offset);
 
 		[Export ("createFontChars")]
 		void CreateFontChars ();
@@ -1219,10 +1293,10 @@ namespace MonoTouch.Cocos2D {
 		CCArray Descendants { get; }
 
 		[Export ("initWithTexture:capacity:")]
-		IntPtr Constructor (CCTexture2D texture, uint capacity);
+		IntPtr Constructor (CCTexture2D texture, int capacity);
 
 		[Export ("initWithFile:capacity:")]
-		IntPtr Constructor (string filename, uint capacity);
+		IntPtr Constructor (string filename, int capacity);
 
 		[Export ("increaseAtlasCapacity")]
 		void IncreaseAtlasCapacity ();
@@ -1231,34 +1305,53 @@ namespace MonoTouch.Cocos2D {
 		void RemoveChildAtIndex (uint index, bool cleanup);
 
 		[Export ("removeChild:cleanup:")]
-		void RemoveChild(CCSprite sprite, bool cleanup);
+		void RemoveChild (CCSprite sprite, bool cleanup);
 
 		[Export ("insertChild:inAtlasIndex:")]
-		void InsertChild(CCSprite child, uint index);
+		void InsertChild (CCSprite child, uint index);
 	
 		[Export ("appendChild:")]
-		void Append(CCSprite sprite);
+		void Append (CCSprite sprite);
 
 		[Export ("removeSpriteFromAtlas:")]
 		void RemoveSpriteFromAtlas(CCSprite sprite);
 
 		[Export ("rebuildIndexInOrder:atlasIndex:")]
-		uint RebuildIndexInOrder (CCSprite parent, uint altalIndex);
+		uint RebuildIndexInOrder (CCSprite parent, int altalIndex);
 
 		[Export ("atlasIndexForChild:atZ:")]
-		uint AtlasIndexForChild(CCSprite sprite, int atZ);
+		int AtlasIndexForChild(CCSprite sprite, int atZ);
+
+		[Export ("reorderBatch:")]
+		void ReorderBatch (bool reorder);
+
+		[Export ("addQuadFromSprite:quadIndex:")]
+		void AddQuadFromSprite (CCSprite sprite, uint quadIndex);
 	}
 
 	[BaseType (typeof (CCNode))]
-	interface CCSprite {
+	interface CCSprite : CCRGBAProtocol, CCTextureProtocol {
+		[Export ("initWithTexture:")]
+		IntPtr Constructor (CCTexture2D texture);
+
 		[Export ("initWithTexture:rect:rotated:")]
 		IntPtr Constructor (CCTexture2D texture, RectangleF rect, bool rotated);
 
 		[Export ("initWithTexture:rect:")]
 		IntPtr Constructor (CCTexture2D texture, RectangleF rect);
 
-		[Export ("initWithTexture:rect:")]
-		IntPtr Constructor (CCTexture2D texture);
+		[Export ("initWithSpriteFrame:")]
+		IntPtr Constructor (CCSpriteFrame spriteFrame);
+
+		[Static]
+		[Export ("spriteWithFile:")]
+		[Autorelease]
+		CCSprite FromSpriteFile (string filename);
+
+		[Static]
+		[Export ("spriteWithFile:rect:")]
+		[Autorelease]
+		CCSprite FromSpriteFile (string filename, RectangleF rect);
 
 		[Export ("initWithFile:")]
 		IntPtr Constructor (string filename);
@@ -1266,18 +1359,63 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initWithFile:rect:")]
 		IntPtr Constructor (string filename, RectangleF rect);
 
-//		[Export ("initWithCGImage:key:")]
-//		CCSprite Constructor (CGImage image, string key);
-
-		[Export ("description")]
-//		[Override]
-		string ToString ();
+		[Export ("initWithCGImage:key:")]
+		NSObject InitWithCGImagekey (CGImage image, string key);
 
 		[Export ("dirty")]
 		bool Dirty { get; set; }
 	
-		[Export("opacity")]
-		byte Opacity { get; set; }
+		//Detected properties
+		[Export ("displayFrame")]
+		CCSpriteFrame DisplayFrame { get; set; }
+
+		// mehods
+
+		[Export ("quad")]
+		V3F_C4B_T2F_Quad Quad { get;  }
+
+		[Export ("atlasIndex")]
+		uint AtlasIndex { get; set;  }
+
+		[Export ("textureRect")]
+		RectangleF TextureRect { get;  }
+
+		[Export ("textureRectRotated")]
+		bool TextureRectRotated { get;  }
+
+		[Export ("flipX")]
+		bool FlipX { get; set;  }
+
+		[Export ("flipY")]
+		bool FlipY { get; set;  }
+
+		[Export ("textureAtlas")]
+		CCTextureAtlas TextureAtlas { get; set;  }
+
+		[Export ("batchNode")]
+		CCSpriteBatchNode BatchNode { get; set;  }
+
+		[Export ("offsetPosition")]
+		PointF OffsetPosition { get;  }
+
+		[Export ("updateTransform")]
+		void UpdateTransform ();
+
+		[Export ("setTextureRect:")]
+		void SetTextureRect (RectangleF rect);
+
+		[Export ("setTextureRect:rotated:untrimmedSize:")]
+		void SetTextureRect (RectangleF rect, bool rotated, SizeF untrimmedSize);
+
+		[Export ("setVertexRect:")]
+		void SetVertexRect (RectangleF rect);
+
+		[Export ("isFrameDisplayed:")]
+		bool IsFrameDisplayed (CCSpriteFrame frame);
+
+		[Export ("setDisplayFrameWithAnimationName:index:")]
+		void SetDisplayFrame (string animationName, int frameIndex);
+
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -2837,6 +2975,122 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("update:")]
 		void Update (float deltaTime);
+
+	}
+
+
+	[BaseType (typeof (NSObject))]
+	interface CCShaderCache {
+		[Static]
+		[Export ("sharedShaderCache")]
+		CCShaderCache SharedShaderCache { get; }
+
+		[Static]
+		[Export ("purgeSharedShaderCache")]
+		void PurgeSharedShaderCache ();
+
+		[Export ("loadDefaultShaders")]
+		void LoadDefaultShaders ();
+
+		[Export ("programForKey:")]
+		CCGLProgram GetProgram (string key);
+
+		[Export ("addProgram:forKey:")]
+		void AddProgram (CCGLProgram program, string key);
+	}
+	
+
+	[BaseType (typeof (NSObject))]
+	interface CCGLProgram {
+		[Export ("initWithVertexShaderByteArray:fragmentShaderByteArray:")]
+		IntPtr Constructor (IntPtr vShaderByteArray, IntPtr fShaderByteArray);
+
+		[Export ("initWithVertexShaderFilename:fragmentShaderFilename:")]
+		IntPtr Constructor (string vertexShaderFilename, string fragmentShaderFilename);
+
+		[Export ("addAttribute:index:")]
+		void AddAttribute (string attributeName, uint index);
+
+		[Export ("link")]
+		bool Link ();
+
+		[Export ("use")]
+		void Use ();
+
+		[Export ("updateUniforms")]
+		void UpdateUniforms ();
+
+		[Export ("setUniformLocation:withI1:")]
+		void SetUniformLocation (uint location, int i1);
+
+		[Export ("setUniformLocation:withF1:")]
+		void SetUniformLocation (uint location, float f1);
+
+		[Export ("setUniformLocation:withF1:f2:")]
+		void SetUniformLocation (uint location, float f1, float f2);
+
+		[Export ("setUniformLocation:withF1:f2:f3:")]
+		void SetUniformLocation (uint location, float f1, float f2, float f3);
+
+		[Export ("setUniformLocation:withF1:f2:f3:f4:")]
+		void SetUniformLocation (uint location, float f1, float f2, float f3, float f4);
+
+		//[Export ("setUniformLocation:with2fv:count:")]
+		//unsafe void SetUniformLocation2f (uint location, float *floats, uint numberOfArrays);
+		//
+		//[Export ("setUniformLocation:with3fv:count:")]
+		//unsafe void SetUniformLocation3f (uint location, float* floats, uint numberOfArrays);
+		//
+		//[Export ("setUniformLocation:with4fv:count:")]
+		//unsafe void SetUniformLocation4f (uint location, float *floats, uint numberOfArrays);
+		//
+		//[Export ("setUniformLocation:withMatrix4fv:arraycount:")]
+		//unsafe void SetUniformLocationMatrix4 (uint location, float *matrix_array, uint numberOfMatrix);
+
+		[Export ("setUniformForModelViewProjectionMatrix")]
+		void SetUniformForModelViewProjectionMatrix ();
+
+		[Export ("vertexShaderLog")]
+		string GetVertexShaderLog ();
+
+		[Export ("fragmentShaderLog")]
+		string GetFragmentShaderLog ();
+
+		[Export ("programLog")]
+		string GetProgramLog ();
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCSpriteFrameCache {
+		[Export ("addSpriteFramesWithFile:")]
+		void AddSpriteFrames (string plist);
+
+		[Export ("addSpriteFramesWithFile:textureFilename:")]
+		void AddSpriteFrames (string plist, string textureFilename);
+
+		[Export ("addSpriteFramesWithFile:texture:")]
+		void AddSpriteFrames (string plist, CCTexture2D texture);
+
+		[Export ("addSpriteFrame:name:")]
+		void AddSpriteFrame (CCSpriteFrame frame, string frameName);
+
+		[Export ("removeSpriteFrames")]
+		void RemoveSpriteFrames ();
+
+		[Export ("removeUnusedSpriteFrames")]
+		void RemoveUnusedSpriteFrames ();
+
+		[Export ("removeSpriteFrameByName:")]
+		void RemoveSpriteFrameByName (string name);
+
+		[Export ("removeSpriteFramesFromFile:")]
+		void RemoveSpriteFramesFromFile (string plist);
+
+		[Export ("removeSpriteFramesFromTexture:")]
+		void RemoveSpriteFramesFromTexture (CCTexture2D texture);
+
+		[Export ("spriteFrameByName:")]
+		CCSpriteFrame SpriteFrameByName (string name);
 
 	}
 }

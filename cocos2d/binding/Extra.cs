@@ -162,7 +162,7 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	public partial class CCSpriteBatchNode {
-		const uint DEFAULTCAPACITY = 29; 
+		const int DEFAULTCAPACITY = 29; 
 		public CCSpriteBatchNode (CCTexture2D texture) : this (texture, DEFAULTCAPACITY)
 		{
 		}

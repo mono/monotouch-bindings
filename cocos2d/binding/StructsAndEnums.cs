@@ -119,13 +119,6 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct Vertex3F {
-		public float X;
-		public float Y;
-		public float Z;
-	}
-
-	[StructLayout (LayoutKind.Sequential)]
 	public struct Tex2F {
 		public float U;
 		public float V;
@@ -140,7 +133,7 @@ namespace MonoTouch.Cocos2D {
 		
 	[StructLayout (LayoutKind.Sequential)]
 	public struct V3F_C4B_T2F {
-		public Vertex3F Vertices;
+		public Vector3 Vertices;
 		public Color4B Colors;
 		public Tex2F TexCoords;
 	}
@@ -163,12 +156,10 @@ namespace MonoTouch.Cocos2D {
 		public Vector3 BottomLeft, BottomRight, TopLeft, TopRight;
 	}
 
-	public enum TextAlignment {
-		Left,
-		Center,
-		Right,
+	public enum CCVerticalTextAlignment {
+		Top, Center, Bottom
 	}
-
+	
 	public enum CCOSVersion {
 		iOSVersion_4_0   = 0x04000000,
 		iOSVersion_4_0_1 = 0x04000100,
@@ -218,10 +209,10 @@ namespace MonoTouch.Cocos2D {
 	[StructLayout (LayoutKind.Explicit)]
 	public struct CCParticleUnion {
 		[FieldOffset (0)]
-		CCParticleModeA A;
+		public CCParticleModeA A;
 
 		[FieldOffset (0)]
-		CCParticleModeB B;
+		public CCParticleModeB B;
 	}
 	
 	[StructLayout (LayoutKind.Sequential)]
@@ -247,5 +238,14 @@ namespace MonoTouch.Cocos2D {
 
 	public enum CCProgressTimerType {
 		Radial, Bar
+	}
+
+	public enum CCResolutionType {
+		Unknown,
+#if MONOMAC
+		Mac, MacRetina
+#else
+		iPhone, iPhoneRetinaDisplay, iPad, iPadRetinaDisplay
+#endif
 	}
 }
