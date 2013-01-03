@@ -1204,7 +1204,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, Point gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, Size gridSize, float duration);
 	}
 
 	interface CCBlendProtocol {
@@ -1888,7 +1888,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithPosition:twirls:amplitude:grid:duration:")]
-		IntPtr Constructor (PointF position, int twirls, float amplitude, Point gridSize, float duration);
+		IntPtr Constructor (PointF position, int twirls, float amplitude, Size gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCGrid3DAction))]
@@ -1900,7 +1900,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:horizontal:vertical:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, bool horizontal, bool vertical, Point gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, bool horizontal, bool vertical, Size gridSize, float duration);
 
 	}
 
@@ -1913,7 +1913,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, Point gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, Size gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCActionInstant))]
@@ -2028,13 +2028,13 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCGrid3DAction))]
 	interface CCShaky3D {
 		[Export ("initWithRange:shakeZ:grid:duration:")]
-		IntPtr Constructor (int range, bool shakeZ, Point gridSize, float duration);
+		IntPtr Constructor (int range, bool shakeZ, Size gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCGridAction))]
 	interface CCTiledGrid3DAction {
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Point gridSize, float duration);
+		IntPtr Constructor (Size gridSize, float duration);
 
 		[Export ("tile:")]
 		CCQuad3 GetTile (Point position);
@@ -2194,7 +2194,7 @@ namespace MonoTouch.Cocos2D {
 		Point GridSize { get; set; }
 
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Point gridSize, float duration);
+		IntPtr Constructor (Size gridSize, float duration);
 
 		[Export ("grid")]
 		CCGridBase Grid ();
@@ -2212,7 +2212,7 @@ namespace MonoTouch.Cocos2D {
 		void SetVertex (Point position, Vector3 vertex);
 
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Point gridSize, float duration);
+		IntPtr Constructor (Size gridSize, float duration);
 
 	}
 
@@ -2293,10 +2293,10 @@ namespace MonoTouch.Cocos2D {
 		bool IsTextureFlipped { get; set;  }
 
 		[Export ("initWithSize:texture:flippedTexture:")]
-		IntPtr Constructor (Point gridSize, CCTexture2D texture, bool flippedTexture);
+		IntPtr Constructor (Size gridSize, CCTexture2D texture, bool flippedTexture);
 
 		[Export ("initWithSize:")]
-		IntPtr Constructor (Point gridSize);
+		IntPtr Constructor (Size gridSize);
 
 		[Export ("beforeDraw")]
 		void BeforeDraw ();
@@ -2357,21 +2357,21 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCTiledGrid3DAction))]
 	interface CCShakyTiles3D {
 		[Export ("initWithRange:shakeZ:grid:duration:")]
-		IntPtr Constructor (int range, bool shakeZ, Point gridSize, float duration);
+		IntPtr Constructor (int range, bool shakeZ, Size gridSize, float duration);
 
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
 	interface CCShatteredTiles3D {
 		[Export ("initWithRange:shatterZ:grid:duration:")]
-		IntPtr Constructor (int range, bool shatterZ, Point gridSize, float duration);
+		IntPtr Constructor (int range, bool shatterZ, Size gridSize, float duration);
 
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
 	interface CCShuffleTiles {
 		[Export ("initWithSeed:grid:duration:")]
-		IntPtr Constructor (int seed, Point gridSize, float duration);
+		IntPtr Constructor (int seed, Size gridSize, float duration);
 
 	}
 
@@ -2394,7 +2394,7 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCTiledGrid3DAction))]
 	interface CCTurnOffTiles {
 		[Export ("initWithSeed:grid:duration:")]
-		IntPtr Constructor (int seed, Point gridSize, float duration);
+		IntPtr Constructor (int seed, Size gridSize, float duration);
 
 	}
 
@@ -2407,7 +2407,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, Point gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, Size gridSize, float duration);
 
 	}
 
@@ -2420,7 +2420,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithJumps:amplitude:grid:duration:")]
-		IntPtr Constructor (int jumps, float amplitude, Point gridSize, float duration);
+		IntPtr Constructor (int jumps, float amplitude, Size gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -3091,6 +3091,102 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("spriteFrameByName:")]
 		CCSpriteFrame SpriteFrameByName (string name);
-
 	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCTextureCache {
+		[Static]
+		[Export ("sharedTextureCache")]
+		CCTextureCache SharedTextureCache { get; }
+
+		[Static]
+		[Export ("purgeSharedTextureCache")]
+		void PurgeSharedTextureCache ();
+
+		[Export ("addImage:")]
+		CCTexture2D AddImage (string fileImage);
+
+		[Export ("addImageAsync:target:selector:")]
+		void AddImageAsync (string filename, NSObject target, Selector selector);
+
+		[Export ("addImageAsync:withBlock:")]
+		void AddImageAsync (string filename, Action<CCTexture2D> callback);
+
+		[Export ("addCGImage:forKey:")]
+		CCTexture2D AddCGImage (CGImage image, string key);
+
+		[Export ("textureForKey:")]
+		CCTexture2D GetTexture (string textureKeyName);
+
+		[Export ("removeAllTextures")]
+		void RemoveAllTextures ();
+
+		[Export ("removeUnusedTextures")]
+		void RemoveUnusedTextures ();
+
+		[Export ("removeTexture:")]
+		void RemoveTexture (CCTexture2D tex);
+
+		[Export ("removeTextureForKey:")]
+		void RemoveTexture (string textureKeyName);
+
+		[Export ("addPVRImage:")]
+		CCTexture2D AddPVRImage (string filename);
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCTexturePVR {
+		[Export ("name")]
+		uint Name { get;  }
+
+		[Export ("width")]
+		int Width { get;  }
+
+		[Export ("height")]
+		int Height { get;  }
+
+		[Export ("hasAlpha")]
+		bool HasAlpha { get;  }
+
+		[Export ("numberOfMipmaps")]
+		int NumberOfMipmaps { get;  }
+
+		[Export ("retainName")]
+		bool RetainName { get; set;  }
+
+		[Export ("format")]
+		CCTexture2DPixelFormat Format { get;  }
+
+		[Export ("initWithContentsOfFile:")]
+		IntPtr Constructor (string path);
+
+		[Export ("initWithContentsOfURL:")]
+		IntPtr Constructor (NSUrl url);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionPageTurn {
+		[Export ("initWithDuration:scene:backwards:")]
+		IntPtr Constructor (float duration, CCScene scene, bool backwards);
+
+		[Export ("actionWithSize:")]
+		CCActionInterval ActionWithSize (Size vector);
+	}
+
+	[BaseType (typeof (CCTransitionScene))]
+	interface CCTransitionProgress {
+	}
+
+	[BaseType (typeof (CCTransitionProgress))]
+	interface CCTransitionProgressRadialCCW {
+	}
+
+	[BaseType (typeof (CCTransitionProgress))]
+	interface CCTransitionProgressHorizontal {
+	}
+
+	[BaseType (typeof (CCTransitionProgress))]
+	interface CCTransitionProgressInOut {
+	}
+
 }
