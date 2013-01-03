@@ -4,8 +4,9 @@
 // Author:
 //   Miguel de Icaza
 //
-// Copyright 2011 Xamarin, Inc.
+// Copyright 2011, 2012, 2013 Xamarin, Inc.
 //
+using System;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using OpenTK;
@@ -20,43 +21,43 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct Color3B {
+	public struct CCColor3B {
 		public byte R;
 		public byte G;
 		public byte B;
 
-		public Color3B (byte r, byte g, byte b) {
+		public CCColor3B (byte r, byte g, byte b) {
 			R = r;
 			G = g;
 			B = b;
 		}
 
-		public static Color3B White { get {return new Color3B(0xff,0xff,0xff);}}
-		public static Color3B Yellow { get {return new Color3B(0xff,0xff,0);}}
-		public static Color3B Blue { get {return new Color3B(0,0,0xff);}}
-		public static Color3B Green { get {return new Color3B(0,0xff,0);}}
-		public static Color3B Red { get {return new Color3B(0xff,0,0);}}
-		public static Color3B Magenta { get {return new Color3B(0xff, 0, 0xff);}}
-		public static Color3B Black { get {return new Color3B(0,0,0);}}
-		public static Color3B Orange { get {return new Color3B(0xff,0x7f,0);}}
-		public static Color3B Gray { get {return new Color3B(0xa6,0xa6,0xa6);}}
+		public static CCColor3B White { get {return new CCColor3B(0xff,0xff,0xff);}}
+		public static CCColor3B Yellow { get {return new CCColor3B(0xff,0xff,0);}}
+		public static CCColor3B Blue { get {return new CCColor3B(0,0,0xff);}}
+		public static CCColor3B Green { get {return new CCColor3B(0,0xff,0);}}
+		public static CCColor3B Red { get {return new CCColor3B(0xff,0,0);}}
+		public static CCColor3B Magenta { get {return new CCColor3B(0xff, 0, 0xff);}}
+		public static CCColor3B Black { get {return new CCColor3B(0,0,0);}}
+		public static CCColor3B Orange { get {return new CCColor3B(0xff,0x7f,0);}}
+		public static CCColor3B Gray { get {return new CCColor3B(0xa6,0xa6,0xa6);}}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct Color4B {
+	public struct CCColor4B {
 		public byte R;
 		public byte G;
 		public byte B;
 		public byte A;
 
-		public Color4B (byte r, byte g, byte b, byte a) {
+		public CCColor4B (byte r, byte g, byte b, byte a) {
 			R = r;
 			G = g;
 			B = b;
 			A = a;
 		}
 
-		public Color4B (Color3B color, byte a) {
+		public CCColor4B (CCColor3B color, byte a) {
 			R = color.R;
 			G = color.G;
 			B = color.B;
@@ -65,13 +66,13 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct Color4F {
+	public struct CCColor4F {
 		public float R;
 		public float G;
 		public float B;
 		public float A;
 
-		public Color4F (float r, float g, float b, float a) {
+		public CCColor4F (float r, float g, float b, float a) {
 			R = r;
 			G = g;
 			B = b;
@@ -105,7 +106,7 @@ namespace MonoTouch.Cocos2D {
 		Default = Rgba8888
 	}
 
-	public enum Orientation {
+	public enum CCOrientation {
 		LeftOver = 0,
 		RightOver = 1,
 		UpOver = 0,
@@ -113,37 +114,37 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct BlendFunc {
+	public struct CCBlendFunc {
 		public uint Src;
 		public uint Dst;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct Tex2F {
+	public struct CCTex2F {
 		public float U;
 		public float V;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct V2F_C4B_T2F {
+	public struct CCV2F_C4B_T2F {
 		public Vector2 Vertices;
-		public Color4B Colors;
-		public Tex2F  TexCoords;
+		public CCColor4B Colors;
+		public CCTex2F  TexCoords;
 	}
 		
 	[StructLayout (LayoutKind.Sequential)]
-	public struct V3F_C4B_T2F {
+	public struct CCV3F_C4B_T2F {
 		public Vector3 Vertices;
-		public Color4B Colors;
-		public Tex2F TexCoords;
+		public CCColor4B Colors;
+		public CCTex2F TexCoords;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct V3F_C4B_T2F_Quad {
-		public V3F_C4B_T2F TopLeft;
-		public V3F_C4B_T2F BottomLeft;
-		public V3F_C4B_T2F TopRight;
-		public V3F_C4B_T2F BottomRight;
+	public struct CCV3F_C4B_T2F_Quad {
+		public CCV3F_C4B_T2F TopLeft;
+		public CCV3F_C4B_T2F BottomLeft;
+		public CCV3F_C4B_T2F TopRight;
+		public CCV3F_C4B_T2F BottomRight;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -220,8 +221,8 @@ namespace MonoTouch.Cocos2D {
 		public PointF Position;
 		public PointF StartPosition;
 
-		public Color4F Color;
-		public Color4F DeltaColor;
+		public CCColor4F Color;
+		public CCColor4F DeltaColor;
 
 		public float Size;
 		public float DeltaSize;
@@ -247,5 +248,14 @@ namespace MonoTouch.Cocos2D {
 #else
 		iPhone, iPhoneRetinaDisplay, iPad, iPadRetinaDisplay
 #endif
+	}
+
+	[Flags]
+	public enum CCTMXTileFlags : uint {
+		Horizontal = 0x80000000,
+		Vertical = 0x40000000,
+		Diagonal = 0x20000000,
+		FlippedAll = Horizontal | Vertical | Diagonal,
+		FlippedMask = ~FlippedAll
 	}
 }

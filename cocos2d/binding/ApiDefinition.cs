@@ -5,7 +5,7 @@
 //   Miguel de Icaza
 //   Stephane Delcroix
 //
-// Copyright 2011, 2012 Xamarin, Inc.
+// Copyright 2011, 2012, 2013 Xamarin, Inc.
 // Copyright 2012 S. Delcroix
 //
 // Missing:
@@ -1118,10 +1118,10 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCLayer))]
 	interface CCLayerColor : CCRGBAProtocol, CCBlendProtocol {
 		[Export ("initWithColor:width:height:")]
-		IntPtr Constructor (Color4B color, float width, float height);
+		IntPtr Constructor (CCColor4B color, float width, float height);
 
 		[Export ("initWithColor:")]
-		CCLayerColor Constructor (Color4B color);
+		CCLayerColor Constructor (CCColor4B color);
 
 		[Export ("changeWidth:")]
 		void ChangeWidth (float width);
@@ -1140,7 +1140,7 @@ namespace MonoTouch.Cocos2D {
 
 	interface CCRGBAProtocol {
 		[Export ("color")]
-		Color3B Color { get; set; }
+		CCColor3B Color { get; set; }
 
 		[Export ("opacity")]
 		byte Opacity { get; set; }
@@ -1209,7 +1209,7 @@ namespace MonoTouch.Cocos2D {
 
 	interface CCBlendProtocol {
 		[Export ("blendFunc")]
-		BlendFunc BlendFunc { get; set; }		
+		CCBlendFunc BlendFunc { get; set; }		
 	}
 
 	interface CCTextureProtocol : CCBlendProtocol {
@@ -1229,7 +1229,7 @@ namespace MonoTouch.Cocos2D {
 		CCTexture2D Texture { get; set; }
 
 		[Export ("quads")]
-		V3F_C4B_T2F_Quad Quads { get; set; }
+		CCV3F_C4B_T2F_Quad Quads { get; set; }
 
 		[Export("initWithFile:capacity:")]
 		IntPtr Constructor (string fileName, uint capacity);
@@ -1238,13 +1238,13 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (CCTexture2D texture, uint capacity);
 
 		[Export ("updateQuad:atIndex:")]
-		void UpdateQuad(V3F_C4B_T2F_Quad quad, uint atIndex);
+		void UpdateQuad(CCV3F_C4B_T2F_Quad quad, uint atIndex);
 
 		[Export ("insertQuad:atIndex:")]
-		void InsertQuad(V3F_C4B_T2F_Quad quad, uint atIndex);
+		void InsertQuad(CCV3F_C4B_T2F_Quad quad, uint atIndex);
 
 		//[Export ("insertQuads:atIndex:amount:")]
-		//void InsertQuads(V3F_C4B_T2F_Quad quad, uint atIndex, uint amount);
+		//void InsertQuads(CCV3F_C4B_T2F_Quad quad, uint atIndex, uint amount);
 
 		[Export ("insertQuadFromIndex:atIndex:")]
 		void MoveQuad (uint fromIndex, uint toIndex);
@@ -1372,7 +1372,7 @@ namespace MonoTouch.Cocos2D {
 		// mehods
 
 		[Export ("quad")]
-		V3F_C4B_T2F_Quad Quad { get;  }
+		CCV3F_C4B_T2F_Quad Quad { get;  }
 
 		[Export ("atlasIndex")]
 		uint AtlasIndex { get; set;  }
@@ -1483,7 +1483,7 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (float duration, CCScene scene);
 
 		[Export ("initWithDuration:scene:orientation:")]
-		IntPtr Constructor (float duration, CCScene scene, Orientation orientation);
+		IntPtr Constructor (float duration, CCScene scene, CCOrientation orientation);
 	}
 
 	[BaseType (typeof (CCTransitionScene))]
@@ -1606,7 +1606,7 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (float duration, CCScene scene);
 
 		[Export ("initWithDuration:scene:withColor:")]
-		IntPtr Constructor (float duration, CCScene scene, Color3B color);
+		IntPtr Constructor (float duration, CCScene scene, CCColor3B color);
 	}
 	[BaseType (typeof (CCTransitionScene))]
 	interface CCTransitionCrossFade {
@@ -1672,7 +1672,7 @@ namespace MonoTouch.Cocos2D {
 		bool IsEnabled { set; }
 
 		[Export ("disabledColor")]
-		Color3B DisabledColor { get; set;  }
+		CCColor3B DisabledColor { get; set;  }
 
 	}
 
@@ -2548,10 +2548,10 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCLayerColor))]
 	interface CCLayerGradient {
 		[Export ("startColor")]
-		Color3B StartColor { get; set;  }
+		CCColor3B StartColor { get; set;  }
 
 		[Export ("endColor")]
-		Color3B EndColor { get; set;  }
+		CCColor3B EndColor { get; set;  }
 
 		[Export ("startOpacity")]
 		byte StartOpacity { get; set;  }
@@ -2566,10 +2566,10 @@ namespace MonoTouch.Cocos2D {
 		bool CompressedInterpolation { get; set;  }
 
 		[Export ("initWithColor:fadingTo:")]
-		IntPtr Constructor (Color4B start, Color4B end);
+		IntPtr Constructor (CCColor4B start, CCColor4B end);
 
 		[Export ("initWithColor:fadingTo:alongVector:")]
-		IntPtr Constructor (Color4B start, Color4B end, PointF alongVector);
+		IntPtr Constructor (CCColor4B start, CCColor4B end, PointF alongVector);
 
 	}
 
@@ -2589,7 +2589,7 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCNode))]
 	interface CCMotionStreak {
 		[Export ("blendFunc")]
-		BlendFunc BlendFunc { get; set;  }
+		CCBlendFunc BlendFunc { get; set;  }
 
 		[Export ("fastMode")]
 		bool FastMode { get; set;  }
@@ -2598,13 +2598,13 @@ namespace MonoTouch.Cocos2D {
 		CCTexture2D Texture { get; set;  }
 
 		[Export ("initWithFade:minSeg:width:color:textureFilename:")]
-		IntPtr Constructor (float fade, float minSeg, float stroke, Color3B color, string textureFilename);
+		IntPtr Constructor (float fade, float minSeg, float stroke, CCColor3B color, string textureFilename);
 
 		[Export ("initWithFade:minSeg:width:color:texture:")]
-		IntPtr Constructor (float fade, float minSeg, float stroke, Color3B color, CCTexture2D texture);
+		IntPtr Constructor (float fade, float minSeg, float stroke, CCColor3B color, CCTexture2D texture);
 
 		[Export ("tintWithColor:")]
-		void TintWithColor (Color3B color);
+		void TintWithColor (CCColor3B color);
 
 		[Export ("reset")]
 		void Reset ();
@@ -2765,16 +2765,16 @@ namespace MonoTouch.Cocos2D {
 		float EndSizeVariance { get; set;  }
 
 		[Export ("startColor")]
-		Color4F StartColor { get; set;  }
+		CCColor4F StartColor { get; set;  }
 
 		[Export ("startColorVar")]
-		Color4F StartColorVariance { get; set;  }
+		CCColor4F StartColorVariance { get; set;  }
 
 		[Export ("endColor")]
-		Color4F EndColor { get; set;  }
+		CCColor4F EndColor { get; set;  }
 
 		[Export ("endColorVar")]
-		Color4F EndColorVariance { get; set;  }
+		CCColor4F EndColorVariance { get; set;  }
 
 		[Export ("startSpin")]
 		float StartSpin { get; set;  }
@@ -2798,7 +2798,7 @@ namespace MonoTouch.Cocos2D {
 		CCTexture2D Texture { get; set;  }
 
 		[Export ("blendFunc")]
-		BlendFunc BlendFunc { get; set;  }
+		CCBlendFunc BlendFunc { get; set;  }
 
 		[Export ("opacityModifyRGB")]
 		bool OpacityModifiesRGB { [Bind ("doesOpacityModifyRGB")] get; set;  }
@@ -2859,7 +2859,7 @@ namespace MonoTouch.Cocos2D {
 		CCTextureAtlas TextureAtlas { get; set;  }
 
 		[Export ("blendFunc")]
-		BlendFunc BlendFunc { get; set;  }
+		CCBlendFunc BlendFunc { get; set;  }
 
 		[Export ("initWithTexture:capacity:")]
 		IntPtr Constructor (CCTexture2D texture, int capacity);
@@ -2893,7 +2893,7 @@ namespace MonoTouch.Cocos2D {
 		bool ReverseDirection { get; set;  }
 
 		[Export ("vertexData")]
-		V2F_C4B_T2F VertexData { get;  }
+		CCV2F_C4B_T2F VertexData { get;  }
 
 		[Export ("vertexDataCount")]
 		int VertexDataCount { get;  }
@@ -3187,6 +3187,227 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCTransitionProgress))]
 	interface CCTransitionProgressInOut {
+	}
+
+	[BaseType (typeof (CCSpriteBatchNode))]
+	interface CCTMXLayer {
+		[Export ("layerName")]
+		string LayerName { get; set;  }
+
+		[Export ("layerSize")]
+		SizeF LayerSize { get; set;  }
+
+		[Export ("mapTileSize")]
+		SizeF MapTileSize { get; set;  }
+
+		[Export ("tiles")]
+		IntPtr TilesPtr { get; set;  }
+
+		[Export ("tileset")]
+		CCTMXTilesetInfo Tileset { get; set;  }
+
+		[Export ("layerOrientation")]
+		uint LayerOrientation { get; set;  }
+
+		[Export ("properties")]
+		NSMutableArray Properties { get; set;  }
+
+		[Export ("initWithTilesetInfo:layerInfo:mapInfo:")]
+		IntPtr Constructor (CCTMXTilesetInfo tilesetInfo, CCTMXLayerInfo layerInfo, CCTMXMapInfo mapInfo);
+
+		[Export ("releaseMap")]
+		void ReleaseMap ();
+
+		[Export ("tileAt:")]
+		CCSprite GetTileAt (PointF tileCoordinate);
+
+		[Export ("tileGIDAt:")]
+		uint GetTileGid (PointF tileCoordinate);
+
+		[Export ("tileGIDAt:withFlags:")]
+		uint GetTileGid (PointF position, CCTMXTileFlags flags);
+
+		[Export ("setTileGID:at:")]
+		void SetTileGid (uint gid, PointF tileCoordinate);
+
+		[Export ("setTileGID:at:withFlags:")]
+		void SetTileGid (uint gid, PointF at, CCTMXTileFlags flags);
+
+		[Export ("removeTileAt:")]
+		void RemoveTile (PointF tileCoordinate);
+
+		[Export ("positionAt:")]
+		PointF GetPositionAt (PointF tileCoordinate);
+
+		[Export ("propertyNamed:")]
+		NSObject GetProperty (string propertyName);
+
+		[Export ("setupTiles")]
+		void SetupTiles ();
+
+		[Export ("addChild:z:tag:")]
+		void AddChild (CCNode node, int z, int tag);
+
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCTMXObjectGroup {
+		[Export ("groupName")]
+		string GroupName { get; set;  }
+
+		[Export ("positionOffset")]
+		PointF PositionOffset { get; set;  }
+
+		[Export ("objects")]
+		NSMutableArray Objects { get; set;  }
+
+		[Export ("properties")]
+		NSMutableDictionary Properties { get; set;  }
+
+		[Export ("propertyNamed:")]
+		NSObject GetProperty (string propertyName);
+
+		[Export ("objectNamed:")]
+		NSMutableDictionary GetObject (string objectName);
+
+	}
+
+	[BaseType (typeof (CCNode))]
+	interface CCTMXTiledMap {
+		[Export ("mapSize")]
+		SizeF MapSize { get;  }
+
+		[Export ("tileSize")]
+		SizeF TileSize { get;  }
+
+		[Export ("mapOrientation")]
+		int MapOrientation { get;  }
+
+		[Export ("objectGroups")]
+		NSMutableArray ObjectGroups { get; set;  }
+
+		[Export ("properties")]
+		NSMutableDictionary Properties { get; set;  }
+
+		[Export ("initWithTMXFile:")]
+		IntPtr Constructor (string tmxFile);
+
+		[Export ("initWithXML:resourcePath:")]
+		IntPtr Constructor (string tmxString, string resourcePath);
+
+		[Export ("layerNamed:")]
+		CCTMXLayer GetLayer (string layerName);
+
+		[Export ("objectGroupNamed:")]
+		CCTMXObjectGroup GetObjectGroup (string groupName);
+
+		[Export ("propertyNamed:")]
+		NSObject GetProperty (string propertyName);
+
+		[Export ("propertiesForGID:")]
+		NSDictionary GetProperties (uint gid);
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCTMXLayerInfo {
+		[Export ("name")]
+		string Name { get; set;  }
+
+		[Export ("layerSize")]
+		SizeF LayerSize { get; set;  }
+
+		[Export ("tiles")]
+		IntPtr TilesPtr { get; set;  }
+
+		[Export ("visible")]
+		bool Visible { get; set;  }
+
+		[Export ("opacity")]
+		byte Opacity { get; set;  }
+
+		[Export ("ownTiles")]
+		bool OwnTiles { get; set;  }
+
+		[Export ("minGID")]
+		uint MinGid { get; set;  }
+
+		[Export ("maxGID")]
+		uint MaxGid { get; set;  }
+
+		[Export ("properties")]
+		NSMutableDictionary Properties { get; set;  }
+
+		[Export ("offset")]
+		PointF Offset { get; set;  }
+
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCTMXTilesetInfo {
+		[Export ("name")]
+		string Name { get; set; }
+		
+		[Export ("firstGid")]
+		uint FirstGid { get; set;  }
+
+		[Export ("tileSize")]
+		SizeF TileSize { get; set;  }
+
+		[Export ("spacing")]
+		uint Spacing { get; set;  }
+
+		[Export ("margin")]
+		uint Margin { get; set;  }
+
+		[Export ("sourceImage")]
+		string SourceImage { get; set;  }
+
+		[Export ("imageSize")]
+		SizeF ImageSize { get; set;  }
+
+		[Export ("rectForGID:")]
+		RectangleF GetRectForGid (uint gid);
+
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface CCTMXMapInfo {
+		[Export ("orientation")]
+		int Orientation { get; set;  }
+
+		[Export ("mapSize")]
+		SizeF MapSize { get; set;  }
+
+		[Export ("tileSize")]
+		SizeF TileSize { get; set;  }
+
+		[Export ("layers")]
+		NSMutableArray Layers { get; set;  }
+
+		[Export ("tilesets")]
+		NSMutableArray Tilesets { get; set;  }
+
+		[Export ("filename")]
+		string Filename { get; set;  }
+
+		[Export ("resources")]
+		string Resources { get; set;  }
+
+		[Export ("objectGroups")]
+		NSMutableArray ObjectGroups { get; set;  }
+
+		[Export ("properties")]
+		NSMutableDictionary Properties { get; set;  }
+
+		[Export ("tileProperties")]
+		NSMutableDictionary TileProperties { get; set;  }
+
+		[Export ("initWithTMXFile:")]
+		IntPtr Constructor (string tmxFile);
+
+		[Export ("initWithXML:resourcePath:")]
+		IntPtr Constructor (string tmxString, string resourcePath);
+
 	}
 
 }
