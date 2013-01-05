@@ -10,10 +10,12 @@ using System;
 using MonoTouch.Foundation;
 
 namespace GoogleAnalytics {
+
 	[BaseType (typeof (NSObject))]
 	interface GAI {
+		[Internal]
 		[Export ("defaultTracker")]
-		GAITracker DefaultTracker { get; set;  }
+		IntPtr InternalDefaultTracker { get; set;  }
 		
 		[Export ("debug")]
 		bool Debug { get; set;  }
@@ -31,8 +33,9 @@ namespace GoogleAnalytics {
 		[Export ("sharedInstance")]
 		GAI SharedInstance { get; }
 		
+		[Internal]
 		[Export ("trackerWithTrackingId:")]
-		GAITracker GetTracker (string trackingId);
+		IntPtr InternalGetTracker (string trackingId);
 		
 		[Export ("dispatch")]
 		void Dispatch ();
@@ -40,117 +43,88 @@ namespace GoogleAnalytics {
 	}
 
 	[BaseType (typeof (NSObject))]
-	[Model]
 	interface GAITracker {
-		[Abstract]
 		[Export ("trackingId")]
 		string TrackingId { get;  }
-		
-		[Abstract]
+
 		[Export ("appName")]
 		string AppName { get; set;  }
 		
-		[Abstract]
 		[Export ("appId")]
 		string AppId { get; set;  }
 		
-		[Abstract]
 		[Export ("appVersion")]
 		string AppVersion { get; set;  }
 		
-		[Abstract]
 		[Export ("anonymize")]
 		bool Anonymize { get; set;  }
-		
-		[Abstract]
+
 		[Export ("useHttps")]
 		bool UseHttps { get; set;  }
 		
-		[Abstract]
 		[Export ("sampleRate")]
 		double SampleRate { get; set;  }
 		
-		[Abstract]
 		[Export ("clientId")]
 		string ClientId { get;  }
 		
-		[Abstract]
 		[Export ("appScreen")]
 		string AppScreen { get; set;  }
 		
-		[Abstract]
 		[Export ("referrerUrl")]
 		string ReferrerUrl { get; set;  }
 		
-		[Abstract]
 		[Export ("campaignUrl")]
 		string CampaignUrl { get; set;  }
 		
-		[Abstract]
 		[Export ("sessionStart")]
 		bool SessionStart { get; set;  }
 		
-		[Abstract]
 		[Export ("sessionTimeout")]
 		double SessionTimeout { get; set;  }
 		
-		[Abstract]
 		[Export ("trackView")]
 		bool TrackView ();
 		
-		[Abstract]
 		[Export ("trackView:")]
 		bool TrackView (string screen);
 		
-		[Abstract]
 		[Export ("trackEventWithCategory:withAction:withLabel:withValue:")]
 		bool TrackEvent(string category, string action, string label, NSNumber value);
 		
-		[Abstract]
 		[Export ("trackTransaction:")]
 		bool TrackTransaction (GAITransaction transaction);
 		
-		[Abstract]
 		[Export ("trackException:withDescription:")]
 		bool TrackException (bool isFatal, string format );
 		
-		[Abstract]
 		[Export ("trackException:withNSException:")]
 		bool TrackException (bool isFatal, NSException exception);
 		
-		[Abstract]
 		[Export ("trackException:withNSError:")]
 		bool TrackException (bool isFatal, NSError error);
 		
-		[Abstract]
 		[Export ("trackTimingWithCategory:withValue:withName:withLabel:")]
 		bool TrackTiming (string category, double time, string name, string label);
 		
-		[Abstract]
 		[Export ("trackSocial:withAction:withTarget:")]
 		bool TrackSocial (string network, string action, string target);
 		
-		[Abstract]
 		[Export ("set:value:")]
 		bool Setvalue (string parameterName, string value);
 		
-		[Abstract]
 		[Export ("get:")]
 		string Get (string parameterName);
 		
-		[Abstract]
 		[Export ("send:params:")]
 		bool Sendparams (string trackType, NSDictionary parameters);
 		
-		[Abstract]
 		[Export ("setCustom:dimension:")]
 		bool SetCustom (int index, string dimension);
 		
-		[Abstract]
 		[Export ("setCustom:metric:")]
 		bool SetCustom (int index, NSNumber metric);
 		
-		[Abstract]
 		[Export ("close")]
 		void Close ();
 		

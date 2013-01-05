@@ -24,10 +24,10 @@ GoogleAnalyticsiOS.zip:
 libGoogleAnalytics.a: GoogleAnalyticsiOS.zip
 	unzip -p $< 'GoogleAnalyticsiOS_2.0beta3/Library/libGoogleAnalytics.a' > $@
 
-GoogleAnalytics.dll: Makefile AssemblyInfo.cs googleanalytics.cs enums.cs libGoogleAnalytics.a
+GoogleAnalytics.dll: Makefile AssemblyInfo.cs googleanalytics.cs enums.cs extras.cs libGoogleAnalytics.a
 	-mkdir -p ios
 	$(BTOUCH) --out=$@ -e googleanalytics.cs enums.cs --sourceonly=list --tmpdir=ios
-	$(SMCS) $(BUILD_FLAGS) -out:$@ @list enums.cs AssemblyInfo.cs -r:monotouch.dll -res:libGoogleAnalytics.a,libGoogleAnalytics.a
+	$(SMCS) $(BUILD_FLAGS) -out:$@ @list enums.cs extras.cs AssemblyInfo.cs -r:monotouch.dll -res:libGoogleAnalytics.a,libGoogleAnalytics.a
 
 clean:
 	-rm -rf list ios *.a *.dll *.o
