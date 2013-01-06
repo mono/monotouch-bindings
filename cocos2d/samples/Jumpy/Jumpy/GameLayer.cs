@@ -24,6 +24,8 @@ using System;
 using System.Drawing;
 using MonoTouch.UIKit;
 using MonoTouch.Cocos2D;
+using MonoTouch.OpenGLES;
+using OpenTK;
 
 namespace Jumpy
 {
@@ -49,8 +51,8 @@ namespace Jumpy
 		bool birdLookingRight;
 
 		PointF bird_pos;
-		Vertex2F bird_vel;
-		Vertex2F bird_acc;
+		Vector2 bird_vel;
+		Vector2 bird_acc;
 
 		public static CCScene Scene
 		{
@@ -120,7 +122,7 @@ namespace Jumpy
 			case 0: 
 				rect = new RectangleF(608,64,102,36); 
 				break;
-			case 1: 
+			default:
 				rect = new RectangleF(608,128,90,32); 
 				break;
 			}
@@ -387,7 +389,7 @@ namespace Jumpy
 		{
 			gameSuspended = true;
 			UIApplication.SharedApplication.IdleTimerDisabled=false;
-			CCDirector.SharedDirector.ReplaceScene(new CCTransitionFade(1, HighScoreLayer.Scene(score),Color3B.White));
+			CCDirector.SharedDirector.ReplaceScene(new CCTransitionFade(1, HighScoreLayer.Scene(score),CCColor3B.White));
 		}
 	}
 

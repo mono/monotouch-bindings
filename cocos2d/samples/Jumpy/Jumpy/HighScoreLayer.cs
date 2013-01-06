@@ -56,7 +56,7 @@ namespace Jumpy
 
 
 			var button1 = new CCMenuItemImage("Images/playAgainButton.png", "Images/playAgainButton.png", (sender)=>{
-				CCDirector.SharedDirector.ReplaceScene(new CCTransitionFade(.5f, GameLayer.Scene, Color3B.White));
+				CCDirector.SharedDirector.ReplaceScene(new CCTransitionFade(.5f, GameLayer.Scene, CCColor3B.White));
 			});
 			var button2 = new CCMenuItemImage("Images/changePlayerButton.png", "Images/changePlayerButton.png", (sender)=>{
 

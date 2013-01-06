@@ -83,7 +83,7 @@ namespace Jumpy
 			case 1: 
 				rect = new RectangleF(336,128,257,110); 
 				break;
-			case 2: 
+			default:
 				rect = new RectangleF(336,240,252,119); 
 				break;
 			}	
