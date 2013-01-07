@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-using MonoTouch.CorePlot;
+using CorePlot;
 
 namespace CorePlotiOSSample
 {

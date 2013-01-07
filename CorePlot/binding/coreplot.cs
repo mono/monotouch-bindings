@@ -21,7 +21,7 @@ using MonoTouch.UIKit;
 using MonoMac.AppKit;
 #endif
 
-namespace MonoMac.CorePlot {
+namespace CorePlot {
 
 	[BaseType (typeof (NSObject))]
 	interface CPTAnnotation {

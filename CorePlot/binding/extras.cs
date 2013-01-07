@@ -7,7 +7,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace MonoMac.CorePlot {
+namespace CorePlot {
 
 	// Need to flag these as abstract, to avoid an error reported since we are models that inherit from a model
 	public abstract partial class CPTScatterPlotDataSource {

@@ -7,7 +7,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace MonoMac.CorePlot {
+namespace CorePlot {
 
 	public enum CPTNumericType {
 		Integer, Float, Double
