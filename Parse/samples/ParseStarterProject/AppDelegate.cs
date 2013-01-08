@@ -43,7 +43,7 @@ namespace ParseStarterProject
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			ParseLib.Parse.SetApplicationIdclientKey("appid","clientid");
+			ParseLib.Parse.SetApplicationIdClientKey("appid","clientid");
 			dvc = new DialogViewController(CreateRoot());
 			window.RootViewController = new UINavigationController(dvc);
 			window.MakeKeyAndVisible ();
