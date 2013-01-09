@@ -48,14 +48,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
-    <None Include="GoogleMaps-1.0.1\GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.mom">
-      <Link>Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.mom</Link>
-    </None>
-    <None Include="GoogleMaps-1.0.1\GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.omo">
-      <Link>Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.omo</Link>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="GoogleMaps-1.0.1\GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSSprites-0.png">
       <Link>Resources\GoogleMaps.bundle\GMSSprites-0.png</Link>
     </BundleResource>
@@ -232,6 +224,12 @@
     </BundleResource>
     <BundleResource Include="GoogleMaps-1.0.1\GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\zh_TW.lproj\SDK.strings">
       <Link>Resources\GoogleMaps.bundle\zh_TW.lproj\SDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="GoogleMaps-1.0.1\GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.mom">
+      <Link>Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.mom</Link>
+    </BundleResource>
+    <BundleResource Include="GoogleMaps-1.0.1\GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.omo">
+      <Link>Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.omo</Link>
     </BundleResource>
   </ItemGroup>
   <ItemGroup>
