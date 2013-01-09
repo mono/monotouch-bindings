@@ -39,7 +39,6 @@ namespace CorePlotiOSSample
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		// class-level declarations
 		UINavigationController nav;
 		DialogViewController dvc;
 		UIWindow window;
@@ -53,7 +52,6 @@ namespace CorePlotiOSSample
 		//
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
 			// If you have defined a view, add it here:
@@ -70,7 +68,6 @@ namespace CorePlotiOSSample
 			dvc = new DialogViewController (root);
 			nav = new UINavigationController (dvc);
 			
-			// make the window visible
 			window.RootViewController = nav;
 			window.MakeKeyAndVisible ();
 			

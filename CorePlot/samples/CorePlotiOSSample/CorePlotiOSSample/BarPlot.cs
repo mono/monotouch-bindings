@@ -10,7 +10,6 @@ using System.Drawing;
 using System.Collections.Generic;
 
 using MonoTouch.Foundation;
-using MonoTouch.UIKit;
 
 using CorePlot;
 
@@ -39,7 +38,7 @@ namespace CorePlotiOSSample
 				PaddingBottom = 0,
 				Title = "Bar Chart",
 				
-				TitleTextStyle = new CPTMutableTextStyle () {
+				TitleTextStyle = new CPTMutableTextStyle {
 					FontSize = 18,
 					FontName = "Helvetica",
 					Color = CPTColor.GrayColor
@@ -54,17 +53,7 @@ namespace CorePlotiOSSample
 			var plotspace = graph.DefaultPlotSpace;
 			plotspace.AllowsUserInteraction = true;
 			plotspace.Delegate = new MyBarDelegate ();
-			
-			var major = new CPTLineStyle () {
-				LineWidth = .75f,
-				LineColor = CPTColor.FromGenericGray (0.2f).ColorWithAlphaComponent (.75f)
-			};
-			
-			var minor = new CPTLineStyle () {
-				LineWidth = .25f,
-				LineColor = CPTColor.WhiteColor.ColorWithAlphaComponent (0.1f)
-			};
-			
+
 			var axisSet = (CPTXYAxisSet)graph.AxisSet;
 			
 			// Label x with a fixed interval policy
@@ -84,14 +73,15 @@ namespace CorePlotiOSSample
 		void SetupBarPlots ()
 		{
 			// Create a plot that uses the data source method
-			var inputSocket = new List<float> () { 30, 20, 10, 20, 10, 55 };
+			var inputSocket = new List<float> { 30, 20, 10, 20, 10, 55 };
 
-			var barPlot = new CPTBarPlot () {
+			var barPlot = new CPTBarPlot {
 				DataSource = new BarSourceData (inputSocket),
 				BaseValue = 0,
 				BarOffset = (NSDecimal)(-0.25),
 				Identifier = (NSString) "Bar Plot 1"
 			};
+
 			graph.AddPlot (barPlot);	
 
 			barPlot.Fill = new CPTFill (CPTColor.BrownColor);
@@ -118,7 +108,7 @@ namespace CorePlotiOSSample
 	}
 
 	public class BarSourceData : CPTBarPlotDataSource {
-		static CPTMutableTextStyle whiteText = null;
+		static CPTMutableTextStyle whiteText;
 		List<PointF> data;
 		float minVal;
 		float maxVal;
@@ -150,25 +140,23 @@ namespace CorePlotiOSSample
 		{
 			if (forFieldEnum == CPTPlotField.BarLocation)
 				return data [index].X;
-			else
-				return data [index].Y;
+			return data [index].Y;
 		}
 		
 		public override CPTLayer DataLabelForPlot (CPTPlot plot, int recordIndex)
 		{
-			string text = "Bar" + recordIndex.ToString ();
+			string text = "Bar" + recordIndex;
 			return new CPTTextLayer (text, whiteText);
 		}
 		
 		public override CPTFill GetBarFill (CPTBarPlot barPlot, int recordIndex)
 		{
-			if (data[recordIndex].Y == minVal )
+			if (Math.Abs (data [recordIndex].Y - minVal) < float.Epsilon)
 				return new CPTFill (CPTColor.RedColor);
-			else if (data[recordIndex].Y == maxVal )
+			if (Math.Abs (data [recordIndex].Y - maxVal) < float.Epsilon)
 				return new CPTFill (CPTColor.GreenColor);
 			
 			return null;
 		}
 	}
 }
-

@@ -48,11 +48,11 @@ namespace CorePlotiOSSample
 				PaddingBottom = 10,
 				Title = "My graph",
 				
-				TitleTextStyle = new CPTMutableTextStyle () {
+				TitleTextStyle = new CPTMutableTextStyle {
 					FontSize = 18,
 					FontName = "Helvetica",
 					Color = CPTColor.GrayColor
-				},
+				}
 			};
 			graph.ApplyTheme (theme);
 		}
@@ -62,12 +62,12 @@ namespace CorePlotiOSSample
 			var plotspace = graph.DefaultPlotSpace;
 			plotspace.AllowsUserInteraction = true;
 			
-			var major = new CPTLineStyle () {
+			var major = new CPTLineStyle {
 				LineWidth = .75f,
 				LineColor = CPTColor.FromGenericGray (0.2f).ColorWithAlphaComponent (.75f)
 			};
 			
-			var minor = new CPTLineStyle () {
+			var minor = new CPTLineStyle {
 				LineWidth = .25f,
 				LineColor = CPTColor.WhiteColor.ColorWithAlphaComponent (0.1f)
 			};
@@ -85,11 +85,11 @@ namespace CorePlotiOSSample
 			x.TitleOffset = -30;
 
 			// Label y with an automatic label policy. 
-    		var y = axisSet.YAxis;
-		    y.LabelingPolicy = CPTAxisLabelingPolicy.Automatic;
-		    y.MinorTicksPerInterval = 4;
-		    y.PreferredNumberOfMajorTicks = 8;
-		    y.MajorGridLineStyle = major;
+			var y = axisSet.YAxis;
+			y.LabelingPolicy = CPTAxisLabelingPolicy.Automatic;
+			y.MinorTicksPerInterval = 4;
+			y.PreferredNumberOfMajorTicks = 8;
+			y.MajorGridLineStyle = major;
 			y.MinorGridLineStyle = minor;
 			y.LabelOffset = 20;
 			y.Title = "Y Axis";
@@ -98,27 +98,26 @@ namespace CorePlotiOSSample
 		
 		void SetupScatterPlots ()
 		{
-		    // Create a plot that uses the data source method
-        	var dataSourceLinePlot = new CPTScatterPlot () {
+			// Create a plot that uses the data source method
+			var dataSourceLinePlot = new CPTScatterPlot {
 				CachePrecision = CPTPlotCachePrecision.Double,
-				DataLineStyle = new CPTLineStyle () {
+				DataLineStyle = new CPTLineStyle {
 					LineWidth = 2,
 					LineColor = CPTColor.GreenColor
 				},
 				// For Kang, check this out:
 				DataSource = new RandomSamplesSource (),
-				PlotSymbolMarginForHitDetection = 5,
+				PlotSymbolMarginForHitDetection = 5
 			};
 			graph.AddPlot (dataSourceLinePlot);
 			
 			// Create a plot for the selection marker
-			var selectionPlot = new CPTScatterPlot () {
+			var selectionPlot = new CPTScatterPlot {
 				CachePrecision = CPTPlotCachePrecision.Double,
-				DataLineStyle = new CPTLineStyle () {
+				DataLineStyle = new CPTLineStyle {
 					LineWidth = 3,
 					LineColor = CPTColor.RedColor
 				},
-				//DataSource = new SelectionSource (graph)
 			};
 			graph.AddPlot (selectionPlot);	
 			
@@ -136,8 +135,6 @@ namespace CorePlotiOSSample
 		
 		public RandomSamplesSource ()
 		{
-			Random r = new Random ();
-			
 			Data = new List<PointF> ();
 			for (int i = 0; i < 100; i++){
 				var y = i;
@@ -154,8 +151,7 @@ namespace CorePlotiOSSample
 		{
 			if (forFieldEnum == CPTPlotField.ScatterPlotFieldX)
 				return Data [index].X;
-			else
-				return Data [index].Y;
+			return Data [index].Y;
 		}
 		
 		public override CPTPlotSymbol GetSymbol (CPTScatterPlot plot, int recordIndex)
