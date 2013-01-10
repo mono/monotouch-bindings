@@ -107,8 +107,8 @@
       </Docs>
     </Member>
     <Member MemberName="ActionsInTarget">
-      <MemberSignature Language="C#" Value="public virtual uint ActionsInTarget (MonoTouch.Foundation.NSObject target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance unsigned int32 ActionsInTarget(class MonoTouch.Foundation.NSObject target) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual uint ActionsInTarget (MonoTouch.Cocos2D.CCNode target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance unsigned int32 ActionsInTarget(class MonoTouch.Cocos2D.CCNode target) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -122,7 +122,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="target" Type="MonoTouch.Cocos2D.CCNode" />
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
@@ -132,8 +132,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddAction">
-      <MemberSignature Language="C#" Value="public virtual void AddAction (MonoTouch.Cocos2D.CCAction action, MonoTouch.Foundation.NSObject target, bool paused);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddAction(class MonoTouch.Cocos2D.CCAction action, class MonoTouch.Foundation.NSObject target, bool paused) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void AddAction (MonoTouch.Cocos2D.CCAction action, MonoTouch.Cocos2D.CCNode target, bool paused);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddAction(class MonoTouch.Cocos2D.CCAction action, class MonoTouch.Cocos2D.CCNode target, bool paused) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -148,7 +148,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="action" Type="MonoTouch.Cocos2D.CCAction" />
-        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="target" Type="MonoTouch.Cocos2D.CCNode" />
         <Parameter Name="paused" Type="System.Boolean" />
       </Parameters>
       <Docs>
@@ -195,8 +195,8 @@
       </Docs>
     </Member>
     <Member MemberName="GetAction">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCAction GetAction (int tag, MonoTouch.Foundation.NSObject target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Cocos2D.CCAction GetAction(int32 tag, class MonoTouch.Foundation.NSObject target) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCAction GetAction (int tag, MonoTouch.Cocos2D.CCNode target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Cocos2D.CCAction GetAction(int32 tag, class MonoTouch.Cocos2D.CCNode target) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -211,7 +211,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="tag" Type="System.Int32" />
-        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="target" Type="MonoTouch.Cocos2D.CCNode" />
       </Parameters>
       <Docs>
         <param name="tag">To be added.</param>
@@ -244,8 +244,8 @@
       </Docs>
     </Member>
     <Member MemberName="PauseTarget">
-      <MemberSignature Language="C#" Value="public virtual void PauseTarget (MonoTouch.Foundation.NSObject target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PauseTarget(class MonoTouch.Foundation.NSObject target) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void PauseTarget (MonoTouch.Cocos2D.CCNode target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PauseTarget(class MonoTouch.Cocos2D.CCNode target) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -259,7 +259,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="target" Type="MonoTouch.Cocos2D.CCNode" />
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
@@ -313,8 +313,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveAction">
-      <MemberSignature Language="C#" Value="public virtual void RemoveAction (int tag, MonoTouch.Foundation.NSObject target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveAction(int32 tag, class MonoTouch.Foundation.NSObject target) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void RemoveAction (int tag, MonoTouch.Cocos2D.CCNode target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveAction(int32 tag, class MonoTouch.Cocos2D.CCNode target) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -329,7 +329,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="tag" Type="System.Int32" />
-        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="target" Type="MonoTouch.Cocos2D.CCNode" />
       </Parameters>
       <Docs>
         <param name="tag">To be added.</param>
@@ -339,8 +339,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveActions">
-      <MemberSignature Language="C#" Value="public virtual void RemoveActions (MonoTouch.Foundation.NSObject target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveActions(class MonoTouch.Foundation.NSObject target) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void RemoveActions (MonoTouch.Cocos2D.CCNode target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveActions(class MonoTouch.Cocos2D.CCNode target) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -354,7 +354,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="target" Type="MonoTouch.Cocos2D.CCNode" />
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
@@ -384,8 +384,8 @@
       </Docs>
     </Member>
     <Member MemberName="ResumeTarget">
-      <MemberSignature Language="C#" Value="public virtual void ResumeTarget (MonoTouch.Foundation.NSObject target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ResumeTarget(class MonoTouch.Foundation.NSObject target) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void ResumeTarget (MonoTouch.Cocos2D.CCNode target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ResumeTarget(class MonoTouch.Cocos2D.CCNode target) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -399,7 +399,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="target" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="target" Type="MonoTouch.Cocos2D.CCNode" />
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>

@@ -38,13 +38,13 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (NSObject))]
 	interface CCAction {
 		[Export ("originalTarget")]
-		NSObject OriginalTarget { get;  }
+		CCNode OriginalTarget { get;  }
 
 		[Export ("tag")]
 		int Tag { get; set;  }
 
 		[Export ("target")]
-		NSObject Target { get; }
+		CCNode Target { get; }
 
 		//[Export ("copyWithZone:")]
 		//CCAction CopyFromZone (NSZone zone );
@@ -58,7 +58,7 @@ namespace MonoTouch.Cocos2D {
 		bool IsDone { get; }
 
 		[Export ("startWithTarget:")]
-		void Start (NSObject target);
+		void Start (CCNode target);
 
 		[Export ("stop")]
 		void Stop ();
@@ -89,31 +89,31 @@ namespace MonoTouch.Cocos2D {
 		void PurgeSharedManager ();
 
 		[Export ("addAction:actiontarget:paused:")]
-		void AddAction (CCAction action, NSObject target, bool paused);
+		void AddAction (CCAction action, CCNode target, bool paused);
 
 		[Export ("removeAllActions")]
 		void RemoveAllActions ();
 
 		[Export ("removeAllActionsFromTarget:")]
-		void RemoveActions (NSObject target);
+		void RemoveActions (CCNode target);
 
 		[Export ("removeAction")]
 		void RemoveAction (CCAction action);
 
 		[Export ("removeActionByTag:target:")]
-		void RemoveAction (int tag, NSObject target);
+		void RemoveAction (int tag, CCNode target);
 
 		[Export ("getActionByTag:tagtarget:")]
-		CCAction GetAction (int tag, NSObject target);
+		CCAction GetAction (int tag, CCNode target);
 
 		[Export ("numberOfRunningActionsInTarget:")]
-		uint ActionsInTarget (NSObject target);
+		uint ActionsInTarget (CCNode target);
 
 		[Export ("pauseTarget:")]
-		void PauseTarget (NSObject target);
+		void PauseTarget (CCNode target);
 
 		[Export ("resumeTarget:")]
-		void ResumeTarget (NSObject target);
+		void ResumeTarget (CCNode target);
 
 		[Export ("pauseAllRunningActions")]
 		NSSet PauseAllRunningActions ();
