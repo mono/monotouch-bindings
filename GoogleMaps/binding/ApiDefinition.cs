@@ -89,8 +89,9 @@ namespace GoogleMaps
 		[Export ("animateToViewingAngle:")]
 		void AnimateToViewingAngle (double viewingAngle);
 		
+		[Internal]
 		[Export ("addMarkerWithOptions:")]
-		GMSMarker AddMarker (GMSMarkerOptions options);
+		IntPtr InternalAddMarker (GMSMarkerOptions options);
 		
 		[Export ("addPolylineWithOptions:")]
 		GMSPolyline AddPolyline (GMSPolylineOptions options);
@@ -107,41 +108,31 @@ namespace GoogleMaps
 	}
 	
 	[BaseType (typeof (NSObject))]
-	[Model]
 	interface GMSMarker {
-		[Abstract]
 		[Export ("position")]
 		CLLocationCoordinate2D Position { get; set;  }
 		
-		[Abstract]
 		[Export ("title")]
 		string Title { get; set;  }
 		
-		[Abstract]
 		[Export ("snippet")]
 		string Snippet { get; set;  }
 		
-		[Abstract]
 		[Export ("icon")]
 		UIImage Icon { get; set;  }
 		
-		[Abstract]
 		[Export ("groundAnchor")]
 		PointF GroundAnchor { get; set;  }
 		
-		[Abstract]
 		[Export ("infoWindowAnchor")]
 		PointF InfoWindowAnchor { get; set;  }
 		
-		[Abstract]
 		[Export ("accessibilityLabel")]
 		string AccessibilityLabel { get; set;  }
 		
-		[Abstract]
 		[Export ("userData")]
 		NSObject UserData { get; set;  }
 		
-		[Abstract]
 		[Export ("remove")]
 		void Remove ();
 		
