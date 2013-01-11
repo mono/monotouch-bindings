@@ -21,12 +21,12 @@ namespace GoogleMaps
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct GMSCamera {
-		public CLLocationCoordinate2D Coordniate;
+		public CLLocationCoordinate2D Coordinate;
 		public float Zoom;
 
 		public GMSCamera(double latitude, double longitude, float zoom)
 		{
-			Coordniate = new CLLocationCoordinate2D (latitude, longitude);
+			Coordinate = new CLLocationCoordinate2D (latitude, longitude);
 			Zoom = zoom;
 		}
 
