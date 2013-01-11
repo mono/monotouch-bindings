@@ -24,9 +24,9 @@ namespace GoogleMapsSample
 		{
 			base.LoadView ();
 
-			GMSCamera camera = new GMSCamera(-33.8683, 151.2086, 6);
-			mapView = GMSMapView.FromCamera(new RectangleF(0f, 0f, 0f, 0f), camera);
-//			mapView.MyLocationEnabled = true ;
+			GMSCamera camera = new GMSCamera(37.797865, -122.402526, 6);
+			mapView = GMSMapView.FromCamera(RectangleF.Empty, camera);
+			mapView.MyLocationEnabled = true;
 			this.View = mapView;
 			
 			var xamarinhq = new GMSMarkerOptions {
