@@ -15,7 +15,7 @@
     <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
-    <OutputPath>..\..\..\..\..\Build\FieldWorkerApp\RouteMe.Touch\bin\Debug</OutputPath>
+    <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>True</Optimize>
-    <OutputPath>..\..\..\..\..\Build\FieldWorkerApp\RouteMe.Touch\bin\Release</OutputPath>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Obj-C-Changes\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images\HeadingAngleSmall.png" />
@@ -70,10 +69,5 @@
     <EmbeddedResource Include="Images\marker-blue.png" />
     <EmbeddedResource Include="Images\marker-red-withletter.png" />
     <EmbeddedResource Include="Images\marker-red.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ReadMe.rtf" />
-    <None Include="Obj-C-Changes\RMAbstractWebMapSource.h" />
-    <None Include="Obj-C-Changes\RMAbstractWebMapSource.m" />
   </ItemGroup>
 </Project>
