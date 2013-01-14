@@ -901,6 +901,36 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="IntPtr_objc_msgSend_float_short_short_short">
+      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSend_float_short_short_short (IntPtr receiver, IntPtr selector, float arg1, short arg2, short arg3, short arg4);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)native int IntPtr_objc_msgSend_float_short_short_short(native int receiver, native int selector, float32 arg1, int16 arg2, int16 arg3, int16 arg4) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="System.Single" />
+        <Parameter Name="arg2" Type="System.Int16" />
+        <Parameter Name="arg3" Type="System.Int16" />
+        <Parameter Name="arg4" Type="System.Int16" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
+        <param name="arg3">To be added.</param>
+        <param name="arg4">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="IntPtr_objc_msgSend_int_bool_Size_float">
       <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSend_int_bool_Size_float (IntPtr receiver, IntPtr selector, int arg1, bool arg2, System.Drawing.Size arg3, float arg4);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)native int IntPtr_objc_msgSend_int_bool_Size_float(native int receiver, native int selector, int32 arg1, bool arg2, valuetype System.Drawing.Size arg3, float32 arg4) cil managed" />
@@ -1389,9 +1419,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IntPtr_objc_msgSend_IntPtr_IntPtr_UInt32_UInt32_UInt32">
-      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSend_IntPtr_IntPtr_UInt32_UInt32_UInt32 (IntPtr receiver, IntPtr selector, IntPtr arg1, IntPtr arg2, uint arg3, uint arg4, uint arg5);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)native int IntPtr_objc_msgSend_IntPtr_IntPtr_UInt32_UInt32_UInt32(native int receiver, native int selector, native int arg1, native int arg2, unsigned int32 arg3, unsigned int32 arg4, unsigned int32 arg5) cil managed" />
+    <Member MemberName="IntPtr_objc_msgSend_IntPtr_IntPtr_UInt32_UInt32_Char">
+      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSend_IntPtr_IntPtr_UInt32_UInt32_Char (IntPtr receiver, IntPtr selector, IntPtr arg1, IntPtr arg2, uint arg3, uint arg4, char arg5);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)native int IntPtr_objc_msgSend_IntPtr_IntPtr_UInt32_UInt32_Char(native int receiver, native int selector, native int arg1, native int arg2, unsigned int32 arg3, unsigned int32 arg4, char arg5) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -1406,7 +1436,7 @@
         <Parameter Name="arg2" Type="System.IntPtr" />
         <Parameter Name="arg3" Type="System.UInt32" />
         <Parameter Name="arg4" Type="System.UInt32" />
-        <Parameter Name="arg5" Type="System.UInt32" />
+        <Parameter Name="arg5" Type="System.Char" />
       </Parameters>
       <Docs>
         <param name="receiver">To be added.</param>
@@ -2227,6 +2257,36 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="IntPtr_objc_msgSendSuper_float_short_short_short">
+      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSendSuper_float_short_short_short (IntPtr receiver, IntPtr selector, float arg1, short arg2, short arg3, short arg4);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)native int IntPtr_objc_msgSendSuper_float_short_short_short(native int receiver, native int selector, float32 arg1, int16 arg2, int16 arg3, int16 arg4) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="System.Single" />
+        <Parameter Name="arg2" Type="System.Int16" />
+        <Parameter Name="arg3" Type="System.Int16" />
+        <Parameter Name="arg4" Type="System.Int16" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
+        <param name="arg3">To be added.</param>
+        <param name="arg4">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="IntPtr_objc_msgSendSuper_int_bool_Size_float">
       <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSendSuper_int_bool_Size_float (IntPtr receiver, IntPtr selector, int arg1, bool arg2, System.Drawing.Size arg3, float arg4);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)native int IntPtr_objc_msgSendSuper_int_bool_Size_float(native int receiver, native int selector, int32 arg1, bool arg2, valuetype System.Drawing.Size arg3, float32 arg4) cil managed" />
@@ -2715,9 +2775,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IntPtr_objc_msgSendSuper_IntPtr_IntPtr_UInt32_UInt32_UInt32">
-      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSendSuper_IntPtr_IntPtr_UInt32_UInt32_UInt32 (IntPtr receiver, IntPtr selector, IntPtr arg1, IntPtr arg2, uint arg3, uint arg4, uint arg5);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)native int IntPtr_objc_msgSendSuper_IntPtr_IntPtr_UInt32_UInt32_UInt32(native int receiver, native int selector, native int arg1, native int arg2, unsigned int32 arg3, unsigned int32 arg4, unsigned int32 arg5) cil managed" />
+    <Member MemberName="IntPtr_objc_msgSendSuper_IntPtr_IntPtr_UInt32_UInt32_Char">
+      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSendSuper_IntPtr_IntPtr_UInt32_UInt32_Char (IntPtr receiver, IntPtr selector, IntPtr arg1, IntPtr arg2, uint arg3, uint arg4, char arg5);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)native int IntPtr_objc_msgSendSuper_IntPtr_IntPtr_UInt32_UInt32_Char(native int receiver, native int selector, native int arg1, native int arg2, unsigned int32 arg3, unsigned int32 arg4, char arg5) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -2732,7 +2792,7 @@
         <Parameter Name="arg2" Type="System.IntPtr" />
         <Parameter Name="arg3" Type="System.UInt32" />
         <Parameter Name="arg4" Type="System.UInt32" />
-        <Parameter Name="arg5" Type="System.UInt32" />
+        <Parameter Name="arg5" Type="System.Char" />
       </Parameters>
       <Docs>
         <param name="receiver">To be added.</param>
@@ -3359,9 +3419,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="UInt32_objc_msgSend_PointF_UInt32">
-      <MemberSignature Language="C#" Value="public static uint UInt32_objc_msgSend_PointF_UInt32 (IntPtr receiver, IntPtr selector, System.Drawing.PointF arg1, uint arg2);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)unsigned int32 UInt32_objc_msgSend_PointF_UInt32(native int receiver, native int selector, valuetype System.Drawing.PointF arg1, unsigned int32 arg2) cil managed" />
+    <Member MemberName="UInt32_objc_msgSend_PointF_out_CCTMXTileFlags">
+      <MemberSignature Language="C#" Value="public static uint UInt32_objc_msgSend_PointF_out_CCTMXTileFlags (IntPtr receiver, IntPtr selector, System.Drawing.PointF arg1, out MonoTouch.Cocos2D.CCTMXTileFlags arg2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)unsigned int32 UInt32_objc_msgSend_PointF_out_CCTMXTileFlags(native int receiver, native int selector, valuetype System.Drawing.PointF arg1, valuetype MonoTouch.Cocos2D.CCTMXTileFlags arg2) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -3373,7 +3433,7 @@
         <Parameter Name="receiver" Type="System.IntPtr" />
         <Parameter Name="selector" Type="System.IntPtr" />
         <Parameter Name="arg1" Type="System.Drawing.PointF" />
-        <Parameter Name="arg2" Type="System.UInt32" />
+        <Parameter Name="arg2" Type="MonoTouch.Cocos2D.CCTMXTileFlags&amp;" RefType="out" />
       </Parameters>
       <Docs>
         <param name="receiver">To be added.</param>
@@ -3459,9 +3519,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="UInt32_objc_msgSendSuper_PointF_UInt32">
-      <MemberSignature Language="C#" Value="public static uint UInt32_objc_msgSendSuper_PointF_UInt32 (IntPtr receiver, IntPtr selector, System.Drawing.PointF arg1, uint arg2);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)unsigned int32 UInt32_objc_msgSendSuper_PointF_UInt32(native int receiver, native int selector, valuetype System.Drawing.PointF arg1, unsigned int32 arg2) cil managed" />
+    <Member MemberName="UInt32_objc_msgSendSuper_PointF_out_CCTMXTileFlags">
+      <MemberSignature Language="C#" Value="public static uint UInt32_objc_msgSendSuper_PointF_out_CCTMXTileFlags (IntPtr receiver, IntPtr selector, System.Drawing.PointF arg1, out MonoTouch.Cocos2D.CCTMXTileFlags arg2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)unsigned int32 UInt32_objc_msgSendSuper_PointF_out_CCTMXTileFlags(native int receiver, native int selector, valuetype System.Drawing.PointF arg1, valuetype MonoTouch.Cocos2D.CCTMXTileFlags arg2) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -3473,7 +3533,7 @@
         <Parameter Name="receiver" Type="System.IntPtr" />
         <Parameter Name="selector" Type="System.IntPtr" />
         <Parameter Name="arg1" Type="System.Drawing.PointF" />
-        <Parameter Name="arg2" Type="System.UInt32" />
+        <Parameter Name="arg2" Type="MonoTouch.Cocos2D.CCTMXTileFlags&amp;" RefType="out" />
       </Parameters>
       <Docs>
         <param name="receiver">To be added.</param>
@@ -3627,31 +3687,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="void_objc_msgSend_CCParticle_PointF">
-      <MemberSignature Language="C#" Value="public static void void_objc_msgSend_CCParticle_PointF (IntPtr receiver, IntPtr selector, MonoTouch.Cocos2D.CCParticle arg1, System.Drawing.PointF arg2);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)void void_objc_msgSend_CCParticle_PointF(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCParticle arg1, valuetype System.Drawing.PointF arg2) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="receiver" Type="System.IntPtr" />
-        <Parameter Name="selector" Type="System.IntPtr" />
-        <Parameter Name="arg1" Type="MonoTouch.Cocos2D.CCParticle" />
-        <Parameter Name="arg2" Type="System.Drawing.PointF" />
-      </Parameters>
-      <Docs>
-        <param name="receiver">To be added.</param>
-        <param name="selector">To be added.</param>
-        <param name="arg1">To be added.</param>
-        <param name="arg2">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="void_objc_msgSend_CCV3F_C4B_T2F_Quad">
       <MemberSignature Language="C#" Value="public static void void_objc_msgSend_CCV3F_C4B_T2F_Quad (IntPtr receiver, IntPtr selector, MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)void void_objc_msgSend_CCV3F_C4B_T2F_Quad(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1) cil managed" />
@@ -3671,31 +3706,6 @@
         <param name="receiver">To be added.</param>
         <param name="selector">To be added.</param>
         <param name="arg1">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="void_objc_msgSend_CCV3F_C4B_T2F_Quad_UInt32">
-      <MemberSignature Language="C#" Value="public static void void_objc_msgSend_CCV3F_C4B_T2F_Quad_UInt32 (IntPtr receiver, IntPtr selector, MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1, uint arg2);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)void void_objc_msgSend_CCV3F_C4B_T2F_Quad_UInt32(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1, unsigned int32 arg2) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="receiver" Type="System.IntPtr" />
-        <Parameter Name="selector" Type="System.IntPtr" />
-        <Parameter Name="arg1" Type="MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad" />
-        <Parameter Name="arg2" Type="System.UInt32" />
-      </Parameters>
-      <Docs>
-        <param name="receiver">To be added.</param>
-        <param name="selector">To be added.</param>
-        <param name="arg1">To be added.</param>
-        <param name="arg2">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3932,6 +3942,56 @@
         <param name="arg4">To be added.</param>
         <param name="arg5">To be added.</param>
         <param name="arg6">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="void_objc_msgSend_out_CCParticle_PointF">
+      <MemberSignature Language="C#" Value="public static void void_objc_msgSend_out_CCParticle_PointF (IntPtr receiver, IntPtr selector, out MonoTouch.Cocos2D.CCParticle arg1, System.Drawing.PointF arg2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)void void_objc_msgSend_out_CCParticle_PointF(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCParticle arg1, valuetype System.Drawing.PointF arg2) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="MonoTouch.Cocos2D.CCParticle&amp;" RefType="out" />
+        <Parameter Name="arg2" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="void_objc_msgSend_out_CCV3F_C4B_T2F_Quad_UInt32">
+      <MemberSignature Language="C#" Value="public static void void_objc_msgSend_out_CCV3F_C4B_T2F_Quad_UInt32 (IntPtr receiver, IntPtr selector, out MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1, uint arg2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)void void_objc_msgSend_out_CCV3F_C4B_T2F_Quad_UInt32(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1, unsigned int32 arg2) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad&amp;" RefType="out" />
+        <Parameter Name="arg2" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -4225,31 +4285,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="void_objc_msgSend_UInt32_int">
-      <MemberSignature Language="C#" Value="public static void void_objc_msgSend_UInt32_int (IntPtr receiver, IntPtr selector, uint arg1, int arg2);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)void void_objc_msgSend_UInt32_int(native int receiver, native int selector, unsigned int32 arg1, int32 arg2) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="receiver" Type="System.IntPtr" />
-        <Parameter Name="selector" Type="System.IntPtr" />
-        <Parameter Name="arg1" Type="System.UInt32" />
-        <Parameter Name="arg2" Type="System.Int32" />
-      </Parameters>
-      <Docs>
-        <param name="receiver">To be added.</param>
-        <param name="selector">To be added.</param>
-        <param name="arg1">To be added.</param>
-        <param name="arg2">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="void_objc_msgSend_UInt32_PointF">
       <MemberSignature Language="C#" Value="public static void void_objc_msgSend_UInt32_PointF (IntPtr receiver, IntPtr selector, uint arg1, System.Drawing.PointF arg2);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)void void_objc_msgSend_UInt32_PointF(native int receiver, native int selector, unsigned int32 arg1, valuetype System.Drawing.PointF arg2) cil managed" />
@@ -4421,31 +4456,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="void_objc_msgSendSuper_CCParticle_PointF">
-      <MemberSignature Language="C#" Value="public static void void_objc_msgSendSuper_CCParticle_PointF (IntPtr receiver, IntPtr selector, MonoTouch.Cocos2D.CCParticle arg1, System.Drawing.PointF arg2);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)void void_objc_msgSendSuper_CCParticle_PointF(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCParticle arg1, valuetype System.Drawing.PointF arg2) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="receiver" Type="System.IntPtr" />
-        <Parameter Name="selector" Type="System.IntPtr" />
-        <Parameter Name="arg1" Type="MonoTouch.Cocos2D.CCParticle" />
-        <Parameter Name="arg2" Type="System.Drawing.PointF" />
-      </Parameters>
-      <Docs>
-        <param name="receiver">To be added.</param>
-        <param name="selector">To be added.</param>
-        <param name="arg1">To be added.</param>
-        <param name="arg2">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="void_objc_msgSendSuper_CCV3F_C4B_T2F_Quad">
       <MemberSignature Language="C#" Value="public static void void_objc_msgSendSuper_CCV3F_C4B_T2F_Quad (IntPtr receiver, IntPtr selector, MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)void void_objc_msgSendSuper_CCV3F_C4B_T2F_Quad(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1) cil managed" />
@@ -4465,31 +4475,6 @@
         <param name="receiver">To be added.</param>
         <param name="selector">To be added.</param>
         <param name="arg1">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="void_objc_msgSendSuper_CCV3F_C4B_T2F_Quad_UInt32">
-      <MemberSignature Language="C#" Value="public static void void_objc_msgSendSuper_CCV3F_C4B_T2F_Quad_UInt32 (IntPtr receiver, IntPtr selector, MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1, uint arg2);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)void void_objc_msgSendSuper_CCV3F_C4B_T2F_Quad_UInt32(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1, unsigned int32 arg2) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="receiver" Type="System.IntPtr" />
-        <Parameter Name="selector" Type="System.IntPtr" />
-        <Parameter Name="arg1" Type="MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad" />
-        <Parameter Name="arg2" Type="System.UInt32" />
-      </Parameters>
-      <Docs>
-        <param name="receiver">To be added.</param>
-        <param name="selector">To be added.</param>
-        <param name="arg1">To be added.</param>
-        <param name="arg2">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -4726,6 +4711,56 @@
         <param name="arg4">To be added.</param>
         <param name="arg5">To be added.</param>
         <param name="arg6">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="void_objc_msgSendSuper_out_CCParticle_PointF">
+      <MemberSignature Language="C#" Value="public static void void_objc_msgSendSuper_out_CCParticle_PointF (IntPtr receiver, IntPtr selector, out MonoTouch.Cocos2D.CCParticle arg1, System.Drawing.PointF arg2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)void void_objc_msgSendSuper_out_CCParticle_PointF(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCParticle arg1, valuetype System.Drawing.PointF arg2) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="MonoTouch.Cocos2D.CCParticle&amp;" RefType="out" />
+        <Parameter Name="arg2" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="void_objc_msgSendSuper_out_CCV3F_C4B_T2F_Quad_UInt32">
+      <MemberSignature Language="C#" Value="public static void void_objc_msgSendSuper_out_CCV3F_C4B_T2F_Quad_UInt32 (IntPtr receiver, IntPtr selector, out MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1, uint arg2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)void void_objc_msgSendSuper_out_CCV3F_C4B_T2F_Quad_UInt32(native int receiver, native int selector, valuetype MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad arg1, unsigned int32 arg2) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad&amp;" RefType="out" />
+        <Parameter Name="arg2" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -5015,31 +5050,6 @@
         <param name="arg3">To be added.</param>
         <param name="arg4">To be added.</param>
         <param name="arg5">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="void_objc_msgSendSuper_UInt32_int">
-      <MemberSignature Language="C#" Value="public static void void_objc_msgSendSuper_UInt32_int (IntPtr receiver, IntPtr selector, uint arg1, int arg2);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)void void_objc_msgSendSuper_UInt32_int(native int receiver, native int selector, unsigned int32 arg1, int32 arg2) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="receiver" Type="System.IntPtr" />
-        <Parameter Name="selector" Type="System.IntPtr" />
-        <Parameter Name="arg1" Type="System.UInt32" />
-        <Parameter Name="arg2" Type="System.Int32" />
-      </Parameters>
-      <Docs>
-        <param name="receiver">To be added.</param>
-        <param name="selector">To be added.</param>
-        <param name="arg1">To be added.</param>
-        <param name="arg2">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>

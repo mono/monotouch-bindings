@@ -295,7 +295,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetTileGid">
-      <MemberSignature Language="C#" Value="public virtual uint GetTileGid (System.Drawing.PointF position, MonoTouch.Cocos2D.CCTMXTileFlags flags);" />
+      <MemberSignature Language="C#" Value="public virtual uint GetTileGid (System.Drawing.PointF position, ref MonoTouch.Cocos2D.CCTMXTileFlags flags);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance unsigned int32 GetTileGid(valuetype System.Drawing.PointF position, valuetype MonoTouch.Cocos2D.CCTMXTileFlags flags) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -311,7 +311,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="position" Type="System.Drawing.PointF" />
-        <Parameter Name="flags" Type="MonoTouch.Cocos2D.CCTMXTileFlags" />
+        <Parameter Name="flags" Type="MonoTouch.Cocos2D.CCTMXTileFlags&amp;" RefType="ref" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>

@@ -406,9 +406,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="KeepDatalength">
-      <MemberSignature Language="C#" Value="public virtual void KeepDatalength (IntPtr data, uint length);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void KeepDatalength(native int data, unsigned int32 length) cil managed" />
+    <Member MemberName="KeepData">
+      <MemberSignature Language="C#" Value="public virtual IntPtr KeepData (IntPtr data, uint length);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance native int KeepData(native int data, unsigned int32 length) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -419,7 +419,7 @@
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="data" Type="System.IntPtr" />
@@ -429,6 +429,7 @@
         <param name="data">To be added.</param>
         <param name="length">To be added.</param>
         <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -610,7 +611,7 @@
       </Docs>
     </Member>
     <Member MemberName="ResolutionType">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCResolutionType ResolutionType { get; }" />
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCResolutionType ResolutionType { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.Cocos2D.CCResolutionType ResolutionType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -619,6 +620,9 @@
       <Attributes>
         <Attribute>
           <AttributeName>get: MonoTouch.Foundation.Export("resolutionType")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setResolutionType:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>

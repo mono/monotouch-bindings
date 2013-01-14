@@ -20,27 +20,6 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CCTintBy ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <Parameters />
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public CCTintBy (MonoTouch.Foundation.NSCoder coder);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -107,8 +86,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CCTintBy (float duration, byte red, byte green, byte blue);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration, unsigned int8 red, unsigned int8 green, unsigned int8 blue) cil managed" />
+      <MemberSignature Language="C#" Value="public CCTintBy (float duration, short red, short green, short blue);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration, int16 red, int16 green, int16 blue) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -120,9 +99,9 @@
       </Attributes>
       <Parameters>
         <Parameter Name="duration" Type="System.Single" />
-        <Parameter Name="red" Type="System.Byte" />
-        <Parameter Name="green" Type="System.Byte" />
-        <Parameter Name="blue" Type="System.Byte" />
+        <Parameter Name="red" Type="System.Int16" />
+        <Parameter Name="green" Type="System.Int16" />
+        <Parameter Name="blue" Type="System.Int16" />
       </Parameters>
       <Docs>
         <param name="duration">To be added.</param>
@@ -150,8 +129,8 @@
       </Docs>
     </Member>
     <Member MemberName="Create">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCTintBy Create (float duration, byte red, byte green, byte blue);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Cocos2D.CCTintBy Create(float32 duration, unsigned int8 red, unsigned int8 green, unsigned int8 blue) cil managed" />
+      <MemberSignature Language="C#" Value="public static MonoTouch.Cocos2D.CCTintBy Create (float duration, short red, short green, short blue);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.Cocos2D.CCTintBy Create(float32 duration, int16 red, int16 green, int16 blue) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -166,9 +145,9 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="duration" Type="System.Single" />
-        <Parameter Name="red" Type="System.Byte" />
-        <Parameter Name="green" Type="System.Byte" />
-        <Parameter Name="blue" Type="System.Byte" />
+        <Parameter Name="red" Type="System.Int16" />
+        <Parameter Name="green" Type="System.Int16" />
+        <Parameter Name="blue" Type="System.Int16" />
       </Parameters>
       <Docs>
         <param name="duration">To be added.</param>

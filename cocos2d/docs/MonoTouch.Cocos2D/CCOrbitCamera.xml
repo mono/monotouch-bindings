@@ -20,27 +20,6 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CCOrbitCamera ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <Parameters />
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public CCOrbitCamera (MonoTouch.Foundation.NSCoder coder);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -155,28 +134,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Position">
-      <MemberSignature Language="C#" Value="public virtual void Position (float sphericalRadius, float zenith, float azimuth);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Position(float32 sphericalRadius, float32 zenith, float32 azimuth) cil managed" />
+    <Member MemberName="GetSphere">
+      <MemberSignature Language="C#" Value="public virtual void GetSphere (ref float radius, ref float zenith, ref float azimuth);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void GetSphere(float32 radius, float32 zenith, float32 azimuth) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("sphericalRadius:zenith:azimuth")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("sphericalRadius:zenith:azimuth:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="sphericalRadius" Type="System.Single" />
-        <Parameter Name="zenith" Type="System.Single" />
-        <Parameter Name="azimuth" Type="System.Single" />
+        <Parameter Name="radius" Type="System.Single&amp;" RefType="ref" />
+        <Parameter Name="zenith" Type="System.Single&amp;" RefType="ref" />
+        <Parameter Name="azimuth" Type="System.Single&amp;" RefType="ref" />
       </Parameters>
       <Docs>
-        <param name="sphericalRadius">To be added.</param>
+        <param name="radius">To be added.</param>
         <param name="zenith">To be added.</param>
         <param name="azimuth">To be added.</param>
         <summary>To be added.</summary>

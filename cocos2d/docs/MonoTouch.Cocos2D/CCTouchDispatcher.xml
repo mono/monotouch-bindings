@@ -133,15 +133,15 @@
       </Docs>
     </Member>
     <Member MemberName="AddTargetedDelegate">
-      <MemberSignature Language="C#" Value="public virtual void AddTargetedDelegate (MonoTouch.Foundation.NSObject delegate_, int priority);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddTargetedDelegate(class MonoTouch.Foundation.NSObject delegate_, int32 priority) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void AddTargetedDelegate (MonoTouch.Foundation.NSObject delegate_, int priority, bool swallowsTouches);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddTargetedDelegate(class MonoTouch.Foundation.NSObject delegate_, int32 priority, bool swallowsTouches) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("addTargetedDelegate:priority:")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("addTargetedDelegate:priority:swallowsTouches:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -150,10 +150,12 @@
       <Parameters>
         <Parameter Name="delegate_" Type="MonoTouch.Foundation.NSObject" />
         <Parameter Name="priority" Type="System.Int32" />
+        <Parameter Name="swallowsTouches" Type="System.Boolean" />
       </Parameters>
       <Docs>
         <param name="delegate_">To be added.</param>
         <param name="priority">To be added.</param>
+        <param name="swallowsTouches">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -171,6 +173,77 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAllDelegates">
+      <MemberSignature Language="C#" Value="public virtual void RemoveAllDelegates ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveAllDelegates() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeAllDelegates")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveDelegate">
+      <MemberSignature Language="C#" Value="public virtual void RemoveDelegate (MonoTouch.Foundation.NSObject delegate_);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveDelegate(class MonoTouch.Foundation.NSObject delegate_) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="delegate_" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="delegate_">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPriority">
+      <MemberSignature Language="C#" Value="public virtual void SetPriority (int priority, MonoTouch.Foundation.NSObject delegate_);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetPriority(int32 priority, class MonoTouch.Foundation.NSObject delegate_) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setPriority:forDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="priority" Type="System.Int32" />
+        <Parameter Name="delegate_" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="priority">To be added.</param>
+        <param name="delegate_">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

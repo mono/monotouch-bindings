@@ -309,7 +309,7 @@
       </Docs>
     </Member>
     <Member MemberName="InsertQuad">
-      <MemberSignature Language="C#" Value="public virtual void InsertQuad (MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad quad, uint atIndex);" />
+      <MemberSignature Language="C#" Value="public virtual void InsertQuad (ref MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad quad, uint atIndex);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void InsertQuad(valuetype MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad quad, unsigned int32 atIndex) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -324,7 +324,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="quad" Type="MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad" />
+        <Parameter Name="quad" Type="MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad&amp;" RefType="ref" />
         <Parameter Name="atIndex" Type="System.UInt32" />
       </Parameters>
       <Docs>
@@ -580,7 +580,7 @@
       </Docs>
     </Member>
     <Member MemberName="UpdateQuad">
-      <MemberSignature Language="C#" Value="public virtual void UpdateQuad (MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad quad, uint atIndex);" />
+      <MemberSignature Language="C#" Value="public virtual void UpdateQuad (ref MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad quad, uint atIndex);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UpdateQuad(valuetype MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad quad, unsigned int32 atIndex) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -595,7 +595,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="quad" Type="MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad" />
+        <Parameter Name="quad" Type="MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad&amp;" RefType="ref" />
         <Parameter Name="atIndex" Type="System.UInt32" />
       </Parameters>
       <Docs>

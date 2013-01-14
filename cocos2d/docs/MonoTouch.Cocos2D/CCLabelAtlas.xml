@@ -20,27 +20,6 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CCLabelAtlas ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <Parameters />
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public CCLabelAtlas (MonoTouch.Foundation.NSCoder coder);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -130,8 +109,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CCLabelAtlas (string text, string atlasCharmapFile, uint elementWidth, uint elementHeight, uint startingCharInAtlas);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string text, string atlasCharmapFile, unsigned int32 elementWidth, unsigned int32 elementHeight, unsigned int32 startingCharInAtlas) cil managed" />
+      <MemberSignature Language="C#" Value="public CCLabelAtlas (string text, string atlasCharmapFile, uint elementWidth, uint elementHeight, char startingCharInAtlas);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string text, string atlasCharmapFile, unsigned int32 elementWidth, unsigned int32 elementHeight, char startingCharInAtlas) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -146,7 +125,7 @@
         <Parameter Name="atlasCharmapFile" Type="System.String" />
         <Parameter Name="elementWidth" Type="System.UInt32" />
         <Parameter Name="elementHeight" Type="System.UInt32" />
-        <Parameter Name="startingCharInAtlas" Type="System.UInt32" />
+        <Parameter Name="startingCharInAtlas" Type="System.Char" />
       </Parameters>
       <Docs>
         <param name="text">To be added.</param>

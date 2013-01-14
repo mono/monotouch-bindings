@@ -812,7 +812,7 @@
       </Docs>
     </Member>
     <Member MemberName="TextureRect">
-      <MemberSignature Language="C#" Value="public virtual System.Drawing.RectangleF TextureRect { get; }" />
+      <MemberSignature Language="C#" Value="public virtual System.Drawing.RectangleF TextureRect { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Drawing.RectangleF TextureRect" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -821,6 +821,9 @@
       <Attributes>
         <Attribute>
           <AttributeName>get: MonoTouch.Foundation.Export("textureRect")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setTextureRect:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
