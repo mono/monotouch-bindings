@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCTMXObjectGroup" FullName="MonoTouch.Cocos2D.CCTMXObjectGroup">
   <TypeSignature Language="C#" Value="public class CCTMXObjectGroup : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCTMXObjectGroup extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,24 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <verbatim>CCTMXObjectGroup represents the TMX object group.
+</verbatim>
+        <simplesect kind="since">
+          <para>v0.99.0 </para>
+        </simplesect>
+      </para>
+    </summary>
+    <remarks>
+      <para>
+        <verbatim>CCTMXObjectGroup represents the TMX object group.
+</verbatim>
+        <simplesect kind="since">
+          <para>v0.99.0 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -161,9 +178,13 @@
       </Parameters>
       <Docs>
         <param name="objectName">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>return the dictionary for the specific object name. It will return the 1st object found on the array for the given name. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>return the dictionary for the specific object name. It will return the 1st object found on the array for the given name. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetProperty">
@@ -186,9 +207,13 @@
       </Parameters>
       <Docs>
         <param name="propertyName">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>return the value for the specific property name </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>return the value for the specific property name </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GroupName">
@@ -210,9 +235,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>name of the group </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>name of the group </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Objects">
@@ -234,9 +263,13 @@
         <ReturnType>MonoTouch.Foundation.NSMutableArray</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>array of the objects </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>array of the objects </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PositionOffset">
@@ -258,9 +291,13 @@
         <ReturnType>System.Drawing.PointF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>offset position of child objects </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>offset position of child objects </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Properties">
@@ -282,9 +319,13 @@
         <ReturnType>MonoTouch.Foundation.NSMutableDictionary</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>list of properties stored in a dictionary </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>list of properties stored in a dictionary </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

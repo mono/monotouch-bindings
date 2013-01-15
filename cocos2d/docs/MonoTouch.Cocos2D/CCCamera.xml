@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCCamera" FullName="MonoTouch.Cocos2D.CCCamera">
   <TypeSignature Language="C#" Value="public class CCCamera : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCCamera extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,29 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>A <see cref="T:MonoTouch.Cocos2D.CCCamera" /> is used in every <see cref="T:MonoTouch.Cocos2D.CCNode" />. Useful to look at the object from different views. The OpenGL gluLookAt() function is used to locate the camera.</para>
+    </summary>
+    <remarks>
+      <para>A <see cref="T:MonoTouch.Cocos2D.CCCamera" /> is used in every <see cref="T:MonoTouch.Cocos2D.CCNode" />. Useful to look at the object from different views. The OpenGL gluLookAt() function is used to locate the camera.</para>
+      <para>If the object is transformed by any of the scale, rotation or position attributes, then they will override the camera. <verbatim>IMPORTANT: Either your use the camera or the rotation/scale/position properties. You can't use both.
+</verbatim> World coordinates won't work if you use the camera.</para>
+      <para>Limitations:</para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>Some nodes, like CCParallaxNode, CCParticle uses world node coordinates, and they won't work properly if you move them (or any of their ancestors) using the camera.</description>
+          </item>
+        </list>
+      </para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>It doesn't work on batched nodes like CCSprite objects when they are parented to a CCSpriteBatchNode object.It is recommended to use it ONLY if you are going to create 3D effects. For 2D effecs, use the action CCFollow or position/scale/rotate. </description>
+          </item>
+        </list>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -141,9 +163,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>whether of not the camera is dirty </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>whether of not the camera is dirty </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetCenter">
@@ -170,8 +196,12 @@
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
         <param name="z">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>get the center vector values in points </para>
+        </summary>
+        <remarks>
+          <para>get the center vector values in points </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetEye">
@@ -198,8 +228,12 @@
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
         <param name="z">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>get the eye vector values in points </para>
+        </summary>
+        <remarks>
+          <para>get the eye vector values in points </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetUp">
@@ -226,8 +260,12 @@
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
         <param name="z">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>get the up vector values </para>
+        </summary>
+        <remarks>
+          <para>get the up vector values </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Locate">
@@ -247,8 +285,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Sets the camera using gluLookAt using its eye, center and up_vector </para>
+        </summary>
+        <remarks>
+          <para>Sets the camera using gluLookAt using its eye, center and up_vector </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Restore">
@@ -268,8 +310,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>sets the camera in the defaul position </para>
+        </summary>
+        <remarks>
+          <para>sets the camera in the defaul position </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetCenter">
@@ -296,8 +342,12 @@
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
         <param name="z">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>sets the center values in points </para>
+        </summary>
+        <remarks>
+          <para>sets the center values in points </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetEye">
@@ -324,8 +374,12 @@
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
         <param name="z">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>sets the eye values in points </para>
+        </summary>
+        <remarks>
+          <para>sets the eye values in points </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetUp">
@@ -352,8 +406,12 @@
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
         <param name="z">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>sets the up values </para>
+        </summary>
+        <remarks>
+          <para>sets the up values </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ZEye">

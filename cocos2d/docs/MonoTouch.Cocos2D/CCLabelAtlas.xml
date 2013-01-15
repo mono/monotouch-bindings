@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCLabelAtlas" FullName="MonoTouch.Cocos2D.CCLabelAtlas">
   <TypeSignature Language="C#" Value="public class CCLabelAtlas : MonoTouch.Cocos2D.CCAtlasNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCLabelAtlas extends MonoTouch.Cocos2D.CCAtlasNode" />
@@ -15,8 +16,18 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCAtlasNode" />.</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCAtlasNode" />.</para>
+      <para>It can be as a replacement of CCLabel since it is MUCH faster.</para>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> versus CCLabel:<list type="bullet"><item><description>CCLabelAtlas is MUCH faster than CCLabel</description></item><item><description>CCLabelAtlas "characters" have a fixed height and width</description></item><item><description>CCLabelAtlas "characters" can be anything you want since they are taken from an image file</description></item></list></para>
+      <para>A more flexible class is <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" />. It supports variable width characters and it also has a nice editor. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -104,8 +115,12 @@
       <Docs>
         <param name="text">To be added.</param>
         <param name="fontConfigFile">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes the <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> with a string and a configuration file <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>initializes the <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> with a string and a configuration file <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -133,8 +148,12 @@
         <param name="elementWidth">To be added.</param>
         <param name="elementHeight">To be added.</param>
         <param name="startingCharInAtlas">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes the <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> with a string, a char map file(the atlas), the width and height in points of each element and the starting char of the atlas </para>
+        </summary>
+        <remarks>
+          <para>initializes the <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> with a string, a char map file(the atlas), the width and height in points of each element and the starting char of the atlas </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">

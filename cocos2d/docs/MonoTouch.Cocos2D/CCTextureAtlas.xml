@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCTextureAtlas" FullName="MonoTouch.Cocos2D.CCTextureAtlas">
   <TypeSignature Language="C#" Value="public class CCTextureAtlas : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCTextureAtlas extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>A class that implements a Texture Atlas. Supported features: The atlas file can be a PVRTC, PNG or any other fomrat supported by Texture2D Quads can be udpated in runtime Quads can be added in runtime Quads can be removed in runtime Quads can be re-ordered in runtime The TextureAtlas capacity can be increased or decreased in runtime OpenGL component: V3F, C4B, T2F. The quads are rendered using an OpenGL ES VBO. To render the quads using an interleaved vertex array list, you should modify the <ref refid="cc_config_8h" kindref="compound">ccConfig.h</ref> file </para>
+    </summary>
+    <remarks>
+      <para>A class that implements a Texture Atlas. Supported features: The atlas file can be a PVRTC, PNG or any other fomrat supported by Texture2D Quads can be udpated in runtime Quads can be added in runtime Quads can be removed in runtime Quads can be re-ordered in runtime The TextureAtlas capacity can be increased or decreased in runtime OpenGL component: V3F, C4B, T2F. The quads are rendered using an OpenGL ES VBO. To render the quads using an interleaved vertex array list, you should modify the <ref refid="cc_config_8h" kindref="compound">ccConfig.h</ref> file </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -125,8 +130,13 @@
       <Docs>
         <param name="texture">To be added.</param>
         <param name="capacity">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a TextureAtlas with a previously initialized Texture2D object, and with an initial capacity for Quads. The TextureAtlas capacity can be increased in runtime.</para>
+        </summary>
+        <remarks>
+          <para>initializes a TextureAtlas with a previously initialized Texture2D object, and with an initial capacity for Quads. The TextureAtlas capacity can be increased in runtime.</para>
+          <para>WARNING: Do not reinitialize the TextureAtlas because it will leak memory (issue #706) </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -148,8 +158,13 @@
       <Docs>
         <param name="fileName">To be added.</param>
         <param name="capacity">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a TextureAtlas with a filename and with a certain capacity for Quads. The TextureAtlas capacity can be increased in runtime.</para>
+        </summary>
+        <remarks>
+          <para>initializes a TextureAtlas with a filename and with a certain capacity for Quads. The TextureAtlas capacity can be increased in runtime.</para>
+          <para>WARNING: Do not reinitialize the TextureAtlas because it will leak memory (issue #706) </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Capacity">
@@ -168,9 +183,13 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>quantity of quads that can be stored with the current texture atlas size </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>quantity of quads that can be stored with the current texture atlas size </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -228,8 +247,12 @@
       </Parameters>
       <Docs>
         <param name="n">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>draws n quads n can't be greater than the capacity of the Atlas </para>
+        </summary>
+        <remarks>
+          <para>draws n quads n can't be greater than the capacity of the Atlas </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DrawNumberOfQuads">
@@ -254,8 +277,17 @@
       <Docs>
         <param name="n">To be added.</param>
         <param name="fromIndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>draws n quads from an index (offset). n + start can't be greater than the capacity of the atlas</para>
+        </summary>
+        <remarks>
+          <para>draws n quads from an index (offset). n + start can't be greater than the capacity of the atlas</para>
+          <para>
+            <simplesect kind="since">
+              <para>v1.0 </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FillWithEmptyQuads">
@@ -280,8 +312,12 @@
       <Docs>
         <param name="fromIndex">To be added.</param>
         <param name="amount">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Ensures that after a realloc quads are still empty Used internally by <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /><simplesect kind="since"><para>1.1 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Ensures that after a realloc quads are still empty Used internally by <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /><simplesect kind="since"><para>1.1 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IncreaseTotalQuadsWith">
@@ -304,8 +340,12 @@
       </Parameters>
       <Docs>
         <param name="amount">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Used internally by <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /> don't use this unless you know what you're doing <simplesect kind="since"><para>1.1 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Used internally by <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /> don't use this unless you know what you're doing <simplesect kind="since"><para>1.1 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InsertQuad">
@@ -330,8 +370,12 @@
       <Docs>
         <param name="quad">To be added.</param>
         <param name="atIndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Inserts a Quad (texture, vertex and color) at a certain index index must be between 0 and the atlas capacity - 1 <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Inserts a Quad (texture, vertex and color) at a certain index index must be between 0 and the atlas capacity - 1 <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MoveQuad">
@@ -356,8 +400,12 @@
       <Docs>
         <param name="fromIndex">To be added.</param>
         <param name="toIndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Removes the quad that is located at a certain index and inserts it at a new index This operation is faster than removing and inserting in a quad in 2 different steps <simplesect kind="since"><para>v0.7.2 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Removes the quad that is located at a certain index and inserts it at a new index This operation is faster than removing and inserting in a quad in 2 different steps <simplesect kind="since"><para>v0.7.2 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MoveQuads">
@@ -382,8 +430,12 @@
       <Docs>
         <param name="fromIndex">To be added.</param>
         <param name="toIndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Moves quads from index till totalQuads to the newIndex Used internally by <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /> This method doesn't enlarge the array if newIndex + quads to be moved &gt; capacity <simplesect kind="since"><para>1.1 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Moves quads from index till totalQuads to the newIndex Used internally by <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /> This method doesn't enlarge the array if newIndex + quads to be moved &gt; capacity <simplesect kind="since"><para>1.1 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MoveQuads">
@@ -410,8 +462,12 @@
         <param name="fromIndex">To be added.</param>
         <param name="amount">To be added.</param>
         <param name="toIndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Moves an amount of quads from oldIndex at newIndex <simplesect kind="since"><para>v1.1 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Moves an amount of quads from oldIndex at newIndex <simplesect kind="since"><para>v1.1 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Quads">
@@ -433,9 +489,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Quads that are going to be rendered </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Quads that are going to be rendered </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveAllQuads">
@@ -455,8 +515,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>removes all Quads. The TextureAtlas capacity remains untouched. No memory is freed. The total number of quads to be drawn will be 0 <simplesect kind="since"><para>v0.7.2 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>removes all Quads. The TextureAtlas capacity remains untouched. No memory is freed. The total number of quads to be drawn will be 0 <simplesect kind="since"><para>v0.7.2 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveQuadAtIndex">
@@ -479,8 +543,12 @@
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>removes a quad at a given index number. The capacity remains the same, but the total number of quads to be drawn is reduced in 1 <simplesect kind="since"><para>v0.7.2 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>removes a quad at a given index number. The capacity remains the same, but the total number of quads to be drawn is reduced in 1 <simplesect kind="since"><para>v0.7.2 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveQuadsAtIndex">
@@ -505,8 +573,12 @@
       <Docs>
         <param name="index">To be added.</param>
         <param name="amount">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>removes a amount of quads starting from index <simplesect kind="since"><para>1.1 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>removes a amount of quads starting from index <simplesect kind="since"><para>1.1 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Resize">
@@ -529,9 +601,13 @@
       </Parameters>
       <Docs>
         <param name="n">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>resize the capacity of the <see cref="T:MonoTouch.Cocos2D.CCTextureAtlas" />. The new capacity can be lower or higher than the current one It returns YES if the resize was successful. If it fails to resize the capacity it will return NO with a new capacity of 0. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>resize the capacity of the <see cref="T:MonoTouch.Cocos2D.CCTextureAtlas" />. The new capacity can be lower or higher than the current one It returns YES if the resize was successful. If it fails to resize the capacity it will return NO with a new capacity of 0. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Texture">
@@ -553,9 +629,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCTexture2D</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Texture of the texture atlas </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Texture of the texture atlas </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalQuads">
@@ -574,9 +654,13 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>quantity of quads that are going to be drawn </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>quantity of quads that are going to be drawn </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateQuad">
@@ -601,8 +685,12 @@
       <Docs>
         <param name="quad">To be added.</param>
         <param name="atIndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>updates a Quad (texture, vertex and color) at a certain index index must be between 0 and the atlas capacity - 1 <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>updates a Quad (texture, vertex and color) at a certain index index must be between 0 and the atlas capacity - 1 <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

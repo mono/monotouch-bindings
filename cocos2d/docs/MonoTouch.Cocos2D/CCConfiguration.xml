@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCConfiguration" FullName="MonoTouch.Cocos2D.CCConfiguration">
   <TypeSignature Language="C#" Value="public class CCConfiguration : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCConfiguration extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,14 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCConfiguration" /> contains some openGL variables <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCConfiguration" /> contains some openGL variables <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -105,9 +112,13 @@
       </Parameters>
       <Docs>
         <param name="searchName">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns whether or not an OpenGL is supported </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns whether or not an OpenGL is supported </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -142,9 +153,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>OpenGL Max Modelview Stack Depth. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>OpenGL Max Modelview Stack Depth. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxTextureSize">
@@ -163,9 +178,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>OpenGL Max texture size. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>OpenGL Max texture size. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxTextureUnits">
@@ -184,9 +203,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the maximum texture units <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the maximum texture units <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OSVersion">
@@ -205,9 +228,18 @@
         <ReturnType>MonoTouch.Cocos2D.CCOSVersion</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the OS version.<list type="bullet"><item><description>On iOS devices it returns the firmware version.</description></item><item><description>On Mac returns the OS version</description></item></list></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the OS version.<list type="bullet"><item><description>On iOS devices it returns the firmware version.</description></item><item><description>On Mac returns the OS version</description></item></list></para>
+          <para>
+            <simplesect kind="since">
+              <para>v0.99.5 </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SharedConfiguration">
@@ -247,9 +279,18 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not BGRA8888 textures are supported.</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not BGRA8888 textures are supported.</para>
+          <para>
+            <simplesect kind="since">
+              <para>v0.99.2 </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SupportsDiscardFramebuffer">
@@ -268,9 +309,18 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not glDiscardFramebufferEXT is supported</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not glDiscardFramebufferEXT is supported</para>
+          <para>
+            <simplesect kind="since">
+              <para>v0.99.2 </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SupportsNPOT">
@@ -289,9 +339,18 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not the GPU supports NPOT (Non Power Of Two) textures. OpenGL ES 2.0 already supports NPOT (iOS).</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not the GPU supports NPOT (Non Power Of Two) textures. OpenGL ES 2.0 already supports NPOT (iOS).</para>
+          <para>
+            <simplesect kind="since">
+              <para>v0.99.2 </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SupportsPVRTC">
@@ -310,9 +369,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not PVR Texture Compressed is supported </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not PVR Texture Compressed is supported </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SupportsShareableVAO">
@@ -331,9 +394,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not shareable VAOs are supported. <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not shareable VAOs are supported. <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

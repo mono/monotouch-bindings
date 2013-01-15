@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCDirector" FullName="MonoTouch.Cocos2D.CCDirector">
   <TypeSignature Language="C#" Value="public class CCDirector : MonoTouch.UIKit.UIViewController" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCDirector extends MonoTouch.UIKit.UIViewController" />
@@ -15,8 +16,15 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Class that creates and handle the main Window and manages how and when to execute the Scenes.</para>
+    </summary>
+    <remarks>
+      <para>Class that creates and handle the main Window and manages how and when to execute the Scenes.</para>
+      <para>The <see cref="T:MonoTouch.Cocos2D.CCDirector" /> is also resposible for:<list type="bullet"><item><description>initializing the OpenGL ES context</description></item><item><description>setting the OpenGL pixel format (default on is RGB565)</description></item><item><description>setting the OpenGL buffer depth (default one is 0-bit)</description></item><item><description>setting the projection (default one is 3D)</description></item></list></para>
+      <para>Since the <see cref="T:MonoTouch.Cocos2D.CCDirector" /> is a singleton, the standard way to use it is by calling:<list type="bullet"><item><description>[[CCDirector sharedDirector] methodName];</description></item></list></para>
+      <para>The <see cref="T:MonoTouch.Cocos2D.CCDirector" /> also sets the default OpenGL context:<list type="bullet"><item><description>GL_TEXTURE_2D is enabled</description></item><item><description>GL_VERTEX_ARRAY is enabled</description></item><item><description>GL_COLOR_ARRAY is enabled</description></item><item><description>GL_TEXTURE_COORD_ARRAY is enabled </description></item></list></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -104,9 +112,15 @@
         <ReturnType>MonoTouch.Cocos2D.CCActionManager</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <see cref="T:MonoTouch.Cocos2D.CCActionManager" /> associated with this director <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <see cref="T:MonoTouch.Cocos2D.CCActionManager" /> associated with this director <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AnimationInterval">
@@ -128,9 +142,13 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The FPS value </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The FPS value </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -169,9 +187,13 @@
       </Parameters>
       <Docs>
         <param name="point">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>converts a UIKit coordinate to an OpenGL coordinate Useful to convert (multi) touchs coordinates to the current layout (portrait or landscape) </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>converts a UIKit coordinate to an OpenGL coordinate Useful to convert (multi) touchs coordinates to the current layout (portrait or landscape) </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ConvertToUI">
@@ -194,9 +216,13 @@
       </Parameters>
       <Docs>
         <param name="point">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>converts an OpenGL coordinate to a UIKit coordinate Useful to convert node points to window points for calls such as glScissor </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>converts an OpenGL coordinate to a UIKit coordinate Useful to convert node points to window points for calls such as glScissor </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateStatsLabel">
@@ -216,8 +242,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>creates the Stats labels </para>
+        </summary>
+        <remarks>
+          <para>creates the Stats labels </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DisplayStats">
@@ -239,9 +269,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not to display director statistics </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not to display director statistics </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -280,8 +314,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Draw the scene. This method is called every frame. Don't call it manually. </para>
+        </summary>
+        <remarks>
+          <para>Draw the scene. This method is called every frame. Don't call it manually. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="End">
@@ -301,8 +339,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Ends the execution, releases the running scene. It doesn't remove the OpenGL view from its parent. You have to do it manually. </para>
+        </summary>
+        <remarks>
+          <para>Ends the execution, releases the running scene. It doesn't remove the OpenGL view from its parent. You have to do it manually. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsAnimating">
@@ -321,9 +363,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not the Director is active (animating) </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not the Director is active (animating) </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsPaused">
@@ -342,9 +388,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not the Director is paused </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not the Director is paused </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NextDeltaTimeZero">
@@ -366,9 +416,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>whether or not the next delta time will be zero </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>whether or not the next delta time will be zero </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NotificationNode">
@@ -390,9 +444,13 @@
         <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>This object will be visited after the main scene is visited. This object MUST implement the "visit" selector. Useful to hook a notification object, like CCNotifications (<ulink url="http://github.com/manucorporat/CCNotifications">http://github.com/manucorporat/CCNotifications</ulink>) <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>This object will be visited after the main scene is visited. This object MUST implement the "visit" selector. Useful to hook a notification object, like CCNotifications (<ulink url="http://github.com/manucorporat/CCNotifications">http://github.com/manucorporat/CCNotifications</ulink>) <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Pause">
@@ -412,8 +470,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Pauses the running scene. The running scene will be <emphasis>drawed</emphasis> but all scheduled timers will be paused While paused, the draw rate will be 4 FPS to reduce CPU consuption </para>
+        </summary>
+        <remarks>
+          <para>Pauses the running scene. The running scene will be <emphasis>drawed</emphasis> but all scheduled timers will be paused While paused, the draw rate will be 4 FPS to reduce CPU consuption </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PopScene">
@@ -433,8 +495,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Pops out a scene from the queue. This scene will replace the running one. The running scene will be deleted. If there are no more scenes in the stack the execution is terminated. ONLY call it if there is a running scene. </para>
+        </summary>
+        <remarks>
+          <para>Pops out a scene from the queue. This scene will replace the running one. The running scene will be deleted. If there are no more scenes in the stack the execution is terminated. ONLY call it if there is a running scene. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PopToRootScene">
@@ -454,8 +520,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Pops out all scenes from the queue until the root scene in the queue. This scene will replace the running one. The running scene will be deleted. If there are no more scenes in the stack the execution is terminated. ONLY call it if there is a running scene. </para>
+        </summary>
+        <remarks>
+          <para>Pops out all scenes from the queue until the root scene in the queue. This scene will replace the running one. The running scene will be deleted. If there are no more scenes in the stack the execution is terminated. ONLY call it if there is a running scene. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Projection">
@@ -496,8 +566,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Removes all the cocos2d data that was cached automatically. It will purge the <see cref="T:MonoTouch.Cocos2D.CCTextureCache" />, <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> cache. IMPORTANT: The <see cref="T:MonoTouch.Cocos2D.CCSpriteFrameCache" /> won't be purged. If you want to purge it, you have to purge it manually. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Removes all the cocos2d data that was cached automatically. It will purge the <see cref="T:MonoTouch.Cocos2D.CCTextureCache" />, <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> cache. IMPORTANT: The <see cref="T:MonoTouch.Cocos2D.CCSpriteFrameCache" /> won't be purged. If you want to purge it, you have to purge it manually. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Push">
@@ -544,8 +618,12 @@
       </Parameters>
       <Docs>
         <param name="scene">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Suspends the execution of the running scene, pushing it on the stack of suspended scenes. The new scene will be executed. Try to avoid big stacks of pushed scenes to reduce memory allocation. ONLY call it if there is a running scene. </para>
+        </summary>
+        <remarks>
+          <para>Suspends the execution of the running scene, pushing it on the stack of suspended scenes. The new scene will be executed. Try to avoid big stacks of pushed scenes to reduce memory allocation. ONLY call it if there is a running scene. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReplaceScene">
@@ -568,8 +646,12 @@
       </Parameters>
       <Docs>
         <param name="scene">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Replaces the running scene with a new one. The running scene is terminated. ONLY call it if there is a running scene. </para>
+        </summary>
+        <remarks>
+          <para>Replaces the running scene with a new one. The running scene is terminated. ONLY call it if there is a running scene. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReshapeProjection">
@@ -592,8 +674,12 @@
       </Parameters>
       <Docs>
         <param name="newWindowSize">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>changes the projection size </para>
+        </summary>
+        <remarks>
+          <para>changes the projection size </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Resume">
@@ -613,8 +699,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Resumes the paused scene The scheduled timers will be activated again. The "delta time" will be 0 (as if the game wasn't paused) </para>
+        </summary>
+        <remarks>
+          <para>Resumes the paused scene The scheduled timers will be activated again. The "delta time" will be 0 (as if the game wasn't paused) </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Run">
@@ -637,8 +727,13 @@
       </Parameters>
       <Docs>
         <param name="scene">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Enters the Director's main loop with the given Scene. Call it to run only your FIRST scene. Don't call it if there is already a running scene.</para>
+        </summary>
+        <remarks>
+          <para>Enters the Director's main loop with the given Scene. Call it to run only your FIRST scene. Don't call it if there is already a running scene.</para>
+          <para>It will call pushScene: and then it will call startAnimation </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RunningScene">
@@ -657,9 +752,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCScene</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The current running Scene. Director can only run one Scene at the time </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The current running Scene. Director can only run one Scene at the time </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RunningThread">
@@ -678,9 +777,13 @@
         <ReturnType>MonoTouch.Foundation.NSThread</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the cocos2d thread. If you want to run any cocos2d task, run it in this thread. On iOS usually it is the main thread. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the cocos2d thread. If you want to run any cocos2d task, run it in this thread. On iOS usually it is the main thread. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Scheduler">
@@ -702,9 +805,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCScheduler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>CCScheduler associated with this director <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>CCScheduler associated with this director <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SecondsPerFrame">
@@ -723,9 +830,13 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>seconds per frame </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>seconds per frame </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SendCleanupToScene">
@@ -744,9 +855,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not the replaced scene will receive the cleanup message. If the new scene is pushed, then the old scene won't receive the "cleanup" message. If the new scene replaces the old one, the it will receive the "cleanup" message. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not the replaced scene will receive the cleanup message. If the new scene is pushed, then the old scene won't receive the "cleanup" message. If the new scene replaces the old one, the it will receive the "cleanup" message. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetAlphaBlending">
@@ -769,8 +884,12 @@
       </Parameters>
       <Docs>
         <param name="on">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>enables/disables OpenGL alpha blending </para>
+        </summary>
+        <remarks>
+          <para>enables/disables OpenGL alpha blending </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetDepthTest">
@@ -793,8 +912,12 @@
       </Parameters>
       <Docs>
         <param name="on">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>enables/disables OpenGL depth test </para>
+        </summary>
+        <remarks>
+          <para>enables/disables OpenGL depth test </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetGLDefaultValues">
@@ -814,8 +937,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>sets the OpenGL default values </para>
+        </summary>
+        <remarks>
+          <para>sets the OpenGL default values </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SharedDirector">
@@ -872,8 +999,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>The main loop is triggered again. Call this function only if [stopAnimation] was called earlier <simplesect kind="warning"><para>Dont' call this function to start the main loop. To run the main loop call runWithScene </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>The main loop is triggered again. Call this function only if [stopAnimation] was called earlier <simplesect kind="warning"><para>Dont' call this function to start the main loop. To run the main loop call runWithScene </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StopAnimation">
@@ -893,8 +1024,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Stops the animation. Nothing will be drawn. The main loop won't be triggered anymore. If you wan't to pause your animation call [pause] instead. </para>
+        </summary>
+        <remarks>
+          <para>Stops the animation. Nothing will be drawn. The main loop won't be triggered anymore. If you wan't to pause your animation call [pause] instead. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalFrames">
@@ -913,9 +1048,13 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>How many frames were called since the director started </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>How many frames were called since the director started </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WinSize">

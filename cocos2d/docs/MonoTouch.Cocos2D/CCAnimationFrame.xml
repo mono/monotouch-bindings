@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCAnimationFrame" FullName="MonoTouch.Cocos2D.CCAnimationFrame">
   <TypeSignature Language="C#" Value="public class CCAnimationFrame : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCAnimationFrame extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,19 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCAnimationFrame" /> A frame of the animation. It contains information like:<list type="bullet"><item><description>sprite frame name</description></item><item><description># of delay units.</description></item><item><description>offset</description></item></list></para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCAnimationFrame" /> A frame of the animation. It contains information like:<list type="bullet"><item><description>sprite frame name</description></item><item><description># of delay units.</description></item><item><description>offset</description></item></list></para>
+      <para>
+        <simplesect kind="since">
+          <para>v2.0 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -127,8 +139,12 @@
         <param name="spriteFrame">To be added.</param>
         <param name="delayUnits">To be added.</param>
         <param name="userInfo">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes the animation frame with a spriteframe, number of delay units and a notification user info </para>
+        </summary>
+        <remarks>
+          <para>initializes the animation frame with a spriteframe, number of delay units and a notification user info </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -166,9 +182,13 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>how many units of time the frame takes </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>how many units of time the frame takes </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -209,9 +229,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCSpriteFrame</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>CCSpriteFrameName to be used </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>CCSpriteFrameName to be used </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UserInfo">
@@ -233,9 +257,13 @@
         <ReturnType>MonoTouch.Foundation.NSDictionary</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A CCAnimationFrameDisplayedNotification notification will be broadcasted when the frame is displayed with this dictionary as UserInfo. If UserInfo is nil, then no notification will be broadcasted. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A CCAnimationFrameDisplayedNotification notification will be broadcasted when the frame is displayed with this dictionary as UserInfo. If UserInfo is nil, then no notification will be broadcasted. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

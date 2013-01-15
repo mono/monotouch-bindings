@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCMenuItem" FullName="MonoTouch.Cocos2D.CCMenuItem">
   <TypeSignature Language="C#" Value="public class CCMenuItem : MonoTouch.Cocos2D.CCNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCMenuItem extends MonoTouch.Cocos2D.CCNode" />
@@ -15,8 +16,15 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCMenuItem" /> base class</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCMenuItem" /> base class</para>
+      <para>Subclass <see cref="T:MonoTouch.Cocos2D.CCMenuItem" /> (or any subclass) to create your custom <see cref="T:MonoTouch.Cocos2D.CCMenuItem" /> objects. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -57,8 +65,12 @@
       </Parameters>
       <Docs>
         <param name="callback">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes a <see cref="T:MonoTouch.Cocos2D.CCMenuItem" /> with the specified block. The block will be "copied". </para>
+        </summary>
+        <remarks>
+          <para>Initializes a <see cref="T:MonoTouch.Cocos2D.CCMenuItem" /> with the specified block. The block will be "copied". </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -144,8 +156,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Activate the item </para>
+        </summary>
+        <remarks>
+          <para>Activate the item </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -226,8 +242,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>The item was selected (not activated), similar to "mouse-over" </para>
+        </summary>
+        <remarks>
+          <para>The item was selected (not activated), similar to "mouse-over" </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetCallback">
@@ -250,8 +270,12 @@
       </Parameters>
       <Docs>
         <param name="callback">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Sets the block that is called when the item is tapped. The block will be "copied". </para>
+        </summary>
+        <remarks>
+          <para>Sets the block that is called when the item is tapped. The block will be "copied". </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Unselected">
@@ -271,8 +295,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>The item was unselected </para>
+        </summary>
+        <remarks>
+          <para>The item was unselected </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCSpriteBatchNode" FullName="MonoTouch.Cocos2D.CCSpriteBatchNode">
   <TypeSignature Language="C#" Value="public class CCSpriteBatchNode : MonoTouch.Cocos2D.CCNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCSpriteBatchNode extends MonoTouch.Cocos2D.CCNode" />
@@ -15,8 +16,21 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> is like a batch node: if it contains children, it will draw them in 1 single OpenGL call (often known as "batch draw").</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> is like a batch node: if it contains children, it will draw them in 1 single OpenGL call (often known as "batch draw").</para>
+      <para>A <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> can reference one and only one texture (one image file, one texture atlas). Only the CCSprites that are contained in that texture can be added to the <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" />. All CCSprites added to a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> are drawn in one OpenGL ES draw call. If the CCSprites are not added to a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> then an OpenGL ES draw call will be needed for each one, which is less efficient.</para>
+      <para>Limitations:<list type="bullet"><item><description>The only object that is accepted as child (or grandchild, grand-grandchild, etc...) is CCSprite or any subclass of CCSprite. eg: particles, labels and layer can't be added to a CCSpriteBatchNode.</description></item><item><description>Either all its children are Aliased or Antialiased. It can't be a mix. This is because "alias" is a property of the texture, and all the sprites share the same texture.</description></item></list></para>
+      <para>
+        <simplesect kind="since">
+          <para>v0.7.1 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -157,8 +171,12 @@
       <Docs>
         <param name="texture">To be added.</param>
         <param name="capacity">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> with a texture2d and capacity of children. The capacity will be increased in 33% in runtime if it run out of space. </para>
+        </summary>
+        <remarks>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> with a texture2d and capacity of children. The capacity will be increased in 33% in runtime if it run out of space. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -180,8 +198,12 @@
       <Docs>
         <param name="filename">To be added.</param>
         <param name="capacity">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> with a file image (.png, .jpeg, .pvr, etc) and a capacity of children. The capacity will be increased in 33% in runtime if it run out of space. The file will be loaded using the TextureMgr. </para>
+        </summary>
+        <remarks>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> with a file image (.png, .jpeg, .pvr, etc) and a capacity of children. The capacity will be increased in 33% in runtime if it run out of space. The file will be loaded using the TextureMgr. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddQuadFromSprite">
@@ -280,9 +302,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCBlendFunc</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>conforms to <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>conforms to <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -317,9 +343,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCArray</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>descendants (children, gran children, etc) </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>descendants (children, gran children, etc) </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -437,8 +467,12 @@
       <Docs>
         <param name="sprite">To be added.</param>
         <param name="cleanup">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>removes a child given a reference. It will also cleanup the running actions depending on the cleanup parameter. <simplesect kind="warning"><para>Removing a child from a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> is very slow </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>removes a child given a reference. It will also cleanup the running actions depending on the cleanup parameter. <simplesect kind="warning"><para>Removing a child from a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> is very slow </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveChildAtIndex">
@@ -463,8 +497,12 @@
       <Docs>
         <param name="index">To be added.</param>
         <param name="cleanup">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>removes a child given a certain index. It will also cleanup the running actions depending on the cleanup parameter. <simplesect kind="warning"><para>Removing a child from a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> is very slow </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>removes a child given a certain index. It will also cleanup the running actions depending on the cleanup parameter. <simplesect kind="warning"><para>Removing a child from a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> is very slow </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveSpriteFromAtlas">
@@ -558,9 +596,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCTextureAtlas</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the TextureAtlas that is used </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the TextureAtlas that is used </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCPointArray" FullName="MonoTouch.Cocos2D.CCPointArray">
   <TypeSignature Language="C#" Value="public class CCPointArray : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCPointArray extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>An Array that contain control points. Used by <see cref="T:MonoTouch.Cocos2D.CCCardinalSplineTo" /> and (By) and <see cref="T:MonoTouch.Cocos2D.CCCatmullRomTo" /> (and By) actions. </para>
+    </summary>
+    <remarks>
+      <para>An Array that contain control points. Used by <see cref="T:MonoTouch.Cocos2D.CCCardinalSplineTo" /> and (By) and <see cref="T:MonoTouch.Cocos2D.CCCatmullRomTo" /> (and By) actions. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -123,8 +128,12 @@
       </Parameters>
       <Docs>
         <param name="capacity">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a Catmull Rom config with a capacity hint </para>
+        </summary>
+        <remarks>
+          <para>initializes a Catmull Rom config with a capacity hint </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Add">
@@ -147,8 +156,12 @@
       </Parameters>
       <Docs>
         <param name="controlPoint">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>appends a control point </para>
+        </summary>
+        <remarks>
+          <para>appends a control point </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -186,9 +199,13 @@
         <ReturnType>MonoTouch.Foundation.NSMutableArray</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Array that contains the control points </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Array that contains the control points </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Count">
@@ -253,8 +270,12 @@
       <Docs>
         <param name="controlPoint">To be added.</param>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>inserts a controlPoint at index </para>
+        </summary>
+        <remarks>
+          <para>inserts a controlPoint at index </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Item">
@@ -297,8 +318,12 @@
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>deletes a control point at a given index </para>
+        </summary>
+        <remarks>
+          <para>deletes a control point at a given index </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Replace">
@@ -323,8 +348,12 @@
       <Docs>
         <param name="controlPoint">To be added.</param>
         <param name="ndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>replaces an existing controlPoint at index </para>
+        </summary>
+        <remarks>
+          <para>replaces an existing controlPoint at index </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Reverse">
@@ -344,9 +373,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns a new copy of the array reversed. User is responsible for releasing this copy </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns a new copy of the array reversed. User is responsible for releasing this copy </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReverseInline">
@@ -366,8 +399,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>reverse the current control point array inline, without generating a new one </para>
+        </summary>
+        <remarks>
+          <para>reverse the current control point array inline, without generating a new one </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

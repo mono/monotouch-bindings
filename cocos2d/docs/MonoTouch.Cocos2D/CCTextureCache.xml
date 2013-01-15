@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCTextureCache" FullName="MonoTouch.Cocos2D.CCTextureCache">
   <TypeSignature Language="C#" Value="public class CCTextureCache : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCTextureCache extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Singleton that handles the loading of textures Once the texture is loaded, the next time it will return a reference of the previously loaded texture reducing GPU &amp; CPU memory </para>
+    </summary>
+    <remarks>
+      <para>Singleton that handles the loading of textures Once the texture is loaded, the next time it will return a reference of the previously loaded texture reducing GPU &amp; CPU memory </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -128,9 +133,13 @@
       <Docs>
         <param name="image">To be added.</param>
         <param name="key">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns a Texture2D object given an CGImageRef image If the image was not previously loaded, it will create a new <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object and it will return it. Otherwise it will return a reference of a previously loaded image The "key" parameter will be used as the "key" for the cache. If "key" is nil, then a new texture will be created each time. <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns a Texture2D object given an CGImageRef image If the image was not previously loaded, it will create a new <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object and it will return it. Otherwise it will return a reference of a previously loaded image The "key" parameter will be used as the "key" for the cache. If "key" is nil, then a new texture will be created each time. <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddImage">
@@ -153,9 +162,13 @@
       </Parameters>
       <Docs>
         <param name="fileImage">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns a Texture2D object given an file image If the file image was not previously loaded, it will create a new <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object and it will return it. It will use the filename as a key. Otherwise it will return a reference of a previosly loaded image. Supported image extensions: .png, .bmp, .tiff, .jpeg, .pvr, .gif </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns a Texture2D object given an file image If the file image was not previously loaded, it will create a new <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object and it will return it. It will use the filename as a key. Otherwise it will return a reference of a previosly loaded image. Supported image extensions: .png, .bmp, .tiff, .jpeg, .pvr, .gif </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddImageAsync">
@@ -180,8 +193,12 @@
       <Docs>
         <param name="filename">To be added.</param>
         <param name="callback">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Asynchronously, load a texture2d from a file. If the file image was previously loaded, it will use it. Otherwise it will load a texture in a new thread, and when the image is loaded, the block will be called. The callback will be called in the cocos2d thread, so it is safe to create any cocos2d object from the callback. Supported image extensions: .png, .bmp, .tiff, .jpeg, .pvr, .gif <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Asynchronously, load a texture2d from a file. If the file image was previously loaded, it will use it. Otherwise it will load a texture in a new thread, and when the image is loaded, the block will be called. The callback will be called in the cocos2d thread, so it is safe to create any cocos2d object from the callback. Supported image extensions: .png, .bmp, .tiff, .jpeg, .pvr, .gif <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddImageAsync">
@@ -208,8 +225,12 @@
         <param name="filename">To be added.</param>
         <param name="target">To be added.</param>
         <param name="selector">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Asynchronously, load a texture2d from a file. If the file image was previously loaded, it will use it. Otherwise it will load a texture in a new thread, and when the image is loaded, the callback will be called with the Texture2D as a parameter. The callback will be called in the cocos2d thread, so it is safe to create any cocos2d object from the callback. Supported image extensions: .png, .bmp, .tiff, .jpeg, .pvr, .gif <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Asynchronously, load a texture2d from a file. If the file image was previously loaded, it will use it. Otherwise it will load a texture in a new thread, and when the image is loaded, the callback will be called with the Texture2D as a parameter. The callback will be called in the cocos2d thread, so it is safe to create any cocos2d object from the callback. Supported image extensions: .png, .bmp, .tiff, .jpeg, .pvr, .gif <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddPVRImage">
@@ -232,9 +253,13 @@
       </Parameters>
       <Docs>
         <param name="filename">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns a Texture2D object given an PVR filename. If the file image was not previously loaded, it will create a new <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object and it will return it. Otherwise it will return a reference of a previosly loaded image </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns a Texture2D object given an PVR filename. If the file image was not previously loaded, it will create a new <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object and it will return it. Otherwise it will return a reference of a previosly loaded image </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -273,9 +298,13 @@
       </Parameters>
       <Docs>
         <param name="textureKeyName">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns an already created texture. Returns nil if the texture doesn't exist. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns an already created texture. Returns nil if the texture doesn't exist. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PurgeSharedTextureCache">
@@ -295,8 +324,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>purges the cache. It releases the retained instance. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>purges the cache. It releases the retained instance. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveAllTextures">
@@ -316,8 +349,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Purges the dictionary of loaded textures. Call this method if you receive the "Memory Warning" In the short term: it will free some resources preventing your app from being killed In the medium term: it will allocate more resources In the long term: it will be the same </para>
+        </summary>
+        <remarks>
+          <para>Purges the dictionary of loaded textures. Call this method if you receive the "Memory Warning" In the short term: it will free some resources preventing your app from being killed In the medium term: it will allocate more resources In the long term: it will be the same </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveTexture">
@@ -340,8 +377,12 @@
       </Parameters>
       <Docs>
         <param name="tex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Deletes a texture from the cache given a texture </para>
+        </summary>
+        <remarks>
+          <para>Deletes a texture from the cache given a texture </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveTexture">
@@ -364,8 +405,12 @@
       </Parameters>
       <Docs>
         <param name="textureKeyName">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Deletes a texture from the cache given a its key name <simplesect kind="since"><para>v0.99.4 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Deletes a texture from the cache given a its key name <simplesect kind="since"><para>v0.99.4 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveUnusedTextures">
@@ -385,8 +430,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Removes unused textures Textures that have a retain count of 1 will be deleted It is convinient to call this method after when starting a new Scene <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Removes unused textures Textures that have a retain count of 1 will be deleted It is convinient to call this method after when starting a new Scene <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SharedTextureCache">

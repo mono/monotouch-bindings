@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCMenuItemLabel" FullName="MonoTouch.Cocos2D.CCMenuItemLabel">
   <TypeSignature Language="C#" Value="public class CCMenuItemLabel : MonoTouch.Cocos2D.CCMenuItem" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCMenuItemLabel extends MonoTouch.Cocos2D.CCMenuItem" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>An abstract class for "label" <see cref="T:MonoTouch.Cocos2D.CCMenuItemLabel" /> items Any <see cref="T:MonoTouch.Cocos2D.CCNode" /> that supports the <ref refid="protocol_c_c_label_protocol-p" kindref="compound">CCLabelProtocol</ref> protocol can be added. Supported nodes:<list type="bullet"><item><description>CCLabelBMFont</description></item><item><description>CCLabelAtlas</description></item><item><description>CCLabelTTF</description></item></list></para>
+    </summary>
+    <remarks>
+      <para>An abstract class for "label" <see cref="T:MonoTouch.Cocos2D.CCMenuItemLabel" /> items Any <see cref="T:MonoTouch.Cocos2D.CCNode" /> that supports the <ref refid="protocol_c_c_label_protocol-p" kindref="compound">CCLabelProtocol</ref> protocol can be added. Supported nodes:<list type="bullet"><item><description>CCLabelBMFont</description></item><item><description>CCLabelAtlas</description></item><item><description>CCLabelTTF</description></item></list></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -141,8 +146,12 @@
       <Docs>
         <param name="label">To be added.</param>
         <param name="callback">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCMenuItemLabel" /> with a Label and a block to execute. The block will be "copied". This is the designated initializer. </para>
+        </summary>
+        <remarks>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCMenuItemLabel" /> with a Label and a block to execute. The block will be "copied". This is the designated initializer. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -204,9 +213,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCColor3B</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>the color that will be used to disable the item </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>the color that will be used to disable the item </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsEnabled">

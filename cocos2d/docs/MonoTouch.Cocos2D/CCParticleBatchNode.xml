@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCParticleBatchNode" FullName="MonoTouch.Cocos2D.CCParticleBatchNode">
   <TypeSignature Language="C#" Value="public class CCParticleBatchNode : MonoTouch.Cocos2D.CCNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCParticleBatchNode extends MonoTouch.Cocos2D.CCNode" />
@@ -15,8 +16,17 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /> is like a batch node: if it contains children, it will draw them in 1 single OpenGL call (often known as "batch draw").</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /> is like a batch node: if it contains children, it will draw them in 1 single OpenGL call (often known as "batch draw").</para>
+      <para>A <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /> can reference one and only one texture (one image file, one texture atlas). Only the CCParticleSystems that are contained in that texture can be added to the <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" />. All CCParticleSystems added to a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> are drawn in one OpenGL ES draw call. If the CCParticleSystems are not added to a <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /> then an OpenGL ES draw call will be needed for each one, which is less efficient.</para>
+      <para>Limitations:<list type="bullet"><item><description>At the moment only CCParticleSystemQuad is supported</description></item><item><description>All systems need to be drawn with the same parameters, blend function, aliasing, texture</description></item></list></para>
+      <para>Most efficient usage<list type="bullet"><item><description>Initialize the ParticleBatchNode with the texture and enough capacity for all the particle systems</description></item><item><description>Initialize all particle systems and add them as child to the batch node v1.1 </description></item></list></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -125,8 +135,12 @@
       <Docs>
         <param name="texture">To be added.</param>
         <param name="capacity">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes the particle system with <see cref="T:MonoTouch.Cocos2D.CCTexture2D" />, a capacity of particles </para>
+        </summary>
+        <remarks>
+          <para>initializes the particle system with <see cref="T:MonoTouch.Cocos2D.CCTexture2D" />, a capacity of particles </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -148,8 +162,12 @@
       <Docs>
         <param name="fileImage">To be added.</param>
         <param name="capacity">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes the particle system with the name of a file on disk (for a list of supported formats look at the <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> class), a capacity of particles </para>
+        </summary>
+        <remarks>
+          <para>initializes the particle system with the name of a file on disk (for a list of supported formats look at the <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> class), a capacity of particles </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddChild">
@@ -176,8 +194,12 @@
         <param name="child">To be added.</param>
         <param name="zOrder">To be added.</param>
         <param name="aTag">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Add a child into the <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /></para>
+        </summary>
+        <remarks>
+          <para>Add a child into the <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BlendFunc">
@@ -199,9 +221,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCBlendFunc</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>the blend function used for drawing the quads </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>the blend function used for drawing the quads </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -240,8 +266,12 @@
       </Parameters>
       <Docs>
         <param name="particleIndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>disables a particle by inserting a 0'd quad into the texture atlas </para>
+        </summary>
+        <remarks>
+          <para>disables a particle by inserting a 0'd quad into the texture atlas </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -285,8 +315,12 @@
       <Docs>
         <param name="pSystem">To be added.</param>
         <param name="inAtlasAtIndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Inserts a child into the <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /></para>
+        </summary>
+        <remarks>
+          <para>Inserts a child into the <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveChildcleanup">
@@ -311,8 +345,12 @@
       <Docs>
         <param name="pSystem">To be added.</param>
         <param name="cleanUp">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>remove child from the <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /></para>
+        </summary>
+        <remarks>
+          <para>remove child from the <see cref="T:MonoTouch.Cocos2D.CCParticleBatchNode" /></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TextureAtlas">
@@ -334,9 +372,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCTextureAtlas</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>the texture atlas used for drawing the quads </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>the texture atlas used for drawing the quads </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

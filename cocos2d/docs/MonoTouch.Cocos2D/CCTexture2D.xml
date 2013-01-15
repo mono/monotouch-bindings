@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCTexture2D" FullName="MonoTouch.Cocos2D.CCTexture2D">
   <TypeSignature Language="C#" Value="public class CCTexture2D : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCTexture2D extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,14 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> class. This class allows to easily create OpenGL 2D textures from images, text or raw data. The created <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object will always have power-of-two dimensions. Depending on how you create the <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object, the actual image area of the texture might be smaller than the texture dimensions i.e. "contentSize" != (pixelsWide, pixelsHigh) and (maxS, maxT) != (1.0, 1.0). Be aware that the content of the generated textures will be upside-down! </para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> class. This class allows to easily create OpenGL 2D textures from images, text or raw data. The created <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object will always have power-of-two dimensions. Depending on how you create the <see cref="T:MonoTouch.Cocos2D.CCTexture2D" /> object, the actual image area of the texture might be smaller than the texture dimensions i.e. "contentSize" != (pixelsWide, pixelsHigh) and (maxS, maxT) != (1.0, 1.0). Be aware that the content of the generated textures will be upside-down! </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -123,8 +130,15 @@
       </Parameters>
       <Docs>
         <param name="pvrFile">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes a texture from a PVR file.</para>
+        </summary>
+        <remarks>
+          <para>Initializes a texture from a PVR file.</para>
+          <para>Supported PVR formats:<list type="bullet"><item><description>BGRA 8888</description></item><item><description>RGBA 8888</description></item><item><description>RGBA 4444</description></item><item><description>RGBA 5551</description></item><item><description>RBG 565</description></item><item><description>A 8</description></item><item><description>I 8</description></item><item><description>AI 8</description></item><item><description>PVRTC 2BPP</description></item><item><description>PVRTC 4BPP</description></item></list></para>
+          <para>By default PVR images are treated as if they alpha channel is NOT premultiplied. You can override this behavior with this class method:<list type="bullet"><item><description>PVRImagesHavePremultipliedAlpha:haveAlphaPremultiplied;</description></item></list></para>
+          <para>IMPORTANT: This method is only defined on iOS. It is not supported on the Mac version. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -171,8 +185,12 @@
         <param name="text">To be added.</param>
         <param name="fontName">To be added.</param>
         <param name="fontSize">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes a texture from a string with font name and font size </para>
+        </summary>
+        <remarks>
+          <para>Initializes a texture from a string with font name and font size </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -200,8 +218,12 @@
         <param name="width">To be added.</param>
         <param name="height">To be added.</param>
         <param name="size">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Intializes with a texture2d with data </para>
+        </summary>
+        <remarks>
+          <para>Intializes with a texture2d with data </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -231,8 +253,12 @@
         <param name="vertAlignment">To be added.</param>
         <param name="fontName">To be added.</param>
         <param name="fontSize">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes a texture from a string with dimensions, alignment, font name and font size </para>
+        </summary>
+        <remarks>
+          <para>Initializes a texture from a string with dimensions, alignment, font name and font size </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -268,9 +294,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the content size of the texture in points </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the content size of the texture in points </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ContentSizeInPixels">
@@ -289,9 +319,13 @@
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns content size of the texture in pixels </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns content size of the texture in pixels </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultAlphaPixelFormat">
@@ -357,8 +391,12 @@
       </Parameters>
       <Docs>
         <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>draws a texture at a given point </para>
+        </summary>
+        <remarks>
+          <para>draws a texture at a given point </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DrawInRect">
@@ -381,8 +419,12 @@
       </Parameters>
       <Docs>
         <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>draws a texture inside a rect </para>
+        </summary>
+        <remarks>
+          <para>draws a texture inside a rect </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="HasPremultipliedAlpha">
@@ -401,9 +443,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>whether or not the texture has their Alpha premultiplied </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>whether or not the texture has their Alpha premultiplied </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="KeepData">
@@ -452,9 +498,13 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>texture max S </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>texture max S </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxT">
@@ -476,9 +526,13 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>texture max T </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>texture max T </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Name">
@@ -497,9 +551,13 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>texture name </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>texture name </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PixelFormat">
@@ -518,9 +576,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCTexture2DPixelFormat</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>pixel format of the texture </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>pixel format of the texture </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PixelsHigh">
@@ -539,9 +601,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>hight in pixels </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>hight in pixels </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PixelsWide">
@@ -560,9 +626,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>width in pixels </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>width in pixels </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PVRImageHavePremultipliedAlpha">
@@ -606,8 +676,12 @@
       </Parameters>
       <Docs>
         <param name="data">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>These functions are needed to create mutable textures </para>
+        </summary>
+        <remarks>
+          <para>These functions are needed to create mutable textures </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ResolutionType">
@@ -653,9 +727,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCGLProgram</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>shader program used by drawAtPoint and drawInRect </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>shader program used by drawAtPoint and drawInRect </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

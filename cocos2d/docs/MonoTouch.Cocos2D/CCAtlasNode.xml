@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCAtlasNode" FullName="MonoTouch.Cocos2D.CCAtlasNode">
   <TypeSignature Language="C#" Value="public class CCAtlasNode : MonoTouch.Cocos2D.CCNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCAtlasNode extends MonoTouch.Cocos2D.CCNode" />
@@ -15,8 +16,16 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCAtlasNode" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCNode" /> that implements the <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> and <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCAtlasNode" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCNode" /> that implements the <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> and <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol</para>
+      <para>It knows how to render a TextureAtlas object. If you are going to render a TextureAtlas consider subclassing <see cref="T:MonoTouch.Cocos2D.CCAtlasNode" /> (or a subclass of <see cref="T:MonoTouch.Cocos2D.CCAtlasNode" />)</para>
+      <para>All features from <see cref="T:MonoTouch.Cocos2D.CCNode" /> are valid, plus the following features:<list type="bullet"><item><description>opacity and RGB colors </description></item></list></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -108,8 +117,12 @@
         <param name="tileWidth">To be added.</param>
         <param name="tileHeight">To be added.</param>
         <param name="itemsToRenderCount">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes an <see cref="T:MonoTouch.Cocos2D.CCAtlasNode" /> with an Atlas file the width and height of each item measured in points and the quantity of items to render </para>
+        </summary>
+        <remarks>
+          <para>initializes an <see cref="T:MonoTouch.Cocos2D.CCAtlasNode" /> with an Atlas file the width and height of each item measured in points and the quantity of items to render </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BlendFunc">
@@ -131,9 +144,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCBlendFunc</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>conforms to <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>conforms to <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -171,9 +188,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCColor3B</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -214,9 +235,13 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OpacityModifyRGB">
@@ -262,9 +287,13 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>how many quads to draw </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>how many quads to draw </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Texture">
@@ -310,9 +339,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCTextureAtlas</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>conforms to <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>conforms to <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateAtlasValues">
@@ -332,8 +365,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>updates the Atlas (indexed vertex array). Shall be overriden in subclasses </para>
+        </summary>
+        <remarks>
+          <para>updates the Atlas (indexed vertex array). Shall be overriden in subclasses </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

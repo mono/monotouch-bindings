@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCLayerMultiplex" FullName="MonoTouch.Cocos2D.CCLayerMultiplex">
   <TypeSignature Language="C#" Value="public class CCLayerMultiplex : MonoTouch.Cocos2D.CCLayer" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCLayerMultiplex extends MonoTouch.Cocos2D.CCLayer" />
@@ -15,8 +16,14 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCLayerMultiplex" /> is a CCLayer with the ability to multiplex its children. Features:<list type="bullet"><item><description>It supports one or more children</description></item><item><description>Only one children will be active a time </description></item></list></para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCLayerMultiplex" /> is a CCLayer with the ability to multiplex its children. Features:<list type="bullet"><item><description>It supports one or more children</description></item><item><description>Only one children will be active a time </description></item></list></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -125,8 +132,12 @@
       <Docs>
         <param name="layer">To be added.</param>
         <param name="pars">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a MultiplexLayer with one or more layers using a variable argument list. </para>
+        </summary>
+        <remarks>
+          <para>initializes a MultiplexLayer with one or more layers using a variable argument list. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -165,8 +176,12 @@
       </Parameters>
       <Docs>
         <param name="n">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>switches to a certain layer indexed by n. The current (old) layer will be removed from its parent with 'cleanup:YES'. </para>
+        </summary>
+        <remarks>
+          <para>switches to a certain layer indexed by n. The current (old) layer will be removed from its parent with 'cleanup:YES'. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SwitchToAndReleaseMe">
@@ -189,8 +204,12 @@
       </Parameters>
       <Docs>
         <param name="n">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>release the current layer and switches to another layer indexed by n. The current (old) layer will be removed from its parent with 'cleanup:YES'. </para>
+        </summary>
+        <remarks>
+          <para>release the current layer and switches to another layer indexed by n. The current (old) layer will be removed from its parent with 'cleanup:YES'. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

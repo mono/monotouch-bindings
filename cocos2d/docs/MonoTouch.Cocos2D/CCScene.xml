@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCScene" FullName="MonoTouch.Cocos2D.CCScene">
   <TypeSignature Language="C#" Value="public class CCScene : MonoTouch.Cocos2D.CCNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCScene extends MonoTouch.Cocos2D.CCNode" />
@@ -15,8 +16,18 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCScene" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCNode" /> that is used only as an abstract concept.</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCScene" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCNode" /> that is used only as an abstract concept.</para>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCScene" /> an <see cref="T:MonoTouch.Cocos2D.CCNode" /> are almost identical with the difference that <see cref="T:MonoTouch.Cocos2D.CCScene" /> has its anchor point (by default) at the center of the screen.</para>
+      <para>For the moment <see cref="T:MonoTouch.Cocos2D.CCScene" /> has no other logic than that, but in future releases it might have additional logic.</para>
+      <para>It is a good practice to use and <see cref="T:MonoTouch.Cocos2D.CCScene" /> as the parent of all your nodes. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

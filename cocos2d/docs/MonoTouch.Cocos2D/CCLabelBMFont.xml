@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCLabelBMFont" FullName="MonoTouch.Cocos2D.CCLabelBMFont">
   <TypeSignature Language="C#" Value="public class CCLabelBMFont : MonoTouch.Cocos2D.CCSpriteBatchNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCLabelBMFont extends MonoTouch.Cocos2D.CCSpriteBatchNode" />
@@ -15,8 +16,24 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /></para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /></para>
+      <para>Features:<list type="bullet"><item><description>Treats each character like a CCSprite. This means that each individual character can be:</description></item><item><description>rotated</description></item><item><description>scaled</description></item><item><description>translated</description></item><item><description>tinted</description></item><item><description>chage the opacity</description></item><item><description>It can be used as part of a menu item.</description></item><item><description>anchorPoint can be used to align the "label"</description></item><item><description>Supports AngelCode text format</description></item></list></para>
+      <para>Limitations:<list type="bullet"><item><description>All inner characters are using an anchorPoint of (0.5f, 0.5f) and it is not recommend to change it because it might affect the rendering</description></item></list></para>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> implements the protocol <ref refid="protocol_c_c_label_protocol-p" kindref="compound">CCLabelProtocol</ref>, like CCLabel and <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" />. <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> has the flexibility of CCLabel, the speed of <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> and all the features of <see cref="T:MonoTouch.Cocos2D.CCSprite" />. If in doubt, use <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> instead of <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> / CCLabel.</para>
+      <para>Supported editors:<list type="bullet"><item><description>http://glyphdesigner.71squared.com/</description></item><item><description>http://www.bmglyph.com/</description></item><item><description>http://www.n4te.com/hiero/hiero.jnlp</description></item><item><description>http://slick.cokeandcode.com/demos/hiero.jnlp</description></item><item><description>http://www.angelcode.com/products/bmfont/</description></item></list></para>
+      <para>
+        <simplesect kind="since">
+          <para>v0.8 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -125,8 +142,12 @@
       <Docs>
         <param name="label">To be added.</param>
         <param name="fontFile">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>init a BMFont label with an initial string and the FNT file </para>
+        </summary>
+        <remarks>
+          <para>init a BMFont label with an initial string and the FNT file </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -152,8 +173,12 @@
         <param name="fontFile">To be added.</param>
         <param name="width">To be added.</param>
         <param name="alignment">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>init a BMFont label with an initial string and the FNT file, width, and alignment option </para>
+        </summary>
+        <remarks>
+          <para>init a BMFont label with an initial string and the FNT file, width, and alignment option </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -181,8 +206,12 @@
         <param name="width">To be added.</param>
         <param name="alignment">To be added.</param>
         <param name="offset">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>init a BMFont label with an initial string and the FNT file, width, alignment option and the offset of where the glyphs start on the .PNG image </para>
+        </summary>
+        <remarks>
+          <para>init a BMFont label with an initial string and the FNT file, width, alignment option and the offset of where the glyphs start on the .PNG image </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Alignment">
@@ -204,9 +233,13 @@
         <ReturnType>MonoTouch.UIKit.UITextAlignment</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>alignment used for the label </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>alignment used for the label </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -244,9 +277,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCColor3B</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateFontChars">
@@ -266,8 +303,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>updates the font chars based on the string to render </para>
+        </summary>
+        <remarks>
+          <para>updates the font chars based on the string to render </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FontFile">
@@ -289,9 +330,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>fntFile used for the font </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>fntFile used for the font </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Label">
@@ -337,9 +382,13 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OpacityModifyRGB">
@@ -383,8 +432,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Purges the cached data. Removes from memory the cached configurations and the atlas name dictionary. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Purges the cached data. Removes from memory the cached configurations and the atlas name dictionary. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetAlignment">
@@ -407,8 +460,12 @@
       </Parameters>
       <Docs>
         <param name="alignment">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>set label alignment </para>
+        </summary>
+        <remarks>
+          <para>set label alignment </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetWidth">
@@ -431,8 +488,12 @@
       </Parameters>
       <Docs>
         <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>set label width </para>
+        </summary>
+        <remarks>
+          <para>set label width </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Width">

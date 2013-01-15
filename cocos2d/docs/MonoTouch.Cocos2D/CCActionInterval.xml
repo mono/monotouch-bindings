@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCActionInterval" FullName="MonoTouch.Cocos2D.CCActionInterval">
   <TypeSignature Language="C#" Value="public class CCActionInterval : MonoTouch.Cocos2D.CCFiniteTimeAction" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCActionInterval extends MonoTouch.Cocos2D.CCFiniteTimeAction" />
@@ -15,8 +16,19 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <verbatim>An interval action is an action that takes place within a certain period of time.
+</verbatim> It has an start time, and a finish time. The finish time is the parameter duration plus the start time.</para>
+    </summary>
+    <remarks>
+      <para>
+        <verbatim>An interval action is an action that takes place within a certain period of time.
+</verbatim> It has an start time, and a finish time. The finish time is the parameter duration plus the start time.</para>
+      <para>These <see cref="T:MonoTouch.Cocos2D.CCActionInterval" /> actions have some interesting properties, like:<list type="bullet"><item><description>They can run normally (default)</description></item><item><description>They can run reversed with the reverse method</description></item><item><description>They can run with the time altered with the Accelerate, AccelDeccel and Speed actions.</description></item></list></para>
+      <para>For example, you can simulate a Ping Pong effect running the action normally and then running it again in Reverse mode.</para>
+      <para>Example: <verbatim>    CCAction * pingPongAction = [CCSequence actions: action, [action reverse], nil];</verbatim></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -102,8 +114,12 @@
       </Parameters>
       <Docs>
         <param name="duration">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes the action </para>
+        </summary>
+        <remarks>
+          <para>initializes the action </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -145,9 +161,13 @@
       </Parameters>
       <Docs>
         <param name="duration">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>creates the action </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>creates the action </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Elapsed">
@@ -166,9 +186,13 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>how many seconds had elapsed since the actions started to run. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>how many seconds had elapsed since the actions started to run. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

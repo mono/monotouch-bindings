@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCRenderTexture" FullName="MonoTouch.Cocos2D.CCRenderTexture">
   <TypeSignature Language="C#" Value="public class CCRenderTexture : MonoTouch.Cocos2D.CCNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCRenderTexture extends MonoTouch.Cocos2D.CCNode" />
@@ -15,8 +16,19 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCRenderTexture" /> is a generic rendering target. To render things into it, simply construct a render target, call begin on it, call visit on any cocos2d scenes or objects to render them, and call end. For convienience, render texture adds a sprite as its display child with the results, so you can simply add the render texture to your scene and treat it like any other <see cref="T:MonoTouch.Cocos2D.CCNode" />. There are also functions for saving the render texture to disk in PNG or JPG format.</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCRenderTexture" /> is a generic rendering target. To render things into it, simply construct a render target, call begin on it, call visit on any cocos2d scenes or objects to render them, and call end. For convienience, render texture adds a sprite as its display child with the results, so you can simply add the render texture to your scene and treat it like any other <see cref="T:MonoTouch.Cocos2D.CCNode" />. There are also functions for saving the render texture to disk in PNG or JPG format.</para>
+      <para>
+        <simplesect kind="since">
+          <para>v0.8.1 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -127,8 +139,12 @@
         <param name="width">To be added.</param>
         <param name="height">To be added.</param>
         <param name="pixelFormat">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a RenderTexture object with width and height in Points and a pixel format, only RGB and RGBA formats are valid </para>
+        </summary>
+        <remarks>
+          <para>initializes a RenderTexture object with width and height in Points and a pixel format, only RGB and RGBA formats are valid </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -154,8 +170,12 @@
         <param name="height">To be added.</param>
         <param name="pixelFormat">To be added.</param>
         <param name="openGLdepthStencilFormat">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a RenderTexture object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format </para>
+        </summary>
+        <remarks>
+          <para>initializes a RenderTexture object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Begin">
@@ -175,8 +195,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>starts grabbing </para>
+        </summary>
+        <remarks>
+          <para>starts grabbing </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BeginWithClear">
@@ -205,8 +229,12 @@
         <param name="green">To be added.</param>
         <param name="blue">To be added.</param>
         <param name="alpha">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>starts rendering to the texture while clearing the texture first. This is more efficient then calling -clear first and then -begin </para>
+        </summary>
+        <remarks>
+          <para>starts rendering to the texture while clearing the texture first. This is more efficient then calling -clear first and then -begin </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BeginWithClear">
@@ -237,8 +265,12 @@
         <param name="blue">To be added.</param>
         <param name="alpha">To be added.</param>
         <param name="depthValue">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>starts rendering to the texture while clearing the texture first. This is more efficient then calling -clear first and then -begin </para>
+        </summary>
+        <remarks>
+          <para>starts rendering to the texture while clearing the texture first. This is more efficient then calling -clear first and then -begin </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BeginWithClear">
@@ -271,8 +303,12 @@
         <param name="alpha">To be added.</param>
         <param name="depthValue">To be added.</param>
         <param name="stencilValue">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>starts rendering to the texture while clearing the texture first. This is more efficient then calling -clear first and then -begin </para>
+        </summary>
+        <remarks>
+          <para>starts rendering to the texture while clearing the texture first. This is more efficient then calling -clear first and then -begin </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -317,8 +353,12 @@
         <param name="green">To be added.</param>
         <param name="blue">To be added.</param>
         <param name="alpha">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>clears the texture with a color </para>
+        </summary>
+        <remarks>
+          <para>clears the texture with a color </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClearDepth">
@@ -341,8 +381,12 @@
       </Parameters>
       <Docs>
         <param name="depthValue">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>clears the texture with a specified depth value </para>
+        </summary>
+        <remarks>
+          <para>clears the texture with a specified depth value </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClearStencil">
@@ -365,8 +409,12 @@
       </Parameters>
       <Docs>
         <param name="stencilValue">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>clears the texture with a specified stencil value </para>
+        </summary>
+        <remarks>
+          <para>clears the texture with a specified stencil value </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -405,8 +453,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>ends grabbing </para>
+        </summary>
+        <remarks>
+          <para>ends grabbing </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetUIImage">
@@ -473,9 +525,13 @@
       </Parameters>
       <Docs>
         <param name="name">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>saves the texture into a file using JPEG format. The file will be saved in the Documents folder. Returns YES if the operation is successful. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>saves the texture into a file using JPEG format. The file will be saved in the Documents folder. Returns YES if the operation is successful. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SaveToFile">
@@ -500,9 +556,13 @@
       <Docs>
         <param name="name">To be added.</param>
         <param name="format">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>saves the texture into a file. The format could be JPG or PNG. The file will be saved in the Documents folder. Returns YES if the operation is successful. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>saves the texture into a file. The format could be JPG or PNG. The file will be saved in the Documents folder. Returns YES if the operation is successful. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Sprite">
@@ -524,9 +584,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCSprite</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The <see cref="T:MonoTouch.Cocos2D.CCSprite" /> being used. The sprite, by default, will use the following blending function: GL_ONE, GL_ONE_MINUS_SRC_ALPHA. The blending function can be changed in runtime by calling:<list type="bullet"><item><description>[[renderTexture sprite] setBlendFunc:(ccBlendFunc){GL_ONE, GL_ONE_MINUS_SRC_ALPHA}]; </description></item></list></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="T:MonoTouch.Cocos2D.CCSprite" /> being used. The sprite, by default, will use the following blending function: GL_ONE, GL_ONE_MINUS_SRC_ALPHA. The blending function can be changed in runtime by calling:<list type="bullet"><item><description>[[renderTexture sprite] setBlendFunc:(ccBlendFunc){GL_ONE, GL_ONE_MINUS_SRC_ALPHA}]; </description></item></list></para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

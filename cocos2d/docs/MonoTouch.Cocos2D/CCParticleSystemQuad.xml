@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCParticleSystemQuad" FullName="MonoTouch.Cocos2D.CCParticleSystemQuad">
   <TypeSignature Language="C#" Value="public class CCParticleSystemQuad : MonoTouch.Cocos2D.CCParticleSystem" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCParticleSystemQuad extends MonoTouch.Cocos2D.CCParticleSystem" />
@@ -15,8 +16,16 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCParticleSystemQuad" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCParticleSystem" /></para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCParticleSystemQuad" /> is a subclass of <see cref="T:MonoTouch.Cocos2D.CCParticleSystem" /></para>
+      <para>It includes all the features of ParticleSystem.</para>
+      <para>Special features and Limitations:<list type="bullet"><item><description>Particle size can be any float number.</description></item><item><description>The system can be scaled</description></item><item><description>The particles can be rotated</description></item><item><description>It supports subrects</description></item><item><description>It supports batched rendering since 1.1 v0.8 </description></item></list></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -160,8 +169,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initialices the indices for the vertices </para>
+        </summary>
+        <remarks>
+          <para>initialices the indices for the vertices </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InitTexCoordsWithRect">
@@ -184,8 +197,12 @@
       </Parameters>
       <Docs>
         <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initilizes the texture with a rectangle measured Points </para>
+        </summary>
+        <remarks>
+          <para>initilizes the texture with a rectangle measured Points </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetDisplayFrame">
@@ -208,8 +225,12 @@
       </Parameters>
       <Docs>
         <param name="spriteFrame">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Sets a new <see cref="T:MonoTouch.Cocos2D.CCSpriteFrame" /> as particle. WARNING: this method is experimental. Use setTexture:withRect instead. <simplesect kind="since"><para>v0.99.4 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Sets a new <see cref="T:MonoTouch.Cocos2D.CCSpriteFrame" /> as particle. WARNING: this method is experimental. Use setTexture:withRect instead. <simplesect kind="since"><para>v0.99.4 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetTexture">
@@ -234,8 +255,12 @@
       <Docs>
         <param name="texture">To be added.</param>
         <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Sets a new texture with a rect. The rect is in Points. <simplesect kind="since"><para>v0.99.4 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Sets a new texture with a rect. The rect is in Points. <simplesect kind="since"><para>v0.99.4 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

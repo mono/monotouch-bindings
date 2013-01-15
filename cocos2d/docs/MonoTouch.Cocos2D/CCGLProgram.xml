@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCGLProgram" FullName="MonoTouch.Cocos2D.CCGLProgram">
   <TypeSignature Language="C#" Value="public class CCGLProgram : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCGLProgram extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,19 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCGLProgram" /> Class that implements a glProgram</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCGLProgram" /> Class that implements a glProgram</para>
+      <para>
+        <simplesect kind="since">
+          <para>v2.0.0 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -125,8 +137,12 @@
       <Docs>
         <param name="vShaderByteArray">To be added.</param>
         <param name="fShaderByteArray">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes the <see cref="T:MonoTouch.Cocos2D.CCGLProgram" /> with a vertex and fragment with bytes array </para>
+        </summary>
+        <remarks>
+          <para>Initializes the <see cref="T:MonoTouch.Cocos2D.CCGLProgram" /> with a vertex and fragment with bytes array </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -148,8 +164,12 @@
       <Docs>
         <param name="vertexShaderFilename">To be added.</param>
         <param name="fragmentShaderFilename">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes the <see cref="T:MonoTouch.Cocos2D.CCGLProgram" /> with a vertex and fragment with contents of filenames </para>
+        </summary>
+        <remarks>
+          <para>Initializes the <see cref="T:MonoTouch.Cocos2D.CCGLProgram" /> with a vertex and fragment with contents of filenames </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddAttribute">
@@ -174,8 +194,12 @@
       <Docs>
         <param name="attributeName">To be added.</param>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>It will add a new attribute to the shader </para>
+        </summary>
+        <remarks>
+          <para>It will add a new attribute to the shader </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -211,9 +235,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the fragmentShader error log </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the fragmentShader error log </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetProgramLog">
@@ -233,9 +261,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the program error log </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the program error log </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetVertexShaderLog">
@@ -255,9 +287,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the vertexShader error log </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the vertexShader error log </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Link">
@@ -277,9 +313,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>links the glProgram </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>links the glProgram </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetUniformForModelViewProjectionMatrix">
@@ -299,8 +339,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>will update the MVP matrix on the MVP uniform if it is different than the previous call for this same shader program. </para>
+        </summary>
+        <remarks>
+          <para>will update the MVP matrix on the MVP uniform if it is different than the previous call for this same shader program. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetUniformLocation">
@@ -325,8 +369,12 @@
       <Docs>
         <param name="location">To be added.</param>
         <param name="i1">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>calls glUniform1i only if the values are different than the previous call for this same shader program. </para>
+        </summary>
+        <remarks>
+          <para>calls glUniform1i only if the values are different than the previous call for this same shader program. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetUniformLocation">
@@ -351,8 +399,12 @@
       <Docs>
         <param name="location">To be added.</param>
         <param name="f1">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>calls glUniform1f only if the values are different than the previous call for this same shader program. </para>
+        </summary>
+        <remarks>
+          <para>calls glUniform1f only if the values are different than the previous call for this same shader program. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetUniformLocation">
@@ -379,8 +431,12 @@
         <param name="location">To be added.</param>
         <param name="f1">To be added.</param>
         <param name="f2">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>calls glUniform2f only if the values are different than the previous call for this same shader program. </para>
+        </summary>
+        <remarks>
+          <para>calls glUniform2f only if the values are different than the previous call for this same shader program. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetUniformLocation">
@@ -409,8 +465,12 @@
         <param name="f1">To be added.</param>
         <param name="f2">To be added.</param>
         <param name="f3">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>calls glUniform3f only if the values are different than the previous call for this same shader program. </para>
+        </summary>
+        <remarks>
+          <para>calls glUniform3f only if the values are different than the previous call for this same shader program. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetUniformLocation">
@@ -441,8 +501,12 @@
         <param name="f2">To be added.</param>
         <param name="f3">To be added.</param>
         <param name="f4">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>calls glUniform4f only if the values are different than the previous call for this same shader program. </para>
+        </summary>
+        <remarks>
+          <para>calls glUniform4f only if the values are different than the previous call for this same shader program. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateUniforms">
@@ -462,8 +526,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>It will create 3 uniforms:<list type="bullet"><item><description>kCCUniformPMatrix</description></item><item><description>kCCUniformMVMatrix</description></item><item><description>kCCUniformSampler</description></item></list></para>
+        </summary>
+        <remarks>
+          <para>It will create 3 uniforms:<list type="bullet"><item><description>kCCUniformPMatrix</description></item><item><description>kCCUniformMVMatrix</description></item><item><description>kCCUniformSampler</description></item></list></para>
+          <para>And it will bind "kCCUniformSampler" to 0 </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Use">
@@ -483,8 +552,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>it will call glUseProgram() </para>
+        </summary>
+        <remarks>
+          <para>it will call glUseProgram() </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

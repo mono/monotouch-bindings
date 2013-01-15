@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCAnimationCache" FullName="MonoTouch.Cocos2D.CCAnimationCache">
   <TypeSignature Language="C#" Value="public class CCAnimationCache : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCAnimationCache extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,17 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Singleton that manages the <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> objects. It saves in a cache the animations. You should use this class if you want to save your animations in a cache.</para>
+    </summary>
+    <remarks>
+      <para>Singleton that manages the <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> objects. It saves in a cache the animations. You should use this class if you want to save your animations in a cache.</para>
+      <para>
+        <simplesect kind="since">
+          <para>v0.99.5 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -128,8 +138,12 @@
       <Docs>
         <param name="animation">To be added.</param>
         <param name="name">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Adds a <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> with a name. </para>
+        </summary>
+        <remarks>
+          <para>Adds a <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> with a name. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddAnimations">
@@ -152,8 +166,12 @@
       </Parameters>
       <Docs>
         <param name="dictionary">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Adds an animation from an NSDictionary Make sure that the frames were previously loaded in the <see cref="T:MonoTouch.Cocos2D.CCSpriteFrameCache" />. <simplesect kind="since"><para>v1.1 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Adds an animation from an NSDictionary Make sure that the frames were previously loaded in the <see cref="T:MonoTouch.Cocos2D.CCSpriteFrameCache" />. <simplesect kind="since"><para>v1.1 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddAnimationsFromFile">
@@ -176,8 +194,12 @@
       </Parameters>
       <Docs>
         <param name="plist">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Adds an animation from a plist file. Make sure that the frames were previously loaded in the <see cref="T:MonoTouch.Cocos2D.CCSpriteFrameCache" />. <simplesect kind="since"><para>v1.1 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Adds an animation from a plist file. Make sure that the frames were previously loaded in the <see cref="T:MonoTouch.Cocos2D.CCSpriteFrameCache" />. <simplesect kind="since"><para>v1.1 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -216,9 +238,13 @@
       </Parameters>
       <Docs>
         <param name="name">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns a <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> that was previously added. If the name is not found it will return nil. You should retain the returned copy if you are going to use it. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns a <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> that was previously added. If the name is not found it will return nil. You should retain the returned copy if you are going to use it. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PurgeSharedAnimationCache">
@@ -238,8 +264,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Purges the cache. It releases all the <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> objects and the shared instance. </para>
+        </summary>
+        <remarks>
+          <para>Purges the cache. It releases all the <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> objects and the shared instance. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveAnimation">
@@ -262,8 +292,12 @@
       </Parameters>
       <Docs>
         <param name="name">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Deletes a <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> from the cache. </para>
+        </summary>
+        <remarks>
+          <para>Deletes a <see cref="T:MonoTouch.Cocos2D.CCAnimation" /> from the cache. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SharedAnimationCache">

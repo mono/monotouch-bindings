@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCStopGrid" FullName="MonoTouch.Cocos2D.CCStopGrid">
   <TypeSignature Language="C#" Value="public class CCStopGrid : MonoTouch.Cocos2D.CCActionInstant" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCStopGrid extends MonoTouch.Cocos2D.CCActionInstant" />
@@ -15,8 +16,14 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCStopGrid" /> action. Don't call this action if another grid action is active. Call if you want to remove the the grid effect. Example: [Sequence actions:[Lens ...], [StopGrid action], nil]; </para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCStopGrid" /> action. Don't call this action if another grid action is active. Call if you want to remove the the grid effect. Example: [Sequence actions:[Lens ...], [StopGrid action], nil]; </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

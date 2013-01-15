@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCActionTween" FullName="MonoTouch.Cocos2D.CCActionTween">
   <TypeSignature Language="C#" Value="public class CCActionTween : MonoTouch.Cocos2D.CCActionInterval" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCActionTween extends MonoTouch.Cocos2D.CCActionInterval" />
@@ -15,8 +16,29 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <verbatim>CCActionTween
+</verbatim>
+      </para>
+    </summary>
+    <remarks>
+      <para>
+        <verbatim>CCActionTween
+</verbatim>
+      </para>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCActionTween" /> is an action that lets you update any property of an object. For example, if you want to modify the "width" property of a target from 200 to 300 in 2 seconds, then: <verbatim>   id modifyWidth = [CCActionTween actionWithDuration:2 key:@"width" from:200 to:300];
+   [target runAction:modifyWidth];
+</verbatim></para>
+      <para>Another example: <see cref="T:MonoTouch.Cocos2D.CCScaleTo" /> action could be rewriten using CCPropertyAction:</para>
+      <para>scaleA and scaleB are equivalents id scaleA = [<see cref="T:MonoTouch.Cocos2D.CCScaleTo" /> actionWithDuration:2 scale:3]; id scaleB = [<see cref="T:MonoTouch.Cocos2D.CCActionTween" /> actionWithDuration:2 key:"scale" from:1 to:3];</para>
+      <para>
+        <simplesect kind="since">
+          <para>v0.99.2 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -108,8 +130,12 @@
         <param name="key">To be added.</param>
         <param name="from">To be added.</param>
         <param name="to">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes the action with the property name (key), and the from and to parameters. </para>
+        </summary>
+        <remarks>
+          <para>initializes the action with the property name (key), and the from and to parameters. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">

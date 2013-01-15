@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCSpriteFrameCache" FullName="MonoTouch.Cocos2D.CCSpriteFrameCache">
   <TypeSignature Language="C#" Value="public class CCSpriteFrameCache : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCSpriteFrameCache extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Singleton that handles the loading of the sprite frames. It saves in a cache the sprite frames. <simplesect kind="since"><para>v0.9 </para></simplesect></para>
+    </summary>
+    <remarks>
+      <para>Singleton that handles the loading of the sprite frames. It saves in a cache the sprite frames. <simplesect kind="since"><para>v0.9 </para></simplesect></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -128,8 +133,12 @@
       <Docs>
         <param name="frame">To be added.</param>
         <param name="frameName">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Adds an sprite frame with a given name. If the name already exists, then the contents of the old name will be replaced with the new one. </para>
+        </summary>
+        <remarks>
+          <para>Adds an sprite frame with a given name. If the name already exists, then the contents of the old name will be replaced with the new one. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddSpriteFrames">
@@ -152,8 +161,12 @@
       </Parameters>
       <Docs>
         <param name="plist">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Adds multiple Sprite Frames from a plist file. A texture will be loaded automatically. The texture name will composed by replacing the .plist suffix with .png . If you want to use another texture, you should use the addSpriteFramesWithFile:texture method. </para>
+        </summary>
+        <remarks>
+          <para>Adds multiple Sprite Frames from a plist file. A texture will be loaded automatically. The texture name will composed by replacing the .plist suffix with .png . If you want to use another texture, you should use the addSpriteFramesWithFile:texture method. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddSpriteFrames">
@@ -178,8 +191,12 @@
       <Docs>
         <param name="plist">To be added.</param>
         <param name="texture">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Adds multiple Sprite Frames from a plist file. The texture will be associated with the created sprite frames. </para>
+        </summary>
+        <remarks>
+          <para>Adds multiple Sprite Frames from a plist file. The texture will be associated with the created sprite frames. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddSpriteFrames">
@@ -204,8 +221,12 @@
       <Docs>
         <param name="plist">To be added.</param>
         <param name="textureFilename">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Adds multiple Sprite Frames from a plist file. The texture filename will be associated with the created sprite frames. </para>
+        </summary>
+        <remarks>
+          <para>Adds multiple Sprite Frames from a plist file. The texture filename will be associated with the created sprite frames. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -244,8 +265,12 @@
       </Parameters>
       <Docs>
         <param name="name">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Deletes an sprite frame from the sprite frame cache. </para>
+        </summary>
+        <remarks>
+          <para>Deletes an sprite frame from the sprite frame cache. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveSpriteFrames">
@@ -265,8 +290,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Purges the dictionary of loaded sprite frames. Call this method if you receive the "Memory Warning". In the short term: it will free some resources preventing your app from being killed. In the medium term: it will allocate more resources. In the long term: it will be the same. </para>
+        </summary>
+        <remarks>
+          <para>Purges the dictionary of loaded sprite frames. Call this method if you receive the "Memory Warning". In the short term: it will free some resources preventing your app from being killed. In the medium term: it will allocate more resources. In the long term: it will be the same. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveSpriteFramesFromFile">
@@ -289,8 +318,12 @@
       </Parameters>
       <Docs>
         <param name="plist">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Removes multiple Sprite Frames from a plist file. Sprite Frames stored in this file will be removed. It is convinient to call this method when a specific texture needs to be removed. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Removes multiple Sprite Frames from a plist file. Sprite Frames stored in this file will be removed. It is convinient to call this method when a specific texture needs to be removed. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveSpriteFramesFromTexture">
@@ -313,8 +346,12 @@
       </Parameters>
       <Docs>
         <param name="texture">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Removes all Sprite Frames associated with the specified textures. It is convinient to call this method when a specific texture needs to be removed. <simplesect kind="since"><para>v0.995. </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Removes all Sprite Frames associated with the specified textures. It is convinient to call this method when a specific texture needs to be removed. <simplesect kind="since"><para>v0.995. </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveUnusedSpriteFrames">
@@ -334,8 +371,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Removes unused sprite frames. Sprite Frames that have a retain count of 1 will be deleted. It is convinient to call this method after when starting a new Scene. </para>
+        </summary>
+        <remarks>
+          <para>Removes unused sprite frames. Sprite Frames that have a retain count of 1 will be deleted. It is convinient to call this method after when starting a new Scene. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SpriteFrameByName">
@@ -358,9 +399,13 @@
       </Parameters>
       <Docs>
         <param name="name">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns an Sprite Frame that was previously added. If the name is not found it will return nil. You should retain the returned copy if you are going to use it. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns an Sprite Frame that was previously added. If the name is not found it will return nil. You should retain the returned copy if you are going to use it. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

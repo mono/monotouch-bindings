@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCSprite" FullName="MonoTouch.Cocos2D.CCSprite">
   <TypeSignature Language="C#" Value="public class CCSprite : MonoTouch.Cocos2D.CCNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCSprite extends MonoTouch.Cocos2D.CCNode" />
@@ -15,8 +16,26 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCSprite" /> is a 2d image ( <ulink url="http://en.wikipedia.org/wiki/Sprite_(computer_graphics)">http://en.wikipedia.org/wiki/Sprite_(computer_graphics)</ulink> )</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCSprite" /> is a 2d image ( <ulink url="http://en.wikipedia.org/wiki/Sprite_(computer_graphics)">http://en.wikipedia.org/wiki/Sprite_(computer_graphics)</ulink> )</para>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCSprite" /> can be created with an image, or with a sub-rectangle of an image.</para>
+      <para>If the parent or any of its ancestors is a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> then the following features/limitations are valid<list type="bullet"><item><description>Features when the parent is a CCBatchNode:MUCH faster rendering, specially if the CCSpriteBatchNode has many children. All the children will be drawn in a single batch.</description></item></list></para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>LimitationsCamera is not supported yet (eg: CCOrbitCamera action doesn't work)GridBase actions are not supported (eg: CCLens, CCRipple, CCTwirl)The Alias/Antialias property belongs to CCSpriteBatchNode, so you can't individually set the aliased property.The Blending function property belongs to CCSpriteBatchNode, so you can't individually set the blending function property.Parallax scroller is not supported, but can be simulated with a "proxy" sprite.</description>
+          </item>
+        </list>
+      </para>
+      <para>If the parent is an standard <see cref="T:MonoTouch.Cocos2D.CCNode" />, then <see cref="T:MonoTouch.Cocos2D.CCSprite" /> behaves like any other <see cref="T:MonoTouch.Cocos2D.CCNode" />:<list type="bullet"><item><description>It supports blending functions</description></item><item><description>It supports aliasing / antialiasing</description></item><item><description>But the rendering will be slower: 1 draw per children.</description></item></list></para>
+      <para>The default anchorPoint in <see cref="T:MonoTouch.Cocos2D.CCSprite" /> is (0.5, 0.5). </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -57,8 +76,12 @@
       </Parameters>
       <Docs>
         <param name="spriteFrame">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes an sprite with an sprite frame. </para>
+        </summary>
+        <remarks>
+          <para>Initializes an sprite with an sprite frame. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -78,8 +101,12 @@
       </Parameters>
       <Docs>
         <param name="texture">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes an sprite with a texture. The rect used will be the size of the texture. The offset will be (0,0). </para>
+        </summary>
+        <remarks>
+          <para>Initializes an sprite with a texture. The rect used will be the size of the texture. The offset will be (0,0). </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -165,8 +192,12 @@
       </Parameters>
       <Docs>
         <param name="filename">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes an sprite with an image filename. The rect used will be the size of the image. The offset will be (0,0). </para>
+        </summary>
+        <remarks>
+          <para>Initializes an sprite with an image filename. The rect used will be the size of the image. The offset will be (0,0). </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -188,8 +219,12 @@
       <Docs>
         <param name="texture">To be added.</param>
         <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes an sprite with a texture and a rect in points (unrotated) The offset will be (0,0). </para>
+        </summary>
+        <remarks>
+          <para>Initializes an sprite with a texture and a rect in points (unrotated) The offset will be (0,0). </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -211,8 +246,12 @@
       <Docs>
         <param name="filename">To be added.</param>
         <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes an sprite with an image filename, and a rect. The offset will be (0,0). </para>
+        </summary>
+        <remarks>
+          <para>Initializes an sprite with an image filename, and a rect. The offset will be (0,0). </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -236,8 +275,12 @@
         <param name="texture">To be added.</param>
         <param name="rect">To be added.</param>
         <param name="rotated">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes an sprite with a texture and a rect in points, optionally rotated. The offset will be (0,0). IMPORTANT: This is the designated initializer. </para>
+        </summary>
+        <remarks>
+          <para>Initializes an sprite with a texture and a rect in points, optionally rotated. The offset will be (0,0). IMPORTANT: This is the designated initializer. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AtlasIndex">
@@ -259,9 +302,13 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The index used on the TextureAtlas. Don't modify this value unless you know what you are doing </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The index used on the TextureAtlas. Don't modify this value unless you know what you are doing </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BatchNode">
@@ -283,9 +330,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCSpriteBatchNode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>weak reference to the <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> that renders the <see cref="T:MonoTouch.Cocos2D.CCSprite" /></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>weak reference to the <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /> that renders the <see cref="T:MonoTouch.Cocos2D.CCSprite" /></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BlendFunc">
@@ -307,9 +358,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCBlendFunc</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>conforms to <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>conforms to <ref refid="protocol_c_c_texture_protocol-p" kindref="compound">CCTextureProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -347,9 +402,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCColor3B</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>RGB colors: conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>RGB colors: conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dirty">
@@ -371,9 +430,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>whether or not the Sprite needs to be updated in the Atlas </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>whether or not the Sprite needs to be updated in the Atlas </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DisplayFrame">
@@ -438,9 +501,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>whether or not the sprite is flipped horizontally. It only flips the texture of the sprite, and not the texture of the sprite's children. Also, flipping the texture doesn't alter the anchorPoint. If you want to flip the anchorPoint too, and/or to flip the children too use: <verbatim>   sprite.scaleX *= -1;</verbatim></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>whether or not the sprite is flipped horizontally. It only flips the texture of the sprite, and not the texture of the sprite's children. Also, flipping the texture doesn't alter the anchorPoint. If you want to flip the anchorPoint too, and/or to flip the children too use: <verbatim>   sprite.scaleX *= -1;</verbatim></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FlipY">
@@ -462,9 +529,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>whether or not the sprite is flipped vertically. It only flips the texture of the sprite, and not the texture of the sprite's children. Also, flipping the texture doesn't alter the anchorPoint. If you want to flip the anchorPoint too, and/or to flip the children too use: <verbatim>   sprite.scaleY *= -1;</verbatim></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>whether or not the sprite is flipped vertically. It only flips the texture of the sprite, and not the texture of the sprite's children. Also, flipping the texture doesn't alter the anchorPoint. If you want to flip the anchorPoint too, and/or to flip the children too use: <verbatim>   sprite.scaleY *= -1;</verbatim></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromSpriteFile">
@@ -487,9 +558,13 @@
       </Parameters>
       <Docs>
         <param name="filename">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates an sprite with an image filename. The rect used will be the size of the image. The offset will be (0,0). </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates an sprite with an image filename. The rect used will be the size of the image. The offset will be (0,0). </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromSpriteFile">
@@ -514,9 +589,13 @@
       <Docs>
         <param name="filename">To be added.</param>
         <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates an sprite with an image filename and a rect. The offset will be (0,0). </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates an sprite with an image filename and a rect. The offset will be (0,0). </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InitWithCGImagekey">
@@ -541,9 +620,13 @@
       <Docs>
         <param name="image">To be added.</param>
         <param name="key">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Initializes an sprite with a CGImageRef and a key The key is used by the <see cref="T:MonoTouch.Cocos2D.CCTextureCache" /> to know if a texture was already created with this CGImage. For example, a valid key is: "sprite_frame_01". If key is nil, then a new texture will be created each time by the <see cref="T:MonoTouch.Cocos2D.CCTextureCache" />. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Initializes an sprite with a CGImageRef and a key The key is used by the <see cref="T:MonoTouch.Cocos2D.CCTextureCache" /> to know if a texture was already created with this CGImage. For example, a valid key is: "sprite_frame_01". If key is nil, then a new texture will be created each time by the <see cref="T:MonoTouch.Cocos2D.CCTextureCache" />. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsFrameDisplayed">
@@ -566,9 +649,13 @@
       </Parameters>
       <Docs>
         <param name="frame">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns whether or not a <see cref="T:MonoTouch.Cocos2D.CCSpriteFrame" /> is being displayed </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns whether or not a <see cref="T:MonoTouch.Cocos2D.CCSpriteFrame" /> is being displayed </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OffsetPosition">
@@ -587,9 +674,13 @@
         <ReturnType>System.Drawing.PointF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>offset position in points of the sprite in points. Calculated automatically by editors like Zwoptex. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>offset position in points of the sprite in points. Calculated automatically by editors like Zwoptex. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Opacity">
@@ -611,9 +702,13 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>opacity: conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>opacity: conforms to <ref refid="protocol_c_c_r_g_b_a_protocol-p" kindref="compound">CCRGBAProtocol</ref> protocol </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OpacityModifyRGB">
@@ -656,9 +751,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCV3F_C4B_T2F_Quad</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>the quad (tex coords, vertex coords and color) information </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>the quad (tex coords, vertex coords and color) information </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetDisplayFrame">
@@ -683,8 +782,12 @@
       <Docs>
         <param name="animationName">To be added.</param>
         <param name="frameIndex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>changes the display frame with animation name and index. The animation name will be get from the <see cref="T:MonoTouch.Cocos2D.CCAnimationCache" /><simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>changes the display frame with animation name and index. The animation name will be get from the <see cref="T:MonoTouch.Cocos2D.CCAnimationCache" /><simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetTextureRect">
@@ -707,8 +810,12 @@
       </Parameters>
       <Docs>
         <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>set the texture rect of the <see cref="T:MonoTouch.Cocos2D.CCSprite" /> in points. It will call setTextureRect:rotated:untrimmedSize with rotated = NO, and utrimmedSize = rect.size. </para>
+        </summary>
+        <remarks>
+          <para>set the texture rect of the <see cref="T:MonoTouch.Cocos2D.CCSprite" /> in points. It will call setTextureRect:rotated:untrimmedSize with rotated = NO, and utrimmedSize = rect.size. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetTextureRect">
@@ -735,8 +842,12 @@
         <param name="rect">To be added.</param>
         <param name="rotated">To be added.</param>
         <param name="untrimmedSize">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>set the texture rect, rectRotated and untrimmed size of the <see cref="T:MonoTouch.Cocos2D.CCSprite" /> in points. It will update the texture coordinates and the vertex rectangle. </para>
+        </summary>
+        <remarks>
+          <para>set the texture rect, rectRotated and untrimmed size of the <see cref="T:MonoTouch.Cocos2D.CCSprite" /> in points. It will update the texture coordinates and the vertex rectangle. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetVertexRect">
@@ -759,8 +870,12 @@
       </Parameters>
       <Docs>
         <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>set the vertex rect. It will be called internally by setTextureRect. Useful if you want to create 2x images from SD images in Retina Display. Do not call it manually. Use setTextureRect instead. </para>
+        </summary>
+        <remarks>
+          <para>set the vertex rect. It will be called internally by setTextureRect. Useful if you want to create 2x images from SD images in Retina Display. Do not call it manually. Use setTextureRect instead. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Texture">
@@ -806,9 +921,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCTextureAtlas</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>weak reference of the <see cref="T:MonoTouch.Cocos2D.CCTextureAtlas" /> used when the sprite is rendered using a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>weak reference of the <see cref="T:MonoTouch.Cocos2D.CCTextureAtlas" /> used when the sprite is rendered using a <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" /></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TextureRect">
@@ -830,9 +949,13 @@
         <ReturnType>System.Drawing.RectangleF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the texture rect of the <see cref="T:MonoTouch.Cocos2D.CCSprite" /> in points </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the texture rect of the <see cref="T:MonoTouch.Cocos2D.CCSprite" /> in points </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TextureRectRotated">
@@ -851,9 +974,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns whether or not the texture rectangle is rotated </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns whether or not the texture rectangle is rotated </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateTransform">
@@ -873,8 +1000,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>updates the quad according the the rotation, position, scale values. </para>
+        </summary>
+        <remarks>
+          <para>updates the quad according the the rotation, position, scale values. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

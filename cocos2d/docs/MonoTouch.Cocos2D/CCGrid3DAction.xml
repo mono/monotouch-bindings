@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCGrid3DAction" FullName="MonoTouch.Cocos2D.CCGrid3DAction">
   <TypeSignature Language="C#" Value="public class CCGrid3DAction : MonoTouch.Cocos2D.CCGridAction" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCGrid3DAction extends MonoTouch.Cocos2D.CCGridAction" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Base class for <see cref="T:MonoTouch.Cocos2D.CCGrid3D" /> actions. Grid3D actions can modify a non-tiled grid. </para>
+    </summary>
+    <remarks>
+      <para>Base class for <see cref="T:MonoTouch.Cocos2D.CCGrid3D" /> actions. Grid3D actions can modify a non-tiled grid. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -144,9 +149,13 @@
       </Parameters>
       <Docs>
         <param name="pos">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the non-transformed vertex than belongs to certain position in the grid </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the non-transformed vertex than belongs to certain position in the grid </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetVertex">
@@ -169,9 +178,13 @@
       </Parameters>
       <Docs>
         <param name="pos">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the vertex than belongs to certain position in the grid </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the vertex than belongs to certain position in the grid </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetVertex">
@@ -196,8 +209,12 @@
       <Docs>
         <param name="position">To be added.</param>
         <param name="vertex">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>sets a new vertex to a certain position of the grid </para>
+        </summary>
+        <remarks>
+          <para>sets a new vertex to a certain position of the grid </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCParallaxNode" FullName="MonoTouch.Cocos2D.CCParallaxNode">
   <TypeSignature Language="C#" Value="public class CCParallaxNode : MonoTouch.Cocos2D.CCNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCParallaxNode extends MonoTouch.Cocos2D.CCNode" />
@@ -15,8 +16,15 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCParallaxNode" />: A node that simulates a parallax scroller</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCParallaxNode" />: A node that simulates a parallax scroller</para>
+      <para>The children will be moved faster / slower than the parent according the the parallax ratio. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -132,8 +140,12 @@
         <param name="zOrder">To be added.</param>
         <param name="parallaxRatio">To be added.</param>
         <param name="positionOffset">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Adds a child to the container with a z-order, a parallax ratio and a position offset It returns self, so you can chain several addChilds. <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Adds a child to the container with a z-order, a parallax ratio and a position offset It returns self, so you can chain several addChilds. <simplesect kind="since"><para>v0.8 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -190,9 +202,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCArray</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>array that holds the offset / ratio of the children </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>array that holds the offset / ratio of the children </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCScheduler" FullName="MonoTouch.Cocos2D.CCScheduler">
   <TypeSignature Language="C#" Value="public class CCScheduler : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCScheduler extends MonoTouch.Foundation.NSObject" />
@@ -142,9 +143,13 @@
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns whether or not the target is paused <simplesect kind="since"><para>v1.0.0 </para></simplesect></para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns whether or not the target is paused <simplesect kind="since"><para>v1.0.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PauseAllTargets">
@@ -164,9 +169,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Pause all selectors from all targets. You should NEVER call this method, unless you know what you are doing. <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Pause all selectors from all targets. You should NEVER call this method, unless you know what you are doing. <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PauseAllTargetsWithMinPriority">
@@ -189,9 +198,13 @@
       </Parameters>
       <Docs>
         <param name="minPriority">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Pause all selectors from all targets with a minimum priority. You should only call this with kCCPriorityNonSystemMin or higher. <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Pause all selectors from all targets with a minimum priority. You should only call this with kCCPriorityNonSystemMin or higher. <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PauseTarget">
@@ -214,8 +227,12 @@
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Pauses the target. All scheduled selectors/update for a given target won't be 'ticked' until the target is resumed. If the target is not present, nothing happens. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Pauses the target. All scheduled selectors/update for a given target won't be 'ticked' until the target is resumed. If the target is not present, nothing happens. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RepeatForever">
@@ -254,8 +271,12 @@
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Resumes the target. The 'target' will be unpaused, so all schedule selectors/update will be 'ticked' again. If the target is not present, nothing happens. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Resumes the target. The 'target' will be unpaused, so all schedule selectors/update will be 'ticked' again. If the target is not present, nothing happens. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ResumeTargets">
@@ -278,8 +299,12 @@
       </Parameters>
       <Docs>
         <param name="targetsToResume">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Resume selectors on a set of targets. This can be useful for undoing a call to pauseAllSelectors. <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Resume selectors on a set of targets. This can be useful for undoing a call to pauseAllSelectors. <simplesect kind="since"><para>v2.0.0 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Schedule">
@@ -336,8 +361,12 @@
         <param name="target">To be added.</param>
         <param name="interval">To be added.</param>
         <param name="paused">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>calls scheduleSelector with kCCRepeatForever and a 0 delay </para>
+        </summary>
+        <remarks>
+          <para>calls scheduleSelector with kCCRepeatForever and a 0 delay </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ScheduleSelector">
@@ -370,8 +399,17 @@
         <param name="paused">To be added.</param>
         <param name="repeat">To be added.</param>
         <param name="delay">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>The scheduled method will be called every 'interval' seconds. If paused is YES, then it won't be called until it is resumed. If 'interval' is 0, it will be called every frame, but if so, it recommened to use 'scheduleUpdateForTarget:' instead. If the selector is already scheduled, then only the interval parameter will be updated without re-scheduling it again. repeat let the action be repeated repeat + 1 times, use kCCRepeatForever to let the action run continiously delay is the amount of time the action will wait before it'll start</para>
+        </summary>
+        <remarks>
+          <para>The scheduled method will be called every 'interval' seconds. If paused is YES, then it won't be called until it is resumed. If 'interval' is 0, it will be called every frame, but if so, it recommened to use 'scheduleUpdateForTarget:' instead. If the selector is already scheduled, then only the interval parameter will be updated without re-scheduling it again. repeat let the action be repeated repeat + 1 times, use kCCRepeatForever to let the action run continiously delay is the amount of time the action will wait before it'll start</para>
+          <para>
+            <simplesect kind="since">
+              <para>v0.99.3, repeat and delay added in v1.1 </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ScheduleUpdate">
@@ -398,8 +436,12 @@
         <param name="target">To be added.</param>
         <param name="priority">To be added.</param>
         <param name="paused">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Schedules the 'update' selector for a given target with a given priority. The 'update' selector will be called every frame. The lower the priority, the earlier it is called. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Schedules the 'update' selector for a given target with a given priority. The 'update' selector will be called every frame. The lower the priority, the earlier it is called. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TimeScale">
@@ -421,9 +463,13 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Modifies the time of all scheduled callbacks. You can use this property to create a 'slow motion' or 'fast fordward' effect. Default is 1.0. To create a 'slow motion' effect, use values below 1.0. To create a 'fast fordward' effect, use values higher than 1.0. <simplesect kind="since"><para>v0.8 </para></simplesect><simplesect kind="warning"><para>It will affect EVERY scheduled selector / action. </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Modifies the time of all scheduled callbacks. You can use this property to create a 'slow motion' or 'fast fordward' effect. Default is 1.0. To create a 'slow motion' effect, use values below 1.0. To create a 'fast fordward' effect, use values higher than 1.0. <simplesect kind="since"><para>v0.8 </para></simplesect><simplesect kind="warning"><para>It will affect EVERY scheduled selector / action. </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnscheduleAllSelectors">
@@ -443,8 +489,17 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Unschedules all selectors from all targets. You should NEVER call this method, unless you know what you are doing.</para>
+        </summary>
+        <remarks>
+          <para>Unschedules all selectors from all targets. You should NEVER call this method, unless you know what you are doing.</para>
+          <para>
+            <simplesect kind="since">
+              <para>v0.99.3 </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnscheduleAllSelectors">
@@ -467,8 +522,12 @@
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Unschedules all selectors for a given target. This also includes the "update" selector. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Unschedules all selectors for a given target. This also includes the "update" selector. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnscheduleSelector">
@@ -493,8 +552,12 @@
       <Docs>
         <param name="sel">To be added.</param>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Unshedules a selector for a given target. If you want to unschedule the "update", use unscheudleUpdateForTarget. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Unshedules a selector for a given target. If you want to unschedule the "update", use unscheudleUpdateForTarget. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnscheduleUpdate">
@@ -517,8 +580,12 @@
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Unschedules the update selector for a given target <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Unschedules the update selector for a given target <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">
@@ -541,8 +608,12 @@
       </Parameters>
       <Docs>
         <param name="deltaTime">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>'update' the scheduler. You should NEVER call this method, unless you know what you are doing. </para>
+        </summary>
+        <remarks>
+          <para>'update' the scheduler. You should NEVER call this method, unless you know what you are doing. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

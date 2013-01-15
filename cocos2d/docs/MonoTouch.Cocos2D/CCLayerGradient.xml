@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCLayerGradient" FullName="MonoTouch.Cocos2D.CCLayerGradient">
   <TypeSignature Language="C#" Value="public class CCLayerGradient : MonoTouch.Cocos2D.CCLayerColor" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCLayerGradient extends MonoTouch.Cocos2D.CCLayerColor" />
@@ -15,8 +16,25 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <verbatim>CCLayerGradient is a subclass of CCLayerColor that draws gradients across
+</verbatim> the background.</para>
+    </summary>
+    <remarks>
+      <para>
+        <verbatim>CCLayerGradient is a subclass of CCLayerColor that draws gradients across
+</verbatim> the background.</para>
+      <para>All features from <see cref="T:MonoTouch.Cocos2D.CCLayerColor" /> are valid, plus the following new features:<list type="bullet"><item><description>direction</description></item><item><description>final color</description></item><item><description>interpolation mode</description></item></list></para>
+      <para>Color is interpolated between the startColor and endColor along the given vector (starting at the origin, ending at the terminus). If no vector is supplied, it defaults to (0, -1) <ndash /> a fade from top to bottom.</para>
+      <para>If 'compressedInterpolation' is disabled, you will not see either the start or end color for non-cardinal vectors; a smooth gradient implying both end points will be still be drawn, however.</para>
+      <para>If ' compressedInterpolation' is enabled (default mode) you will see both the start and end colors of the gradient.</para>
+      <para>
+        <simplesect kind="since">
+          <para>v0.99.5 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -125,8 +143,12 @@
       <Docs>
         <param name="start">To be added.</param>
         <param name="end">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes the CCLayer with a gradient between start and end. </para>
+        </summary>
+        <remarks>
+          <para>Initializes the CCLayer with a gradient between start and end. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -150,8 +172,12 @@
         <param name="start">To be added.</param>
         <param name="end">To be added.</param>
         <param name="alongVector">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes the CCLayer with a gradient between start and end in the direction of v. </para>
+        </summary>
+        <remarks>
+          <para>Initializes the CCLayer with a gradient between start and end in the direction of v. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -189,9 +215,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether or not the interpolation will be compressed in order to display all the colors of the gradient both in canonical and non canonical vectors Default: YES </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether or not the interpolation will be compressed in order to display all the colors of the gradient both in canonical and non canonical vectors Default: YES </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EndColor">
@@ -213,9 +243,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCColor3B</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The ending color. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The ending color. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EndOpacity">
@@ -237,9 +271,13 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The ending color. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The ending color. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StartColor">
@@ -261,9 +299,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCColor3B</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The starting color. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The starting color. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StartOpacity">
@@ -285,9 +327,13 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The starting opacity. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The starting opacity. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Vector">
@@ -309,9 +355,13 @@
         <ReturnType>System.Drawing.PointF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The vector along which to fade color. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The vector along which to fade color. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

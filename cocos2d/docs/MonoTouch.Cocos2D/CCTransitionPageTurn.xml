@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCTransitionPageTurn" FullName="MonoTouch.Cocos2D.CCTransitionPageTurn">
   <TypeSignature Language="C#" Value="public class CCTransitionPageTurn : MonoTouch.Cocos2D.CCTransitionScene" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCTransitionPageTurn extends MonoTouch.Cocos2D.CCTransitionScene" />
@@ -15,8 +16,21 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCTransitionPageTurn" /> transition. A transition which peels back the bottom right hand corner of a scene to transition to the scene beneath it simulating a page turn</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCTransitionPageTurn" /> transition. A transition which peels back the bottom right hand corner of a scene to transition to the scene beneath it simulating a page turn</para>
+      <para>This uses a 3DAction so it is strongly recommended that depth buffering is turned on in <see cref="T:MonoTouch.Cocos2D.CCDirector" /> using: <verbatim>    [[CCDirector sharedDirector] setDepthBufferFormat:kCCDepthBuffer16];
+</verbatim></para>
+      <para>
+        <simplesect kind="since">
+          <para>v0.8.2 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -127,8 +141,12 @@
         <param name="duration">To be added.</param>
         <param name="scene">To be added.</param>
         <param name="backwards">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>creates a base transition with duration and incoming scene if back is TRUE then the effect is reversed to appear as if the incoming scene is being turned from left over the outgoing scene </para>
+        </summary>
+        <remarks>
+          <para>creates a base transition with duration and incoming scene if back is TRUE then the effect is reversed to appear as if the incoming scene is being turned from left over the outgoing scene </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActionWithSize">

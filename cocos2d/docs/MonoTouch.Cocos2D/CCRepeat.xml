@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCRepeat" FullName="MonoTouch.Cocos2D.CCRepeat">
   <TypeSignature Language="C#" Value="public class CCRepeat : MonoTouch.Cocos2D.CCActionInterval" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCRepeat extends MonoTouch.Cocos2D.CCActionInterval" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Repeats an action a number of times. To repeat an action forever use the <see cref="T:MonoTouch.Cocos2D.CCRepeatForever" /> action. </para>
+    </summary>
+    <remarks>
+      <para>Repeats an action a number of times. To repeat an action forever use the <see cref="T:MonoTouch.Cocos2D.CCRepeatForever" /> action. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -104,8 +109,12 @@
       <Docs>
         <param name="action">To be added.</param>
         <param name="count">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCRepeat" /> action. Times is an unsigned integer between 1 and MAX_UINT </para>
+        </summary>
+        <remarks>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCRepeat" /> action. Times is an unsigned integer between 1 and MAX_UINT </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -168,9 +177,13 @@
       <Docs>
         <param name="actions">To be added.</param>
         <param name="count">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>creates a <see cref="T:MonoTouch.Cocos2D.CCRepeat" /> action. Times is an unsigned integer between 1 and MAX_UINT. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>creates a <see cref="T:MonoTouch.Cocos2D.CCRepeat" /> action. Times is an unsigned integer between 1 and MAX_UINT. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InnerAction">
@@ -192,9 +205,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCFiniteTimeAction</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Inner action </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Inner action </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

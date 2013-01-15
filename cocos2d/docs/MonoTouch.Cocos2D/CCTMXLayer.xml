@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCTMXLayer" FullName="MonoTouch.Cocos2D.CCTMXLayer">
   <TypeSignature Language="C#" Value="public class CCTMXLayer : MonoTouch.Cocos2D.CCSpriteBatchNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCTMXLayer extends MonoTouch.Cocos2D.CCSpriteBatchNode" />
@@ -15,8 +16,29 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" /> represents the TMX layer.</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" /> represents the TMX layer.</para>
+      <para>It is a subclass of <see cref="T:MonoTouch.Cocos2D.CCSpriteBatchNode" />. By default the tiles are rendered using a <see cref="T:MonoTouch.Cocos2D.CCTextureAtlas" />. If you mofify a tile on runtime, then, that tile will become a <see cref="T:MonoTouch.Cocos2D.CCSprite" />, otherwise no <see cref="T:MonoTouch.Cocos2D.CCSprite" /> objects are created. The benefits of using <see cref="T:MonoTouch.Cocos2D.CCSprite" /> objects as tiles are:<list type="bullet"><item><description>tiles (CCSprite) can be rotated/scaled/moved with a nice API</description></item></list></para>
+      <para>cocos2d v2.0 doesn't support the cc_vertexz value. Whenever a the cc_vertexz property is found, it will raise an exception.</para>
+      <para>"value" by default is 0, but you can change it from Tiled by adding the "cc_alpha_func" property to the layer. The value 0 should work for most cases, but if you have tiles that are semi-transparent, then you might want to use a differnt value, like 0.5.</para>
+      <para>For further information, please see the programming guide: <verbatim>   http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:tiled_maps
+</verbatim></para>
+      <para>
+        <simplesect kind="since">
+          <para>v0.8.1</para>
+        </simplesect>
+Tiles can have tile flags for additional properties. At the moment only flip horizontal and flip vertical are used. These bit flags are defined in CCTMXXMLParser.h.</para>
+      <para>
+        <simplesect kind="since">
+          <para>1.1 </para>
+        </simplesect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -127,8 +149,12 @@
         <param name="tilesetInfo">To be added.</param>
         <param name="layerInfo">To be added.</param>
         <param name="mapInfo">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" /> with a tileset info, a layer info and a map info </para>
+        </summary>
+        <remarks>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" /> with a tileset info, a layer info and a map info </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddChild">
@@ -155,8 +181,14 @@
         <param name="node">To be added.</param>
         <param name="z">To be added.</param>
         <param name="tag">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" /> doesn't support adding a <see cref="T:MonoTouch.Cocos2D.CCSprite" /> manually. <simplesect kind="warning"><para>addchild:z:tag: is not supported on <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" />. Instead of setTileGID:at:/tileAt: </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>
+            <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" /> doesn't support adding a <see cref="T:MonoTouch.Cocos2D.CCSprite" /> manually. <simplesect kind="warning"><para>addchild:z:tag: is not supported on <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" />. Instead of setTileGID:at:/tileAt: </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -214,9 +246,13 @@
       </Parameters>
       <Docs>
         <param name="tileCoordinate">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the position in points of a given tile coordinate </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the position in points of a given tile coordinate </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetProperty">
@@ -239,9 +275,13 @@
       </Parameters>
       <Docs>
         <param name="propertyName">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>return the value for the specific property name </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>return the value for the specific property name </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTileAt">
@@ -264,9 +304,13 @@
       </Parameters>
       <Docs>
         <param name="tileCoordinate">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the tile (<see cref="T:MonoTouch.Cocos2D.CCSprite" />) at a given a tile coordinate. The returned <see cref="T:MonoTouch.Cocos2D.CCSprite" /> will be already added to the <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" />. Don't add it again. The <see cref="T:MonoTouch.Cocos2D.CCSprite" /> can be treated like any other <see cref="T:MonoTouch.Cocos2D.CCSprite" />: rotated, scaled, translated, opacity, color, etc. You can remove either by calling:<list type="bullet"><item><description>[layer removeChild:sprite cleanup:cleanup];</description></item><item><description>or [layer removeTileAt:ccp(x,y)]; </description></item></list></para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the tile (<see cref="T:MonoTouch.Cocos2D.CCSprite" />) at a given a tile coordinate. The returned <see cref="T:MonoTouch.Cocos2D.CCSprite" /> will be already added to the <see cref="T:MonoTouch.Cocos2D.CCTMXLayer" />. Don't add it again. The <see cref="T:MonoTouch.Cocos2D.CCSprite" /> can be treated like any other <see cref="T:MonoTouch.Cocos2D.CCSprite" />: rotated, scaled, translated, opacity, color, etc. You can remove either by calling:<list type="bullet"><item><description>[layer removeChild:sprite cleanup:cleanup];</description></item><item><description>or [layer removeTileAt:ccp(x,y)]; </description></item></list></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTileGid">
@@ -289,9 +333,13 @@
       </Parameters>
       <Docs>
         <param name="tileCoordinate">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the tile gid at a given tile coordinate. if it returns 0, it means that the tile is empty. This method requires the the tile map has not been previously released (eg. don't call [layer releaseMap]) </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the tile gid at a given tile coordinate. if it returns 0, it means that the tile is empty. This method requires the the tile map has not been previously released (eg. don't call [layer releaseMap]) </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTileGid">
@@ -316,9 +364,13 @@
       <Docs>
         <param name="position">To be added.</param>
         <param name="flags">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>returns the tile gid at a given tile coordinate. It also returns the tile flags. This method requires the the tile map has not been previously released (eg. don't call [layer releaseMap]) </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>returns the tile gid at a given tile coordinate. It also returns the tile flags. This method requires the the tile map has not been previously released (eg. don't call [layer releaseMap]) </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LayerName">
@@ -340,9 +392,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>name of the layer </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>name of the layer </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LayerOrientation">
@@ -364,9 +420,13 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Layer orientation, which is the same as the map orientation </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Layer orientation, which is the same as the map orientation </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LayerSize">
@@ -388,9 +448,13 @@
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>size of the layer in tiles </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>size of the layer in tiles </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MapTileSize">
@@ -412,9 +476,13 @@
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>size of the map's tile (could be differnt from the tile's size) </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>size of the map's tile (could be differnt from the tile's size) </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Properties">
@@ -436,9 +504,13 @@
         <ReturnType>MonoTouch.Foundation.NSMutableArray</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>properties from the layer. They can be added using Tiled </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>properties from the layer. They can be added using Tiled </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReleaseMap">
@@ -458,8 +530,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>dealloc the map that contains the tile position from memory. Unless you want to know at runtime the tiles positions, you can safely call this method. If you are going to call [layer tileGIDAt:] then, don't release the map </para>
+        </summary>
+        <remarks>
+          <para>dealloc the map that contains the tile position from memory. Unless you want to know at runtime the tiles positions, you can safely call this method. If you are going to call [layer tileGIDAt:] then, don't release the map </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveTile">
@@ -482,8 +558,12 @@
       </Parameters>
       <Docs>
         <param name="tileCoordinate">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>removes a tile at given tile coordinate </para>
+        </summary>
+        <remarks>
+          <para>removes a tile at given tile coordinate </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetTileGid">
@@ -508,8 +588,12 @@
       <Docs>
         <param name="gid">To be added.</param>
         <param name="tileCoordinate">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>sets the tile gid (gid = tile global id) at a given tile coordinate. The Tile GID can be obtained by using the method "tileGIDAt" or by using the TMX editor -&gt; Tileset Mgr +1. If a tile is already placed at that position, then it will be removed. </para>
+        </summary>
+        <remarks>
+          <para>sets the tile gid (gid = tile global id) at a given tile coordinate. The Tile GID can be obtained by using the method "tileGIDAt" or by using the TMX editor -&gt; Tileset Mgr +1. If a tile is already placed at that position, then it will be removed. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetTileGid">
@@ -536,8 +620,13 @@
         <param name="gid">To be added.</param>
         <param name="at">To be added.</param>
         <param name="flags">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>sets the tile gid (gid = tile global id) at a given tile coordinate. The Tile GID can be obtained by using the method "tileGIDAt" or by using the TMX editor -&gt; Tileset Mgr +1. If a tile is already placed at that position, then it will be removed.</para>
+        </summary>
+        <remarks>
+          <para>sets the tile gid (gid = tile global id) at a given tile coordinate. The Tile GID can be obtained by using the method "tileGIDAt" or by using the TMX editor -&gt; Tileset Mgr +1. If a tile is already placed at that position, then it will be removed.</para>
+          <para>Use withFlags if the tile flags need to be changed as well </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetupTiles">
@@ -557,8 +646,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Creates the tiles </para>
+        </summary>
+        <remarks>
+          <para>Creates the tiles </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Tileset">
@@ -580,9 +673,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCTMXTilesetInfo</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Tilset information for the layer </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Tilset information for the layer </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TilesPtr">
@@ -604,9 +701,13 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>pointer to the map of tiles </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>pointer to the map of tiles </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

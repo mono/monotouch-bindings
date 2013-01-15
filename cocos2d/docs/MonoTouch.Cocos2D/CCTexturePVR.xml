@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCTexturePVR" FullName="MonoTouch.Cocos2D.CCTexturePVR">
   <TypeSignature Language="C#" Value="public class CCTexturePVR : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCTexturePVR extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,19 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCTexturePVR" />
+      </para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:MonoTouch.Cocos2D.CCTexturePVR" />
+      </para>
+      <para>Object that loads PVR images.</para>
+      <para>Supported PVR formats:<list type="bullet"><item><description>RGBA8888</description></item><item><description>BGRA8888</description></item><item><description>RGBA4444</description></item><item><description>RGBA5551</description></item><item><description>RGB565</description></item><item><description>A8</description></item><item><description>I8</description></item><item><description>AI88</description></item><item><description>PVRTC 4BPP</description></item><item><description>PVRTC 2BPP</description></item></list></para>
+      <para>Limitations: Pre-generated mipmaps, such as PVR textures with mipmap levels embedded in file, are only supported if all individual sprites are of <emphasis>square</emphasis> size. To use mipmaps with non-square textures, instead call <ref refid="interface_c_c_texture2_d_1a4b5fdc85363ee66f65d39a9e1f3489d0" kindref="member">generateMipmap (CCTexture2D)</ref> on the sheet texture itself (and to save space, save the PVR sprite sheet without mip maps included). </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -102,8 +114,12 @@
       </Parameters>
       <Docs>
         <param name="url">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCTexturePVR" /> with an URL </para>
+        </summary>
+        <remarks>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCTexturePVR" /> with an URL </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -144,8 +160,12 @@
       </Parameters>
       <Docs>
         <param name="path">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCTexturePVR" /> with a path </para>
+        </summary>
+        <remarks>
+          <para>initializes a <see cref="T:MonoTouch.Cocos2D.CCTexturePVR" /> with a path </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -201,9 +221,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>whether or not the texture has alpha </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>whether or not the texture has alpha </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Height">
@@ -222,9 +246,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>texture height </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>texture height </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Name">
@@ -243,9 +271,13 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>texture id name </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>texture id name </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NumberOfMipmaps">
@@ -264,9 +296,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>how many mipmaps the texture has. 1 means one level (level 0 </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>how many mipmaps the texture has. 1 means one level (level 0 </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RetainName">
@@ -309,9 +345,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>texture width </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>texture width </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

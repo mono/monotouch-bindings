@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCAction" FullName="MonoTouch.Cocos2D.CCAction">
   <TypeSignature Language="C#" Value="public class CCAction : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCAction extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Base class for <see cref="T:MonoTouch.Cocos2D.CCAction" /> objects. </para>
+    </summary>
+    <remarks>
+      <para>Base class for <see cref="T:MonoTouch.Cocos2D.CCAction" /> objects. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +41,12 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes the action </para>
+        </summary>
+        <remarks>
+          <para>Initializes the action </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -178,9 +187,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCNode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The original target, since target can be nil. Is the target that were used to run the action. Unless you are doing something complex, like <see cref="T:MonoTouch.Cocos2D.CCActionManager" />, you should NOT call this method. <simplesect kind="since"><para>v0.8.2 </para></simplesect></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The original target, since target can be nil. Is the target that were used to run the action. Unless you are doing something complex, like <see cref="T:MonoTouch.Cocos2D.CCActionManager" />, you should NOT call this method. <simplesect kind="since"><para>v0.8.2 </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Start">
@@ -248,8 +261,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>called after the action has finished. It will set the 'target' to nil. IMPORTANT: You should never call "[action stop]" manually. Instead, use: "[target stopAction:action];" </para>
+        </summary>
+        <remarks>
+          <para>called after the action has finished. It will set the 'target' to nil. IMPORTANT: You should never call "[action stop]" manually. Instead, use: "[target stopAction:action];" </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Tag">
@@ -271,9 +288,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The action tag. An identifier of the action </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The action tag. An identifier of the action </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Target">
@@ -292,9 +313,13 @@
         <ReturnType>MonoTouch.Cocos2D.CCNode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The "target". The action will modify the target properties. The target will be set with the 'startWithTarget' method. When the 'stop' method is called, target will be set to nil. The target is 'assigned', it is not 'retained'. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The "target". The action will modify the target properties. The target will be set with the 'startWithTarget' method. When the 'stop' method is called, target will be set to nil. The target is 'assigned', it is not 'retained'. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">
@@ -317,8 +342,12 @@
       </Parameters>
       <Docs>
         <param name="time">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>called once per frame. time a value between 0 and 1 For example:<list type="bullet"><item><description>0 means that the action just started</description></item><item><description>0.5 means that the action is in the middle</description></item><item><description>1 means that the action is over </description></item></list></para>
+        </summary>
+        <remarks>
+          <para>called once per frame. time a value between 0 and 1 For example:<list type="bullet"><item><description>0 means that the action just started</description></item><item><description>0.5 means that the action is in the middle</description></item><item><description>1 means that the action is over </description></item></list></para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

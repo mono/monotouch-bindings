@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCLabelTTF" FullName="MonoTouch.Cocos2D.CCLabelTTF">
   <TypeSignature Language="C#" Value="public class CCLabelTTF : MonoTouch.Cocos2D.CCSprite" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCLabelTTF extends MonoTouch.Cocos2D.CCSprite" />
@@ -15,8 +16,14 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>CCLabel is a subclass of CCTextureNode that knows how to render text labels</para>
+    </summary>
+    <remarks>
+      <para>CCLabel is a subclass of CCTextureNode that knows how to render text labels</para>
+      <para>All features from CCTextureNode are valid in CCLabel</para>
+      <para>CCLabel objects are slow. Consider using <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> or <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> instead. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -127,8 +134,12 @@
         <param name="label">To be added.</param>
         <param name="fontName">To be added.</param>
         <param name="fontSize">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>initializes the <see cref="T:MonoTouch.Cocos2D.CCLabelTTF" /> with a font name and font size in points </para>
+        </summary>
+        <remarks>
+          <para>initializes the <see cref="T:MonoTouch.Cocos2D.CCLabelTTF" /> with a font name and font size in points </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -251,8 +262,12 @@
       </Parameters>
       <Docs>
         <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>changes the string to render <simplesect kind="warning"><para>Changing the string is as expensive as creating a new <see cref="T:MonoTouch.Cocos2D.CCLabelTTF" />. To obtain better performance use <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> or <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" />. </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>changes the string to render <simplesect kind="warning"><para>Changing the string is as expensive as creating a new <see cref="T:MonoTouch.Cocos2D.CCLabelTTF" />. To obtain better performance use <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> or <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" />. </para></simplesect></para>
+        </remarks>
       </Docs>
     </Member>
   </Members>
