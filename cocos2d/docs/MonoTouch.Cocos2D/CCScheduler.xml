@@ -283,7 +283,7 @@
       </Docs>
     </Member>
     <Member MemberName="Schedule">
-      <MemberSignature Language="C#" Value="public MonoTouch.Foundation.NSObject Schedule (Action&lt;float&gt; callback, float interval, bool paused, uint repeat, float delay);" />
+      <MemberSignature Language="C#" Value="public MonoTouch.Foundation.NSObject Schedule (Action&lt;float&gt; callback, float interval = 0, bool paused = false, uint repeat = 4294967294, float delay = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class MonoTouch.Foundation.NSObject Schedule(class System.Action`1&lt;float32&gt; callback, float32 interval, bool paused, unsigned int32 repeat, float32 delay) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
