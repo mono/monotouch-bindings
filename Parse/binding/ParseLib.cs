@@ -863,7 +863,7 @@ namespace ParseLib
                 string DeviceToken { get; }	
 
 	        [Export ("badge")]
-                int Badge { get; }	
+                int Badge { get; set; }	
 
 	        [Export ("timeZone")]
                 string TimeZone { get; }	
