@@ -1,6 +1,6 @@
 //
 // This shows the various capabilities of the
-// AtmHud library
+// GoogleAdMobAds
 //
 using System;
 using MonoTouch.Foundation;
