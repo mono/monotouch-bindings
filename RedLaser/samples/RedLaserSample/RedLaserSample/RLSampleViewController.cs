@@ -48,7 +48,6 @@ namespace RedLaserSample
 			overlayController.ParentPicker.ScanUPCE = enableUPCESwitch.On;
 			overlayController.ParentPicker.ScanEAN8 = enableEAN8Switch.On;
 			overlayController.ParentPicker.ScanEAN13 = enableEAN13Switch.On;
-			overlayController.ParentPicker.ScanSTICKY = enableSTICKYSwitch.On;
 			overlayController.ParentPicker.ScanQRCODE = enableQRCodeSwitch.On;
 			overlayController.ParentPicker.ScanCODE128 = enableCode128Switch.On;
 			overlayController.ParentPicker.ScanCODE39 = enableCode39Switch.On;

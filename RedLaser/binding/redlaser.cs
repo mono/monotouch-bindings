@@ -144,9 +144,6 @@ namespace RedLaser
 		[Export ("scanEAN13", ArgumentSemantic.Assign)]
 		bool ScanEAN13 { get; set; }
 		
-		[Export ("scanSTICKY", ArgumentSemantic.Assign)]
-		bool ScanSTICKY { get; set; }
-		
 		[Export ("scanQRCODE", ArgumentSemantic.Assign)]
 		bool ScanQRCODE { get; set; }
 		

@@ -17,7 +17,6 @@ namespace RedLaser
 		EAN13 = 0x1,
 		UPCE = 0x2,
 		EAN8 = 0x4,
-		STICKY = 0x8,
 		QRCODE = 0x10,
 		Code128 = 0x20,
 		Code39 = 0x40,
