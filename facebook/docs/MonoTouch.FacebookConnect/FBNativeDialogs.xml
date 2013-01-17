@@ -1,0 +1,212 @@
+<Type Name="FBNativeDialogs" FullName="MonoTouch.FacebookConnect.FBNativeDialogs">
+  <TypeSignature Language="C#" Value="public class FBNativeDialogs : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBNativeDialogs extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FBNativeDialogs", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBNativeDialogs ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBNativeDialogs (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBNativeDialogs (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanPresentShareDialogWithSession">
+      <MemberSignature Language="C#" Value="public static bool CanPresentShareDialogWithSession (MonoTouch.FacebookConnect.FBSession session);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool CanPresentShareDialogWithSession(class MonoTouch.FacebookConnect.FBSession session) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("canPresentShareDialogWithSession:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+      </Parameters>
+      <Docs>
+        <param name="session">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialogModallyFrom">
+      <MemberSignature Language="C#" Value="public static bool PresentShareDialogModallyFrom (MonoTouch.UIKit.UIViewController viewController, string initialText, MonoTouch.UIKit.UIImage image, MonoTouch.Foundation.NSUrl url, MonoTouch.FacebookConnect.FBShareDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentShareDialogModallyFrom(class MonoTouch.UIKit.UIViewController viewController, string initialText, class MonoTouch.UIKit.UIImage image, class MonoTouch.Foundation.NSUrl url, class MonoTouch.FacebookConnect.FBShareDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogModallyFrom:initialText:image:url:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="initialText" Type="System.String" />
+        <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBShareDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">To be added.</param>
+        <param name="initialText">To be added.</param>
+        <param name="image">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialogModallyFrom">
+      <MemberSignature Language="C#" Value="public static bool PresentShareDialogModallyFrom (MonoTouch.UIKit.UIViewController viewController, string initialText, MonoTouch.UIKit.UIImage image, MonoTouch.Foundation.NSUrl[] urls, MonoTouch.FacebookConnect.FBShareDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentShareDialogModallyFrom(class MonoTouch.UIKit.UIViewController viewController, string initialText, class MonoTouch.UIKit.UIImage image, class MonoTouch.Foundation.NSUrl[] urls, class MonoTouch.FacebookConnect.FBShareDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogModallyFrom:initialText:images:urls:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="initialText" Type="System.String" />
+        <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="urls" Type="MonoTouch.Foundation.NSUrl[]" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBShareDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">To be added.</param>
+        <param name="initialText">To be added.</param>
+        <param name="image">To be added.</param>
+        <param name="urls">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialogModallyFrom">
+      <MemberSignature Language="C#" Value="public static bool PresentShareDialogModallyFrom (MonoTouch.UIKit.UIViewController viewController, MonoTouch.FacebookConnect.FBSession session, string initialText, MonoTouch.UIKit.UIImage image, MonoTouch.Foundation.NSUrl[] urls, MonoTouch.FacebookConnect.FBShareDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentShareDialogModallyFrom(class MonoTouch.UIKit.UIViewController viewController, class MonoTouch.FacebookConnect.FBSession session, string initialText, class MonoTouch.UIKit.UIImage image, class MonoTouch.Foundation.NSUrl[] urls, class MonoTouch.FacebookConnect.FBShareDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogModallyFrom:session:initialText:images:urls:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="initialText" Type="System.String" />
+        <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="urls" Type="MonoTouch.Foundation.NSUrl[]" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBShareDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">To be added.</param>
+        <param name="session">To be added.</param>
+        <param name="initialText">To be added.</param>
+        <param name="image">To be added.</param>
+        <param name="urls">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

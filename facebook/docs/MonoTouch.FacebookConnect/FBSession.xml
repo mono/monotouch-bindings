@@ -82,6 +82,83 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBSession (string[] permissions);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string[] permissions) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithPermissions:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="permissions" Type="System.String[]" />
+      </Parameters>
+      <Docs>
+        <param name="permissions">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBSession (string appId, string[] permissions, string urlSchemeSuffix, MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy tokenCachingStrategy);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string appId, string[] permissions, string urlSchemeSuffix, class MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy tokenCachingStrategy) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAppID:permissions:urlSchemeSuffix:tokenCacheStrategy:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="appId" Type="System.String" />
+        <Parameter Name="permissions" Type="System.String[]" />
+        <Parameter Name="urlSchemeSuffix" Type="System.String" />
+        <Parameter Name="tokenCachingStrategy" Type="MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy" />
+      </Parameters>
+      <Docs>
+        <param name="appId">To be added.</param>
+        <param name="permissions">To be added.</param>
+        <param name="urlSchemeSuffix">To be added.</param>
+        <param name="tokenCachingStrategy">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBSession (string appId, string[] permissions, MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, string urlSchemeSuffix, MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy tokenCachingStrategy);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string appId, string[] permissions, valuetype MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, string urlSchemeSuffix, class MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy tokenCachingStrategy) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAppID:permissions:defaultAudience:urlSchemeSuffix:tokenCacheStrategy:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="appId" Type="System.String" />
+        <Parameter Name="permissions" Type="System.String[]" />
+        <Parameter Name="defaultAudience" Type="MonoTouch.FacebookConnect.FBSessionDefaultAudience" />
+        <Parameter Name="urlSchemeSuffix" Type="System.String" />
+        <Parameter Name="tokenCachingStrategy" Type="MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy" />
+      </Parameters>
+      <Docs>
+        <param name="appId">To be added.</param>
+        <param name="permissions">To be added.</param>
+        <param name="defaultAudience">To be added.</param>
+        <param name="urlSchemeSuffix">To be added.</param>
+        <param name="tokenCachingStrategy">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="AccessToken">
       <MemberSignature Language="C#" Value="public virtual string AccessToken { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string AccessToken" />
@@ -120,6 +197,27 @@
       </Attributes>
       <ReturnValue>
         <ReturnType>MonoTouch.FacebookConnect.FBSession</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AppID">
+      <MemberSignature Language="C#" Value="public virtual string AppID { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string AppID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("appID", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -193,6 +291,46 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExpirationDate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate ExpirationDate { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate ExpirationDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("expirationDate", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="HandleDidBecomeActive">
       <MemberSignature Language="C#" Value="public virtual void HandleDidBecomeActive ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void HandleDidBecomeActive() cil managed" />
@@ -257,6 +395,77 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoginType">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBSessionLoginType LoginType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.FacebookConnect.FBSessionLoginType LoginType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("loginType")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBSessionLoginType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Open">
+      <MemberSignature Language="C#" Value="public virtual void Open (MonoTouch.FacebookConnect.FBSessionStateHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Open(class MonoTouch.FacebookConnect.FBSessionStateHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("openWithCompletionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Open">
+      <MemberSignature Language="C#" Value="public virtual void Open (MonoTouch.FacebookConnect.FBSessionLoginBehavior behavior, MonoTouch.FacebookConnect.FBSessionStateHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Open(valuetype MonoTouch.FacebookConnect.FBSessionLoginBehavior behavior, class MonoTouch.FacebookConnect.FBSessionStateHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("openWithBehavior:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="behavior" Type="MonoTouch.FacebookConnect.FBSessionLoginBehavior" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
+      </Parameters>
+      <Docs>
+        <param name="behavior">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -345,37 +554,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ReauthorizeWithPermissions">
-      <MemberSignature Language="C#" Value="public virtual void ReauthorizeWithPermissions (string[] permissions, MonoTouch.FacebookConnect.FBSessionLoginBehavior behavior, MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler completion);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReauthorizeWithPermissions(string[] permissions, valuetype MonoTouch.FacebookConnect.FBSessionLoginBehavior behavior, class MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler completion) cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Permissions">
+      <MemberSignature Language="C#" Value="public virtual string[] Permissions { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string[] Permissions" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("reauthorizeWithPermissions:behavior:completionHandler:")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("permissions", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.String[]</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="permissions" Type="System.String[]" />
-        <Parameter Name="behavior" Type="MonoTouch.FacebookConnect.FBSessionLoginBehavior" />
-        <Parameter Name="completion" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
-      </Parameters>
       <Docs>
-        <param name="permissions">To be added.</param>
-        <param name="behavior">To be added.</param>
-        <param name="completion">To be added.</param>
         <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ReauthorizeWithPublishPermissions">
-      <MemberSignature Language="C#" Value="public virtual void ReauthorizeWithPublishPermissions (string[] permissions, MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler completion);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReauthorizeWithPublishPermissions(string[] permissions, valuetype MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, class MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler completion) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void ReauthorizeWithPublishPermissions (string[] writePermissions, MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReauthorizeWithPublishPermissions(string[] writePermissions, valuetype MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, class MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -389,21 +591,21 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="permissions" Type="System.String[]" />
+        <Parameter Name="writePermissions" Type="System.String[]" />
         <Parameter Name="defaultAudience" Type="MonoTouch.FacebookConnect.FBSessionDefaultAudience" />
-        <Parameter Name="completion" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
       </Parameters>
       <Docs>
-        <param name="permissions">To be added.</param>
+        <param name="writePermissions">To be added.</param>
         <param name="defaultAudience">To be added.</param>
-        <param name="completion">To be added.</param>
+        <param name="handler">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ReauthorizeWithReadPermissions">
-      <MemberSignature Language="C#" Value="public virtual void ReauthorizeWithReadPermissions (string[] permissions, MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler completion);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReauthorizeWithReadPermissions(string[] permissions, class MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler completion) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void ReauthorizeWithReadPermissions (string[] readPermissions, MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReauthorizeWithReadPermissions(string[] readPermissions, class MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -417,13 +619,55 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="permissions" Type="System.String[]" />
-        <Parameter Name="completion" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
+        <Parameter Name="readPermissions" Type="System.String[]" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
       </Parameters>
       <Docs>
-        <param name="permissions">To be added.</param>
-        <param name="completion">To be added.</param>
+        <param name="readPermissions">To be added.</param>
+        <param name="handler">To be added.</param>
         <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="State">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBSessionState State { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.FacebookConnect.FBSessionState State" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("state")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBSessionState</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UrlSchemeSuffix">
+      <MemberSignature Language="C#" Value="public virtual string UrlSchemeSuffix { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string UrlSchemeSuffix" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("urlSchemeSuffix", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

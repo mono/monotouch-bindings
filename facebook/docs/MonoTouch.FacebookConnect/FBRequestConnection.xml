@@ -62,6 +62,27 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBRequestConnection (double timeout);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float64 timeout) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithTimeout:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="timeout" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="timeout">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public FBRequestConnection (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -79,6 +100,424 @@
       <Docs>
         <param name="handle">To be added.</param>
         <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddRequest">
+      <MemberSignature Language="C#" Value="public virtual void AddRequest (MonoTouch.FacebookConnect.FBRequest request, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddRequest(class MonoTouch.FacebookConnect.FBRequest request, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addRequest:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="MonoTouch.FacebookConnect.FBRequest" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="request">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddRequest">
+      <MemberSignature Language="C#" Value="public virtual void AddRequest (MonoTouch.FacebookConnect.FBRequest request, MonoTouch.FacebookConnect.FBRequestHandler handler, string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddRequest(class MonoTouch.FacebookConnect.FBRequest request, class MonoTouch.FacebookConnect.FBRequestHandler handler, string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addRequest:completionHandler:batchEntryName:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="request" Type="MonoTouch.FacebookConnect.FBRequest" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="request">To be added.</param>
+        <param name="handler">To be added.</param>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Cancel">
+      <MemberSignature Language="C#" Value="public virtual void Cancel ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Cancel() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cancel")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Start">
+      <MemberSignature Language="C#" Value="public virtual void Start ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Start() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("start")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForMeWithCompletionHandler">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForMeWithCompletionHandler (MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForMeWithCompletionHandler(class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForMeWithCompletionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForMyFriendsWithCompletionHandler">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForMyFriendsWithCompletionHandler (MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForMyFriendsWithCompletionHandler(class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForMyFriendsWithCompletionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForPlacesSearchAtCoordinate">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForPlacesSearchAtCoordinate (MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate, int radius, int limit, string searchText, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForPlacesSearchAtCoordinate(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate, int32 radius, int32 limit, string searchText, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForPlacesSearchAtCoordinate:radiusInMeters:resultsLimit:searchText:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="radius" Type="System.Int32" />
+        <Parameter Name="limit" Type="System.Int32" />
+        <Parameter Name="searchText" Type="System.String" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="coordinate">To be added.</param>
+        <param name="radius">To be added.</param>
+        <param name="limit">To be added.</param>
+        <param name="searchText">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForPostStatusUpdate">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForPostStatusUpdate (string message, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForPostStatusUpdate(string message, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForPostStatusUpdate:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="message">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForPostStatusUpdate">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForPostStatusUpdate (string message, MonoTouch.Foundation.NSObject place, MonoTouch.Foundation.NSObject[] tags, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForPostStatusUpdate(string message, class MonoTouch.Foundation.NSObject place, class MonoTouch.Foundation.NSObject[] tags, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForPostStatusUpdate:place:tags:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="place" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="tags" Type="MonoTouch.Foundation.NSObject[]" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="message">To be added.</param>
+        <param name="place">To be added.</param>
+        <param name="tags">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForPostWithGraphPath">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForPostWithGraphPath (string graphPath, MonoTouch.FacebookConnect.FBGraphObject graphObject, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForPostWithGraphPath(string graphPath, class MonoTouch.FacebookConnect.FBGraphObject graphObject, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForPostWithGraphPath:graphObject:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="graphPath" Type="System.String" />
+        <Parameter Name="graphObject" Type="MonoTouch.FacebookConnect.FBGraphObject" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="graphPath">To be added.</param>
+        <param name="graphObject">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForUploadPhoto">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForUploadPhoto (MonoTouch.UIKit.UIImage photo, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForUploadPhoto(class MonoTouch.UIKit.UIImage photo, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForUploadPhoto:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="photo" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="photo">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartWithGraphPath">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartWithGraphPath (string graphPath, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartWithGraphPath(string graphPath, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startWithGraphPath:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="graphPath" Type="System.String" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="graphPath">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartWithGraphPath">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartWithGraphPath (string graphPath, MonoTouch.Foundation.NSDictionary parameters, string HTTPMethod, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartWithGraphPath(string graphPath, class MonoTouch.Foundation.NSDictionary parameters, string HTTPMethod, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startWithGraphPath:parameters:HTTPMethod:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="graphPath" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="HTTPMethod" Type="System.String" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="graphPath">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="HTTPMethod">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UrlRequest">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSMutableUrlRequest UrlRequest { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSMutableUrlRequest UrlRequest" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("urlRequest")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUrlRequest:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSMutableUrlRequest</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UrlResponse">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSHttpUrlResponse UrlResponse { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSHttpUrlResponse UrlResponse" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("urlResponse")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUrlResponse:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSHttpUrlResponse</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
