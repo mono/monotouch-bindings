@@ -15,8 +15,16 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object is used to setup and manage requests to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph and REST APIs. This class provides helper methods that simplify the connection and response handling.</para>
+    </summary>
+    <remarks>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object is used to setup and manage requests to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph and REST APIs. This class provides helper methods that simplify the connection and response handling.</para>
+      <para>An &lt;FBSession&gt; object is required for all authenticated uses of <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput>. Requests that do not require an unauthenticated user are also supported and do not require an &lt;FBSession&gt; object to be passed in.</para>
+      <para>An instance of <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> represents the arguments and setup for a connection to <see cref="T:MonoTouch.FacebookConnect.Facebook" />. After creating an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object it can be used to setup a connection to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> through the &lt;FBRequestConnection&gt; object. The &lt;FBRequestConnection&gt; object is created to manage a single connection. To cancel a connection use the instance method in the &lt;FBRequestConnection&gt; class.</para>
+      <para>An <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object may be reused to issue multiple connections to <see cref="T:MonoTouch.FacebookConnect.Facebook" />. However each &lt;FBRequestConnection&gt; instance will manage one connection.</para>
+      <para>Class and instance methods prefixed with **start* ** can be used to perform the request setup and initiate the connection in a single call. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +44,13 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Creating a request</para>
+        </summary>
+        <remarks>
+          <para>Creating a request</para>
+          <para>Calls &lt;initWithSession:graphPath:parameters:HTTPMethod:&gt; with the default parameters. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -99,10 +112,17 @@
         <Parameter Name="graphPath" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="session">To be added.</param>
+        <param name="session">
+          <para>The session object representing the identity of the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user making the request. A nil value indicates a request that requires no token; to use the active session pass <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+        </param>
         <param name="graphPath">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Calls &lt;initWithSession:graphPath:parameters:HTTPMethod:&gt; with default parameters except for the ones provided to this method.</para>
+        </summary>
+        <remarks>
+          <para>Calls &lt;initWithSession:graphPath:parameters:HTTPMethod:&gt; with default parameters except for the ones provided to this method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -123,11 +143,20 @@
         <Parameter Name="graphObject" Type="MonoTouch.FacebookConnect.FBGraphObject" />
       </Parameters>
       <Docs>
-        <param name="session">To be added.</param>
+        <param name="session">
+          <para>The session object representing the identity of the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user making the request. A nil value indicates a request that requires no token; to use the active session pass <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+        </param>
         <param name="graphPath">To be added.</param>
         <param name="graphObject">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initialize a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object that will do a graph request.</para>
+        </summary>
+        <remarks>
+          <para>Initialize a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object that will do a graph request.</para>
+          <para>Note that this only sets properties on the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput>.</para>
+          <para>To send the request, initialize a &lt;FBRequestConnection&gt;, add this request, and send &lt;[<see cref="T:MonoTouch.FacebookConnect.FBRequestConnection" /> start]&gt;. See other methods on this class for shortcuts to simplify this process.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -149,12 +178,21 @@
         <Parameter Name="HTTPMethod" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="session">To be added.</param>
+        <param name="session">
+          <para>The session object representing the identity of the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user making the request. A nil value indicates a request that requires no token; to use the active session pass <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+        </param>
         <param name="graphPath">To be added.</param>
         <param name="parameters">To be added.</param>
         <param name="HTTPMethod">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object for a Graph API request call.</para>
+        </summary>
+        <remarks>
+          <para>Initializes an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object for a Graph API request call.</para>
+          <para>Note that this only sets properties on the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object.</para>
+          <para>To send the request, initialize an &lt;FBRequestConnection&gt; object, add this request, and send &lt;[<see cref="T:MonoTouch.FacebookConnect.FBRequestConnection" /> start]&gt;. See other methods on this class for shortcuts to simplify this process.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -177,13 +215,23 @@
         <Parameter Name="fakearg" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="session">To be added.</param>
+        <param name="session">
+          <para>The session object representing the identity of the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user making the request. A nil value indicates a request that requires no token; to use the active session pass <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+        </param>
         <param name="restMethod">To be added.</param>
         <param name="parameters">To be added.</param>
         <param name="HTTPMethod">To be added.</param>
         <param name="fakearg">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initialize a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object that will do a rest API request.</para>
+        </summary>
+        <remarks>
+          <para>Initialize a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object that will do a rest API request.</para>
+          <para>Prefer to use graph requests instead of this where possible.</para>
+          <para>Note that this only sets properties on the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput>.</para>
+          <para>To send the request, initialize a &lt;FBRequestConnection&gt;, add this request, and send &lt;[<see cref="T:MonoTouch.FacebookConnect.FBRequestConnection" /> start]&gt;. See other methods on this class for shortcuts to simplify this process.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -266,9 +314,14 @@
         <ReturnType>MonoTouch.FacebookConnect.FBGraphObject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The graph object to post with the request.</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The graph object to post with the request.</para>
+          <para>May be used to read the graph object that was automatically set during the object initiliazation. Make any required modifications prior to sending the request. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GraphPath">
@@ -335,9 +388,16 @@
         <ReturnType>MonoTouch.Foundation.NSMutableDictionary</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The parameters for the request.</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The parameters for the request.</para>
+          <para>May be used to read the parameters that were automatically set during the object initiliazation. Make any required modifications prior to sending the request.</para>
+          <para>
+            <computeroutput>NSString</computeroutput> parameters are used to generate URL parameter values or JSON parameters. <computeroutput>NSData</computeroutput> and <computeroutput>UIImage</computeroutput> parameters are added as attachments to the HTTP body and referenced by name in the URL and/or JSON. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RequestForGraphPath">
@@ -359,10 +419,19 @@
         <Parameter Name="graphPath" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="graphPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="graphPath">
+          <para>The Graph API endpoint to use for the request, for example "me". </para>
+        </param>
+        <summary>
+          <para>Returns a newly initialized request object that can be used to make a Graph API call for the active session.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns a newly initialized request object that can be used to make a Graph API call for the active session.</para>
+          <para>This method simplifies the preparation of a Graph API call.</para>
+          <para>This method does not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RequestForPlacesSearchAtCoordinate">
@@ -387,13 +456,23 @@
         <Parameter Name="searchText" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="coordinate">To be added.</param>
+        <param name="coordinate">
+          <para>The search coordinates.</para>
+        </param>
         <param name="radius">To be added.</param>
         <param name="limit">To be added.</param>
         <param name="searchText">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates a request representing a Graph API call to the "search" endpoint for a given location using the active session.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a request representing a Graph API call to the "search" endpoint for a given location using the active session.</para>
+          <para>Simplifies preparing a request to search for places near a coordinate.</para>
+          <para>This method does not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
+          <para>A successful Graph API call will return an array of &lt;FBGraphPlace&gt; objects representing the nearby locations.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RequestForPostStatusUpdate">
@@ -415,10 +494,19 @@
         <Parameter Name="message" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="message">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="message">
+          <para>The message to post. </para>
+        </param>
+        <summary>
+          <para>Creates a request representing a status update.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a request representing a status update.</para>
+          <para>Simplifies preparing a request to post a status update.</para>
+          <para>This method does not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RequestForPostStatusUpdate">
@@ -442,12 +530,21 @@
         <Parameter Name="tags" Type="MonoTouch.Foundation.NSObject[]" />
       </Parameters>
       <Docs>
-        <param name="message">To be added.</param>
+        <param name="message">
+          <para>The message to post. </para>
+        </param>
         <param name="place">To be added.</param>
         <param name="tags">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates a request representing a status update.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a request representing a status update.</para>
+          <para>Simplifies preparing a request to post a status update.</para>
+          <para>This method does not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RequestForPostWithGraphPath">
@@ -470,11 +567,18 @@
         <Parameter Name="graphObject" Type="MonoTouch.FacebookConnect.FBGraphObject" />
       </Parameters>
       <Docs>
-        <param name="graphPath">To be added.</param>
+        <param name="graphPath">
+          <para>The Graph API endpoint to use for the request, for example "me".</para>
+        </param>
         <param name="graphObject">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates a request representing a POST for a graph object.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a request representing a POST for a graph object.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RequestForUploadPhoto">
@@ -496,10 +600,20 @@
         <Parameter Name="photo" Type="MonoTouch.UIKit.UIImage" />
       </Parameters>
       <Docs>
-        <param name="photo">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="photo">
+          <para>A <computeroutput>UIImage</computeroutput> for the photo to upload. </para>
+        </param>
+        <summary>
+          <para>Creates a request representing a Graph API call to upload a photo to the app's album using the active session.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a request representing a Graph API call to upload a photo to the app's album using the active session.</para>
+          <para>Simplifies preparing a request to post a photo.</para>
+          <para>To post a photo to a specific album, get the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> returned from this method call, then modify the request parameters by adding the album ID to an "album" key.</para>
+          <para>This method does not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RequestWithGraphPath">
@@ -523,12 +637,21 @@
         <Parameter Name="HTTPMethod" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="graphPath">To be added.</param>
+        <param name="graphPath">
+          <para>The Graph API endpoint to use for the request, for example "me".</para>
+        </param>
         <param name="parameters">To be added.</param>
         <param name="HTTPMethod">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns a newly initialized request object that can be used to make a Graph API call for the active session.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns a newly initialized request object that can be used to make a Graph API call for the active session.</para>
+          <para>This method simplifies the preparation of a Graph API call.</para>
+          <para>This method does not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RestMethod">
@@ -574,9 +697,14 @@
         <ReturnType>MonoTouch.FacebookConnect.FBSession</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The &lt;FBSession&gt; session object to use for the request.</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The &lt;FBSession&gt; session object to use for the request.</para>
+          <para>May be used to read the session that was automatically set during the object initiliazation. Make any required modifications prior to sending the request. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Start">
@@ -598,10 +726,19 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="handler">
+          <para>The handler block to call when the request completes with a success, error, or cancel action. </para>
+        </param>
+        <summary>
+          <para>Instance methods</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Instance methods</para>
+          <para>Starts a connection to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> API.</para>
+          <para>This is used to start an API call to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> and call the block when the request completes with a success, error, or cancel.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

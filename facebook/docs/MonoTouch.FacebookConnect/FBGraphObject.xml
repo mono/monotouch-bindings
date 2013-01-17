@@ -99,9 +99,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Used to create a graph object for, usually for use in posting a new graph object or action </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Used to create a graph object for, usually for use in posting a new graph object or action </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GraphObject">
@@ -123,10 +127,19 @@
         <Parameter Name="jsonDictionary" Type="MonoTouch.Foundation.NSDictionary" />
       </Parameters>
       <Docs>
-        <param name="jsonDictionary">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="jsonDictionary">
+          <para>the dictionary representing the underlying object to wrap </para>
+        </param>
+        <summary>
+          <para>Used to wrap an existing dictionary with a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBGraphObject" /></computeroutput> facade</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Used to wrap an existing dictionary with a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBGraphObject" /></computeroutput> facade</para>
+          <para>Normally you will not need to call this method, as the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> SDK already "FBGraphObject-ifys" json objects fetch via <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> and <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequestConnection" /></computeroutput>. However, you may have other reasons to create json objects in your application, which you would like to treat as a graph object. The pattern for doing this is that you pass the root node of the json to this method, to retrieve a wrapper. From this point, if you traverse the graph, any other objects deeper in the hierarchy will be wrapped as <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBGraphObject" /></computeroutput>'s in a lazy fashion.</para>
+          <para>This method is designed to avoid unnecessary memory allocations, and object copying. Due to this, the method does not copy the source object if it can be avoided, but rather wraps and uses it as is. The returned object derives callers shoudl use the returned object after calls to this method, rather than continue to call methods on the original object.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsGraphObjectIDEqual">

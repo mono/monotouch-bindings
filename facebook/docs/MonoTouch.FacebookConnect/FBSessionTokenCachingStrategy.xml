@@ -36,8 +36,12 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes and returns an instance </para>
+        </summary>
+        <remarks>
+          <para>Initializes and returns an instance </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -98,9 +102,16 @@
         <Parameter Name="tokenInformationKeyName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="tokenInformationKeyName">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="tokenInformationKeyName">
+          <para>Specifies a key name to use for cached token information in NSUserDefaults, nil indicates a default value of "FBAccessTokenInformationKey" </para>
+        </param>
+        <summary>
+          <para>Initializes and returns an instance</para>
+        </summary>
+        <remarks>
+          <para>Initializes and returns an instance</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CacheTokenInformation">
@@ -122,9 +133,16 @@
         <Parameter Name="tokenInformation" Type="MonoTouch.Foundation.NSDictionary" />
       </Parameters>
       <Docs>
-        <param name="tokenInformation">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="tokenInformation">
+          <para>Dictionary containing token information to be cached by the method </para>
+        </param>
+        <summary>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to cache token information.</para>
+        </summary>
+        <remarks>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to cache token information.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClearToken">
@@ -144,8 +162,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order delete any cached information for the current token </para>
+        </summary>
+        <remarks>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order delete any cached information for the current token </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultInstance">
@@ -186,9 +208,14 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to fetch cached token information</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to fetch cached token information</para>
+          <para>An overriding implementation should only return a token if it can also return an expiration date, otherwise return nil </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsValidTokenInformation">
@@ -210,10 +237,17 @@
         <Parameter Name="tokenInformation" Type="MonoTouch.Foundation.NSDictionary" />
       </Parameters>
       <Docs>
-        <param name="tokenInformation">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="tokenInformation">
+          <para>Dictionary containing token information to be validated </para>
+        </param>
+        <summary>
+          <para>Helper function called by the SDK as well as application code, used to determine whether a given dictionary contains the minimum token information usable by the &lt;FBSession&gt;.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Helper function called by the SDK as well as application code, used to determine whether a given dictionary contains the minimum token information usable by the &lt;FBSession&gt;.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

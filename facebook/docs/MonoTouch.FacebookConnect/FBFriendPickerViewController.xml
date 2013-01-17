@@ -36,8 +36,12 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes a friend picker view controller. </para>
+        </summary>
+        <remarks>
+          <para>Initializes a friend picker view controller. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -101,8 +105,13 @@
       <Docs>
         <param name="nibName">To be added.</param>
         <param name="nibBundle">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Used to initialize the object</para>
+        </summary>
+        <remarks>
+          <para>Used to initialize the object</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AllowsMultipleSelection">
@@ -124,9 +133,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A Boolean value that specifies whether multi-select is enabled. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A Boolean value that specifies whether multi-select is enabled. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CacheDescriptor">
@@ -146,9 +159,14 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates a cache descriptor based on default settings of the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput> object.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a cache descriptor based on default settings of the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput> object.</para>
+          <para>An <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBCacheDescriptor" /></computeroutput> object may be used to pre-fetch data before it is used by the view controller. It may also be used to configure the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput> object. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CacheDescriptor">
@@ -171,11 +189,19 @@
         <Parameter Name="fieldsForRequest" Type="MonoTouch.Foundation.NSSet" />
       </Parameters>
       <Docs>
-        <param name="userID">To be added.</param>
+        <param name="userID">
+          <para>The profile ID of the user whose friends will be displayed. A nil value implies a "me" alias. </para>
+        </param>
         <param name="fieldsForRequest">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates a cache descriptor with additional fields and a profile ID for use with the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput> object.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a cache descriptor with additional fields and a profile ID for use with the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput> object.</para>
+          <para>An <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBCacheDescriptor" /></computeroutput> object may be used to pre-fetch data before it is used by the view controller. It may also be used to configure the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput> object.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClearSelection">
@@ -195,8 +221,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Clears the current selection, so the picker is ready for a fresh use. </para>
+        </summary>
+        <remarks>
+          <para>Clears the current selection, so the picker is ready for a fresh use. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ConfigureUsingCachedDescriptor">
@@ -218,9 +248,17 @@
         <Parameter Name="cacheDescriptor" Type="MonoTouch.FacebookConnect.FBCacheDescriptor" />
       </Parameters>
       <Docs>
-        <param name="cacheDescriptor">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="cacheDescriptor">
+          <para>The &lt;FBCacheDescriptor&gt; containing the cache query properties. </para>
+        </param>
+        <summary>
+          <para>Configures the properties used in the caching data queries.</para>
+        </summary>
+        <remarks>
+          <para>Configures the properties used in the caching data queries.</para>
+          <para>Cache descriptors are used to fetch and cache the data used by the view controller. If the view controller finds a cached copy of the data, it will first display the cached content then fetch a fresh copy from the server.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DisplayOrdering">
@@ -242,9 +280,13 @@
         <ReturnType>MonoTouch.FacebookConnect.FBFriendDisplayOrdering</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The order in which friends' names are displayed. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The order in which friends' names are displayed. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -309,9 +351,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A Boolean value that indicates whether friend profile pictures are displayed. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A Boolean value that indicates whether friend profile pictures are displayed. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LoadData">
@@ -331,8 +377,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initiates a query to get friend data.</para>
+        </summary>
+        <remarks>
+          <para>Initiates a query to get friend data.</para>
+          <para>A cached copy will be returned if available. The cached view is temporary until a fresh copy is retrieved from the server. It is legal to call this more than once. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Selection">
@@ -351,9 +402,13 @@
         <ReturnType>MonoTouch.FacebookConnect.FBGraphUser[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The list of friends that are currently selected in the veiw. The items in the array are &lt;FBGraphUser&gt; objects. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The list of friends that are currently selected in the veiw. The items in the array are &lt;FBGraphUser&gt; objects. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Session">
@@ -375,9 +430,13 @@
         <ReturnType>MonoTouch.FacebookConnect.FBSession</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The session that is used in the request for friend data. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The session that is used in the request for friend data. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SortOrdering">
@@ -399,9 +458,13 @@
         <ReturnType>MonoTouch.FacebookConnect.FBFriendSortOrdering</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The order in which friends are sorted in the display. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The order in which friends are sorted in the display. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Spinner">
@@ -423,9 +486,13 @@
         <ReturnType>MonoTouch.UIKit.UIActivityIndicatorView</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns an outlet for the spinner used in the view controller. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns an outlet for the spinner used in the view controller. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TableView">
@@ -447,9 +514,13 @@
         <ReturnType>MonoTouch.UIKit.UITableView</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns an outlet for the table view managed by the view controller. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns an outlet for the table view managed by the view controller. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateView">
@@ -469,8 +540,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Updates the view locally without fetching data from the server or from cache.</para>
+        </summary>
+        <remarks>
+          <para>Updates the view locally without fetching data from the server or from cache.</para>
+          <para>Use this if the filter or sort properties change. This may affect the order or display of friend information but should not need require new data. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UserID">

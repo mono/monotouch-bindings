@@ -15,8 +15,15 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBPlacePickerViewController" /></computeroutput> class creates a controller object that manages the user interface for displaying and selecting nearby places.</para>
+    </summary>
+    <remarks>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBPlacePickerViewController" /></computeroutput> class creates a controller object that manages the user interface for displaying and selecting nearby places.</para>
+      <para>When the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBPlacePickerViewController" /></computeroutput> view loads it creates a <computeroutput>UITableView</computeroutput> object where the places near a given location will be displayed. You can access this view through the <computeroutput>tableView</computeroutput> property.</para>
+      <para>The place data can be pre-fetched and cached prior to using the view controller. The cache is setup using an &lt;FBCacheDescriptor&gt; object that can trigger the data fetch. Any place data requests will first check the cache and use that data. If the place picker is being displayed cached data will initially be shown before a fresh copy is retrieved.</para>
+      <para>The <computeroutput>delegate</computeroutput> property may be set to an object that conforms to the &lt;FBPlacePickerDelegate&gt; protocol. The <computeroutput>delegate</computeroutput> object will receive updates related to place selection and data changes. The delegate can also be used to filter the places to display in the picker. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +43,12 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes a place picker view controller. </para>
+        </summary>
+        <remarks>
+          <para>Initializes a place picker view controller. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -101,8 +112,13 @@
       <Docs>
         <param name="nibName">To be added.</param>
         <param name="nibBundle">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initializes a place picker view controller.</para>
+        </summary>
+        <remarks>
+          <para>Initializes a place picker view controller.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CacheDescriptorWithLocationCoordinate">
@@ -128,14 +144,22 @@
         <Parameter Name="fieldsForRequest" Type="MonoTouch.Foundation.NSSet" />
       </Parameters>
       <Docs>
-        <param name="locationCoordinate">To be added.</param>
+        <param name="locationCoordinate">
+          <para>The coordinates to use for place discovery. </para>
+        </param>
         <param name="radiusInMeters">To be added.</param>
         <param name="searchText">To be added.</param>
         <param name="resultsLimit">To be added.</param>
         <param name="fieldsForRequest">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates a cache descriptor with additional fields and a profile ID for use with the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBPlacePickerViewController" /></computeroutput> object.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a cache descriptor with additional fields and a profile ID for use with the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBPlacePickerViewController" /></computeroutput> object.</para>
+          <para>An <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBCacheDescriptor" /></computeroutput> object may be used to pre-fetch data before it is used by the view controller. It may also be used to configure the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBPlacePickerViewController" /></computeroutput> object.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClearSelection">
@@ -155,8 +179,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Clears the current selection, so the picker is ready for a fresh use. </para>
+        </summary>
+        <remarks>
+          <para>Clears the current selection, so the picker is ready for a fresh use. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ConfigureUsingCachedDescriptor">
@@ -178,9 +206,17 @@
         <Parameter Name="cacheDescriptor" Type="MonoTouch.FacebookConnect.FBCacheDescriptor" />
       </Parameters>
       <Docs>
-        <param name="cacheDescriptor">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="cacheDescriptor">
+          <para>The &lt;FBCacheDescriptor&gt; containing the cache query properties. </para>
+        </param>
+        <summary>
+          <para>Configures the properties used in the caching data queries.</para>
+        </summary>
+        <remarks>
+          <para>Configures the properties used in the caching data queries.</para>
+          <para>Cache descriptors are used to fetch and cache the data used by the view controller. If the view controller finds a cached copy of the data, it will first display the cached content then fetch a fresh copy from the server.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -245,9 +281,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A Boolean value that indicates whether place profile pictures are displayed. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A Boolean value that indicates whether place profile pictures are displayed. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LoadData">
@@ -267,8 +307,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Initiates a query to get place data the first time or in response to changes in the search criteria, filter, or location information.</para>
+        </summary>
+        <remarks>
+          <para>Initiates a query to get place data the first time or in response to changes in the search criteria, filter, or location information.</para>
+          <para>A cached copy will be returned if available. The cached view is temporary until a fresh copy is retrieved from the server. It is legal to call this more than once. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LocationCoordinate">
@@ -290,9 +335,13 @@
         <ReturnType>MonoTouch.CoreLocation.CLLocationCoordinate2D</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The coordinates to use for place discovery. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The coordinates to use for place discovery. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RadiusInMeters">
@@ -314,9 +363,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The radius to use for place discovery. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The radius to use for place discovery. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ResultsLimit">
@@ -338,9 +391,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The maximum number of places to fetch. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The maximum number of places to fetch. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SearchText">
@@ -383,9 +440,13 @@
         <ReturnType>MonoTouch.FacebookConnect.FBGraphPlace</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The place that is currently selected in the view. This is nil if nothing is selected. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The place that is currently selected in the view. This is nil if nothing is selected. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Session">
@@ -407,9 +468,13 @@
         <ReturnType>MonoTouch.FacebookConnect.FBSession</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The session that is used in the request for place data. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The session that is used in the request for place data. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Spinner">
@@ -431,9 +496,13 @@
         <ReturnType>MonoTouch.UIKit.UIActivityIndicatorView</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns an outlet for the spinner used in the view controller. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns an outlet for the spinner used in the view controller. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TableView">
@@ -455,9 +524,13 @@
         <ReturnType>MonoTouch.UIKit.UITableView</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns an outlet for the table view managed by the view controller. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns an outlet for the table view managed by the view controller. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -15,8 +15,28 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> object is used to authenticate a user and manage the user's session. After initializing a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> object the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> App ID and desired permissions are stored. Opening the session will initiate the authentication flow after which a valid user session should be available and subsequently cached. Closing the session can optionally clear the cache.</para>
+    </summary>
+    <remarks>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> object is used to authenticate a user and manage the user's session. After initializing a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> object the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> App ID and desired permissions are stored. Opening the session will initiate the authentication flow after which a valid user session should be available and subsequently cached. Closing the session can optionally clear the cache.</para>
+      <para>If an &lt;FBRequest&gt; request requires user authorization then an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> object should be used.</para>
+      <para>Instances of the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> class provide notification of state changes in the following ways:</para>
+      <para>
+        <list type="number">
+          <item>
+            <description>Callers of certain FBSession methods may provide a block that will be called back in the course of state transitions for the session (e.g. login or session closed).</description>
+          </item>
+        </list>
+      </para>
+      <para>
+        <list type="number">
+          <item>
+            <description>The object supports Key-Value Observing (KVO) for property changes. </description>
+          </item>
+        </list>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +56,13 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Creating a session</para>
+        </summary>
+        <remarks>
+          <para>Creating a session</para>
+          <para>Returns a newly initialized <see cref="T:MonoTouch.FacebookConnect.Facebook" /> session with default values for the parameters to &lt;initWithAppID:permissions:urlSchemeSuffix:tokenCacheStrategy:&gt;. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -98,9 +123,17 @@
         <Parameter Name="permissions" Type="System.String[]" />
       </Parameters>
       <Docs>
-        <param name="permissions">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="permissions">
+          <para>An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil.</para>
+        </param>
+        <summary>
+          <para>Returns a newly initialized <see cref="T:MonoTouch.FacebookConnect.Facebook" /> session with the specified permissions and other default values for parameters to &lt;initWithAppID:permissions:urlSchemeSuffix:tokenCacheStrategy:&gt;.</para>
+        </summary>
+        <remarks>
+          <para>Returns a newly initialized <see cref="T:MonoTouch.FacebookConnect.Facebook" /> session with the specified permissions and other default values for parameters to &lt;initWithAppID:permissions:urlSchemeSuffix:tokenCacheStrategy:&gt;.</para>
+          <para>
+It is required that any single permission request request (including initial log in) represent read-only permissions or publish permissions only; not both. The permissions passed here should reflect this requirement. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -123,11 +156,19 @@
       </Parameters>
       <Docs>
         <param name="appId">To be added.</param>
-        <param name="permissions">To be added.</param>
+        <param name="permissions">
+          <para>An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil. </para>
+        </param>
         <param name="urlSchemeSuffix">To be added.</param>
         <param name="tokenCachingStrategy">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Following are the descriptions of the arguments along with their defaults when ommitted.</para>
+        </summary>
+        <remarks>
+          <para>Following are the descriptions of the arguments along with their defaults when ommitted.</para>
+          <para>
+It is required that any single permission request request (including initial log in) represent read-only permissions or publish permissions only; not both. The permissions passed here should reflect this requirement. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -151,12 +192,20 @@
       </Parameters>
       <Docs>
         <param name="appId">To be added.</param>
-        <param name="permissions">To be added.</param>
+        <param name="permissions">
+          <para>An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil. </para>
+        </param>
         <param name="defaultAudience">To be added.</param>
         <param name="urlSchemeSuffix">To be added.</param>
         <param name="tokenCachingStrategy">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Following are the descriptions of the arguments along with their defaults when ommitted.</para>
+        </summary>
+        <remarks>
+          <para>Following are the descriptions of the arguments along with their defaults when ommitted.</para>
+          <para>
+It is required that any single permission request request (including initial log in) represent read-only permissions or publish permissions only; not both. The permissions passed here should reflect this requirement. If publish permissions are used, then the audience must also be specified. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AccessToken">
@@ -242,8 +291,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Closes the local in-memory session object, but does not clear the persisted token cache. </para>
+        </summary>
+        <remarks>
+          <para>Closes the local in-memory session object, but does not clear the persisted token cache. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CloseAndClearTokenInformation">
@@ -263,8 +316,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Closes the in-memory session, and clears any persisted cache related to the session. </para>
+        </summary>
+        <remarks>
+          <para>Closes the in-memory session, and clears any persisted cache related to the session. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultAppID">
@@ -348,8 +405,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>A helper method that is used to provide an implementation for [UIApplicationDelegate applicationDidBecomeActive:] to properly resolve session state for the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login flow, specifically to support app-switch login. </para>
+        </summary>
+        <remarks>
+          <para>A helper method that is used to provide an implementation for [UIApplicationDelegate applicationDidBecomeActive:] to properly resolve session state for the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login flow, specifically to support app-switch login. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="HandleOpenURL">
@@ -371,10 +432,17 @@
         <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
       </Parameters>
       <Docs>
-        <param name="url">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="url">
+          <para>The URL as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:]. </para>
+        </param>
+        <summary>
+          <para>A helper method that is used to provide an implementation for [UIApplicationDelegate application:openURL:sourceApplication:annotation:]. It should be invoked during the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login flow and will update the session information based on the incoming URL.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A helper method that is used to provide an implementation for [UIApplicationDelegate application:openURL:sourceApplication:annotation:]. It should be invoked during the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login flow and will update the session information based on the incoming URL.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsOpen">
@@ -393,9 +461,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Indicates whether the session is open and ready for use. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Indicates whether the session is open and ready for use. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LoginType">
@@ -414,9 +486,13 @@
         <ReturnType>MonoTouch.FacebookConnect.FBSessionLoginType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Specifies the login type used to authenticate the user. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Specifies the login type used to authenticate the user. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Open">
@@ -438,9 +514,19 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="handler">
+          <para>A block to call with the state changes. The default is nil. </para>
+        </param>
+        <summary>
+          <para>Instance methods</para>
+        </summary>
+        <remarks>
+          <para>Instance methods</para>
+          <para>Opens a session for the <see cref="T:MonoTouch.FacebookConnect.Facebook" />.</para>
+          <para>A session may not be used with &lt;FBRequest&gt; and other classes in the SDK until it is open. If, prior to calling open, the session is in the &lt;FBSessionStateCreatedTokenLoaded&gt; state, then no UX occurs, and the session becomes available for use. If the session is in the &lt;FBSessionStateCreated&gt; state, prior to calling open, then a call to open causes login UX to occur, either via the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application or via mobile Safari.</para>
+          <para>Open may be called at most once and must be called after the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> is initialized. Open must be called before the session is closed. Calling an open method at an invalid time will result in an exception. The open session methods may be passed a block that will be called back when the session state changes. The block will be released when the session is closed.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Open">
@@ -463,10 +549,19 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
       </Parameters>
       <Docs>
-        <param name="behavior">To be added.</param>
+        <param name="behavior">
+          <para>Controls whether to allow, force, or prohibit <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login or Inline <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login. The default is to allow <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login, with fallback to Inline <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login. </para>
+        </param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Logs a user on to <see cref="T:MonoTouch.FacebookConnect.Facebook" />.</para>
+        </summary>
+        <remarks>
+          <para>Logs a user on to <see cref="T:MonoTouch.FacebookConnect.Facebook" />.</para>
+          <para>A session may not be used with &lt;FBRequest&gt; and other classes in the SDK until it is open. If, prior to calling open, the session is in the &lt;FBSessionStateCreatedTokenLoaded&gt; state, then no UX occurs, and the session becomes available for use. If the session is in the &lt;FBSessionStateCreated&gt; state, prior to calling open, then a call to open causes login UX to occur, either via the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application or via mobile Safari.</para>
+          <para>The method may be called at most once and must be called after the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> is initialized. It must be called before the session is closed. Calling the method at an invalid time will result in an exception. The open session methods may be passed a block that will be called back when the session state changes. The block will be released when the session is closed.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OpenActiveSession">
@@ -488,10 +583,20 @@
         <Parameter Name="allowLoginUI" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="allowLoginUI">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="allowLoginUI">
+          <para>Sometimes it is useful to attempt to open a session, but only if no login UI will be required to accomplish the operation. For example, at application startup it may not be disirable to transition to login UI for the user, and yet an open session is desired so long as a cached token can be used to open the session. Passing NO to this argument, assures the method will not present UI to the user in order to open the session.</para>
+        </param>
+        <summary>
+          <para>Class methods</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Class methods</para>
+          <para>This is the simplest method for opening a session with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. Using sessionOpen logs on a user, and sets the static activeSession which becomes the default session object for any <see cref="T:MonoTouch.FacebookConnect.Facebook" /> UI widgets used by the application. This session becomes the active session, whether open succeeds or fails.</para>
+          <para>Note, if there is not a cached token available, this method will present UI to the user in order to open the session via explicit login by the user.</para>
+          <para>
+Returns YES if the session was opened synchronously without presenting UI to the user. This occurs when there is a cached token available from a previous run of the application. If NO is returned, this indicates that the session was not immediately opened, via cache. However, if YES was passed as allowLoginUI, then it is possible that the user will login, and the session will become open asynchronously. The primary use for this return value is to switch-on facebook capabilities in your UX upon startup, in the case were the session is opened via cache. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OpenActiveSession">
@@ -515,12 +620,20 @@
         <Parameter Name="completion" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
       </Parameters>
       <Docs>
-        <param name="readPermissions">To be added.</param>
+        <param name="readPermissions">
+          <para>An array of strings representing the read permissions to request during the authentication flow. A value of nil indicates basic permissions. It is not allowed to pass publish permissions to this method.</para>
+        </param>
         <param name="allowLoginUI">To be added.</param>
         <param name="completion">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>This is a simple method for opening a session with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. Using sessionOpen logs on a user, and sets the static activeSession which becomes the default session object for any <see cref="T:MonoTouch.FacebookConnect.Facebook" /> UI widgets used by the application. This session becomes the active session, whether open succeeds or fails.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>This is a simple method for opening a session with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. Using sessionOpen logs on a user, and sets the static activeSession which becomes the default session object for any <see cref="T:MonoTouch.FacebookConnect.Facebook" /> UI widgets used by the application. This session becomes the active session, whether open succeeds or fails.</para>
+          <para>
+Returns true if the session was opened synchronously without presenting UI to the user. This occurs when there is a cached token available from a previous run of the application. If NO is returned, this indicates that the session was not immediately opened, via cache. However, if YES was passed as allowLoginUI, then it is possible that the user will login, and the session will become open asynchronously. The primary use for this return value is to switch-on facebook capabilities in your UX upon startup, in the case were the session is opened via cache. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OpenActiveSession">
@@ -545,13 +658,21 @@
         <Parameter Name="completion" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
       </Parameters>
       <Docs>
-        <param name="publishPermissions">To be added.</param>
+        <param name="publishPermissions">
+          <para>An array of strings representing the publish permissions to request during the authentication flow.</para>
+        </param>
         <param name="defaultAudience">To be added.</param>
         <param name="allowLoginUI">To be added.</param>
         <param name="completion">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>This is a simple method for opening a session with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. Using sessionOpen logs on a user, and sets the static activeSession which becomes the default session object for any <see cref="T:MonoTouch.FacebookConnect.Facebook" /> UI widgets used by the application. This session becomes the active session, whether open succeeds or fails.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>This is a simple method for opening a session with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. Using sessionOpen logs on a user, and sets the static activeSession which becomes the default session object for any <see cref="T:MonoTouch.FacebookConnect.Facebook" /> UI widgets used by the application. This session becomes the active session, whether open succeeds or fails.</para>
+          <para>
+Returns true if the session was opened synchronously without presenting UI to the user. This occurs when there is a cached token available from a previous run of the application. If NO is returned, this indicates that the session was not immediately opened, via cache. However, if YES was passed as allowLoginUI, then it is possible that the user will login, and the session will become open asynchronously. The primary use for this return value is to switch-on facebook capabilities in your UX upon startup, in the case were the session is opened via cache. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Permissions">
@@ -596,11 +717,18 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
       </Parameters>
       <Docs>
-        <param name="writePermissions">To be added.</param>
+        <param name="writePermissions">
+          <para>An array of strings representing the permissions to request during the authentication flow.</para>
+        </param>
         <param name="defaultAudience">To be added.</param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Reauthorizes the session, with additional permissions.</para>
+        </summary>
+        <remarks>
+          <para>Reauthorizes the session, with additional permissions.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReauthorizeWithReadPermissions">
@@ -623,10 +751,17 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
       </Parameters>
       <Docs>
-        <param name="readPermissions">To be added.</param>
+        <param name="readPermissions">
+          <para>An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions.</para>
+        </param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Reauthorizes the session, with additional permissions.</para>
+        </summary>
+        <remarks>
+          <para>Reauthorizes the session, with additional permissions.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="State">
@@ -645,9 +780,13 @@
         <ReturnType>MonoTouch.FacebookConnect.FBSessionState</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Detailed session state </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Detailed session state </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UrlSchemeSuffix">

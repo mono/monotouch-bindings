@@ -15,8 +15,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBViewController" /></computeroutput> class is a base class encapsulating functionality common to several other view controller classes. Specifically, it provides UI when a view controller is presented modally, in the form of optional Cancel and Done buttons. </para>
+    </summary>
+    <remarks>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBViewController" /></computeroutput> class is a base class encapsulating functionality common to several other view controller classes. Specifically, it provides UI when a view controller is presented modally, in the form of optional Cancel and Done buttons. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -101,9 +105,13 @@
         <ReturnType>MonoTouch.UIKit.UIBarButtonItem</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The Cancel button to display when presented modally. If nil, no Cancel button is displayed. If this button is provided, its target and action will be redirected to internal handlers, replacing any previous target that may have been set. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The Cancel button to display when presented modally. If nil, no Cancel button is displayed. If this button is provided, its target and action will be redirected to internal handlers, replacing any previous target that may have been set. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CancelWasPressed">
@@ -137,9 +145,13 @@
         <ReturnType>MonoTouch.UIKit.UIView</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The view into which derived classes should put their subviews. This view will be resized correctly depending on whether or not a toolbar is displayed. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The view into which derived classes should put their subviews. This view will be resized correctly depending on whether or not a toolbar is displayed. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Delegate">
@@ -196,9 +208,13 @@
         <ReturnType>MonoTouch.UIKit.UIBarButtonItem</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The Done button to display when presented modally. If nil, no Done button is displayed. If this button is provided, its target and action will be redirected to internal handlers, replacing any previous target that may have been set. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The Done button to display when presented modally. If nil, no Done button is displayed. If this button is provided, its target and action will be redirected to internal handlers, replacing any previous target that may have been set. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DoneWasPressed">
@@ -237,11 +253,18 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBModalCompletionHandler" />
       </Parameters>
       <Docs>
-        <param name="viewController">To be added.</param>
+        <param name="viewController">
+          <para>The view controller that is presenting this view controller. </para>
+        </param>
         <param name="animated">To be added.</param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Provides a wrapper that presents the view controller modally and automatically dismisses it when either the Done or Cancel button is pressed. If Done is pressed, the block provided by the doneHandler parameter is called.</para>
+        </summary>
+        <remarks>
+          <para>Provides a wrapper that presents the view controller modally and automatically dismisses it when either the Done or Cancel button is pressed. If Done is pressed, the block provided by the doneHandler parameter is called.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WeakDelegate">
