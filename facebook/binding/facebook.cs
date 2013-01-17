@@ -9,6 +9,7 @@ using System;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
+using MonoTouch.CoreLocation;
 
 namespace MonoTouch.FacebookConnect  
 {
