@@ -22,7 +22,7 @@ GoogleAnalyticsiOS.zip:
 
 
 libGoogleAnalytics.a: GoogleAnalyticsiOS.zip
-	unzip -p $< 'GoogleAnalyticsiOS_2.0beta3/Library/libGoogleAnalytics.a' > $@
+	unzip -p $< 'GoogleAnalyticsiOS_2.0beta*/Library/libGoogleAnalytics.a' > $@
 
 GoogleAnalytics.dll: Makefile AssemblyInfo.cs googleanalytics.cs enums.cs extras.cs libGoogleAnalytics.a
 	-mkdir -p ios
