@@ -109,27 +109,27 @@ namespace GoogleAdMobAds
 	{
 		//- (void)interstitialDidReceiveAd:(GADInterstitial *)ad;
 		[Export ("interstitialDidReceiveAd:")]
-		void interstitialDidReceiveAd(GADInterstitial ad);
+		void DidReceiveAd(GADInterstitial ad);
 		
 		//- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error;
 		[Export ("interstitial:didFailToReceiveAdWithError:")]
-		void Interstitial(GADInterstitial ad, GADRequestError error);
+		void DidFailToReceiveAd(GADInterstitial ad, GADRequestError error);
 		
 		//- (void)interstitialWillPresentScreen:(GADInterstitial *)ad;
 		[Export ("interstitialWillPresentScreen:")]
-		void InterstitialWillPresentScreen(GADInterstitial ad);
+		void WillPresentScreen(GADInterstitial ad);
 		
 		//- (void)interstitialWillDismissScreen:(GADInterstitial *)ad;
 		[Export ("interstitialWillDismissScreen:")]
-		void InterstitialWillDismissScreen(GADInterstitial ad);
+		void WillDismissScreen(GADInterstitial ad);
 		
 		//- (void)interstitialDidDismissScreen:(GADInterstitial *)ad;
 		[Export ("interstitialDidDismissScreen:")]
-		void InterstitialDidDismissScreen(GADInterstitial ad);
+		void DidDismissScreen(GADInterstitial ad);
 		
 		//- (void)interstitialWillLeaveApplication:(GADInterstitial *)ad;
 		[Export ("interstitialWillLeaveApplication:")]
-		void InterstitialWillLeaveApplication(GADInterstitial ad);
+		void WillLeaveApplication(GADInterstitial ad);
 		
 	}
 	
