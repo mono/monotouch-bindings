@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTPlotRange" FullName="CorePlot.CPTPlotRange">
   <TypeSignature Language="C#" Value="public class CPTPlotRange : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTPlotRange extends MonoTouch.Foundation.NSObject" />
@@ -99,10 +100,24 @@
         <Parameter Name="len" Type="MonoTouch.Foundation.NSDecimal" />
       </Parameters>
       <Docs>
-        <param name="loc">To be added.</param>
+        <param name="loc">
+          <para>The starting location of the range. </para>
+        </param>
         <param name="len">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTPlotRange" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTPlotRange" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CompareToDecimal">
@@ -124,10 +139,24 @@
         <Parameter Name="number" Type="MonoTouch.Foundation.NSDecimal" />
       </Parameters>
       <Docs>
-        <param name="number">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="number">
+          <para>The number to check. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The comparison result. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The comparison result. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CompareToDouble">
@@ -149,10 +178,24 @@
         <Parameter Name="number" Type="System.Double" />
       </Parameters>
       <Docs>
-        <param name="number">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="number">
+          <para>The number to check. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The comparison result. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The comparison result. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CompareToNumber">
@@ -174,10 +217,24 @@
         <Parameter Name="number" Type="MonoTouch.Foundation.NSNumber" />
       </Parameters>
       <Docs>
-        <param name="number">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="number">
+          <para>The number to check. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The comparison result. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The comparison result. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Contains">
@@ -199,10 +256,24 @@
         <Parameter Name="number" Type="MonoTouch.Foundation.NSDecimal" />
       </Parameters>
       <Docs>
-        <param name="number">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="number">
+          <para>The number to check. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>True if <computeroutput>location</computeroutput> ≤ <computeroutput>number</computeroutput> ≤ <computeroutput>end</computeroutput>. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>True if <computeroutput>location</computeroutput> ≤ <computeroutput>number</computeroutput> ≤ <computeroutput>end</computeroutput>. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ContainsDouble">
@@ -224,10 +295,24 @@
         <Parameter Name="number" Type="System.Double" />
       </Parameters>
       <Docs>
-        <param name="number">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="number">
+          <para>The number to check. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>True if <computeroutput>location</computeroutput> ≤ <computeroutput>number</computeroutput> ≤ <computeroutput>end</computeroutput>. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>True if <computeroutput>location</computeroutput> ≤ <computeroutput>number</computeroutput> ≤ <computeroutput>end</computeroutput>. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="End">
@@ -291,9 +376,15 @@
         <Parameter Name="factor" Type="MonoTouch.Foundation.NSDecimal" />
       </Parameters>
       <Docs>
-        <param name="factor">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="factor">
+          <para>Factor used. A value of 1.0 gives no change. Less than 1.0 is a contraction, and greater than 1.0 is expansion. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromLocationAndLength">
@@ -316,11 +407,25 @@
         <Parameter Name="len" Type="MonoTouch.Foundation.NSDecimal" />
       </Parameters>
       <Docs>
-        <param name="loc">To be added.</param>
+        <param name="loc">
+          <para>The starting location of the range. </para>
+        </param>
         <param name="len">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTPlotRange" /> instance initialized with the provided location and length. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTPlotRange" /> instance initialized with the provided location and length. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IntersectionPlotRange">
@@ -343,8 +448,12 @@
       </Parameters>
       <Docs>
         <param name="otherRange">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsEqualToRange">
@@ -366,10 +475,24 @@
         <Parameter Name="otherRange" Type="CorePlot.CPTPlotRange" />
       </Parameters>
       <Docs>
-        <param name="otherRange">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="otherRange">
+          <para>The range to check. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>True if the ranges both have the same location and length. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>True if the ranges both have the same location and length. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Length">
@@ -586,9 +709,15 @@
         <Parameter Name="otherRange" Type="CorePlot.CPTPlotRange" />
       </Parameters>
       <Docs>
-        <param name="otherRange">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="otherRange">
+          <para>Other range. The minimum possible shift is made. The range length is unchanged. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ShiftLocationToFitInRange">
@@ -610,9 +739,15 @@
         <Parameter Name="otherRange" Type="CorePlot.CPTPlotRange" />
       </Parameters>
       <Docs>
-        <param name="otherRange">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="otherRange">
+          <para>Other range. The minimum possible shift is made. The range length is unchanged. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnionPlotRange">
@@ -635,8 +770,12 @@
       </Parameters>
       <Docs>
         <param name="otherRange">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

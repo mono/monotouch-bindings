@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTGradient" FullName="CorePlot.CPTGradient">
   <TypeSignature Language="C#" Value="public class CPTGradient : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTGradient extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,20 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Based on CTGradient (<ulink url="http://blog.oofn.net/2006/01/15/gradients-in-cocoa/">http://blog.oofn.net/2006/01/15/gradients-in-cocoa/</ulink>). CTGradient is in public domain (Thanks Chad Weider!)</para>
+    </summary>
+    <remarks>
+      <para>Based on CTGradient (<ulink url="http://blog.oofn.net/2006/01/15/gradients-in-cocoa/">http://blog.oofn.net/2006/01/15/gradients-in-cocoa/</ulink>). CTGradient is in public domain (Thanks Chad Weider!)</para>
+      <para>
+        <xrefsect id="todo_1_todo000005">
+          <xreftitle>Todo</xreftitle>
+          <xrefdescription>
+            <para>More documentation needed </para>
+          </xrefdescription>
+        </xrefsect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -102,11 +115,30 @@
         <Parameter Name="position" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="color">To be added.</param>
+        <param name="color">
+          <para>The color. </para>
+        </param>
         <param name="position">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>Adds a color stop with &lt;tt&gt;color&lt;/tt&gt; at &lt;tt&gt;position&lt;/tt&gt; in elementList.
+If two elements are at the same position then it is added immediately after the one that was there already.
+</verbatim>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>Adds a color stop with &lt;tt&gt;color&lt;/tt&gt; at &lt;tt&gt;position&lt;/tt&gt; in elementList.
+If two elements are at the same position then it is added immediately after the one that was there already.
+</verbatim>
+          </para>
+          <para>
+            <simplesect kind="return">
+              <para>A copy of the current gradient with the new color stop. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Angle">
@@ -239,9 +271,21 @@
       <Docs>
         <param name="beginningColor">To be added.</param>
         <param name="endingColor">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Create">
@@ -270,9 +314,21 @@
         <param name="endingColor">To be added.</param>
         <param name="beginningPosition">To be added.</param>
         <param name="endingPosition">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors, at two given normalized positions. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors, at two given normalized positions. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DrawSwatch">
@@ -297,8 +353,12 @@
       <Docs>
         <param name="inRectangle">To be added.</param>
         <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FillPath">
@@ -321,8 +381,12 @@
       </Parameters>
       <Docs>
         <param name="inContext">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FillRect">
@@ -347,8 +411,12 @@
       <Docs>
         <param name="rectangle">To be added.</param>
         <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GradientType">
@@ -394,10 +462,24 @@
         <Parameter Name="alpha" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="alpha">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="alpha">
+          <para>The alpha component (0 ≤ alpha ≤ 1). </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A copy of the current gradient with the new alpha value. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A copy of the current gradient with the new alpha value. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GradientWithBlendingMode">
@@ -419,10 +501,24 @@
         <Parameter Name="mode" Type="CorePlot.CPTGradientBlendingMode" />
       </Parameters>
       <Docs>
-        <param name="mode">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="mode">
+          <para>The blending mode. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A copy of the current gradient with the new blending mode. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A copy of the current gradient with the new blending mode. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="HydrogenSpectrumGradient">
@@ -465,10 +561,24 @@
         <Parameter Name="position" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="position">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="position">
+          <para>The color stop position (0 ≤ position ≤ 1). </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The color at <computeroutput>position</computeroutput> in gradient. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The color at <computeroutput>position</computeroutput> in gradient. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NewColorStop">
@@ -491,9 +601,21 @@
       </Parameters>
       <Docs>
         <param name="atIndex">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The color at color stop <computeroutput>index</computeroutput>. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The color at color stop <computeroutput>index</computeroutput>. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RainbowGradient">
@@ -536,10 +658,24 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">
+          <para>The color stop index. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A copy of the current gradient with the color stop removed. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A copy of the current gradient with the color stop removed. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveColorStop">
@@ -561,10 +697,24 @@
         <Parameter Name="position" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="position">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="position">
+          <para>The color stop position (0 ≤ position ≤ 1). </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A copy of the current gradient with the color stop removed. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A copy of the current gradient with the color stop removed. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SourceListSelectedGradient">

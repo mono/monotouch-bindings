@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTColor" FullName="CorePlot.CPTColor">
   <TypeSignature Language="C#" Value="public class CPTColor : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTColor extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,20 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>A wrapper class around CGColorRef</para>
+    </summary>
+    <remarks>
+      <para>A wrapper class around CGColorRef</para>
+      <para>
+        <xrefsect id="todo_1_todo000003">
+          <xreftitle>Todo</xreftitle>
+          <xrefdescription>
+            <para>More documentation needed. </para>
+          </xrefdescription>
+        </xrefsect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -57,8 +70,24 @@
       </Parameters>
       <Docs>
         <param name="cgColor">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>@param newCGColor The color to wrap.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTColor" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param newCGColor The color to wrap.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTColor" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -122,12 +151,26 @@
         <Parameter Name="alpha" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="red">To be added.</param>
+        <param name="red">
+          <para>The red component (0 ≤ red ≤ 1). </para>
+        </param>
         <param name="green">To be added.</param>
         <param name="blue">To be added.</param>
         <param name="alpha">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTColor" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTColor" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BlackColor">
@@ -254,10 +297,24 @@
         <Parameter Name="alpha" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="alpha">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="alpha">
+          <para>The alpha component (0 ≤ alpha ≤ 1). </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance having the provided alpha component. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance having the provided alpha component. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CyanColor">
@@ -321,10 +378,24 @@
         <Parameter Name="newCGColor" Type="MonoTouch.CoreGraphics.CGColor" />
       </Parameters>
       <Docs>
-        <param name="newCGColor">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="newCGColor">
+          <para>The color to wrap. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided CGColorRef. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided CGColorRef. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromGenericGray">
@@ -346,10 +417,24 @@
         <Parameter Name="gray" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="gray">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="gray">
+          <para>The gray level (0 ≤ gray ≤ 1). </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided gray level. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided gray level. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromRgba">
@@ -374,13 +459,27 @@
         <Parameter Name="alpha" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="red">To be added.</param>
+        <param name="red">
+          <para>The red component (0 ≤ red ≤ 1). </para>
+        </param>
         <param name="green">To be added.</param>
         <param name="blue">To be added.</param>
         <param name="alpha">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided RGBA color components. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided RGBA color components. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GrayColor">

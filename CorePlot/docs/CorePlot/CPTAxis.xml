@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTAxis" FullName="CorePlot.CPTAxis">
   <TypeSignature Language="C#" Value="public class CPTAxis : CorePlot.CPTLayer" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTAxis extends CorePlot.CPTLayer" />
@@ -101,9 +102,15 @@
         <Parameter Name="limitBand" Type="CorePlot.CPTLimitBand" />
       </Parameters>
       <Docs>
-        <param name="limitBand">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="limitBand">
+          <para>The new limit band. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AlternatingBandFills">
@@ -125,9 +132,13 @@
         <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>When initializing the fills, provide an NSArray containing any combinination of <see cref="T:CorePlot.CPTFill" />, <see cref="T:CorePlot.CPTColor" />, <see cref="T:CorePlot.CPTGradient" />, and/or <see cref="T:CorePlot.CPTImage" /> objects. Blank (transparent) bands can be created by using [NSNull null] in place of some of the <see cref="T:CorePlot.CPTFill" /> objects. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>When initializing the fills, provide an NSArray containing any combinination of <see cref="T:CorePlot.CPTFill" />, <see cref="T:CorePlot.CPTColor" />, <see cref="T:CorePlot.CPTGradient" />, and/or <see cref="T:CorePlot.CPTImage" /> objects. Blank (transparent) bands can be created by using [NSNull null] in place of some of the <see cref="T:CorePlot.CPTFill" /> objects. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AxisDidRelabel">
@@ -270,9 +281,13 @@
         <ReturnType>CorePlot.CPTLimitBand[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The limit bands are drawn on top of the alternating band fills. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The limit bands are drawn on top of the alternating band fills. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Coordinate">
@@ -374,9 +389,15 @@
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="context">
+          <para>The graphics context to draw into. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DrawBackgroundLimits">
@@ -398,9 +419,15 @@
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="context">
+          <para>The graphics context to draw into. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DrawGridLines">
@@ -423,10 +450,16 @@
         <Parameter Name="major" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
+        <param name="context">
+          <para>The graphics context to draw into. </para>
+        </param>
         <param name="major">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FilteredMajorTickLocations">
@@ -448,10 +481,24 @@
         <Parameter Name="allLocations" Type="MonoTouch.Foundation.NSSet" />
       </Parameters>
       <Docs>
-        <param name="allLocations">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="allLocations">
+          <para>A set of major tick locations. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The filtered set. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The filtered set. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FilteredMinorTickLocations">
@@ -473,10 +520,24 @@
         <Parameter Name="allLocations" Type="MonoTouch.Foundation.NSSet" />
       </Parameters>
       <Docs>
-        <param name="allLocations">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="allLocations">
+          <para>A set of minor tick locations. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The filtered set. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The filtered set. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GridLinesRange">
@@ -1254,9 +1315,15 @@
         <Parameter Name="limitBand" Type="CorePlot.CPTLimitBand" />
       </Parameters>
       <Docs>
-        <param name="limitBand">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="limitBand">
+          <para>The limit band to be removed. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SeparateLayers">
@@ -1278,9 +1345,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If NO, the default, the major and minor grid lines are drawn in layers shared with other axes. If YES, the grid lines are drawn in their own layers. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If NO, the default, the major and minor grid lines are drawn in layers shared with other axes. If YES, the grid lines are drawn in their own layers. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetNeedsRelabel">
@@ -1483,10 +1554,24 @@
         <Parameter Name="coordinateDecimalNumber" Type="MonoTouch.Foundation.NSDecimal" />
       </Parameters>
       <Docs>
-        <param name="coordinateDecimalNumber">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="coordinateDecimalNumber">
+          <para>The axis value in data coordinate space. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The drawing coordinates of the point. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The drawing coordinates of the point. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="VisibleRange">

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTGridLineGroup" FullName="CorePlot.CPTGridLineGroup">
   <TypeSignature Language="C#" Value="public class CPTGridLineGroup : CorePlot.CPTLayer" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTGridLineGroup extends CorePlot.CPTLayer" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>When using separate axis layers, this layer serves as the common superlayer for the grid line layers. Otherwise, this layer handles the drawing for the grid lines. It supports mixing the two modes; some axes can use separate grid line layers while others are handled by the grid line group. </para>
+    </summary>
+    <remarks>
+      <para>When using separate axis layers, this layer serves as the common superlayer for the grid line layers. Otherwise, this layer handles the drawing for the grid lines. It supports mixing the two modes; some axes can use separate grid line layers while others are handled by the grid line group. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

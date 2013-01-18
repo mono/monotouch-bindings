@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTLegend" FullName="CorePlot.CPTLegend">
   <TypeSignature Language="C#" Value="public class CPTLegend : CorePlot.CPTBorderedLayer" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTLegend extends CorePlot.CPTBorderedLayer" />
@@ -15,8 +16,13 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The legend consists of one or more legend entries associated with plots. Each legend entry is made up of a graphical "swatch" that corresponds with the plot and a text title or label to identify the data series to the viewer. The swatches provide a visual connection to the plot. For instance, a swatch for a scatter plot might include a line segment drawn in the line style of the plot along with a plot symbol while a swatch for a pie chart might only show a rectangle or other shape filled with the background fill of the corresponding pie slice.</para>
+    </summary>
+    <remarks>
+      <para>The legend consists of one or more legend entries associated with plots. Each legend entry is made up of a graphical "swatch" that corresponds with the plot and a text title or label to identify the data series to the viewer. The swatches provide a visual connection to the plot. For instance, a swatch for a scatter plot might include a line segment drawn in the line style of the plot along with a plot symbol while a swatch for a pie chart might only show a rectangle or other shape filled with the background fill of the corresponding pie slice.</para>
+      <para>The plots are not required to belong to the same graph, although that is the usual case. This allows creation of a master legend that covers multiple graphs. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -57,8 +63,24 @@
       </Parameters>
       <Docs>
         <param name="graph">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>@param graph A graph.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTLegend" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param graph A graph.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTLegend" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -78,8 +100,24 @@
       </Parameters>
       <Docs>
         <param name="newPlots">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>@param newPlots An array of plots.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTLegend" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param newPlots An array of plots.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTLegend" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -143,9 +181,15 @@
         <Parameter Name="plot" Type="CorePlot.CPTPlot" />
       </Parameters>
       <Docs>
-        <param name="plot">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="plot">
+          <para>The plot. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AllPlots">
@@ -349,9 +393,25 @@
       </Parameters>
       <Docs>
         <param name="graph">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>@param graph The graph.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTLegend" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>@param graph The graph.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTLegend" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromPlots">
@@ -374,9 +434,25 @@
       </Parameters>
       <Docs>
         <param name="newPlots">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>@param newPlots An array of plots.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTLegend" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>@param newPlots An array of plots.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTLegend" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetPlot">
@@ -398,10 +474,24 @@
         <Parameter Name="identifier" Type="MonoTouch.Foundation.NSObject" />
       </Parameters>
       <Docs>
-        <param name="identifier">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="identifier">
+          <para>A plot identifier. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The plot with the given identifier or nil if it was not found. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The plot with the given identifier or nil if it was not found. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetPlot">
@@ -424,9 +514,21 @@
       </Parameters>
       <Docs>
         <param name="atIndex">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The plot at the given index. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The plot at the given index. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Insert">
@@ -449,10 +551,16 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="plot">To be added.</param>
+        <param name="plot">
+          <para>The plot. </para>
+        </param>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LayoutChanged">
@@ -495,9 +603,15 @@
         <Parameter Name="plot" Type="CorePlot.CPTPlot" />
       </Parameters>
       <Docs>
-        <param name="plot">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="plot">
+          <para>The plot to remove. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemovePlot">
@@ -519,9 +633,15 @@
         <Parameter Name="identifier" Type="MonoTouch.Foundation.NSObject" />
       </Parameters>
       <Docs>
-        <param name="identifier">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="identifier">
+          <para>The identifier of the plot to remove. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RowHeights">

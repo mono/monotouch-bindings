@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTLineStyle" FullName="CorePlot.CPTLineStyle">
   <TypeSignature Language="C#" Value="public class CPTLineStyle : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTLineStyle extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,23 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <verbatim>@see See Apple's &lt;a href="http://developer.apple.com/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_paths/dq_paths.html#//apple_ref/doc/uid/TP30001066-CH211-TPXREF105"&gt;Quartz 2D&lt;/a&gt;
+and &lt;a href="http://developer.apple.com/documentation/GraphicsImaging/Reference/CGContext/Reference/reference.html"&gt;CGContext&lt;/a&gt; 
+documentation for more information about each of these properties.
+</verbatim>
+      </para>
+    </summary>
+    <remarks>
+      <para>
+        <verbatim>@see See Apple's &lt;a href="http://developer.apple.com/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_paths/dq_paths.html#//apple_ref/doc/uid/TP30001066-CH211-TPXREF105"&gt;Quartz 2D&lt;/a&gt;
+and &lt;a href="http://developer.apple.com/documentation/GraphicsImaging/Reference/CGContext/Reference/reference.html"&gt;CGContext&lt;/a&gt; 
+documentation for more information about each of these properties.
+</verbatim>
+      </para>
+      <para>In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle" /> if you want to customize properties. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -309,9 +325,15 @@
         <Parameter Name="theContext" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="theContext">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="theContext">
+          <para>The graphics context. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

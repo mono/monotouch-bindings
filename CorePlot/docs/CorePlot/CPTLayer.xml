@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTLayer" FullName="CorePlot.CPTLayer">
   <TypeSignature Language="C#" Value="public class CPTLayer : MonoTouch.CoreAnimation.CALayer" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTLayer extends MonoTouch.CoreAnimation.CALayer" />
@@ -15,8 +16,20 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Default animations for changes in position, bounds, and sublayers are turned off. The default layer is not opaque and does not mask to bounds.</para>
+    </summary>
+    <remarks>
+      <para>Default animations for changes in position, bounds, and sublayers are turned off. The default layer is not opaque and does not mask to bounds.</para>
+      <para>
+        <xrefsect id="todo_1_todo000008">
+          <xreftitle>Todo</xreftitle>
+          <xrefdescription>
+            <para>More documentation needed </para>
+          </xrefdescription>
+        </xrefsect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -78,8 +91,40 @@
       </Parameters>
       <Docs>
         <param name="newFrame">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>This is the designated initializer. The initialized layer will have the following properties that
+are different than a CALayer:
+- needsDisplayOnBoundsChange = NO
+- opaque = NO
+- masksToBounds = NO
+- padding = 0 on all four sides
+- Default animations for changes in position, bounds, and sublayers are turned off.
+
+@param newFrame The frame rectangle.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTLayer" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>This is the designated initializer. The initialized layer will have the following properties that
+are different than a CALayer:
+- needsDisplayOnBoundsChange = NO
+- opaque = NO
+- masksToBounds = NO
+- padding = 0 on all four sides
+- Default animations for changes in position, bounds, and sublayers are turned off.
+
+@param newFrame The frame rectangle.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTLayer" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -122,9 +167,16 @@
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="context">
+          <para>The graphics context to clip. </para>
+        </param>
+        <summary>
+          <para>The clipping path is built by recursively climbing the layer tree and combining the sublayer masks from each super layer. The tree traversal stops when a layer is encountered that is not a <see cref="T:CorePlot.CPTLayer" />.</para>
+        </summary>
+        <remarks>
+          <para>The clipping path is built by recursively climbing the layer tree and combining the sublayer masks from each super layer. The tree traversal stops when a layer is encountered that is not a <see cref="T:CorePlot.CPTLayer" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ApplySublayerMask">
@@ -151,8 +203,13 @@
         <param name="toContext">To be added.</param>
         <param name="forSublayer">To be added.</param>
         <param name="offset">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>The clipping path is built by recursively climbing the layer tree and combining the sublayer masks from each super layer. The tree traversal stops when a layer is encountered that is not a <see cref="T:CorePlot.CPTLayer" />.</para>
+        </summary>
+        <remarks>
+          <para>The clipping path is built by recursively climbing the layer tree and combining the sublayer masks from each super layer. The tree traversal stops when a layer is encountered that is not a <see cref="T:CorePlot.CPTLayer" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Color">
@@ -255,9 +312,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>PDF representation of the layer content. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>PDF representation of the layer content. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Graph">
@@ -327,9 +396,15 @@
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="context">
+          <para>The graphics context to draw into. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LayoutManager">
@@ -372,9 +447,13 @@
         <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>This path defines the outline of the layer and is used to mask all drawing. Set to NULL when no masking is desired. The caller must NOT release the path returned by this property. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>This path defines the outline of the layer and is used to mask all drawing. Set to NULL when no masking is desired. The caller must NOT release the path returned by this property. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MasksToBorder">
@@ -667,9 +746,15 @@
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="context">
+          <para>The graphics context to draw into. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RenderAsVector">
@@ -691,9 +776,16 @@
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="context">
+          <para>The graphics context to draw into. </para>
+        </param>
+        <summary>
+          <para>This method replaces the drawInContext: method to ensure that layer content is always drawn as vectors and objects rather than as a cached bitmapped image representation. Subclasses should do all drawing here and must call super to set up the clipping path.</para>
+        </summary>
+        <remarks>
+          <para>This method replaces the drawInContext: method to ensure that layer content is always drawn as vectors and objects rather than as a cached bitmapped image representation. Subclasses should do all drawing here and must call super to set up the clipping path.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SublayerMaskingPath">
@@ -712,9 +804,13 @@
         <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>This path defines the outline of the part of the layer where sublayers should draw and is used to mask all sublayer drawing. Set to NULL when no masking is desired. The caller must NOT release the path returned by this property. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>This path defines the outline of the part of the layer where sublayers should draw and is used to mask all sublayer drawing. Set to NULL when no masking is desired. The caller must NOT release the path returned by this property. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SublayersExcludedFromAutomaticLayout">

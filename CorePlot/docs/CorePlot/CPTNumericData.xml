@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTNumericData" FullName="CorePlot.CPTNumericData">
   <TypeSignature Language="C#" Value="public class CPTNumericData : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTNumericData extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,16 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:CorePlot.CPTNumericData" /> combines a data buffer with information about the data (shape, data type, size, etc.). The data is assumed to be an array of one or more dimensions of a single type of numeric data. Each numeric value in the array, which can be more than one byte in size, is referred to as a "sample". The structure of this object is similar to the NumPy ndarray object.</para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:CorePlot.CPTNumericData" /> combines a data buffer with information about the data (shape, data type, size, etc.). The data is assumed to be an array of one or more dimensions of a single type of numeric data. Each numeric value in the array, which can be more than one byte in size, is referred to as a "sample". The structure of this object is similar to the NumPy ndarray object.</para>
+      <para>The supported data types are:<list type="bullet"><item><description>1, 2, 4, and 8-byte signed integers</description></item><item><description>1, 2, 4, and 8-byte unsigned integers</description></item><item><description>float and double floating point numbers</description></item><item><description>float complex and double complex floating point complex numbers</description></item><item><description>NSDecimal base-10 numbers</description></item></list></para>
+      <para>All integer and floating point types can be represented using big endian or little endian byte order. Complex and decimal types support only the the host system's native byte order. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -103,8 +112,34 @@
         <param name="newData">To be added.</param>
         <param name="newDataType">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull.
+Numbers and strings will be converted to newDataType and stored in the receiver.
+Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types.
+@param newData An array of numbers.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull.
+Numbers and strings will be converted to newDataType and stored in the receiver.
+Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types.
+@param newData An array of numbers.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -128,8 +163,34 @@
         <param name="newData">To be added.</param>
         <param name="newDataTypeString">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull.
+Numbers and strings will be converted to newDataTypeString and stored in the receiver.
+Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types.
+@param newData An array of numbers.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull.
+Numbers and strings will be converted to newDataTypeString and stored in the receiver.
+Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types.
+@param newData An array of numbers.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -153,8 +214,28 @@
         <param name="newData">To be added.</param>
         <param name="newDataType">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -178,8 +259,28 @@
         <param name="newData">To be added.</param>
         <param name="newDataTypeString">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ByteOrder">
@@ -330,9 +431,35 @@
         <param name="newData">To be added.</param>
         <param name="newDataType">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull.
+Numbers and strings will be converted to newDataType and stored in the receiver.
+Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types.
+@param newData An array of numbers.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull.
+Numbers and strings will be converted to newDataType and stored in the receiver.
+Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types.
+@param newData An array of numbers.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromArray">
@@ -359,9 +486,35 @@
         <param name="newData">To be added.</param>
         <param name="newDataTypeString">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull.
+Numbers and strings will be converted to newDataTypeString and stored in the receiver.
+Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types.
+@param newData An array of numbers.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull.
+Numbers and strings will be converted to newDataTypeString and stored in the receiver.
+Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types.
+@param newData An array of numbers.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromData">
@@ -388,9 +541,29 @@
         <param name="newData">To be added.</param>
         <param name="newDataType">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromData">
@@ -417,9 +590,29 @@
         <param name="newData">To be added.</param>
         <param name="newDataTypeString">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Length">
@@ -502,9 +695,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>An NSArray of NSNumber objects representing the data from the receiver. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>An NSArray of NSNumber objects representing the data from the receiver. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SampleBytes">
@@ -547,9 +752,23 @@
         <Parameter Name="sample" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="sample">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="sample">
+          <para>The index into the sample array. The array is treated as if it only has one dimension. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A pointer to the sample or <computeroutput>NULL</computeroutput> if the sample index is out of bounds. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A pointer to the sample or <computeroutput>NULL</computeroutput> if the sample index is out of bounds. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SampleValue">
@@ -571,10 +790,24 @@
         <Parameter Name="sample" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="sample">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="sample">
+          <para>The index into the sample array. The array is treated as if it only has one dimension. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The sample value wrapped in an instance of NSNumber or <computeroutput>nil</computeroutput> if the sample index is out of bounds.</para>
+            </simplesect>
+NSNumber does not support complex numbers. Complex number types will be cast to <computeroutput>float</computeroutput> or <computeroutput>double</computeroutput> before being wrapped in an instance of NSNumber. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The sample value wrapped in an instance of NSNumber or <computeroutput>nil</computeroutput> if the sample index is out of bounds.</para>
+            </simplesect>
+NSNumber does not support complex numbers. Complex number types will be cast to <computeroutput>float</computeroutput> or <computeroutput>double</computeroutput> before being wrapped in an instance of NSNumber. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Shape">
@@ -593,9 +826,13 @@
         <ReturnType>MonoTouch.Foundation.NSNumber[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The shape describes the dimensions of the sample array stored in the data buffer. Each entry in the shape array represents the size of the corresponding array dimension and should be an unsigned integer encoded in an instance of NSNumber. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The shape describes the dimensions of the sample array stored in the data buffer. Each entry in the shape array represents the size of the corresponding array dimension and should be an unsigned integer encoded in an instance of NSNumber. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

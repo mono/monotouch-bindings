@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTColorSpace" FullName="CorePlot.CPTColorSpace">
   <TypeSignature Language="C#" Value="public class CPTColorSpace : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTColorSpace extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,20 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>A wrapper class around CGColorSpaceRef</para>
+    </summary>
+    <remarks>
+      <para>A wrapper class around CGColorSpaceRef</para>
+      <para>
+        <xrefsect id="todo_1_todo000004">
+          <xreftitle>Todo</xreftitle>
+          <xrefdescription>
+            <para>More documentation needed </para>
+          </xrefdescription>
+        </xrefsect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -57,8 +70,24 @@
       </Parameters>
       <Docs>
         <param name="colorSpace">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>@param colorSpace The color space.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTColorSpace" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param colorSpace The color space.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTColorSpace" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">

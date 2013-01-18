@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTPieChart" FullName="CorePlot.CPTPieChart">
   <TypeSignature Language="C#" Value="public class CPTPieChart : CorePlot.CPTPlot" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTPieChart extends CorePlot.CPTPlot" />
@@ -149,10 +150,24 @@
         <Parameter Name="pieSliceIndex" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="pieSliceIndex">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="pieSliceIndex">
+          <para>The pie slice index to return a color for. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance corresponding to the default value for this pie slice index. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTColor" /> instance corresponding to the default value for this pie slice index. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">

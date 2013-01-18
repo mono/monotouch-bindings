@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTPlotSpace" FullName="CorePlot.CPTPlotSpace">
   <TypeSignature Language="C#" Value="public class CPTPlotSpace : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTPlotSpace extends MonoTouch.Foundation.NSObject" />
@@ -175,10 +176,24 @@
         <Parameter Name="coordinate" Type="CorePlot.CPTCoordinate" />
       </Parameters>
       <Docs>
-        <param name="coordinate">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="coordinate">
+          <para>The axis coordinate. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The range of values. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The range of values. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetScaleType">
@@ -274,9 +289,21 @@
       </Parameters>
       <Docs>
         <param name="forPlotPoint">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The drawing coordinates of the data point. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The drawing coordinates of the data point. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotAreaViewPoint">
@@ -298,10 +325,24 @@
         <Parameter Name="plotPoint" Type="System.Double" />
       </Parameters>
       <Docs>
-        <param name="plotPoint">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="plotPoint">
+          <para>A c-style array of data point coordinates (as doubles). </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The drawing coordinates of the data point. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The drawing coordinates of the data point. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotPoint">
@@ -324,10 +365,16 @@
         <Parameter Name="plotAreaViewPoint" Type="System.Drawing.PointF" />
       </Parameters>
       <Docs>
-        <param name="plotPoint">To be added.</param>
+        <param name="plotPoint">
+          <para>A c-style array of data point coordinates (as doubles). </para>
+        </param>
         <param name="plotAreaViewPoint">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotPointforPlotAreaViewPoint">
@@ -350,10 +397,16 @@
         <Parameter Name="plotAreaViewPoint" Type="System.Drawing.PointF" />
       </Parameters>
       <Docs>
-        <param name="plotPoint">To be added.</param>
+        <param name="plotPoint">
+          <para>A c-style array of data point coordinates (as NSDecimals). </para>
+        </param>
         <param name="plotAreaViewPoint">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PointingDeviceCancelledEvent">
@@ -483,9 +536,21 @@
       </Parameters>
       <Docs>
         <param name="interactionScale">To be added.</param>
-        <param name="interactionPoint">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="interactionPoint">
+          <para>The plot area view point about which the scaling occurs. </para>
+        </param>
+        <summary>
+          <para>
+            <verbatim>@param interactionScale The scaling factor. One gives no scaling.
+</verbatim>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param interactionScale The scaling factor. One gives no scaling.
+</verbatim>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ScaleToFitPlots">
@@ -507,9 +572,15 @@
         <Parameter Name="plots" Type="CorePlot.CPTPlot[]" />
       </Parameters>
       <Docs>
-        <param name="plots">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="plots">
+          <para>An array of the plots that have to fit in the visible area. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetPlotRange">
@@ -532,10 +603,16 @@
         <Parameter Name="coordinate" Type="CorePlot.CPTCoordinate" />
       </Parameters>
       <Docs>
-        <param name="newRange">To be added.</param>
+        <param name="newRange">
+          <para>The new plot range. </para>
+        </param>
         <param name="coordinate">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetScaleType">
@@ -560,8 +637,12 @@
       <Docs>
         <param name="scaleType">To be added.</param>
         <param name="forCoordinate">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ShouldHandlePointingDeviceCancelledEvent">

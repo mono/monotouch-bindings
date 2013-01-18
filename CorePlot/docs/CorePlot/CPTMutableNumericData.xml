@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTMutableNumericData" FullName="CorePlot.CPTMutableNumericData">
   <TypeSignature Language="C#" Value="public class CPTMutableNumericData : CorePlot.CPTNumericData" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTMutableNumericData extends CorePlot.CPTNumericData" />
@@ -15,8 +16,14 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:CorePlot.CPTNumericData" /> combines a mutable data buffer with information about the data (shape, data type, size, etc.). The data is assumed to be an array of one or more dimensions of a single type of numeric data. Each numeric value in the array, which can be more than one byte in size, is referred to as a "sample". The structure of this object is similar to the NumPy ndarray object. </para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:CorePlot.CPTNumericData" /> combines a mutable data buffer with information about the data (shape, data type, size, etc.). The data is assumed to be an array of one or more dimensions of a single type of numeric data. Each numeric value in the array, which can be more than one byte in size, is referred to as a "sample". The structure of this object is similar to the NumPy ndarray object. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -103,8 +110,28 @@
         <param name="newData">To be added.</param>
         <param name="newDataType">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -150,9 +177,29 @@
         <param name="newData">To be added.</param>
         <param name="newDataType">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataType The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromData">
@@ -179,9 +226,29 @@
         <param name="newData">To be added.</param>
         <param name="newDataTypeString">To be added.</param>
         <param name="shapeArray">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>@param newData The data buffer.
+@param newDataTypeString The type of data stored in the buffer.
+@param shapeArray The shape of the data buffer array.
+</verbatim>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MutableBytes">
@@ -224,9 +291,13 @@
         <ReturnType>MonoTouch.Foundation.NSNumber[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The shape describes the dimensions of the sample array stored in the data buffer. Each entry in the shape array represents the size of the corresponding array dimension and should be an unsigned integer encoded in an instance of NSNumber. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The shape describes the dimensions of the sample array stored in the data buffer. Each entry in the shape array represents the size of the corresponding array dimension and should be an unsigned integer encoded in an instance of NSNumber. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

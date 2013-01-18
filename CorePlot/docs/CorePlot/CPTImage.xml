@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTImage" FullName="CorePlot.CPTImage">
   <TypeSignature Language="C#" Value="public class CPTImage : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTImage extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,20 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>A wrapper class around CGImageRef.</para>
+    </summary>
+    <remarks>
+      <para>A wrapper class around CGImageRef.</para>
+      <para>
+        <xrefsect id="todo_1_todo000007">
+          <xreftitle>Todo</xreftitle>
+          <xrefdescription>
+            <para>More documentation needed </para>
+          </xrefdescription>
+        </xrefsect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -56,9 +69,23 @@
         <Parameter Name="anImage" Type="MonoTouch.CoreGraphics.CGImage" />
       </Parameters>
       <Docs>
-        <param name="anImage">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="anImage">
+          <para>The image to wrap. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -119,9 +146,30 @@
         <Parameter Name="path" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="path">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="path">
+          <para>The file system path of the file. </para>
+        </param>
+        <summary>
+          <para>
+            <verbatim>On systems that support hi-dpi or "Retina" displays, this method will look for a
+double-resolution image with the given name followed by "@2x". If the "@2x" image
+is not available, the named image file will be loaded.
+</verbatim>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>On systems that support hi-dpi or "Retina" displays, this method will look for a
+double-resolution image with the given name followed by "@2x". If the "@2x" image
+is not available, the named image file will be loaded.
+</verbatim>
+          </para>
+          <para>
+            <simplesect kind="return">
+              <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the contents of the PNG file. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Draw">
@@ -144,10 +192,17 @@
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="rect">To be added.</param>
+        <param name="rect">
+          <para>The rectangle to draw into. </para>
+        </param>
         <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>If the tiled property is TRUE, the image is repeatedly drawn to fill the clipping region, otherwise the image is scaled to fit in rect.</para>
+        </summary>
+        <remarks>
+          <para>If the tiled property is TRUE, the image is repeatedly drawn to fill the clipping region, otherwise the image is scaled to fit in rect.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FRomCGImage">
@@ -169,10 +224,24 @@
         <Parameter Name="anImage" Type="MonoTouch.CoreGraphics.CGImage" />
       </Parameters>
       <Docs>
-        <param name="anImage">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="anImage">
+          <para>The image to wrap. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromPngFile">
@@ -194,10 +263,31 @@
         <Parameter Name="path" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="path">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="path">
+          <para>The file system path of the file. </para>
+        </param>
+        <summary>
+          <para>
+            <verbatim>On systems that support hi-dpi or "Retina" displays, this method will look for a
+double-resolution image with the given name followed by "@2x". If the "@2x" image
+is not available, the named image file will be loaded.
+</verbatim>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>On systems that support hi-dpi or "Retina" displays, this method will look for a
+double-resolution image with the given name followed by "@2x". If the "@2x" image
+is not available, the named image file will be loaded.
+</verbatim>
+          </para>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the contents of the PNG file. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Image">
@@ -243,9 +333,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, the origin of the tiled image is anchored to the origin of the drawing context. If NO, the origin of the tiled image is set to the orgin of rectangle passed to <computeroutput>drawInRect:inContext:</computeroutput>. The default value is YES. If <computeroutput>tiled</computeroutput> is NO, this property has no effect. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If YES, the origin of the tiled image is anchored to the origin of the drawing context. If NO, the origin of the tiled image is set to the orgin of rectangle passed to <computeroutput>drawInRect:inContext:</computeroutput>. The default value is YES. If <computeroutput>tiled</computeroutput> is NO, this property has no effect. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Tiled">

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTBarPlot" FullName="CorePlot.CPTBarPlot">
   <TypeSignature Language="C#" Value="public class CPTBarPlot : CorePlot.CPTPlot" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTBarPlot extends CorePlot.CPTPlot" />
@@ -245,9 +246,17 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <verbatim>With plot coordinates, the bar locations are one data unit apart (e.g., 1, 2, 3, etc.), 
+</verbatim> a value of 1.0 will result in bars that touch each other; a value of 0.5 will result in bars that are as wide as the gap between them. <verbatim>@see barWidthsAreInViewCoordinates</verbatim></para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <verbatim>With plot coordinates, the bar locations are one data unit apart (e.g., 1, 2, 3, etc.), 
+</verbatim> a value of 1.0 will result in bars that touch each other; a value of 0.5 will result in bars that are as wide as the gap between them. <verbatim>@see barWidthsAreInViewCoordinates</verbatim></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BarWidthsAreInViewCoordinates">
@@ -318,11 +327,25 @@
         <Parameter Name="horizontalBars" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="color">To be added.</param>
+        <param name="color">
+          <para>The beginning color. </para>
+        </param>
         <param name="horizontalBars">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTBarPlot" /> instance initialized with a linear gradient bar fill. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTBarPlot" /> instance initialized with a linear gradient bar fill. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -411,9 +434,13 @@
         <ReturnType>CorePlot.CPTPlotRange</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If a plot range is provided, the bars are spaced evenly throughout the plot range. If plotRange is nil, bar locations are provided by Cocoa bindings or the bar plot datasource. If locations are not provided by either bindings or the datasource, the first bar will be placed at zero (0) and subsequent bars will be at successive positive integer coordinates. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If a plot range is provided, the bars are spaced evenly throughout the plot range. If plotRange is nil, bar locations are provided by Cocoa bindings or the bar plot datasource. If locations are not provided by either bindings or the datasource, the first bar will be placed at zero (0) and subsequent bars will be at successive positive integer coordinates. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

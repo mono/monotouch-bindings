@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTGraph" FullName="CorePlot.CPTGraph">
   <TypeSignature Language="C#" Value="public class CPTGraph : CorePlot.CPTBorderedLayer" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTGraph extends CorePlot.CPTBorderedLayer" />
@@ -15,8 +16,26 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <xrefsect id="todo_1_todo000006">
+          <xreftitle>Todo</xreftitle>
+          <xrefdescription>
+            <para>More documentation needed </para>
+          </xrefdescription>
+        </xrefsect>
+      </para>
+    </summary>
+    <remarks>
+      <para>
+        <xrefsect id="todo_1_todo000006">
+          <xreftitle>Todo</xreftitle>
+          <xrefdescription>
+            <para>More documentation needed </para>
+          </xrefdescription>
+        </xrefsect>
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -101,9 +120,15 @@
         <Parameter Name="plot" Type="CorePlot.CPTPlot" />
       </Parameters>
       <Docs>
-        <param name="plot">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="plot">
+          <para>The plot. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddPlot">
@@ -126,10 +151,16 @@
         <Parameter Name="toPlotSpace" Type="CorePlot.CPTPlotSpace" />
       </Parameters>
       <Docs>
-        <param name="plot">To be added.</param>
+        <param name="plot">
+          <para>The plot. </para>
+        </param>
         <param name="toPlotSpace">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddPlotSpace">
@@ -151,9 +182,15 @@
         <Parameter Name="space" Type="CorePlot.CPTPlotSpace" />
       </Parameters>
       <Docs>
-        <param name="space">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="space">
+          <para>The plot space. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AllPlots">
@@ -196,9 +233,15 @@
         <Parameter Name="theme" Type="CorePlot.CPTTheme" />
       </Parameters>
       <Docs>
-        <param name="theme">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="theme">
+          <para>The theme object used to style the graph. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AxisSet">
@@ -285,10 +328,16 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="plot">To be added.</param>
+        <param name="plot">
+          <para>The plot. </para>
+        </param>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InsertPlot">
@@ -312,11 +361,17 @@
         <Parameter Name="intoPlotSpace" Type="CorePlot.CPTPlotSpace" />
       </Parameters>
       <Docs>
-        <param name="plot">To be added.</param>
+        <param name="plot">
+          <para>The plot. </para>
+        </param>
         <param name="index">To be added.</param>
         <param name="intoPlotSpace">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Legend">
@@ -408,9 +463,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new axis set. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new axis set. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NewPlotSpace">
@@ -430,9 +497,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new plot space. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new plot space. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotAreaFrame">
@@ -478,10 +557,24 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">
+          <para>An index within the bounds of the plot array. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The plot at the given index. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The plot at the given index. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotSpaceAt">
@@ -503,10 +596,24 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">
+          <para>An index within the bounds of the plot space array. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The plot space at the given index. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The plot space at the given index. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotSpaces">
@@ -549,10 +656,24 @@
         <Parameter Name="identifier" Type="MonoTouch.Foundation.NSObject" />
       </Parameters>
       <Docs>
-        <param name="identifier">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="identifier">
+          <para>A plot space identifier. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The plot space with the given identifier or nil if it was not found. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The plot space with the given identifier or nil if it was not found. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotWithIdentifier">
@@ -574,10 +695,24 @@
         <Parameter Name="identifier" Type="MonoTouch.Foundation.NSObject" />
       </Parameters>
       <Docs>
-        <param name="identifier">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="identifier">
+          <para>A plot identifier. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The plot with the given identifier or nil if it was not found. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The plot with the given identifier or nil if it was not found. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReloadData">
@@ -641,9 +776,15 @@
         <Parameter Name="plot" Type="CorePlot.CPTPlot" />
       </Parameters>
       <Docs>
-        <param name="plot">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="plot">
+          <para>The plot to remove. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemovePlot">
@@ -665,9 +806,15 @@
         <Parameter Name="identifier" Type="MonoTouch.Foundation.NSObject" />
       </Parameters>
       <Docs>
-        <param name="identifier">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="identifier">
+          <para>The identifier of the plot to remove. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemovePlotSpace">
@@ -689,9 +836,15 @@
         <Parameter Name="plotSpace" Type="CorePlot.CPTPlotSpace" />
       </Parameters>
       <Docs>
-        <param name="plotSpace">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="plotSpace">
+          <para>The plot space. </para>
+        </param>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Title">
@@ -809,9 +962,25 @@
         <ReturnType>MonoTouch.Foundation.NSNumber[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <simplesect kind="see">
+              <para>
+                <ref refid="interface_c_p_t_plot_area_1a9e425efc7501c6463ca2a05c7ae4d72f" kindref="member">CPTPlotArea::topDownLayerOrder</ref>
+              </para>
+            </simplesect>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="see">
+              <para>
+                <ref refid="interface_c_p_t_plot_area_1a9e425efc7501c6463ca2a05c7ae4d72f" kindref="member">CPTPlotArea::topDownLayerOrder</ref>
+              </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

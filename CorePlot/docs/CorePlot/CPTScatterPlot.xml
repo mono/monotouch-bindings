@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTScatterPlot" FullName="CorePlot.CPTScatterPlot">
   <TypeSignature Language="C#" Value="public class CPTScatterPlot : CorePlot.CPTPlot" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTScatterPlot extends CorePlot.CPTPlot" />
@@ -101,9 +102,13 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Typically set to the minimum value of the Y range, but it can be any value that gives the desired appearance. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Typically set to the minimum value of the Y range, but it can be any value that gives the desired appearance. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AreaBaseValue2">
@@ -125,9 +130,13 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Typically set to the maximum value of the Y range, but it can be any value that gives the desired appearance. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Typically set to the maximum value of the Y range, but it can be any value that gives the desired appearance. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AreaFill">
@@ -240,10 +249,24 @@
         <Parameter Name="viewPoint" Type="System.Drawing.PointF" />
       </Parameters>
       <Docs>
-        <param name="viewPoint">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="viewPoint">
+          <para>The reference point. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The index of the closest point, or NSNotFound if there is no visible point. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The index of the closest point, or NSNotFound if there is no visible point. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Interpolation">
@@ -289,10 +312,24 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">
+          <para>The index of the point. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The view point of the visible point at the index passed. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The view point of the visible point at the index passed. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotSymbol">
@@ -338,10 +375,24 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">
+          <para>The index of the record. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The plot symbol to use, or nil if no plot symbol should be drawn. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The plot symbol to use, or nil if no plot symbol should be drawn. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotSymbolMarginForHitDetection">
@@ -363,9 +414,13 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Default is zero. The margin is set in plot area view coordinates. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Default is zero. The margin is set in plot area view coordinates. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotSymbolSelected">

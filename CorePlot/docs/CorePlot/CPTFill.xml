@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTFill" FullName="CorePlot.CPTFill">
   <TypeSignature Language="C#" Value="public class CPTFill : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTFill extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,14 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>
+        <see cref="T:CorePlot.CPTFill" /> instances can be used to fill drawing areas with colors (including patterns), gradients, and images. Drawing methods are provided to fill rectangular areas and arbitrary drawing paths. </para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:CorePlot.CPTFill" /> instances can be used to fill drawing areas with colors (including patterns), gradients, and images. Drawing methods are provided to fill rectangular areas and arbitrary drawing paths. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -56,9 +63,23 @@
         <Parameter Name="aColor" Type="CorePlot.CPTColor" />
       </Parameters>
       <Docs>
-        <param name="aColor">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="aColor">
+          <para>The color. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTFill" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTFill" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -77,9 +98,23 @@
         <Parameter Name="aGradient" Type="CorePlot.CPTGradient" />
       </Parameters>
       <Docs>
-        <param name="aGradient">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="aGradient">
+          <para>The gradient. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTFill" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTFill" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -98,9 +133,23 @@
         <Parameter Name="anImage" Type="CorePlot.CPTImage" />
       </Parameters>
       <Docs>
-        <param name="anImage">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="anImage">
+          <para>The image. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTFill" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTFill" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -165,8 +214,12 @@
       </Parameters>
       <Docs>
         <param name="inContext">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FillRect">
@@ -189,10 +242,16 @@
         <Parameter Name="inContext" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="theRect">To be added.</param>
+        <param name="theRect">
+          <para>The rectangle to draw into. </para>
+        </param>
         <param name="inContext">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromColor">
@@ -214,10 +273,24 @@
         <Parameter Name="aColor" Type="CorePlot.CPTColor" />
       </Parameters>
       <Docs>
-        <param name="aColor">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="aColor">
+          <para>The color. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTFill" /> instance initialized with the given color. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTFill" /> instance initialized with the given color. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromGradient">
@@ -239,10 +312,24 @@
         <Parameter Name="aGradient" Type="CorePlot.CPTGradient" />
       </Parameters>
       <Docs>
-        <param name="aGradient">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="aGradient">
+          <para>The gradient. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTFill" /> instance initialized with the given gradient. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTFill" /> instance initialized with the given gradient. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromImage">
@@ -264,10 +351,24 @@
         <Parameter Name="anImage" Type="CorePlot.CPTImage" />
       </Parameters>
       <Docs>
-        <param name="anImage">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="anImage">
+          <para>The image. </para>
+        </param>
+        <summary>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTFill" /> instance initialized with the given image. </para>
+            </simplesect>
+          </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <simplesect kind="return">
+              <para>A new <see cref="T:CorePlot.CPTFill" /> instance initialized with the given image. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CPTAxisLabel" FullName="CorePlot.CPTAxisLabel">
   <TypeSignature Language="C#" Value="public class CPTAxisLabel : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTAxisLabel extends MonoTouch.Foundation.NSObject" />
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The label can be text-based or can be the content of any <see cref="T:CorePlot.CPTLayer" /> provided by the user. </para>
+    </summary>
+    <remarks>
+      <para>The label can be text-based or can be the content of any <see cref="T:CorePlot.CPTLayer" /> provided by the user. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -57,8 +62,24 @@
       </Parameters>
       <Docs>
         <param name="layer">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>@param layer The label content.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param layer The label content.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -122,8 +143,26 @@
       <Docs>
         <param name="newText">To be added.</param>
         <param name="style">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>
+            <verbatim>@param newText The label text.
+@param newStyle The text style for the label.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
+            </simplesect>
+          </para>
+        </summary>
+        <remarks>
+          <para>
+            <verbatim>@param newText The label text.
+@param newStyle The text style for the label.
+</verbatim>
+            <simplesect kind="return">
+              <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
+            </simplesect>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Alignment">
@@ -172,12 +211,18 @@
         <Parameter Name="direction" Type="CorePlot.CPTSign" />
       </Parameters>
       <Docs>
-        <param name="firstPoint">To be added.</param>
+        <param name="firstPoint">
+          <para>The first view point. </para>
+        </param>
         <param name="secondPoint">To be added.</param>
         <param name="coordinate">To be added.</param>
         <param name="direction">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ComputePositionRelative">
@@ -204,8 +249,12 @@
         <param name="viewPoint">To be added.</param>
         <param name="forCoordinate">To be added.</param>
         <param name="inDirection">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para />
+        </summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ContentLayer">
