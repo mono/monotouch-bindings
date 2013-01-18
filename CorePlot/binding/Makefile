@@ -1,8 +1,12 @@
-XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BUILD_FLAGS=-unsafe -target:library -nowarn:436 -nowarn:219
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
-MONOMAC=/cvs/monomac
+# MONOMAC variable needs to be edited to match your setup
+MONOMAC=/Developer/MonoTouch/Source/monomac
+MONOMAC_DLL=$(MONOMAC)/src/MonoMac.dll
+BMAC=mono --debug $(MONOMAC)/src/bmac.exe
+XAM_BMAC=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/bin/bmac
+XAMMAC_DLL=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/lib/mono/XamMac.dll
 VERSION=0.9
 
 PROJECT_ROOT=CorePlot_$(VERSION)/Source/framework
@@ -11,7 +15,8 @@ TARGET=CorePlot-CocoaTouch
 
 all: ios
 
-osx: CorePlotMacOS.dll
+# to build for MonoMac, use the Mono.CoreplotMacOS.dll target directly.
+osx: Xamarin.CorePlotMacOS.dll
 
 ios: CorePlotiOS.dll
 
@@ -23,47 +28,32 @@ CorePlot_$(VERSION)/License.txt: CorePlot-$(VERSION).zip
 	touch CorePlot_$(VERSION)/License.txt
 	patch -p0 -i thumb.patch
 
-libCorePlot-CocoaTouch-i386.a: CorePlot_$(VERSION)/License.txt
-	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
-	mv -f $(PROJECT_ROOT)/../build/Release-iphonesimulator/lib$(TARGET).a $@
+libCorePlot-CocoaTouch.a: CorePlot-$(VERSION).zip
+	unzip -p $^ CorePlot_$(VERSION)/Binaries/iOS/$@ > $@
 
-libCorePlot-CocoaTouch-armv7.a: CorePlot_$(VERSION)
-	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7 -configuration Release clean build
-	mv -f $(PROJECT_ROOT)/../build/Release-iphoneos/lib$(TARGET).a $@
+Xamarin.CorePlotMacOS.dll: Makefile coreplot.cs enums.cs extras.cs
+	@mkdir -p xamarin
+	$(XAM_BMAC) --ns CorePlot -o $@ -e coreplot.cs -s enums.cs -x extras.cs --tmpdir=xamarin -r:System.Drawing -baselib=$(XAMMAC_DLL)
 
-# Note: This is disabled because the prebuilt binaries seem to be thumb
-#libCorePlot-CocoaTouch.a: CorePlot-$(VERSION).zip
-#	unzip -p $^ CorePlot_$(VERSION)/Binaries/iOS/$@ > $@
-
-libCorePlot-CocoaTouch.a: libCorePlot-CocoaTouch-i386.a libCorePlot-CocoaTouch-armv7.a
-	lipo -create -output $@ $^
-
-CorePlotMacOS.dll: Makefile coreplot.cs enums.cs extras.cs
-	-mkdir -p osx
-	MONO_PATH=$(MONOMAC)/src mono $(MONOMAC)/src/bmac.exe -e -unsafe coreplot.cs enums.cs --sourceonly=list --tmpdir=osx -r:System.Drawing -lib:$(MONOMAC)/src
-	dmcs $(BUILD_FLAGS) -out:CorePlotMacOS.dll enums.cs coreplot.cs @list -r:System.Drawing -lib:$(MONOMAC)/src
-
-# Note: The following rule works only with MonoTouch >= 5.0.3 due to a bug in btouch wrt the -x option
-#CorePlotiOS.dll: Makefile ios/coreplot.cs ios/enums.cs ios/extras.cs AssemblyInfo.cs libCorePlot-CocoaTouch.a
-#	-mkdir -p ios
-#	$(BTOUCH) -o $@ -d=MONOTOUCH -e ios/coreplot.cs -s ios/enums.cs -x ios/extras.cs -x AssemblyInfo.cs --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
-
+Mono.CoreplotMacOS.dll: Makefile coreplot.cs enums.cs extras.cs
+	@mkdir -p osx
+	$(BMAC) --ns CorePlot -o $@ -e coreplot.cs -s enums.cs -x extras.cs --tmpdir=osx -r:System.Drawing -baselib=$(MONOMAC_DLL)
+	
 CorePlotiOS.dll: Makefile ios/coreplot.cs ios/enums.cs ios/extras.cs AssemblyInfo.cs libCorePlot-CocoaTouch.a
-	-mkdir -p ios
-	$(BTOUCH) --ns CorePlot -o $@ -d=MONOTOUCH -e ios/coreplot.cs ios/enums.cs --sourceonly=list --tmpdir=ios
-	$(SMCS) $(BUILD_FLAGS) -out:$@ -define:MONOTOUCH @list AssemblyInfo.cs ios/enums.cs ios/extras.cs -r:monotouch.dll -res:libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
+	@mkdir -p ios
+	$(BTOUCH) --ns CorePlot -o $@ -d=MONOTOUCH -e ios/coreplot.cs -s ios/enums.cs -x ios/extras.cs -x AssemblyInfo.cs --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
 
 ios/coreplot.cs: coreplot.cs
-	-mkdir -p ios
+	@mkdir -p ios
 	sed 's/MonoMac/MonoTouch/g' < $^ > $@
 
 ios/enums.cs: enums.cs 
-	-mkdir -p ios
+	@mkdir -p ios
 	sed 's/MonoMac/MonoTouch/g' < $^ > $@
 
 ios/extras.cs: extras.cs 
-	-mkdir -p ios
+	@mkdir -p ios
 	sed 's/MonoMac/MonoTouch/g' < $^ > $@
 
 clean: 
-	-rm -rf *.a *.dll list
+	-rm -rf *.a *.dll
