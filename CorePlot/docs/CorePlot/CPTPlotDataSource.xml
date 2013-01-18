@@ -1,0 +1,313 @@
+<Type Name="CPTPlotDataSource" FullName="CorePlot.CPTPlotDataSource">
+  <TypeSignature Language="C#" Value="public class CPTPlotDataSource : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTPlotDataSource extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>CorePlotiOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CPTPlotDataSource", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPlotDataSource ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPlotDataSource (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTPlotDataSource (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataForPlot">
+      <MemberSignature Language="C#" Value="public virtual CorePlot.CPTNumericData DataForPlot (CorePlot.CPTPlot plot, CorePlot.CPTPlotField forFieldEnum, MonoTouch.Foundation.NSRange indexRange);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class CorePlot.CPTNumericData DataForPlot(class CorePlot.CPTPlot plot, valuetype CorePlot.CPTPlotField forFieldEnum, valuetype MonoTouch.Foundation.NSRange indexRange) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dataForPlot:field:recordIndexRange:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>CorePlot.CPTNumericData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plot" Type="CorePlot.CPTPlot" />
+        <Parameter Name="forFieldEnum" Type="CorePlot.CPTPlotField" />
+        <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
+      </Parameters>
+      <Docs>
+        <param name="plot">To be added.</param>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="indexRange">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataLabelForPlot">
+      <MemberSignature Language="C#" Value="public virtual CorePlot.CPTLayer DataLabelForPlot (CorePlot.CPTPlot plot, int recordIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class CorePlot.CPTLayer DataLabelForPlot(class CorePlot.CPTPlot plot, int32 recordIndex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dataLabelForPlot:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>CorePlot.CPTLayer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plot" Type="CorePlot.CPTPlot" />
+        <Parameter Name="recordIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="plot">To be added.</param>
+        <param name="recordIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DoubleForPlot">
+      <MemberSignature Language="C#" Value="public virtual double DoubleForPlot (CorePlot.CPTPlot plot, CorePlot.CPTPlotField forFieldEnum, int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance float64 DoubleForPlot(class CorePlot.CPTPlot plot, valuetype CorePlot.CPTPlotField forFieldEnum, int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("doubleForPlot:field:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plot" Type="CorePlot.CPTPlot" />
+        <Parameter Name="forFieldEnum" Type="CorePlot.CPTPlotField" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="plot">To be added.</param>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DoublesForPlot">
+      <MemberSignature Language="C#" Value="public virtual IntPtr DoublesForPlot (CorePlot.CPTPlot plot, CorePlot.CPTPlotField forFieldEnum, MonoTouch.Foundation.NSRange indexRange);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance native int DoublesForPlot(class CorePlot.CPTPlot plot, valuetype CorePlot.CPTPlotField forFieldEnum, valuetype MonoTouch.Foundation.NSRange indexRange) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("doublesForPlot:field:recordIndexRange:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plot" Type="CorePlot.CPTPlot" />
+        <Parameter Name="forFieldEnum" Type="CorePlot.CPTPlotField" />
+        <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
+      </Parameters>
+      <Docs>
+        <param name="plot">To be added.</param>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="indexRange">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumberForPlot">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSNumber NumberForPlot (CorePlot.CPTPlot plot, CorePlot.CPTPlotField forFieldEnum, int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSNumber NumberForPlot(class CorePlot.CPTPlot plot, valuetype CorePlot.CPTPlotField forFieldEnum, int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("numberForPlot:field:recordIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSNumber</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plot" Type="CorePlot.CPTPlot" />
+        <Parameter Name="forFieldEnum" Type="CorePlot.CPTPlotField" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="plot">To be added.</param>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumberOfRecordsForPlot">
+      <MemberSignature Language="C#" Value="public virtual int NumberOfRecordsForPlot (CorePlot.CPTPlot plot);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance int32 NumberOfRecordsForPlot(class CorePlot.CPTPlot plot) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("numberOfRecordsForPlot:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plot" Type="CorePlot.CPTPlot" />
+      </Parameters>
+      <Docs>
+        <param name="plot">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumbersForPlot">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSNumber[] NumbersForPlot (CorePlot.CPTPlot forPlot, CorePlot.CPTPlotField forFieldEnum, MonoTouch.Foundation.NSRange indexRange);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSNumber[] NumbersForPlot(class CorePlot.CPTPlot forPlot, valuetype CorePlot.CPTPlotField forFieldEnum, valuetype MonoTouch.Foundation.NSRange indexRange) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("numbersForPlot:field:recordIndexRange:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSNumber[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="forPlot" Type="CorePlot.CPTPlot" />
+        <Parameter Name="forFieldEnum" Type="CorePlot.CPTPlotField" />
+        <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
+      </Parameters>
+      <Docs>
+        <param name="forPlot">To be added.</param>
+        <param name="forFieldEnum">To be added.</param>
+        <param name="indexRange">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RecordIndexRange">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSRange RecordIndexRange (CorePlot.CPTPlot forPlot, CorePlot.CPTPlotRange plotRange);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype MonoTouch.Foundation.NSRange RecordIndexRange(class CorePlot.CPTPlot forPlot, class CorePlot.CPTPlotRange plotRange) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("recordIndexRangeForPlot:plotRange:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSRange</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="forPlot" Type="CorePlot.CPTPlot" />
+        <Parameter Name="plotRange" Type="CorePlot.CPTPlotRange" />
+      </Parameters>
+      <Docs>
+        <param name="forPlot">To be added.</param>
+        <param name="plotRange">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
