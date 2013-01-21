@@ -1,0 +1,27 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="BeeblexSDK" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libBeeblex-SDK.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="SystemConfiguration Security StoreKit")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="BeeblexSDK">
+      <Type Name="BBXBeeblex" Kind="Class" />
+      <Type Name="BBXIAPTransaction" Kind="Class" />
+      <Type Name="BBXIAPTransactionCompletionHandler" Kind="Delegate" />
+    </Namespace>
+  </Types>
+  <Title>BeeblexSDK</Title>
+</Overview>
