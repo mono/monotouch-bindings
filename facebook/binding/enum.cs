@@ -1,4 +1,6 @@
-namespace MonoTouch.FacebookConnect  
+using System;
+
+namespace MonoTouch.FacebookConnect
 {
 	public enum FBErrorCode
 	{

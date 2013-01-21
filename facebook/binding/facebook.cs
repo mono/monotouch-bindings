@@ -11,7 +11,7 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
 using MonoTouch.CoreLocation;
 
-namespace MonoTouch.FacebookConnect  
+namespace MonoTouch.FacebookConnect
 {
 	[BaseType (typeof (NSObject))]
 	interface FBCacheDescriptor 
@@ -20,7 +20,9 @@ namespace MonoTouch.FacebookConnect
 		void PrefetchAndCacheForSession (FBSession session);
 	}
 	
-	[BaseType (typeof (FBViewController))]
+	[BaseType (typeof (FBViewController),
+	           Delegates=new string [] {"WeakDelegate"},
+	Events=new Type [] { typeof (FBFriendPickerDelegate) })]
 	interface FBFriendPickerViewController 
 	{
 		[Export("spinner")]
@@ -44,8 +46,8 @@ namespace MonoTouch.FacebookConnect
 		[Export("userID", ArgumentSemantic.Copy)]
 		string UserID { get; set; }
 		
-		[Export("selection")]
-		FBGraphUser [] Selection { get; }
+		[Export("selection")] [Internal]
+		IntPtr Selection_ { get; }
 		
 		[Export("sortOrdering")]
 		FBFriendSortOrdering SortOrdering { get; set; }
@@ -75,27 +77,29 @@ namespace MonoTouch.FacebookConnect
 		[Static]
 		[Export("cacheDescriptorWithUserID:fieldsForRequest:")]
 		FBCacheDescriptor CacheDescriptor (string userID, NSSet fieldsForRequest);
+		
+		[Wrap ("WeakDelegate")] [New]
+		FBFriendPickerDelegate Delegate { get; set; }
 	}
 	
 	[BaseType (typeof (FBViewControllerDelegate))]
 	[Model]
 	interface FBFriendPickerDelegate 
 	{
-		[Export("friendPickerViewControllerDataDidChange:")]
+		[Export("friendPickerViewControllerDataDidChange:"), EventArgs("FBFriendPickerChange")]
 		void DataDidChange (FBFriendPickerViewController friendPicker);
 		
-		[Export("friendPickerViewControllerSelectionDidChange:")]
+		[Export("friendPickerViewControllerSelectionDidChange:"), EventArgs("FBFriendPickerChange")]
 		void SelectionDidChange (FBFriendPickerViewController friendPicker);
 		
-		[Export("friendPickerViewController:shouldIncludeUser:")]
+		[Export("friendPickerViewController:shouldIncludeUser:"), DelegateName("FBFriendPickerCondition"), DefaultValue("true")]
 		bool ShouldIncludeUser (FBFriendPickerViewController friendPicker, FBGraphUser user);
 		
-		[Export("friendPickerViewController:handleError:")]
+		[Export("friendPickerViewController:handleError:"), EventArgs("FBFriendPickerError")]
 		void HandleError (FBFriendPickerViewController friendPicker, NSError error);
 	}
 	
-	[BaseType (typeof (NSObject))]
-	[Model]
+	[BaseType (typeof (FBGraphObject))]
 	interface FBGraphLocation
 	{
 		[Export("street")]
@@ -121,10 +125,10 @@ namespace MonoTouch.FacebookConnect
 		
 		// FBGraphObject Model Properties and Methods
 		
-		[Export("count")]
+		[Export("count")] [New]
 		uint Count { get; }
 		
-		[Export("objectForKey:")]
+		[Export("objectForKey:")] [New]
 		NSObject ObjectForKey (NSObject aKey);
 		
 		[Export("keyEnumerator")]
@@ -153,8 +157,7 @@ namespace MonoTouch.FacebookConnect
 		bool IsGraphObjectIDEqual (FBGraphObject anObject, FBGraphObject anotherObject);
 	}
 	
-	[BaseType (typeof (NSObject))]
-	[Model]
+	[BaseType (typeof (FBGraphObject))]
 	interface FBGraphPlace
 	{
 		[Export("id")]
@@ -166,15 +169,15 @@ namespace MonoTouch.FacebookConnect
 		[Export("category")]
 		string Category { get; set; }
 		
-		[Export("location")]
-		FBGraphLocation Location { get; set; }
+		[Export("location")] [Internal]
+		NSObject Location_ { get; set; }
 		
 		// FBGraphObject Model Properties and Methods
 		
-		[Export("count")]
+		[Export("count")] [New]
 		uint Count { get; }
 		
-		[Export("objectForKey:")]
+		[Export("objectForKey:")] [New]
 		NSObject ObjectForKey (NSObject aKey);
 		
 		[Export("keyEnumerator")]
@@ -187,8 +190,7 @@ namespace MonoTouch.FacebookConnect
 		void SetObject (NSObject anObject, NSObject aKey);
 	}
 	
-	[BaseType (typeof (NSObject))]
-	[Model]
+	[BaseType (typeof (FBGraphObject))]
 	interface FBGraphUser
 	{
 		[Export("id")]
@@ -215,15 +217,15 @@ namespace MonoTouch.FacebookConnect
 		[Export("birthday")]
 		string Birthday { get; set; }
 		
-		[Export("location")]
-		FBGraphPlace Location { get; set; }
+		[Export("location")] [Internal]
+		NSObject Location_ { get; set; }
 		
 		// FBGraphObject Model Properties and Methods
 		
-		[Export("count")]
+		[Export("count")] [New]
 		uint Count { get; }
 		
-		[Export("objectForKey:")]
+		[Export("objectForKey:")] [New]
 		NSObject ObjectForKey (NSObject aKey);
 		
 		[Export("keyEnumerator")]
@@ -267,13 +269,13 @@ namespace MonoTouch.FacebookConnect
 	[Model]
 	interface FBLoginViewDelegate 
 	{
-		[Export("loginViewShowingLoggedInUser:"), EventArgs ("FBLoginViewDelegateArgs")]
+		[Export("loginViewShowingLoggedInUser:"), EventArgs ("FBLoginViewLogged")]
 		void ShowingLoggedInUser (FBLoginView loginView);
 		
-		[Export("loginViewFetchedUserInfo:user:"), EventArgs ("FBLoginViewDelegateUserInfoArgs")]
+		[Export("loginViewFetchedUserInfo:user:"), EventArgs ("FBLoginViewUserInfo")]
 		void FetchedUserInfo (FBLoginView loginView, FBGraphUser user);
 		
-		[Export("loginViewShowingLoggedOutUser:"), EventArgs ("FBLoginViewDelegateArgs")]
+		[Export("loginViewShowingLoggedOutUser:"), EventArgs ("FBLoginViewLogged")]
 		void ShowingLoggedOutUser (FBLoginView loginView);
 	}
 	
@@ -299,8 +301,7 @@ namespace MonoTouch.FacebookConnect
 		bool CanPresentShareDialogWithSession(FBSession session);
 	}
 	
-	[BaseType (typeof (NSObject))]
-	[Model]
+	[BaseType (typeof (FBGraphObject))]
 	interface FBOpenGraphAction
 	{
 		[Export("id")]
@@ -327,8 +328,8 @@ namespace MonoTouch.FacebookConnect
 		[Export("message")]
 		string Message { get; set; }
 		
-		[Export("place")]
-		FBGraphPlace Place { get; set; }
+		[Export("place")] [Internal]
+		NSObject Place_ { get; set; }
 		
 		[Export("tags")]
 		NSObject [] Tags { get; set; }
@@ -336,24 +337,24 @@ namespace MonoTouch.FacebookConnect
 		[Export("image")]
 		NSObject [] Image { get; set; }
 		
-		[Export("from")]
-		FBGraphUser From { get; set; }
+		[Export("from")] [Internal]
+		NSObject From_ { get; set; }
 		
 		[Export("likes")]
 		NSObject [] Likes { get; set; }
 		
-		[Export("application")]
-		FBGraphObject Application { get; set; }
+		[Export("application")] [Internal]
+		NSObject Application_ { get; set; }
 		
 		[Export("comments")]
 		NSArray Comments { get; set; }
 		
 		// FBGraphObject Model Properties and Methods
 		
-		[Export("count")]
+		[Export("count")] [New]
 		uint Count { get; }
 		
-		[Export("objectForKey:")]
+		[Export("objectForKey:")] [New]
 		NSObject ObjectForKey (NSObject aKey);
 		
 		[Export("keyEnumerator")]
@@ -366,7 +367,9 @@ namespace MonoTouch.FacebookConnect
 		void SetObject (NSObject anObject, NSObject aKey);
 	}
 	
-	[BaseType (typeof (FBViewController))]
+	[BaseType (typeof (FBViewController),
+	           Delegates=new string [] {"WeakDelegate"},
+	Events=new Type [] { typeof (FBPlacePickerDelegate) })]
 	interface FBPlacePickerViewController 
 	{
 		[Export("spinner")]
@@ -396,8 +399,8 @@ namespace MonoTouch.FacebookConnect
 		[Export("session")]
 		FBSession Session { get; set; }
 		
-		[Export("selection")]
-		FBGraphPlace Selection { get; }
+		[Export("selection")] [Internal]
+		IntPtr Selection_ { get; }
 		
 		[Export("clearSelection")]
 		void ClearSelection ();
@@ -414,22 +417,25 @@ namespace MonoTouch.FacebookConnect
 		[Static]
 		[Export("cacheDescriptorWithLocationCoordinate:radiusInMeters:searchText:resultsLimit:fieldsForRequest:")]
 		FBCacheDescriptor CacheDescriptorWithLocationCoordinate (CLLocationCoordinate2D locationCoordinate, int radiusInMeters, string searchText, int resultsLimit, NSSet fieldsForRequest);
+		
+		[Wrap ("WeakDelegate")] [New]
+		FBPlacePickerDelegate Delegate { get; set; }
 	}
 	
 	[BaseType (typeof (FBViewControllerDelegate))]
 	[Model]
 	interface FBPlacePickerDelegate 
 	{
-		[Export("placePickerViewControllerDataDidChange:")]
+		[Export("placePickerViewControllerDataDidChange:"), EventArgs("FBPlacePickerChange")]
 		void DataDidChange (FBPlacePickerViewController placePicker);
 		
-		[Export("placePickerViewControllerSelectionDidChange:")]
+		[Export("placePickerViewControllerSelectionDidChange:"), EventArgs("FBPlacePickerChange")]
 		void SelectionDidChange (FBPlacePickerViewController placePicker);
 		
-		[Export("placePickerViewController:shouldIncludePlace:")]
+		[Export("placePickerViewController:shouldIncludePlace:"), DelegateName("FBPlacePickerCondition"), DefaultValue("true")]
 		bool ShouldIncludeUser (FBPlacePickerViewController placePicker, FBGraphPlace place);
 		
-		[Export("placePickerViewController:handleError:")]
+		[Export("placePickerViewController:handleError:"), EventArgs("FBPlacePickerError")]
 		void HandleError (FBPlacePickerViewController placePicker, NSError error);
 	}
 	
@@ -774,16 +780,14 @@ namespace MonoTouch.FacebookConnect
 	[Model]
 	interface FBViewControllerDelegate 
 	{
-		[Export("facebookViewControllerCancelWasPressed:"), EventArgs("FBViewControllerDelegateArgs")]
+		[Export("facebookViewControllerCancelWasPressed:"), EventArgs("FBViewControllerButton")]
 		void CancelWasPressed (NSObject sender);
 		
-		[Export("facebookViewControllerDoneWasPressed:"), EventArgs("FBViewControllerDelegateArgs")]
+		[Export("facebookViewControllerDoneWasPressed:"), EventArgs("FBViewControllerButton")]
 		void DoneWasPressed (NSObject sender);
 	}
 	
-	[BaseType (typeof (UIViewController),
-	           Delegates=new string [] {"WeakDelegate"},
-	Events=new Type [] { typeof (FBViewControllerDelegate) })]
+	[BaseType (typeof (UIViewController))]
 	interface FBViewController
 	{
 		[Export ("cancelButton")]
@@ -804,4 +808,6 @@ namespace MonoTouch.FacebookConnect
 		[Export ("presentModallyFromViewController:animated:handler:")]
 		void PresentModallyFromViewController (UIViewController viewController, bool animated, FBModalCompletionHandler handler);
 	}
+	
+	
 }
