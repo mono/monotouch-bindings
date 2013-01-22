@@ -69,23 +69,15 @@
         <Parameter Name="colorSpace" Type="MonoTouch.CoreGraphics.CGColorSpace" />
       </Parameters>
       <Docs>
-        <param name="colorSpace">To be added.</param>
+        <param name="colorSpace">The color space. </param>
         <summary>
           <para>
-            <verbatim>@param colorSpace The color space.
-</verbatim>
-            <simplesect kind="return">
-              <para>The initialized <see cref="T:CorePlot.CPTColorSpace" /> object. </para>
-            </simplesect>
+            <para>The initialized <see cref="T:CorePlot.CPTColorSpace" /> object. </para>
           </para>
         </summary>
         <remarks>
           <para>
-            <verbatim>@param colorSpace The color space.
-</verbatim>
-            <simplesect kind="return">
-              <para>The initialized <see cref="T:CorePlot.CPTColorSpace" /> object. </para>
-            </simplesect>
+            <para>The initialized <see cref="T:CorePlot.CPTColorSpace" /> object. </para>
           </para>
         </remarks>
       </Docs>
@@ -169,9 +161,16 @@
         <ReturnType>CorePlot.CPTColorSpace</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>For the iPhone this is CGColorSpaceCreateDeviceRGB(), for Mac OS X CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB).</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For the iPhone this is CGColorSpaceCreateDeviceRGB(), for Mac OS X CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB).</para>
+          <para>
+            <para>A shared <see cref="T:CorePlot.CPTColorSpace" /> object initialized with the standard RGB colorspace. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

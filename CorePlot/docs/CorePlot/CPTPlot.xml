@@ -128,21 +128,17 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="forFieldEnum">To be added.</param>
-        <param name="index">To be added.</param>
+        <param name="forFieldEnum">The field enumerator identifying the field. </param>
+        <param name="index">The index of the desired data value. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The cached number or NAN if no data is cached for the requested field. </para>
-            </simplesect>
+            <para>The cached number or NAN if no data is cached for the requested field. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The cached number or NAN if no data is cached for the requested field. </para>
-            </simplesect>
+            <para>The cached number or NAN if no data is cached for the requested field. </para>
           </para>
         </remarks>
       </Docs>
@@ -167,21 +163,17 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="forFieldEnum">To be added.</param>
-        <param name="index">To be added.</param>
+        <param name="forFieldEnum">The field enumerator identifying the field. </param>
+        <param name="index">The index of the desired data value. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The cached number or NAN if no data is cached for the requested field. </para>
-            </simplesect>
+            <para>The cached number or NAN if no data is cached for the requested field. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The cached number or NAN if no data is cached for the requested field. </para>
-            </simplesect>
+            <para>The cached number or NAN if no data is cached for the requested field. </para>
           </para>
         </remarks>
       </Docs>
@@ -206,21 +198,17 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="forFieldEnum">To be added.</param>
-        <param name="index">To be added.</param>
+        <param name="forFieldEnum">The field enumerator identifying the field. </param>
+        <param name="index">The index of the desired data value. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The cached number. </para>
-            </simplesect>
+            <para>The cached number. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The cached number. </para>
-            </simplesect>
+            <para>The cached number. </para>
           </para>
         </remarks>
       </Docs>
@@ -244,20 +232,16 @@
         <Parameter Name="forFieldEnum" Type="CorePlot.CPTPlotField" />
       </Parameters>
       <Docs>
-        <param name="forFieldEnum">To be added.</param>
+        <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The array of cached numbers. </para>
-            </simplesect>
+            <para>The array of cached numbers. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The array of cached numbers. </para>
-            </simplesect>
+            <para>The array of cached numbers. </para>
           </para>
         </remarks>
       </Docs>
@@ -282,10 +266,8 @@
         <Parameter Name="forFieldEnum" Type="CorePlot.CPTPlotField" />
       </Parameters>
       <Docs>
-        <param name="numbers">
-          <para>An array of numbers to cache. Can be a <see cref="T:CorePlot.CPTNumericData" />, NSArray, or NSData (NSData is assumed to be a c-style array of type <computeroutput>double</computeroutput>). </para>
-        </param>
-        <param name="forFieldEnum">To be added.</param>
+        <param name="numbers">An array of numbers to cache. Can be a , NSArray, or NSData (NSData is assumed to be a c-style array of type double). </param>
+        <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <summary>
           <para />
         </summary>
@@ -315,11 +297,9 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="numbers">
-          <para>An array of numbers to cache. Can be a <see cref="T:CorePlot.CPTNumericData" />, NSArray, or NSData (NSData is assumed to be a c-style array of type <computeroutput>double</computeroutput>). </para>
-        </param>
-        <param name="forFieldEnum">To be added.</param>
-        <param name="index">To be added.</param>
+        <param name="numbers">An array of numbers to cache. Can be a , NSArray, or NSData (NSData is assumed to be a c-style array of type double). </param>
+        <param name="forFieldEnum">The field enumerator identifying the field. </param>
+        <param name="index">The index of the first data point to replace. </param>
         <summary>
           <para />
         </summary>
@@ -437,9 +417,7 @@
         <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
       </Parameters>
       <Docs>
-        <param name="indexRange">
-          <para>The index range of the data records to remove. </para>
-        </param>
+        <param name="indexRange">The index range of the data records to remove. </param>
         <summary>
           <para />
         </summary>
@@ -531,10 +509,10 @@
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="legent">To be added.</param>
-        <param name="index">To be added.</param>
-        <param name="rect">To be added.</param>
-        <param name="context">To be added.</param>
+        <param name="legent">The legend being drawn. </param>
+        <param name="index">The index of the desired swatch. </param>
+        <param name="rect">The bounding rectangle where the swatch should be drawn. </param>
+        <param name="context">The graphics context to draw into. </param>
         <summary>
           <para />
         </summary>
@@ -562,17 +540,13 @@
       <Docs>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>Array of NSNumbers for the various field identifiers. </para>
-            </simplesect>
+            <para>Array of NSNumbers for the various field identifiers. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>Array of NSNumbers for the various field identifiers. </para>
-            </simplesect>
+            <para>Array of NSNumbers for the various field identifiers. </para>
           </para>
         </remarks>
       </Docs>
@@ -596,22 +570,16 @@
         <Parameter Name="coord" Type="CorePlot.CPTCoordinate" />
       </Parameters>
       <Docs>
-        <param name="coord">
-          <para>The coordinate for which the corresponding field identifiers are desired. </para>
-        </param>
+        <param name="coord">The coordinate for which the corresponding field identifiers are desired. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>Array of NSNumbers for the field identifiers. </para>
-            </simplesect>
+            <para>Array of NSNumbers for the field identifiers. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>Array of NSNumbers for the field identifiers. </para>
-            </simplesect>
+            <para>Array of NSNumbers for the field identifiers. </para>
           </para>
         </remarks>
       </Docs>
@@ -635,22 +603,16 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">
-          <para>The index of the desired title. </para>
-        </param>
+        <param name="index">The index of the desired title. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The title of the legend entry at the requested index. </para>
-            </simplesect>
+            <para>The title of the legend entry at the requested index. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The title of the legend entry at the requested index. </para>
-            </simplesect>
+            <para>The title of the legend entry at the requested index. </para>
           </para>
         </remarks>
       </Docs>
@@ -699,10 +661,8 @@
         <Parameter Name="numberOfRecords" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">
-          <para>The starting index of the new records. </para>
-        </param>
-        <param name="numberOfRecords">To be added.</param>
+        <param name="index">The starting index of the new records. </param>
+        <param name="numberOfRecords">The number of records to insert. </param>
         <summary>
           <para />
         </summary>
@@ -868,9 +828,17 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>The number of fields. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>The number of fields. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NumberOfLegendEntries">
@@ -889,9 +857,17 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>The number of legend entries. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>The number of legend entries. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NumbersFromDataSource">
@@ -914,21 +890,17 @@
         <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
       </Parameters>
       <Docs>
-        <param name="forFieldEnum">To be added.</param>
-        <param name="indexRange">To be added.</param>
+        <param name="forFieldEnum">The field index. </param>
+        <param name="indexRange">The range of the data indexes of interest. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>An array of data points. </para>
-            </simplesect>
+            <para>An array of data points. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>An array of data points. </para>
-            </simplesect>
+            <para>An array of data points. </para>
           </para>
         </remarks>
       </Docs>
@@ -973,22 +945,16 @@
         <Parameter Name="coord" Type="CorePlot.CPTCoordinate" />
       </Parameters>
       <Docs>
-        <param name="coord">
-          <para>The coordinate identifier. </para>
-        </param>
+        <param name="coord">The coordinate identifier. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The plot range enclosing the data. </para>
-            </simplesect>
+            <para>The plot range enclosing the data. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The plot range enclosing the data. </para>
-            </simplesect>
+            <para>The plot range enclosing the data. </para>
           </para>
         </remarks>
       </Docs>
@@ -1012,20 +978,16 @@
         <Parameter Name="forFieldEnum" Type="CorePlot.CPTPlotField" />
       </Parameters>
       <Docs>
-        <param name="forFieldEnum">To be added.</param>
+        <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The plot range enclosing the data. </para>
-            </simplesect>
+            <para>The plot range enclosing the data. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The plot range enclosing the data. </para>
-            </simplesect>
+            <para>The plot range enclosing the data. </para>
           </para>
         </remarks>
       </Docs>
@@ -1074,10 +1036,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="label">
-          <para>The annotation for the data label. </para>
-        </param>
-        <param name="index">To be added.</param>
+        <param name="label">The annotation for the data label. </param>
+        <param name="index">The data index for the label. </param>
         <summary>
           <para />
         </summary>
@@ -1126,9 +1086,7 @@
         <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
       </Parameters>
       <Docs>
-        <param name="indexRange">
-          <para>The new indexRange for the labels.</para>
-        </param>
+        <param name="indexRange">The new indexRange for the labels.</param>
         <summary>
           <para>
             <xrefsect id="todo_1_todo000010">
@@ -1212,9 +1170,7 @@
         <Parameter Name="indexRange" Type="MonoTouch.Foundation.NSRange" />
       </Parameters>
       <Docs>
-        <param name="indexRange">
-          <para>The index range to load. </para>
-        </param>
+        <param name="indexRange">The index range to load. </param>
         <summary>
           <para />
         </summary>

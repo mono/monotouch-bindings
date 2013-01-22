@@ -120,9 +120,7 @@
         <Parameter Name="plot" Type="CorePlot.CPTPlot" />
       </Parameters>
       <Docs>
-        <param name="plot">
-          <para>The plot. </para>
-        </param>
+        <param name="plot">The plot. </param>
         <summary>
           <para />
         </summary>
@@ -151,10 +149,8 @@
         <Parameter Name="toPlotSpace" Type="CorePlot.CPTPlotSpace" />
       </Parameters>
       <Docs>
-        <param name="plot">
-          <para>The plot. </para>
-        </param>
-        <param name="toPlotSpace">To be added.</param>
+        <param name="plot">The plot. </param>
+        <param name="toPlotSpace">The plot space. </param>
         <summary>
           <para />
         </summary>
@@ -182,9 +178,7 @@
         <Parameter Name="space" Type="CorePlot.CPTPlotSpace" />
       </Parameters>
       <Docs>
-        <param name="space">
-          <para>The plot space. </para>
-        </param>
+        <param name="space">The plot space. </param>
         <summary>
           <para />
         </summary>
@@ -209,9 +203,17 @@
         <ReturnType>CorePlot.CPTPlot[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>An array of all plots associated with the graph. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>An array of all plots associated with the graph. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ApplyTheme">
@@ -233,9 +235,7 @@
         <Parameter Name="theme" Type="CorePlot.CPTTheme" />
       </Parameters>
       <Docs>
-        <param name="theme">
-          <para>The theme object used to style the graph. </para>
-        </param>
+        <param name="theme">The theme object used to style the graph. </param>
         <summary>
           <para />
         </summary>
@@ -328,10 +328,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="plot">
-          <para>The plot. </para>
-        </param>
-        <param name="index">To be added.</param>
+        <param name="plot">The plot. </param>
+        <param name="index">An index within the bounds of the plot array. </param>
         <summary>
           <para />
         </summary>
@@ -361,11 +359,9 @@
         <Parameter Name="intoPlotSpace" Type="CorePlot.CPTPlotSpace" />
       </Parameters>
       <Docs>
-        <param name="plot">
-          <para>The plot. </para>
-        </param>
-        <param name="index">To be added.</param>
-        <param name="intoPlotSpace">To be added.</param>
+        <param name="plot">The plot. </param>
+        <param name="index">An index within the bounds of the plot array. </param>
+        <param name="intoPlotSpace">The plot space. </param>
         <summary>
           <para />
         </summary>
@@ -465,17 +461,13 @@
       <Docs>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A new axis set. </para>
-            </simplesect>
+            <para>A new axis set. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A new axis set. </para>
-            </simplesect>
+            <para>A new axis set. </para>
           </para>
         </remarks>
       </Docs>
@@ -499,17 +491,13 @@
       <Docs>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A new plot space. </para>
-            </simplesect>
+            <para>A new plot space. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A new plot space. </para>
-            </simplesect>
+            <para>A new plot space. </para>
           </para>
         </remarks>
       </Docs>
@@ -557,22 +545,16 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">
-          <para>An index within the bounds of the plot array. </para>
-        </param>
+        <param name="index">An index within the bounds of the plot array. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The plot at the given index. </para>
-            </simplesect>
+            <para>The plot at the given index. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The plot at the given index. </para>
-            </simplesect>
+            <para>The plot at the given index. </para>
           </para>
         </remarks>
       </Docs>
@@ -596,22 +578,16 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">
-          <para>An index within the bounds of the plot space array. </para>
-        </param>
+        <param name="index">An index within the bounds of the plot space array. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The plot space at the given index. </para>
-            </simplesect>
+            <para>The plot space at the given index. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The plot space at the given index. </para>
-            </simplesect>
+            <para>The plot space at the given index. </para>
           </para>
         </remarks>
       </Docs>
@@ -632,9 +608,17 @@
         <ReturnType>CorePlot.CPTPlotSpace[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>An array of all plot spaces associated with the graph. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>An array of all plot spaces associated with the graph. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotSpaceWithIdentifier">
@@ -656,22 +640,16 @@
         <Parameter Name="identifier" Type="MonoTouch.Foundation.NSObject" />
       </Parameters>
       <Docs>
-        <param name="identifier">
-          <para>A plot space identifier. </para>
-        </param>
+        <param name="identifier">A plot space identifier. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The plot space with the given identifier or nil if it was not found. </para>
-            </simplesect>
+            <para>The plot space with the given identifier or nil if it was not found. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The plot space with the given identifier or nil if it was not found. </para>
-            </simplesect>
+            <para>The plot space with the given identifier or nil if it was not found. </para>
           </para>
         </remarks>
       </Docs>
@@ -695,22 +673,16 @@
         <Parameter Name="identifier" Type="MonoTouch.Foundation.NSObject" />
       </Parameters>
       <Docs>
-        <param name="identifier">
-          <para>A plot identifier. </para>
-        </param>
+        <param name="identifier">A plot identifier. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The plot with the given identifier or nil if it was not found. </para>
-            </simplesect>
+            <para>The plot with the given identifier or nil if it was not found. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The plot with the given identifier or nil if it was not found. </para>
-            </simplesect>
+            <para>The plot with the given identifier or nil if it was not found. </para>
           </para>
         </remarks>
       </Docs>
@@ -776,9 +748,7 @@
         <Parameter Name="plot" Type="CorePlot.CPTPlot" />
       </Parameters>
       <Docs>
-        <param name="plot">
-          <para>The plot to remove. </para>
-        </param>
+        <param name="plot">The plot to remove. </param>
         <summary>
           <para />
         </summary>
@@ -806,9 +776,7 @@
         <Parameter Name="identifier" Type="MonoTouch.Foundation.NSObject" />
       </Parameters>
       <Docs>
-        <param name="identifier">
-          <para>The identifier of the plot to remove. </para>
-        </param>
+        <param name="identifier">The identifier of the plot to remove. </param>
         <summary>
           <para />
         </summary>
@@ -836,9 +804,7 @@
         <Parameter Name="plotSpace" Type="CorePlot.CPTPlotSpace" />
       </Parameters>
       <Docs>
-        <param name="plotSpace">
-          <para>The plot space. </para>
-        </param>
+        <param name="plotSpace">The plot space. </param>
         <summary>
           <para />
         </summary>
@@ -964,21 +930,17 @@
       <Docs>
         <summary>
           <para>
-            <simplesect kind="see">
-              <para>
-                <ref refid="interface_c_p_t_plot_area_1a9e425efc7501c6463ca2a05c7ae4d72f" kindref="member">CPTPlotArea::topDownLayerOrder</ref>
-              </para>
-            </simplesect>
+            <para>
+              <ref refid="interface_c_p_t_plot_area_1a9e425efc7501c6463ca2a05c7ae4d72f" kindref="member">CPTPlotArea::topDownLayerOrder</ref>
+            </para>
           </para>
         </summary>
         <value>To be added.</value>
         <remarks>
           <para>
-            <simplesect kind="see">
-              <para>
-                <ref refid="interface_c_p_t_plot_area_1a9e425efc7501c6463ca2a05c7ae4d72f" kindref="member">CPTPlotArea::topDownLayerOrder</ref>
-              </para>
-            </simplesect>
+            <para>
+              <ref refid="interface_c_p_t_plot_area_1a9e425efc7501c6463ca2a05c7ae4d72f" kindref="member">CPTPlotArea::topDownLayerOrder</ref>
+            </para>
           </para>
         </remarks>
       </Docs>

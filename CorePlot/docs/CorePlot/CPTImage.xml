@@ -69,21 +69,15 @@
         <Parameter Name="anImage" Type="MonoTouch.CoreGraphics.CGImage" />
       </Parameters>
       <Docs>
-        <param name="anImage">
-          <para>The image to wrap. </para>
-        </param>
+        <param name="anImage">The image to wrap. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
-            </simplesect>
+            <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
           </para>
         </summary>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
-            </simplesect>
+            <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
           </para>
         </remarks>
       </Docs>
@@ -146,28 +140,14 @@
         <Parameter Name="path" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="path">
-          <para>The file system path of the file. </para>
-        </param>
+        <param name="path">The file system path of the file. </param>
         <summary>
-          <para>
-            <verbatim>On systems that support hi-dpi or "Retina" displays, this method will look for a
-double-resolution image with the given name followed by "@2x". If the "@2x" image
-is not available, the named image file will be loaded.
-</verbatim>
-          </para>
+          <para>On systems that support hi-dpi or "Retina" displays, this method will look for a double-resolution image with the given name followed by "@2x". If the "@2x" image is not available, the named image file will be loaded.</para>
         </summary>
         <remarks>
+          <para>On systems that support hi-dpi or "Retina" displays, this method will look for a double-resolution image with the given name followed by "@2x". If the "@2x" image is not available, the named image file will be loaded.</para>
           <para>
-            <verbatim>On systems that support hi-dpi or "Retina" displays, this method will look for a
-double-resolution image with the given name followed by "@2x". If the "@2x" image
-is not available, the named image file will be loaded.
-</verbatim>
-          </para>
-          <para>
-            <simplesect kind="return">
-              <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the contents of the PNG file. </para>
-            </simplesect>
+            <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the contents of the PNG file. </para>
           </para>
         </remarks>
       </Docs>
@@ -192,10 +172,8 @@ is not available, the named image file will be loaded.
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="rect">
-          <para>The rectangle to draw into. </para>
-        </param>
-        <param name="context">To be added.</param>
+        <param name="rect">The rectangle to draw into. </param>
+        <param name="context">The graphics context to draw into. </param>
         <summary>
           <para>If the tiled property is TRUE, the image is repeatedly drawn to fill the clipping region, otherwise the image is scaled to fit in rect.</para>
         </summary>
@@ -224,22 +202,16 @@ is not available, the named image file will be loaded.
         <Parameter Name="anImage" Type="MonoTouch.CoreGraphics.CGImage" />
       </Parameters>
       <Docs>
-        <param name="anImage">
-          <para>The image to wrap. </para>
-        </param>
+        <param name="anImage">The image to wrap. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
-            </simplesect>
+            <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
-            </simplesect>
+            <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
           </para>
         </remarks>
       </Docs>
@@ -263,29 +235,15 @@ is not available, the named image file will be loaded.
         <Parameter Name="path" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="path">
-          <para>The file system path of the file. </para>
-        </param>
+        <param name="path">The file system path of the file. </param>
         <summary>
-          <para>
-            <verbatim>On systems that support hi-dpi or "Retina" displays, this method will look for a
-double-resolution image with the given name followed by "@2x". If the "@2x" image
-is not available, the named image file will be loaded.
-</verbatim>
-          </para>
+          <para>On systems that support hi-dpi or "Retina" displays, this method will look for a double-resolution image with the given name followed by "@2x". If the "@2x" image is not available, the named image file will be loaded.</para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
+          <para>On systems that support hi-dpi or "Retina" displays, this method will look for a double-resolution image with the given name followed by "@2x". If the "@2x" image is not available, the named image file will be loaded.</para>
           <para>
-            <verbatim>On systems that support hi-dpi or "Retina" displays, this method will look for a
-double-resolution image with the given name followed by "@2x". If the "@2x" image
-is not available, the named image file will be loaded.
-</verbatim>
-          </para>
-          <para>
-            <simplesect kind="return">
-              <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the contents of the PNG file. </para>
-            </simplesect>
+            <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the contents of the PNG file. </para>
           </para>
         </remarks>
       </Docs>

@@ -61,23 +61,15 @@
         <Parameter Name="layer" Type="CorePlot.CPTLayer" />
       </Parameters>
       <Docs>
-        <param name="layer">To be added.</param>
+        <param name="layer">The label content. </param>
         <summary>
           <para>
-            <verbatim>@param layer The label content.
-</verbatim>
-            <simplesect kind="return">
-              <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
-            </simplesect>
+            <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
           </para>
         </summary>
         <remarks>
           <para>
-            <verbatim>@param layer The label content.
-</verbatim>
-            <simplesect kind="return">
-              <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
-            </simplesect>
+            <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
           </para>
         </remarks>
       </Docs>
@@ -141,26 +133,16 @@
         <Parameter Name="style" Type="CorePlot.CPTTextStyle" />
       </Parameters>
       <Docs>
-        <param name="newText">To be added.</param>
-        <param name="style">To be added.</param>
+        <param name="newText">The label text. </param>
+        <param name="style">The text style for the label. </param>
         <summary>
           <para>
-            <verbatim>@param newText The label text.
-@param newStyle The text style for the label.
-</verbatim>
-            <simplesect kind="return">
-              <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
-            </simplesect>
+            <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
           </para>
         </summary>
         <remarks>
           <para>
-            <verbatim>@param newText The label text.
-@param newStyle The text style for the label.
-</verbatim>
-            <simplesect kind="return">
-              <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
-            </simplesect>
+            <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
           </para>
         </remarks>
       </Docs>
@@ -211,12 +193,10 @@
         <Parameter Name="direction" Type="CorePlot.CPTSign" />
       </Parameters>
       <Docs>
-        <param name="firstPoint">
-          <para>The first view point. </para>
-        </param>
-        <param name="secondPoint">To be added.</param>
-        <param name="coordinate">To be added.</param>
-        <param name="direction">To be added.</param>
+        <param name="firstPoint">The first view point. </param>
+        <param name="secondPoint">The second view point. </param>
+        <param name="coordinate">The axis coordinate. </param>
+        <param name="direction">The offset direction. </param>
         <summary>
           <para />
         </summary>
@@ -246,9 +226,9 @@
         <Parameter Name="inDirection" Type="CorePlot.CPTSign" />
       </Parameters>
       <Docs>
-        <param name="viewPoint">To be added.</param>
-        <param name="forCoordinate">To be added.</param>
-        <param name="inDirection">To be added.</param>
+        <param name="viewPoint">The view point. </param>
+        <param name="forCoordinate">The coordinate in which the label is being position. Orthogonal to the axis coordinate. </param>
+        <param name="inDirection">The offset direction. </param>
         <summary>
           <para />
         </summary>

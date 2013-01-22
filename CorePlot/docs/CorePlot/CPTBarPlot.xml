@@ -247,15 +247,16 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <verbatim>With plot coordinates, the bar locations are one data unit apart (e.g., 1, 2, 3, etc.), 
-</verbatim> a value of 1.0 will result in bars that touch each other; a value of 0.5 will result in bars that are as wide as the gap between them. <verbatim>@see barWidthsAreInViewCoordinates</verbatim></para>
+          <para>With plot coordinates, the bar locations are one data unit apart (e.g., 1, 2, 3, etc.), a value of 1.0 will result in bars that touch each other; a value of 0.5 will result in bars that are as wide as the gap between them.</para>
         </summary>
         <value>To be added.</value>
         <remarks>
+          <para>With plot coordinates, the bar locations are one data unit apart (e.g., 1, 2, 3, etc.), a value of 1.0 will result in bars that touch each other; a value of 0.5 will result in bars that are as wide as the gap between them.</para>
           <para>
-            <verbatim>With plot coordinates, the bar locations are one data unit apart (e.g., 1, 2, 3, etc.), 
-</verbatim> a value of 1.0 will result in bars that touch each other; a value of 0.5 will result in bars that are as wide as the gap between them. <verbatim>@see barWidthsAreInViewCoordinates</verbatim></para>
+            <para>
+              <ref refid="interface_c_p_t_bar_plot_1a9d1abb45a60f9daa990b9ea7d68d17f7" kindref="member">barWidthsAreInViewCoordinates</ref>
+            </para>
+          </para>
         </remarks>
       </Docs>
     </Member>
@@ -327,23 +328,17 @@
         <Parameter Name="horizontalBars" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="color">
-          <para>The beginning color. </para>
-        </param>
-        <param name="horizontalBars">To be added.</param>
+        <param name="color">The beginning color. </param>
+        <param name="horizontalBars">If true, the bars will have a horizontal orientation, otherwise they will be vertical. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A new <see cref="T:CorePlot.CPTBarPlot" /> instance initialized with a linear gradient bar fill. </para>
-            </simplesect>
+            <para>A new <see cref="T:CorePlot.CPTBarPlot" /> instance initialized with a linear gradient bar fill. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A new <see cref="T:CorePlot.CPTBarPlot" /> instance initialized with a linear gradient bar fill. </para>
-            </simplesect>
+            <para>A new <see cref="T:CorePlot.CPTBarPlot" /> instance initialized with a linear gradient bar fill. </para>
           </para>
         </remarks>
       </Docs>

@@ -115,28 +115,16 @@
         <Parameter Name="position" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="color">
-          <para>The color. </para>
-        </param>
-        <param name="position">To be added.</param>
+        <param name="color">The color. </param>
+        <param name="position">The color stop position (0 ≤ position ≤ 1). </param>
         <summary>
-          <para>
-            <verbatim>Adds a color stop with &lt;tt&gt;color&lt;/tt&gt; at &lt;tt&gt;position&lt;/tt&gt; in elementList.
-If two elements are at the same position then it is added immediately after the one that was there already.
-</verbatim>
-          </para>
+          <para>Adds a color stop with <computeroutput>color</computeroutput> at <computeroutput>position</computeroutput> in elementList. If two elements are at the same position then it is added immediately after the one that was there already.</para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
+          <para>Adds a color stop with <computeroutput>color</computeroutput> at <computeroutput>position</computeroutput> in elementList. If two elements are at the same position then it is added immediately after the one that was there already.</para>
           <para>
-            <verbatim>Adds a color stop with &lt;tt&gt;color&lt;/tt&gt; at &lt;tt&gt;position&lt;/tt&gt; in elementList.
-If two elements are at the same position then it is added immediately after the one that was there already.
-</verbatim>
-          </para>
-          <para>
-            <simplesect kind="return">
-              <para>A copy of the current gradient with the new color stop. </para>
-            </simplesect>
+            <para>A copy of the current gradient with the new color stop. </para>
           </para>
         </remarks>
       </Docs>
@@ -181,9 +169,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua normal gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua normal gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AquaPressedGradient">
@@ -202,9 +198,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua pressed gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua pressed gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AquaSelectedGradient">
@@ -223,9 +227,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua selected gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua selected gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BlendingMode">
@@ -269,21 +281,17 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="endingColor" Type="CorePlot.CPTColor" />
       </Parameters>
       <Docs>
-        <param name="beginningColor">To be added.</param>
-        <param name="endingColor">To be added.</param>
+        <param name="beginningColor">The beginning color. </param>
+        <param name="endingColor">The ending color. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors. </para>
-            </simplesect>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors. </para>
-            </simplesect>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors. </para>
           </para>
         </remarks>
       </Docs>
@@ -310,23 +318,19 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="endingPosition" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="beginningColor">To be added.</param>
-        <param name="endingColor">To be added.</param>
-        <param name="beginningPosition">To be added.</param>
-        <param name="endingPosition">To be added.</param>
+        <param name="beginningColor">The beginning color. </param>
+        <param name="endingColor">The ending color. </param>
+        <param name="beginningPosition">The beginning position (0 ≤ beginningPosition ≤ 1). </param>
+        <param name="endingPosition">The ending position (0 ≤ endingPosition ≤ 1). </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors, at two given normalized positions. </para>
-            </simplesect>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors, at two given normalized positions. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors, at two given normalized positions. </para>
-            </simplesect>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors, at two given normalized positions. </para>
           </para>
         </remarks>
       </Docs>
@@ -351,8 +355,8 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="inRectangle">To be added.</param>
-        <param name="context">To be added.</param>
+        <param name="inRectangle">The rectangle to draw into. </param>
+        <param name="context">The graphics context to draw into. </param>
         <summary>
           <para />
         </summary>
@@ -380,7 +384,7 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="inContext" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="inContext">To be added.</param>
+        <param name="inContext">The graphics context to draw into. </param>
         <summary>
           <para />
         </summary>
@@ -409,8 +413,8 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="context" Type="MonoTouch.CoreGraphics.CGContext" />
       </Parameters>
       <Docs>
-        <param name="rectangle">To be added.</param>
-        <param name="context">To be added.</param>
+        <param name="rectangle">The rectangle to draw into. </param>
+        <param name="context">The graphics context to draw into. </param>
         <summary>
           <para />
         </summary>
@@ -462,22 +466,16 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="alpha" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="alpha">
-          <para>The alpha component (0 ≤ alpha ≤ 1). </para>
-        </param>
+        <param name="alpha">The alpha component (0 ≤ alpha ≤ 1). </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A copy of the current gradient with the new alpha value. </para>
-            </simplesect>
+            <para>A copy of the current gradient with the new alpha value. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A copy of the current gradient with the new alpha value. </para>
-            </simplesect>
+            <para>A copy of the current gradient with the new alpha value. </para>
           </para>
         </remarks>
       </Docs>
@@ -501,22 +499,16 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="mode" Type="CorePlot.CPTGradientBlendingMode" />
       </Parameters>
       <Docs>
-        <param name="mode">
-          <para>The blending mode. </para>
-        </param>
+        <param name="mode">The blending mode. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A copy of the current gradient with the new blending mode. </para>
-            </simplesect>
+            <para>A copy of the current gradient with the new blending mode. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A copy of the current gradient with the new blending mode. </para>
-            </simplesect>
+            <para>A copy of the current gradient with the new blending mode. </para>
           </para>
         </remarks>
       </Docs>
@@ -537,9 +529,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with a hydrogen spectrum gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with a hydrogen spectrum gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NewColorAtPosition">
@@ -561,22 +561,16 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="position" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="position">
-          <para>The color stop position (0 ≤ position ≤ 1). </para>
-        </param>
+        <param name="position">The color stop position (0 ≤ position ≤ 1). </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The color at <computeroutput>position</computeroutput> in gradient. </para>
-            </simplesect>
+            <para>The color at <computeroutput>position</computeroutput> in gradient. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The color at <computeroutput>position</computeroutput> in gradient. </para>
-            </simplesect>
+            <para>The color at <computeroutput>position</computeroutput> in gradient. </para>
           </para>
         </remarks>
       </Docs>
@@ -600,20 +594,16 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="atIndex" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="atIndex">To be added.</param>
+        <param name="atIndex">The color stop index. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The color at color stop <computeroutput>index</computeroutput>. </para>
-            </simplesect>
+            <para>The color at color stop <computeroutput>index</computeroutput>. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The color at color stop <computeroutput>index</computeroutput>. </para>
-            </simplesect>
+            <para>The color at color stop <computeroutput>index</computeroutput>. </para>
           </para>
         </remarks>
       </Docs>
@@ -634,9 +624,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with a rainbow gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with a rainbow gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveColorStop">
@@ -658,22 +656,16 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">
-          <para>The color stop index. </para>
-        </param>
+        <param name="index">The color stop index. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A copy of the current gradient with the color stop removed. </para>
-            </simplesect>
+            <para>A copy of the current gradient with the color stop removed. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A copy of the current gradient with the color stop removed. </para>
-            </simplesect>
+            <para>A copy of the current gradient with the color stop removed. </para>
           </para>
         </remarks>
       </Docs>
@@ -697,22 +689,16 @@ If two elements are at the same position then it is added immediately after the 
         <Parameter Name="position" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="position">
-          <para>The color stop position (0 ≤ position ≤ 1). </para>
-        </param>
+        <param name="position">The color stop position (0 ≤ position ≤ 1). </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>A copy of the current gradient with the color stop removed. </para>
-            </simplesect>
+            <para>A copy of the current gradient with the color stop removed. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>A copy of the current gradient with the color stop removed. </para>
-            </simplesect>
+            <para>A copy of the current gradient with the color stop removed. </para>
           </para>
         </remarks>
       </Docs>
@@ -733,9 +719,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the source list selected gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the source list selected gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SourceListUnselectedGradient">
@@ -754,9 +748,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the source list unselected gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the source list unselected gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnifiedDarkGradient">
@@ -775,9 +777,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified dark gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified dark gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnifiedNormalGradient">
@@ -796,9 +806,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified normal gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified normal gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnifiedPressedGradient">
@@ -817,9 +835,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified pressed gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified pressed gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnifiedSelectedGradient">
@@ -838,9 +864,17 @@ If two elements are at the same position then it is added immediately after the 
         <ReturnType>CorePlot.CPTGradient</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified selected gradient. </para>
+          </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified selected gradient. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

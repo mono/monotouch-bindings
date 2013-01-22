@@ -176,22 +176,16 @@
         <Parameter Name="coordinate" Type="CorePlot.CPTCoordinate" />
       </Parameters>
       <Docs>
-        <param name="coordinate">
-          <para>The axis coordinate. </para>
-        </param>
+        <param name="coordinate">The axis coordinate. </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The range of values. </para>
-            </simplesect>
+            <para>The range of values. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The range of values. </para>
-            </simplesect>
+            <para>The range of values. </para>
           </para>
         </remarks>
       </Docs>
@@ -288,20 +282,16 @@
         <Parameter Name="forPlotPoint" Type="MonoTouch.Foundation.NSDecimal" />
       </Parameters>
       <Docs>
-        <param name="forPlotPoint">To be added.</param>
+        <param name="forPlotPoint">A c-style array of data point coordinates (as NSDecimals). </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The drawing coordinates of the data point. </para>
-            </simplesect>
+            <para>The drawing coordinates of the data point. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The drawing coordinates of the data point. </para>
-            </simplesect>
+            <para>The drawing coordinates of the data point. </para>
           </para>
         </remarks>
       </Docs>
@@ -325,22 +315,16 @@
         <Parameter Name="plotPoint" Type="System.Double" />
       </Parameters>
       <Docs>
-        <param name="plotPoint">
-          <para>A c-style array of data point coordinates (as doubles). </para>
-        </param>
+        <param name="plotPoint">A c-style array of data point coordinates (as doubles). </param>
         <summary>
           <para>
-            <simplesect kind="return">
-              <para>The drawing coordinates of the data point. </para>
-            </simplesect>
+            <para>The drawing coordinates of the data point. </para>
           </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
           <para>
-            <simplesect kind="return">
-              <para>The drawing coordinates of the data point. </para>
-            </simplesect>
+            <para>The drawing coordinates of the data point. </para>
           </para>
         </remarks>
       </Docs>
@@ -365,10 +349,8 @@
         <Parameter Name="plotAreaViewPoint" Type="System.Drawing.PointF" />
       </Parameters>
       <Docs>
-        <param name="plotPoint">
-          <para>A c-style array of data point coordinates (as doubles). </para>
-        </param>
-        <param name="plotAreaViewPoint">To be added.</param>
+        <param name="plotPoint">A c-style array of data point coordinates (as doubles). </param>
+        <param name="plotAreaViewPoint">The drawing coordinates of the data point. </param>
         <summary>
           <para />
         </summary>
@@ -397,10 +379,8 @@
         <Parameter Name="plotAreaViewPoint" Type="System.Drawing.PointF" />
       </Parameters>
       <Docs>
-        <param name="plotPoint">
-          <para>A c-style array of data point coordinates (as NSDecimals). </para>
-        </param>
-        <param name="plotAreaViewPoint">To be added.</param>
+        <param name="plotPoint">A c-style array of data point coordinates (as NSDecimals). </param>
+        <param name="plotAreaViewPoint">The drawing coordinates of the data point. </param>
         <summary>
           <para />
         </summary>
@@ -535,21 +515,13 @@
         <Parameter Name="interactionPoint" Type="System.Drawing.PointF" />
       </Parameters>
       <Docs>
-        <param name="interactionScale">To be added.</param>
-        <param name="interactionPoint">
-          <para>The plot area view point about which the scaling occurs. </para>
-        </param>
+        <param name="interactionScale">The scaling factor. One gives no scaling. </param>
+        <param name="interactionPoint">The plot area view point about which the scaling occurs. </param>
         <summary>
-          <para>
-            <verbatim>@param interactionScale The scaling factor. One gives no scaling.
-</verbatim>
-          </para>
+          <para />
         </summary>
         <remarks>
-          <para>
-            <verbatim>@param interactionScale The scaling factor. One gives no scaling.
-</verbatim>
-          </para>
+          <para />
         </remarks>
       </Docs>
     </Member>
@@ -572,9 +544,7 @@
         <Parameter Name="plots" Type="CorePlot.CPTPlot[]" />
       </Parameters>
       <Docs>
-        <param name="plots">
-          <para>An array of the plots that have to fit in the visible area. </para>
-        </param>
+        <param name="plots">An array of the plots that have to fit in the visible area. </param>
         <summary>
           <para />
         </summary>
@@ -603,10 +573,8 @@
         <Parameter Name="coordinate" Type="CorePlot.CPTCoordinate" />
       </Parameters>
       <Docs>
-        <param name="newRange">
-          <para>The new plot range. </para>
-        </param>
-        <param name="coordinate">To be added.</param>
+        <param name="newRange">The new plot range. </param>
+        <param name="coordinate">The axis coordinate. </param>
         <summary>
           <para />
         </summary>
@@ -635,8 +603,8 @@
         <Parameter Name="forCoordinate" Type="CorePlot.CPTCoordinate" />
       </Parameters>
       <Docs>
-        <param name="scaleType">To be added.</param>
-        <param name="forCoordinate">To be added.</param>
+        <param name="scaleType">The new scale type. </param>
+        <param name="forCoordinate">The axis coordinate. </param>
         <summary>
           <para />
         </summary>
