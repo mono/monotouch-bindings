@@ -17,7 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>Based on CTGradient (<ulink url="http://blog.oofn.net/2006/01/15/gradients-in-cocoa/">http://blog.oofn.net/2006/01/15/gradients-in-cocoa/</ulink>). CTGradient is in public domain (Thanks Chad Weider!)</para>
+      <para>Draws color gradient fills. </para>
     </summary>
     <remarks>
       <para>Based on CTGradient (<ulink url="http://blog.oofn.net/2006/01/15/gradients-in-cocoa/">http://blog.oofn.net/2006/01/15/gradients-in-cocoa/</ulink>). CTGradient is in public domain (Thanks Chad Weider!)</para>
@@ -118,7 +118,7 @@
         <param name="color">The color. </param>
         <param name="position">The color stop position (0 ≤ position ≤ 1). </param>
         <summary>
-          <para>Adds a color stop with <computeroutput>color</computeroutput> at <computeroutput>position</computeroutput> in elementList. If two elements are at the same position then it is added immediately after the one that was there already.</para>
+          <para>Copies the current gradient and adds a color stop. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -148,9 +148,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The axis angle of an axial gradient, expressed in degrees. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AquaNormalGradient">
@@ -170,9 +173,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua normal gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua normal gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -199,9 +200,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua pressed gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua pressed gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -228,9 +227,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua selected gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the Aqua selected gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -256,9 +253,12 @@
         <ReturnType>CorePlot.CPTGradientBlendingMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The color blending mode used to create the gradient. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Create">
@@ -284,9 +284,7 @@
         <param name="beginningColor">The beginning color. </param>
         <param name="endingColor">The ending color. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between two given colors. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -323,9 +321,7 @@
         <param name="beginningPosition">The beginning position (0 ≤ beginningPosition ≤ 1). </param>
         <param name="endingPosition">The ending position (0 ≤ endingPosition ≤ 1). </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between the two given colors, at two given normalized positions. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with an axial linear gradient between two given colors, at two given normalized positions. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -358,7 +354,7 @@
         <param name="inRectangle">The rectangle to draw into. </param>
         <param name="context">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Draws the gradient into the given graphics context inside the provided rectangle. </para>
         </summary>
         <remarks>
           <para />
@@ -386,7 +382,7 @@
       <Docs>
         <param name="inContext">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Draws the gradient into the given graphics context clipped to the current drawing path. </para>
         </summary>
         <remarks>
           <para />
@@ -416,7 +412,7 @@
         <param name="rectangle">The rectangle to draw into. </param>
         <param name="context">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Draws the gradient into the given graphics context inside the provided rectangle. </para>
         </summary>
         <remarks>
           <para />
@@ -442,9 +438,12 @@
         <ReturnType>CorePlot.CPTGradientType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The gradient type. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GradientWithAlphaComponent">
@@ -468,9 +467,7 @@
       <Docs>
         <param name="alpha">The alpha component (0 ≤ alpha ≤ 1). </param>
         <summary>
-          <para>
-            <para>A copy of the current gradient with the new alpha value. </para>
-          </para>
+          <para>Copies the current gradient and sets a new alpha value. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -501,9 +498,7 @@
       <Docs>
         <param name="mode">The blending mode. </param>
         <summary>
-          <para>
-            <para>A copy of the current gradient with the new blending mode. </para>
-          </para>
+          <para>Copies the current gradient and sets a new blending mode. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -530,9 +525,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with a hydrogen spectrum gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with a hydrogen spectrum gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -563,9 +556,7 @@
       <Docs>
         <param name="position">The color stop position (0 ≤ position ≤ 1). </param>
         <summary>
-          <para>
-            <para>The color at <computeroutput>position</computeroutput> in gradient. </para>
-          </para>
+          <para>Gets the color at an arbitrary position in the gradient. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -596,9 +587,7 @@
       <Docs>
         <param name="atIndex">The color stop index. </param>
         <summary>
-          <para>
-            <para>The color at color stop <computeroutput>index</computeroutput>. </para>
-          </para>
+          <para>Gets the color at color stop <computeroutput>index</computeroutput> from elementList. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -625,9 +614,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with a rainbow gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with a rainbow gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -658,9 +645,7 @@
       <Docs>
         <param name="index">The color stop index. </param>
         <summary>
-          <para>
-            <para>A copy of the current gradient with the color stop removed. </para>
-          </para>
+          <para>Copies the current gradient and removes the color stop at <computeroutput>index</computeroutput> from elementList. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -691,9 +676,7 @@
       <Docs>
         <param name="position">The color stop position (0 ≤ position ≤ 1). </param>
         <summary>
-          <para>
-            <para>A copy of the current gradient with the color stop removed. </para>
-          </para>
+          <para>Copies the current gradient and removes the color stop at <computeroutput>position</computeroutput> from elementList. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -720,9 +703,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the source list selected gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the source list selected gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -749,9 +730,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the source list unselected gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the source list unselected gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -778,9 +757,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified dark gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified dark gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -807,9 +784,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified normal gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified normal gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -836,9 +811,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified pressed gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified pressed gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -865,9 +838,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified selected gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTGradient" /> instance initialized with the unified selected gradient. </para>
         </summary>
         <value>To be added.</value>
         <remarks>

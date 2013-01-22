@@ -17,7 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>A wrapper class around CGColorSpaceRef</para>
+      <para>Wrapper around CGColorSpaceRef. </para>
     </summary>
     <remarks>
       <para>A wrapper class around CGColorSpaceRef</para>
@@ -71,9 +71,7 @@
       <Docs>
         <param name="colorSpace">The color space. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTColorSpace" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated colorspace object with the specified color space. This is the designated initializer. </para>
         </summary>
         <remarks>
           <para>
@@ -140,9 +138,12 @@
         <ReturnType>MonoTouch.CoreGraphics.CGColorSpace</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The CGColorSpace to wrap around. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GenericRGBSpace">
@@ -162,7 +163,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>For the iPhone this is CGColorSpaceCreateDeviceRGB(), for Mac OS X CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB).</para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColorSpace" /> initialized with the standard RGB space. </para>
         </summary>
         <value>To be added.</value>
         <remarks>

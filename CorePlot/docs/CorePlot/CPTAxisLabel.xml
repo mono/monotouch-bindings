@@ -17,7 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>The label can be text-based or can be the content of any <see cref="T:CorePlot.CPTLayer" /> provided by the user. </para>
+      <para>An axis label. </para>
     </summary>
     <remarks>
       <para>The label can be text-based or can be the content of any <see cref="T:CorePlot.CPTLayer" /> provided by the user. </para>
@@ -63,9 +63,7 @@
       <Docs>
         <param name="layer">The label content. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTAxisLabel" /> object with the provided layer. This is the designated initializer. </para>
         </summary>
         <remarks>
           <para>
@@ -136,9 +134,7 @@
         <param name="newText">The label text. </param>
         <param name="style">The text style for the label. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTAxisLabel" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated text-based <see cref="T:CorePlot.CPTAxisLabel" /> object with the provided text and style. </para>
         </summary>
         <remarks>
           <para>
@@ -166,9 +162,12 @@
         <ReturnType>CorePlot.CPTAlignment</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The alignment of the axis label with respect to the tick mark. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ComputePositionBetween">
@@ -198,7 +197,7 @@
         <param name="coordinate">The axis coordinate. </param>
         <param name="direction">The offset direction. </param>
         <summary>
-          <para />
+          <para>Positions the axis label between two given points. </para>
         </summary>
         <remarks>
           <para />
@@ -230,7 +229,7 @@
         <param name="forCoordinate">The coordinate in which the label is being position. Orthogonal to the axis coordinate. </param>
         <param name="inDirection">The offset direction. </param>
         <summary>
-          <para />
+          <para>Positions the axis label relative to the given point. The algorithm for positioning is different when the rotation property is non-zero. When zero, the anchor point is positioned along the closest side of the label. When non-zero, the anchor point is left at the center. This has consequences for the value taken by the offset. </para>
         </summary>
         <remarks>
           <para />
@@ -256,9 +255,12 @@
         <ReturnType>CorePlot.CPTLayer</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The label content. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -299,9 +301,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The offset distance between the axis and label. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Rotation">
@@ -323,9 +328,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The rotation of the label in radians. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TickLocation">
@@ -347,9 +355,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The data coordinate of the ticklocation. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

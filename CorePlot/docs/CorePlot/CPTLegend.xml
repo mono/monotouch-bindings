@@ -17,7 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>The legend consists of one or more legend entries associated with plots. Each legend entry is made up of a graphical "swatch" that corresponds with the plot and a text title or label to identify the data series to the viewer. The swatches provide a visual connection to the plot. For instance, a swatch for a scatter plot might include a line segment drawn in the line style of the plot along with a plot symbol while a swatch for a pie chart might only show a rectangle or other shape filled with the background fill of the corresponding pie slice.</para>
+      <para>A graph legend. </para>
     </summary>
     <remarks>
       <para>The legend consists of one or more legend entries associated with plots. Each legend entry is made up of a graphical "swatch" that corresponds with the plot and a text title or label to identify the data series to the viewer. The swatches provide a visual connection to the plot. For instance, a swatch for a scatter plot might include a line segment drawn in the line style of the plot along with a plot symbol while a swatch for a pie chart might only show a rectangle or other shape filled with the background fill of the corresponding pie slice.</para>
@@ -64,9 +64,7 @@
       <Docs>
         <param name="graph">A graph. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTLegend" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTLegend" /> object and adds legend entries for each plot in the given graph. </para>
         </summary>
         <remarks>
           <para>
@@ -93,9 +91,7 @@
       <Docs>
         <param name="newPlots">An array of plots. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTLegend" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTLegend" /> object and adds legend entries for each plot in the given array. </para>
         </summary>
         <remarks>
           <para>
@@ -167,7 +163,7 @@
       <Docs>
         <param name="plot">The plot. </param>
         <summary>
-          <para />
+          <para>Add a plot to the legend. </para>
         </summary>
         <remarks>
           <para />
@@ -191,9 +187,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>An array of all plots associated with the legend. </para>
-          </para>
+          <para>All plots associated with the legend. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -222,9 +216,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The margin between columns, specified in device units. Default is 10.0. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Columns">
@@ -246,9 +243,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The desired number of columns of legend entries. If zero (0) (the default), the number of columns will be automatically determined. If both numberOfRows and numberOfColumns are greater than zero but their product is less than the total number of legend entries, some entries will not be shown. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ColumnWidths">
@@ -270,9 +270,12 @@
         <ReturnType>MonoTouch.Foundation.NSNumber[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The desired width of each column of legend entries, including the swatch, title, and title offset. Each element in this array should be an NSNumber representing the width of the corresponding column in device units. Columns are numbered from left to right starting from zero (0). If nil, all columns will be sized automatically. If there are more columns in the legend than specified in this array, the remaining columns will be sized automatically. Default is nil. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ColumnWidthsThatFit">
@@ -291,9 +294,12 @@
         <ReturnType>MonoTouch.Foundation.NSNumber[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The computed best-fit width of each column of legend entries, including the swatch, title, and title offset. Each element in this array is an NSNumber representing the width of the corresponding column in device units. Columns are numbered from left to right starting from zero (0). </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -334,9 +340,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES each column of legend entries will have the same width, otherwise columns will be sized to best fit the entries. Default is NO, meaning columns will be sized for the best fit. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EqualRows">
@@ -358,9 +367,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES (the default) each row of legend entries will have the same height, otherwise rows will be sized to best fit the entries. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromGraph">
@@ -384,9 +396,7 @@
       <Docs>
         <param name="graph">The graph. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTLegend" /> instance. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTLegend" /> instance with legend entries for each plot in the given graph. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -417,9 +427,7 @@
       <Docs>
         <param name="newPlots">An array of plots. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTLegend" /> instance. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTLegend" /> instance with legend entries for each plot in the given array. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -450,9 +458,7 @@
       <Docs>
         <param name="identifier">A plot identifier. </param>
         <summary>
-          <para>
-            <para>The plot with the given identifier or nil if it was not found. </para>
-          </para>
+          <para>Gets the plot with the given identifier from the plot array. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -483,9 +489,7 @@
       <Docs>
         <param name="atIndex">An index within the bounds of the plot array. </param>
         <summary>
-          <para>
-            <para>The plot at the given index. </para>
-          </para>
+          <para>Gets the plot at the given index in the plot array. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -518,7 +522,7 @@
         <param name="plot">The plot. </param>
         <param name="index">An index within the bounds of the plot array. </param>
         <summary>
-          <para />
+          <para>Add a plot to the legend at the given index in the plot array. </para>
         </summary>
         <remarks>
           <para />
@@ -541,9 +545,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, the legend layout needs to recalculated. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemovePlot">
@@ -567,7 +574,7 @@
       <Docs>
         <param name="plot">The plot to remove. </param>
         <summary>
-          <para />
+          <para>Remove a plot from the legend. </para>
         </summary>
         <remarks>
           <para />
@@ -595,7 +602,7 @@
       <Docs>
         <param name="identifier">The identifier of the plot to remove. </param>
         <summary>
-          <para />
+          <para>Remove a plot from the legend. </para>
         </summary>
         <remarks>
           <para />
@@ -621,9 +628,12 @@
         <ReturnType>MonoTouch.Foundation.NSNumber[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The desired height of each row of legend entries, including the swatch and title. Each element in this array should be an NSNumber representing the height of the corresponding row in device units. Rows are numbered from top to bottom starting from zero (0). If nil, all rows will be sized automatically. If there are more rows in the legend than specified in this array, the remaining rows will be sized automatically. Default is nil. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RowHeightsThatFit">
@@ -642,9 +652,12 @@
         <ReturnType>MonoTouch.Foundation.NSNumber</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The computed best-fit height of each row of legend entries, including the swatch and title. Each element in this array is an NSNumber representing the height of the corresponding row in device units. Rows are numbered from top to bottom starting from zero (0). </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RowMargin">
@@ -666,9 +679,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The margin between rows, specified in device units. Default is 5.0. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Rows">
@@ -690,9 +706,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The desired number of rows of legend entries. If zero (0) (the default), the number of rows will be automatically determined. If both numberOfRows and numberOfColumns are greater than zero but their product is less than the total number of legend entries, some entries will not be shown. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetLayoutChanged">
@@ -712,8 +731,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Marks the receiver as needing to update the layout of its legend entries. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SwatchBorderLineStyle">
@@ -735,9 +757,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style for the border drawn around each swatch. If nil (the default), no border is drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SwatchCornerRadius">
@@ -759,9 +784,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The corner radius for each swatch. Default is 0.0. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SwatchFill">
@@ -783,9 +811,12 @@
         <ReturnType>CorePlot.CPTFill</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The background fill drawn behind each swatch. If nil (the default), no fill is drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SwatchSize">
@@ -807,9 +838,12 @@
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The size of the graphical swatch. If swatchSize is CGSizeZero, swatches will be drawn using a square 150% of the text size on a side. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TextStyle">
@@ -831,9 +865,12 @@
         <ReturnType>CorePlot.CPTTextStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The text style used to draw all legend entry titles. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TitleOffset">
@@ -855,9 +892,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The distance between each swatch and its title, specified in device units. Default is 5.0. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

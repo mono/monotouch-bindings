@@ -17,7 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>Default animations for changes in position, bounds, and sublayers are turned off. The default layer is not opaque and does not mask to bounds.</para>
+      <para>Base class for all Core Animation layers in Core Plot. </para>
     </summary>
     <remarks>
       <para>Default animations for changes in position, bounds, and sublayers are turned off. The default layer is not opaque and does not mask to bounds.</para>
@@ -92,7 +92,7 @@
       <Docs>
         <param name="newFrame">The frame rectangle. </param>
         <summary>
-          <para>This is the designated initializer. The initialized layer will have the following properties that are different than a CALayer:<list type="bullet"><item><description>needsDisplayOnBoundsChange = NO</description></item><item><description>opaque = NO</description></item><item><description>masksToBounds = NO</description></item><item><description>padding = 0 on all four sides</description></item><item><description>Default animations for changes in position, bounds, and sublayers are turned off.</description></item></list></para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTLayer" /> object with the provided frame rectangle. </para>
         </summary>
         <remarks>
           <para>This is the designated initializer. The initialized layer will have the following properties that are different than a CALayer:<list type="bullet"><item><description>needsDisplayOnBoundsChange = NO</description></item><item><description>opaque = NO</description></item><item><description>masksToBounds = NO</description></item><item><description>padding = 0 on all four sides</description></item><item><description>Default animations for changes in position, bounds, and sublayers are turned off.</description></item></list></para>
@@ -144,7 +144,7 @@
       <Docs>
         <param name="context">The graphics context to clip. </param>
         <summary>
-          <para>The clipping path is built by recursively climbing the layer tree and combining the sublayer masks from each super layer. The tree traversal stops when a layer is encountered that is not a <see cref="T:CorePlot.CPTLayer" />.</para>
+          <para>Sets the clipping path of the given graphics context to mask the content. </para>
         </summary>
         <remarks>
           <para>The clipping path is built by recursively climbing the layer tree and combining the sublayer masks from each super layer. The tree traversal stops when a layer is encountered that is not a <see cref="T:CorePlot.CPTLayer" />.</para>
@@ -177,7 +177,7 @@
         <param name="forSublayer">The sublayer that called this method. </param>
         <param name="offset">The cumulative position offset between the receiver and the first layer in the recursive calling chain. </param>
         <summary>
-          <para>The clipping path is built by recursively climbing the layer tree and combining the sublayer masks from each super layer. The tree traversal stops when a layer is encountered that is not a <see cref="T:CorePlot.CPTLayer" />.</para>
+          <para>Recursively sets the clipping path of the given graphics context to the sublayer masking paths of its superlayers. </para>
         </summary>
         <remarks>
           <para>The clipping path is built by recursively climbing the layer tree and combining the sublayer masks from each super layer. The tree traversal stops when a layer is encountered that is not a <see cref="T:CorePlot.CPTLayer" />.</para>
@@ -264,9 +264,7 @@
       <Parameters />
       <Docs>
         <summary>
-          <para>
-            <para>A native image representation of the layer content. </para>
-          </para>
+          <para>Gets an image of the layer contents. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -294,9 +292,7 @@
       <Parameters />
       <Docs>
         <summary>
-          <para>
-            <para>PDF representation of the layer content. </para>
-          </para>
+          <para>Draws layer content and the content of all sublayers into a PDF document. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -349,9 +345,12 @@
         <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A drawing path that encompasses the inner boundary of the layer border. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LayoutAndRender">
@@ -375,7 +374,7 @@
       <Docs>
         <param name="context">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Updates the layer layout if needed and then draws layer content and the content of all sublayers into the provided graphics context. </para>
         </summary>
         <remarks>
           <para />
@@ -423,7 +422,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>This path defines the outline of the layer and is used to mask all drawing. Set to NULL when no masking is desired. The caller must NOT release the path returned by this property. </para>
+          <para>A drawing path that encompasses the layer content including any borders. Set to NULL when no masking is desired. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -450,9 +449,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, a sublayer mask is applied to clip sublayer content to the inside of the border. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OuterBorderPath">
@@ -474,9 +476,12 @@
         <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A drawing path that encompasses the outer boundary of the layer border. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PaddingBottom">
@@ -498,9 +503,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Amount to inset the bottom of each sublayer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PaddingLeft">
@@ -522,9 +530,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Amount to inset the left side of each sublayer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PaddingRight">
@@ -546,9 +557,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Amount to inset the right side of each sublayer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PaddingTop">
@@ -570,9 +584,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Amount to inset the top of each sublayer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PixelAlign">
@@ -592,8 +609,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Align the receiver's position with pixel boundaries. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PointingDeviceCancelledEvent">
@@ -723,7 +743,7 @@
       <Docs>
         <param name="context">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Draws layer content and the content of all sublayers into the provided graphics context. </para>
         </summary>
         <remarks>
           <para />
@@ -751,7 +771,7 @@
       <Docs>
         <param name="context">The graphics context to draw into. </param>
         <summary>
-          <para>This method replaces the drawInContext: method to ensure that layer content is always drawn as vectors and objects rather than as a cached bitmapped image representation. Subclasses should do all drawing here and must call super to set up the clipping path.</para>
+          <para>Draws layer content into the provided graphics context. </para>
         </summary>
         <remarks>
           <para>This method replaces the drawInContext: method to ensure that layer content is always drawn as vectors and objects rather than as a cached bitmapped image representation. Subclasses should do all drawing here and must call super to set up the clipping path.</para>
@@ -776,7 +796,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>This path defines the outline of the part of the layer where sublayers should draw and is used to mask all sublayer drawing. Set to NULL when no masking is desired. The caller must NOT release the path returned by this property. </para>
+          <para>A drawing path that encompasses the layer content excluding any borders. Set to NULL when no masking is desired. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -800,9 +820,12 @@
         <ReturnType>MonoTouch.Foundation.NSSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A set of sublayers that should be excluded from the automatic sublayer layout. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UseFastRendering">
@@ -821,9 +844,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, subclasses should optimize their drawing for speed over precision. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

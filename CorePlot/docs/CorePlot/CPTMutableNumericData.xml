@@ -17,8 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>
-        <see cref="T:CorePlot.CPTNumericData" /> combines a mutable data buffer with information about the data (shape, data type, size, etc.). The data is assumed to be an array of one or more dimensions of a single type of numeric data. Each numeric value in the array, which can be more than one byte in size, is referred to as a "sample". The structure of this object is similar to the NumPy ndarray object. </para>
+      <para>An annotated NSMutableData type. </para>
     </summary>
     <remarks>
       <para>
@@ -111,9 +110,7 @@
         <param name="newDataType">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTMutableNumericData" /> object with the provided data. This is the designated initializer. </para>
         </summary>
         <remarks>
           <para>
@@ -166,9 +163,7 @@
         <param name="newDataType">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -203,9 +198,7 @@
         <param name="newDataTypeString">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -231,9 +224,12 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns a pointer to the data buffer’s contents. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Shape">
@@ -256,7 +252,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>The shape describes the dimensions of the sample array stored in the data buffer. Each entry in the shape array represents the size of the corresponding array dimension and should be an unsigned integer encoded in an instance of NSNumber. </para>
+          <para>The shape of the data buffer array. Set a new shape to change the size of the data buffer. </para>
         </summary>
         <value>To be added.</value>
         <remarks>

@@ -16,8 +16,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Defines a range of plot data. </para>
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -103,9 +106,7 @@
         <param name="loc">The starting location of the range. </param>
         <param name="len">The length of the range. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTPlotRange" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTPlotRange" /> object with the provided location and length. </para>
         </summary>
         <remarks>
           <para>
@@ -135,9 +136,7 @@
       <Docs>
         <param name="number">The number to check. </param>
         <summary>
-          <para>
-            <para>The comparison result. </para>
-          </para>
+          <para>Compares a number to the range, determining if it is in the range, or above or below it. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -168,9 +167,7 @@
       <Docs>
         <param name="number">The number to check. </param>
         <summary>
-          <para>
-            <para>The comparison result. </para>
-          </para>
+          <para>Compares a number to the range, determining if it is in the range, or above or below it. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -201,9 +198,7 @@
       <Docs>
         <param name="number">The number to check. </param>
         <summary>
-          <para>
-            <para>The comparison result. </para>
-          </para>
+          <para>Compares a number to the range, determining if it is in the range, or above or below it. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -234,9 +229,7 @@
       <Docs>
         <param name="number">The number to check. </param>
         <summary>
-          <para>
-            <para>True if <computeroutput>location</computeroutput> ≤ <computeroutput>number</computeroutput> ≤ <computeroutput>end</computeroutput>. </para>
-          </para>
+          <para>Determines whether a given number is inside the range. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -267,9 +260,7 @@
       <Docs>
         <param name="number">The number to check. </param>
         <summary>
-          <para>
-            <para>True if <computeroutput>location</computeroutput> ≤ <computeroutput>number</computeroutput> ≤ <computeroutput>end</computeroutput>. </para>
-          </para>
+          <para>Determines whether a given number is inside the range. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -295,9 +286,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The ending value of the range. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EndDouble">
@@ -316,9 +310,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The ending value of the range as a <computeroutput>double</computeroutput>. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ExpandRangeByFactor">
@@ -342,7 +339,7 @@
       <Docs>
         <param name="factor">Factor used. A value of 1.0 gives no change. Less than 1.0 is a contraction, and greater than 1.0 is expansion. </param>
         <summary>
-          <para />
+          <para>Extends/contracts the range by a factor. </para>
         </summary>
         <remarks>
           <para />
@@ -372,9 +369,7 @@
         <param name="loc">The starting location of the range. </param>
         <param name="len">The length of the range. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotRange" /> instance initialized with the provided location and length. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotRange" /> instance initialized with the provided location and length. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -405,7 +400,7 @@
       <Docs>
         <param name="otherRange">The other plot range. </param>
         <summary>
-          <para />
+          <para>Sets the messaged object to the intersection with another range. The sign of <computeroutput>length</computeroutput> is unchanged. </para>
         </summary>
         <remarks>
           <para />
@@ -433,9 +428,7 @@
       <Docs>
         <param name="otherRange">The range to check. </param>
         <summary>
-          <para>
-            <para>True if the ranges both have the same location and length. </para>
-          </para>
+          <para>Determines whether a given range is equal to the range of the receiver. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -464,9 +457,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The length of the range. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LengthDouble">
@@ -485,9 +481,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The length of the range as a <computeroutput>double</computeroutput>. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Location">
@@ -509,9 +508,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The starting value of the range. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LocationDouble">
@@ -530,9 +532,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The starting value of the range as a <computeroutput>double</computeroutput>. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxLimit">
@@ -551,9 +556,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The maximum extreme value of the range. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxLimitDouble">
@@ -572,9 +580,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The maximum extreme value of the range as a <computeroutput>double</computeroutput>. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MidPoint">
@@ -593,9 +604,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The middle value of the range. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinLimit">
@@ -614,9 +628,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The minimum extreme value of the range. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinLimitDouble">
@@ -635,9 +652,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The minimum extreme value of the range as a <computeroutput>double</computeroutput>. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ShiftEndToFitInRange">
@@ -661,7 +681,7 @@
       <Docs>
         <param name="otherRange">Other range. The minimum possible shift is made. The range length is unchanged. </param>
         <summary>
-          <para />
+          <para>Moves the whole range so that the end point fits in other range. </para>
         </summary>
         <remarks>
           <para />
@@ -689,7 +709,7 @@
       <Docs>
         <param name="otherRange">Other range. The minimum possible shift is made. The range length is unchanged. </param>
         <summary>
-          <para />
+          <para>Moves the whole range so that the location fits in other range. </para>
         </summary>
         <remarks>
           <para />
@@ -717,7 +737,7 @@
       <Docs>
         <param name="otherRange">The other plot range. </param>
         <summary>
-          <para />
+          <para>Extends the range to include another range. The sign of <computeroutput>length</computeroutput> is unchanged. </para>
         </summary>
         <remarks>
           <para />

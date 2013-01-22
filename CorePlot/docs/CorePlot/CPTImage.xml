@@ -17,7 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>A wrapper class around CGImageRef.</para>
+      <para>Wrapper around CGImageRef. </para>
     </summary>
     <remarks>
       <para>A wrapper class around CGImageRef.</para>
@@ -71,9 +71,7 @@
       <Docs>
         <param name="anImage">The image to wrap. </param>
         <summary>
-          <para>
-            <para>A <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
-          </para>
+          <para>Initializes a <see cref="T:CorePlot.CPTImage" /> instance with the provided CGImageRef and scale 1.0. </para>
         </summary>
         <remarks>
           <para>
@@ -142,7 +140,7 @@
       <Docs>
         <param name="path">The file system path of the file. </param>
         <summary>
-          <para>On systems that support hi-dpi or "Retina" displays, this method will look for a double-resolution image with the given name followed by "@2x". If the "@2x" image is not available, the named image file will be loaded.</para>
+          <para>Initializes a <see cref="T:CorePlot.CPTImage" /> instance with the contents of a PNG file. </para>
         </summary>
         <remarks>
           <para>On systems that support hi-dpi or "Retina" displays, this method will look for a double-resolution image with the given name followed by "@2x". If the "@2x" image is not available, the named image file will be loaded.</para>
@@ -175,7 +173,7 @@
         <param name="rect">The rectangle to draw into. </param>
         <param name="context">The graphics context to draw into. </param>
         <summary>
-          <para>If the tiled property is TRUE, the image is repeatedly drawn to fill the clipping region, otherwise the image is scaled to fit in rect.</para>
+          <para>Draws the image into the given graphics context. </para>
         </summary>
         <remarks>
           <para>If the tiled property is TRUE, the image is repeatedly drawn to fill the clipping region, otherwise the image is scaled to fit in rect.</para>
@@ -204,9 +202,7 @@
       <Docs>
         <param name="anImage">The image to wrap. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTImage" /> instance initialized with the provided CGImageRef and scale 1.0. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -237,7 +233,7 @@
       <Docs>
         <param name="path">The file system path of the file. </param>
         <summary>
-          <para>On systems that support hi-dpi or "Retina" displays, this method will look for a double-resolution image with the given name followed by "@2x". If the "@2x" image is not available, the named image file will be loaded.</para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTImage" /> instance initialized with the contents of a PNG file. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -267,9 +263,12 @@
         <ReturnType>MonoTouch.CoreGraphics.CGImage</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The CGImageRef to wrap around. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TileAnchoredToContext">
@@ -292,7 +291,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>If YES, the origin of the tiled image is anchored to the origin of the drawing context. If NO, the origin of the tiled image is set to the orgin of rectangle passed to <computeroutput>drawInRect:inContext:</computeroutput>. The default value is YES. If <computeroutput>tiled</computeroutput> is NO, this property has no effect. </para>
+          <para>Anchor the tiled image to the context origin? </para>
         </summary>
         <value>To be added.</value>
         <remarks>

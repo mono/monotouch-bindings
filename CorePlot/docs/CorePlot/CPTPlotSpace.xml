@@ -16,8 +16,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Defines the coordinate system of a plot. </para>
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -102,9 +105,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Determines whether user can interactively change plot range and/or zoom. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Delegate">
@@ -178,9 +184,7 @@
       <Docs>
         <param name="coordinate">The axis coordinate. </param>
         <summary>
-          <para>
-            <para>The range of values. </para>
-          </para>
+          <para>Gets the range of values for a given coordinate. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -234,9 +238,12 @@
         <ReturnType>CorePlot.CPTGraph</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The graph of the space. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Identifier">
@@ -258,9 +265,12 @@
         <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>An object used to identify the plot in collections. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotAreaViewPoint">
@@ -284,9 +294,7 @@
       <Docs>
         <param name="forPlotPoint">A c-style array of data point coordinates (as NSDecimals). </param>
         <summary>
-          <para>
-            <para>The drawing coordinates of the data point. </para>
-          </para>
+          <para>Converts a data point to plot area drawing coordinates. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -317,9 +325,7 @@
       <Docs>
         <param name="plotPoint">A c-style array of data point coordinates (as doubles). </param>
         <summary>
-          <para>
-            <para>The drawing coordinates of the data point. </para>
-          </para>
+          <para>Converts a data point to plot area drawing coordinates. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -352,7 +358,7 @@
         <param name="plotPoint">A c-style array of data point coordinates (as doubles). </param>
         <param name="plotAreaViewPoint">The drawing coordinates of the data point. </param>
         <summary>
-          <para />
+          <para>Converts a point given in drawing coordinates to the data coordinate space. </para>
         </summary>
         <remarks>
           <para />
@@ -382,7 +388,7 @@
         <param name="plotPoint">A c-style array of data point coordinates (as NSDecimals). </param>
         <param name="plotAreaViewPoint">The drawing coordinates of the data point. </param>
         <summary>
-          <para />
+          <para>Converts a point given in plot area drawing coordinates to the data coordinate space. </para>
         </summary>
         <remarks>
           <para />
@@ -518,7 +524,7 @@
         <param name="interactionScale">The scaling factor. One gives no scaling. </param>
         <param name="interactionPoint">The plot area view point about which the scaling occurs. </param>
         <summary>
-          <para />
+          <para>Zooms the plot space equally in each dimension. </para>
         </summary>
         <remarks>
           <para />
@@ -546,7 +552,7 @@
       <Docs>
         <param name="plots">An array of the plots that have to fit in the visible area. </param>
         <summary>
-          <para />
+          <para>Scales the plot ranges so that the plots just fit in the visible space. </para>
         </summary>
         <remarks>
           <para />
@@ -576,7 +582,7 @@
         <param name="newRange">The new plot range. </param>
         <param name="coordinate">The axis coordinate. </param>
         <summary>
-          <para />
+          <para>Sets the range of values for a given coordinate. </para>
         </summary>
         <remarks>
           <para />
@@ -606,7 +612,7 @@
         <param name="scaleType">The new scale type. </param>
         <param name="forCoordinate">The axis coordinate. </param>
         <summary>
-          <para />
+          <para>Sets the scale type for a given coordinate. </para>
         </summary>
         <remarks>
           <para />
@@ -696,9 +702,12 @@
         <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot space delegate. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WillChangePlotRange">

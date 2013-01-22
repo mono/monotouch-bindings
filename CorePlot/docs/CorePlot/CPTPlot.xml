@@ -17,7 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>Each data series on the graph is represented by a plot. </para>
+      <para>An abstract plot class. </para>
     </summary>
     <remarks>
       <para>Each data series on the graph is represented by a plot. </para>
@@ -103,9 +103,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The number of data points stored in the cache. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CachedDecimalForField">
@@ -131,9 +134,7 @@
         <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <param name="index">The index of the desired data value. </param>
         <summary>
-          <para>
-            <para>The cached number or NAN if no data is cached for the requested field. </para>
-          </para>
+          <para>Retrieves a single number from the cache. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -166,9 +167,7 @@
         <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <param name="index">The index of the desired data value. </param>
         <summary>
-          <para>
-            <para>The cached number or NAN if no data is cached for the requested field. </para>
-          </para>
+          <para>Retrieves a single number from the cache. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -201,9 +200,7 @@
         <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <param name="index">The index of the desired data value. </param>
         <summary>
-          <para>
-            <para>The cached number. </para>
-          </para>
+          <para>Retrieves a single number from the cache. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -234,9 +231,7 @@
       <Docs>
         <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <summary>
-          <para>
-            <para>The array of cached numbers. </para>
-          </para>
+          <para>Retrieves an array of numbers from the cache. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -269,7 +264,7 @@
         <param name="numbers">An array of numbers to cache. Can be a , NSArray, or NSData (NSData is assumed to be a c-style array of type double). </param>
         <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <summary>
-          <para />
+          <para>Copies an array of numbers to the cache. </para>
         </summary>
         <remarks>
           <para />
@@ -301,7 +296,7 @@
         <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <param name="index">The index of the first data point to replace. </param>
         <summary>
-          <para />
+          <para>Copies an array of numbers to replace a part of the cache. </para>
         </summary>
         <remarks>
           <para />
@@ -327,9 +322,12 @@
         <ReturnType>CorePlot.CPTPlotCachePrecision</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The numeric precision used to cache the plot data and perform all plot calculations. Defaults to CPTPlotCachePrecisionAuto. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DataNeedsReloading">
@@ -348,9 +346,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, the plot data will be reloaded from the data source before the layer content is drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DataSource">
@@ -372,9 +373,12 @@
         <ReturnType>CorePlot.CPTPlotDataSource</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The data source for the plot. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DecimalDataType">
@@ -393,9 +397,12 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The CPTNumericDataType used to cache plot data as NSDecimal. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteData">
@@ -419,7 +426,7 @@
       <Docs>
         <param name="indexRange">The index range of the data records to remove. </param>
         <summary>
-          <para />
+          <para>Delete records in the given index range from the plot data cache. </para>
         </summary>
         <remarks>
           <para />
@@ -461,9 +468,12 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The CPTNumericDataType used to cache plot data as <computeroutput>double</computeroutput>. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DoublePrecisionCache">
@@ -482,9 +492,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, the cache holds data of type 'double', otherwise it holds NSNumber. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DrawSwatch">
@@ -514,7 +527,7 @@
         <param name="rect">The bounding rectangle where the swatch should be drawn. </param>
         <param name="context">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Draws the legend swatch of a legend entry. Subclasses should call super to draw the background fill and border. </para>
         </summary>
         <remarks>
           <para />
@@ -539,9 +552,7 @@
       <Parameters />
       <Docs>
         <summary>
-          <para>
-            <para>Array of NSNumbers for the various field identifiers. </para>
-          </para>
+          <para>Identifiers (enum values) identifying the fields. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -572,9 +583,7 @@
       <Docs>
         <param name="coord">The coordinate for which the corresponding field identifiers are desired. </param>
         <summary>
-          <para>
-            <para>Array of NSNumbers for the field identifiers. </para>
-          </para>
+          <para>The field identifiers that correspond to a particular coordinate. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -605,9 +614,7 @@
       <Docs>
         <param name="index">The index of the desired title. </param>
         <summary>
-          <para>
-            <para>The title of the legend entry at the requested index. </para>
-          </para>
+          <para>The title text of a legend entry. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -636,9 +643,12 @@
         <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>An object used to identify the plot in collections. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InsertData">
@@ -664,7 +674,7 @@
         <param name="index">The starting index of the new records. </param>
         <param name="numberOfRecords">The number of records to insert. </param>
         <summary>
-          <para />
+          <para>Insert records into the plot data cache at the given index. </para>
         </summary>
         <remarks>
           <para />
@@ -690,9 +700,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot field identifier of the data field used to generate automatic labels. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelFormatter">
@@ -714,9 +727,12 @@
         <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The number formatter used to format the data labels. Set this property to <computeroutput>nil</computeroutput> to hide the data labels. If you need a non-numerical label, such as a date, you can use a formatter than turns the numerical plot coordinate into a string (e.g., "Jan 10, 2010"). The <see cref="T:CorePlot.CPTTimeFormatter" /> is useful for this purpose. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelOffset">
@@ -738,9 +754,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The distance that labels should be offset from their anchor points. The direction of the offset is defined by subclasses. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelRotation">
@@ -762,9 +781,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The rotation of the data labels in radians. Set this property to <computeroutput>M_PI/2.0</computeroutput> to have labels read up the screen, for example. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelTextStyle">
@@ -786,9 +808,12 @@
         <ReturnType>CorePlot.CPTMutableTextStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The text style used to draw the data labels. Set this property to <computeroutput>nil</computeroutput> to hide the data labels. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NeedsRelabel">
@@ -807,9 +832,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, the plot needs to be relabeled before the layer content is drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NumberOfFields">
@@ -829,9 +857,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>The number of fields. </para>
-          </para>
+          <para>Number of fields in a plot data record. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -858,9 +884,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>The number of legend entries. </para>
-          </para>
+          <para>The number of legend entries provided by this plot. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -893,9 +917,7 @@
         <param name="forFieldEnum">The field index. </param>
         <param name="indexRange">The range of the data indexes of interest. </param>
         <summary>
-          <para>
-            <para>An array of data points. </para>
-          </para>
+          <para>Gets a range of plot data for the given plot and field. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -921,9 +943,12 @@
         <ReturnType>CorePlot.CPTPlotArea</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot area for the plot. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotRangeForCoordinate">
@@ -947,9 +972,7 @@
       <Docs>
         <param name="coord">The coordinate identifier. </param>
         <summary>
-          <para>
-            <para>The plot range enclosing the data. </para>
-          </para>
+          <para>Determines the smallest plot range that fully encloses the data for a particular coordinate. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -980,9 +1003,7 @@
       <Docs>
         <param name="forFieldEnum">The field enumerator identifying the field. </param>
         <summary>
-          <para>
-            <para>The plot range enclosing the data. </para>
-          </para>
+          <para>Determines the smallest plot range that fully encloses the data for a particular field. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -1011,9 +1032,12 @@
         <ReturnType>CorePlot.CPTPlotSpace</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot space for the plot. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PositionLabelAnnotationforIndex">
@@ -1039,7 +1063,7 @@
         <param name="label">The annotation for the data label. </param>
         <param name="index">The data index for the label. </param>
         <summary>
-          <para />
+          <para>Adjusts the position of the data label annotation for the plot point at the given index. </para>
         </summary>
         <remarks>
           <para />
@@ -1063,8 +1087,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Updates the data labels. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RelabelIndexRange">
@@ -1088,14 +1115,7 @@
       <Docs>
         <param name="indexRange">The new indexRange for the labels.</param>
         <summary>
-          <para>
-            <xrefsect id="todo_1_todo000010">
-              <xreftitle>Todo</xreftitle>
-              <xrefdescription>
-                <para>Needs more documentation. </para>
-              </xrefdescription>
-            </xrefsect>
-          </para>
+          <para>Sets the labelIndexRange and informs the receiver that it needs to relabel. </para>
         </summary>
         <remarks>
           <para>
@@ -1126,8 +1146,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Reload all plot data from the data source immediately. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReloadDataIfNeeded">
@@ -1147,8 +1170,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Reload plot data from the data source only if the data cache is out of date. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReloadDataInIndexRange">
@@ -1172,7 +1198,7 @@
       <Docs>
         <param name="indexRange">The index range to load. </param>
         <summary>
-          <para />
+          <para>Reload plot data in the given index range from the data source immediately. </para>
         </summary>
         <remarks>
           <para />
@@ -1196,8 +1222,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Marks the receiver as needing the data source reloaded before the content is next drawn. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetNeedsRelabel">
@@ -1217,8 +1246,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Marks the receiver as needing to update the labels before the content is next drawn. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Title">
@@ -1240,9 +1272,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The title of the plot displayed in the legend. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

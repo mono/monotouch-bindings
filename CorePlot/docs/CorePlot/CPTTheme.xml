@@ -17,14 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>
-        <xrefsect id="todo_1_todo000012">
-          <xreftitle>Todo</xreftitle>
-          <xrefdescription>
-            <para>More documentation needed </para>
-          </xrefdescription>
-        </xrefsect>
-      </para>
+      <para>Creates a <see cref="T:CorePlot.CPTGraph" /> instance formatted with predefined themes. </para>
     </summary>
     <remarks>
       <para>
@@ -146,7 +139,7 @@
       <Docs>
         <param name="axisSet">The axis set to style. </param>
         <summary>
-          <para />
+          <para>Applies the theme to the provided axis set. </para>
         </summary>
         <remarks>
           <para />
@@ -174,7 +167,7 @@
       <Docs>
         <param name="graph">The graph to style. </param>
         <summary>
-          <para />
+          <para>Applies the background theme to the provided graph. </para>
         </summary>
         <remarks>
           <para />
@@ -202,7 +195,7 @@
       <Docs>
         <param name="graph">The graph to style. </param>
         <summary>
-          <para />
+          <para>Applies the theme to the provided graph. </para>
         </summary>
         <remarks>
           <para />
@@ -230,7 +223,7 @@
       <Docs>
         <param name="plotAreaFrame">The plot area to style. </param>
         <summary>
-          <para />
+          <para>Applies the theme to the provided plot area. </para>
         </summary>
         <remarks>
           <para />
@@ -277,9 +270,12 @@
         <ReturnType>MonoTouch.ObjCRuntime.Class</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The class used to create new graphs. Must be a subclass of <see cref="T:CorePlot.CPTGraph" />. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Name">
@@ -302,9 +298,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>The name. </para>
-          </para>
+          <para>The name used for this theme class. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -332,9 +326,7 @@
       <Parameters />
       <Docs>
         <summary>
-          <para>
-            <para>The new graph. </para>
-          </para>
+          <para>Creates a new graph styled with the theme. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -361,9 +353,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>An NSArray containing all available theme classes, sorted by name. </para>
-          </para>
+          <para>List of the available theme classes, sorted by name. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -394,9 +384,7 @@
       <Docs>
         <param name="theme">The name of the desired theme. </param>
         <summary>
-          <para>
-            <para>A <see cref="T:CorePlot.CPTTheme" /> instance with name matching themeName or nil if no themes with a matching name were found. </para>
-          </para>
+          <para>Gets a named theme. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>

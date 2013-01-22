@@ -17,8 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>
-In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle" /> if you want to customize properties. <para>See Apple's <ulink url="http://developer.apple.com/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_paths/dq_paths.html#//apple_ref/doc/uid/TP30001066-CH211-TPXREF105">Quartz 2D</ulink> and <ulink url="http://developer.apple.com/documentation/GraphicsImaging/Reference/CGContext/Reference/reference.html">CGContext</ulink> documentation for more information about each of these properties.</para></para>
+      <para>Immutable wrapper for various line drawing properties. </para>
     </summary>
     <remarks>
       <para>
@@ -108,9 +107,12 @@ In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle"
         <ReturnType>MonoTouch.Foundation.NSArray</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The dash-and-space pattern for the line. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -151,9 +153,12 @@ In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle"
         <ReturnType>MonoTouch.CoreGraphics.CGLineCap</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The style for the endpoints of lines drawn in a graphics context. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LineColor">
@@ -175,9 +180,12 @@ In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle"
         <ReturnType>CorePlot.CPTColor</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The current stroke color in a context. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LineJoin">
@@ -199,9 +207,12 @@ In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle"
         <ReturnType>MonoTouch.CoreGraphics.CGLineJoin</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The style for the joins of connected lines in a graphics context. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LineStyle">
@@ -221,9 +232,7 @@ In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle"
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTLineStyle" /> instance. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTLineStyle" /> instance. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -252,9 +261,12 @@ In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle"
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line width for a graphics context. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MiterLimit">
@@ -276,9 +288,12 @@ In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle"
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The miter limit for the joins of connected lines in a graphics context. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PatternPhase">
@@ -300,9 +315,12 @@ In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle"
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The starting phase of the line dash pattern. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetLineStyleInContext">
@@ -326,7 +344,7 @@ In general, you will want to create a <see cref="T:CorePlot.CPTMutableLineStyle"
       <Docs>
         <param name="theContext">The graphics context. </param>
         <summary>
-          <para />
+          <para>Sets all of the line drawing properties in the given graphics context. </para>
         </summary>
         <remarks>
           <para />

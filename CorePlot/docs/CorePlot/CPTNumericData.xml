@@ -17,8 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>
-        <see cref="T:CorePlot.CPTNumericData" /> combines a data buffer with information about the data (shape, data type, size, etc.). The data is assumed to be an array of one or more dimensions of a single type of numeric data. Each numeric value in the array, which can be more than one byte in size, is referred to as a "sample". The structure of this object is similar to the NumPy ndarray object.</para>
+      <para>An annotated NSData type. </para>
     </summary>
     <remarks>
       <para>
@@ -113,7 +112,7 @@
         <param name="newDataType">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull. Numbers and strings will be converted to newDataType and stored in the receiver. Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types. <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para></para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTNumericData" /> object with the provided data. </para>
         </summary>
         <remarks>
           <para>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull. Numbers and strings will be converted to newDataType and stored in the receiver. Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types. <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para></para>
@@ -142,7 +141,7 @@
         <param name="newDataTypeString">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull. Numbers and strings will be converted to newDataTypeString and stored in the receiver. Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types. <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para></para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTNumericData" /> object with the provided data. </para>
         </summary>
         <remarks>
           <para>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull. Numbers and strings will be converted to newDataTypeString and stored in the receiver. Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types. <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para></para>
@@ -171,9 +170,7 @@
         <param name="newDataType">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTNumericData" /> object with the provided data. This is the designated initializer. </para>
         </summary>
         <remarks>
           <para>
@@ -204,9 +201,7 @@
         <param name="newDataTypeString">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTNumericData" /> object with the provided data. </para>
         </summary>
         <remarks>
           <para>
@@ -231,9 +226,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The byte order used to store each sample in the data buffer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Bytes">
@@ -273,9 +271,12 @@
         <ReturnType>MonoTouch.Foundation.NSData</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The data buffer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DataType">
@@ -294,9 +295,12 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The type of data stored in the data buffer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DataTypeFormat">
@@ -315,9 +319,12 @@
         <ReturnType>CorePlot.CPTDataTypeFormat</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The format of the data stored in the data buffer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -364,7 +371,7 @@
         <param name="newDataType">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull. Numbers and strings will be converted to newDataType and stored in the receiver. Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types. <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para></para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -397,7 +404,7 @@
         <param name="newDataTypeString">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>Objects in newData should be instances of NSNumber, NSDecimalNumber, NSString, or NSNull. Numbers and strings will be converted to newDataTypeString and stored in the receiver. Any instances of NSNull will be treated as "not a number" (NAN) values for floating point types and "0" for integer types. <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para></para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -430,9 +437,7 @@
         <param name="newDataType">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -467,9 +472,7 @@
         <param name="newDataTypeString">The type of data stored in the buffer. </param>
         <param name="shapeArray">The shape of the data buffer array. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTNumericData" /> instance. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -495,9 +498,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns the number of bytes contained in the data buffer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NumberOfDimensions">
@@ -516,9 +522,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The number dimensions in the data buffer array. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NumberOfSamples">
@@ -537,9 +546,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The number of samples of dataType stored in the data buffer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SampleArray">
@@ -560,9 +572,7 @@
       <Parameters />
       <Docs>
         <summary>
-          <para>
-            <para>An NSArray of NSNumber objects representing the data from the receiver. </para>
-          </para>
+          <para>Gets an array data samples from the receiver. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -588,9 +598,12 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The number of bytes in a single sample of data. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SamplePointer">
@@ -614,9 +627,7 @@
       <Docs>
         <param name="sample">The index into the sample array. The array is treated as if it only has one dimension. </param>
         <summary>
-          <para>
-            <para>A pointer to the sample or <computeroutput>NULL</computeroutput> if the sample index is out of bounds. </para>
-          </para>
+          <para>Gets a pointer to a given sample in the data buffer. </para>
         </summary>
         <remarks>
           <para>
@@ -646,8 +657,7 @@
       <Docs>
         <param name="sample">The index into the sample array. The array is treated as if it only has one dimension. </param>
         <summary>
-          <para>
-NSNumber does not support complex numbers. Complex number types will be cast to <computeroutput>float</computeroutput> or <computeroutput>double</computeroutput> before being wrapped in an instance of NSNumber. <para>The sample value wrapped in an instance of NSNumber or <computeroutput>nil</computeroutput> if the sample index is out of bounds.</para></para>
+          <para>Gets the value of a given sample in the data buffer. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -673,7 +683,7 @@ NSNumber does not support complex numbers. Complex number types will be cast to 
       </ReturnValue>
       <Docs>
         <summary>
-          <para>The shape describes the dimensions of the sample array stored in the data buffer. Each entry in the shape array represents the size of the corresponding array dimension and should be an unsigned integer encoded in an instance of NSNumber. </para>
+          <para>The shape of the data buffer array. </para>
         </summary>
         <value>To be added.</value>
         <remarks>

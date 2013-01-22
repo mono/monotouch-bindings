@@ -16,8 +16,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>A two-dimensional bar plot. </para>
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -126,9 +129,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The corner radius for the end of the bars. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BarLabelOffset">
@@ -198,9 +204,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The starting offset of the first bar in location data units. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BarsAreHorizontal">
@@ -222,9 +231,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, the bars will have a horizontal orientation, otherwise they will be vertical. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BarWidth">
@@ -247,7 +259,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>With plot coordinates, the bar locations are one data unit apart (e.g., 1, 2, 3, etc.), a value of 1.0 will result in bars that touch each other; a value of 0.5 will result in bars that are as wide as the gap between them.</para>
+          <para>The width of each bar. Either view or plot coordinates can be used. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -279,9 +291,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether the bar width and bar offset is in view coordinates, or in plot coordinates. Default is NO, meaning plot coordinates are used. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseValue">
@@ -303,9 +318,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The coordinate value of the fixed end of the bars. This is only used if barsHaveVariableBases is NO. Otherwise, the data source will be queried for an appropriate value of CPTBarPlotFieldBarBase. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateTubularBarPlot">
@@ -331,9 +349,7 @@
         <param name="color">The beginning color. </param>
         <param name="horizontalBars">If true, the bars will have a horizontal orientation, otherwise they will be vertical. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTBarPlot" /> instance initialized with a linear gradient bar fill. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTBarPlot" /> instance initialized with a bar fill consisting of a linear gradient between black and the given color. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -381,9 +397,12 @@
         <ReturnType>CorePlot.CPTFill</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The fill style for the bars. If nil, the bars are not filled. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LineStyle">
@@ -405,9 +424,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style for the bar outline. If nil, the outline is not drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotRange">
@@ -430,7 +452,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>If a plot range is provided, the bars are spaced evenly throughout the plot range. If plotRange is nil, bar locations are provided by Cocoa bindings or the bar plot datasource. If locations are not provided by either bindings or the datasource, the first bar will be placed at zero (0) and subsequent bars will be at successive positive integer coordinates. </para>
+          <para>Sets the plot range for the independent axis. </para>
         </summary>
         <value>To be added.</value>
         <remarks>

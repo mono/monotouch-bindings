@@ -16,8 +16,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>An abstract axis class. </para>
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -104,7 +107,7 @@
       <Docs>
         <param name="limitBand">The new limit band. </param>
         <summary>
-          <para />
+          <para>Add a background limit band. </para>
         </summary>
         <remarks>
           <para />
@@ -131,7 +134,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>When initializing the fills, provide an NSArray containing any combinination of <see cref="T:CorePlot.CPTFill" />, <see cref="T:CorePlot.CPTColor" />, <see cref="T:CorePlot.CPTGradient" />, and/or <see cref="T:CorePlot.CPTImage" /> objects. Blank (transparent) bands can be created by using [NSNull null] in place of some of the <see cref="T:CorePlot.CPTFill" /> objects. </para>
+          <para>An array of two or more fills to be drawn between successive major tick marks. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -173,9 +176,12 @@
         <ReturnType>MonoTouch.Foundation.NSSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The set of axis labels. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AxisLineStyle">
@@ -197,9 +203,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style for the axis line. If nil, the line is not drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AxisSet">
@@ -218,9 +227,12 @@
         <ReturnType>CorePlot.CPTAxisSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The axis set that the axis belongs to. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AxisShouldRelabel">
@@ -258,9 +270,12 @@
         <ReturnType>CorePlot.CPTAxisTitle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The axis title. If nil, no title is drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BackgroundLimitBands">
@@ -280,7 +295,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>The limit bands are drawn on top of the alternating band fills. </para>
+          <para>An array of <see cref="T:CorePlot.CPTLimitBand" /> objects. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -307,9 +322,12 @@
         <ReturnType>CorePlot.CPTCoordinate</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The axis coordinate. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultTitleLocation">
@@ -328,9 +346,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The position along the axis where the axis title should be centered if <computeroutput>titleLocation</computeroutput> is NaN. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Delegate">
@@ -389,7 +410,7 @@
       <Docs>
         <param name="context">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Draws alternating background bands into the provided graphics context. </para>
         </summary>
         <remarks>
           <para />
@@ -417,7 +438,7 @@
       <Docs>
         <param name="context">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Draws background limit ranges into the provided graphics context. </para>
         </summary>
         <remarks>
           <para />
@@ -447,7 +468,7 @@
         <param name="context">The graphics context to draw into. </param>
         <param name="major">Draw the major grid lines if true, minor grid lines otherwise. </param>
         <summary>
-          <para />
+          <para>Draws grid lines into the provided graphics context. </para>
         </summary>
         <remarks>
           <para />
@@ -475,9 +496,7 @@
       <Docs>
         <param name="allLocations">A set of major tick locations. </param>
         <summary>
-          <para>
-            <para>The filtered set. </para>
-          </para>
+          <para>Removes any major ticks falling inside the label exclusion ranges from the set of tick locations. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -508,9 +527,7 @@
       <Docs>
         <param name="allLocations">A set of minor tick locations. </param>
         <summary>
-          <para>
-            <para>The filtered set. </para>
-          </para>
+          <para>Removes any minor ticks falling inside the label exclusion ranges from the set of tick locations. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -539,9 +556,12 @@
         <ReturnType>CorePlot.CPTPlotRange</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot range over which the grid lines are visible. Note that this range applies to the orthogonal coordinate, not the axis coordinate itself. Set to nil for no restriction. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelAlignment">
@@ -563,9 +583,12 @@
         <ReturnType>CorePlot.CPTAlignment</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The alignment of the axis label with respect to the tick mark. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelExclusionRanges">
@@ -587,9 +610,12 @@
         <ReturnType>MonoTouch.Foundation.NSObject[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>An array of <see cref="T:CorePlot.CPTPlotRange" /> objects. Any tick marks and labels falling inside any of the ranges in the array will not be drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelFormatter">
@@ -611,9 +637,12 @@
         <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The number formatter used to format the label text. If you need a non-numerical label, such as a date, you can use a formatter than turns the numerical plot coordinate into a string (e.g., "Jan 10, 2010"). The <see cref="T:CorePlot.CPTTimeFormatter" /> is useful for this purpose. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelingOrigin">
@@ -635,9 +664,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The origin used for axis labels. The default value is 0. It is only used when the axis labeling policy is CPTAxisLabelingPolicyFixedInterval. The origin is a reference point used to being labeling. Labels are added at the origin, as well as at fixed intervals above and below the origin. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelingPolicy">
@@ -659,9 +691,12 @@
         <ReturnType>CorePlot.CPTAxisLabelingPolicy</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The axis labeling policy. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelOffset">
@@ -683,9 +718,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The offset distance between the tick marks and labels. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelRotation">
@@ -707,9 +745,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The rotation of the axis labels in radians. Set this property to M_PI/2.0 to have labels read up the screen, for example. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LabelTextStyle">
@@ -731,9 +772,12 @@
         <ReturnType>CorePlot.CPTTextStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The text style used to draw the label text. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MajorGridLines">
@@ -752,9 +796,12 @@
         <ReturnType>CorePlot.CPTGridLines</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The layer that draws the major grid lines. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MajorGridLineStyle">
@@ -776,9 +823,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style for the major grid lines. If nil, the major grid lines are not drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MajorIntervalLength">
@@ -800,9 +850,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The distance between major tick marks expressed in data coordinates. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MajorTickLength">
@@ -824,9 +877,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The length of the major tick marks. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MajorTickLineStyle">
@@ -848,9 +904,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style for the major tick marks. If nil, the major ticks are not drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MajorTickLocations">
@@ -872,9 +931,12 @@
         <ReturnType>MonoTouch.Foundation.NSSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A set of axis coordinates for all major tick marks. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorGridLines">
@@ -893,9 +955,12 @@
         <ReturnType>CorePlot.CPTGridLines</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The layer that draws the minor grid lines. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorGridLineStyle">
@@ -917,9 +982,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style for the minor grid lines. If nil, the minor grid lines are not drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTickAxisLabels">
@@ -941,9 +1009,12 @@
         <ReturnType>MonoTouch.Foundation.NSSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The set of minor tick axis labels. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTickLabelAlignment">
@@ -965,9 +1036,12 @@
         <ReturnType>CorePlot.CPTAlignment</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The alignment of the axis label with respect to the tick mark. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTickLabelFormatter">
@@ -989,9 +1063,12 @@
         <ReturnType>MonoTouch.Foundation.NSNumberFormatter</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The number formatter used to format the label text of minor ticks. If you need a non-numerical label, such as a date, you can use a formatter than turns the numerical plot coordinate into a string (e.g., "Jan 10, 2010"). The <see cref="T:CorePlot.CPTTimeFormatter" /> is useful for this purpose. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTickLabelOffset">
@@ -1013,9 +1090,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The offset distance between the minor tick marks and labels. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTickLabelRotation">
@@ -1037,9 +1117,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The rotation of the axis minor tick labels in radians. Set this property to M_PI/2.0 to have labels read up the screen, for example. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTickLabelTextStyle">
@@ -1061,9 +1144,12 @@
         <ReturnType>CorePlot.CPTTextStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The text style used to draw the label text of minor tick labels. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTickLength">
@@ -1085,9 +1171,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The length of the minor tick marks. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTickLineStyle">
@@ -1109,9 +1198,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style for the minor tick marks. If nil, the minor ticks are not drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTickLocations">
@@ -1133,9 +1225,12 @@
         <ReturnType>MonoTouch.Foundation.NSSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A set of axis coordinates for all minor tick marks. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinorTicksPerInterval">
@@ -1157,9 +1252,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The number of minor tick marks drawn in each major tick interval. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NeedsRelabel">
@@ -1178,9 +1276,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, the axis needs to be relabeled before the layer content is drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotArea">
@@ -1202,9 +1303,12 @@
         <ReturnType>CorePlot.CPTPlotArea</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot area that the axis belongs to. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotSpace">
@@ -1226,9 +1330,12 @@
         <ReturnType>CorePlot.CPTPlotSpace</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot space for the axis. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PreferredNumberOfMajorTicks">
@@ -1250,9 +1357,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The number of ticks that should be targeted when autogenerating positions. This property only applies when the CPTAxisLabelingPolicyAutomatic or CPTAxisLabelingEqualDivisions policies are in use. If zero (0) (the default), Core Plot will choose a reasonable number of ticks. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Relabel">
@@ -1272,8 +1382,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Updates the axis labels. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveBackgroundLimitBand">
@@ -1297,7 +1410,7 @@
       <Docs>
         <param name="limitBand">The limit band to be removed. </param>
         <summary>
-          <para />
+          <para>Remove a background limit band. </para>
         </summary>
         <remarks>
           <para />
@@ -1324,7 +1437,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>If NO, the default, the major and minor grid lines are drawn in layers shared with other axes. If YES, the grid lines are drawn in their own layers. </para>
+          <para>Use separate layers for drawing grid lines? </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -1349,8 +1462,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Marks the receiver as needing to update the labels before the content is next drawn. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ShouldUpdateAxisLablesAtLocations">
@@ -1388,9 +1504,12 @@
         <ReturnType>CorePlot.CPTSign</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The tick direction. The direction is given as the sign that ticks extend along the axis (e.g., positive, or negative). </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Title">
@@ -1412,9 +1531,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A convenience property for setting the text title of the axis. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TitleLocation">
@@ -1436,9 +1558,12 @@
         <ReturnType>MonoTouch.Foundation.NSDecimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The position along the axis where the axis title should be centered. If NaN, the <computeroutput>defaultTitleLocation</computeroutput> will be used. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TitleOffset">
@@ -1460,9 +1585,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The offset distance between the axis title and the axis line. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TitleRotation">
@@ -1484,9 +1612,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The rotation angle of the axis title in radians. If NaN (the default), the title will be parallel to the axis. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TitleTextStyle">
@@ -1508,9 +1639,12 @@
         <ReturnType>CorePlot.CPTTextStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The text style used to draw the axis title text. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ViewPointForCoordinateDecimalNumber">
@@ -1534,9 +1668,7 @@
       <Docs>
         <param name="coordinateDecimalNumber">The axis value in data coordinate space. </param>
         <summary>
-          <para>
-            <para>The drawing coordinates of the point. </para>
-          </para>
+          <para>Converts a position on the axis to drawing coordinates. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -1565,9 +1697,12 @@
         <ReturnType>CorePlot.CPTPlotRange</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot range over which the axis and ticks are visible. Use this to restrict an axis to less than the full plot area width. Set to nil for no restriction. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WeakDelegate">

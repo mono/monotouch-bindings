@@ -16,8 +16,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>A pie chart. </para>
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -102,9 +105,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style used to outline the pie slices. If nil, no border is drawn. Defaults to nil. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CenterAnchor">
@@ -126,9 +132,12 @@
         <ReturnType>System.Drawing.PointF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The position of the center of the pie chart with the x and y coordinates given as a fraction of the width and height, respectively. Defaults to (0.5, 0.5). </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultPieSliceColorForIndex">
@@ -152,9 +161,7 @@
       <Docs>
         <param name="pieSliceIndex">The pie slice index to return a color for. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTColor" /> instance corresponding to the default value for this pie slice index. </para>
-          </para>
+          <para>Creates and returns a <see cref="T:CorePlot.CPTColor" /> that acts as the default color for that pie chart index. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -202,9 +209,12 @@
         <ReturnType>CorePlot.CPTFill</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A fill drawn on top of the pie chart. Can be used to add shading/gloss effects. Defaults to nil. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PieInnerRadius">
@@ -226,9 +236,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The inner radius of the pie chart, used to create a "donut hole". Defaults to 0. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PieRadius">
@@ -250,9 +263,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The radius of the overall pie chart. Defaults to 80% of the initial frame size. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SliceDirection">
@@ -274,9 +290,12 @@
         <ReturnType>CorePlot.CPTPieDirection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Determines whether the pie slices are drawn in a clockwise or counter-clockwise direction from the starting point. Defaults to clockwise. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SliceLabelOffset">
@@ -337,9 +356,12 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The starting angle for the first slice in radians. Defaults to pi/2. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

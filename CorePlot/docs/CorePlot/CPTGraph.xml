@@ -17,14 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>
-        <xrefsect id="todo_1_todo000006">
-          <xreftitle>Todo</xreftitle>
-          <xrefdescription>
-            <para>More documentation needed </para>
-          </xrefdescription>
-        </xrefsect>
-      </para>
+      <para>An abstract graph class. </para>
     </summary>
     <remarks>
       <para>
@@ -122,7 +115,7 @@
       <Docs>
         <param name="plot">The plot. </param>
         <summary>
-          <para />
+          <para>Add a plot to the default plot space. </para>
         </summary>
         <remarks>
           <para />
@@ -152,7 +145,7 @@
         <param name="plot">The plot. </param>
         <param name="toPlotSpace">The plot space. </param>
         <summary>
-          <para />
+          <para>Add a plot to the given plot space. </para>
         </summary>
         <remarks>
           <para />
@@ -180,7 +173,7 @@
       <Docs>
         <param name="space">The plot space. </param>
         <summary>
-          <para />
+          <para>Add a plot space to the graph. </para>
         </summary>
         <remarks>
           <para />
@@ -204,9 +197,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>An array of all plots associated with the graph. </para>
-          </para>
+          <para>All plots associated with the graph. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -237,7 +228,7 @@
       <Docs>
         <param name="theme">The theme object used to style the graph. </param>
         <summary>
-          <para />
+          <para>Apply a theme to style the graph. </para>
         </summary>
         <remarks>
           <para />
@@ -263,9 +254,12 @@
         <ReturnType>CorePlot.CPTAxisSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The axis set. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultPlotSpace">
@@ -284,9 +278,12 @@
         <ReturnType>CorePlot.CPTPlotSpace</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The default plot space. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -331,7 +328,7 @@
         <param name="plot">The plot. </param>
         <param name="index">An index within the bounds of the plot array. </param>
         <summary>
-          <para />
+          <para>Add a plot to the default plot space at the given index in the plot array. </para>
         </summary>
         <remarks>
           <para />
@@ -363,7 +360,7 @@
         <param name="index">An index within the bounds of the plot array. </param>
         <param name="intoPlotSpace">The plot space. </param>
         <summary>
-          <para />
+          <para>Add a plot to the given plot space at the given index in the plot array. </para>
         </summary>
         <remarks>
           <para />
@@ -413,9 +410,12 @@
         <ReturnType>CorePlot.CPTRectAnchor</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The location of the legend with respect to the graph frame. Default is bottom center. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LegendDisplacement">
@@ -437,9 +437,12 @@
         <ReturnType>System.Drawing.PointF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A vector giving the displacement of the legend from the edge location. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NewAxisSet">
@@ -460,9 +463,7 @@
       <Parameters />
       <Docs>
         <summary>
-          <para>
-            <para>A new axis set. </para>
-          </para>
+          <para>Creates a new axis set for the graph. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -490,9 +491,7 @@
       <Parameters />
       <Docs>
         <summary>
-          <para>
-            <para>A new plot space. </para>
-          </para>
+          <para>Creates a new plot space for the graph. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -521,9 +520,12 @@
         <ReturnType>CorePlot.CPTPlotAreaFrame</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot area frame. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotAt">
@@ -547,9 +549,7 @@
       <Docs>
         <param name="index">An index within the bounds of the plot array. </param>
         <summary>
-          <para>
-            <para>The plot at the given index. </para>
-          </para>
+          <para>Gets the plot at the given index in the plot array. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -580,9 +580,7 @@
       <Docs>
         <param name="index">An index within the bounds of the plot space array. </param>
         <summary>
-          <para>
-            <para>The plot space at the given index. </para>
-          </para>
+          <para>Gets the plot space at the given index in the plot space array. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -609,9 +607,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>An array of all plot spaces associated with the graph. </para>
-          </para>
+          <para>All plot spaces associated with the graph. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -642,9 +638,7 @@
       <Docs>
         <param name="identifier">A plot space identifier. </param>
         <summary>
-          <para>
-            <para>The plot space with the given identifier or nil if it was not found. </para>
-          </para>
+          <para>Gets the plot space with the given identifier from the plot space array. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -675,9 +669,7 @@
       <Docs>
         <param name="identifier">A plot identifier. </param>
         <summary>
-          <para>
-            <para>The plot with the given identifier or nil if it was not found. </para>
-          </para>
+          <para>Gets the plot with the given identifier from the plot array. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -704,8 +696,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Makes all plots reload their data. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReloadDataIfNeeded">
@@ -725,8 +720,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Makes all plots reload their data if their data cache is out of date. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemovePlot">
@@ -750,7 +748,7 @@
       <Docs>
         <param name="plot">The plot to remove. </param>
         <summary>
-          <para />
+          <para>Remove a plot from the graph. </para>
         </summary>
         <remarks>
           <para />
@@ -778,7 +776,7 @@
       <Docs>
         <param name="identifier">The identifier of the plot to remove. </param>
         <summary>
-          <para />
+          <para>Remove a plot from the graph. </para>
         </summary>
         <remarks>
           <para />
@@ -806,7 +804,7 @@
       <Docs>
         <param name="plotSpace">The plot space. </param>
         <summary>
-          <para />
+          <para>Remove a plot space from the graph. </para>
         </summary>
         <remarks>
           <para />
@@ -832,9 +830,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The title string. Default is nil. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TitleDisplacement">
@@ -856,9 +857,12 @@
         <ReturnType>System.Drawing.PointF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A vector giving the displacement of the title from the edge location. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TitlePlotAreaFrameAnchor">
@@ -880,9 +884,12 @@
         <ReturnType>CorePlot.CPTRectAnchor</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The location of the title with respect to the plot area frame. Default is top center. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TitleTextStyle">
@@ -904,9 +911,12 @@
         <ReturnType>CorePlot.CPTMutableTextStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The text style of the title. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TopDownLayerOrder">
@@ -929,11 +939,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>
-              <ref refid="interface_c_p_t_plot_area_1a9e425efc7501c6463ca2a05c7ae4d72f" kindref="member">CPTPlotArea::topDownLayerOrder</ref>
-            </para>
-          </para>
+          <para>An array of graph layers to be drawn in an order other than the default. </para>
         </summary>
         <value>To be added.</value>
         <remarks>

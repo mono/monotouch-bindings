@@ -17,8 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>
-        <see cref="T:CorePlot.CPTFill" /> instances can be used to fill drawing areas with colors (including patterns), gradients, and images. Drawing methods are provided to fill rectangular areas and arbitrary drawing paths. </para>
+      <para>Draws area fills. </para>
     </summary>
     <remarks>
       <para>
@@ -65,9 +64,7 @@
       <Docs>
         <param name="aColor">The color. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTFill" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTFill" /> object with the provided color. </para>
         </summary>
         <remarks>
           <para>
@@ -94,9 +91,7 @@
       <Docs>
         <param name="aGradient">The gradient. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTFill" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTFill" /> object with the provided gradient. </para>
         </summary>
         <remarks>
           <para>
@@ -123,9 +118,7 @@
       <Docs>
         <param name="anImage">The image. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTFill" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTFill" /> object with the provided image. </para>
         </summary>
         <remarks>
           <para>
@@ -197,7 +190,7 @@
       <Docs>
         <param name="inContext">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Draws the gradient into the given graphics context clipped to the current drawing path. </para>
         </summary>
         <remarks>
           <para />
@@ -227,7 +220,7 @@
         <param name="theRect">The rectangle to draw into. </param>
         <param name="inContext">The graphics context to draw into. </param>
         <summary>
-          <para />
+          <para>Draws the gradient into the given graphics context inside the provided rectangle. </para>
         </summary>
         <remarks>
           <para />
@@ -255,9 +248,7 @@
       <Docs>
         <param name="aColor">The color. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTFill" /> instance initialized with the given color. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTFill" /> instance initialized with a given color. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -288,9 +279,7 @@
       <Docs>
         <param name="aGradient">The gradient. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTFill" /> instance initialized with the given gradient. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTFill" /> instance initialized with a given gradient. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -321,9 +310,7 @@
       <Docs>
         <param name="anImage">The image. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTFill" /> instance initialized with the given image. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTFill" /> instance initialized with a given image. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>

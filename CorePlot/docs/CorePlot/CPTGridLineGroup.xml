@@ -17,7 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>When using separate axis layers, this layer serves as the common superlayer for the grid line layers. Otherwise, this layer handles the drawing for the grid lines. It supports mixing the two modes; some axes can use separate grid line layers while others are handled by the grid line group. </para>
+      <para>A group of grid line layers. </para>
     </summary>
     <remarks>
       <para>When using separate axis layers, this layer serves as the common superlayer for the grid line layers. Otherwise, this layer handles the drawing for the grid lines. It supports mixing the two modes; some axes can use separate grid line layers while others are handled by the grid line group. </para>
@@ -125,9 +125,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If YES, draw the major grid lines, else draw the minor grid lines. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotArea">
@@ -149,9 +152,12 @@
         <ReturnType>CorePlot.CPTPlotArea</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot area that this grid line group belongs to. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

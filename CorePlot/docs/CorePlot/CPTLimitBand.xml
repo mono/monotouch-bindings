@@ -16,8 +16,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Defines a range and fill used to highlight a band of data. </para>
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -103,9 +106,7 @@
         <param name="newRange">The range of the band. </param>
         <param name="newFill">The fill used to draw the interior of the band. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTLimitBand" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTLimitBand" /> object with the provided range and fill. </para>
         </summary>
         <remarks>
           <para>
@@ -152,9 +153,12 @@
         <ReturnType>CorePlot.CPTFill</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The fill used to draw the band. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FromRange">
@@ -180,9 +184,7 @@
         <param name="newRange">The range of the band. </param>
         <param name="newFill">The fill used to draw the interior of the band. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTLimitBand" /> instance initialized with the provided range and fill. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTLimitBand" /> instance initialized with the provided range and fill. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -211,9 +213,12 @@
         <ReturnType>CorePlot.CPTPlotRange</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The data range for the band. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

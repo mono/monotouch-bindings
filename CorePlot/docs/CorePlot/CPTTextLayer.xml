@@ -16,8 +16,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>A Core Animation layer that displays a single line of text drawn in a uniform style. </para>
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -101,9 +104,7 @@
       <Docs>
         <param name="newText">The text to display. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTTextLayer" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTTextLayer" /> object with the provided text and the default text style. </para>
         </summary>
         <remarks>
           <para>
@@ -132,9 +133,7 @@
         <param name="newText">The text to display. </param>
         <param name="newStyle">The text style used to draw the text. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTTextLayer" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTTextLayer" /> object with the provided text and style. This is the designated initializer. </para>
         </summary>
         <remarks>
           <para>
@@ -181,9 +180,12 @@
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Determine the minimum size needed to fit the text. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SizeToFit">
@@ -203,8 +205,11 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Resizes the layer to fit its contents leaving a narrow margin on all four sides. </para>
+        </summary>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Text">
@@ -226,9 +231,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The text to display. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TextStyle">
@@ -250,9 +258,12 @@
         <ReturnType>CorePlot.CPTTextStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The text style used to draw the text. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

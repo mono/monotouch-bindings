@@ -16,8 +16,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Plot symbols for <see cref="T:CorePlot.CPTScatterPlot" />. </para>
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -100,9 +103,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeCross. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeCross. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -133,9 +134,7 @@
       <Docs>
         <param name="Path">The bounding path for the custom symbol. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeCustom. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeCustom. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -164,9 +163,12 @@
         <ReturnType>MonoTouch.CoreGraphics.CGPath</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The drawing path for a custom plot symbol. It will be scaled to size before being drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DashPlotSymbol">
@@ -186,9 +188,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeDash. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeDash. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -215,9 +215,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeDiamond. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeDiamond. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -263,9 +261,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeEllipse. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeEllipse. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -294,9 +290,12 @@
         <ReturnType>CorePlot.CPTFill</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The fill for the interior of the symbol. If nil, the symbol is not filled. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="HexagonPlotSymbol">
@@ -316,9 +315,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeHexagon. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeHexagon. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -347,9 +344,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style for the border of the symbol. If nil, the border is not drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PentagonPlotSymbol">
@@ -369,9 +369,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypePentagon. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypePentagon. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -398,9 +396,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeNone. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeNone. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -427,9 +423,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypePlus. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypePlus. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -456,9 +450,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeRectangle. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeRectangle. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -493,7 +485,7 @@
         <param name="centerPoint">The center point of the symbol. </param>
         <param name="scale">The drawing scale factor. Must be greater than zero (0). </param>
         <summary>
-          <para />
+          <para>Draws the plot symbol into the given graphics context centered at the provided point. </para>
         </summary>
         <remarks>
           <para />
@@ -547,9 +539,12 @@
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The symbol size. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SnowPlotSymbol">
@@ -569,9 +564,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeSnow. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeSnow. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -598,9 +591,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeStar. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeStar. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -629,9 +620,12 @@
         <ReturnType>CorePlot.CPTPlotSymbolType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The symbol type. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TrianglePlotSymbol">
@@ -651,9 +645,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeTriangle. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTPlotSymbol" /> instance initialized with a symbol type of CPTPlotSymbolTypeTriangle. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -683,10 +675,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>
-              <ulink url="http://developer.apple.com/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_paths/dq_paths.html#//apple_ref/doc/uid/TP30001066-CH211-TPXREF106">Filling a Path</ulink> in the Quartz 2D Programming Guide. </para>
-          </para>
+          <para>If YES, the even-odd rule is used to draw the symbol, otherwise the nonzero winding number rule is used. </para>
         </summary>
         <value>To be added.</value>
         <remarks>

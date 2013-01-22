@@ -16,8 +16,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>A two-dimensional scatter plot. </para>
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -103,7 +106,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>Typically set to the minimum value of the Y range, but it can be any value that gives the desired appearance. </para>
+          <para>The Y coordinate of the straight boundary of the area fill. If not a number, the area is not filled. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -131,7 +134,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>Typically set to the maximum value of the Y range, but it can be any value that gives the desired appearance. </para>
+          <para>The Y coordinate of the straight boundary of the secondary area fill. If not a number, the area is not filled. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -158,9 +161,12 @@
         <ReturnType>CorePlot.CPTFill</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The fill style for the area underneath the data line. If nil, the area is not filled. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AreaFill2">
@@ -182,9 +188,12 @@
         <ReturnType>CorePlot.CPTFill</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The fill style for the area above the data line. If nil, the area is not filled. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DataLineStyle">
@@ -206,9 +215,12 @@
         <ReturnType>CorePlot.CPTLineStyle</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The line style for the data line. If nil, the line is not drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -251,9 +263,7 @@
       <Docs>
         <param name="viewPoint">The reference point. </param>
         <summary>
-          <para>
-            <para>The index of the closest point, or NSNotFound if there is no visible point. </para>
-          </para>
+          <para>Returns the index of the closest visible point to the point passed in. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -282,9 +292,12 @@
         <ReturnType>CorePlot.CPTScatterPlotInterpolation</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The interpolation algorithm used for lines between data points. Default is CPTScatterPlotInterpolationLinear. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotAreaPointOfVisiblePointAtIndex">
@@ -308,9 +321,7 @@
       <Docs>
         <param name="index">The index of the point. </param>
         <summary>
-          <para>
-            <para>The view point of the visible point at the index passed. </para>
-          </para>
+          <para>Returns the plot area view point of a visible point. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -339,9 +350,12 @@
         <ReturnType>CorePlot.CPTPlotSymbol</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The plot symbol drawn at each point if the data source does not provide symbols. If nil, no symbol is drawn. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlotSymbolForRecordIndex">
@@ -365,9 +379,7 @@
       <Docs>
         <param name="index">The index of the record. </param>
         <summary>
-          <para>
-            <para>The plot symbol to use, or nil if no plot symbol should be drawn. </para>
-          </para>
+          <para>Returns the plot symbol to use for a given index. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -397,7 +409,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>Default is zero. The margin is set in plot area view coordinates. </para>
+          <para>A margin added to each side of a symbol when determining whether it has been hit. </para>
         </summary>
         <value>To be added.</value>
         <remarks>

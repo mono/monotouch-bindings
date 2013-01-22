@@ -17,7 +17,7 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>A wrapper class around CGColorRef</para>
+      <para>Wrapper around CGColorRef. </para>
     </summary>
     <remarks>
       <para>A wrapper class around CGColorRef</para>
@@ -71,9 +71,7 @@
       <Docs>
         <param name="cgColor">The color to wrap. </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTColor" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTColor" /> object with the provided CGColorRef. </para>
         </summary>
         <remarks>
           <para>
@@ -148,9 +146,7 @@
         <param name="blue">The blue component (0 ≤ blue ≤ 1). </param>
         <param name="alpha">The alpha component (0 ≤ alpha ≤ 1). </param>
         <summary>
-          <para>
-            <para>The initialized <see cref="T:CorePlot.CPTColor" /> object. </para>
-          </para>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTColor" /> object with the provided RGBA color components. </para>
         </summary>
         <remarks>
           <para>
@@ -176,9 +172,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque black color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque black color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -205,9 +199,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque blue color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque blue color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -234,9 +226,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque brown color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque brown color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -262,9 +252,12 @@
         <ReturnType>MonoTouch.CoreGraphics.CGColor</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The CGColor to wrap around. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClearColor">
@@ -284,9 +277,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully transparent color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully transparent color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -317,9 +308,7 @@
       <Docs>
         <param name="alpha">The alpha component (0 ≤ alpha ≤ 1). </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTColor" /> instance having the provided alpha component. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTColor" /> instance having color components identical to the current object but having the provided alpha component. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -346,9 +335,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque cyan color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque cyan color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -375,9 +362,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque 1/3 gray color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque 1/3 gray color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -408,9 +393,7 @@
       <Docs>
         <param name="newCGColor">The color to wrap. </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided CGColorRef. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided CGColorRef. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -441,9 +424,7 @@
       <Docs>
         <param name="gray">The gray level (0 ≤ gray ≤ 1). </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided gray level. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided gray level. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -480,9 +461,7 @@
         <param name="blue">The blue component (0 ≤ blue ≤ 1). </param>
         <param name="alpha">The alpha component (0 ≤ alpha ≤ 1). </param>
         <summary>
-          <para>
-            <para>A new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided RGBA color components. </para>
-          </para>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTColor" /> instance initialized with the provided RGBA color components. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
@@ -509,9 +488,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque 50% gray color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque 50% gray color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -538,9 +515,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque green color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque green color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -567,9 +542,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque 2/3 gray color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque 2/3 gray color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -596,9 +569,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque magenta color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque magenta color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -625,9 +596,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque orange color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque orange color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -654,9 +623,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque purple color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque purple color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -683,9 +650,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque red color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque red color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -712,9 +677,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque white color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque white color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
@@ -741,9 +704,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para>
-            <para>A shared <see cref="T:CorePlot.CPTColor" /> object initialized with a fully opaque yellow color. </para>
-          </para>
+          <para>Returns a shared instance of <see cref="T:CorePlot.CPTColor" /> initialized with a fully opaque yellow color. </para>
         </summary>
         <value>To be added.</value>
         <remarks>
