@@ -2,11 +2,11 @@ BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 
 all: Parse.dll
 
-parse-library-1.1.22.zip: 
-	@echo "You need to download 'parse-library-1.1.22.zip' from http://parse.com"
+parse-library-1.1.27.zip: 
+	@echo "You need to download 'parse-library-1.1.27.zip' from http://parse.com"
 	@exit 1
 
-parse-framework.stamp: parse-library-1.1.22.zip
+parse-framework.stamp: parse-library-1.1.27.zip
 	unzip $^
 	touch parse-framework.stamp
 

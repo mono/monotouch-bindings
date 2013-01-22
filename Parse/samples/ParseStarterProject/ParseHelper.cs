@@ -13,7 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System;
-using ParseLib;
+using Parse;
 using MonoTouch.Foundation;
 using System.Globalization;
 using System.Linq;

@@ -1,6 +1,6 @@
 using System;
 
-namespace ParseLib
+namespace Parse
 {
 	public enum ParseCachePolicy
 	{
