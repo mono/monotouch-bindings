@@ -23,8 +23,8 @@ namespace sample
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			window.RootViewController = vc;
 			window.MakeKeyAndVisible ();
-			
-			bannerView = new GADBannerView(new RectangleF(new PointF(0,vc.View.Frame.Height - GADBannerView.GAD_SIZE_320x50.Height),GADBannerView.GAD_SIZE_320x50));
+
+			bannerView = new GADBannerView(GADAdSizeCons.Banner, new PointF(0, vc.View.Frame.Height - GADAdSizeCons.Banner.size.Height));
 			bannerView.AdUnitID = "MY_BANNER_UNIT_ID";
 			bannerView.RootViewController = vc;
 			
