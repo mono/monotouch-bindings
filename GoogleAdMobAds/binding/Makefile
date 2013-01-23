@@ -1,4 +1,3 @@
-BUILD_FLAGS=-unsafe -target:library -nowarn:436 -nowarn:219
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 
@@ -10,14 +9,9 @@ googleadmobadssdkios.zip:
 libGoogleAdMobAds.a: googleadmobadssdkios.zip
 	unzip -p $< 'GoogleAdMobAdsSdkiOS-6.2.1/libGoogleAdMobAds.a' > $@
 
-# Note: The following rule works only with MonoTouch >= 5.0.3 due to a bug in btouch wrt the -x option
-#GoogleAdMobAds.dll: Makefile AssemblyInfo.cs admobads.cs enums.cs extensions.cs libGoogleAdMobAds.a
-#	$(BTOUCH) --out=$@ -e admobads.cs -s enums.cs -x extensions.cs -x AssemblyInfo.cs --link-with=libGoogleAdMobAds.a,libGoogleAdMobAds.a
-
-GoogleAdMobAds.dll: Makefile AssemblyInfo.cs admobads.cs enums.cs extensions.cs libGoogleAdMobAds.a
+GoogleAdMobAds.dll: Makefile AssemblyInfo.cs admobads.cs enums.cs extensions.cs libGoogleAdMobAds.a libAdmobExporter.a
 	-mkdir -p ios
-	$(BTOUCH) --out=$@ -e admobads.cs enums.cs --sourceonly=list --tmpdir=ios
-	$(SMCS) $(BUILD_FLAGS) -out:$@ @list enums.cs extensions.cs AssemblyInfo.cs -r:monotouch.dll -res:libGoogleAdMobAds.a,libGoogleAdMobAds.a
-
+	$(BTOUCH) -unsafe -d:DEBUG admobads.cs -s:enums.cs -tmpdir:ios -sourceonly:ios/sources.list
+	$(SMCS) -noconfig -debug+ -debug:full -optimize- -out:GoogleAdMobAds.dll -resource:libGoogleAdMobAds.a -resource:libAdmobExporter.a AssemblyInfo.cs extensions.cs enums.cs @ios/sources.list -target:library -unsafe+  -define:DEBUG -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll
 clean:
-	-rm -rf list ios *.a *.dll
+	-rm -rf list ios libGoogleAdMobAds.a *.dll *.zip *.mdb
