@@ -18,7 +18,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.ObjCRuntime;
-using ParseLib;
+using Parse;
 using MonoTouch.Dialog;
 
 namespace ParseStarterProject
@@ -43,7 +43,7 @@ namespace ParseStarterProject
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			ParseLib.Parse.SetApplicationIdClientKey("appid","clientid");
+			ParseService.SetAppId("appid","clientid");
 			dvc = new DialogViewController(CreateRoot());
 			window.RootViewController = new UINavigationController(dvc);
 			window.MakeKeyAndVisible ();

@@ -3,7 +3,7 @@ using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
 
-namespace ParseLib
+namespace Parse
 {
 	public delegate void ParseBooleanResult (bool succeeded,NSError error);
 
@@ -27,13 +27,13 @@ namespace ParseLib
 
 	public delegate void ParseImageResult (UIImage image,NSError error);
 
-	[BaseType (typeof(NSObject))]
-	public interface Parse
+	[BaseType (typeof(NSObject), Name="Parse")]
+	public interface ParseService
 	{
 
 		[Static]
 		[Export ("setApplicationId:clientKey:")]
-		void SetApplicationIdClientKey (string applicationId, string clientKey);
+		void SetAppId (string applicationId, string clientKey);
 
 		[Static]
 		[Export ("offlineMessagesEnabled:")]

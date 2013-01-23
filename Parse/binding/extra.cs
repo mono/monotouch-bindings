@@ -1,7 +1,7 @@
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 
-namespace ParseLib {
+namespace Parse {
 
 	// Use this for synchronous operations
 	[Register ("__My_NSActionDispatcher")]
