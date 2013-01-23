@@ -1,6 +1,16 @@
 <Namespace Name="GoogleAdMobAds">
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Support for Google's AdMob Advertising.</summary>
+    <remarks>
+      <para>
+        Google's AdMob allows application developers to connect with advertisers and show relevant ads in their app. To use Google's AdMob, application developers must sign up with the Google AdMob service (<format type="text/html"><a href="http://www.google.com/ads/admob">http://www.google.com/ads/admob</a></format>). 
+      </para>
+      <para>
+        All uses of the AdMob service require the application developer's Publisher ID, which is available on the AdMob administrative Web page in the "Sites &amp; Apps" section.
+      </para>
+      <para>
+        There are two types of AdMob ad: banner advertisements in standard IAB sizes and interstitial ads which are displayed at significant transition points in the application (startup, prior to video, etc.). Banner ads are represented by the <see cref="T:GoogleAdMobAds.GADBannerView"/> class and interstitial ads are represented by the <see cref="T:GoogleAdMobAds.GADInterstitial"/> class. 
+      </para>
+    </remarks>
   </Docs>
 </Namespace>
