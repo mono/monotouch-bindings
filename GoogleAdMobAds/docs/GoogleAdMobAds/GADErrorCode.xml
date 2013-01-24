@@ -13,9 +13,9 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
-    <Member MemberName="kGADErrorInvalidRequest">
-      <MemberSignature Language="C#" Value="kGADErrorInvalidRequest" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode kGADErrorInvalidRequest = int32(0)" />
+    <Member MemberName="InterstitialAlreadyUsed">
+      <MemberSignature Language="C#" Value="InterstitialAlreadyUsed" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode InterstitialAlreadyUsed = int32(6)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -24,7 +24,34 @@
         <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>The <see cref="T:GoogleAdMobAds.GADRequest"/> was not structured properly.</summary>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="InvalidRequest">
+      <MemberSignature Language="C#" Value="InvalidRequest" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode InvalidRequest = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="kGADErrorInvalidRequest">
+      <MemberSignature Language="C#" Value="kGADErrorInvalidRequest" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode kGADErrorInvalidRequest = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The <see cref="T:GoogleAdMobAds.GADRequest" /> was not structured properly.</summary>
       </Docs>
     </Member>
     <Member MemberName="kGADErrorNetworkError">
@@ -32,7 +59,6 @@
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode kGADErrorNetworkError = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
@@ -46,7 +72,6 @@
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode kGADErrorNoFill = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
@@ -60,7 +85,6 @@
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode kGADErrorOSVersionTooLow = int32(4)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
@@ -74,7 +98,6 @@
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode kGADErrorServerError = int32(3)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
@@ -88,13 +111,138 @@
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode kGADErrorTimeout = int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>The ad could not be loaded prior to timing out.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="MediationAdapterError">
+      <MemberSignature Language="C#" Value="MediationAdapterError" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode MediationAdapterError = int32(8)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="MediationDataError">
+      <MemberSignature Language="C#" Value="MediationDataError" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode MediationDataError = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="MediationInvalidAdSize">
+      <MemberSignature Language="C#" Value="MediationInvalidAdSize" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode MediationInvalidAdSize = int32(10)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="MediationNoFill">
+      <MemberSignature Language="C#" Value="MediationNoFill" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode MediationNoFill = int32(9)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="NetworkError">
+      <MemberSignature Language="C#" Value="NetworkError" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode NetworkError = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="NoFill">
+      <MemberSignature Language="C#" Value="NoFill" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode NoFill = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="OSVersionTooLow">
+      <MemberSignature Language="C#" Value="OSVersionTooLow" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode OSVersionTooLow = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="ServerError">
+      <MemberSignature Language="C#" Value="ServerError" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode ServerError = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Timeout">
+      <MemberSignature Language="C#" Value="Timeout" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype GoogleAdMobAds.GADErrorCode Timeout = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADErrorCode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
       </Docs>
     </Member>
   </Members>

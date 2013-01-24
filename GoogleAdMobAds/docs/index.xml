@@ -3,7 +3,10 @@
     <Assembly Name="GoogleAdMobAds" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAdMobAds.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV6 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true, Frameworks="AudioToolbox MessageUI SystemConfiguration")</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAdMobAds.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true, Frameworks="AudioToolbox MessageUI SystemConfiguration CoreGraphics MediaPlayer", IsCxx=true, LinkerFlags="-lz -lsqlite3", WeakFrameworks="AdSupport")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libAdmobExporter.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
@@ -18,14 +21,41 @@
       <Type Name="Messaging" Kind="Class" />
     </Namespace>
     <Namespace Name="GoogleAdMobAds">
+      <Type Name="DFPBannerView" Kind="Class" />
+      <Type Name="DFPExtras" Kind="Class" />
+      <Type Name="DFPInterstitial" Kind="Class" />
+      <Type Name="GADAdMobExtras" Kind="Class" />
+      <Type Name="GADAdNetworkExtras" Kind="Class" />
+      <Type Name="GADAdSize" Kind="Structure" />
+      <Type Name="GADAdSizeCons" Kind="Class" />
+      <Type Name="GADAdSizeDelegate" Kind="Class" />
+      <Type Name="GADAdSizeDelegateSizeEventArgs" Kind="Class" />
+      <Type Name="GADAppEventDelegate" Kind="Class" />
+      <Type Name="GADAppEventDelegateInterstitialEventArgs" Kind="Class" />
+      <Type Name="GADAppEventDelegateNameInfoEventArgs" Kind="Class" />
       <Type Name="GADBannerView" Kind="Class" />
       <Type Name="GADBannerViewDelegate" Kind="Class" />
+      <Type Name="GADBannerViewErrorEventArgs" Kind="Class" />
+      <Type Name="GADCustomEventBanner" Kind="Class" />
+      <Type Name="GADCustomEventBannerDelegate" Kind="Class" />
+      <Type Name="GADCustomEventBannerDidReceiveAdEventArgs" Kind="Class" />
+      <Type Name="GADCustomEventBannerViewEventArgs" Kind="Class" />
+      <Type Name="GADCustomEventExtras" Kind="Class" />
+      <Type Name="GADCustomEventInterstitial" Kind="Class" />
+      <Type Name="GADCustomEventInterstitialAdEventArgs" Kind="Class" />
+      <Type Name="GADCustomEventInterstitialDelegate" Kind="Class" />
+      <Type Name="GADCustomEventInterstitialErrorEventArgs" Kind="Class" />
+      <Type Name="GADCustomEventRequest" Kind="Class" />
       <Type Name="GADErrorCode" Kind="Enumeration" />
       <Type Name="GADGender" Kind="Enumeration" />
       <Type Name="GADInterstitial" Kind="Class" />
       <Type Name="GADInterstitialDelegate" Kind="Class" />
+      <Type Name="GADInterstitialDidFailToReceiveAdWithErrorEventArgs" Kind="Class" />
       <Type Name="GADRequest" Kind="Class" />
       <Type Name="GADRequestError" Kind="Class" />
+      <Type Name="GADSearchBannerView" Kind="Class" />
+      <Type Name="GADSearchBorderType" Kind="Enumeration" />
+      <Type Name="GADSearchRequest" Kind="Class" />
     </Namespace>
   </Types>
   <Title>GoogleAdMobAds</Title>
