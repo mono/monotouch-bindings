@@ -5,4 +5,9 @@ if test x$1 = x-g; then
 fi
 (cd $1; sed -i -e 's/GENERATE_XML.*=.*NO/GENERATE_XML = YES/' $2)
 (cd $1; /brew/bin/doxygen $2)
-mono `dirname $0`/DoxyToEcma.exe $3 `pwd`/$1/xml
+if test x$4 = x; then
+  xml=`pwd`/$1/xml
+else
+  xml=$4
+fi
+mono `dirname $0`/DoxyToEcma.exe $3 $xml

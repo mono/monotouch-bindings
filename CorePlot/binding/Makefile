@@ -38,7 +38,7 @@ Xamarin.CorePlotMacOS.dll: Makefile coreplot.cs enums.cs extras.cs
 Mono.CoreplotMacOS.dll: Makefile coreplot.cs enums.cs extras.cs
 	@mkdir -p osx
 	$(BMAC) --ns CorePlot -o $@ -e coreplot.cs -s enums.cs -x extras.cs --tmpdir=osx -r:System.Drawing -baselib=$(MONOMAC_DLL)
-	
+
 CorePlotiOS.dll: Makefile ios/coreplot.cs ios/enums.cs ios/extras.cs AssemblyInfo.cs libCorePlot-CocoaTouch.a
 	@mkdir -p ios
 	$(BTOUCH) --ns CorePlot -o $@ -d=MONOTOUCH -e ios/coreplot.cs -s ios/enums.cs -x ios/extras.cs -x AssemblyInfo.cs --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
@@ -57,3 +57,7 @@ ios/extras.cs: extras.cs
 
 clean: 
 	-rm -rf *.a *.dll
+
+merge-docs:
+	cp "CorePlot_$(VERSION)/Documentation/doxygen touch.config" CorePlot_$(VERSION)/Documentation/doxygentouch.config
+	SOURCE_ROOT=`pwd`/CorePlot_$(VERSION)/Documentation ../../RunDoxy CorePlot_$(VERSION) Documentation/doxygentouch.config `pwd`/../docs/ `pwd`/CorePlot_$(VERSION)/Documentation/CorePlotTouchDocs.docset/xml
