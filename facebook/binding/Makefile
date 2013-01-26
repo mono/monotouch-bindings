@@ -26,5 +26,8 @@ libFacebookSDK.a: libFacebook-i386.a libFacebook-armv7.a libFacebook-armv7s.a
 Facebook.dll: facebook.cs enum.cs Makefile extensions.cs AssemblyInfo.cs libFacebookSDK.a
 	/Developer/MonoTouch/usr/bin/btouch -e facebook.cs AssemblyInfo.cs -s=enum.cs -x=extensions.cs --out=$@ --link-with=libFacebookSDK.a,libFacebookSDK.a
 
+merge-docs: facebook-ios-sdk
+	../../RunDoxy -g facebook-ios-sdk/src facebook-ios-sdk/src/Doxyfile `pwd`/../docs
+
 clean:
 	-rm -f *.a *dll
