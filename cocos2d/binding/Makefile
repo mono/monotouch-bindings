@@ -47,3 +47,6 @@ clean-all: clean
 	-rm -rf $(PROJECT_ROOT) $(PROJECT_TGZ) ios
 
 .PHONY: clean clean-all
+
+merge-docs: $(PROJECT)
+	../../RunDoxy cocos2d-iphone-2.0 doxygen.config `pwd`/../docs
