@@ -44,11 +44,12 @@ namespace ParseStarterProject
 		{
 			//If there was an error or no High scores found, create an emtpy list.
 			if (array == null || error != null) {
-				return new RootElement("High Scores"){
+				Root = new RootElement("High Scores"){
 					new Section(){
 						new StringElement("No Scores Found"),
 					}
 				};
+				return;
 			}
 			var easySection = new Section("Easy");
 			var mediumSection = new Section("Medium");
