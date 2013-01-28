@@ -20,19 +20,22 @@ using MonoTouch.UIKit;
 using MonoTouch.ObjCRuntime;
 using Parse;
 using MonoTouch.Dialog;
+using System.Text;
 
 namespace ParseStarterProject
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
 	// User Interface of the application, as well as listening (and optionally responding) to 
 	// application events from iOS.
-
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
 		UIWindow window;
 		DialogViewController dvc;
+		//TODO: set your keys
+		const string appid = "";
+		const string clientid = "";
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
 		// method you should instantiate the window, load the UI into it and then make the window
@@ -43,9 +46,16 @@ namespace ParseStarterProject
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			ParseService.SetAppId("appid","clientid");
-			dvc = new DialogViewController(CreateRoot());
-			window.RootViewController = new UINavigationController(dvc);
+			if (string.IsNullOrEmpty (appid) || string.IsNullOrEmpty (clientid)) {
+				StringBuilder sb = new StringBuilder ();
+				sb.AppendLine ("A Parse API key is required");
+				sb.AppendLine ("Please sign up for one at:");
+				sb.AppendLine ("https://parse.com/apps/new");
+				(new UIAlertView ("Error", sb.ToString (), null, "Ok")).Show ();
+			} else
+				ParseService.SetAppId (appid, clientid);
+			dvc = new DialogViewController (CreateRoot ());
+			window.RootViewController = new UINavigationController (dvc);
 			window.MakeKeyAndVisible ();
 			return true;
 		}
@@ -53,12 +63,13 @@ namespace ParseStarterProject
 		EntryElement nameElement;
 		EntryElement scoreElement;
 		RadioGroup dificultyGroup;
-		RootElement CreateRoot()
+
+		RootElement CreateRoot ()
 		{
-			nameElement = new EntryElement("Name","","");
-			scoreElement = new EntryElement("Score","","");
-			dificultyGroup = new RadioGroup(0);
-			return new RootElement("Parse"){
+			nameElement = new EntryElement ("Name", "", "");
+			scoreElement = new EntryElement ("Score", "", "");
+			dificultyGroup = new RadioGroup (0);
+			return new RootElement ("Parse"){
 				new Section("Add a score!"){
 					nameElement,
 					scoreElement,
@@ -80,26 +91,32 @@ namespace ParseStarterProject
 				}
 			};
 		}
-		void viewHighScores()
+
+		void viewHighScores ()
 		{
-			dvc.ActivateController(new HighScoreViewController());
+			dvc.ActivateController (new HighScoreViewController ());
 		}
-		void submitScore()
+
+		void submitScore ()
 		{
-			nameElement.FetchValue();
-			scoreElement.FetchValue();
-			var gameScore = new GameScore()
+			try {
+				nameElement.FetchValue ();
+				scoreElement.FetchValue ();
+				var gameScore = new GameScore ()
 			{
 				Player = nameElement.Value,
 				Score = int.Parse(scoreElement.Value),
 				Dificulty = (GameDificulty)dificultyGroup.Selected,
 			};
-			var pfobj = gameScore.ToPfObject();
-			Console.WriteLine(pfobj);
+			} catch (Exception ex) {
+				(new UIAlertView ("Error", "Please make sure all inputs are valid", null, "Ok")).Show ();
+			}
+			var pfobj = gameScore.ToPfObject ();
+			Console.WriteLine (pfobj);
 
-			pfobj.SaveAsync((success,error)=>{
-				UIAlertView alert = new UIAlertView(pfobj.ClassName,string.Format("Success: {0}",success),null,"Ok");
-				alert.Show();
+			pfobj.SaveAsync ((success,error) => {
+				UIAlertView alert = new UIAlertView (pfobj.ClassName, string.Format ("Success: {0}", success), null, "Ok");
+				alert.Show ();
 			});
 		}
 	}
