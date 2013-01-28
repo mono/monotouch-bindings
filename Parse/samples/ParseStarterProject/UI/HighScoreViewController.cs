@@ -42,6 +42,14 @@ namespace ParseStarterProject
 
 		private void FoundResults(ParseObject[] array, NSError error)
 		{
+			//If there was an error or no High scores found, create an emtpy list.
+			if (array == null || error != null) {
+				return new RootElement("High Scores"){
+					new Section(){
+						new StringElement("No Scores Found"),
+					}
+				};
+			}
 			var easySection = new Section("Easy");
 			var mediumSection = new Section("Medium");
 			var hardSection = new Section("Hard");
