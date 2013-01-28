@@ -62,19 +62,19 @@ namespace ParseStarterProject
 		
 		EntryElement nameElement;
 		EntryElement scoreElement;
-		RadioGroup dificultyGroup;
-
+		RadioGroup difficultyGroup;
+		
 		RootElement CreateRoot ()
 		{
 			nameElement = new EntryElement ("Name", "", "");
 			scoreElement = new EntryElement ("Score", "", "");
-			dificultyGroup = new RadioGroup (0);
+			difficultyGroup = new RadioGroup (0);
 			return new RootElement ("Parse"){
 				new Section("Add a score!"){
 					nameElement,
 					scoreElement,
-					new RootElement ("Dificulty",dificultyGroup){
-						new Section ("Dificulty"){
+					new RootElement ("Difficulty",difficultyGroup){
+						new Section ("Difficulty"){
 							new RadioElement ("Easy"),
 							new RadioElement ("Medium"),
 							new RadioElement ("Hard"),
@@ -99,27 +99,26 @@ namespace ParseStarterProject
 
 		void submitScore ()
 		{
-			GameScore gameScore;
 			try {
 				nameElement.FetchValue ();
 				scoreElement.FetchValue ();
-				gameScore = new GameScore ()
+				var gameScore = new GameScore ()
 				{
 					Player = nameElement.Value,
 					Score = int.Parse(scoreElement.Value),
-					Dificulty = (GameDificulty)dificultyGroup.Selected,
+					Dificulty = (GameDificulty)difficultyGroup.Selected,
 				};
-			}
-			catch (Exception ex) {
-					(new UIAlertView ("Error", "Please make sure all inputs are valid", null, "Ok")).Show ();
-			}
-			var pfobj = gameScore.ToPfObject ();
-			Console.WriteLine (pfobj);
+				
+				var pfobj = gameScore.ToPfObject ();
+				Console.WriteLine (pfobj);
 
-			pfobj.SaveAsync ((success,error) => {
-				UIAlertView alert = new UIAlertView (pfobj.ClassName, string.Format ("Success: {0}", success), null, "Ok");
-				alert.Show ();
-			});
+				pfobj.SaveAsync ((success,error) => {
+					UIAlertView alert = new UIAlertView (pfobj.ClassName, string.Format ("Success: {0}", success), null, "Ok");
+					alert.Show ();
+				});
+			} catch (Exception ex) {
+				(new UIAlertView ("Error", "Please make sure all inputs are valid", null, "Ok")).Show ();
+			}
 		}
 	}
 }
