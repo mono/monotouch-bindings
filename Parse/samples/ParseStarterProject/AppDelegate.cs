@@ -99,17 +99,19 @@ namespace ParseStarterProject
 
 		void submitScore ()
 		{
+			GameScore gameScore;
 			try {
 				nameElement.FetchValue ();
 				scoreElement.FetchValue ();
-				var gameScore = new GameScore ()
-			{
-				Player = nameElement.Value,
-				Score = int.Parse(scoreElement.Value),
-				Dificulty = (GameDificulty)dificultyGroup.Selected,
-			};
-			} catch (Exception ex) {
-				(new UIAlertView ("Error", "Please make sure all inputs are valid", null, "Ok")).Show ();
+				gameScore = new GameScore ()
+				{
+					Player = nameElement.Value,
+					Score = int.Parse(scoreElement.Value),
+					Dificulty = (GameDificulty)dificultyGroup.Selected,
+				};
+			}
+			catch (Exception ex) {
+					(new UIAlertView ("Error", "Please make sure all inputs are valid", null, "Ok")).Show ();
 			}
 			var pfobj = gameScore.ToPfObject ();
 			Console.WriteLine (pfobj);
