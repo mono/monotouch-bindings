@@ -43,20 +43,17 @@ namespace ParseStarterProject
 		//
 		// You have 17 seconds to return from this method, or iOS will terminate your application.
 		//
+		const string ApiUrl = "https://parse.com/apps/new";
+		const string ApiMessage = "A Parse API key is required to run this sample app.\nPlease sign up for one at:\n" + ApiUrl;
+
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			if (string.IsNullOrEmpty (appid) || string.IsNullOrEmpty (clientid)) {
-				StringBuilder sb = new StringBuilder ();
-				sb.AppendLine ("A Parse API key is required to run this sample app.");
-				sb.AppendLine ("Please sign up for one at:");
-				sb.AppendLine ("https://parse.com/apps/new");
-				window.AddSubview(new MissingApiView(window.Bounds,sb.ToString(),"https://parse.com/apps/new"));
-			} else {
+			WithValidParseIds (delegate {
 				ParseService.SetAppId (appid, clientid);
 				dvc = new DialogViewController (CreateRoot ());
 				window.RootViewController = new UINavigationController (dvc);
-			}
+			});
 			window.MakeKeyAndVisible ();
 			return true;
 		}
@@ -121,6 +118,17 @@ namespace ParseStarterProject
 				(new UIAlertView ("Error", "Please make sure all inputs are valid", null, "Ok")).Show ();
 			}
 		}
+		
+		
+		void WithValidParseIds (Action act)
+		{
+			if (string.IsNullOrEmpty (appid) || string.IsNullOrEmpty (clientid)) {
+				window.AddSubview (new MissingApiView (window.Bounds, ApiMessage, ApiUrl));
+			} else {
+				act ();
+			}
+		}
+
 	}
 }
 
