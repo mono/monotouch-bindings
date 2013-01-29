@@ -48,14 +48,15 @@ namespace ParseStarterProject
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			if (string.IsNullOrEmpty (appid) || string.IsNullOrEmpty (clientid)) {
 				StringBuilder sb = new StringBuilder ();
-				sb.AppendLine ("A Parse API key is required");
+				sb.AppendLine ("A Parse API key is required to run this sample app.");
 				sb.AppendLine ("Please sign up for one at:");
 				sb.AppendLine ("https://parse.com/apps/new");
-				(new UIAlertView ("Error", sb.ToString (), null, "Ok")).Show ();
-			} else
+				window.AddSubview(new MissingApiView(window.Bounds,sb.ToString(),"https://parse.com/apps/new"));
+			} else {
 				ParseService.SetAppId (appid, clientid);
-			dvc = new DialogViewController (CreateRoot ());
-			window.RootViewController = new UINavigationController (dvc);
+				dvc = new DialogViewController (CreateRoot ());
+				window.RootViewController = new UINavigationController (dvc);
+			}
 			window.MakeKeyAndVisible ();
 			return true;
 		}
