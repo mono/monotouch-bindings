@@ -43,7 +43,6 @@ namespace Scrumptious
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 
-			//
 			FBSession.DefaultAppID = FbAppId;
 
 			mainViewController = new SCViewController ();
