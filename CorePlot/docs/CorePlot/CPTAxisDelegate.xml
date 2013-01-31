@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Axis labeling delegate. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -106,7 +106,7 @@
       </Parameters>
       <Docs>
         <param name="axis">To be added.</param>
-        <summary>To be added.</summary>
+        <summary> The method is called after the axis is relabeled to allow the delegate to perform any necessary cleanup or further labeling actions. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -130,7 +130,7 @@
       </Parameters>
       <Docs>
         <param name="axis">To be added.</param>
-        <summary>To be added.</summary>
+        <summary> Determines if the axis should relabel itself now. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -157,7 +157,7 @@
       <Docs>
         <param name="axis">To be added.</param>
         <param name="locations">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This method gives the delegate a chance to create custom labels for each tick. It can be used with any labeling policy. Returning NO will cause the axis not to update the labels. It is then the delegate’s responsibility to do this. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
