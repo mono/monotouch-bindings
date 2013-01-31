@@ -113,7 +113,7 @@ namespace GoogleAdmobSample
 				// Wire DidReceiveAd event to know when the Ad is ready to be displayed
 				adViewWindow.DidReceiveAd += (object sender, EventArgs e) => {
 					if (!adOnWindow) {
-						navController.View.Subviews.First().Frame = new RectangleF(0, 0, 320, 430);
+						navController.View.Subviews.First().Frame = new RectangleF(0, 0, 320, UIScreen.MainScreen.Bounds.Height - 50);
 						navController.View.AddSubview(adViewWindow);
 						adOnWindow = true;
 					}
@@ -126,7 +126,7 @@ namespace GoogleAdmobSample
 		{
 			if (adViewWindow != null) {
 				if (adOnWindow) {
-					navController.View.Subviews.First().Frame = new RectangleF(0, 0, 320, 480);
+					navController.View.Subviews.First().Frame = new RectangleF(0, 0, 320, UIScreen.MainScreen.Bounds.Height);
 					adViewWindow.RemoveFromSuperview();
 				}
 				adOnWindow = false;
