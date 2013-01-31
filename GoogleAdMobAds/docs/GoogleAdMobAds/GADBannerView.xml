@@ -19,6 +19,9 @@
     </summary>
     <remarks>
       <para>
+        Application developers should prefer to use the more-recently-released <see cref="T:GoogleAdMobAds.DFPBannerView" /> "Double-Click for Publishers" ads, which are more flexible than <see cref="T:GoogleAdMobAds.GADBannerView" />s. 
+      </para>
+      <para>
         Google AdMob Ads banners allow the application user to click-through to a full-screen advertising experience.
         The user may exit that full-screen experience either by returning to the application or by activating other applications
         such as iTunes.
@@ -35,7 +38,7 @@
       </para>
       <example>
         <code lang="C#">
-          myBanner = new GADBannerView (new RectangleF (0, 0, 320, 50));
+          myBanner = new GADBannerView (GADAdSizeCons.Banner);
           //Set the AdMob Publisher ID
           myBanner.AdUnitID = MY_PUBLISHER_ID;  //A 15-digit hexadecimal string
           //The RootViewController *must* be set prior to calling LoadRequest()

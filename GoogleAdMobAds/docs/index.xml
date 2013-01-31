@@ -3,7 +3,7 @@
     <Assembly Name="GoogleAdMobAds" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAdMobAds.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true, Frameworks="AudioToolbox MessageUI SystemConfiguration CoreGraphics MediaPlayer", IsCxx=true, LinkerFlags="-lz -lsqlite3", WeakFrameworks="AdSupport")</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAdMobAds.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true, Frameworks="AudioToolbox MessageUI SystemConfiguration CoreGraphics MediaPlayer StoreKit", IsCxx=true, LinkerFlags="-lz -lsqlite3", WeakFrameworks="AdSupport")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libAdmobExporter.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true)</AttributeName>
