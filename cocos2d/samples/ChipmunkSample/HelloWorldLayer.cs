@@ -136,9 +136,9 @@ namespace CC2DSharp
 			posx = (posx % 4) * 85;
 			posy = (posy % 3) * 121;
 
-			var sprite = new CCPhysicsSprite (parent.Texture, new RectangleF (posx, posy, 85, 121)) {
-				Position = pos,
-			};
+			var sprite = new CCPhysicsSprite (parent.Texture, new RectangleF (posx, posy, 85, 121));
+			//this used to work, but crashes now, as it sets the Body's position and the Body isn't set yet :/
+			//sprite.Position = pos;
 
 			parent.Add(sprite);
 			                           
