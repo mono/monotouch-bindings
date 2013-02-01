@@ -260,4 +260,11 @@ namespace MonoTouch.Cocos2D {
 		FlippedAll = Horizontal | Vertical | Diagonal,
 		FlippedMask = ~FlippedAll
 	}
+
+#if !MONOMAC
+	public enum CCTouchesMode {
+		AllAtOnce,
+		OneByOne,
+	}
+#endif
 }
