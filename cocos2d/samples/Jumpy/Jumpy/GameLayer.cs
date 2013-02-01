@@ -86,7 +86,6 @@ namespace Jumpy
 			Add(scoreLabel, 5, (int)Tags.ScoreLabel);
 
 
-
 		}
 
 		public override void OnEnter ()
@@ -245,6 +244,7 @@ namespace Jumpy
 
 			var batchnode = GetChild((int)Tags.SpriteManager) as CCSpriteBatchNode;
 			var bird = batchnode.GetChild((int)Tags.Bird) as CCSprite;
+			var particles = GetChild((int)Tags.Particles) as CCParticleSystem;
 
 			bird_pos.X += bird_vel.X * dt;
 
@@ -370,11 +370,27 @@ namespace Jumpy
 			}
 			
 			bird.Position = bird_pos;
+
+			if (particles !=null) {
+				var particle_pos = new PointF(bird_pos.X,bird_pos.Y-17);
+				particles.Position = particle_pos;
+			}
 		}
 
 		void Jump ()
 		{
 			bird_vel.Y = 400.0f + Math.Abs(bird_vel.X);
+
+			var old_part = GetChild((int)Tags.Particles);
+			if (old_part!=null)
+				Remove(old_part,true);
+
+			var particle = new CCParticleFireworks() {
+				Position = bird_pos,
+				Gravity = new PointF(0,-5000),
+				Duration = .3f,
+			};
+			Add (particle,-1,(int)Tags.Particles);
 		}
 
 		void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration)
