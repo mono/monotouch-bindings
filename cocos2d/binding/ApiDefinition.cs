@@ -11,7 +11,7 @@
 // Missing:
 //    PostGets on types that contain children
 //       CCSpriteBatchNode
-//    P/Invokes for CCDrawingPrimitives
+//    P/Invokes for CCDrawingPrimitives (somehow deprecated in 2.1 in favor of CCDrawNode)
 //    Manual bindings for CCLayerMultiplex, since it takes a va_list
 //    Manual bindings for CCMenuItemToggle's constructor
 //
@@ -136,6 +136,12 @@ namespace MonoTouch.Cocos2D {
 		[Export ("rotation")]
 		float Rotation { get; set; }
 
+		[Export ("rotationX")]
+		float RotationX { get; set; }
+
+		[Export ("rotationY")]
+		float RotationY { get; set; }
+
 		[Export ("scale")]
 		float Scale { get; set; }
 
@@ -162,13 +168,28 @@ namespace MonoTouch.Cocos2D {
 		
 		[Export ("addChild:z:tag:")]
 		void Add (CCNode child, int zIndex, int tag);
+
+		[Export ("removeFromPArent")]
+		void RemoveFromPArent ();
+
+		[Export ("removeFromParentAndCleanup:")]
+		void RemoveFromParent (bool cleanup);
+
+		[Export ("removeChild:")]
+		void RemoveChild (CCNode child);
 		
 		[Export ("removeChild:cleanup:")]
 		void Remove (CCNode child, bool cleanup);
 
+		[Export ("removeChildByTag:")]
+		void Remove (int tag);
+		
 		[Export ("removeChildByTag:cleanup:")]
 		void Remove (int tag, bool cleanup);
 
+		[Export ("removeAllChildren")]
+		void RemoveAllChildren ();
+		
 		[Export ("anchorPoint")]
 		PointF AnchorPoint { get; set; }
 
@@ -873,8 +894,11 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (CGImage image, CCResolutionType resolutionType);
 #endif
 
-		[Export ("initWithString:dimensions:hAlignment:vAlignment:fontName:fontSize:")]
-		IntPtr Constructor (string text, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, string fontName, float fontSize);
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:lineBreakMode:")]
+		IntPtr Constructor (string text, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
+
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:")]
+		IntPtr Constructor (string text, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment);
 
 		[Export ("initWithString:fontName:fontSize:")]
 		IntPtr Constructor (string text, string fontName, float fontSize);
@@ -888,8 +912,46 @@ namespace MonoTouch.Cocos2D {
 		[Static]
 		[Export ("viewWithFrame:")]
 		CCGLView View (RectangleF frame);
-	}
 
+		[Export ("initWithFrame:")]
+		CCGLView Constructor (RectangleF frame);
+
+		[Export ("initWithFrame:pixelFormat:")]
+		CCGLView Constuctor (RectangleF frame, string format);
+
+		[Export ("initWithFrame:pixelFormat:depthFormat:preserveBackBuffer:sharegroup:multiSampling:numberOfSamples:")]
+		CCGLView Constructor (RectangleF frame, string format, uint depth, bool retained, MonoTouch.OpenGLES.EAGLSharegroup sharegroup, bool sampling, uint nSamples);
+
+		[Export ("pixelFormat")]
+		string PixelFormat { get; set; }
+
+		[Export ("depthFormat")]
+		uint DepthFormat { get; set; }
+
+		[Export ("surfaceSize")]
+		SizeF SurfaceSize { get; }
+		
+		[Export ("context")]
+		MonoTouch.OpenGLES.EAGLContext Context { get; }
+
+		[Export ("multiSampling")]
+		bool MultiSampling { get; set; }
+		
+		[Export ("swapBuffers")]
+		void SwapBuffers ();
+
+		[Export ("lockOpenGLContext")]
+		void LockOpenGLContext ();
+
+		[Export ("unlockOpenGLContext")]
+		void UnlockOpenGLContext ();
+
+		[Export ("convertPointFromViewToSurface:")]
+		PointF ConvertPointFromViewToSurface(PointF point);
+			
+		[Export ("convertRectFromViewToSurface:")]
+		RectangleF ConvertRectFromViewToSurface (RectangleF rect);
+	}
 
 	public delegate bool AutorotateCondition (UIInterfaceOrientation orientation);
 
@@ -1186,11 +1248,17 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initWithString:fontName:fontSize:")]
 		IntPtr Constructor (string label, string fontName, float fontSize);
 
-		[Export ("initWithString:dimensions:alignment:lineBreakMode:fontName:fontSize:")]
-		IntPtr Constructor (string str, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode, string fontName, float fontSize);
+		[Export ("initWithString:fontName:fontSize:dimensions:halignment:")]
+		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment);
 
-		[Export ("initWithString:dimensions:alignment:fontName:fontSize:")]
-		IntPtr Constructor (string text, SizeF dimensions, UITextAlignment alignment, string fontName, float fontSize);
+		[Export ("initWithString:fontName:fontSize:dimensions:halignment:lineBreakMode:")]
+		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, UILineBreakMode lineBreakMode);
+
+		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:")]
+		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment);
+
+		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:lineBreakMode:")]
+		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
 
 		[Export ("setString:")]
 		void SetString (string value);
@@ -2594,6 +2662,18 @@ namespace MonoTouch.Cocos2D {
 
 	}
 
+	[BaseType (typeof (CCNode))]
+	interface CCDrawNode {
+		[Export ("drawDot:radius:dolor:")]
+		void DrawDot (PointF position, float radius, CCColor4F color);
+
+		[Export ("drawSegmentFrom:to:radius:color:")]
+		void DrawSegment (PointF from, PointF to, float radius, CCColor4F color);
+
+		//[Export ("drawPolyWithVerts:count:fillColor:borderWidth:borderColor:")]
+		//void DrawPoly (Pointf [] vertices, CCColor4F fillColor, float borderWidth, CCColor4F borderColor);
+		
+	}
 
 	[BaseType (typeof (NSObject))]
 	[DisableDefaultCtor] // use SharedConfiguration otherwise it crash with: 
@@ -2694,6 +2774,20 @@ namespace MonoTouch.Cocos2D {
 		void SwitchToAndReleaseMe (uint n);
 	}
 
+	[BaseType (typeof (CCNode))]
+	interface CCClippingNode {
+		[Export ("stencil")]
+		CCNode Stencil { get; set; }
+		
+		[Export ("alphaThreshold")]
+		float AlphaThreshold { get; set; }
+
+		[Export ("inverted")]
+		bool Inverted { get; set; }
+
+		[Export ("initWithStencil:")]
+		IntPtr Constructor (CCNode stencil);
+	}
 
 	[BaseType (typeof (CCNode))]
 	interface CCMotionStreak {
