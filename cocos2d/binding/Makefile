@@ -1,7 +1,8 @@
+VERSION=2.1-rc0
+
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
-VERSION=2.0
 PROJECT_ROOT=cocos2d-iphone-$(VERSION)
 PROJECT_TGZ=$(PROJECT_ROOT).tar.gz
 PROJECT=$(PROJECT_ROOT)/cocos2d-ios.xcodeproj
