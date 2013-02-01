@@ -6,7 +6,7 @@
 //   Stephane Delcroix
 //
 // Copyright 2011, 2012, 2013 Xamarin, Inc.
-// Copyright 2012 S. Delcroix
+// Copyright 2012, 2013 S. Delcroix
 //
 // Missing:
 //    PostGets on types that contain children
@@ -32,7 +32,6 @@ using OpenTK;
 using ARCH_OPTIMAL_PARTICLE_SYSTEM = MonoTouch.Cocos2D.CCParticleSystemQuad;
 
 namespace MonoTouch.Cocos2D {
-
 	delegate void NSCallbackWithSender (NSObject sender);
 
 	[BaseType (typeof (NSObject))]
@@ -1813,7 +1812,7 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initFromString:target:selector:")]
 		IntPtr Constructor (string value, NSObject r, Selector s);
 
-		[Export ("itemFromString:block:")]
+		[Export ("initFromString:block:")]
 		IntPtr Constructor (string value, NSCallbackWithSender callback);
 	}
 
@@ -2774,6 +2773,40 @@ namespace MonoTouch.Cocos2D {
 		void SwitchToAndReleaseMe (uint n);
 	}
 
+#if ENABLE_CHIPMUNK_INTEGRATION
+	[BaseType(typeof(CCDrawNode))]
+	interface CCPhysicsDebugNode {
+		[Export("debugNodeForCPSpace:")]
+		[Static]
+		CCPhysicsDebugNode DebugNode (IntPtr space);
+	}
+
+	[BaseType(typeof(CCSprite))]
+	interface CCPhysicsSprite {
+		[Export ("initWithTexture:rect:rotated:")]
+		IntPtr Constructor (CCTexture2D texture, RectangleF rect, bool rotated);
+
+		[Export ("initWithTexture:rect:")]
+		IntPtr Constructor (CCTexture2D texture, RectangleF rect);
+
+		[Export ("initWithTexture:rect:")]
+		IntPtr Constructor (CCTexture2D texture);
+
+		[Export ("initWithFile:")]
+		IntPtr Constructor (string filename);
+
+		[Export ("initWithFile:rect:")]
+		IntPtr Constructor (string filename, RectangleF rect);
+
+		[Export("ignoreBodyRotation")]
+		bool IgnoreBodyRotation { get; set; }
+
+		[Internal]
+		[Export("CPBody")]
+		IntPtr BodyPtr { get; set; }
+	}
+#endif
+
 	[BaseType (typeof (CCNode))]
 	interface CCClippingNode {
 		[Export ("stencil")]
@@ -2917,7 +2950,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("setTexture:withRect:")]
 		void SetTexture (CCTexture2D texture, RectangleF rect);
-
 	}
 
 	[BaseType (typeof (CCNode))]
@@ -3643,7 +3675,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithXML:resourcePath:")]
 		IntPtr Constructor (string tmxString, string resourcePath);
-
 	}
 
 }

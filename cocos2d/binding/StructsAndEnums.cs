@@ -3,8 +3,10 @@
 //
 // Author:
 //   Miguel de Icaza
+//   Stephane Delcroix
 //
 // Copyright 2011, 2012, 2013 Xamarin, Inc.
+// Copyright 2012, 2013 S. Delcroix
 //
 using System;
 using System.Runtime.InteropServices;

@@ -4,7 +4,7 @@
 // Author:
 //   Stephane Delcroix
 //
-// Copyright 2012 S. Delcroix
+// Copyright 2012, 2013 S. Delcroix
 //
 
 using System;
@@ -228,4 +228,12 @@ namespace MonoTouch.Cocos2D {
 		{
 		}
 	}
+#if ENABLE_CHIPMUNK_INTEGRATION
+	public partial class CCPhysicsSprite {
+		public Chipmunk.Body Body {
+			get { return new Chipmunk.Body (BodyPtr); }
+			set { BodyPtr = value.Handle.Handle; }
+		} 
+	}
+#endif
 }	
