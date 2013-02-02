@@ -4,7 +4,7 @@
 // Author:
 //   Stephane Delcroix
 //
-// Copyright 2012 S. Delcroix
+// Copyright 2012, 2013 S. Delcroix
 //
 
 using System;
@@ -209,4 +209,44 @@ namespace MonoTouch.Cocos2D {
 		{
 		}
 	}
+
+	public partial class CCTexture2D {
+		[Obsolete ("Obsolete since 2.1. Use CCTexture2D (string text, string fontName, float fontSize, UITextAlignment alignmenr, CCVerticalTextAlignment vertAlignmenr) instead.")]
+		public CCTexture2D (string text, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, string fontName, float fontSize) : this (text, fontName, fontSize, dimensions, alignment, vertAlignment)
+		{
+		}
+	}
+
+	public partial class CCLabelTTF {
+		[Obsolete ("Obsolete since 2.1. Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode) instead.")]
+		public CCLabelTTF (string label, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment, lineBreakMode)
+		{
+		}
+
+		[Obsolete ("Obsolete since 2.1, Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment) instead.")]
+		public CCLabelTTF (string label, SizeF dimensions, UITextAlignment alignment, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment)
+		{
+		}
+	}
+#if ENABLE_CHIPMUNK_INTEGRATION
+	public partial class CCPhysicsSprite {
+		public Chipmunk.Body Body {
+			get { return new Chipmunk.Body (BodyPtr); }
+			set { BodyPtr = value.Handle.Handle; }
+		} 
+
+		public PointF Position {
+			get {
+				if (BodyPtr == IntPtr.Zero)
+					throw new InvalidOperationException ("You can't get the Position if the Body isn't set");
+				return PositionInt;
+			}
+			set {
+				if (BodyPtr == IntPtr.Zero)
+					throw new InvalidOperationException ("You can't set the Position if the Body isn't set");
+				PositionInt = value;
+			}
+		}
+	}
+#endif
 }	
