@@ -234,6 +234,19 @@ namespace MonoTouch.Cocos2D {
 			get { return new Chipmunk.Body (BodyPtr); }
 			set { BodyPtr = value.Handle.Handle; }
 		} 
+
+		public PointF Position {
+			get {
+				if (BodyPtr == IntPtr.Zero)
+					throw new InvalidOperationException ("You can't get the Position if the Body isn't set");
+				return PositionInt;
+			}
+			set {
+				if (BodyPtr == IntPtr.Zero)
+					throw new InvalidOperationException ("You can't set the Position if the Body isn't set");
+				PositionInt = value;
+			}
+		}
 	}
 #endif
 }	

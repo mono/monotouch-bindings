@@ -2804,6 +2804,10 @@ namespace MonoTouch.Cocos2D {
 		[Internal]
 		[Export("CPBody")]
 		IntPtr BodyPtr { get; set; }
+
+		[Internal]
+		[Export ("position")]
+		PointF PositionInt { get; set; }
 	}
 #endif
 
