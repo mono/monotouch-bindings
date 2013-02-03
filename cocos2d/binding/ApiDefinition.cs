@@ -1184,7 +1184,14 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("isTouchEnabled")]
 		bool IsTouchEnabled { get; set; }
-
+		
+#if !MONOMAC
+		[Export ("touchMode")]
+		CCTouchesMode TouchMode { get; set; }
+#endif
+		[Export ("touchPriority")]
+		int TouchPriority { get; set; }
+		
 		[Export ("isAccelerometerEnabled")]
 		bool IsAccelerometerEnabled { get; set; }
 
