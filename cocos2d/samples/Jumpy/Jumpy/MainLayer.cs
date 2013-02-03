@@ -36,6 +36,7 @@ namespace Jumpy
 			SpriteManager = 0,
 			Bird,
 			ScoreLabel,
+			Particles,
 			CloudsStart = 100,
 			PlatformsStart = 200,
 			BomusStart = 300,
