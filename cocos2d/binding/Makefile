@@ -11,12 +11,15 @@ CONFIGURATION=Release
 
 ifeq ($(ENABLE_CHIPMUNK_INTEGRATION), 1)	
 	XCODEEXTRA=GCC_PREPROCESSOR_DEFINITIONS="CC_ENABLE_CHIPMUNK_INTEGRATION=1" 
-	CHIPMUNK_CS=	../../chipmunk/binding/src/Body.cs		\
-			../../chipmunk/binding/src/BoundingBox.cs	\
-			../../chipmunk/binding/src/ChipmunkObject.cs	\
-			../../chipmunk/binding/src/Helper.cs		\
-			../../chipmunk/binding/src/Shape.cs		\
-			../../chipmunk/binding/src/Space.cs
+	CHIPMUNK_CS=	../../chipmunk/binding/src/Body.cs			\
+			../../chipmunk/binding/src/BoundingBox.cs		\
+			../../chipmunk/binding/src/ChipmunkObject.cs		\
+			../../chipmunk/binding/src/Helper.cs			\
+			../../chipmunk/binding/src/Shape.cs			\
+			../../chipmunk/binding/src/Space.cs			\
+			../../chipmunk/binding/src/Constraints/Constraint.cs	\
+			../../chipmunk/binding/src/Constraints/DampedSpring.cs
+
 	CHIPMUNK_LIB= 	libChipmunk.a
 CHIPMUNK_RES= -res:libChipmunk.a
 else

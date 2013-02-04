@@ -70,6 +70,15 @@ namespace Chipmunk
 			return shape;
 		}
 
+		[DllImport ("__Internal")]
+		extern static IntPtr cpSpaceAddConstraint(IntPtr space, IntPtr constraint);
+
+		public Constraint Add (Constraint constraint)
+		{
+			cpSpaceAddConstraint(Handle.Handle, constraint.Handle.Handle);
+			return constraint;
+		}
+
 		[DllImport("__Internal")]
 		extern static void cpSpaceStep (IntPtr space, float dt);
 
@@ -79,5 +88,3 @@ namespace Chipmunk
 		}
 	}
 }
-		
-	
