@@ -1,9 +1,7 @@
-diff --git a/include/chipmunk/chipmunk_bind.h b/include/chipmunk/chipmunk_bind.h
-new file mode 100644
-index 0000000..fce86da
---- /dev/null
-+++ b/include/chipmunk/chipmunk_bind.h
-@@ -0,0 +1,60 @@
+diff -ruN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
+--- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-05 16:16:57.000000000 +0100
+@@ -0,0 +1,84 @@
 +//
 +//  chipmunk_bind.h
 +//
@@ -25,6 +23,24 @@ index 0000000..fce86da
 +MAKE_GETTER_FOR_BINDING(property_type, struct, name) \
 +MAKE_SETTER_FOR_BINDING(property_type, struct, name)
 +
++
++#define MAKE_CONSTRAINT_GETTER_FOR_BINDING(struct, type, member, name) \
++type __##struct##Get##name(const cpConstraint *constraint){ \
++	cpConstraintCheckCast(constraint, struct); \
++	return ((struct *)constraint)->member; \
++}
++
++#define MAKE_CONSTRAINT_SETTER_FOR_BINDING(struct, type, member, name) \
++void __##struct##Set##name(cpConstraint *constraint, type value){ \
++	cpConstraintCheckCast(constraint, struct); \
++	cpConstraintActivateBodies(constraint); \
++	((struct *)constraint)->member = value; \
++}
++
++
++#define MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(struct, type, member, name) \
++MAKE_CONSTRAINT_GETTER_FOR_BINDING(struct, type, member, name) \
++MAKE_CONSTRAINT_SETTER_FOR_BINDING(struct, type, member, name)
 +
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Mass);
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Moment);
@@ -63,12 +79,17 @@ index 0000000..fce86da
 +MAKE_GETTER_FOR_BINDING(cpBody*, cpSpace, StaticBody);
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpSpace, CurrentTimeStep);
 +
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpVect, anchr1, Anchr1);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpVect, anchr2, Anchr2);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpFloat, restLength, RestLength);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpFloat, stiffness, Stiffness);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpFloat, damping, Damping);
++
 +#endif
-diff --git a/src/chipmunk.c b/src/chipmunk.c
-index 8487dd0..640989a 100644
---- a/src/chipmunk.c
-+++ b/src/chipmunk.c
-@@ -320,3 +320,5 @@ cpBool cpSpaceShapeQuery_b(cpSpace *space, cpShape *shape, cpSpaceShapeQueryBloc
+diff -ruN ./src/chipmunk.c ../Chipmunk/src/chipmunk.c
+--- ./src/chipmunk.c	2012-05-25 15:20:06.000000000 +0200
++++ ../Chipmunk/src/chipmunk.c	2013-02-05 16:01:20.000000000 +0100
+@@ -320,3 +320,5 @@
  #endif
  
  #include "chipmunk_ffi.h"

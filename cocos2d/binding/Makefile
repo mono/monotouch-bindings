@@ -38,10 +38,10 @@ debug: all
 $(PROJECT_TGZ):
 	curl http://cocos2d-iphone.googlecode.com/files/$(PROJECT_TGZ) -o $(PROJECT_TGZ) 
 
-$(PROJECT): $(PROJECT_TGZ) chipmunk-diff
+$(PROJECT): $(PROJECT_TGZ) ../../chipmunk/binding/chipmunk-diff
 	rm -rf $(PROJECT_ROOT)
 	tar xfz $<
-	patch -d $(PROJECT_ROOT)/external/Chipmunk -p1 < chipmunk-diff
+	patch -d $(PROJECT_ROOT)/external/Chipmunk -p1 < ../../chipmunk/binding/chipmunk-diff
 
 ## libcocos2d
 libcocos2d.a: libcocos2d-i386.a libcocos2d-armv7.a #libcocos2d-armv7s.a
