@@ -25,6 +25,10 @@ namespace Chipmunk
 		{
 		}		
 
+		public Space (IntPtr space) : base (space)
+		{
+		}
+
 		[DllImport("__Internal")]
 		extern static IntPtr cpSpaceAddStaticShape (IntPtr space, IntPtr shape);
 
@@ -85,6 +89,15 @@ namespace Chipmunk
 		public void Step (float dt)
 		{
 			cpSpaceStep(Handle.Handle, dt);
+		}
+
+		[DllImport ("__Internal")]
+		extern static void cpSpaceFree (IntPtr space);
+
+		protected override void Cleanup ()
+		{
+		    cpSpaceFree (Handle.Handle);
+		    base.Cleanup ();
 		}
 	}
 }

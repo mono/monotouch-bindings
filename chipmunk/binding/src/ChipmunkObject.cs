@@ -37,7 +37,7 @@ namespace Chipmunk
 			Cleanup ();
 		}
 
-		void Cleanup ()
+		protected virtual void Cleanup ()
 		{
 			Handle = new HandleRef (this, IntPtr.Zero);
 		}

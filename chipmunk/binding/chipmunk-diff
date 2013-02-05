@@ -1,7 +1,7 @@
 diff -ruN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
 --- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
-+++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-05 16:16:57.000000000 +0100
-@@ -0,0 +1,84 @@
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-05 16:39:23.000000000 +0100
+@@ -0,0 +1,111 @@
 +//
 +//  chipmunk_bind.h
 +//
@@ -22,25 +22,6 @@ diff -ruN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +#define MAKE_PROPERTY_FOR_BINDING(property_type, struct, name) \
 +MAKE_GETTER_FOR_BINDING(property_type, struct, name) \
 +MAKE_SETTER_FOR_BINDING(property_type, struct, name)
-+
-+
-+#define MAKE_CONSTRAINT_GETTER_FOR_BINDING(struct, type, member, name) \
-+type __##struct##Get##name(const cpConstraint *constraint){ \
-+	cpConstraintCheckCast(constraint, struct); \
-+	return ((struct *)constraint)->member; \
-+}
-+
-+#define MAKE_CONSTRAINT_SETTER_FOR_BINDING(struct, type, member, name) \
-+void __##struct##Set##name(cpConstraint *constraint, type value){ \
-+	cpConstraintCheckCast(constraint, struct); \
-+	cpConstraintActivateBodies(constraint); \
-+	((struct *)constraint)->member = value; \
-+}
-+
-+
-+#define MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(struct, type, member, name) \
-+MAKE_CONSTRAINT_GETTER_FOR_BINDING(struct, type, member, name) \
-+MAKE_CONSTRAINT_SETTER_FOR_BINDING(struct, type, member, name)
 +
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Mass);
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Moment);
@@ -78,6 +59,52 @@ diff -ruN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +MAKE_PROPERTY_FOR_BINDING(cpDataPointer, cpSpace, UserData);
 +MAKE_GETTER_FOR_BINDING(cpBody*, cpSpace, StaticBody);
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpSpace, CurrentTimeStep);
++
++#define MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(type, member, name) \
++type __cpConstraint##Get##name(const cpConstraint *constraint){return constraint->member;}
++
++#define MAKE_CONSTRAINT_STRUCT_SETTER_FOR_BINDING(type, member, name) \
++void __cpConstraint##Set##name(cpConstraint *constraint, type value){ \
++	cpConstraintActivateBodies(constraint); \
++	constraint->member = value; \
++}
++
++#define MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(type, member, name) \
++MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(type, member, name) \
++MAKE_CONSTRAINT_STRUCT_SETTER_FOR_BINDING(type, member, name)
++
++MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(cpSpace*, CP_PRIVATE(space), Space);
++
++MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(cpBody*, a, A);
++MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(cpBody*, b, B);
++MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpFloat, maxForce, MaxForce);
++MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpFloat, errorBias, ErrorBias);
++MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpFloat, maxBias, MaxBias);
++MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpConstraintPreSolveFunc, preSolve, PreSolveFunc);
++MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpConstraintPostSolveFunc, postSolve, PostSolveFunc);
++MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpDataPointer, data, UserData);
++
++cpFloat __cpConstraintGetImpulse(cpConstraint *constraint)
++{
++	return constraint->CP_PRIVATE(klass)->getImpulse(constraint);
++}
++
++#define MAKE_CONSTRAINT_GETTER_FOR_BINDING(struct, type, member, name) \
++type __##struct##Get##name(const cpConstraint *constraint){ \
++	cpConstraintCheckCast(constraint, struct); \
++	return ((struct *)constraint)->member; \
++}
++
++#define MAKE_CONSTRAINT_SETTER_FOR_BINDING(struct, type, member, name) \
++void __##struct##Set##name(cpConstraint *constraint, type value){ \
++	cpConstraintCheckCast(constraint, struct); \
++	cpConstraintActivateBodies(constraint); \
++	((struct *)constraint)->member = value; \
++}
++
++#define MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(struct, type, member, name) \
++MAKE_CONSTRAINT_GETTER_FOR_BINDING(struct, type, member, name) \
++MAKE_CONSTRAINT_SETTER_FOR_BINDING(struct, type, member, name)
 +
 +MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpVect, anchr1, Anchr1);
 +MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpVect, anchr2, Anchr2);
