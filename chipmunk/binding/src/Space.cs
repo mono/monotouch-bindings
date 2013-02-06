@@ -32,6 +32,7 @@ namespace Chipmunk
 		[DllImport("__Internal")]
 		extern static IntPtr cpSpaceAddStaticShape (IntPtr space, IntPtr shape);
 
+		[Obsolete ("Attach the shape to the static body instead")]
 		public T AddStaticShape<T> (T shape) where T : Shape
 		{
 			cpSpaceAddStaticShape (Handle.Handle, shape.Handle.Handle);

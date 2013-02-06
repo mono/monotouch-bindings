@@ -11,7 +11,8 @@ CONFIGURATION=Release
 
 ifeq ($(ENABLE_CHIPMUNK_INTEGRATION), 1)	
 	XCODEEXTRA=GCC_PREPROCESSOR_DEFINITIONS="CC_ENABLE_CHIPMUNK_INTEGRATION=1" 
-	CHIPMUNK_CS=	../../chipmunk/binding/src/Body.cs			\
+	CHIPMUNK_CS=	../../chipmunk/binding/src/Arbiter.cs			\
+			../../chipmunk/binding/src/Body.cs			\
 			../../chipmunk/binding/src/BoundingBox.cs		\
 			../../chipmunk/binding/src/ChipmunkObject.cs		\
 			../../chipmunk/binding/src/Helper.cs			\

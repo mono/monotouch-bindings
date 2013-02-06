@@ -16,6 +16,7 @@ debug: CONFIGURATION=Debug
 debug: all
 
 CS_SRC=					\
+	src/Arbiter.cs			\
 	src/AssemblyInfo.cs		\
 	src/Body.cs			\
 	src/BoundingBox.cs		\

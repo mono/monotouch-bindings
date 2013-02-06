@@ -11,9 +11,9 @@ using System.Runtime.InteropServices;
 
 namespace Chipmunk
 {
-    public abstract partial class Constraint : ChipmunkObject
+    public partial class Constraint : ChipmunkObject
     {
-	protected Constraint (IntPtr ptr) : base (ptr)
+	internal Constraint (IntPtr ptr) : base (ptr)
 	{
 	}
 

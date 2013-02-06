@@ -1,13 +1,16 @@
-diff -ruN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
+diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
 --- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
-+++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-05 16:39:23.000000000 +0100
-@@ -0,0 +1,111 @@
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-06 14:20:21.000000000 +0100
+@@ -0,0 +1,120 @@
 +//
 +//  chipmunk_bind.h
 +//
-+//  Created by Stéphane Delcroix on 24/09/12.
++// Authors:
++//  Stephane Delcroix <stephane@delcroix.org>
 +//
++// Copyright 2012, 2013 S. Delcroix
 +//
++
 +#ifdef CHIPMUNK_BIND
 +
 +#define MAKE_GETTER_FOR_BINDING(property_type, struct, name) \
@@ -23,19 +26,25 @@ diff -ruN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +MAKE_GETTER_FOR_BINDING(property_type, struct, name) \
 +MAKE_SETTER_FOR_BINDING(property_type, struct, name)
 +
++//cpBody
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Mass);
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Moment);
 +MAKE_GETTER_FOR_BINDING(cpVect, cpBody, Pos);
-+MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Angle);
-+MAKE_GETTER_FOR_BINDING(cpVect, cpBody, Rot);
 +MAKE_PROPERTY_FOR_BINDING(cpVect, cpBody, Vel);
 +MAKE_PROPERTY_FOR_BINDING(cpVect, cpBody, Force);
++MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Angle);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpBody, AngVel);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpBody, Torque);
++MAKE_GETTER_FOR_BINDING(cpVect, cpBody, Rot);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpBody, VelLimit);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpBody, AngVelLimit);
++MAKE_GETTER_FOR_BINDING(cpSpace*, cpBody, Space);
 +MAKE_PROPERTY_FOR_BINDING(cpDataPointer, cpBody, UserData);
++cpBool __cpBodyIsSleeping(const cpBody *body) { return cpBodyIsSleeping (body); }
++cpBool __cpBodyIsStatic(const cpBody *body) { return cpBodyIsStatic (body); }
++cpBool __cpBodyIsRogue(const cpBody *body) { return cpBodyIsRogue (body); }
 +
++//cpShape
 +MAKE_GETTER_FOR_BINDING(cpBB, cpShape, BB);
 +//MAKE_PROPERTY_FOR_BINDING(cpBody*, cpShape, Body);
 +MAKE_PROPERTY_FOR_BINDING(cpBool, cpShape, Sensor);
@@ -113,7 +122,7 @@ diff -ruN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpFloat, damping, Damping);
 +
 +#endif
-diff -ruN ./src/chipmunk.c ../Chipmunk/src/chipmunk.c
+diff -urN ./src/chipmunk.c ../Chipmunk/src/chipmunk.c
 --- ./src/chipmunk.c	2012-05-25 15:20:06.000000000 +0200
 +++ ../Chipmunk/src/chipmunk.c	2013-02-05 16:01:20.000000000 +0100
 @@ -320,3 +320,5 @@
