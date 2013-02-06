@@ -95,10 +95,9 @@ namespace Chipmunk
 		[DllImport ("__Internal")]
 		extern static void cpSpaceFree (IntPtr space);
 
-		protected override void Cleanup ()
+		protected override void Free ()
 		{
 		    cpSpaceFree (Handle.Handle);
-		    base.Cleanup ();
 		}
 	}
 }

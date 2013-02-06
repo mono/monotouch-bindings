@@ -40,10 +40,9 @@ namespace Chipmunk
 		[DllImport("__Internal")]
 		extern static void cpBodyFree (IntPtr body);
 
-		protected override void Cleanup ()
+		protected override void Free ()
 		{
-		    //cpBodyFree (Handle.Handle);
-		    base.Cleanup ();
+		    cpBodyFree (Handle.Handle);
 		}
 
 		//Properties
