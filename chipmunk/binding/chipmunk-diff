@@ -1,7 +1,7 @@
 diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
 --- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
-+++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-07 11:37:01.000000000 +0100
-@@ -0,0 +1,123 @@
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-07 21:07:13.000000000 +0100
+@@ -0,0 +1,144 @@
 +//
 +//  chipmunk_bind.h
 +//
@@ -72,57 +72,78 @@ diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpSpace, CurrentTimeStep);
 +cpBool __cpSpaceIsLocked(cpSpace *space) { return cpSpaceIsLocked (space); }
 +
-+#define MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(type, member, name) \
-+type __cpConstraint##Get##name(const cpConstraint *constraint){return constraint->member;}
++//cpConstraint
++MAKE_GETTER_FOR_BINDING(cpSpace*, cpConstraint, Space);
++MAKE_GETTER_FOR_BINDING(cpBody*, cpConstraint, A);
++MAKE_GETTER_FOR_BINDING(cpBody*, cpConstraint, B);
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpConstraint, MaxForce);
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpConstraint, ErrorBias);
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpConstraint, MaxBias);
++MAKE_PROPERTY_FOR_BINDING(cpConstraintPreSolveFunc, cpConstraint, PreSolveFunc);
++MAKE_PROPERTY_FOR_BINDING(cpConstraintPostSolveFunc, cpConstraint, PostSolveFunc);
++MAKE_PROPERTY_FOR_BINDING(cpDataPointer, cpConstraint, UserData);
++cpFloat __cpConstraintGetImpulse(cpConstraint *constraint) { return cpConstraintGetImpulse(constraint); }
 +
-+#define MAKE_CONSTRAINT_STRUCT_SETTER_FOR_BINDING(type, member, name) \
-+void __cpConstraint##Set##name(cpConstraint *constraint, type value){ \
-+	cpConstraintActivateBodies(constraint); \
-+	constraint->member = value; \
++#define MAKE_CONSTRAINT_GETTER_FOR_BINDING(property_type, struct, name) \
++property_type __##struct##Get##name(const cpConstraint *obj) \
++{return  struct##Get##name(obj);}
++
++#define MAKE_CONSTRAINT_SETTER_FOR_BINDING(property_type, struct, name) \
++void __##struct##Set##name(cpConstraint *obj, const property_type value){ \
++    struct##Set##name(obj, value); \
 +}
 +
-+#define MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(type, member, name) \
-+MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(type, member, name) \
-+MAKE_CONSTRAINT_STRUCT_SETTER_FOR_BINDING(type, member, name)
++#define MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(property_type, struct, name) \
++MAKE_CONSTRAINT_GETTER_FOR_BINDING(property_type, struct, name) \
++MAKE_CONSTRAINT_SETTER_FOR_BINDING(property_type, struct, name)
 +
-+MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(cpSpace*, CP_PRIVATE(space), Space);
++//cpPinJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpPinJoint, Anchr1);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpPinJoint, Anchr2);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpPinJoint, Dist);
 +
-+MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(cpBody*, a, A);
-+MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(cpBody*, b, B);
-+MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpFloat, maxForce, MaxForce);
-+MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpFloat, errorBias, ErrorBias);
-+MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpFloat, maxBias, MaxBias);
-+MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpConstraintPreSolveFunc, preSolve, PreSolveFunc);
-+MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpConstraintPostSolveFunc, postSolve, PostSolveFunc);
-+MAKE_CONSTRAINT_STRUCT_PROPERTY_FOR_BINDING(cpDataPointer, data, UserData);
++//cpSlideJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpSlideJoint, Anchr1);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpSlideJoint, Anchr2);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpSlideJoint, Min);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpSlideJoint, Max);
 +
-+cpFloat __cpConstraintGetImpulse(cpConstraint *constraint)
-+{
-+	return constraint->CP_PRIVATE(klass)->getImpulse(constraint);
-+}
++//cpPivotJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpPivotJoint, Anchr1);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpPivotJoint, Anchr2);
 +
-+#define MAKE_CONSTRAINT_GETTER_FOR_BINDING(struct, type, member, name) \
-+type __##struct##Get##name(const cpConstraint *constraint){ \
-+	cpConstraintCheckCast(constraint, struct); \
-+	return ((struct *)constraint)->member; \
-+}
++//cpGrooveJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpGrooveJoint, GrooveA);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpGrooveJoint, GrooveB);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpGrooveJoint, Anchr2);
 +
-+#define MAKE_CONSTRAINT_SETTER_FOR_BINDING(struct, type, member, name) \
-+void __##struct##Set##name(cpConstraint *constraint, type value){ \
-+	cpConstraintCheckCast(constraint, struct); \
-+	cpConstraintActivateBodies(constraint); \
-+	((struct *)constraint)->member = value; \
-+}
++//cpDampedSpring
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpDampedSpring, Anchr1);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpDampedSpring, Anchr2);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedSpring, RestLength);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedSpring, Stiffness);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedSpring, Damping);
 +
-+#define MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(struct, type, member, name) \
-+MAKE_CONSTRAINT_GETTER_FOR_BINDING(struct, type, member, name) \
-+MAKE_CONSTRAINT_SETTER_FOR_BINDING(struct, type, member, name)
++//cpDampedRotarySpring
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedRotarySpring, RestAngle);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedRotarySpring, Stiffness);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedRotarySpring, Damping);
 +
-+MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpVect, anchr1, Anchr1);
-+MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpVect, anchr2, Anchr2);
-+MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpFloat, restLength, RestLength);
-+MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpFloat, stiffness, Stiffness);
-+MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpDampedSpring, cpFloat, damping, Damping);
++//cpRotaryLimitJoin
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRotaryLimitJoint, Min);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRotaryLimitJoint, Max);
++
++//cpRatchetJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRatchetJoint, Angle);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRatchetJoint, Phase);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRatchetJoint, Ratchet);
++
++//cpGearJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpGearJoint, Phase);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpGearJoint, Ratio);
++
++//cpSimpleMoto
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpSimpleMotor, Rate);
 +
 +#endif
 diff -urN ./src/chipmunk.c ../Chipmunk/src/chipmunk.c

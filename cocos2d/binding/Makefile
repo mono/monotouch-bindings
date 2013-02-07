@@ -18,8 +18,7 @@ ifeq ($(ENABLE_CHIPMUNK_INTEGRATION), 1)
 			../../chipmunk/binding/src/Helper.cs			\
 			../../chipmunk/binding/src/Shape.cs			\
 			../../chipmunk/binding/src/Space.cs			\
-			../../chipmunk/binding/src/Constraints/Constraint.cs	\
-			../../chipmunk/binding/src/Constraints/DampedSpring.cs
+			../../chipmunk/binding/src/Constraint.cs
 
 	CHIPMUNK_LIB= 	libChipmunk.a
 CHIPMUNK_RES= -res:libChipmunk.a
