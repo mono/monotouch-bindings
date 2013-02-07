@@ -1,7 +1,7 @@
 diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
 --- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
-+++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-06 22:18:55.000000000 +0100
-@@ -0,0 +1,121 @@
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-07 11:37:01.000000000 +0100
+@@ -0,0 +1,123 @@
 +//
 +//  chipmunk_bind.h
 +//
@@ -57,6 +57,7 @@ diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +MAKE_PROPERTY_FOR_BINDING(cpLayers, cpShape, Layers);
 +MAKE_GETTER_FOR_BINDING(cpSpace*, cpShape, Space);
 +
++//cpSpace
 +MAKE_PROPERTY_FOR_BINDING(int, cpSpace, Iterations);
 +MAKE_PROPERTY_FOR_BINDING(cpVect, cpSpace, Gravity);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpSpace, Damping);
@@ -69,6 +70,7 @@ diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +MAKE_PROPERTY_FOR_BINDING(cpDataPointer, cpSpace, UserData);
 +MAKE_GETTER_FOR_BINDING(cpBody*, cpSpace, StaticBody);
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpSpace, CurrentTimeStep);
++cpBool __cpSpaceIsLocked(cpSpace *space) { return cpSpaceIsLocked (space); }
 +
 +#define MAKE_CONSTRAINT_STRUCT_GETTER_FOR_BINDING(type, member, name) \
 +type __cpConstraint##Get##name(const cpConstraint *constraint){return constraint->member;}
