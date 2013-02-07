@@ -1,0 +1,597 @@
+<Type Name="DBFilesystem" FullName="DropBoxSync.iOS.DBFilesystem">
+  <TypeSignature Language="C#" Value="public class DBFilesystem : MonoTouch.Foundation.NSError" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DBFilesystem extends MonoTouch.Foundation.NSError" />
+  <AssemblyInfo>
+    <AssemblyName>DropBoxSync</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSError</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("DBFilesystem", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DBFilesystem ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DBFilesystem (DropBoxSync.iOS.DBAccount account);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class DropBoxSync.iOS.DBAccount account) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAccount:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="account" Type="DropBoxSync.iOS.DBAccount" />
+      </Parameters>
+      <Docs>
+        <param name="account">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DBFilesystem (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DBFilesystem (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DBFilesystem (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Account">
+      <MemberSignature Language="C#" Value="public virtual DropBoxSync.iOS.DBAccount Account { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class DropBoxSync.iOS.DBAccount Account" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("account")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>DropBoxSync.iOS.DBAccount</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddObserver">
+      <MemberSignature Language="C#" Value="public virtual bool AddObserver (MonoTouch.Foundation.NSObject observer, DropBoxSync.iOS.DBPath path, DropBoxSync.iOS.DBObserverHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool AddObserver(class MonoTouch.Foundation.NSObject observer, class DropBoxSync.iOS.DBPath path, class DropBoxSync.iOS.DBObserverHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addObserver:forPath:block:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="observer" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="path" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="handler" Type="DropBoxSync.iOS.DBObserverHandler" />
+      </Parameters>
+      <Docs>
+        <param name="observer">To be added.</param>
+        <param name="path">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddObserverForPathAndChildren">
+      <MemberSignature Language="C#" Value="public virtual bool AddObserverForPathAndChildren (MonoTouch.Foundation.NSObject observer, DropBoxSync.iOS.DBPath path, DropBoxSync.iOS.DBObserverHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool AddObserverForPathAndChildren(class MonoTouch.Foundation.NSObject observer, class DropBoxSync.iOS.DBPath path, class DropBoxSync.iOS.DBObserverHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addObserver:forPathAndChildren:block:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="observer" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="path" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="handler" Type="DropBoxSync.iOS.DBObserverHandler" />
+      </Parameters>
+      <Docs>
+        <param name="observer">To be added.</param>
+        <param name="path">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddObserverForPathAndDescendants">
+      <MemberSignature Language="C#" Value="public virtual bool AddObserverForPathAndDescendants (MonoTouch.Foundation.NSObject observer, DropBoxSync.iOS.DBPath path, DropBoxSync.iOS.DBObserverHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool AddObserverForPathAndDescendants(class MonoTouch.Foundation.NSObject observer, class DropBoxSync.iOS.DBPath path, class DropBoxSync.iOS.DBObserverHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addObserver:forPathAndDescendants:block:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="observer" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="path" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="handler" Type="DropBoxSync.iOS.DBObserverHandler" />
+      </Parameters>
+      <Docs>
+        <param name="observer">To be added.</param>
+        <param name="path">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CompletedFirstSync">
+      <MemberSignature Language="C#" Value="public virtual bool CompletedFirstSync { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool CompletedFirstSync" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("completedFirstSync")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateFile">
+      <MemberSignature Language="C#" Value="public virtual DropBoxSync.iOS.DBFile CreateFile (DropBoxSync.iOS.DBPath path, out DropBoxSync.iOS.DBError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class DropBoxSync.iOS.DBFile CreateFile(class DropBoxSync.iOS.DBPath path, class DropBoxSync.iOS.DBError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createFile:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>DropBoxSync.iOS.DBFile</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="error" Type="DropBoxSync.iOS.DBError&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateFolder">
+      <MemberSignature Language="C#" Value="public virtual bool CreateFolder (DropBoxSync.iOS.DBPath path, out DropBoxSync.iOS.DBError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool CreateFolder(class DropBoxSync.iOS.DBPath path, class DropBoxSync.iOS.DBError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createFolder:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="error" Type="DropBoxSync.iOS.DBError&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeletePath">
+      <MemberSignature Language="C#" Value="public virtual bool DeletePath (DropBoxSync.iOS.DBPath path, out DropBoxSync.iOS.DBError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool DeletePath(class DropBoxSync.iOS.DBPath path, class DropBoxSync.iOS.DBError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("deletePath:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="error" Type="DropBoxSync.iOS.DBError&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FileInfoForPath">
+      <MemberSignature Language="C#" Value="public virtual DropBoxSync.iOS.DBFileInfo FileInfoForPath (DropBoxSync.iOS.DBPath path, out DropBoxSync.iOS.DBError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class DropBoxSync.iOS.DBFileInfo FileInfoForPath(class DropBoxSync.iOS.DBPath path, class DropBoxSync.iOS.DBError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fileInfoForPath:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>DropBoxSync.iOS.DBFileInfo</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="error" Type="DropBoxSync.iOS.DBError&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ListFolder">
+      <MemberSignature Language="C#" Value="public virtual DropBoxSync.iOS.DBFileInfo[] ListFolder (DropBoxSync.iOS.DBPath path, out DropBoxSync.iOS.DBError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class DropBoxSync.iOS.DBFileInfo[] ListFolder(class DropBoxSync.iOS.DBPath path, class DropBoxSync.iOS.DBError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("listFolder:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>DropBoxSync.iOS.DBFileInfo[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="error" Type="DropBoxSync.iOS.DBError&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MovePath">
+      <MemberSignature Language="C#" Value="public virtual bool MovePath (DropBoxSync.iOS.DBPath fromPath, DropBoxSync.iOS.DBPath toPath, out DropBoxSync.iOS.DBError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool MovePath(class DropBoxSync.iOS.DBPath fromPath, class DropBoxSync.iOS.DBPath toPath, class DropBoxSync.iOS.DBError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("movePath:toPath:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fromPath" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="toPath" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="error" Type="DropBoxSync.iOS.DBError&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="fromPath">To be added.</param>
+        <param name="toPath">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenFile">
+      <MemberSignature Language="C#" Value="public virtual DropBoxSync.iOS.DBFile OpenFile (DropBoxSync.iOS.DBPath path, out DropBoxSync.iOS.DBError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class DropBoxSync.iOS.DBFile OpenFile(class DropBoxSync.iOS.DBPath path, class DropBoxSync.iOS.DBError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("openFile:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>DropBoxSync.iOS.DBFile</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="DropBoxSync.iOS.DBPath" />
+        <Parameter Name="error" Type="DropBoxSync.iOS.DBError&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveObserver">
+      <MemberSignature Language="C#" Value="public virtual void RemoveObserver (MonoTouch.Foundation.NSObject observer);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveObserver(class MonoTouch.Foundation.NSObject observer) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeObserver:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="observer" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="observer">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetSharedFilesystem">
+      <MemberSignature Language="C#" Value="public static void SetSharedFilesystem (DropBoxSync.iOS.DBFilesystem filesystem);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetSharedFilesystem(class DropBoxSync.iOS.DBFilesystem filesystem) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setSharedFilesystem:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="filesystem" Type="DropBoxSync.iOS.DBFilesystem" />
+      </Parameters>
+      <Docs>
+        <param name="filesystem">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SharedFilesystem">
+      <MemberSignature Language="C#" Value="public static DropBoxSync.iOS.DBFilesystem SharedFilesystem { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class DropBoxSync.iOS.DBFilesystem SharedFilesystem" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sharedFilesystem")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>DropBoxSync.iOS.DBFilesystem</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShutDown">
+      <MemberSignature Language="C#" Value="public virtual bool ShutDown { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ShutDown" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isShutDown")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Status">
+      <MemberSignature Language="C#" Value="public virtual DropBoxSync.iOS.DBSyncStatus Status { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype DropBoxSync.iOS.DBSyncStatus Status" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("status")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>DropBoxSync.iOS.DBSyncStatus</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
