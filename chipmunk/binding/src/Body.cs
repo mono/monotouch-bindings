@@ -4,7 +4,11 @@
 // Authors:
 //  Stephane Delcroix <stephane@delcroix.org>
 //
-// Copyright 2012, 2013 S. Delcroix
+// Copyright 2012, 2013 S. D
+//
+// [Dliint cpPolyShapeGetNumVerts (IntPtr shape);
+//
+// [DlicpPolyShapeGetVert (IntPtr shape, int index);elcroix
 //
 
 using System;
@@ -163,12 +167,14 @@ namespace Chipmunk
 			set { __cpBodySetAngleVelLimit(Handle.Handle, value); }
 		}	
 
-		[DllImport("__Internal")]
-		extern static IntPtr __cpBodyGetSpace (IntPtr body);
+		//Don't provide GetSpace, as you have to keep a ref to it anyway to avoid GC
+		//
+		//[DllImport("__Internal")]
+		//extern static IntPtr __cpBodyGetSpace (IntPtr body);
 
-		public Space Space {
-		    get { return new Space (__cpBodyGetSpace (Handle.Handle)); }
-		}
+		//public Space Space {
+		//    get { return new Space (__cpBodyGetSpace (Handle.Handle)); }
+		//}
 
 		[DllImport("__Internal")]
 		extern static IntPtr __cpBodyGetUserData (IntPtr body);

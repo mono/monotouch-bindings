@@ -1,7 +1,7 @@
 diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
 --- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
-+++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-06 14:20:21.000000000 +0100
-@@ -0,0 +1,120 @@
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-06 22:18:55.000000000 +0100
+@@ -0,0 +1,121 @@
 +//
 +//  chipmunk_bind.h
 +//
@@ -55,6 +55,7 @@ diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +MAKE_PROPERTY_FOR_BINDING(cpCollisionType, cpShape, CollisionType);
 +MAKE_PROPERTY_FOR_BINDING(cpGroup, cpShape, Group);
 +MAKE_PROPERTY_FOR_BINDING(cpLayers, cpShape, Layers);
++MAKE_GETTER_FOR_BINDING(cpSpace*, cpShape, Space);
 +
 +MAKE_PROPERTY_FOR_BINDING(int, cpSpace, Iterations);
 +MAKE_PROPERTY_FOR_BINDING(cpVect, cpSpace, Gravity);
