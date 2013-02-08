@@ -300,36 +300,207 @@ namespace Chipmunk
 	}
 
 	[DllImport("__Internal")]
-	extern static PointF __cpDampedSpringGetRestLength (IntPtr constraint);
+	extern static float __cpDampedSpringGetRestLength (IntPtr constraint);
 
 	[DllImport("__Internal")]
-	extern static void __cpDampedSpringSetRestLength (IntPtr constraint, PointF value);
+	extern static void __cpDampedSpringSetRestLength (IntPtr constraint, float value);
 
-	public PointF RestLength {
+	public float RestLength {
 	    get { return __cpDampedSpringGetRestLength (Handle.Handle); }
 	    set { __cpDampedSpringSetRestLength (Handle.Handle, value); }
 	}
 
 	[DllImport("__Internal")]
-	extern static PointF __cpDampedSpringGetStiffness (IntPtr constraint);
+	extern static float __cpDampedSpringGetStiffness (IntPtr constraint);
 
 	[DllImport("__Internal")]
-	extern static void __cpDampedSpringSetStiffness (IntPtr constraint, PointF value);
+	extern static void __cpDampedSpringSetStiffness (IntPtr constraint, float value);
 
-	public PointF Stiffness {
+	public float Stiffness {
 	    get { return __cpDampedSpringGetStiffness (Handle.Handle); }
 	    set { __cpDampedSpringSetStiffness (Handle.Handle, value); }
 	}
 
 	[DllImport("__Internal")]
-	extern static PointF __cpDampedSpringGetDamping (IntPtr constraint);
+	extern static float __cpDampedSpringGetDamping (IntPtr constraint);
 
 	[DllImport("__Internal")]
-	extern static void __cpDampedSpringSetDamping (IntPtr constraint, PointF value);
+	extern static void __cpDampedSpringSetDamping (IntPtr constraint, float value);
 
-	public PointF Damping {
+	public float Damping {
 	    get { return __cpDampedSpringGetDamping (Handle.Handle); }
 	    set { __cpDampedSpringSetDamping (Handle.Handle, value); }
+	}
+    }
+
+    public partial class DampedRotarySpring : Constraint
+    {
+	[DllImport ("__Internal")]
+	extern static IntPtr cpDampedRotarySpringNew (IntPtr bodyA, IntPtr bodyB, float restAngle, float stiffness, float damping);
+
+	public DampedRotarySpring (Body bodyA, Body bodyB, float restAngle, float stiffness, float damping) : base (cpDampedRotarySpringNew (bodyA.Handle.Handle, bodyB.Handle.Handle, restAngle, stiffness, damping))
+	{
+	}
+
+	[DllImport("__Internal")]
+	extern static float __cpDampedRotarySpringGetRestAngle (IntPtr constraint);
+
+	[DllImport("__Internal")]
+	extern static void __cpDampedRotarySpringSetRestAngle (IntPtr constraint, float value);
+
+	public float RestAngle {
+	    get { return __cpDampedRotarySpringGetRestAngle (Handle.Handle); }
+	    set { __cpDampedRotarySpringSetRestAngle (Handle.Handle, value); }
+	}
+
+	[DllImport("__Internal")]
+	extern static float __cpDampedRotarySpringGetStiffness (IntPtr constraint);
+
+	[DllImport("__Internal")]
+	extern static void __cpDampedRotarySpringSetStiffness (IntPtr constraint, float value);
+
+	public float Stiffness {
+	    get { return __cpDampedRotarySpringGetStiffness (Handle.Handle); }
+	    set { __cpDampedRotarySpringSetStiffness (Handle.Handle, value); }
+	}
+
+	[DllImport("__Internal")]
+	extern static float __cpDampedRotarySpringGetDamping (IntPtr constraint);
+
+	[DllImport("__Internal")]
+	extern static void __cpDampedRotarySpringSetDamping (IntPtr constraint, float value);
+
+	public float Damping {
+	    get { return __cpDampedRotarySpringGetDamping (Handle.Handle); }
+	    set { __cpDampedRotarySpringSetDamping (Handle.Handle, value); }
+	}
+    }
+
+    public partial class RotaryLimitJoint : Constraint
+    {
+	[DllImport ("__Internal")]
+	extern static IntPtr cpRotaryLimitJointNew (IntPtr bodyA, IntPtr bodyB, float min, float max);
+
+	public RotaryLimitJoint (Body bodyA, Body bodyB, float min, float max) : base (cpRotaryLimitJointNew (bodyA.Handle.Handle, bodyB.Handle.Handle, min, max))
+	{
+	}
+
+	[DllImport ("__Internal")]
+	extern static float __cpRotaryLimitJointGetMin (IntPtr constraint);
+
+	[DllImport ("__Internal")]
+	extern static void __cpRotaryLimitJointSetMin (IntPtr constraint, float value);
+
+	public float Min {
+	    get { return __cpRotaryLimitJointGetMin (Handle.Handle); }
+	    set { __cpRotaryLimitJointSetMin (Handle.Handle, value); }
+	}
+
+	[DllImport ("__Internal")]
+	extern static float __cpRotaryLimitJointGetMax (IntPtr constraint);
+
+	[DllImport ("__Internal")]
+	extern static void __cpRotaryLimitJointSetMax (IntPtr constraint, float value);
+
+	public float Max {
+	    get { return __cpRotaryLimitJointGetMax (Handle.Handle); }
+	    set { __cpRotaryLimitJointSetMax (Handle.Handle, value); }
+	}
+    }
+
+    public partial class RatchetJoint : Constraint
+    {
+	[DllImport ("__Internal")]
+	extern static IntPtr cpRatchetJointNew (IntPtr bodyA, IntPtr bodyB, float phase, float ratchet);
+
+	public RatchetJoint (Body bodyA, Body bodyB, float phase, float ratchet) : base (cpRatchetJointNew (bodyA.Handle.Handle, bodyB.Handle.Handle, phase, ratchet))
+	{
+	}
+
+	[DllImport("__Internal")]
+	extern static float __cpRatchetJointGetAngle (IntPtr constraint);
+
+	[DllImport("__Internal")]
+	extern static void __cpRatchetJointSetAngle (IntPtr constraint, float value);
+
+	public float Angle {
+	    get { return __cpRatchetJointGetAngle (Handle.Handle); }
+	    set { __cpRatchetJointSetAngle (Handle.Handle, value); }
+	}	
+	
+	[DllImport("__Internal")]
+	extern static float __cpRatchetJointGetPhase (IntPtr constraint);
+
+	[DllImport("__Internal")]
+	extern static void __cpRatchetJointSetPhase (IntPtr constraint, float value);
+
+	public float Phase {
+	    get { return __cpRatchetJointGetPhase (Handle.Handle); }
+	    set { __cpRatchetJointSetPhase (Handle.Handle, value); }
+	}	
+
+	[DllImport("__Internal")]
+	extern static float __cpRatchetJointGetRatchet (IntPtr constraint);
+
+	[DllImport("__Internal")]
+	extern static void __cpRatchetJointSetRatchet (IntPtr constraint, float value);
+
+	public float Ratchet {
+	    get { return __cpRatchetJointGetRatchet (Handle.Handle); }
+	    set { __cpRatchetJointSetRatchet (Handle.Handle, value); }
+	}	
+    }
+
+    public partial class GearJoint : Constraint
+    {
+	[DllImport ("__Internal")]
+	extern static IntPtr cpGearJointNew (IntPtr bodyA, IntPtr bodyB, float pahse, float ratio);
+
+	public GearJoint (Body bodyA, Body bodyB, float phase, float ratio) : base (cpGearJointNew (bodyA.Handle.Handle, bodyB.Handle.Handle, phase, ratio))
+	{
+	}
+
+	[DllImport("__Internal")]
+	extern static float __cpGearJointGetPhase (IntPtr constraint);
+
+	[DllImport("__Internal")]
+	extern static void __cpGearJointSetPhase (IntPtr constraint, float value);
+
+	public float Phase {
+	    get { return __cpGearJointGetPhase (Handle.Handle); }
+	    set { __cpGearJointSetPhase (Handle.Handle, value); }
+	}	
+
+	[DllImport("__Internal")]
+	extern static float __cpGearJointGetRatio (IntPtr constraint);
+
+	[DllImport("__Internal")]
+	extern static void __cpGearJointSetRatio (IntPtr constraint, float value);
+
+	public float Ratio {
+	    get { return __cpGearJointGetRatio (Handle.Handle); }
+	    set { __cpGearJointSetRatio (Handle.Handle, value); }
+	}
+    }
+
+    public partial class SimpleMotor : Constraint
+    {
+	[DllImport ("__Internal")]
+	extern static IntPtr cpSimpleMotorNew (IntPtr bodyA, IntPtr bodyB, float rate);
+
+	public SimpleMotor (Body bodyA, Body bodyB, float rate) : base (cpSimpleMotorNew (bodyA.Handle.Handle, bodyB.Handle.Handle, rate))
+	{
+	}
+
+	[DllImport ("__Internal")]
+	extern static float __cpSimpleMotorGetRate (IntPtr constraint);
+
+	[DllImport ("__Internal")]
+	extern static void __cpSimpleMotorSetRate (IntPtr constraint, float value);
+
+	public float Rate {
+	    get { return __cpSimpleMotorGetRate (Handle.Handle); }
+	    set { __cpSimpleMotorSetRate (Handle.Handle, value); }
 	}
     }
 }
