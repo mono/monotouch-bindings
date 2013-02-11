@@ -1,7 +1,7 @@
 diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
 --- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
-+++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-07 21:07:13.000000000 +0100
-@@ -0,0 +1,144 @@
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-11 16:04:49.000000000 +0100
+@@ -0,0 +1,152 @@
 +//
 +//  chipmunk_bind.h
 +//
@@ -142,8 +142,16 @@ diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpGearJoint, Phase);
 +MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpGearJoint, Ratio);
 +
-+//cpSimpleMoto
++//cpSimpleMotor
 +MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpSimpleMotor, Rate);
++
++//cpArbiter
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpArbiter, Elasticity);
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpArbiter, Friction);
++MAKE_PROPERTY_FOR_BINDING(cpVect, cpArbiter, SurfaceVelocity);
++
++void __cpArbiterGetShapes(const cpArbiter *arb, cpShape **a, cpShape **b) { cpArbiterGetShapes (arb, a, b); }
++void __cpArbiterGetBodies(const cpArbiter *arb, cpBody **a, cpBody **b) { cpArbiterGetBodies (arb, a, b); }
 +
 +#endif
 diff -urN ./src/chipmunk.c ../Chipmunk/src/chipmunk.c

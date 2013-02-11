@@ -15,10 +15,129 @@ using MonoTouch.UIKit;
 
 namespace Chipmunk
 {
-	public partial class Arbiter : ChipmunkObject
+    public partial class Arbiter : ChipmunkObject
+    {
+	public Arbiter (IntPtr ptr) : base (ptr, false)
 	{
-		public Arbiter (IntPtr ptr) : base (ptr)
-		{
-		} 
+	} 
+
+	[DllImport ("__Internal")]
+	extern static float __cpArbiterGetElasticity (IntPtr arbiter);
+
+	[DllImport ("__Internal")]
+	extern static void __cpArbiterSetElasticity (IntPtr arbiter, float value);
+
+	public float Elasticity {
+	    get { return __cpArbiterGetElasticity (Handle.Handle); }
+	    set { __cpArbiterSetElasticity (Handle.Handle, value); }
+	}	
+
+	[DllImport ("__Internal")]
+	extern static float __cpArbiterGetFriction (IntPtr arbiter);
+
+	[DllImport ("__Internal")]
+	extern static void __cpArbiterSetFriction (IntPtr arbiter, float value);
+
+	public float Friction {
+	    get { return __cpArbiterGetFriction (Handle.Handle); }
+	    set { __cpArbiterSetFriction (Handle.Handle, value); }
+	}	
+
+	[DllImport ("__Internal")]
+	extern static PointF __cpArbiterGetSurfaceVelocity (IntPtr arbiter);
+
+	[DllImport ("__Internal")]
+	extern static void __cpArbiterSetSurfaceVelocity (IntPtr arbiter, PointF value);
+
+	public PointF SurfaceVelocity {
+	    get { return __cpArbiterGetSurfaceVelocity (Handle.Handle); }
+	    set { __cpArbiterSetSurfaceVelocity (Handle.Handle, value); }
 	}
+
+	[DllImport ("__Internal")]
+	extern static int cpArbiterGetCount (IntPtr arbiter);
+
+	public int Count {
+	    get { return cpArbiterGetCount (Handle.Handle); }
+	}
+	
+	[DllImport ("__Internal")]
+	extern static PointF cpArbiterGetNormal (IntPtr arbiter, int i);
+
+	public PointF GetNormal (int i)
+	{
+	    return cpArbiterGetNormal (Handle.Handle, i);
+	}
+
+	[DllImport ("__Internal")]
+	extern static PointF cpArbiterGetPoint (IntPtr arbiter, int i);
+
+	public PointF GetPoint (int i)
+	{
+	    return cpArbiterGetPoint (Handle.Handle, i);
+	}
+
+	[DllImport ("__Internal")]
+	extern static float cpArbiterGetDepth (IntPtr arbiter, int i);
+
+	public float GetDepth (int i)
+	{
+	    return cpArbiterGetDepth (Handle.Handle, i);
+	}
+	
+	[DllImport ("__Internal")]
+	extern static bool cpArbiterIsFirstContact (IntPtr arbiter);
+
+	public bool IsFirstContact {
+	    get { return cpArbiterIsFirstContact (Handle.Handle); }
+	}
+
+	[DllImport ("__Internal")]
+	extern static void __cpArbiterGetShapes(IntPtr arbiter, out IntPtr shapeA, out IntPtr shapeB);
+
+	public void GetShapes (out Shape shapeA, out Shape shapeB)
+	{
+	    IntPtr a, b;
+	    __cpArbiterGetShapes (Handle.Handle, out a, out b);
+	    shapeA = new Shape (a);
+	    shapeB = new Shape (b);
+	}
+
+	[DllImport ("__Internal")]
+	extern static void __cpArbiterGetBodies(IntPtr arbiter, out IntPtr bodyA, out IntPtr bodyB);
+
+	public void GetBodies (out Body bodyA, out Body bodyB)
+	{
+	    IntPtr a, b;
+	    __cpArbiterGetBodies (Handle.Handle, out a, out b);
+	    bodyA = new Body (a);
+	    bodyB = new Body (b);
+	}
+	
+	//TODO contact point set
+	
+	[DllImport ("__Internal")]
+	extern static PointF cpArbiterTotalImpulseWithFriction (IntPtr arbiter);
+
+	public PointF TotalImpulseWithFriction {
+	    get { return cpArbiterTotalImpulseWithFriction (Handle.Handle); }
+	}
+
+	[DllImport ("__Internal")]
+	extern static PointF cpArbiterTotalImpulse (IntPtr arbiter);
+
+	public PointF TotalImpulse {
+	    get { return cpArbiterTotalImpulse (Handle.Handle); }
+	}
+
+	[DllImport ("__Internal")]
+	extern static float cpArbiterTotalKE (IntPtr arbiter);
+
+	public float TotalKE {
+	    get { return cpArbiterTotalKE (Handle.Handle); }
+	}
+	
+	
+	
+    }
 }

@@ -30,10 +30,13 @@ namespace Chipmunk
 	    System.GC.SuppressFinalize (this);
 	}
 
-	protected ChipmunkObject (IntPtr ptr)
+	bool refcount;
+	protected ChipmunkObject (IntPtr ptr, bool refcount = true)
 	{
 	    Handle = new HandleRef (this, ptr);
-	    AddRef (this, ptr);
+	    this.refcount = refcount;
+	    if (refcount)
+		AddRef (this, ptr);
 	}
 	
 	~ChipmunkObject ()
@@ -43,7 +46,7 @@ namespace Chipmunk
 
 	void Cleanup ()
 	{
-	    if (RemoveRef (this, Handle.Handle))
+	    if (refcount && RemoveRef (this, Handle.Handle))
 		Free ();
 	    Handle = new HandleRef (this, IntPtr.Zero);
 	}
