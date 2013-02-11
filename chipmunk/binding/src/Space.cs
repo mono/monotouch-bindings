@@ -335,6 +335,59 @@ namespace Chipmunk
 		{
 		    cpSpaceUseSpatialHash(Handle.Handle, dim, count);
 		}
-		
+
+		//collision callbacks
+		delegate bool BeginFunc (IntPtr arbiter, IntPtr space, IntPtr data);
+		delegate bool PreSolveFunc (IntPtr arbiter, IntPtr space, IntPtr data);
+		delegate void PostSolveFunc (IntPtr arbiter, IntPtr space, IntPtr data);
+		delegate void SeparateFunc (IntPtr arbiter, IntPtr space, IntPtr data);
+
+		[DllImport ("__Internal")]
+		extern static void cpSpaceAddCollisionHandler (IntPtr space, uint collisionTypeA, uint collisionTypeB, BeginFunc begin, PreSolveFunc presolve, PostSolveFunc postsolve, SeparateFunc separate, IntPtr data);
+
+		public void AddCollisionHandler (uint collisionTypeA, uint collisionTypeB, Func<Arbiter,Space, bool> beginFunc, Func<Arbiter,Space,bool> preSolveFunc, Action<Arbiter,Space> postSolveFunc, Action<Arbiter,Space> separateFunc)
+		{
+		    BeginFunc begin = beginFunc == null ? (BeginFunc)null : (arbiter, space, data) => {
+			return beginFunc(new Arbiter(arbiter), this);
+		    };
+		    PreSolveFunc presolve = preSolveFunc == null ? (PreSolveFunc)null : (arbiter, space, data) => {
+			return preSolveFunc(new Arbiter(arbiter), this);
+		    };
+		    PostSolveFunc postsolve = postSolveFunc == null ? (PostSolveFunc)null : (arbiter, space, data) => {
+			postSolveFunc (new Arbiter (arbiter), this);
+		    };
+		    SeparateFunc separate = separateFunc == null ? (SeparateFunc)null : (arbiter, psace, data) => {
+			separateFunc (new Arbiter(arbiter), this);
+		    };
+		    cpSpaceAddCollisionHandler (Handle.Handle, collisionTypeA, collisionTypeB, begin, presolve, postsolve, separate, IntPtr.Zero);
+		}
+
+		[DllImport ("__Internal")]
+		extern static void cpSpaceRemoveCollisionHandler (IntPtr space, uint collisionTypeA, uint collisionTypeB);
+
+		public void RemoveCollisionHandler (uint collisionTypeA, uint collisionTypeB)
+		{
+		    cpSpaceRemoveCollisionHandler (Handle.Handle, collisionTypeA, collisionTypeB);
+		}
+
+		[DllImport ("__Internal")]
+		extern static void cpSpaceSetDefaultCollisionHandler (IntPtr space, BeginFunc begin, PreSolveFunc presolve, PostSolveFunc postsolve, SeparateFunc separate, IntPtr data);
+
+		void SetDefaultCollisionHandler (Func<Arbiter,Space,bool> beginFunc, Func<Arbiter,Space,bool> preSolveFunc, Action<Arbiter,Space> postSolveFunc, Action<Arbiter,Space> separateFunc)
+		{
+		    BeginFunc begin = beginFunc == null ? (BeginFunc)null : (arbiter, space, data) => {
+			return beginFunc(new Arbiter(arbiter), this);
+		    };
+		    PreSolveFunc presolve = preSolveFunc == null ? (PreSolveFunc)null : (arbiter, space, data) => {
+			return preSolveFunc(new Arbiter(arbiter), this);
+		    };
+		    PostSolveFunc postsolve = postSolveFunc == null ? (PostSolveFunc)null : (arbiter, space, data) => {
+			postSolveFunc (new Arbiter (arbiter), this);
+		    };
+		    SeparateFunc separate = separateFunc == null ? (SeparateFunc)null : (arbiter, psace, data) => {
+			separateFunc (new Arbiter(arbiter), this);
+		    };
+		    cpSpaceSetDefaultCollisionHandler (Handle.Handle, begin, presolve, postsolve, separate, IntPtr.Zero);
+		}
 	}
 }
