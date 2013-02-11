@@ -96,6 +96,17 @@ namespace Chipmunk
 	   set { __cpShapeSetSurfaceVelocity (Handle.Handle, value); }
         }
     
+	[DllImport ("__Internal")]
+	extern static uint __cpShapeGetGroup (IntPtr shape);
+
+	[DllImport ("__Internal")]
+	extern static void __cpShapeSetGroup (IntPtr shape, uint group);
+
+	public uint Group {
+	    get { return __cpShapeGetGroup (Handle.Handle); }
+	    set { __cpShapeSetGroup (Handle.Handle, value); }
+	}
+	
         [DllImport ("__Internal")]
         extern static uint __cpShapeGetLayers (IntPtr shape);
     
