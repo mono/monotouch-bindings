@@ -7,9 +7,6 @@
 // Copyright 2012 S. Delcroix
 //
 
-//TODO: bind CollisionType and Group
-//
-
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -95,6 +92,17 @@ namespace Chipmunk
 	   get { return __cpShapeGetSurfaceVelocity (Handle.Handle); }
 	   set { __cpShapeSetSurfaceVelocity (Handle.Handle, value); }
         }
+
+	[DllImport ("__Internal")]
+	extern static uint __cpShapeGetCollisionType (IntPtr shape);
+
+	[DllImport ("__Internal")]
+	extern static void __cpShapeSetCollisionType (IntPtr shape, uint collisionType);
+
+	public uint CollisionType {
+	    get { return __cpShapeGetCollisionType (Handle.Handle); }
+	    set { __cpShapeSetCollisionType (Handle.Handle, value); }
+	}
     
 	[DllImport ("__Internal")]
 	extern static uint __cpShapeGetGroup (IntPtr shape);
