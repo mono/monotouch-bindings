@@ -32,13 +32,13 @@ namespace Chipmunk
     
         //properties
         [DllImport ("__Internal")]
-        extern static IntPtr cpShapeGetBody (IntPtr shape);
+        extern static IntPtr __cpShapeGetBody (IntPtr shape);
     
         [DllImport ("__Internal")]
         extern static void cpShapeSetBody (IntPtr shape, IntPtr body);
     
         public Body Body {
-	   get { return new Body (cpShapeGetBody (Handle.Handle)); }
+	   get { return new Body (__cpShapeGetBody (Handle.Handle)); }
 	   set { cpShapeSetBody (Handle.Handle, value.Handle.Handle); }
         }
     

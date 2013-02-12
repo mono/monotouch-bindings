@@ -138,10 +138,10 @@ namespace Chipmunk
 		}
 
 		[DllImport ("__Internal")]
-		extern static float __cpSpaceGetCurrentTimeStamp (IntPtr space);
+		extern static float __cpSpaceGetCurrentTimeStep (IntPtr space);
 
-		public float CurrentTimeStamp {
-		    get { return __cpSpaceGetCurrentTimeStamp (Handle.Handle); }
+		public float CurrentTimeStep {
+		    get { return __cpSpaceGetCurrentTimeStep (Handle.Handle); }
 		}
 
 		[DllImport ("__Internal")]

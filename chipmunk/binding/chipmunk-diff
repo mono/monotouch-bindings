@@ -1,7 +1,7 @@
 diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
 --- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
-+++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-11 16:04:49.000000000 +0100
-@@ -0,0 +1,152 @@
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-12 14:00:21.000000000 +0100
+@@ -0,0 +1,155 @@
 +//
 +//  chipmunk_bind.h
 +//
@@ -43,10 +43,13 @@ diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +cpBool __cpBodyIsSleeping(const cpBody *body) { return cpBodyIsSleeping (body); }
 +cpBool __cpBodyIsStatic(const cpBody *body) { return cpBodyIsStatic (body); }
 +cpBool __cpBodyIsRogue(const cpBody *body) { return cpBodyIsRogue (body); }
++cpVect __cpBodyLocal2World(const cpBody *body, const cpVect v) { return cpBodyLocal2World (body, v); }
++cpVect __cpBodyWorld2Local(const cpBody *body, const cpVect v) { return cpBodyWorld2Local (body, v); }
++
 +
 +//cpShape
 +MAKE_GETTER_FOR_BINDING(cpBB, cpShape, BB);
-+//MAKE_PROPERTY_FOR_BINDING(cpBody*, cpShape, Body);
++MAKE_GETTER_FOR_BINDING(cpBody*, cpShape, Body);
 +MAKE_PROPERTY_FOR_BINDING(cpBool, cpShape, Sensor);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpShape, Elasticity);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpShape, Friction);

@@ -157,14 +157,14 @@ namespace Chipmunk
 		}
 
 		[DllImport("__Internal")]
-		extern static float __cpBodyGetAngleVelLimit(IntPtr body);
+		extern static float __cpBodyGetAngVelLimit(IntPtr body);
 
 		[DllImport("__Internal")]
-		extern static void __cpBodySetAngleVelLimit(IntPtr body, float value);
+		extern static void __cpBodySetAngVelLimit(IntPtr body, float value);
 
 		public float AngularVelocityLimit {
-			get { return __cpBodyGetAngleVelLimit(Handle.Handle); }
-			set { __cpBodySetAngleVelLimit(Handle.Handle, value); }
+			get { return __cpBodyGetAngVelLimit(Handle.Handle); }
+			set { __cpBodySetAngVelLimit(Handle.Handle, value); }
 		}	
 
 		//Don't provide GetSpace, as you have to keep a ref to it anyway to avoid GC
@@ -189,19 +189,19 @@ namespace Chipmunk
 
 		//coordinate conversion
 		[DllImport ("__Internal")]
-		extern static PointF cpBodyLocal2World (IntPtr body, PointF v);
+		extern static PointF __cpBodyLocal2World (IntPtr body, PointF v);
 
 		public PointF Local2World (PointF v)
 		{
-		    return cpBodyLocal2World (Handle.Handle, v);
+		    return __cpBodyLocal2World (Handle.Handle, v);
 		}
 
 		[DllImport ("__Internal")]
-		extern static PointF cpBodyWorld2Local (IntPtr body, PointF v);
+		extern static PointF __cpBodyWorld2Local (IntPtr body, PointF v);
 
 		public PointF World2Local (PointF v)
 		{
-		    return cpBodyWorld2Local (Handle.Handle, v);
+		    return __cpBodyWorld2Local (Handle.Handle, v);
 		}
 
 		//applying forces and torque
