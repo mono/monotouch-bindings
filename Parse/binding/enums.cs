@@ -1,6 +1,6 @@
 using System;
 
-namespace Parse
+namespace ParseTouch
 {
 	public enum ParseCachePolicy
 	{

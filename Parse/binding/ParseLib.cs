@@ -3,7 +3,7 @@ using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
 
-namespace Parse
+namespace ParseTouch
 {
 	public delegate void ParseBooleanResult (bool succeeded,NSError error);
 
@@ -28,7 +28,7 @@ namespace Parse
 	public delegate void ParseImageResult (UIImage image,NSError error);
 
 	[BaseType (typeof(NSObject), Name="Parse")]
-	public interface ParseService
+	public interface Parse
 	{
 
 		[Static]

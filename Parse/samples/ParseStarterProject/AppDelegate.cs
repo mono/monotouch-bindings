@@ -18,7 +18,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.ObjCRuntime;
-using Parse;
+using ParseTouch;
 using MonoTouch.Dialog;
 using System.Text;
 
@@ -50,7 +50,7 @@ namespace ParseStarterProject
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			WithValidParseIds (delegate {
-				ParseService.SetAppId (appid, clientid);
+				Parse.SetAppId (appid, clientid);
 				dvc = new DialogViewController (CreateRoot ());
 				window.RootViewController = new UINavigationController (dvc);
 			});

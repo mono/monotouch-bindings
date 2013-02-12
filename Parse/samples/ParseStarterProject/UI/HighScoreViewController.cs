@@ -14,7 +14,7 @@
 //    limitations under the License.
 using System;
 using MonoTouch.Dialog;
-using Parse;
+using ParseTouch;
 using MonoTouch.Foundation;
 using System.Linq;
 
