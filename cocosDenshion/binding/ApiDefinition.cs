@@ -99,5 +99,11 @@ namespace MonoTouch.CocosDenshion {
 	[Export ("end")]
 	[Static]
 	void End ();
+
+	[Export ("mute")]
+	bool Mute { get; set; }
+
+	[Export ("enabled")]
+	bool Enabled { get; set; }
     }
 }
