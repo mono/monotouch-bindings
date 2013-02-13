@@ -1,8 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="DBPath" FullName="DropBoxSync.iOS.DBPath">
   <TypeSignature Language="C#" Value="public class DBPath : MonoTouch.Foundation.NSError" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DBPath extends MonoTouch.Foundation.NSError" />
   <AssemblyInfo>
-    <AssemblyName>DropBoxSync</AssemblyName>
+    <AssemblyName>DropBoxSync.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The path object represents a valid Dropbox path, and knows how to do correct path comparisons. It also has convenience methods for constructing new paths. </para>
+    </summary>
+    <remarks>
+      <para>The path object represents a valid Dropbox path, and knows how to do correct path comparisons. It also has convenience methods for constructing new paths. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -123,8 +128,15 @@
       </Parameters>
       <Docs>
         <param name="path">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Create a new path object from a string.</para>
+        </summary>
+        <remarks>
+          <para>Create a new path object from a string.</para>
+          <para>
+            <para>A new path object if the contents of <computeroutput>pathStr</computeroutput> are a valid Dropbox path, <computeroutput>nil</computeroutput> otherwise. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ChildPath">
@@ -147,9 +159,16 @@
       </Parameters>
       <Docs>
         <param name="childName">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Create a new path by treating the current path as a path to a folder, and <computeroutput>childName</computeroutput> as the filename of an item in that folder.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Create a new path by treating the current path as a path to a folder, and <computeroutput>childName</computeroutput> as the filename of an item in that folder.</para>
+          <para>
+            <para>A new path, or <computeroutput>nil</computeroutput> if childName is invalid. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -203,9 +222,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The name of the path. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The name of the path. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Parent">
@@ -224,9 +247,16 @@
         <ReturnType>DropBoxSync.iOS.DBPath</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Create a new path that is the containing folder of the current path.</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Create a new path that is the containing folder of the current path.</para>
+          <para>
+            <para>A new path, or <computeroutput>nil</computeroutput> if path is already at the root. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Root">
@@ -245,9 +275,13 @@
         <ReturnType>DropBoxSync.iOS.DBPath</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The top-most folder in your app's view of the user's Dropbox. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The top-most folder in your app's view of the user's Dropbox. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StringValue">
@@ -266,9 +300,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The path (relative to the root) as a string, with original casing. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The path (relative to the root) as a string, with original casing. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

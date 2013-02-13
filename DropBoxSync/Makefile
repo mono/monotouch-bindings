@@ -1,2 +1,2 @@
-ASSEMBLY=DropBoxSync.dll
+ASSEMBLY=DropBoxSync.iOS.dll
 include ../Rules.make

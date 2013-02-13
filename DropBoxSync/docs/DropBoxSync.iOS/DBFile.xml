@@ -1,8 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="DBFile" FullName="DropBoxSync.iOS.DBFile">
   <TypeSignature Language="C#" Value="public class DBFile : MonoTouch.Foundation.NSError" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DBFile extends MonoTouch.Foundation.NSError" />
   <AssemblyInfo>
-    <AssemblyName>DropBoxSync</AssemblyName>
+    <AssemblyName>DropBoxSync.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The file object represents a particular file at a particular version. It has basic file operations such as reading and writing the file's contents and getting info about the file. It can also tell you the current sync status, whether there's a newer version available, and allows you to update to the newer version. </para>
+    </summary>
+    <remarks>
+      <para>The file object represents a particular file at a particular version. It has basic file operations such as reading and writing the file's contents and getting info about the file. It can also tell you the current sync status, whether there's a newer version available, and allows you to update to the newer version. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -128,8 +133,12 @@
       <Docs>
         <param name="observer">To be added.</param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Add <computeroutput>block</computeroutput> as an observer when a property of the file changes. </para>
+        </summary>
+        <remarks>
+          <para>Add <computeroutput>block</computeroutput> as an observer when a property of the file changes. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -165,9 +174,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Closes the file, preventing any further operations to occur and allowing the file to be opened again. This happens automatically when the object is deallocated. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Closes the file, preventing any further operations to occur and allowing the file to be opened again. This happens automatically when the object is deallocated. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -205,9 +218,14 @@
         <ReturnType>DropBoxSync.iOS.DBFileInfo</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The <see cref="T:DropBoxSync.iOS.DBFileInfo" /> for the file.</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="T:DropBoxSync.iOS.DBFileInfo" /> for the file.</para>
+          <para>Note that the path of a file can change if a conflict occurs, so the value of <computeroutput>file.info.path</computeroutput> is not always equal to the path the file was opened at. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NewerStatus">
@@ -226,9 +244,13 @@
         <ReturnType>DropBoxSync.iOS.DBFileStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The current sync status for the newer version of the file. If the file is the newest version, then this property is <computeroutput>nil</computeroutput>. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The current sync status for the newer version of the file. If the file is the newest version, then this property is <computeroutput>nil</computeroutput>. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Open">
@@ -272,9 +294,16 @@
       </Parameters>
       <Docs>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A wrapper for &lt;readHandle:&gt; that reads the entire file contents into an NSData object.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A wrapper for &lt;readHandle:&gt; that reads the entire file contents into an NSData object.</para>
+          <para>
+            <para>The file's contents if the file can be read, or <computeroutput>nil</computeroutput> if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadString">
@@ -297,9 +326,16 @@
       </Parameters>
       <Docs>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A wrapper for &lt;readHandle:&gt; that reads the entire file contents as a UTF8 encoded string.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A wrapper for &lt;readHandle:&gt; that reads the entire file contents as a UTF8 encoded string.</para>
+          <para>
+            <para>The file's contents decoded as UTF8 if the file can be read, or <computeroutput>nil</computeroutput> if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveObserver">
@@ -322,8 +358,12 @@
       </Parameters>
       <Docs>
         <param name="observer">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Remove all blocks registered for the given <computeroutput>observer</computeroutput>. </para>
+        </summary>
+        <remarks>
+          <para>Remove all blocks registered for the given <computeroutput>observer</computeroutput>. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Status">
@@ -342,9 +382,13 @@
         <ReturnType>DropBoxSync.iOS.DBFileStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The current sync status for the file. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The current sync status for the file. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">
@@ -367,9 +411,16 @@
       </Parameters>
       <Docs>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If there is a newer version of the file available, and it's cached (determined by the cached property on &lt;newerStatus&gt;), then this method will update the file object to reference the newer version so it can be read from or written to.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If there is a newer version of the file available, and it's cached (determined by the cached property on &lt;newerStatus&gt;), then this method will update the file object to reference the newer version so it can be read from or written to.</para>
+          <para>
+            <para>YES if the file was written successfully, or NO if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WriteContentsOfFile">
@@ -393,12 +444,19 @@
         <Parameter Name="error" Type="DropBoxSync.iOS.DBError&amp;" RefType="out" />
       </Parameters>
       <Docs>
-        <param name="localPath">To be added.</param>
+        <param name="localPath">whether the file at localPath should be copied of if it can be moved from its current location into management by the Sync SDK. If you are done with the file at localPath, then stealing is more efficient, but the behavior of writing to the file after stealing is undefined. </param>
         <param name="shouldSteal">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Updates the file's contents with the contents of the file at <computeroutput>localPath</computeroutput>. If the file is not cached then an error will be generated.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Updates the file's contents with the contents of the file at <computeroutput>localPath</computeroutput>. If the file is not cached then an error will be generated.</para>
+          <para>
+            <para>YES if the file was written successfully, or NO if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WriteData">
@@ -423,9 +481,16 @@
       <Docs>
         <param name="data">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Updates the contents of the file to be the bytes store in <computeroutput>data</computeroutput>. If the file is not cached then an error will be generated.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Updates the contents of the file to be the bytes store in <computeroutput>data</computeroutput>. If the file is not cached then an error will be generated.</para>
+          <para>
+            <para>YES if the file was written successfully, or NO if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WriteString">
@@ -450,9 +515,16 @@
       <Docs>
         <param name="aString">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Updates the contents of the file with the parameter <computeroutput>string</computeroutput> encoded in UTF8. If the file is not cached then an error will be generated.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Updates the contents of the file with the parameter <computeroutput>string</computeroutput> encoded in UTF8. If the file is not cached then an error will be generated.</para>
+          <para>
+            <para>YES if the file was written successfully, or NO if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

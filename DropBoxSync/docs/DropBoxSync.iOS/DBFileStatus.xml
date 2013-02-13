@@ -1,8 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="DBFileStatus" FullName="DropBoxSync.iOS.DBFileStatus">
   <TypeSignature Language="C#" Value="public class DBFileStatus : MonoTouch.Foundation.NSError" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DBFileStatus extends MonoTouch.Foundation.NSError" />
   <AssemblyInfo>
-    <AssemblyName>DropBoxSync</AssemblyName>
+    <AssemblyName>DropBoxSync.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The file status object exposes information about the file's current sync status, including whether it's cached, if it's uploading or downloading, and if it's uploading or downloading the progress of that transfer </para>
+    </summary>
+    <remarks>
+      <para>The file status object exposes information about the file's current sync status, including whether it's cached, if it's uploading or downloading, and if it's uploading or downloading the progress of that transfer </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -122,9 +127,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether the contents of the file are cached locally and can be read without making a network request. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether the contents of the file are cached locally and can be read without making a network request. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -178,9 +187,13 @@
         <ReturnType>DropBoxSync.iOS.DBError</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If the file needs to be transferred, but can't for whatever reason (such as no internet connection), then this property is set to the last error that prevented the transfer. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If the file needs to be transferred, but can't for whatever reason (such as no internet connection), then this property is set to the last error that prevented the transfer. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Progress">
@@ -199,9 +212,13 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>If the file is transferring, the progress of the transfer, between 0 and 1. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If the file is transferring, the progress of the transfer, between 0 and 1. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="State">
@@ -220,9 +237,13 @@
         <ReturnType>DropBoxSync.iOS.DBFileState</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether the file is currently uploading, downloading, or neither (idle) </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether the file is currently uploading, downloading, or neither (idle) </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

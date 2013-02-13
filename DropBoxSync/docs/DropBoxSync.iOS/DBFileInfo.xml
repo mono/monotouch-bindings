@@ -1,8 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="DBFileInfo" FullName="DropBoxSync.iOS.DBFileInfo">
   <TypeSignature Language="C#" Value="public class DBFileInfo : MonoTouch.Foundation.NSError" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DBFileInfo extends MonoTouch.Foundation.NSError" />
   <AssemblyInfo>
-    <AssemblyName>DropBoxSync</AssemblyName>
+    <AssemblyName>DropBoxSync.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The file info class contains basic information about a file or folder. </para>
+    </summary>
+    <remarks>
+      <para>The file info class contains basic information about a file or folder. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -157,9 +162,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Whether the item at <computeroutput>path</computeroutput> is a folder or a file. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Whether the item at <computeroutput>path</computeroutput> is a folder or a file. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ModifiedTime">
@@ -178,9 +187,13 @@
         <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The last time the file or folder was modified. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The last time the file or folder was modified. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Path">
@@ -199,9 +212,13 @@
         <ReturnType>DropBoxSync.iOS.DBPath</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The path of the file or folder. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The path of the file or folder. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Size">
@@ -220,9 +237,13 @@
         <ReturnType>System.Int64</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The file's size. This property is always 0 for folders. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The file's size. This property is always 0 for folders. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

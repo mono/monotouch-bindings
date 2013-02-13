@@ -1,8 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="DBAccount" FullName="DropBoxSync.iOS.DBAccount">
   <TypeSignature Language="C#" Value="public class DBAccount : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DBAccount extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
-    <AssemblyName>DropBoxSync</AssemblyName>
+    <AssemblyName>DropBoxSync.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The account represents a particular user who has linked his account to your app. You can get account objects from the [account manager](<see cref="T:DropBoxSync.iOS.DBAccountManager" />). </para>
+    </summary>
+    <remarks>
+      <para>The account represents a particular user who has linked his account to your app. You can get account objects from the [account manager](<see cref="T:DropBoxSync.iOS.DBAccountManager" />). </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -128,8 +133,12 @@
       <Docs>
         <param name="observer">To be added.</param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Add <computeroutput>block</computeroutput> as an observer of an account to get notified whenever it's &lt;linked&gt; or or &lt;info&gt; properties change. </para>
+        </summary>
+        <remarks>
+          <para>Add <computeroutput>block</computeroutput> as an observer of an account to get notified whenever it's &lt;linked&gt; or or &lt;info&gt; properties change. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -183,9 +192,13 @@
         <ReturnType>DropBoxSync.iOS.DBAccountInfo</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Information about the user of this account. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Information about the user of this account. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Linked">
@@ -229,8 +242,12 @@
       </Parameters>
       <Docs>
         <param name="observer">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Remove all blocks associated with <computeroutput>observer</computeroutput> by the &lt;addObserver:block:&gt; method. </para>
+        </summary>
+        <remarks>
+          <para>Remove all blocks associated with <computeroutput>observer</computeroutput> by the &lt;addObserver:block:&gt; method. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Unlink">
@@ -250,8 +267,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>This method unlinks a user's account from your app.</para>
+        </summary>
+        <remarks>
+          <para>This method unlinks a user's account from your app.</para>
+          <para>Once an account is unlinked, the local cache is deleted. If there is a [filesystem](<see cref="T:DropBoxSync.iOS.DBFilesystem" />) object created with this account it will stop running. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UserId">
@@ -270,9 +292,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The user id of the account. This can be used to associate metadata with a given account. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The user id of the account. This can be used to associate metadata with a given account. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -1,8 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="DBAccountManager" FullName="DropBoxSync.iOS.DBAccountManager">
   <TypeSignature Language="C#" Value="public class DBAccountManager : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DBAccountManager extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
-    <AssemblyName>DropBoxSync</AssemblyName>
+    <AssemblyName>DropBoxSync.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The account manager is responsible for linking new users and persisting account information across runs of your app. You typically create an account manager at app startup with your app key and secret and keep it until your app terminates. </para>
+    </summary>
+    <remarks>
+      <para>The account manager is responsible for linking new users and persisting account information across runs of your app. You typically create an account manager at app startup with your app key and secret and keep it until your app terminates. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -125,8 +130,12 @@
       <Docs>
         <param name="key">To be added.</param>
         <param name="secret">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Create a new account manager with your app's app key and secret. You can register your app or find your key at the <ulink url="https://www.dropbox.com/developers/apps">apps</ulink> page. Note that right now only apps with the App Folder permission can use the Sync API. </para>
+        </summary>
+        <remarks>
+          <para>Create a new account manager with your app's app key and secret. You can register your app or find your key at the <ulink url="https://www.dropbox.com/developers/apps">apps</ulink> page. Note that right now only apps with the App Folder permission can use the Sync API. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddObserver">
@@ -149,10 +158,15 @@
         <Parameter Name="handler" Type="DropBoxSync.iOS.DBAccountManagerObserverHandler" />
       </Parameters>
       <Docs>
-        <param name="observer">To be added.</param>
+        <param name="observer">this is only used as a handle to unregister blocks with the &lt;removeObserver:&gt; method. </param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Add <computeroutput>block</computeroutput> as an observer to get called whenever a new account is linked or an existing account is unlinked.</para>
+        </summary>
+        <remarks>
+          <para>Add <computeroutput>block</computeroutput> as an observer to get called whenever a new account is linked or an existing account is unlinked.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -210,9 +224,16 @@
       </Parameters>
       <Docs>
         <param name="url">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>You must call this method in your app delegate's <computeroutput>-application:openURL:sourceApplication:annotation:</computeroutput> method in order to complete the link process.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>You must call this method in your app delegate's <computeroutput>-application:openURL:sourceApplication:annotation:</computeroutput> method in order to complete the link process.</para>
+          <para>
+            <para>The [account](<see cref="T:DropBoxSync.iOS.DBAccount" />) object if the link was successful, or <computeroutput>nil</computeroutput> if the user cancelled. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LinkedAccount">
@@ -231,9 +252,13 @@
         <ReturnType>DropBoxSync.iOS.DBAccount</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The currently linked account, or <computeroutput>nil</computeroutput> if there are no accounts currently linked. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The currently linked account, or <computeroutput>nil</computeroutput> if there are no accounts currently linked. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LinkFromController">
@@ -255,9 +280,14 @@
         <Parameter Name="rootController" Type="MonoTouch.UIKit.UIViewController" />
       </Parameters>
       <Docs>
-        <param name="rootController">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="rootController">the topmost view controller in your controller hierarchy. </param>
+        <summary>
+          <para>This method beings the process for linking new accounts.</para>
+        </summary>
+        <remarks>
+          <para>This method beings the process for linking new accounts.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveObserver">
@@ -279,9 +309,14 @@
         <Parameter Name="observer" Type="MonoTouch.Foundation.NSObject" />
       </Parameters>
       <Docs>
-        <param name="observer">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="observer">the same value you provided to the &lt;addObserver:block:&gt; method. </param>
+        <summary>
+          <para>Use this method to remove all blocks associated with <computeroutput>observer</computeroutput>.</para>
+        </summary>
+        <remarks>
+          <para>Use this method to remove all blocks associated with <computeroutput>observer</computeroutput>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetSharedManager">
@@ -304,8 +339,12 @@
       </Parameters>
       <Docs>
         <param name="sharedManager">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>A convenient place to store your app's account manager. </para>
+        </summary>
+        <remarks>
+          <para>A convenient place to store your app's account manager. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SharedManager">
@@ -324,9 +363,13 @@
         <ReturnType>DropBoxSync.iOS.DBAccountManager</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A convenient place to get your app's account manager. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A convenient place to get your app's account manager. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

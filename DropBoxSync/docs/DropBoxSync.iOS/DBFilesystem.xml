@@ -1,8 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="DBFilesystem" FullName="DropBoxSync.iOS.DBFilesystem">
   <TypeSignature Language="C#" Value="public class DBFilesystem : MonoTouch.Foundation.NSError" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DBFilesystem extends MonoTouch.Foundation.NSError" />
   <AssemblyInfo>
-    <AssemblyName>DropBoxSync</AssemblyName>
+    <AssemblyName>DropBoxSync.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -15,8 +16,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>The filesystem object provides a files and folder view of a user's Dropbox. The most basic operations are listing a folder and opening a file, but it also allows you to move, delete, and create files and folders. </para>
+    </summary>
+    <remarks>
+      <para>The filesystem object provides a files and folder view of a user's Dropbox. The most basic operations are listing a folder and opening a file, but it also allows you to move, delete, and create files and folders. </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -57,8 +62,12 @@
       </Parameters>
       <Docs>
         <param name="account">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Create a new filesystem object with a linked [account](<see cref="T:DropBoxSync.iOS.DBAccount" />) from the [account manager](<see cref="T:DropBoxSync.iOS.DBAccountManager" />). </para>
+        </summary>
+        <remarks>
+          <para>Create a new filesystem object with a linked [account](<see cref="T:DropBoxSync.iOS.DBAccount" />) from the [account manager](<see cref="T:DropBoxSync.iOS.DBAccountManager" />). </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -143,9 +152,13 @@
         <ReturnType>DropBoxSync.iOS.DBAccount</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>The [account](<see cref="T:DropBoxSync.iOS.DBAccount" />) object this filesystem was created with. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The [account](<see cref="T:DropBoxSync.iOS.DBAccount" />) object this filesystem was created with. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddObserver">
@@ -172,9 +185,13 @@
         <param name="observer">To be added.</param>
         <param name="path">To be added.</param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Add an observer to be notified any time the file or folder at <computeroutput>path</computeroutput> changes. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Add an observer to be notified any time the file or folder at <computeroutput>path</computeroutput> changes. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddObserverForPathAndChildren">
@@ -201,9 +218,13 @@
         <param name="observer">To be added.</param>
         <param name="path">To be added.</param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Add an observer to be notified any time the folder at <computeroutput>path</computeroutput> changes or a file or folder directly contained in <computeroutput>path</computeroutput> changes. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Add an observer to be notified any time the folder at <computeroutput>path</computeroutput> changes or a file or folder directly contained in <computeroutput>path</computeroutput> changes. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddObserverForPathAndDescendants">
@@ -230,9 +251,13 @@
         <param name="observer">To be added.</param>
         <param name="path">To be added.</param>
         <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Add an observer to be notified any time the folder at <computeroutput>path</computeroutput> changes or a file or folder contained somewhere beneath <computeroutput>path</computeroutput> changes. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Add an observer to be notified any time the folder at <computeroutput>path</computeroutput> changes or a file or folder contained somewhere beneath <computeroutput>path</computeroutput> changes. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -267,9 +292,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>When a user's account is first linked, the filesystem needs to be synced with the server before it can be used. This property indicates whether the first sync has completed and the filesystem is ready to use. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>When a user's account is first linked, the filesystem needs to be synced with the server before it can be used. This property indicates whether the first sync has completed and the filesystem is ready to use. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateFile">
@@ -294,9 +323,16 @@
       <Docs>
         <param name="path">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates a new file at <computeroutput>path</computeroutput> and returns a file object open at that path.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a new file at <computeroutput>path</computeroutput> and returns a file object open at that path.</para>
+          <para>
+            <para>The newly created [file](<see cref="T:DropBoxSync.iOS.DBFile" />) object if the file was opened successfuly, or <computeroutput>nil</computeroutput> if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateFolder">
@@ -321,9 +357,16 @@
       <Docs>
         <param name="path">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates a new folder at <computeroutput>path</computeroutput>.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a new folder at <computeroutput>path</computeroutput>.</para>
+          <para>
+            <para>YES if the folder was created successfully, or NO if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeletePath">
@@ -348,9 +391,16 @@
       <Docs>
         <param name="path">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Deletes the file or folder at <computeroutput>path</computeroutput>.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Deletes the file or folder at <computeroutput>path</computeroutput>.</para>
+          <para>
+            <para>YES if the file or folder was deleted successfully, or NO if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -394,9 +444,13 @@
       <Docs>
         <param name="path">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns the [file info](<see cref="T:DropBoxSync.iOS.DBFileInfo" />) for the file or folder at <computeroutput>path</computeroutput>. </para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns the [file info](<see cref="T:DropBoxSync.iOS.DBFileInfo" />) for the file or folder at <computeroutput>path</computeroutput>. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ListFolder">
@@ -421,9 +475,16 @@
       <Docs>
         <param name="path">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns a list of <see cref="T:DropBoxSync.iOS.DBFileInfo" /> objects representing the files contained in the folder at <computeroutput>path</computeroutput>. If &lt;completedFirstSync&gt; is false, then this call will block until the first sync completes or an error occurs.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns a list of <see cref="T:DropBoxSync.iOS.DBFileInfo" /> objects representing the files contained in the folder at <computeroutput>path</computeroutput>. If &lt;completedFirstSync&gt; is false, then this call will block until the first sync completes or an error occurs.</para>
+          <para>
+            <para>An array of <see cref="T:DropBoxSync.iOS.DBFileInfo" /> objects if successful, or <computeroutput>nil</computeroutput> if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MovePath">
@@ -450,9 +511,16 @@
         <param name="fromPath">To be added.</param>
         <param name="toPath">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Moves a file or folder at <computeroutput>fromPath</computeroutput> to <computeroutput>toPath</computeroutput>.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Moves a file or folder at <computeroutput>fromPath</computeroutput> to <computeroutput>toPath</computeroutput>.</para>
+          <para>
+            <para>YES if the file or folder was moved successfully, or NO if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OpenFile">
@@ -477,9 +545,17 @@
       <Docs>
         <param name="path">To be added.</param>
         <param name="error">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Opens an existing file and returns a [file](<see cref="T:DropBoxSync.iOS.DBFile" />) object representing the file at <computeroutput>path</computeroutput>.</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Opens an existing file and returns a [file](<see cref="T:DropBoxSync.iOS.DBFile" />) object representing the file at <computeroutput>path</computeroutput>.</para>
+          <para>Files are opened at the newest cached version if the file is cached. Otherwise, the file will open at the latest server version and start downloading. Check the <computeroutput>status</computeroutput> property of the returned file object to determine whether it's cached. Only 1 file can be open at a given path at the same time.</para>
+          <para>
+            <para>The [file](<see cref="T:DropBoxSync.iOS.DBFile" />) object if the file was opened successfully, or <computeroutput>nil</computeroutput> if an error occurred. </para>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveObserver">
@@ -502,8 +578,12 @@
       </Parameters>
       <Docs>
         <param name="observer">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Unregister all blocks associated with <computeroutput>observer</computeroutput> from receiving updates. </para>
+        </summary>
+        <remarks>
+          <para>Unregister all blocks associated with <computeroutput>observer</computeroutput> from receiving updates. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetSharedFilesystem">
@@ -526,8 +606,12 @@
       </Parameters>
       <Docs>
         <param name="filesystem">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>A convienent place to store your app's filesystem </para>
+        </summary>
+        <remarks>
+          <para>A convienent place to store your app's filesystem </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SharedFilesystem">
@@ -546,9 +630,13 @@
         <ReturnType>DropBoxSync.iOS.DBFilesystem</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A convienent place to get your app's filesystem </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A convienent place to get your app's filesystem </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ShutDown">
@@ -588,9 +676,13 @@
         <ReturnType>DropBoxSync.iOS.DBSyncStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Returns a bitmask representing all the currently active states of the filesystem OR'ed together. See the DBSyncStatus enum for more details. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Returns a bitmask representing all the currently active states of the filesystem OR'ed together. See the DBSyncStatus enum for more details. </para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

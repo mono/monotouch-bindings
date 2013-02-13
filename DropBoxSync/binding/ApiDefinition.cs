@@ -65,7 +65,7 @@ namespace DropBoxSync.iOS
 
 		[Export ("addObserver:block:")]
 		void AddObserver (NSObject observer, DBAccountManagerObserverHandler handler);
-		
+
 		[Export ("removeObserver:")]
 		void RemoveObserver (NSObject observer);
 	}
@@ -119,14 +119,14 @@ namespace DropBoxSync.iOS
 
 		[Export ("addObserver:block:")]
 		void AddObserver (NSObject observer, DBObserverHandler handler);
-		
+
 		[Export ("removeObserver:")]
 		void RemoveObserver (NSObject observer);
 	}
 
 	[BaseType (typeof (NSError))]
 	interface DBFileInfo {
-		
+
 		[Export ("path")]
 		DBPath Path { get; }
 
@@ -142,23 +142,23 @@ namespace DropBoxSync.iOS
 
 	[BaseType (typeof (NSError))]
 	interface DBFileStatus {
-		
+
 		[Export ("cached")]
 		bool Cached { get; }
-		
+
 		[Export ("state")]
 		DBFileState State { get; }
-		
+
 		[Export ("progress")]
 		float Progress { get; }
-		
+
 		[Export ("error")]
 		DBError Error { get; }
 	}
 
 	[BaseType (typeof (NSError))]
 	interface DBFilesystem {
-		
+
 		[Export ("initWithAccount:")]
 		IntPtr Constructor (DBAccount account);
 
@@ -216,16 +216,16 @@ namespace DropBoxSync.iOS
 
 	[BaseType (typeof (NSError))]
 	interface DBPath {
-		
+
 		[Static, Export ("root")]
 		DBPath Root { get; }
-		
+
 		[Export ("initWithString:")]
 		IntPtr Constructor (string path);
-		
+
 		[Export ("name")]
 		string Name { get; }
-		
+
 		[Export ("childPath:")]
 		DBPath ChildPath (string childName);
 
