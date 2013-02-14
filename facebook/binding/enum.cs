@@ -75,4 +75,13 @@ namespace MonoTouch.FacebookConnect
 		WebView = 4,
 		TestUser = 5
 	}
+
+	#region Old Facebook Api
+	public enum FBRequestState {
+		Ready, 
+		Loading, 
+		Complete, 
+		Error
+	}
+	#endregion
 }
