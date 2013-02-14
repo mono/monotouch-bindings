@@ -17,7 +17,8 @@
   </Attributes>
   <Docs>
     <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -104,8 +105,8 @@
         <Parameter Name="nibBundle" Type="MonoTouch.Foundation.NSBundle" />
       </Parameters>
       <Docs>
-        <param name="nibName">To be added.</param>
-        <param name="nibBundle">To be added.</param>
+        <param name="nibName">The name of the nib file to associate with the view controller. The nib file name should not contain any leading path information. If you specify nil, the nibName property is set to nil. </param>
+        <param name="nibBundle">The bundle in which to search for the nib file. This method looks for the nib file in the bundle's language-specific project directories first, followed by the Resources directory. If nil, this method looks for the nib file in the main bundle. </param>
         <summary>
           <para>Used to initialize the object</para>
         </summary>
@@ -190,10 +191,8 @@
         <Parameter Name="fieldsForRequest" Type="MonoTouch.Foundation.NSSet" />
       </Parameters>
       <Docs>
-        <param name="userID">
-          <para>The profile ID of the user whose friends will be displayed. A nil value implies a "me" alias. </para>
-        </param>
-        <param name="fieldsForRequest">To be added.</param>
+        <param name="userID">The profile ID of the user whose friends will be displayed. A nil value implies a "me" alias. </param>
+        <param name="fieldsForRequest">The set of additional fields to include in the request for friend data. </param>
         <summary>
           <para>Creates a cache descriptor with additional fields and a profile ID for use with the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput> object.</para>
         </summary>
@@ -249,9 +248,7 @@
         <Parameter Name="cacheDescriptor" Type="MonoTouch.FacebookConnect.FBCacheDescriptor" />
       </Parameters>
       <Docs>
-        <param name="cacheDescriptor">
-          <para>The &lt;FBCacheDescriptor&gt; containing the cache query properties. </para>
-        </param>
+        <param name="cacheDescriptor">The &lt;FBCacheDescriptor&gt; containing the cache query properties. </param>
         <summary>
           <para>Configures the properties used in the caching data queries.</para>
         </summary>
@@ -260,6 +257,37 @@
           <para>Cache descriptors are used to fetch and cache the data used by the view controller. If the view controller finds a cached copy of the data, it will first display the cached content then fetch a fresh copy from the server.</para>
           <para />
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataDidChange">
+      <MemberSignature Language="C#" Value="public event EventHandler DataDidChange;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DataDidChange" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Delegate">
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBFriendPickerDelegate Delegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBFriendPickerDelegate Delegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBFriendPickerDelegate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="DisplayOrdering">
@@ -333,6 +361,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="HandleError">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;MonoTouch.FacebookConnect.FBFriendPickerErrorEventArgs&gt; HandleError;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class MonoTouch.FacebookConnect.FBFriendPickerErrorEventArgs&gt; HandleError" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;MonoTouch.FacebookConnect.FBFriendPickerErrorEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ItemPicturesEnabled">
       <MemberSignature Language="C#" Value="public virtual bool ItemPicturesEnabled { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool ItemPicturesEnabled" />
@@ -388,28 +431,34 @@
       </Docs>
     </Member>
     <Member MemberName="Selection">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBGraphUser[] Selection { get; }" />
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBGraphUser[] Selection { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBGraphUser[] Selection" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("selection")</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>MonoTouch.FacebookConnect.FBGraphUser[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-          <para>The list of friends that are currently selected in the veiw. The items in the array are &lt;FBGraphUser&gt; objects. </para>
-        </summary>
+        <summary>To be added.</summary>
         <value>To be added.</value>
-        <remarks>
-          <para>The list of friends that are currently selected in the veiw. The items in the array are &lt;FBGraphUser&gt; objects. </para>
-        </remarks>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectionDidChange">
+      <MemberSignature Language="C#" Value="public event EventHandler SelectionDidChange;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler SelectionDidChange" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Session">
@@ -438,6 +487,22 @@
         <remarks>
           <para>The session that is used in the request for friend data. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldIncludeUser">
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBFriendPickerCondition ShouldIncludeUser { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBFriendPickerCondition ShouldIncludeUser" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBFriendPickerCondition</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="SortOrdering">

@@ -17,7 +17,8 @@
   </Attributes>
   <Docs>
     <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -103,9 +104,7 @@
         <Parameter Name="readPermissions" Type="System.String[]" />
       </Parameters>
       <Docs>
-        <param name="readPermissions">
-          <para>An array of strings representing the read permissions to request during the authentication flow. A value of nil will indicates basic permissions. </para>
-        </param>
+        <param name="readPermissions">An array of strings representing the read permissions to request during the authentication flow. A value of nil will indicates basic permissions. </param>
         <summary>
           <para>Initializes and returns an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBLoginView" /></computeroutput> object constructed with the specified permissions.</para>
         </summary>
@@ -132,10 +131,8 @@
         <Parameter Name="defaultAudience" Type="MonoTouch.FacebookConnect.FBSessionDefaultAudience" />
       </Parameters>
       <Docs>
-        <param name="publishPermissions">
-          <para>An array of strings representing the publish permissions to request during the authentication flow.</para>
-        </param>
-        <param name="defaultAudience">To be added.</param>
+        <param name="publishPermissions">An array of strings representing the publish permissions to request during the authentication flow.</param>
+        <param name="defaultAudience">An audience for published posts; note that FBSessionDefaultAudienceNone is not valid for permission requests that include publish or manage permissions. </param>
         <summary>
           <para>Initializes and returns an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBLoginView" /></computeroutput> object constructed with the specified permissions.</para>
         </summary>
@@ -205,14 +202,14 @@
       </Docs>
     </Member>
     <Member MemberName="FetchedUserInfo">
-      <MemberSignature Language="C#" Value="public event EventHandler&lt;MonoTouch.FacebookConnect.FBLoginViewDelegateUserInfoArgsEventArgs&gt; FetchedUserInfo;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class MonoTouch.FacebookConnect.FBLoginViewDelegateUserInfoArgsEventArgs&gt; FetchedUserInfo" />
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;MonoTouch.FacebookConnect.FBLoginViewUserInfoEventArgs&gt; FetchedUserInfo;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class MonoTouch.FacebookConnect.FBLoginViewUserInfoEventArgs&gt; FetchedUserInfo" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.EventHandler&lt;MonoTouch.FacebookConnect.FBLoginViewDelegateUserInfoArgsEventArgs&gt;</ReturnType>
+        <ReturnType>System.EventHandler&lt;MonoTouch.FacebookConnect.FBLoginViewUserInfoEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

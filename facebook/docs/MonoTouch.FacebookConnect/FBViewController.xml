@@ -115,21 +115,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="CancelWasPressed">
-      <MemberSignature Language="C#" Value="public event EventHandler CancelWasPressed;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler CancelWasPressed" />
-      <MemberType>Event</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.EventHandler</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="CanvasView">
       <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIView CanvasView { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIView CanvasView" />
@@ -218,21 +203,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="DoneWasPressed">
-      <MemberSignature Language="C#" Value="public event EventHandler DoneWasPressed;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DoneWasPressed" />
-      <MemberType>Event</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.EventHandler</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="PresentModallyFromViewController">
       <MemberSignature Language="C#" Value="public virtual void PresentModallyFromViewController (MonoTouch.UIKit.UIViewController viewController, bool animated, MonoTouch.FacebookConnect.FBModalCompletionHandler handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PresentModallyFromViewController(class MonoTouch.UIKit.UIViewController viewController, bool animated, class MonoTouch.FacebookConnect.FBModalCompletionHandler handler) cil managed" />
@@ -254,11 +224,9 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBModalCompletionHandler" />
       </Parameters>
       <Docs>
-        <param name="viewController">
-          <para>The view controller that is presenting this view controller. </para>
-        </param>
-        <param name="animated">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="viewController">The view controller that is presenting this view controller. </param>
+        <param name="animated">If true, presenting and dismissing the view controller is animated. </param>
+        <param name="handler">The block called when the Done or Cancel button is pressed. </param>
         <summary>
           <para>Provides a wrapper that presents the view controller modally and automatically dismisses it when either the Done or Cancel button is pressed. If Done is pressed, the block provided by the doneHandler parameter is called.</para>
         </summary>

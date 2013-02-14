@@ -17,7 +17,8 @@
   </Attributes>
   <Docs>
     <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -103,9 +104,7 @@
         <Parameter Name="tokenInformationKeyName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="tokenInformationKeyName">
-          <para>Specifies a key name to use for cached token information in NSUserDefaults, nil indicates a default value of "FBAccessTokenInformationKey" </para>
-        </param>
+        <param name="tokenInformationKeyName">Specifies a key name to use for cached token information in NSUserDefaults, nil indicates a default value of "FBAccessTokenInformationKey" </param>
         <summary>
           <para>Initializes and returns an instance</para>
         </summary>
@@ -134,9 +133,7 @@
         <Parameter Name="tokenInformation" Type="MonoTouch.Foundation.NSDictionary" />
       </Parameters>
       <Docs>
-        <param name="tokenInformation">
-          <para>Dictionary containing token information to be cached by the method </para>
-        </param>
+        <param name="tokenInformation">Dictionary containing token information to be cached by the method </param>
         <summary>
           <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to cache token information.</para>
         </summary>
@@ -187,9 +184,13 @@
         <ReturnType>MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Helper function called by the SDK as well as apps, in order to fetch the default strategy instance. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Helper function called by the SDK as well as apps, in order to fetch the default strategy instance. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FetchTokenInformation">
@@ -238,9 +239,7 @@
         <Parameter Name="tokenInformation" Type="MonoTouch.Foundation.NSDictionary" />
       </Parameters>
       <Docs>
-        <param name="tokenInformation">
-          <para>Dictionary containing token information to be validated </para>
-        </param>
+        <param name="tokenInformation">Dictionary containing token information to be validated </param>
         <summary>
           <para>Helper function called by the SDK as well as application code, used to determine whether a given dictionary contains the minimum token information usable by the &lt;FBSession&gt;.</para>
         </summary>

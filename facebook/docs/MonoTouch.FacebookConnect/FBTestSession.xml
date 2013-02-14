@@ -134,9 +134,7 @@
         <Parameter Name="permissions" Type="System.String[]" />
       </Parameters>
       <Docs>
-        <param name="permissions">
-          <para>array of strings naming permissions to authorize; nil indicates a common default set of permissions should be used for unit testing </para>
-        </param>
+        <param name="permissions">array of strings naming permissions to authorize; nil indicates a common default set of permissions should be used for unit testing </param>
         <summary>
           <para>Constructor helper to create a session for use in unit tests</para>
         </summary>
@@ -167,9 +165,7 @@
         <Parameter Name="permissions" Type="System.String[]" />
       </Parameters>
       <Docs>
-        <param name="permissions">
-          <para>array of strings naming permissions to authorize; nil indicates a common default set of permissions should be used for unit testing </para>
-        </param>
+        <param name="permissions">array of strings naming permissions to authorize; nil indicates a common default set of permissions should be used for unit testing </param>
         <summary>
           <para>Constructor helper to create a session for use in unit tests</para>
         </summary>
@@ -202,10 +198,8 @@
         <Parameter Name="uniqueUserTag" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="permissions">
-          <para>array of strings naming permissions to authorize; nil indicates a common default set of permissions should be used for unit testing</para>
-        </param>
-        <param name="uniqueUserTag">To be added.</param>
+        <param name="permissions">array of strings naming permissions to authorize; nil indicates a common default set of permissions should be used for unit testing</param>
+        <param name="uniqueUserTag">a string which will be used to make this user unique among other users with the same permissions. Useful for tests which require two or more users to interact with each other, and which therefore must have sessions associated with different users. For this case, consider using kSecondTestUserTag and kThirdTestUserTag so these users can be shared with other, similar, tests. </param>
         <summary>
           <para>Constructor helper to create a session for use in unit tests</para>
         </summary>

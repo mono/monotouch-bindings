@@ -88,9 +88,7 @@
         <Parameter Name="timeout" Type="System.Double" />
       </Parameters>
       <Docs>
-        <param name="timeout">
-          <para>The <computeroutput>NSTimeInterval</computeroutput> (seconds) to wait for a response before giving up. </para>
-        </param>
+        <param name="timeout">The NSTimeInterval (seconds) to wait for a response before giving up. </param>
         <summary>
           <para>
             <computeroutput>
@@ -149,10 +147,8 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="request">
-          <para>A request to be included in the round-trip when start is called. </para>
-        </param>
-        <param name="handler">To be added.</param>
+        <param name="request">A request to be included in the round-trip when start is called. </param>
+        <param name="handler">A handler to call back when the round-trip completes or times out. </param>
         <summary>
           <para>Adding requests</para>
         </summary>
@@ -185,11 +181,9 @@
         <Parameter Name="name" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="request">
-          <para>A request to be included in the round-trip when start is called.</para>
-        </param>
-        <param name="handler">To be added.</param>
-        <param name="name">To be added.</param>
+        <param name="request">A request to be included in the round-trip when start is called.</param>
+        <param name="handler">A handler to call back when the round-trip completes or times out.</param>
+        <param name="name">An optional name for this request. This can be used to feed the results of one request to the input of another &lt;FBRequest&gt; in the same  as described in Graph API Batch Requests. </param>
         <summary>
           <para>This method adds an &lt;FBRequest&gt; object to this connection and then calls &lt;start&gt; on the connection.</para>
         </summary>
@@ -306,9 +300,7 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="handler">
-          <para>The handler block to call when the request completes with a success, error, or cancel action. </para>
-        </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Simple method to make a graph API request for user info (/me), creates an &lt;FBRequest&gt; then uses an &lt;FBRequestConnection&gt; object to start the connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>
@@ -339,9 +331,7 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="handler">
-          <para>The handler block to call when the request completes with a success, error, or cancel action. </para>
-        </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Simple method to make a graph API request for user friends (/me/friends), creates an &lt;FBRequest&gt; then uses an &lt;FBRequestConnection&gt; object to start the connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>
@@ -376,13 +366,11 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="coordinate">
-          <para>The search coordinates.</para>
-        </param>
-        <param name="radius">To be added.</param>
-        <param name="limit">To be added.</param>
-        <param name="searchText">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="coordinate">The search coordinates.</param>
+        <param name="radius">The search radius in meters.</param>
+        <param name="limit">The maxiumum number of results to return. It is possible to receive fewer than this because of the radius and because of server limits.</param>
+        <param name="searchText">The text to use in the query to narrow the set of places returned. </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Starts a request representing a Graph API call to the "search" endpoint for a given location using the active session.</para>
         </summary>
@@ -415,10 +403,8 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="message">
-          <para>The message to post. </para>
-        </param>
-        <param name="handler">To be added.</param>
+        <param name="message">The message to post. </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Simple method to make a graph API post of a status update. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>
@@ -451,12 +437,10 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="message">
-          <para>The message to post. </para>
-        </param>
-        <param name="place">To be added.</param>
-        <param name="tags">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="message">The message to post. </param>
+        <param name="place">The place to checkin with, or nil. Place may be an fbid or a graph object representing a place. </param>
+        <param name="tags">Array of friends to tag in the status update, each element may be an fbid or a graph object representing a user. </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Simple method to make a graph API post of a status update. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>
@@ -488,11 +472,9 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="graphPath">
-          <para>The Graph API endpoint to use for the request, for example "me".</para>
-        </param>
-        <param name="graphObject">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="graphPath">The Graph API endpoint to use for the request, for example "me".</param>
+        <param name="graphObject">An object or open graph action to post.</param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Simple method to make post an object using the graph API, creates an &lt;FBRequest&gt; object for HTTP POST, then uses &lt;FBRequestConnection&gt; to start a connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>
@@ -523,10 +505,8 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="photo">
-          <para>A <computeroutput>UIImage</computeroutput> for the photo to upload. </para>
-        </param>
-        <param name="handler">To be added.</param>
+        <param name="photo">A UIImage for the photo to upload. </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Simple method to make a graph API post of a photo. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>
@@ -557,10 +537,8 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="graphPath">
-          <para>The Graph API endpoint to use for the request, for example "me". </para>
-        </param>
-        <param name="handler">To be added.</param>
+        <param name="graphPath">The Graph API endpoint to use for the request, for example "me". </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Simple method to make a graph API request, creates an &lt;FBRequest&gt; object for then uses an &lt;FBRequestConnection&gt; object to start the connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>
@@ -594,12 +572,10 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="graphPath">
-          <para>The Graph API endpoint to use for the request, for example "me".</para>
-        </param>
-        <param name="parameters">To be added.</param>
-        <param name="HTTPMethod">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="graphPath">The Graph API endpoint to use for the request, for example "me".</param>
+        <param name="parameters">The parameters for the request. A value of nil sends only the automatically handled parameters, for example, the access token. The default is nil.</param>
+        <param name="HTTPMethod">The HTTP method to use for the request. A nil value implies a GET.</param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Creates an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object for a Graph API call, instantiate an &lt;FBRequestConnection&gt; object, add the request to the newly created connection and finally start the connection. Use this method for specifying the request parameters and HTTP Method. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>

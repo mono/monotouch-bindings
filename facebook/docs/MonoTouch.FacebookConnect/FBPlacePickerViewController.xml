@@ -111,8 +111,8 @@
         <Parameter Name="nibBundle" Type="MonoTouch.Foundation.NSBundle" />
       </Parameters>
       <Docs>
-        <param name="nibName">To be added.</param>
-        <param name="nibBundle">To be added.</param>
+        <param name="nibName">The name of the nib file to associate with the view controller. The nib file name should not contain any leading path information. If you specify nil, the nibName property is set to nil. </param>
+        <param name="nibBundle">The bundle in which to search for the nib file. This method looks for the nib file in the bundle's language-specific project directories first, followed by the Resources directory. If nil, this method looks for the nib file in the main bundle. </param>
         <summary>
           <para>Initializes a place picker view controller.</para>
         </summary>
@@ -145,13 +145,11 @@
         <Parameter Name="fieldsForRequest" Type="MonoTouch.Foundation.NSSet" />
       </Parameters>
       <Docs>
-        <param name="locationCoordinate">
-          <para>The coordinates to use for place discovery. </para>
-        </param>
-        <param name="radiusInMeters">To be added.</param>
-        <param name="searchText">To be added.</param>
-        <param name="resultsLimit">To be added.</param>
-        <param name="fieldsForRequest">To be added.</param>
+        <param name="locationCoordinate">The coordinates to use for place discovery. </param>
+        <param name="radiusInMeters">The radius to use for place discovery. </param>
+        <param name="searchText">The search words used to narrow down the results returned. </param>
+        <param name="resultsLimit">The maximum number of places to fetch. </param>
+        <param name="fieldsForRequest">Addtional fields to fetch when making the Graph API call to get place data. </param>
         <summary>
           <para>Creates a cache descriptor with additional fields and a profile ID for use with the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBPlacePickerViewController" /></computeroutput> object.</para>
         </summary>
@@ -207,9 +205,7 @@
         <Parameter Name="cacheDescriptor" Type="MonoTouch.FacebookConnect.FBCacheDescriptor" />
       </Parameters>
       <Docs>
-        <param name="cacheDescriptor">
-          <para>The &lt;FBCacheDescriptor&gt; containing the cache query properties. </para>
-        </param>
+        <param name="cacheDescriptor">The &lt;FBCacheDescriptor&gt; containing the cache query properties. </param>
         <summary>
           <para>Configures the properties used in the caching data queries.</para>
         </summary>
@@ -218,6 +214,37 @@
           <para>Cache descriptors are used to fetch and cache the data used by the view controller. If the view controller finds a cached copy of the data, it will first display the cached content then fetch a fresh copy from the server.</para>
           <para />
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataDidChange">
+      <MemberSignature Language="C#" Value="public event EventHandler DataDidChange;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DataDidChange" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Delegate">
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBPlacePickerDelegate Delegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBPlacePickerDelegate Delegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBPlacePickerDelegate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -260,6 +287,21 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleError">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;MonoTouch.FacebookConnect.FBPlacePickerErrorEventArgs&gt; HandleError;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class MonoTouch.FacebookConnect.FBPlacePickerErrorEventArgs&gt; HandleError" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;MonoTouch.FacebookConnect.FBPlacePickerErrorEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -426,28 +468,34 @@
       </Docs>
     </Member>
     <Member MemberName="Selection">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBGraphPlace Selection { get; }" />
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBGraphPlace Selection { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBGraphPlace Selection" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("selection")</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>MonoTouch.FacebookConnect.FBGraphPlace</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-          <para>The place that is currently selected in the view. This is nil if nothing is selected. </para>
-        </summary>
+        <summary>To be added.</summary>
         <value>To be added.</value>
-        <remarks>
-          <para>The place that is currently selected in the view. This is nil if nothing is selected. </para>
-        </remarks>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectionDidChange">
+      <MemberSignature Language="C#" Value="public event EventHandler SelectionDidChange;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler SelectionDidChange" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Session">
@@ -476,6 +524,22 @@
         <remarks>
           <para>The session that is used in the request for place data. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldIncludeUser">
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBPlacePickerCondition ShouldIncludeUser { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBPlacePickerCondition ShouldIncludeUser" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBPlacePickerCondition</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Spinner">

@@ -1,19 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="FBOpenGraphAction" FullName="MonoTouch.FacebookConnect.FBOpenGraphAction">
-  <TypeSignature Language="C#" Value="public class FBOpenGraphAction : MonoTouch.Foundation.NSObject" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBOpenGraphAction extends MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="C#" Value="public class FBOpenGraphAction : MonoTouch.FacebookConnect.FBGraphObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBOpenGraphAction extends MonoTouch.FacebookConnect.FBGraphObject" />
   <AssemblyInfo>
     <AssemblyName>Facebook</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+    <BaseTypeName>MonoTouch.FacebookConnect.FBGraphObject</BaseTypeName>
   </Base>
   <Interfaces />
   <Attributes>
-    <Attribute>
-      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
-    </Attribute>
     <Attribute>
       <AttributeName>MonoTouch.Foundation.Register("FBOpenGraphAction", true)</AttributeName>
     </Attribute>
@@ -40,6 +37,22 @@
       </Attributes>
       <Parameters />
       <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBOpenGraphAction (MonoTouch.Foundation.NSObject requestResult);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObject requestResult) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="requestResult" Type="MonoTouch.Foundation.NSObject" />
+      </Parameters>
+      <Docs>
+        <param name="requestResult">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -87,20 +100,12 @@
       </Docs>
     </Member>
     <Member MemberName="Application">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBGraphObject Application { get; set; }" />
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBGraphObject Application { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBGraphObject Application" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("application")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setApplication:")</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>MonoTouch.FacebookConnect.FBGraphObject</ReturnType>
       </ReturnValue>
@@ -179,6 +184,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="EndTime">
       <MemberSignature Language="C#" Value="public virtual string EndTime { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string EndTime" />
@@ -228,20 +252,12 @@
       </Docs>
     </Member>
     <Member MemberName="From">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBGraphUser From { get; set; }" />
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBGraphUser From { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBGraphUser From" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("from")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setFrom:")</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>MonoTouch.FacebookConnect.FBGraphUser</ReturnType>
       </ReturnValue>
@@ -394,20 +410,12 @@
       </Docs>
     </Member>
     <Member MemberName="Place">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBGraphPlace Place { get; set; }" />
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBGraphPlace Place { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBGraphPlace Place" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("place")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setPlace:")</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>MonoTouch.FacebookConnect.FBGraphPlace</ReturnType>
       </ReturnValue>

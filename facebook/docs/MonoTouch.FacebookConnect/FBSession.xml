@@ -124,9 +124,7 @@
         <Parameter Name="permissions" Type="System.String[]" />
       </Parameters>
       <Docs>
-        <param name="permissions">
-          <para>An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil.</para>
-        </param>
+        <param name="permissions">An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil.</param>
         <summary>
           <para>Returns a newly initialized <see cref="T:MonoTouch.FacebookConnect.Facebook" /> session with the specified permissions and other default values for parameters to &lt;initWithAppID:permissions:urlSchemeSuffix:tokenCacheStrategy:&gt;.</para>
         </summary>
@@ -156,12 +154,10 @@ It is required that any single permission request request (including initial log
         <Parameter Name="tokenCachingStrategy" Type="MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy" />
       </Parameters>
       <Docs>
-        <param name="appId">To be added.</param>
-        <param name="permissions">
-          <para>An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil. </para>
-        </param>
-        <param name="urlSchemeSuffix">To be added.</param>
-        <param name="tokenCachingStrategy">To be added.</param>
+        <param name="appId">An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil. </param>
+        <param name="permissions">The  App ID for the session. If nil is passed in the default App ID will be obtained from a call to &lt;[ defaultAppID]&gt;. The default is nil. </param>
+        <param name="urlSchemeSuffix">The URL Scheme Suffix to be used in scenarious where multiple iOS apps use one  App ID. A value of nil indicates that this information should be pulled from the plist. The default is nil. </param>
+        <param name="tokenCachingStrategy">Specifies a key name to use for cached token information in NSUserDefaults, nil indicates a default value of "FBAccessTokenInformationKey".</param>
         <summary>
           <para>Following are the descriptions of the arguments along with their defaults when ommitted.</para>
         </summary>
@@ -192,13 +188,11 @@ It is required that any single permission request request (including initial log
         <Parameter Name="tokenCachingStrategy" Type="MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy" />
       </Parameters>
       <Docs>
-        <param name="appId">To be added.</param>
-        <param name="permissions">
-          <para>An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil. </para>
-        </param>
-        <param name="defaultAudience">To be added.</param>
-        <param name="urlSchemeSuffix">To be added.</param>
-        <param name="tokenCachingStrategy">To be added.</param>
+        <param name="appId">An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil. </param>
+        <param name="permissions">Most applications use FBSessionDefaultAudienceNone here, only specifying an audience when using reauthorize to request publish permissions. </param>
+        <param name="defaultAudience">The  App ID for the session. If nil is passed in the default App ID will be obtained from a call to &lt;[ defaultAppID]&gt;. The default is nil. </param>
+        <param name="urlSchemeSuffix">The URL Scheme Suffix to be used in scenarious where multiple iOS apps use one  App ID. A value of nil indicates that this information should be pulled from the plist. The default is nil. </param>
+        <param name="tokenCachingStrategy">Specifies a key name to use for cached token information in NSUserDefaults, nil indicates a default value of "FBAccessTokenInformationKey".</param>
         <summary>
           <para>Following are the descriptions of the arguments along with their defaults when ommitted.</para>
         </summary>
@@ -249,9 +243,14 @@ It is required that any single permission request request (including initial log
         <ReturnType>MonoTouch.FacebookConnect.FBSession</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>An appication may get or set the current active session. Certain high-level components in the SDK will use the activeSession to set default session (e.g. <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBLoginView" /></computeroutput>, <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput>)</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>An appication may get or set the current active session. Certain high-level components in the SDK will use the activeSession to set default session (e.g. <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBLoginView" /></computeroutput>, <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput>)</para>
+          <para>If sessionOpen* is called, the resulting <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> object also becomes the activeSession. If another session was active at the time, it is closed automatically. If activeSession is called when no session is active, a session object is instatiated and returned; in this case open must be called on the session in order for it to be useable for communication with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AppID">
@@ -344,9 +343,13 @@ It is required that any single permission request request (including initial log
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Get the default <see cref="T:MonoTouch.FacebookConnect.Facebook" /> App ID to use for sessions. If not explicitly set, the default will be read from the application's plist. The app ID may be overridden on a per session basis. </para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Get the default <see cref="T:MonoTouch.FacebookConnect.Facebook" /> App ID to use for sessions. If not explicitly set, the default will be read from the application's plist. The app ID may be overridden on a per session basis. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -433,9 +436,7 @@ It is required that any single permission request request (including initial log
         <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
       </Parameters>
       <Docs>
-        <param name="url">
-          <para>The URL as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:]. </para>
-        </param>
+        <param name="url">The URL as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:]. </param>
         <summary>
           <para>A helper method that is used to provide an implementation for [UIApplicationDelegate application:openURL:sourceApplication:annotation:]. It should be invoked during the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login flow and will update the session information based on the incoming URL.</para>
         </summary>
@@ -515,9 +516,7 @@ It is required that any single permission request request (including initial log
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
       </Parameters>
       <Docs>
-        <param name="handler">
-          <para>A block to call with the state changes. The default is nil. </para>
-        </param>
+        <param name="handler">A block to call with the state changes. The default is nil. </param>
         <summary>
           <para>Instance methods</para>
         </summary>
@@ -550,10 +549,8 @@ It is required that any single permission request request (including initial log
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
       </Parameters>
       <Docs>
-        <param name="behavior">
-          <para>Controls whether to allow, force, or prohibit <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login or Inline <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login. The default is to allow <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login, with fallback to Inline <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login. </para>
-        </param>
-        <param name="handler">To be added.</param>
+        <param name="behavior">Controls whether to allow, force, or prohibit  Login or Inline  Login. The default is to allow  Login, with fallback to Inline  Login. </param>
+        <param name="handler">A block to call with session state changes. The default is nil. </param>
         <summary>
           <para>Logs a user on to <see cref="T:MonoTouch.FacebookConnect.Facebook" />.</para>
         </summary>
@@ -584,9 +581,7 @@ It is required that any single permission request request (including initial log
         <Parameter Name="allowLoginUI" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="allowLoginUI">
-          <para>Sometimes it is useful to attempt to open a session, but only if no login UI will be required to accomplish the operation. For example, at application startup it may not be disirable to transition to login UI for the user, and yet an open session is desired so long as a cached token can be used to open the session. Passing NO to this argument, assures the method will not present UI to the user in order to open the session.</para>
-        </param>
+        <param name="allowLoginUI">Sometimes it is useful to attempt to open a session, but only if no login UI will be required to accomplish the operation. For example, at application startup it may not be disirable to transition to login UI for the user, and yet an open session is desired so long as a cached token can be used to open the session. Passing false to this argument, assures the method will not present UI to the user in order to open the session.</param>
         <summary>
           <para>Class methods</para>
         </summary>
@@ -621,11 +616,9 @@ Returns YES if the session was opened synchronously without presenting UI to the
         <Parameter Name="completion" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
       </Parameters>
       <Docs>
-        <param name="readPermissions">
-          <para>An array of strings representing the read permissions to request during the authentication flow. A value of nil indicates basic permissions. It is not allowed to pass publish permissions to this method.</para>
-        </param>
-        <param name="allowLoginUI">To be added.</param>
-        <param name="completion">To be added.</param>
+        <param name="readPermissions">An array of strings representing the read permissions to request during the authentication flow. A value of nil indicates basic permissions. It is not allowed to pass publish permissions to this method.</param>
+        <param name="allowLoginUI">Sometimes it is useful to attempt to open a session, but only if no login UI will be required to accomplish the operation. For example, at application startup it may not be desirable to transition to login UI for the user, and yet an open session is desired so long as a cached token can be used to open the session. Passing false to this argument, assures the method will not present UI to the user in order to open the session.</param>
+        <param name="completion">Many applications will benefit from notification when a session becomes invalid or undergoes other state transitions. If a block is provided, the  object will call the block each time the session changes state.</param>
         <summary>
           <para>This is a simple method for opening a session with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. Using sessionOpen logs on a user, and sets the static activeSession which becomes the default session object for any <see cref="T:MonoTouch.FacebookConnect.Facebook" /> UI widgets used by the application. This session becomes the active session, whether open succeeds or fails.</para>
         </summary>
@@ -659,12 +652,10 @@ Returns true if the session was opened synchronously without presenting UI to th
         <Parameter Name="completion" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
       </Parameters>
       <Docs>
-        <param name="publishPermissions">
-          <para>An array of strings representing the publish permissions to request during the authentication flow.</para>
-        </param>
-        <param name="defaultAudience">To be added.</param>
-        <param name="allowLoginUI">To be added.</param>
-        <param name="completion">To be added.</param>
+        <param name="publishPermissions">An array of strings representing the publish permissions to request during the authentication flow.</param>
+        <param name="defaultAudience">Anytime an app publishes on behalf of a user, the post must have an audience (e.g. me, my friends, etc.) The default audience is used to notify the user of the cieling that the user agrees to grant to the app for the provided permissions.</param>
+        <param name="allowLoginUI">Sometimes it is useful to attempt to open a session, but only if no login UI will be required to accomplish the operation. For example, at application startup it may not be desirable to transition to login UI for the user, and yet an open session is desired so long as a cached token can be used to open the session. Passing false to this argument, assures the method will not present UI to the user in order to open the session.</param>
+        <param name="completion">Many applications will benefit from notification when a session becomes invalid or undergoes other state transitions. If a block is provided, the  object will call the block each time the session changes state.</param>
         <summary>
           <para>This is a simple method for opening a session with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. Using sessionOpen logs on a user, and sets the static activeSession which becomes the default session object for any <see cref="T:MonoTouch.FacebookConnect.Facebook" /> UI widgets used by the application. This session becomes the active session, whether open succeeds or fails.</para>
         </summary>
@@ -697,6 +688,40 @@ Returns true if the session was opened synchronously without presenting UI to th
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ReauthorizeWithPermissions">
+      <MemberSignature Language="C#" Value="public virtual void ReauthorizeWithPermissions (string[] permissions, MonoTouch.FacebookConnect.FBSessionLoginBehavior behavior, MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler completion);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReauthorizeWithPermissions(string[] permissions, valuetype MonoTouch.FacebookConnect.FBSessionLoginBehavior behavior, class MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler completion) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("reauthorizeWithPermissions:behavior:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="permissions" Type="System.String[]" />
+        <Parameter Name="behavior" Type="MonoTouch.FacebookConnect.FBSessionLoginBehavior" />
+        <Parameter Name="completion" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
+      </Parameters>
+      <Docs>
+        <param name="permissions">An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions. The default is nil. </param>
+        <param name="behavior">Controls whether to allow, force, or prohibit  Login. The default is to allow  Login and fall back to Inline  Login if needed. </param>
+        <param name="completion">A block to call with session state changes. The default is nil.</param>
+        <summary>
+          <para>Reauthorizes the session, with additional permissions.</para>
+        </summary>
+        <remarks>
+          <para>Reauthorizes the session, with additional permissions.</para>
+          <para>
+Methods and properties that specify permissions without a read or publish qualification are deprecated; use of a read-qualified or publish-qualified alternative is preferred (e.g. reauthorizeWithReadPermissions or reauthorizeWithPublishPermissions) </para>
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ReauthorizeWithPublishPermissions">
       <MemberSignature Language="C#" Value="public virtual void ReauthorizeWithPublishPermissions (string[] writePermissions, MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReauthorizeWithPublishPermissions(string[] writePermissions, valuetype MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, class MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler handler) cil managed" />
@@ -718,11 +743,9 @@ Returns true if the session was opened synchronously without presenting UI to th
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
       </Parameters>
       <Docs>
-        <param name="writePermissions">
-          <para>An array of strings representing the permissions to request during the authentication flow.</para>
-        </param>
-        <param name="defaultAudience">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="writePermissions">An array of strings representing the permissions to request during the authentication flow.</param>
+        <param name="defaultAudience">Specifies the audience for posts.</param>
+        <param name="handler">A block to call with session state changes. The default is nil. </param>
         <summary>
           <para>Reauthorizes the session, with additional permissions.</para>
         </summary>
@@ -752,10 +775,8 @@ Returns true if the session was opened synchronously without presenting UI to th
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionReauthorizeResultHandler" />
       </Parameters>
       <Docs>
-        <param name="readPermissions">
-          <para>An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions.</para>
-        </param>
-        <param name="handler">To be added.</param>
+        <param name="readPermissions">An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions.</param>
+        <param name="handler">A block to call with session state changes. The default is nil. </param>
         <summary>
           <para>Reauthorizes the session, with additional permissions.</para>
         </summary>

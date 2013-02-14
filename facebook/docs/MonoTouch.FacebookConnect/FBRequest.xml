@@ -17,10 +17,14 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>Do not use this interface directly, instead, use method in <ref refid="_facebook_8h_source" kindref="compound">Facebook.h</ref></para>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object is used to setup and manage requests to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph and REST APIs. This class provides helper methods that simplify the connection and response handling.</para>
     </summary>
     <remarks>
-      <para>Do not use this interface directly, instead, use method in <ref refid="_facebook_8h_source" kindref="compound">Facebook.h</ref></para>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object is used to setup and manage requests to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph and REST APIs. This class provides helper methods that simplify the connection and response handling.</para>
+      <para>An &lt;FBSession&gt; object is required for all authenticated uses of <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput>. Requests that do not require an unauthenticated user are also supported and do not require an &lt;FBSession&gt; object to be passed in.</para>
+      <para>An instance of <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> represents the arguments and setup for a connection to <see cref="T:MonoTouch.FacebookConnect.Facebook" />. After creating an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object it can be used to setup a connection to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> through the &lt;FBRequestConnection&gt; object. The &lt;FBRequestConnection&gt; object is created to manage a single connection. To cancel a connection use the instance method in the &lt;FBRequestConnection&gt; class.</para>
+      <para>An <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object may be reused to issue multiple connections to <see cref="T:MonoTouch.FacebookConnect.Facebook" />. However each &lt;FBRequestConnection&gt; instance will manage one connection.</para>
+      <para>Class and instance methods prefixed with **start* ** can be used to perform the request setup and initiate the connection in a single call. </para>
     </remarks>
   </Docs>
   <Members>
@@ -109,10 +113,8 @@
         <Parameter Name="graphPath" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="session">
-          <para>The session object representing the identity of the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user making the request. A nil value indicates a request that requires no token; to use the active session pass <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
-        </param>
-        <param name="graphPath">To be added.</param>
+        <param name="session">The session object representing the identity of the  user making the request. A nil value indicates a request that requires no token; to use the active session pass [ activeSession].</param>
+        <param name="graphPath">The Graph API endpoint to use for the request, for example "me". </param>
         <summary>
           <para>Calls &lt;initWithSession:graphPath:parameters:HTTPMethod:&gt; with default parameters except for the ones provided to this method.</para>
         </summary>
@@ -140,11 +142,9 @@
         <Parameter Name="graphObject" Type="MonoTouch.FacebookConnect.FBGraphObject" />
       </Parameters>
       <Docs>
-        <param name="session">
-          <para>The session object representing the identity of the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user making the request. A nil value indicates a request that requires no token; to use the active session pass <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
-        </param>
-        <param name="graphPath">To be added.</param>
-        <param name="graphObject">To be added.</param>
+        <param name="session">The session object representing the identity of the  user making the request. A nil value indicates a request that requires no token; to use the active session pass [ activeSession].</param>
+        <param name="graphPath">The Graph API endpoint to use for the request, for example "me".</param>
+        <param name="graphObject">An object or open graph action to post. </param>
         <summary>
           <para>Initialize a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object that will do a graph request.</para>
         </summary>
@@ -175,12 +175,10 @@
         <Parameter Name="HTTPMethod" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="session">
-          <para>The session object representing the identity of the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user making the request. A nil value indicates a request that requires no token; to use the active session pass <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
-        </param>
-        <param name="graphPath">To be added.</param>
-        <param name="parameters">To be added.</param>
-        <param name="HTTPMethod">To be added.</param>
+        <param name="session">The session object representing the identity of the  user making the request. A nil value indicates a request that requires no token; to use the active session pass [ activeSession].</param>
+        <param name="graphPath">The Graph API endpoint to use for the request, for example "me".</param>
+        <param name="parameters">The parameters for the request. A value of nil sends only the automatically handled parameters, for example, the access token. The default is nil.</param>
+        <param name="HTTPMethod">The HTTP method to use for the request. The default is value of nil implies a GET. </param>
         <summary>
           <para>Initializes an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object for a Graph API request call.</para>
         </summary>
@@ -212,12 +210,10 @@
         <Parameter Name="fakearg" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="session">
-          <para>The session object representing the identity of the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user making the request. A nil value indicates a request that requires no token; to use the active session pass <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
-        </param>
-        <param name="restMethod">To be added.</param>
-        <param name="parameters">To be added.</param>
-        <param name="HTTPMethod">To be added.</param>
+        <param name="session">The session object representing the identity of the  user making the request. A nil value indicates a request that requires no token; to use the active session pass [ activeSession].</param>
+        <param name="restMethod">A valid REST API method.</param>
+        <param name="parameters">The parameters for the request. A value of nil sends only the automatically handled parameters, for example, the access token. The default is nil.</param>
+        <param name="HTTPMethod">The HTTP method to use for the request. The default is value of nil implies a GET. </param>
         <param name="fakearg">To be added.</param>
         <summary>
           <para>Initialize a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object that will do a rest API request.</para>
@@ -229,6 +225,68 @@
           <para>To send the request, initialize a &lt;FBRequestConnection&gt;, add this request, and send &lt;[<see cref="T:MonoTouch.FacebookConnect.FBRequestConnection" /> start]&gt;. See other methods on this class for shortcuts to simplify this process.</para>
           <para />
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Connect">
+      <MemberSignature Language="C#" Value="public virtual void Connect ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Connect() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("connect")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Connection">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSUrlConnection Connection { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSUrlConnection Connection" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("connection")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setConnection:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSUrlConnection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Delegate">
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBRequestDelegate Delegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBRequestDelegate Delegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestDelegate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -250,6 +308,65 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Error">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSError Error { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSError Error" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("error")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setError:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSError</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Error returned by the server in case of request's failure (or nil otherwise). </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Error returned by the server in case of request's failure (or nil otherwise). </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRequest">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequest GetRequest (MonoTouch.Foundation.NSMutableDictionary parameters, string method, MonoTouch.FacebookConnect.FBRequestDelegate httpMethodDelegatedelegate, string url);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequest GetRequest(class MonoTouch.Foundation.NSMutableDictionary parameters, string method, class MonoTouch.FacebookConnect.FBRequestDelegate httpMethodDelegatedelegate, string url) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getRequestWithParams:httpMethod:delegate:requestURL:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSMutableDictionary" />
+        <Parameter Name="method" Type="System.String" />
+        <Parameter Name="httpMethodDelegatedelegate" Type="MonoTouch.FacebookConnect.FBRequestDelegate" />
+        <Parameter Name="url" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="parameters">To be added.</param>
+        <param name="method">To be added.</param>
+        <param name="httpMethodDelegatedelegate">To be added.</param>
+        <param name="url">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetRequestForMe">
       <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequest GetRequestForMe { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class MonoTouch.FacebookConnect.FBRequest GetRequestForMe" />
@@ -266,9 +383,27 @@
         <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>
+            <see cref="T:MonoTouch.FacebookConnect.FBRequestConnection" /> start methods</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <see cref="T:MonoTouch.FacebookConnect.FBRequestConnection" /> start methods</para>
+          <para>These methods start an &lt;FBRequestConnection&gt;.</para>
+          <para>These methods simplify the process of preparing a request and starting the connection. The methods handle initializing an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object, initializing a &lt;FBRequestConnection&gt; object, adding the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> object to the to the &lt;FBRequestConnection&gt;, and finally starting the connection.</para>
+          <para>
+            <see cref="T:MonoTouch.FacebookConnect.FBRequest" /> factory methods</para>
+          <para>These methods initialize a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> for common scenarios.</para>
+          <para>These simplify the process of preparing a request to send. These initialize a <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> based on strongly typed parameters that are specific to the scenario.</para>
+          <para>These method do not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
+          <para>Creates a request representing a Graph API call to the "me" endpoint, using the active session.</para>
+          <para>Simplifies preparing a request to retrieve the user's identity.</para>
+          <para>This method does not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
+          <para>A successful Graph API call will return an &lt;FBGraphUser&gt; object representing the user's identity.</para>
+          <para>Note you may change the session property after construction if a session other than the active session is preferred. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRequestForMyFriends">
@@ -287,9 +422,16 @@
         <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Creates a request representing a Graph API call to the "me/friends" endpoint using the active session.</para>
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Creates a request representing a Graph API call to the "me/friends" endpoint using the active session.</para>
+          <para>Simplifies preparing a request to retrieve the user's friends.</para>
+          <para>This method does not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
+          <para>A successful Graph API call will return an array of &lt;FBGraphUser&gt; objects representing the user's friends. </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GraphObject">
@@ -345,6 +487,34 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="HttpMethod">
+      <MemberSignature Language="C#" Value="public virtual string HttpMethod { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string HttpMethod" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("httpMethod")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setHttpMethod:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The API method which will be called. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The API method which will be called. </para>
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="HTTPMethod">
       <MemberSignature Language="C#" Value="public virtual string HTTPMethod { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string HTTPMethod" />
@@ -367,6 +537,29 @@
         <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Loading">
+      <MemberSignature Language="C#" Value="public virtual bool Loading ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Loading() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("loading")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Parameters">
@@ -416,9 +609,7 @@
         <Parameter Name="graphPath" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="graphPath">
-          <para>The Graph API endpoint to use for the request, for example "me". </para>
-        </param>
+        <param name="graphPath">The Graph API endpoint to use for the request, for example "me". </param>
         <summary>
           <para>Returns a newly initialized request object that can be used to make a Graph API call for the active session.</para>
         </summary>
@@ -453,12 +644,10 @@
         <Parameter Name="searchText" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="coordinate">
-          <para>The search coordinates.</para>
-        </param>
-        <param name="radius">To be added.</param>
-        <param name="limit">To be added.</param>
-        <param name="searchText">To be added.</param>
+        <param name="coordinate">The search coordinates.</param>
+        <param name="radius">The search radius in meters.</param>
+        <param name="limit">The maxiumum number of results to return. It is possible to receive fewer than this because of the radius and because of server limits.</param>
+        <param name="searchText">The text to use in the query to narrow the set of places returned. </param>
         <summary>
           <para>Creates a request representing a Graph API call to the "search" endpoint for a given location using the active session.</para>
         </summary>
@@ -491,9 +680,7 @@
         <Parameter Name="message" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="message">
-          <para>The message to post. </para>
-        </param>
+        <param name="message">The message to post. </param>
         <summary>
           <para>Creates a request representing a status update.</para>
         </summary>
@@ -527,11 +714,9 @@
         <Parameter Name="tags" Type="MonoTouch.Foundation.NSObject[]" />
       </Parameters>
       <Docs>
-        <param name="message">
-          <para>The message to post. </para>
-        </param>
-        <param name="place">To be added.</param>
-        <param name="tags">To be added.</param>
+        <param name="message">The message to post. </param>
+        <param name="place">The place to checkin with, or nil. Place may be an fbid or a graph object representing a place. </param>
+        <param name="tags">Array of friends to tag in the status update, each element may be an fbid or a graph object representing a user. </param>
         <summary>
           <para>Creates a request representing a status update.</para>
         </summary>
@@ -564,10 +749,8 @@
         <Parameter Name="graphObject" Type="MonoTouch.FacebookConnect.FBGraphObject" />
       </Parameters>
       <Docs>
-        <param name="graphPath">
-          <para>The Graph API endpoint to use for the request, for example "me".</para>
-        </param>
-        <param name="graphObject">To be added.</param>
+        <param name="graphPath">The Graph API endpoint to use for the request, for example "me".</param>
+        <param name="graphObject">An object or open graph action to post. </param>
         <summary>
           <para>Creates a request representing a POST for a graph object.</para>
         </summary>
@@ -597,9 +780,7 @@
         <Parameter Name="photo" Type="MonoTouch.UIKit.UIImage" />
       </Parameters>
       <Docs>
-        <param name="photo">
-          <para>A <computeroutput>UIImage</computeroutput> for the photo to upload. </para>
-        </param>
+        <param name="photo">A UIImage for the photo to upload. </param>
         <summary>
           <para>Creates a request representing a Graph API call to upload a photo to the app's album using the active session.</para>
         </summary>
@@ -634,11 +815,9 @@
         <Parameter Name="HTTPMethod" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="graphPath">
-          <para>The Graph API endpoint to use for the request, for example "me".</para>
-        </param>
-        <param name="parameters">To be added.</param>
-        <param name="HTTPMethod">To be added.</param>
+        <param name="graphPath">The Graph API endpoint to use for the request, for example "me".</param>
+        <param name="parameters">The parameters for the request. A value of nil sends only the automatically handled parameters, for example, the access token. The default is nil.</param>
+        <param name="HTTPMethod">The HTTP method to use for the request. A nil value implies a GET. </param>
         <summary>
           <para>Returns a newly initialized request object that can be used to make a Graph API call for the active session.</para>
         </summary>
@@ -648,6 +827,31 @@
           <para>This method simplifies the preparation of a Graph API call.</para>
           <para>This method does not initialize an &lt;FBRequestConnection&gt; object. To initiate the API call first instantiate an &lt;FBRequestConnection&gt; object, add the request to this object, then call the <computeroutput>start</computeroutput> method on the connection instance.</para>
           <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResponseText">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSMutableData ResponseText { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSMutableData ResponseText" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("responseText")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setResponseText:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSMutableData</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>
         </remarks>
       </Docs>
     </Member>
@@ -673,6 +877,64 @@
         <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Serialize">
+      <MemberSignature Language="C#" Value="public static string Serialize (string baseUrl, MonoTouch.Foundation.NSDictionary parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Serialize(string baseUrl, class MonoTouch.Foundation.NSDictionary parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("serializeURL:params:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="baseUrl" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="baseUrl">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Serialize">
+      <MemberSignature Language="C#" Value="public static string Serialize (string baseUrl, MonoTouch.Foundation.NSDictionary parameters, string httpMethod);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Serialize(string baseUrl, class MonoTouch.Foundation.NSDictionary parameters, string httpMethod) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("serializeURL:params:httpMethod:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="baseUrl" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="httpMethod" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="baseUrl">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="httpMethod">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Session">
@@ -723,9 +985,7 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
       </Parameters>
       <Docs>
-        <param name="handler">
-          <para>The handler block to call when the request completes with a success, error, or cancel action. </para>
-        </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
           <para>Instance methods</para>
         </summary>
@@ -735,6 +995,81 @@
           <para>Starts a connection to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> API.</para>
           <para>This is used to start an API call to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> and call the block when the request completes with a success, error, or cancel.</para>
           <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="State">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBRequestState State { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.FacebookConnect.FBRequestState State" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("state")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestState</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Url">
+      <MemberSignature Language="C#" Value="public virtual string Url { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Url" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("url")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUrl:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The URL which will be contacted to execute the request. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The URL which will be contacted to execute the request. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WeakDelegate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject WeakDelegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject WeakDelegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("delegate")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>
         </remarks>
       </Docs>
     </Member>

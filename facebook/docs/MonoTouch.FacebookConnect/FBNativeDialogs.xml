@@ -106,9 +106,7 @@
         <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
       </Parameters>
       <Docs>
-        <param name="session">
-          <para>The &lt;FBSession&gt; to use to determine whether or not the user has been authenticated with iOS native authentication. If nil, then [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be checked. See discussion above for the implications of nil or non-nil session.</para>
-        </param>
+        <param name="session">The &lt;FBSession&gt; to use to determine whether or not the user has been authenticated with iOS native authentication. If nil, then [ activeSession] will be checked. See discussion above for the implications of nil or non-nil session.</param>
         <summary>
           <para>Determines whether a call to presentShareDialogModallyFrom: will successfully present a dialog. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform and for the current user.</para>
         </summary>
@@ -116,9 +114,7 @@
         <remarks>
           <para>Determines whether a call to presentShareDialogModallyFrom: will successfully present a dialog. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform and for the current user.</para>
           <para>
-            <simplesect kind="return">
-              <para>YES if the dialog would be presented for the session, and NO if not </para>
-            </simplesect>
+            <para>YES if the dialog would be presented for the session, and NO if not </para>
           </para>
         </remarks>
       </Docs>
@@ -146,13 +142,11 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBShareDialogHandler" />
       </Parameters>
       <Docs>
-        <param name="viewController">
-          <para>The view controller which will present the dialog.</para>
-        </param>
-        <param name="initialText">To be added.</param>
-        <param name="image">To be added.</param>
-        <param name="url">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="viewController">The view controller which will present the dialog.</param>
+        <param name="initialText">The text which will initially be populated in the dialog. The user will have the opportunity to edit this text before posting it. May be nil.</param>
+        <param name="image">A UIImage that will be attached to the status update. May be nil.</param>
+        <param name="url">An NSURL that will be attached to the status update. May be nil.</param>
+        <param name="handler">A handler that will be called when the dialog is dismissed, or if an error occurs. May be nil.</param>
         <summary>
           <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
         </summary>
@@ -160,9 +154,7 @@
         <remarks>
           <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
           <para>
-            <simplesect kind="return">
-              <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
-            </simplesect>
+            <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
           </para>
         </remarks>
       </Docs>
@@ -190,13 +182,11 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBShareDialogHandler" />
       </Parameters>
       <Docs>
-        <param name="viewController">
-          <para>The view controller which will present the dialog.</para>
-        </param>
-        <param name="initialText">To be added.</param>
-        <param name="image">To be added.</param>
-        <param name="urls">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="viewController">The view controller which will present the dialog.</param>
+        <param name="initialText">The text which will initially be populated in the dialog. The user will have the opportunity to edit this text before posting it. May be nil.</param>
+        <param name="image">An array of UIImages that will be attached to the status update. May be nil.</param>
+        <param name="urls">An array of NSURLs that will be attached to the status update. May be nil.</param>
+        <param name="handler">A handler that will be called when the dialog is dismissed, or if an error occurs. May be nil.</param>
         <summary>
           <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
         </summary>
@@ -204,9 +194,7 @@
         <remarks>
           <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
           <para>
-            <simplesect kind="return">
-              <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
-            </simplesect>
+            <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
           </para>
         </remarks>
       </Docs>
@@ -235,14 +223,12 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBShareDialogHandler" />
       </Parameters>
       <Docs>
-        <param name="viewController">
-          <para>The view controller which will present the dialog.</para>
-        </param>
-        <param name="session">To be added.</param>
-        <param name="initialText">To be added.</param>
-        <param name="image">To be added.</param>
-        <param name="urls">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="viewController">The view controller which will present the dialog.</param>
+        <param name="session">The &lt;FBSession&gt; to use to determine whether or not the user has been authenticated with iOS native authentication. If nil, then [ activeSession] will be checked. See discussion above for the implications of nil or non-nil session.</param>
+        <param name="initialText">The text which will initially be populated in the dialog. The user will have the opportunity to edit this text before posting it. May be nil.</param>
+        <param name="image">An array of UIImages that will be attached to the status update. May be nil.</param>
+        <param name="urls">An array of NSURLs that will be attached to the status update. May be nil.</param>
+        <param name="handler">A handler that will be called when the dialog is dismissed, or if an error occurs. May be nil.</param>
         <summary>
           <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. An &lt;FBSession&gt; may be specified, or nil may be passed to indicate that the current active session should be used. If a session is specified (whether explicitly or by virtue of being the active session), it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session is specified (and there is no active session), then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
         </summary>
@@ -250,9 +236,7 @@
         <remarks>
           <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. An &lt;FBSession&gt; may be specified, or nil may be passed to indicate that the current active session should be used. If a session is specified (whether explicitly or by virtue of being the active session), it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session is specified (and there is no active session), then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
           <para>
-            <simplesect kind="return">
-              <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
-            </simplesect>
+            <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
           </para>
         </remarks>
       </Docs>

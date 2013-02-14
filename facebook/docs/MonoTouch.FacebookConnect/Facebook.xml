@@ -1,15 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="Facebook" FullName="MonoTouch.FacebookConnect.Facebook">
-  <TypeSignature Language="C#" Value="public class Facebook" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Facebook extends System.Object" />
+  <TypeSignature Language="C#" Value="public class Facebook : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Facebook extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
     <AssemblyName>Facebook</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>System.Object</BaseTypeName>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("Facebook", true)</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
     <summary>
       <para>Main <see cref="T:MonoTouch.FacebookConnect.Facebook" /> interface for interacting with the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> developer API. Provides methods to log in and log out a user, make requests using the REST and Graph APIs, and start user interface interactions (such as pop-ups promoting for credentials, permissions, stream posts, etc.) </para>
@@ -26,10 +31,697 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Facebook (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Facebook (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Facebook (string appId, MonoTouch.FacebookConnect.FBSessionDelegate del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string appId, class MonoTouch.FacebookConnect.FBSessionDelegate del) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAppId:andDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="appId" Type="System.String" />
+        <Parameter Name="del" Type="MonoTouch.FacebookConnect.FBSessionDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="appId">To be added.</param>
+        <param name="del">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Facebook (string appId, string urlSchemeSuffix, MonoTouch.FacebookConnect.FBSessionDelegate dele);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string appId, string urlSchemeSuffix, class MonoTouch.FacebookConnect.FBSessionDelegate dele) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAppId:urlSchemeSuffix:andDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="appId" Type="System.String" />
+        <Parameter Name="urlSchemeSuffix" Type="System.String" />
+        <Parameter Name="dele" Type="MonoTouch.FacebookConnect.FBSessionDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="appId">the facebook app id </param>
+        <param name="urlSchemeSuffix">urlSchemeSuffix is a string of lowercase letters that is appended to the base URL scheme used for  Login. For example, if your facebook ID is "350685531728" and you set urlSchemeSuffix to "abcd", the  app will expect your application to bind to the following URL scheme: "fb350685531728abcd". This is useful if your have multiple iOS applications that share a single  application id (for example, if you have a free and a paid version on the same app) and you want to use  Login with both apps. Giving both apps different urlSchemeSuffix values will allow the  app to disambiguate their URL schemes and always redirect the user back to the correct app, even if both the free and the app is installed on the device. urlSchemeSuffix is supported on version 3.4.1 and above of the  app. If the user has an older version of the  app installed and your app uses urlSchemeSuffix parameter, the SDK will proceed as if the  app isn't installed on the device and redirect the user to Safari. </param>
+        <param name="dele">the </param>
+        <summary>
+          <para>Initialize the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> object with application ID.</para>
+        </summary>
+        <remarks>
+          <para>Initialize the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> object with application ID.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AccessToken">
+      <MemberSignature Language="C#" Value="public virtual string AccessToken { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string AccessToken" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("accessToken")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAccessToken:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Authorize">
+      <MemberSignature Language="C#" Value="public virtual void Authorize (string[] permissions);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Authorize(string[] permissions) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("authorize:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="permissions" Type="System.String[]" />
+      </Parameters>
+      <Docs>
+        <param name="permissions">A list of permission required for this application: e.g. "read_stream", "publish_stream", or "offline_access". see http://developers.facebook.com/docs/authentication/permissions This parameter should not be null  if you do not require any permissions, then pass in an empty String array. </param>
+        <summary>
+          <para>Starts a dialog which prompts the user to log in to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> and grant the requested permissions to the application.</para>
+        </summary>
+        <remarks>
+          <para>Starts a dialog which prompts the user to log in to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> and grant the requested permissions to the application.</para>
+          <para>If the device supports multitasking, we use fast app switching to show the dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or, if the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app isn't installed, in Safari (this enables <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login by allowing multiple apps on the device to share the same user session). When the user grants or denies the permissions, the app that showed the dialog (the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or Safari) redirects back to the calling application, passing in the URL the access token and/or any other parameters the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> backend includes in the result (such as an error code if an error occurs).</para>
+          <para>See <ulink url="http://developers.facebook.com/docs/authentication/">http://developers.facebook.com/docs/authentication/</ulink> for more details.</para>
+          <para>Also note that requests may be made to the API without calling authorize() first, in which case only public information is returned.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Delegate">
+      <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBSessionDelegate Delegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBSessionDelegate Delegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBSessionDelegate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dialog">
+      <MemberSignature Language="C#" Value="public virtual void Dialog (string action, MonoTouch.FacebookConnect.FBDialogDelegate del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Dialog(string action, class MonoTouch.FacebookConnect.FBDialogDelegate del) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dialog:andDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="System.String" />
+        <Parameter Name="del" Type="MonoTouch.FacebookConnect.FBDialogDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="action">String representation of the desired method: e.g. "login", "feed", ... </param>
+        <param name="del">Callback interface to notify the calling application when the dialog has completed. </param>
+        <summary>
+          <para>Generate a UI dialog for the request action.</para>
+        </summary>
+        <remarks>
+          <para>Generate a UI dialog for the request action.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dialog">
+      <MemberSignature Language="C#" Value="public virtual void Dialog (string action, MonoTouch.Foundation.NSMutableDictionary parameters, MonoTouch.FacebookConnect.FBDialogDelegate del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Dialog(string action, class MonoTouch.Foundation.NSMutableDictionary parameters, class MonoTouch.FacebookConnect.FBDialogDelegate del) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("dialog:andParams:andDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSMutableDictionary" />
+        <Parameter Name="del" Type="MonoTouch.FacebookConnect.FBDialogDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="action">String representation of the desired method: e.g. "login", "feed", ... </param>
+        <param name="parameters">key-value string parameters </param>
+        <param name="del">Callback interface to notify the calling application when the dialog has completed. </param>
+        <summary>
+          <para>Generate a UI dialog for the request action with the provided parameters.</para>
+        </summary>
+        <remarks>
+          <para>Generate a UI dialog for the request action with the provided parameters.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExpirationDate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate ExpirationDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate ExpirationDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("expirationDate")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setExpirationDate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExtendAccessToken">
+      <MemberSignature Language="C#" Value="public virtual void ExtendAccessToken ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ExtendAccessToken() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("extendAccessToken")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Attempt to extend the access token.</para>
+        </summary>
+        <remarks>
+          <para>Attempt to extend the access token.</para>
+          <para>Access tokens typically expire within 30-60 days. When the user uses the app, the app should periodically try to obtain a new access token. Once an access token has expired, the app can no longer renew it. The app then has to ask the user to re-authorize it to obtain a new access token.</para>
+          <para>To ensure your app always has a fresh access token for active users, it's recommended that you call extendAccessTokenIfNeeded in your application's applicationDidBecomeActive: UIApplicationDelegate method. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExtendAccessTokenIfNeeded">
+      <MemberSignature Language="C#" Value="public virtual void ExtendAccessTokenIfNeeded ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ExtendAccessTokenIfNeeded() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("extendAccessTokenIfNeeded")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Calls extendAccessToken if shouldExtendAccessToken returns YES. </para>
+        </summary>
+        <remarks>
+          <para>Calls extendAccessToken if shouldExtendAccessToken returns YES. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GraphRequest">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBRequest GraphRequest (string graphPath, MonoTouch.FacebookConnect.FBRequestDelegate del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.FacebookConnect.FBRequest GraphRequest(string graphPath, class MonoTouch.FacebookConnect.FBRequestDelegate del) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestWithGraphPath:andDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="graphPath" Type="System.String" />
+        <Parameter Name="del" Type="MonoTouch.FacebookConnect.FBRequestDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="graphPath">Path to resource in the  graph, e.g., to fetch data about the currently logged authenticated user, provide "me", which will fetch http://graph.facebook.com/me</param>
+        <param name="del">Callback interface for notifying the calling application when the request has received response </param>
+        <summary>
+          <para>Make a request to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph API without any parameters.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Make a request to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph API without any parameters.</para>
+          <para>See <ulink url="http://developers.facebook.com/docs/api">http://developers.facebook.com/docs/api</ulink></para>
+          <para>
+            <para>FBRequest* Returns a pointer to the <see cref="T:MonoTouch.FacebookConnect.FBRequest" /> object. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GraphRequest">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBRequest GraphRequest (string graphPath, MonoTouch.Foundation.NSMutableDictionary parameters, MonoTouch.FacebookConnect.FBRequestDelegate del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.FacebookConnect.FBRequest GraphRequest(string graphPath, class MonoTouch.Foundation.NSMutableDictionary parameters, class MonoTouch.FacebookConnect.FBRequestDelegate del) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestWithGraphPath:andParams:andDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="graphPath" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSMutableDictionary" />
+        <Parameter Name="del" Type="MonoTouch.FacebookConnect.FBRequestDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="graphPath">Path to resource in the  graph, e.g., to fetch data about the currently logged authenticated user, provide "me", which will fetch http://graph.facebook.com/me</param>
+        <param name="parameters">key-value string parameters, e.g. the path "search" with parameters "q" : "facebook" would produce a query for the following graph resource: https://graph.facebook.com/search?q=facebook</param>
+        <param name="del">Callback interface for notifying the calling application when the request has received response </param>
+        <summary>
+          <para>Make a request to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph API with the given string parameters using an HTTP GET (default method).</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Make a request to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph API with the given string parameters using an HTTP GET (default method).</para>
+          <para>See <ulink url="http://developers.facebook.com/docs/api">http://developers.facebook.com/docs/api</ulink></para>
+          <para>
+            <para>FBRequest* Returns a pointer to the <see cref="T:MonoTouch.FacebookConnect.FBRequest" /> object. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GraphRequest">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBRequest GraphRequest (string graphPath, MonoTouch.Foundation.NSMutableDictionary parameters, string httpMethod, MonoTouch.FacebookConnect.FBRequestDelegate del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.FacebookConnect.FBRequest GraphRequest(string graphPath, class MonoTouch.Foundation.NSMutableDictionary parameters, string httpMethod, class MonoTouch.FacebookConnect.FBRequestDelegate del) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestWithGraphPath:andParams:andHttpMethod:andDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="graphPath" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSMutableDictionary" />
+        <Parameter Name="httpMethod" Type="System.String" />
+        <Parameter Name="del" Type="MonoTouch.FacebookConnect.FBRequestDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="graphPath">Path to resource in the  graph, e.g., to fetch data about the currently logged authenticated user, provide "me", which will fetch http://graph.facebook.com/me</param>
+        <param name="parameters">key-value string parameters, e.g. the path "search" with parameters {"q" : "facebook"} would produce a query for the following graph resource: https://graph.facebook.com/search?q=facebook To upload a file, you should specify the httpMethod to be "POST" and the “params” you passed in should contain a value of the type (UIImage *) or (NSData *) which contains the content that you want to upload </param>
+        <param name="httpMethod">http verb, e.g. "GET", "POST", "DELETE" </param>
+        <param name="del">Callback interface for notifying the calling application when the request has received response </param>
+        <summary>
+          <para>Make a request to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph API with the given HTTP method and string parameters. Note that binary data parameters (e.g. pictures) are not yet supported by this helper function.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Make a request to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Graph API with the given HTTP method and string parameters. Note that binary data parameters (e.g. pictures) are not yet supported by this helper function.</para>
+          <para>See <ulink url="http://developers.facebook.com/docs/api">http://developers.facebook.com/docs/api</ulink></para>
+          <para>
+            <para>FBRequest* Returns a pointer to the <see cref="T:MonoTouch.FacebookConnect.FBRequest" /> object. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleOpenURL">
+      <MemberSignature Language="C#" Value="public virtual bool HandleOpenURL (MonoTouch.Foundation.NSUrl url);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool HandleOpenURL(class MonoTouch.Foundation.NSUrl url) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("handleOpenURL:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+      </Parameters>
+      <Docs>
+        <param name="url">the URL that was passed to the application delegate's handleOpenURL method.</param>
+        <summary>
+          <para>This function processes the URL the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application or Safari used to open your application during a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login flow.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>This function processes the URL the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application or Safari used to open your application during a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Login flow.</para>
+          <para>You MUST call this function in your UIApplicationDelegate's handleOpenURL method (see <ulink url="http://developer.apple.com/library/ios/#documentation/uikit/reference/UIApplicationDelegate_Protocol/Reference/Reference.html">http://developer.apple.com/library/ios/#documentation/uikit/reference/UIApplicationDelegate_Protocol/Reference/Reference.html</ulink> for more info).</para>
+          <para>This will ensure that the authorization process will proceed smoothly once the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application or Safari redirects back to your application.</para>
+          <para>
+            <para>YES if the URL starts with 'fb[app_id]://authorize and hence was handled by SDK, NO otherwise. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsSessionValid">
+      <MemberSignature Language="C#" Value="public virtual bool IsSessionValid { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsSessionValid" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isSessionValid")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>
+            <para>boolean - whether this object has an non-expired session token </para>
+          </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>
+            <para>boolean - whether this object has an non-expired session token </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Logout">
+      <MemberSignature Language="C#" Value="public virtual void Logout ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Logout() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logout")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Invalidate the current user session by removing the access token in memory and clearing the browser cookie.</para>
+        </summary>
+        <remarks>
+          <para>Invalidate the current user session by removing the access token in memory and clearing the browser cookie.</para>
+          <para>Note that this method dosen't unauthorize the application <ndash /> it just removes the access token. To unauthorize the application, the user must remove the app in the app settings page under the privacy settings screen on facebook.com. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Request">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBRequest Request (MonoTouch.Foundation.NSMutableDictionary parameters, MonoTouch.FacebookConnect.FBRequestDelegate del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.FacebookConnect.FBRequest Request(class MonoTouch.Foundation.NSMutableDictionary parameters, class MonoTouch.FacebookConnect.FBRequestDelegate del) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestWithParams:andDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSMutableDictionary" />
+        <Parameter Name="del" Type="MonoTouch.FacebookConnect.FBRequestDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="parameters">Key-value pairs of parameters to the request. Refer to the documentation: one of the parameters must be "method". </param>
+        <param name="del">Callback interface for notifying the calling application when the request has received response </param>
+        <summary>
+          <para>Make a request to <see cref="T:MonoTouch.FacebookConnect.Facebook" />'s REST API with the given parameters. One of the parameter keys must be "method" and its value should be a valid REST server API method.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Make a request to <see cref="T:MonoTouch.FacebookConnect.Facebook" />'s REST API with the given parameters. One of the parameter keys must be "method" and its value should be a valid REST server API method.</para>
+          <para>See <ulink url="http://developers.facebook.com/docs/reference/rest/">http://developers.facebook.com/docs/reference/rest/</ulink></para>
+          <para>
+            <para>FBRequest* Returns a pointer to the <see cref="T:MonoTouch.FacebookConnect.FBRequest" /> object. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Request">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBRequest Request (string methodName, MonoTouch.Foundation.NSMutableDictionary parameters, string httpMethod, MonoTouch.FacebookConnect.FBRequestDelegate del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.FacebookConnect.FBRequest Request(string methodName, class MonoTouch.Foundation.NSMutableDictionary parameters, string httpMethod, class MonoTouch.FacebookConnect.FBRequestDelegate del) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestWithMethodName:andParams:andHttpMethod:andDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="methodName" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSMutableDictionary" />
+        <Parameter Name="httpMethod" Type="System.String" />
+        <Parameter Name="del" Type="MonoTouch.FacebookConnect.FBRequestDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="methodName">a valid REST server API method. </param>
+        <param name="parameters">Key-value pairs of parameters to the request. Refer to the documentation: one of the parameters must be "method". To upload a file, you should specify the httpMethod to be "POST" and the “params” you passed in should contain a value of the type (UIImage *) or (NSData *) which contains the content that you want to upload </param>
+        <param name="httpMethod">Callback interface for notifying the calling application when the request has received response </param>
+        <param name="del">To be added.</param>
+        <summary>
+          <para>Make a request to <see cref="T:MonoTouch.FacebookConnect.Facebook" />'s REST API with the given method name and parameters.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Make a request to <see cref="T:MonoTouch.FacebookConnect.Facebook" />'s REST API with the given method name and parameters.</para>
+          <para>See <ulink url="http://developers.facebook.com/docs/reference/rest/">http://developers.facebook.com/docs/reference/rest/</ulink></para>
+          <para>
+            <para>FBRequest* Returns a pointer to the <see cref="T:MonoTouch.FacebookConnect.FBRequest" /> object. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldExtendAccessToken">
+      <MemberSignature Language="C#" Value="public virtual bool ShouldExtendAccessToken ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool ShouldExtendAccessToken() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("shouldExtendAccessToken")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Returns YES if the last time a new token was obtained was over 24 hours ago. </para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Returns YES if the last time a new token was obtained was over 24 hours ago. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UrlSchemeSuffix">
+      <MemberSignature Language="C#" Value="public virtual string UrlSchemeSuffix { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string UrlSchemeSuffix" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("urlSchemeSuffix")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUrlSchemeSuffix:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WeakSessionDelegate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject WeakSessionDelegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject WeakSessionDelegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sessionDelegate")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSessionDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>
