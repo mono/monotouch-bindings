@@ -1099,6 +1099,9 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (NSObject))]
 	interface CCTouchDispatcher {
+		[Export ("dispatchEvents")]
+		bool DispatchEvents { get; set; }
+
 		[Export("addStandardDelegate:priority:")]
 		void AddStandardDelegate(NSObject delegate_, int priority);
 
