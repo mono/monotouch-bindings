@@ -1,0 +1,67 @@
+h1. GCDiscreetNotificationView
+
+GCDiscreetNotificationView is a discreet, non-modal, notification view for iOS. You can use it to show an activity or state of you app without blocking the user interactions.
+
+!http://i.imgur.com/8vcti5u.png!
+
+GCDiscreetNotificationView features:
+
+* Easy to use : init and show
+* Can show an activity indicator
+* Two presentation mode (top and bottom)
+* All properties (text, activity and presentation mode) can be changed in a animated fashion
+
+h2. Usage
+
+(See the demo project included)
+
+You simply allocate the notification view with one of the following methods.
+
+The parameters are the following : 
+* _text_ : the text presented on the notification
+* _activity_ : if set to @YES@, the notification with show a activity indicator
+* _aPresentationMode_ : the presentation mode of the notification (top or bottom)
+* _aView_ : the view that will contain the notification. The view should be able to accept subviews (will not work on a @UITableView@ for example)
+
+<pre>
+- (id) initWithText:(NSString *)text inView:(UIView *)aView;
+- (id) initWithText:(NSString *)text showActivity:(BOOL)activity inView:(UIView *)aView;
+- (id) initWithText:(NSString *)text showActivity:(BOOL)activity inPresentationMode:(GCDiscreetNotificationViewPresentationMode) aPresentationMode inView:(UIView *)aView;
+</pre>
+
+You show or hide the notification with these methods. The @showAndDismissAutomaticallyAnimated@ will hide your notification automatically after 1 second.
+
+<pre>
+- (void) showAnimated;
+- (void) hideAnimated;
+- (void) hideAnimatedAfter:(NSTimeInterval) timeInterval;
+- (void) show:(BOOL) animated;
+- (void) hide:(BOOL) animated;
+- (void) showAndDismissAutomaticallyAnimated;
+- (void) showAndDismissAfter:(NSTimeInterval) timeInterval;
+</pre>
+
+You can change the text of the label of the activity viewing at any moment with these properties.
+
+<pre>
+@property (nonatomic, assign) UIView *view;
+@property (nonatomic, assign) GCDiscreetNotificationViewPresentationMode presentationMode;
+@property (nonatomic, copy) NSString* textLabel;
+@property (nonatomic, assign) BOOL showActivity;
+</pre>
+
+These properties can be changed in a animated fashion (except the view).
+
+<pre>
+- (void) setTextLabel:(NSString *) aText animated:(BOOL) animated;
+- (void) setShowActivity:(BOOL) activity animated:(BOOL) animated;
+- (void) setTextLabel:(NSString *)aText andSetShowActivity:(BOOL)activity animated:(BOOL)animated;
+- (void) setPresentationMode:(GCDiscreetNotificationViewPresentationMode) newPresentationMode animated:(BOOL) animated;
+</pre>
+
+You can access directly the notification's label and activity indicator. And change some propreties on that label and activity indicator. If you want to change the label's text or hide the indicator, use @textLabel@ or @showActivity@ instead.
+
+<pre>
+@property (nonatomic, retain, readonly) UILabel *label;  
+@property (nonatomic, retain, readonly) UIActivityIndicatorView *activityIndicator;
+</pre>
