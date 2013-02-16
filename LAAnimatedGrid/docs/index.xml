@@ -1,0 +1,27 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="LAAnimatedGrid" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libLAAnimatedGrid.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="MobileCoreServices QuartzCore SystemConfiguration CoreGraphics")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="LAAnimatedGrid">
+      <Type Name="LAAGOrientation" Kind="Enumeration" />
+      <Type Name="LAAnimatedView" Kind="Class" />
+      <Type Name="MTLAAnimatedGrid" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>LAAnimatedGrid</Title>
+</Overview>
