@@ -89,7 +89,7 @@ namespace RedLaserSample
 			else if (btype == RLBarcodeType.Code39) typeLabel.Text = "Code 39";
 			else if (btype == RLBarcodeType.DataMatrix) typeLabel.Text = "Data Matrix";
 			else if (btype == RLBarcodeType.ITF) typeLabel.Text = "ITF";
-			else if (btype == RLBarcodeType.STICKY) typeLabel.Text = "STICKYBITS";
+			//else if (btype == RLBarcodeType.STICKY) typeLabel.Text = "STICKYBITS";
 		}
 		
 		private class BarcodePickerDelegate : RedLaser.BarcodePickerControllerDelegate
