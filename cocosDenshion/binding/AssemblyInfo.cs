@@ -8,6 +8,8 @@
 
 
 using System;
+using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 
+[assembly: LinkerSafe]
 [assembly: LinkWith ("libCocosDenshion.a",LinkTarget.Simulator | LinkTarget.ArmV7, ForceLoad = true, Frameworks = "OpenAL, AudioToolbox, AVFoundation")]
