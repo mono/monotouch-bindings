@@ -16,26 +16,26 @@ namespace GoogleAdMobAds
 		[Static, Export ("kGADAdSizeBannerGlobal")]
 		GADAdSize Banner { get; }
 		
+		[Static, Export ("kGADAdSizeMediumRectangleGlobal")]
+		GADAdSize MediumRectangle { get; }
+		
 		[Static, Export ("kGADAdSizeFullBannerGlobal")]
 		GADAdSize FullBanner { get; }
-		
-		[Static, Export ("kGADAdSizeInvalidGlobal")]
-		GADAdSize Invalid { get; }
 		
 		[Static, Export ("kGADAdSizeLeaderboardGlobal")]
 		GADAdSize Leaderboard { get; }
 		
-		[Static, Export ("kGADAdSizeMediumRectangleGlobal")]
-		GADAdSize MediumRectangle { get; }
-		
 		[Static, Export ("kGADAdSizeSkyscraperGlobal")]
 		GADAdSize Skyscraper { get; }
+		
+		[Static, Export ("kGADAdSizeSmartBannerPortraitGlobal")]
+		GADAdSize SmartBannerPortrait { get; }
 		
 		[Static, Export ("kGADAdSizeSmartBannerLandscapeGlobal")]
 		GADAdSize SmartBannerLandscape { get; }
 		
-		[Static, Export ("kGADAdSizeSmartBannerPortraitGlobal")]
-		GADAdSize SmartBannerPortrait { get; }
+		[Static, Export ("kGADAdSizeInvalidGlobal")]
+		GADAdSize Invalid { get; }
 		
 		[Static, Export ("GADAdSizeFromCGSizeGlobal:")]
 		GADAdSize GADAdSizeFromSizeF (SizeF size);
@@ -196,8 +196,8 @@ namespace GoogleAdMobAds
 		[Static, Export ("sdkVersion")]
 		string SdkVersion { get; }
 		
-		[Export ("testing")]
-		bool Testing { [Bind("isTesting")] get; set; }
+		[Export ("testDevices", ArgumentSemantic.Retain)]
+		string [] TestDevices { get; set; }
 		
 		[Export ("gender", ArgumentSemantic.Assign)]
 		GADGender Gender { get; set; }
@@ -220,12 +220,12 @@ namespace GoogleAdMobAds
 		[Export ("addKeyword:")]
 		void AddKeyword (string keyword);
 		
-		[Export ("testDevices", ArgumentSemantic.Retain)]
-		string [] TestDevices { get; set; }
-		
 		#region "Deprecated GAdRequest Methods"		
 		[Export ("additionalParameters", ArgumentSemantic.Retain), Obsolete ("Please use void RegisterAdNetworkExtras(GADAdNetworkExtras extras) instead")]
 		NSDictionary AdditionalParameters { get; set; }
+		
+		[Export ("testing"), Obsolete ("Please set TestDevices instead.")]
+		bool Testing { [Bind("isTesting")] get; set; }
 #endregion
 		
 	}
@@ -293,7 +293,11 @@ namespace GoogleAdMobAds
 	[BaseType (typeof (GADBannerView))]
 	interface GADSearchBannerView 
 	{
+		[Export ("initWithAdSize:origin:")]
+		IntPtr Constructor (GADAdSize size, PointF origin);
 		
+		[Export ("initWithAdSize:")]
+		IntPtr Constructor (GADAdSize size);
 	}
 	
 #endregion
@@ -324,6 +328,12 @@ namespace GoogleAdMobAds
 	Events=new Type [] { typeof (GADAppEventDelegate), typeof(GADAdSizeDelegate) })]
 	interface DFPBannerView 
 	{
+		[Export ("initWithAdSize:origin:")]
+		IntPtr Constructor (GADAdSize size, PointF origin);
+		
+		[Export ("initWithAdSize:")]
+		IntPtr Constructor (GADAdSize size);
+		
 		[Wrap ("WeakAppEventDelegate")][NullAllowed]
 		GADAppEventDelegate AppEventDelegate { get; set; }
 		
@@ -337,7 +347,25 @@ namespace GoogleAdMobAds
 		NSObject WeakAdSizeDelegate { get; set; }
 		
 		[Export ("validAdSizes", ArgumentSemantic.Retain)]
-		NSObject [] ValidAdSizes { get; set; }
+		NSArray ValidAdSizes { get; set; }
+	}
+	
+	[BaseType (typeof (DFPBannerView),
+	           Delegates= new string [] {"WeakSwipeDelegate" },
+	Events=new Type [] { typeof (GADSwipeableBannerViewDelegate) })]
+	interface DFPSwipeableBannerView 
+	{
+		[Export ("initWithAdSize:origin:")]
+		IntPtr Constructor (GADAdSize size, PointF origin);
+		
+		[Export ("initWithAdSize:")]
+		IntPtr Constructor (GADAdSize size);
+		
+		[Wrap ("WeakSwipeDelegate")][NullAllowed]
+		GADSwipeableBannerViewDelegate SwipeDelegate { get; set; }
+		
+		[Export ("swipeDelegate", ArgumentSemantic.Assign)][NullAllowed]
+		NSObject WeakSwipeDelegate { get; set; }
 	}
 	
 	[BaseType (typeof (NSObject))]
@@ -357,6 +385,17 @@ namespace GoogleAdMobAds
 		
 		[Export ("interstitial:didReceiveAppEvent:withInfo:"), EventArgs("GADAppEventDelegateInterstitial")]
 		void InterstitialDidReceiveAppEvent(GADInterstitial interstitial, string name, string info);
+	}
+	
+	[BaseType (typeof (NSObject))]
+	[Model]
+	interface GADSwipeableBannerViewDelegate 
+	{
+		[Export ("adViewDidActivateAd:"), EventArgs("GADSwipeableBannerViewDelegateInfo")]
+		void DidActivateAd (GADBannerView banner);
+		
+		[Export ("adViewDidDeactivateAd:"), EventArgs("GADSwipeableBannerViewDelegateInfo")]
+		void DidDeactivateAd (GADBannerView banner);
 	}
 	
 #endregion
@@ -411,13 +450,13 @@ namespace GoogleAdMobAds
 	interface GADCustomEventExtras
 	{
 		[Export ("setExtras:forLabel:")] [PostGet ("AllExtras")]
-		void SetExtras(NSDictionary extras, string label);
+		void SetExtras (NSDictionary extras, string label);
 		
 		[Export ("extrasForLabel:")]
-		NSDictionary ExtrasForLabel(string label);
+		NSDictionary ExtrasForLabel (string label);
 		
 		[Export ("removeAllExtras")] [PostGet ("AllExtras")]
-		void RemoveAllExtras();
+		void RemoveAllExtras ();
 		
 		[Export ("allExtras")]
 		NSDictionary AllExtras { get; }

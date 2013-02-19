@@ -7,7 +7,7 @@ googleadmobadssdkios.zip:
 	curl http://dl.google.com/googleadmobadssdk/googleadmobadssdkios.zip > $@
 
 libGoogleAdMobAds.a: googleadmobadssdkios.zip
-	unzip -p $< 'GoogleAdMobAdsSdkiOS-6.2.1/libGoogleAdMobAds.a' > $@
+	unzip -p $< 'GoogleAdMobAdsSdkiOS-6.3.0/libGoogleAdMobAds.a' > $@
 
 GoogleAdMobAds.dll: Makefile AssemblyInfo.cs admobads.cs enums.cs extensions.cs libGoogleAdMobAds.a libAdmobExporter.a
 	-mkdir -p ios
