@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="TSQCalendarRowCell" FullName="TimesSquare.iOS.TSQCalendarRowCell">
+  <TypeSignature Language="C#" Value="public class TSQCalendarRowCell : TimesSquare.iOS.TSQCalendarCell" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TSQCalendarRowCell extends TimesSquare.iOS.TSQCalendarCell" />
+  <AssemblyInfo>
+    <AssemblyName>TimesSquare.iOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>TimesSquare.iOS.TSQCalendarCell</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("TSQCalendarRowCell", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>The <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarRowCell" /></computeroutput> class is a cell that represents one week in the calendar.</para>
+    </summary>
+    <remarks>
+      <para>The <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarRowCell" /></computeroutput> class is a cell that represents one week in the calendar.</para>
+      <para>Each of the seven columns can represent a day that's in this month, a day that's not in this month, a selected day, today, or an unselected day. The cell uses several images placed strategically to achieve the effect. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarRowCell ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarRowCell (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarRowCell (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarRowCell (MonoTouch.Foundation.NSCalendar calendar, string reuseIdentifier);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCalendar calendar, string reuseIdentifier) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCalendar:reuseIdentifier:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="calendar" Type="MonoTouch.Foundation.NSCalendar" />
+        <Parameter Name="reuseIdentifier" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="calendar">To be added.</param>
+        <param name="reuseIdentifier">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BackgroundImage">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIImage BackgroundImage { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIImage BackgroundImage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("backgroundImage")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIImage</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The background image for the entire row.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The background image for the entire row.</para>
+          <para>This image should be as wide as the entire view and include the grid lines between the columns. It will probably also include the grid line at the top of the row, but not the one at the bottom.</para>
+          <para>You might, however, return a different image that includes both the grid line at the top and the one at the bottom if the <computeroutput>bottomRow</computeroutput> property is set to <computeroutput>YES</computeroutput>. You might even adjust the <computeroutput>cellHeight</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeginningDate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate BeginningDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate BeginningDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("beginningDate")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setBeginningDate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The date at the beginning of the week for this cell.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The date at the beginning of the week for this cell.</para>
+          <para>Notice that it might be before the <computeroutput>firstOfMonth</computeroutput> property or it might be after. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BottomRow">
+      <MemberSignature Language="C#" Value="public virtual bool BottomRow { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool BottomRow" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isBottomRow")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setBottomRow:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NotThisMonthBackgroundImage">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIImage NotThisMonthBackgroundImage { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIImage NotThisMonthBackgroundImage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("notThisMonthBackgroundImage")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIImage</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The background image for a day that's not this month.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The background image for a day that's not this month.</para>
+          <para>These are the trailing days from the previous month or the leading days from the following month. This can be <computeroutput>nil</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectColumnForDate">
+      <MemberSignature Language="C#" Value="public virtual void SelectColumnForDate (MonoTouch.Foundation.NSDate date);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SelectColumnForDate(class MonoTouch.Foundation.NSDate date) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("selectColumnForDate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="date" Type="MonoTouch.Foundation.NSDate" />
+      </Parameters>
+      <Docs>
+        <param name="date">The date to select, or nil to deselect all columns. </param>
+        <summary>
+          <para>Method to select a specific date within the week.</para>
+        </summary>
+        <remarks>
+          <para>Method to select a specific date within the week.</para>
+          <para>This is funneled through and called by the calendar view, to facilitate deselection of other rows.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectedBackgroundImage">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIImage SelectedBackgroundImage { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIImage SelectedBackgroundImage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("selectedBackgroundImage")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIImage</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The background image for a day that's selected.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The background image for a day that's selected.</para>
+          <para>This is blue in the system's built-in Calendar app. You probably want to use a stretchable image. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TodayBackgroundImage">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIImage TodayBackgroundImage { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIImage TodayBackgroundImage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("todayBackgroundImage")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIImage</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The background image for a day that's "today".</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The background image for a day that's "today".</para>
+          <para>This is dark gray in the system's built-in Calendar app. You probably want to use a stretchable image. </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

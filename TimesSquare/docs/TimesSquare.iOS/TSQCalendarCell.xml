@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="TSQCalendarCell" FullName="TimesSquare.iOS.TSQCalendarCell">
+  <TypeSignature Language="C#" Value="public class TSQCalendarCell : MonoTouch.UIKit.UITableViewCell" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TSQCalendarCell extends MonoTouch.UIKit.UITableViewCell" />
+  <AssemblyInfo>
+    <AssemblyName>TimesSquare.iOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.UIKit.UITableViewCell</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("TSQCalendarCell", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>The <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarCell" /></computeroutput> class is an abstract superclass to the two cell types used for display in a <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarView" /></computeroutput>.</para>
+    </summary>
+    <remarks>
+      <para>The <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarCell" /></computeroutput> class is an abstract superclass to the two cell types used for display in a <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarView" /></computeroutput>.</para>
+      <para>Most of its interface deals with display properties. The most interesting method is <computeroutput>-layoutViewsForColumnAtIndex:inRect:</computeroutput>, which is a simple way of handling seven columns. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarCell ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarCell (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarCell (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarCell (MonoTouch.Foundation.NSCalendar calendar, string reuseIdentifier);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCalendar calendar, string reuseIdentifier) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCalendar:reuseIdentifier:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="calendar" Type="MonoTouch.Foundation.NSCalendar" />
+        <Parameter Name="reuseIdentifier" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="calendar">The NSCalendar the cell is representing </param>
+        <param name="reuseIdentifier">A string reuse identifier, as used by UITableViewCell</param>
+        <summary>
+          <para>Initializes the cell.</para>
+        </summary>
+        <remarks>
+          <para>Initializes the cell.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Calendar">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSCalendar Calendar { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSCalendar Calendar" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("calendar")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setCalendar:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSCalendar</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The calendar type we're displaying.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The calendar type we're displaying.</para>
+          <para>This is whatever the owning <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarView" /></computeroutput>'s <computeroutput>calendar</computeroutput> property is set to; it's likely <computeroutput>[NSCalendar currentCalendar]</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CalendarView">
+      <MemberSignature Language="C#" Value="public virtual TimesSquare.iOS.TSQCalendarView CalendarView { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class TimesSquare.iOS.TSQCalendarView CalendarView" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("calendarView")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setCalendarView:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>TimesSquare.iOS.TSQCalendarView</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The owning calendar view.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The owning calendar view.</para>
+          <para>This is a weak reference. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CellHeight">
+      <MemberSignature Language="C#" Value="public virtual float CellHeight { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 CellHeight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("cellHeight")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The preferred height for this cell.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The preferred height for this cell.</para>
+          <para>The built-in implementation in <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarCell" /></computeroutput> returns <computeroutput>46.0f</computeroutput>. Your subclass may want to return something else, whether it is a constant or it is based on other properties of the cell. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ColumnSpacing">
+      <MemberSignature Language="C#" Value="public virtual float ColumnSpacing { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ColumnSpacing" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("columnSpacing")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setColumnSpacing:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The spacing between columns.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The spacing between columns.</para>
+          <para>This defaults to one pixel or <computeroutput>1.0 / [UIScreen mainScreen].scale</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DaysInWeek">
+      <MemberSignature Language="C#" Value="public virtual uint DaysInWeek { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 DaysInWeek" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("daysInWeek")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDaysInWeek:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>How many days there are in a week.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>How many days there are in a week.</para>
+          <para>This is usually 7. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FirstOfMonth">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate FirstOfMonth { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate FirstOfMonth" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("firstOfMonth")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setFirstOfMonth:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The first day of the month this cell is currently representing.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The first day of the month this cell is currently representing.</para>
+          <para>This can be useful for calculations and for display. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LayoutViews">
+      <MemberSignature Language="C#" Value="public virtual void LayoutViews (uint index, System.Drawing.RectangleF rect);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void LayoutViews(unsigned int32 index, valuetype System.Drawing.RectangleF rect) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("layoutViewsForColumnAtIndex:inRect:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="rect" Type="System.Drawing.RectangleF" />
+      </Parameters>
+      <Docs>
+        <param name="index">The index of the column we're laying out, probably in the range [0..6] </param>
+        <param name="rect">The rect relative to the bounds of the cell's content view that represents the column.</param>
+        <summary>
+          <para>Seven-column layout helper.</para>
+        </summary>
+        <remarks>
+          <para>Seven-column layout helper.</para>
+          <para>
+Feel free to adjust the rect before moving views and to vertically position them within the column. (In fact, you could ignore the rect entirely; it's just there to help.) </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShadowOffset">
+      <MemberSignature Language="C#" Value="public virtual System.Drawing.SizeF ShadowOffset { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Drawing.SizeF ShadowOffset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("shadowOffset")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setShadowOffset:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Drawing.SizeF</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The text shadow offset.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The text shadow offset.</para>
+          <para>This is as you would set on <computeroutput>UILabel</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextColor">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor TextColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor TextColor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("textColor")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setTextColor:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The text color.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The text color.</para>
+          <para>This is used for all text the cell draws; if a date is disabled, then it will draw in this color, but at 50% opacity. </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

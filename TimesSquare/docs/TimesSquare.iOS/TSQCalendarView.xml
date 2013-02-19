@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="TSQCalendarView" FullName="TimesSquare.iOS.TSQCalendarView">
+  <TypeSignature Language="C#" Value="public class TSQCalendarView : MonoTouch.UIKit.UIView" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TSQCalendarView extends MonoTouch.UIKit.UIView" />
+  <AssemblyInfo>
+    <AssemblyName>TimesSquare.iOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.UIKit.UIView</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("TSQCalendarView", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>The <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarView" /></computeroutput> class displays a monthly calendar in a self-contained scrolling view. It supports any calendar that <computeroutput>NSCalendar</computeroutput> supports.</para>
+    </summary>
+    <remarks>
+      <para>The <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarView" /></computeroutput> class displays a monthly calendar in a self-contained scrolling view. It supports any calendar that <computeroutput>NSCalendar</computeroutput> supports.</para>
+      <para>The implementation and usage are very similar to <computeroutput>UITableView</computeroutput>: the app provides reusable cells via a data source and controls behavior via a delegate. See <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarCell" /></computeroutput> for a cell superclass. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarView ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarView (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TSQCalendarView (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Calendar">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSCalendar Calendar { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSCalendar Calendar" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("calendar")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setCalendar:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSCalendar</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The calendar type to use when displaying.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The calendar type to use when displaying.</para>
+          <para>If not set, this defaults to <computeroutput>[NSCalendar currentCalendar]</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContentInset">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIEdgeInsets ContentInset { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.UIKit.UIEdgeInsets ContentInset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("contentInset")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setContentInset:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIEdgeInsets</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The distance from the edges of the view to where the content begins.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The distance from the edges of the view to where the content begins.</para>
+          <para>This property is equivalent to the one defined on <computeroutput>UIScrollView</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContentOffset">
+      <MemberSignature Language="C#" Value="public virtual System.Drawing.PointF ContentOffset { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Drawing.PointF ContentOffset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("contentOffset")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setContentOffset:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Drawing.PointF</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The point on the calendar where the currently-visible region starts.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The point on the calendar where the currently-visible region starts.</para>
+          <para>This property is equivalent to the one defined on <computeroutput>UIScrollView</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Delegate">
+      <MemberSignature Language="C#" Value="public TimesSquare.iOS.TSQCalendarViewDelegate Delegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class TimesSquare.iOS.TSQCalendarViewDelegate Delegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TimesSquare.iOS.TSQCalendarViewDelegate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidSelectDate">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;TimesSquare.iOS.TSQCalendarViewDelegateAEventArgs&gt; DidSelectDate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class TimesSquare.iOS.TSQCalendarViewDelegateAEventArgs&gt; DidSelectDate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;TimesSquare.iOS.TSQCalendarViewDelegateAEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FirstDate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate FirstDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate FirstDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("firstDate")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setFirstDate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The earliest month the calendar view displays.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The earliest month the calendar view displays.</para>
+          <para>Set this property to any <computeroutput>NSDate</computeroutput>; <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarView" /></computeroutput> will only look at the month and year. Must be set for the calendar to be useful. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HeaderCellClass">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.ObjCRuntime.Class HeaderCellClass { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.ObjCRuntime.Class HeaderCellClass" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("headerCellClass")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setHeaderCellClass:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.ObjCRuntime.Class</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The cell class to use for month headers.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The cell class to use for month headers.</para>
+          <para>Since there's very little configuration to be done for each cell, this can be set as a shortcut to implementing a data source. The class should be a subclass of <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarMonthHeaderCell" /></computeroutput> or at least implement all of its methods. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LastDate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate LastDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate LastDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("lastDate")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLastDate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The latest month the calendar view displays.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The latest month the calendar view displays.</para>
+          <para>Set this property to any <computeroutput>NSDate</computeroutput>; <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarView" /></computeroutput> will only look at the month and year. Must be set for the calendar to be useful. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PagingEnabled">
+      <MemberSignature Language="C#" Value="public virtual bool PagingEnabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool PagingEnabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("pagingEnabled")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPagingEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Whether or not the calendar snaps to begin a month at the top of its bounds.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Whether or not the calendar snaps to begin a month at the top of its bounds.</para>
+          <para>This property is roughly equivalent to the one defined on <computeroutput>UIScrollView</computeroutput> except the snapping is to months rather than integer multiples of the view's bounds. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PinsHeaderToTop">
+      <MemberSignature Language="C#" Value="public virtual bool PinsHeaderToTop { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool PinsHeaderToTop" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("pinsHeaderToTop")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPinsHeaderToTop:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Whether to pin the header to the top of the view.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Whether to pin the header to the top of the view.</para>
+          <para>If you're trying to emulate the built-in calendar app, set this to <computeroutput>YES</computeroutput>. Default value is <computeroutput>NO</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RowCellClass">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.ObjCRuntime.Class RowCellClass { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.ObjCRuntime.Class RowCellClass" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("rowCellClass")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setRowCellClass:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.ObjCRuntime.Class</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The cell class to use for week rows.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The cell class to use for week rows.</para>
+          <para>Since there's very little configuration to be done for each cell, this can be set as a shortcut to implementing a data source. The class should be a subclass of <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarRowCell" /></computeroutput> or at least implement all of its methods. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectedDate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate SelectedDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate SelectedDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("selectedDate")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSelectedDate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The currently-selected date on the calendar.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The currently-selected date on the calendar.</para>
+          <para>Set this property to any <computeroutput>NSDate</computeroutput>; <computeroutput><see cref="T:TimesSquare.iOS.TSQCalendarView" /></computeroutput> will only look at the month, day, and year. You can read and write this property; the delegate method <computeroutput>calendarView:didSelectDate:</computeroutput> will be called when a new date is selected from the UI but <emphasis>not</emphasis> when this method is called manually. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldSelectDate">
+      <MemberSignature Language="C#" Value="public TimesSquare.iOS.TSQCalendarViewDelegateS ShouldSelectDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class TimesSquare.iOS.TSQCalendarViewDelegateS ShouldSelectDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TimesSquare.iOS.TSQCalendarViewDelegateS</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WeakDelegate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject WeakDelegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject WeakDelegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("delegate", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDelegate:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

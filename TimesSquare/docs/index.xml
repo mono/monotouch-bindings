@@ -1,0 +1,31 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="TimesSquare.iOS" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libTimesSquare.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true, Frameworks="CoreGraphics")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="TimesSquare.iOS">
+      <Type Name="TSQCalendarCell" Kind="Class" />
+      <Type Name="TSQCalendarMonthHeaderCell" Kind="Class" />
+      <Type Name="TSQCalendarRowCell" Kind="Class" />
+      <Type Name="TSQCalendarView" Kind="Class" />
+      <Type Name="TSQCalendarViewDelegate" Kind="Class" />
+      <Type Name="TSQCalendarViewDelegateAEventArgs" Kind="Class" />
+      <Type Name="TSQCalendarViewDelegateS" Kind="Delegate" />
+    </Namespace>
+  </Types>
+  <Title>TimesSquare.iOS</Title>
+</Overview>
