@@ -87,6 +87,9 @@ namespace TimesSquare.iOS
 	Events=new Type [] { typeof (TSQCalendarViewDelegate) })]
 	interface TSQCalendarView {
 
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (RectangleF frame);
+
 		[Export ("firstDate")]
 		NSDate FirstDate { get; set; }
 
