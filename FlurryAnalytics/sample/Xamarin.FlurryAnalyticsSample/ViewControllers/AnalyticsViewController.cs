@@ -40,7 +40,7 @@ namespace Xamarin.FlurryAnalyticsSample
 				} catch (Exception ex) {
 					
 					Console.WriteLine("Logging Error...Name: {0} -- Message: {1}", ex.GetType().Name, ex.Message);
-					FA.FlurryAnalytics.LogError(ex.GetType().Name, ex.Message,  
+					FA.Flurry.LogError(ex.GetType().Name, ex.Message,  
 			                            new NSError(NSError.CocoaErrorDomain, 3584));
 					
 				}
@@ -52,7 +52,7 @@ namespace Xamarin.FlurryAnalyticsSample
 			
 			var idElement = new EntryElement("Enter UserID: ", "", "");
 			idElement.Changed += (sender, e) => {
-					FA.FlurryAnalytics.SetUserID(((EntryElement)sender).Value);
+				FA.Flurry.SetUserID(((EntryElement)sender).Value);
 				};
 			
 			var ageElement = new EntryElement("Enter Age: ", "", "");
@@ -61,7 +61,7 @@ namespace Xamarin.FlurryAnalyticsSample
 				var element = (EntryElement)sender;
 				
 				if(int.TryParse(element.Value, out age)) {
-					FA.FlurryAnalytics.SetAge(age);
+					FA.Flurry.SetAge(age);
 				}
 			};
 			
@@ -74,10 +74,10 @@ namespace Xamarin.FlurryAnalyticsSample
 				}
 				
 				if(element.Value.ToLowerInvariant() == "m") {
-					FA.FlurryAnalytics.SetGender("m");
+					FA.Flurry.SetGender("m");
 				}
 				else if(element.Value.ToLowerInvariant() == "f") {
-					FA.FlurryAnalytics.SetGender("f");
+					FA.Flurry.SetGender("f");
 				}
 			};
 			

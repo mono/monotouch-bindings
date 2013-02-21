@@ -33,7 +33,7 @@ namespace Xamarin.FlurryAnalyticsSample
 		public override void LoadView()
 		{
 			base.LoadView();
-			FA.FlurryAnalytics.LogAllPageViews(this);
+			FA.Flurry.LogAllPageViews(this);
 			_AnalyticsController = new AnalyticsViewController();	
 		}
 		
@@ -59,7 +59,7 @@ namespace Xamarin.FlurryAnalyticsSample
 			
 			LocationManager.LocationUpdated = (location) => {
 				
-				FA.FlurryAnalytics.SetLocation(location.NewLocation.Coordinate.Latitude, location.NewLocation.Coordinate.Longitude,
+				FA.Flurry.SetLocation(location.NewLocation.Coordinate.Latitude, location.NewLocation.Coordinate.Longitude,
 				                              (float)location.NewLocation.HorizontalAccuracy, (float)location.NewLocation.VerticalAccuracy);
 				
 			};
@@ -67,7 +67,7 @@ namespace Xamarin.FlurryAnalyticsSample
 		
 		public override void PushViewController(UIViewController viewController, bool animated)
 		{
-			FA.FlurryAnalytics.LogEvent(string.Format("Pushed ViewController with Name: {0}", viewController.GetType().Name));
+			FA.Flurry.LogEvent(string.Format("Pushed ViewController with Name: {0}", viewController.GetType().Name));
 			base.PushViewController(viewController, animated);
 		}
 		

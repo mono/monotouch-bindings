@@ -32,7 +32,7 @@ namespace Xamarin.FlurryAnalyticsSample
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 		
-			FA.FlurryAnalytics.StartSession("YOUR_API_KEY");
+			FA.Flurry.StartSession("");
 			
 			_Window = new UIWindow(UIScreen.MainScreen.Bounds);
 				 
@@ -58,7 +58,7 @@ namespace Xamarin.FlurryAnalyticsSample
 		{
 		    
 			var exception = new NSException(handle);
-			FA.FlurryAnalytics.LogError("3584", exception.Reason, exception);
+			FA.Flurry.LogError("3584", exception.Reason, exception);
 			
 			Console.WriteLine(@"Got an exception...{0} -- {1}", exception.Name, exception.Reason);
 		}
