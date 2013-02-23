@@ -231,9 +231,6 @@ namespace MonoTouch.Cocos2D {
 		[Export ("visible")]
 		bool Visible { get; set; }
 
-		[Export ("nodeToParentTransform")]
-		CGAffineTransform NodeToParentTransform ();
-
 		// master
 		//[Export ("grid")]
 		//CCGridBase Grid { get; set;  }
@@ -310,6 +307,12 @@ namespace MonoTouch.Cocos2D {
 		[Export ("pauseSchedulerAndActions")]
 		void PauseSchedulerAndActions ();
 
+		[Export ("update:")]
+		void Update (float delta);
+
+		[Export ("nodeToParentTransform")]
+		CGAffineTransform NodeToParentTransform { get; }
+		
 		[Export ("parentToNodeTransform")]
 		CGAffineTransform ParentToNodeTransform { get; } 
 
@@ -1099,6 +1102,9 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (NSObject))]
 	interface CCTouchDispatcher {
+		[Export ("dispatchEvents")]
+		bool DispatchEvents { get; set; }
+
 		[Export("addStandardDelegate:priority:")]
 		void AddStandardDelegate(NSObject delegate_, int priority);
 
