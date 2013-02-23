@@ -110,10 +110,10 @@ namespace CC2DSharp
 			Add (parent, 0, parentnode);
 			
 			AddNewSpriteAt(new PointF(200,200));
-			Schedule(Update);
+			ScheduleUpdate ();
 		}
 
-		public void Update (float delta)
+		public override void Update (float delta)
 		{
 			// Should use a fixed size step based on the animation interval.
 			int steps = 2;
