@@ -11,12 +11,15 @@ CONFIGURATION=Release
 
 ifeq ($(ENABLE_CHIPMUNK_INTEGRATION), 1)	
 	XCODEEXTRA=GCC_PREPROCESSOR_DEFINITIONS="CC_ENABLE_CHIPMUNK_INTEGRATION=1" 
-	CHIPMUNK_CS=	../../chipmunk/binding/src/Body.cs		\
-			../../chipmunk/binding/src/BoundingBox.cs	\
-			../../chipmunk/binding/src/ChipmunkObject.cs	\
-			../../chipmunk/binding/src/Helper.cs		\
-			../../chipmunk/binding/src/Shape.cs		\
-			../../chipmunk/binding/src/Space.cs
+	CHIPMUNK_CS=	../../chipmunk/binding/src/Arbiter.cs			\
+			../../chipmunk/binding/src/Body.cs			\
+			../../chipmunk/binding/src/BoundingBox.cs		\
+			../../chipmunk/binding/src/ChipmunkObject.cs		\
+			../../chipmunk/binding/src/Helper.cs			\
+			../../chipmunk/binding/src/Shape.cs			\
+			../../chipmunk/binding/src/Space.cs			\
+			../../chipmunk/binding/src/Constraint.cs
+
 	CHIPMUNK_LIB= 	libChipmunk.a
 CHIPMUNK_RES= -res:libChipmunk.a
 else
@@ -35,10 +38,10 @@ debug: all
 $(PROJECT_TGZ):
 	curl http://cocos2d-iphone.googlecode.com/files/$(PROJECT_TGZ) -o $(PROJECT_TGZ) 
 
-$(PROJECT): $(PROJECT_TGZ) chipmunk-diff
+$(PROJECT): $(PROJECT_TGZ) ../../chipmunk/binding/chipmunk-diff
 	rm -rf $(PROJECT_ROOT)
 	tar xfz $<
-	patch -d $(PROJECT_ROOT)/external/Chipmunk -p1 < chipmunk-diff
+	patch -d $(PROJECT_ROOT)/external/Chipmunk -p1 < ../../chipmunk/binding/chipmunk-diff
 
 ## libcocos2d
 libcocos2d.a: libcocos2d-i386.a libcocos2d-armv7.a #libcocos2d-armv7s.a

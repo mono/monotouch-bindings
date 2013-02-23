@@ -16,13 +16,15 @@ debug: CONFIGURATION=Debug
 debug: all
 
 CS_SRC=					\
+	src/Arbiter.cs			\
 	src/AssemblyInfo.cs		\
 	src/Body.cs			\
 	src/BoundingBox.cs		\
 	src/ChipmunkObject.cs		\
 	src/Helper.cs			\
 	src/Shape.cs			\
-	src/Space.cs
+	src/Space.cs			\
+	src/Constraint.cs
 
 Chipmunk.dll: $(CS_SRC) libChipmunk-iPhone.a
 	$(SMCS) -noconfig -o- -out:$@ -res:libChipmunk-iPhone.a $(CS_SRC) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll  

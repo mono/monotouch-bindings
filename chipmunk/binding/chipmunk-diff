@@ -1,15 +1,16 @@
-diff --git a/include/chipmunk/chipmunk_bind.h b/include/chipmunk/chipmunk_bind.h
-new file mode 100644
-index 0000000..fce86da
---- /dev/null
-+++ b/include/chipmunk/chipmunk_bind.h
-@@ -0,0 +1,60 @@
+diff -urN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
+--- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-02-12 14:00:21.000000000 +0100
+@@ -0,0 +1,155 @@
 +//
 +//  chipmunk_bind.h
 +//
-+//  Created by Stéphane Delcroix on 24/09/12.
++// Authors:
++//  Stephane Delcroix <stephane@delcroix.org>
 +//
++// Copyright 2012, 2013 S. Delcroix
 +//
++
 +#ifdef CHIPMUNK_BIND
 +
 +#define MAKE_GETTER_FOR_BINDING(property_type, struct, name) \
@@ -25,22 +26,30 @@ index 0000000..fce86da
 +MAKE_GETTER_FOR_BINDING(property_type, struct, name) \
 +MAKE_SETTER_FOR_BINDING(property_type, struct, name)
 +
-+
++//cpBody
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Mass);
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Moment);
 +MAKE_GETTER_FOR_BINDING(cpVect, cpBody, Pos);
-+MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Angle);
-+MAKE_GETTER_FOR_BINDING(cpVect, cpBody, Rot);
 +MAKE_PROPERTY_FOR_BINDING(cpVect, cpBody, Vel);
 +MAKE_PROPERTY_FOR_BINDING(cpVect, cpBody, Force);
++MAKE_GETTER_FOR_BINDING(cpFloat, cpBody, Angle);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpBody, AngVel);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpBody, Torque);
++MAKE_GETTER_FOR_BINDING(cpVect, cpBody, Rot);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpBody, VelLimit);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpBody, AngVelLimit);
++MAKE_GETTER_FOR_BINDING(cpSpace*, cpBody, Space);
 +MAKE_PROPERTY_FOR_BINDING(cpDataPointer, cpBody, UserData);
++cpBool __cpBodyIsSleeping(const cpBody *body) { return cpBodyIsSleeping (body); }
++cpBool __cpBodyIsStatic(const cpBody *body) { return cpBodyIsStatic (body); }
++cpBool __cpBodyIsRogue(const cpBody *body) { return cpBodyIsRogue (body); }
++cpVect __cpBodyLocal2World(const cpBody *body, const cpVect v) { return cpBodyLocal2World (body, v); }
++cpVect __cpBodyWorld2Local(const cpBody *body, const cpVect v) { return cpBodyWorld2Local (body, v); }
 +
++
++//cpShape
 +MAKE_GETTER_FOR_BINDING(cpBB, cpShape, BB);
-+//MAKE_PROPERTY_FOR_BINDING(cpBody*, cpShape, Body);
++MAKE_GETTER_FOR_BINDING(cpBody*, cpShape, Body);
 +MAKE_PROPERTY_FOR_BINDING(cpBool, cpShape, Sensor);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpShape, Elasticity);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpShape, Friction);
@@ -49,7 +58,9 @@ index 0000000..fce86da
 +MAKE_PROPERTY_FOR_BINDING(cpCollisionType, cpShape, CollisionType);
 +MAKE_PROPERTY_FOR_BINDING(cpGroup, cpShape, Group);
 +MAKE_PROPERTY_FOR_BINDING(cpLayers, cpShape, Layers);
++MAKE_GETTER_FOR_BINDING(cpSpace*, cpShape, Space);
 +
++//cpSpace
 +MAKE_PROPERTY_FOR_BINDING(int, cpSpace, Iterations);
 +MAKE_PROPERTY_FOR_BINDING(cpVect, cpSpace, Gravity);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpSpace, Damping);
@@ -62,13 +73,94 @@ index 0000000..fce86da
 +MAKE_PROPERTY_FOR_BINDING(cpDataPointer, cpSpace, UserData);
 +MAKE_GETTER_FOR_BINDING(cpBody*, cpSpace, StaticBody);
 +MAKE_GETTER_FOR_BINDING(cpFloat, cpSpace, CurrentTimeStep);
++cpBool __cpSpaceIsLocked(cpSpace *space) { return cpSpaceIsLocked (space); }
++
++//cpConstraint
++MAKE_GETTER_FOR_BINDING(cpSpace*, cpConstraint, Space);
++MAKE_GETTER_FOR_BINDING(cpBody*, cpConstraint, A);
++MAKE_GETTER_FOR_BINDING(cpBody*, cpConstraint, B);
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpConstraint, MaxForce);
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpConstraint, ErrorBias);
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpConstraint, MaxBias);
++MAKE_PROPERTY_FOR_BINDING(cpConstraintPreSolveFunc, cpConstraint, PreSolveFunc);
++MAKE_PROPERTY_FOR_BINDING(cpConstraintPostSolveFunc, cpConstraint, PostSolveFunc);
++MAKE_PROPERTY_FOR_BINDING(cpDataPointer, cpConstraint, UserData);
++cpFloat __cpConstraintGetImpulse(cpConstraint *constraint) { return cpConstraintGetImpulse(constraint); }
++
++#define MAKE_CONSTRAINT_GETTER_FOR_BINDING(property_type, struct, name) \
++property_type __##struct##Get##name(const cpConstraint *obj) \
++{return  struct##Get##name(obj);}
++
++#define MAKE_CONSTRAINT_SETTER_FOR_BINDING(property_type, struct, name) \
++void __##struct##Set##name(cpConstraint *obj, const property_type value){ \
++    struct##Set##name(obj, value); \
++}
++
++#define MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(property_type, struct, name) \
++MAKE_CONSTRAINT_GETTER_FOR_BINDING(property_type, struct, name) \
++MAKE_CONSTRAINT_SETTER_FOR_BINDING(property_type, struct, name)
++
++//cpPinJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpPinJoint, Anchr1);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpPinJoint, Anchr2);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpPinJoint, Dist);
++
++//cpSlideJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpSlideJoint, Anchr1);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpSlideJoint, Anchr2);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpSlideJoint, Min);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpSlideJoint, Max);
++
++//cpPivotJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpPivotJoint, Anchr1);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpPivotJoint, Anchr2);
++
++//cpGrooveJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpGrooveJoint, GrooveA);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpGrooveJoint, GrooveB);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpGrooveJoint, Anchr2);
++
++//cpDampedSpring
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpDampedSpring, Anchr1);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpVect, cpDampedSpring, Anchr2);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedSpring, RestLength);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedSpring, Stiffness);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedSpring, Damping);
++
++//cpDampedRotarySpring
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedRotarySpring, RestAngle);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedRotarySpring, Stiffness);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpDampedRotarySpring, Damping);
++
++//cpRotaryLimitJoin
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRotaryLimitJoint, Min);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRotaryLimitJoint, Max);
++
++//cpRatchetJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRatchetJoint, Angle);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRatchetJoint, Phase);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpRatchetJoint, Ratchet);
++
++//cpGearJoint
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpGearJoint, Phase);
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpGearJoint, Ratio);
++
++//cpSimpleMotor
++MAKE_CONSTRAINT_PROPERTY_FOR_BINDING(cpFloat, cpSimpleMotor, Rate);
++
++//cpArbiter
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpArbiter, Elasticity);
++MAKE_PROPERTY_FOR_BINDING(cpFloat, cpArbiter, Friction);
++MAKE_PROPERTY_FOR_BINDING(cpVect, cpArbiter, SurfaceVelocity);
++
++void __cpArbiterGetShapes(const cpArbiter *arb, cpShape **a, cpShape **b) { cpArbiterGetShapes (arb, a, b); }
++void __cpArbiterGetBodies(const cpArbiter *arb, cpBody **a, cpBody **b) { cpArbiterGetBodies (arb, a, b); }
 +
 +#endif
-diff --git a/src/chipmunk.c b/src/chipmunk.c
-index 8487dd0..640989a 100644
---- a/src/chipmunk.c
-+++ b/src/chipmunk.c
-@@ -320,3 +320,5 @@ cpBool cpSpaceShapeQuery_b(cpSpace *space, cpShape *shape, cpSpaceShapeQueryBloc
+diff -urN ./src/chipmunk.c ../Chipmunk/src/chipmunk.c
+--- ./src/chipmunk.c	2012-05-25 15:20:06.000000000 +0200
++++ ../Chipmunk/src/chipmunk.c	2013-02-05 16:01:20.000000000 +0100
+@@ -320,3 +320,5 @@
  #endif
  
  #include "chipmunk_ffi.h"
