@@ -1798,10 +1798,10 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCMenuItemLabel))]
 	interface CCMenuItemAtlasFont {
-		[Export ("initFromString:charMapFile:itemWidth:itemHeight:startCharMap:target:selector:")]
+		[Export ("initWithString:charMapFile:itemWidth:itemHeight:startCharMap:target:selector:")]
 		IntPtr Constructor (string value, string charMapFile, int itemWidth, int itemHeight, char startCharMap, NSObject target, Selector selector);
 
-		[Export ("itemFromString:charMapFile:itemWidth:itemHeight:startCharMap:block:")]
+		[Export ("initWithString:charMapFile:itemWidth:itemHeight:startCharMap:block:")]
 		IntPtr Constructor (string value, string charMapFile, int itemWidth, int itemHeight, char startCharMap, NSCallbackWithSender callback);
 	}
 
@@ -1822,10 +1822,10 @@ namespace MonoTouch.Cocos2D {
 		[Export ("fontName")]
 		string FontName { get; set; }
 
-		[Export ("initFromString:target:selector:")]
+		[Export ("initWithString:target:selector:")]
 		IntPtr Constructor (string value, NSObject r, Selector s);
 
-		[Export ("initFromString:block:")]
+		[Export ("initWithString:block:")]
 		IntPtr Constructor (string value, NSCallbackWithSender callback);
 	}
 
