@@ -84,7 +84,7 @@ namespace CorePlot {
 		[Wrap ("WeakDelegate"), New]
 		CPTAxisDelegate Delegate { get; set; }
 
-		[Export ("axisLineStyle")]
+		[Export ("axisLineStyle"), NullAllowed]
 		CPTLineStyle AxisLineStyle { get; set;  }
 
 		[Export ("coordinate")]
@@ -380,7 +380,7 @@ namespace CorePlot {
 	
 	[BaseType (typeof (CPTAnnotationHostLayer))]
 	interface CPTBorderedLayer {
-		[Export ("borderLineStyle")]
+		[Export ("borderLineStyle"),NullAllowed]
 		CPTLineStyle BorderLineStyle { get; set; }
 
 		[Export ("fill")]
@@ -1303,7 +1303,7 @@ namespace CorePlot {
 		[Export ("topDownLayerOrder")]
 		NSNumber [] TopDownLayerOrder { get; set;  }
 
-		[Export ("borderLineStyle")]
+	        [Export ("borderLineStyle"),NullAllowed]	
 		CPTLineStyle BorderLineStyle { get; set;  }
 
 		[Export ("fill")]
@@ -2032,8 +2032,8 @@ namespace CorePlot {
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (RectangleF frame);
 
-		[Export ("hostedLayer")]
-		CPTLayer HostedLayer { get; set; }
+	        [Export ("hostedGraph")]	
+	        CPTGraph HostedGraph { get; set; }	
 	}
 #endif
 }
