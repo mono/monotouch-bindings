@@ -845,31 +845,34 @@ namespace ParseTouch
 	[BaseType (typeof(ParseObject), Name="PFInstallation")]
 	public interface ParseInstallation
 	{
-	        [Static]
+		[Static]
 		[Export ("currentInstallation")]
-                ParseInstallation CurrentInstallation { get; }	
-	        
-	        [Static]
+		ParseInstallation CurrentInstallation { get; }
+
+		[Static]
 		[Export ("query")]
-                ParseQuery CreateQuery ();	
-		
+		ParseQuery CreateQuery ();
+
 		[Export ("deviceType")]
-                string DeviceType { get; }	
+		string DeviceType { get; }
 
-	        [Export ("installationId")]
-                string InstallationId { get; }	
+		[Export ("installationId")]
+		string InstallationId { get; }
 
-	        [Export ("deviceToken")]
-                string DeviceToken { get; }	
+		[Export ("deviceToken")]
+		string DeviceToken { get; }
+		
+		[Export ("setDeviceTokenFromData")]
+		string SetDeviceToken (NSData deviceToken);
 
-	        [Export ("badge")]
-                int Badge { get; set; }	
+		[Export ("badge")]
+		int Badge { get; set; }
 
-	        [Export ("timeZone")]
-                string TimeZone { get; }	
+		[Export ("timeZone")]
+		string TimeZone { get; }
 
-	        [Export ("channels")]
-                string[] Channels { get; set; }	
+		[Export ("channels")]
+		string[] Channels { get; set; }	
 
 	}
 	
