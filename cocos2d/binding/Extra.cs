@@ -39,7 +39,7 @@ namespace MonoTouch.Cocos2D {
 	[Register ("__My_NSActionDispatcherWithNode")]
 	internal class NSActionDispatcherWithNode : NSObject {
 
-		public static Selector Selector = new Selector ("apply");
+		public static Selector Selector = new Selector ("apply:");
 
 		Action<CCNode> action;
 
@@ -48,7 +48,7 @@ namespace MonoTouch.Cocos2D {
 			this.action = action;
 		}
 
-		[Export ("apply")]
+		[Export ("apply:")]
 		[Preserve (Conditional = true)]
 		public void Apply (CCNode node)
 		{
@@ -59,7 +59,7 @@ namespace MonoTouch.Cocos2D {
 	[Register ("__My_NSActionDispatcherWithFloat")]
 	internal class NSActionDispatcherWithFloat : NSObject {
 
-		public static Selector Selector = new Selector ("apply");
+		public static Selector Selector = new Selector ("apply:");
 
 		Action<float> action;
 
@@ -68,7 +68,7 @@ namespace MonoTouch.Cocos2D {
 			this.action = action;
 		}
 
-		[Export ("apply")]
+		[Export ("apply:")]
 		[Preserve (Conditional = true)]
 		public void Apply (float timer)
 		{

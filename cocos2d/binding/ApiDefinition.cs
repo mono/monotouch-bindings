@@ -253,9 +253,6 @@ namespace MonoTouch.Cocos2D {
 		[Export ("onExit")]
 		void OnExit ();
 
-		[Export ("removeFromParentAndCleanup:")]
-		void RemoveFromParentAndCleanup (bool cleanup);
-
 		[Export ("removeAllChildrenWithCleanup:")]
 		void RemoveAllChildrenWithCleanup (bool cleanup);
 
@@ -1265,9 +1262,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:lineBreakMode:")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
-
-		[Export ("setString:")]
-		void SetString (string value);
 	}
 	
 	[BaseType (typeof(CCSpriteBatchNode))]
@@ -1296,9 +1290,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("setWidth:")]
 		void SetWidth (float value);
-
-		[Export ("setAlignment:")]
-		void SetAlignment (UITextAlignment alignment);
 	}
 
 	[BaseType (typeof (CCGrid3DAction))]
@@ -1509,9 +1500,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("updateTransform")]
 		void UpdateTransform ();
-
-		[Export ("setTextureRect:")]
-		void SetTextureRect (RectangleF rect);
 
 		[Export ("setTextureRect:rotated:untrimmedSize:")]
 		void SetTextureRect (RectangleF rect, bool rotated, SizeF untrimmedSize);
@@ -2798,9 +2786,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithTexture:rect:")]
 		IntPtr Constructor (CCTexture2D texture, RectangleF rect);
-
-		[Export ("initWithTexture:rect:")]
-		IntPtr Constructor (CCTexture2D texture);
 
 		[Export ("initWithFile:")]
 		IntPtr Constructor (string filename);
