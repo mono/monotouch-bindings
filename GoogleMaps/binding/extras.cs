@@ -1,6 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
 using MonoTouch.CoreLocation;
+using System.Drawing;
+using MonoTouch.ObjCRuntime;
 
 namespace GoogleMaps
 {
@@ -8,6 +10,51 @@ namespace GoogleMaps
 		public GMSMarker AddMarker (GMSMarkerOptions options)
 		{
 			return new GMSMarker (InternalAddMarker (options));
+		}
+	}
+
+	public partial class GMSMarkerOptions
+	{
+		private static PointF kGMSMarkerDefaultGroundAnchor;
+		public static PointF DefaultAnchor
+		{
+			get 
+			{
+				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSMarkerDefaultGroundAnchor");
+				kGMSMarkerDefaultGroundAnchor = (PointF)Marshal.PtrToStructure(ptr, typeof(PointF));
+				
+				return kGMSMarkerDefaultGroundAnchor;
+			}
+		}
+
+		private static PointF kGMSMarkerDefaultInfoWindowAnchor;
+		public static PointF DefaultInfoWindowAnchor
+		{
+			get 
+			{
+				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSMarkerDefaultInfoWindowAnchor");
+				kGMSMarkerDefaultInfoWindowAnchor = (PointF)Marshal.PtrToStructure(ptr, typeof(PointF));
+				
+				return kGMSMarkerDefaultInfoWindowAnchor;
+			}
+		}
+	}
+
+	public partial class GMSGroundOverlayOptions
+	{
+		private static PointF kGMSGroundOverlayDefaultAnchor;
+		public static PointF DefaultAnchor
+		{
+			get 
+			{
+				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSGroundOverlayDefaultAnchor");
+				kGMSGroundOverlayDefaultAnchor = (PointF)Marshal.PtrToStructure(ptr, typeof(PointF));
+				
+				return kGMSGroundOverlayDefaultAnchor;
+			}
 		}
 	}
 }
