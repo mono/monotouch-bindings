@@ -2789,9 +2789,11 @@ namespace MonoTouch.Cocos2D {
 
 #if ENABLE_CHIPMUNK_INTEGRATION
 	[BaseType(typeof(CCDrawNode))]
+	[DisableDefaultCtor]
 	interface CCPhysicsDebugNode {
 		[Export("debugNodeForCPSpace:")]
 		[Static]
+		[Internal]
 		CCPhysicsDebugNode DebugNode (IntPtr space);
 	}
 
