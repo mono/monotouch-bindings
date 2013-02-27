@@ -20,19 +20,6 @@ namespace GoogleMaps
 	} 
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct GMSCamera {
-
-		public CLLocationCoordinate2D Coordinate;
-		public float Zoom;
-
-		public GMSCamera(double latitude, double longitude, float zoom)
-		{
-			Coordinate = new CLLocationCoordinate2D (latitude, longitude);
-			Zoom = zoom;
-		}
-	}
-
-	[StructLayout (LayoutKind.Sequential)]
 	public struct GMSVisibleRegion {
 
 		public CLLocationCoordinate2D NearLeft;

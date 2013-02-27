@@ -16,16 +16,16 @@ namespace GoogleMaps
 		IntPtr Constructor (CLLocationCoordinate2D target, float zoom, double bearing, double viewingAngle);
 
 		[Static, Export ("cameraWithTarget:zoom:")]
-		GMSCameraPosition Camera (CLLocationCoordinate2D target, float zoom);
+		GMSCameraPosition FromCamera (CLLocationCoordinate2D target, float zoom);
 
 		[Static, Export ("cameraWithLatitude:longitude:zoom:")]
-		GMSCameraPosition Camera (double latitude, double longitude, float zoom);
+		GMSCameraPosition FromCamera (double latitude, double longitude, float zoom);
 
 		[Static, Export ("cameraWithTarget:zoom:bearing:viewingAngle:")]
-		GMSCameraPosition Camera (CLLocationCoordinate2D target, float zoom, double bearing, double viewingAngle);
+		GMSCameraPosition FromCamera (CLLocationCoordinate2D target, float zoom, double bearing, double viewingAngle);
 
 		[Static, Export ("cameraWithLatitude:longitude:zoom:bearing:viewingAngle:")]
-		GMSCameraPosition Camera (double latitude, double longitude, float zoom, double bearing, double viewingAngle);
+		GMSCameraPosition FromCamera (double latitude, double longitude, float zoom, double bearing, double viewingAngle);
 
 		[Export ("target")]
 		CLLocationCoordinate2D Target { [Bind ("targetAsCoordinate")] get; }
@@ -133,7 +133,7 @@ namespace GoogleMaps
 	interface GMSMapViewDelegate {
 
 		[Export ("mapView:didChangeCameraPosition:"), EventArgs ("GMSCamera"), EventName ("ChangedCameraPosition")]
-		void DidChangeCameraPosition (GMSMapView mapView, GMSCamera position);
+		void DidChangeCameraPosition (GMSMapView mapView, GMSCameraPosition position);
 		
 		[Export ("mapView:didTapAtCoordinate:"), EventArgs ("GMSCoord"), EventName ("Tapped")]
 		void DidTapAtCoordinate (GMSMapView mapView, CLLocationCoordinate2D coordinate);
@@ -151,19 +151,16 @@ namespace GoogleMaps
 		UIView InfoFor (GMSMapView mapView, GMSMarker marker);
 	}
 
-	[BaseType (typeof (UIView), 
-	Delegates= new string [] { "WeakDelegate" }, 
-	Events= new Type [] { typeof (GMSMapViewDelegate) })]
+	[BaseType (typeof (UIView),
+	Delegates=new string [] {"WeakDelegate"},
+	Events=new Type [] { typeof (GMSMapViewDelegate) })]
 	interface GMSMapView {
 
-		[Export ("delegate"), NullAllowed]
-		NSObject WeakDelegate { get; set; }
-		
 		[Wrap ("WeakDelegate")]
 		GMSMapViewDelegate Delegate { get; set; }
 		
-//		[Export ("camera")]
-//		GMSCamera Camera { get; set; }
+		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
+		NSObject WeakDelegate { get; set; }
 
 		[Export ("camera")]
 		GMSCameraPosition Camera { get; set; }
@@ -191,7 +188,7 @@ namespace GoogleMaps
 		
 		[Static]
 		[Export ("mapWithFrame:camera:")]
-		GMSMapView FromCamera (RectangleF frame, GMSCamera camera);
+		GMSMapView FromCamera (RectangleF frame, GMSCameraPosition camera);
 		
 		[Export ("startRendering")]
 		void StartRendering ();
