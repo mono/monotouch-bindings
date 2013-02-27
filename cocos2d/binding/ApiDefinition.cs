@@ -1142,39 +1142,33 @@ namespace MonoTouch.Cocos2D {
 
 	}
 
+	[Model]
 	interface CCTargetedTouchDelegate {
 		[Export ("ccTouchBegan:withEvent:")]
-		[PrologueSnippet ("return false;")]
 		bool OnTouchBegan(UITouch touch, UIEvent ev);
 
 		[Export ("ccTouchMoved:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchMoved(UITouch touch, UIEvent ev);
 
 		[Export ("ccTouchEnded:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchEnded(UITouch touch, UIEvent ev);
 
 		[Export ("ccTouchCancelled:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchCancelled(UITouch touch, UIEvent ev);
 	}
 
+	[Model]
 	interface CCStandardTouchDelegate {
 		[Export ("ccTouchesBegan:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchesBegan(NSSet touches, UIEvent ev);
 
 		[Export ("ccTouchesMoved:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchesMoved(NSSet touches, UIEvent ev);
 
 		[Export ("ccTouchesEnded:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchesEnded(NSSet touches, UIEvent ev);
 
 		[Export ("ccTouchesCancelled:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchesCancelled(NSSet touches, UIEvent ev);	
 	}
 
