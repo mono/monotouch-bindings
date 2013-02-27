@@ -248,5 +248,12 @@ namespace MonoTouch.Cocos2D {
 			}
 		}
 	}
+
+	public partial class CCPhysicsDebugNode {
+		public static CCPhysicsDebugNode DebugNode (Chipmunk.Space space) 
+		{
+			return DebugNode (space.Handle.Handle);
+		}
+	}
 #endif
 }	
