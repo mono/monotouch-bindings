@@ -1507,6 +1507,7 @@ namespace MonoTouch.Cocos2D {
 		CCTextureAtlas TextureAtlas { get; set;  }
 
 		[Export ("batchNode")]
+		[NullAllowed]
 		CCSpriteBatchNode BatchNode { get; set;  }
 
 		[Export ("offsetPosition")]
