@@ -1675,7 +1675,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCTransitionSceneOriented))]
 	[DisableDefaultCtor] // instance has no valid handle
-	interface CCTransitionFlipAnguled {
+	interface CCTransitionFlipAngular {
 		[Export ("initWithDuration:scene:")]
 		IntPtr Constructor (float duration, CCScene scene);
 	}
