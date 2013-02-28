@@ -24,7 +24,7 @@ namespace GoogleMapsSample
 		{
 			base.LoadView ();
 
-			GMSCamera camera = new GMSCamera(37.797865, -122.402526, 6);
+			GMSCameraPosition camera = GMSCameraPosition.FromCamera (37.797865, -122.402526, 6);
 			mapView = GMSMapView.FromCamera(RectangleF.Empty, camera);
 			mapView.MyLocationEnabled = true;
 			this.View = mapView;

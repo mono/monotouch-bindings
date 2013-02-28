@@ -212,20 +212,22 @@ namespace GoogleMaps
 		void AnimateToViewingAngle (double viewingAngle);
 		
 		[Internal]
-		[Export ("addMarkerWithOptions:")] [PostGet ("Markers")]
+		[Export ("addMarkerWithOptions:")]
 		IntPtr InternalAddMarker (GMSMarkerOptions options);
 
 		[Export ("markers")]
 		GMSMarker [] Markers { get; }
 
-		[Export ("addPolylineWithOptions:")] [PostGet ("Polylines")]
-		GMSPolyline AddPolyline (GMSPolylineOptions options);
+		[Internal]
+		[Export ("addPolylineWithOptions:")]
+		IntPtr InternalAddPolyline (GMSPolylineOptions options);
 
 		[Export ("polylines")]
 		GMSPolyline [] Polylines { get; }
 
-		[Export ("addGroundOverlayWithOptions:")] [PostGet ("GroundOverlays")]
-		GMSGroundOverlay AddGroundOverlay (GMSGroundOverlayOptions options);
+		[Internal]
+		[Export ("addGroundOverlayWithOptions:")] 
+		IntPtr InternalAddGroundOverlay (GMSGroundOverlayOptions options);
 		
 		[Export ("groundOverlays")]
 		GMSGroundOverlay [] GroundOverlays { get; }
@@ -343,27 +345,21 @@ namespace GoogleMaps
 	[Model]
 	interface GMSPolyline {
 
-		[Abstract]
 		[Export ("path", ArgumentSemantic.Copy)]
 		GMSPath Path { get; set; }
 
-		[Abstract]
 		[Export ("color")]
 		UIColor Color { get; set; }
 		
-		[Abstract]
 		[Export ("width", ArgumentSemantic.Assign)]
 		float Width { get; set; }
 
-		[Abstract]
 		[Export ("geodesic", ArgumentSemantic.Assign)]
 		bool Geodesic { get; set; }
 		
-		[Abstract]
 		[Export ("accessibilityLabel", ArgumentSemantic.Copy)]
 		string AccessibilityLabel { get; set; }
-		
-		[Abstract]
+
 		[Export ("remove")]
 		void Remove ();
 	}

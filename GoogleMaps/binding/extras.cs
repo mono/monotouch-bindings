@@ -7,9 +7,20 @@ using MonoTouch.ObjCRuntime;
 namespace GoogleMaps
 {
 	public partial class GMSMapView {
+
 		public GMSMarker AddMarker (GMSMarkerOptions options)
 		{
 			return new GMSMarker (InternalAddMarker (options));
+		}
+
+		public GMSPolyline AddPolyline (GMSPolylineOptions options)
+		{
+			return new GMSPolyline (InternalAddPolyline (options));
+		}
+
+		public GMSGroundOverlay AddGroundOverlay (GMSGroundOverlayOptions options)
+		{
+			return new GMSGroundOverlay (InternalAddGroundOverlay (options));
 		}
 	}
 
