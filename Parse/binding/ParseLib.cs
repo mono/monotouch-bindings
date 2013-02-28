@@ -862,8 +862,8 @@ namespace ParseTouch
 		[Export ("deviceToken")]
 		string DeviceToken { get; }
 		
-		[Export ("setDeviceTokenFromData")]
-		string SetDeviceToken (NSData deviceToken);
+		[Export ("setDeviceTokenFromData:")]
+		void SetDeviceToken (NSData deviceToken);
 
 		[Export ("badge")]
 		int Badge { get; set; }
