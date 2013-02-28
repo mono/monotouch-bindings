@@ -72,12 +72,12 @@ namespace Chipmunk
 		}
 
 		[DllImport ("__Internal")]
-		extern static PointF __cpSpaceGetDamping (IntPtr space);
+		extern static float __cpSpaceGetDamping (IntPtr space);
 
 		[DllImport ("__Internal")]
-		extern static void __cpSpaceSetDamping (IntPtr space, PointF d);
+		extern static void __cpSpaceSetDamping (IntPtr space, float d);
 
-		public PointF Damping {
+		public float Damping {
 		    get { return __cpSpaceGetDamping (Handle.Handle); }
 		    set { __cpSpaceSetDamping (Handle.Handle, value); }
 		}
