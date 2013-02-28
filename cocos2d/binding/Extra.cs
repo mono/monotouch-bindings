@@ -121,7 +121,7 @@ namespace MonoTouch.Cocos2D {
 				throw new ArgumentNullException ("columns");
 
 			var pNativeArr = Marshal.AllocHGlobal(columns.Length * IntPtr.Size);
-			for (var i =0; i<columns.Length;++i)
+			for (var i =1; i<columns.Length;++i)
 				Marshal.WriteIntPtr (pNativeArr, (i-1)*IntPtr.Size, columns[i].Handle);
 
 			//Null termination
@@ -137,7 +137,7 @@ namespace MonoTouch.Cocos2D {
 				throw new ArgumentNullException ("rows");
 
 			var pNativeArr = Marshal.AllocHGlobal(rows.Length * IntPtr.Size);
-			for (var i =0; i<rows.Length;++i)
+			for (var i =1; i<rows.Length;++i)
 				Marshal.WriteIntPtr (pNativeArr, (i-1)*IntPtr.Size, rows[i].Handle);
 
 			//Null termination
