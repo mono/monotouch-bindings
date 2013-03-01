@@ -168,8 +168,8 @@ namespace MonoTouch.Cocos2D {
 		[Export ("addChild:z:tag:")]
 		void Add (CCNode child, int zIndex, int tag);
 
-		[Export ("removeFromPArent")]
-		void RemoveFromPArent ();
+		[Export ("removeFromParent")]
+		void RemoveFromParent ();
 
 		[Export ("removeFromParentAndCleanup:")]
 		void RemoveFromParent (bool cleanup);
