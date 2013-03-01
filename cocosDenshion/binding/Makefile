@@ -1,4 +1,4 @@
-VERSION=2.1-rc0
+VERSION=2.1-rc0a
 
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
