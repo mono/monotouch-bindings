@@ -243,6 +243,20 @@ namespace Chipmunk
 		    return cpSpaceContainsConstraint (Handle.Handle, constraint.Handle.Handle);
 		}
 
+		delegate void PostStepFunc (IntPtr space, IntPtr obj, IntPtr data);
+
+		[DllImport ("__Internal")]
+		extern static void cpSpaceAddPostStepCallback (IntPtr space, PostStepFunc func, IntPtr key, IntPtr data); 
+
+		public void AddPostStepCallback<T> (Action<Space, T> action, T obj)  where T : ChipmunkObject
+		{
+		    PostStepFunc func = (space, o, data) => {
+			action (this, o == IntPtr.Zero ? null : (T)(object)new Body (o)); 
+		    };
+
+		    cpSpaceAddPostStepCallback (Handle.Handle, func, obj.Handle.Handle, IntPtr.Zero);
+		}
+		
 		[DllImport("__Internal")]
 		extern static IntPtr cpSpaceAddStaticShape (IntPtr space, IntPtr shape);
 
