@@ -20,7 +20,7 @@ $(PROJECT): $(PROJECT_TGZ)
 	tar xfz $<
 
 ## libCocosDenshion
-libCocosDenshion.a: libCocosDenshion-i386.a libCocosDenshion-armv7.a #libCocosDenshion-armv7s.a
+libCocosDenshion.a: libCocosDenshion-i386.a libCocosDenshion-armv7.a libCocosDenshion-armv7s.a
 	lipo -create -output $@ $^
 
 libCocosDenshion-i386.a: $(PROJECT)
@@ -33,7 +33,7 @@ libCocosDenshion-armv7.a: $(PROJECT)
 
 libCocosDenshion-armv7s.a: $(PROJECT)
 	$(XBUILD) -project $(PROJECT) -target CocosDenshion -sdk iphoneos -arch armv7s -configuration $(CONFIGURATION) clean build "GCC_SYMBOLS_PRIVATE_EXTERN=NO"
-	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/libcocos2d.a $@
+	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/libCocosDenshion.a $@
 
 CocosDenshion.dll: ApiDefinition.cs StructsAndEnums.cs Extra.cs AssemblyInfo.cs libCocosDenshion.a
 	-mkdir -p ios
