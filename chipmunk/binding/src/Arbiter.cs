@@ -15,7 +15,7 @@ using MonoTouch.UIKit;
 
 namespace Chipmunk
 {
-    public partial class Arbiter : ChipmunkObject
+    public sealed partial class Arbiter : ChipmunkObject
     {
 	public Arbiter (IntPtr ptr) : base (ptr, false)
 	{

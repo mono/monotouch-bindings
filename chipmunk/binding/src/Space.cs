@@ -17,7 +17,7 @@ using MonoTouch.UIKit;
 
 namespace Chipmunk
 {
-	public partial class Space : ChipmunkObject
+	public sealed partial class Space : ChipmunkObject
 	{
 		[DllImport ("__Internal")]
 		extern static IntPtr cpSpaceNew ();
