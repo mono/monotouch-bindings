@@ -78,19 +78,6 @@ namespace ParseTouch
 		
 	}
 	
-	[BaseType (typeof (NSObject))]
-	[Model]
-	interface PF_EGORefreshTableHeaderDelegate {
-		[Abstract]
-		[Export ("egoRefreshTableHeaderDataSourceIsLoading:")]
-		bool DataSourceIsLoading (PF_EGORefreshTableHeaderView view);
-		
-		[Abstract]
-		[Export ("egoRefreshTableHeaderDataSourceLastUpdated:")]
-		NSDate DataSourceLastUpdated (PF_EGORefreshTableHeaderView view);
-		
-	}
-	
 	[BaseType (typeof(NSObject), Name="PFACL")]
 	public interface ParseACL
 	{
@@ -1086,7 +1073,7 @@ namespace ParseTouch
 
 	}
 
-	[BaseType (typeof(NSObject), Name="PF_EGORefreshTableHeaderView")]
+	[BaseType (typeof(NSObject), Name="PF_EGORefreshTableHeaderDelegate")]
 	[Model]
 	interface Parse_EGORefreshTableHeaderDelegate
 	{
