@@ -44,7 +44,7 @@ $(PROJECT): $(PROJECT_TGZ) ../../chipmunk/binding/chipmunk-diff
 	patch -d $(PROJECT_ROOT)/external/Chipmunk -p1 < ../../chipmunk/binding/chipmunk-diff
 
 ## libcocos2d
-libcocos2d.a: libcocos2d-i386.a libcocos2d-armv7.a #libcocos2d-armv7s.a
+libcocos2d.a: libcocos2d-i386.a libcocos2d-armv7.a libcocos2d-armv7s.a
 	lipo -create -output $@ $^
 
 libcocos2d-i386.a: $(PROJECT)
@@ -60,7 +60,7 @@ libcocos2d-armv7s.a: $(PROJECT)
 	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/libcocos2d.a $@
 
 ## libChipmunk.a
-libChipmunk.a: libChipmunk-i386.a libChipmunk-armv7.a #libChipmunk-armv7s.a
+libChipmunk.a: libChipmunk-i386.a libChipmunk-armv7.a libChipmunk-armv7s.a
 	lipo -create -output $@ $^
 
 libChipmunk-i386.a: $(PROJECT)
