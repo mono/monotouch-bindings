@@ -4,10 +4,10 @@ SMCS=/Developer/MonoTouch/usr/bin/smcs
 all: DropBoxSync.iOS.dll
 
 DropBoxSync.zip: 
-	curl -L https://dl.dropbox.com/shz/fp8nbrl21iqwhv8/QKlj_3ZHS5/dropbox-ios-sync-sdk-1.0?top_level_offset=14 > $@
+	curl -L "https://dl.dropbox.com/shz/vmgga8sf8tduqpn/LJCXOVNr7L/Dropbox.framework/Dropbox.framework?token_hash=AAFliKaJE9Xme-7o-2d6t8FVBHx_FHMW4fxwMVOQFT44TQ&top_level_offset=48&dl=1" > $@
 
 Dropbox.a: DropBoxSync.zip
-	unzip -p $< 'dropbox-ios-sync-sdk-1.0/Dropbox.framework/Dropbox' > $@
+	unzip -p $< 'Dropbox.framework/Dropbox' > $@
 
 DropBoxSync.iOS.dll: Makefile AssemblyInfo.cs ApiDefinition.cs StructsAndEnums.cs Dropbox.a
 	-mkdir -p ios
