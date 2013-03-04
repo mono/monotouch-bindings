@@ -77,7 +77,7 @@ namespace DropBoxSync.iOS
 		DBErrorCode Code { get; }
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBFile {
 
 		// TODO: Missing for now
@@ -124,7 +124,7 @@ namespace DropBoxSync.iOS
 		void RemoveObserver (NSObject observer);
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBFileInfo {
 
 		[Export ("path")]
@@ -140,7 +140,7 @@ namespace DropBoxSync.iOS
 		long Size { get; }
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBFileStatus {
 
 		[Export ("cached")]
@@ -156,7 +156,7 @@ namespace DropBoxSync.iOS
 		DBError Error { get; }
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBFilesystem {
 
 		[Export ("initWithAccount:")]
@@ -214,7 +214,7 @@ namespace DropBoxSync.iOS
 		void RemoveObserver (NSObject observer);
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBPath {
 
 		[Static, Export ("root")]
