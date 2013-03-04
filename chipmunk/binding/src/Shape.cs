@@ -156,7 +156,7 @@ namespace Chipmunk
 	public extern static void ResetShapeIdCounter ();
     }
 
-    public partial class CircleShape : Shape
+    public sealed partial class CircleShape : Shape
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpCircleShapeNew (IntPtr body, float radius, PointF offset);
@@ -180,7 +180,7 @@ namespace Chipmunk
 	}
     }
     
-    public partial class SegmentShape:Shape
+    public sealed partial class SegmentShape:Shape
     {
     	[DllImport("__Internal")]
     	extern static IntPtr cpSegmentShapeNew (IntPtr body, PointF a, PointF b, float radius);
@@ -218,7 +218,7 @@ namespace Chipmunk
 	}	
     }
     
-    public partial class PolygonShape : Shape
+    public sealed partial class PolygonShape : Shape
     {
     	[DllImport("__Internal")]
     	extern static IntPtr cpPolyShapeNew (IntPtr body, int numVerts, PointF[] verts, PointF offset);

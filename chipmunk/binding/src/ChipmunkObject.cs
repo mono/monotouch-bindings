@@ -39,6 +39,36 @@ namespace Chipmunk
 		AddRef (this, ptr);
 	}
 	
+	public static bool operator ==(ChipmunkObject a, ChipmunkObject b)
+	{
+	    if (System.Object.ReferenceEquals (a, b))
+		return true;
+
+	    if (((object)a == null) || ((object)b == null))
+		return false;
+
+	    return a.Handle.Handle == b.Handle.Handle;
+	}
+
+	public static bool operator != (ChipmunkObject a, ChipmunkObject b)
+	{
+	    return !(a == b);
+	}
+
+	public override bool Equals (System.Object obj)
+	{
+	    var other = obj as ChipmunkObject;
+	    if ((object)other == null)
+		return false;
+
+	    return this == other;
+	}
+
+	public override int GetHashCode ()
+	{
+	    return Handle.Handle.GetHashCode ();
+	}
+
 	~ChipmunkObject ()
 	{
 	    Cleanup ();

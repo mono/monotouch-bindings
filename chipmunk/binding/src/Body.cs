@@ -20,7 +20,7 @@ using MonoTouch.UIKit;
 
 namespace Chipmunk
 {
-	public partial class Body : ChipmunkObject
+	public sealed partial class Body : ChipmunkObject
 	{
 		public Body (IntPtr ptr) : base (ptr)
 		{
