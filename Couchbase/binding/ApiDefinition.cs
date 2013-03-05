@@ -8,7 +8,7 @@ using MonoTouch.UIKit;
 namespace Couchbase
 {
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof (NSObject), Name="RESTBody")]
 	interface RestBody {
 		[Export ("content")]
 		NSData Content { get;  }
@@ -76,7 +76,7 @@ namespace Couchbase
 		NSData DecodeBase64 (string base64);
 	}
 
-	[BaseType (typeof (RestBody))]
+	[BaseType (typeof (RestBody), Name="RESTMutableBody")]
 	interface RestMutableBody {
 		[Export ("headers"), New]
 		NSDictionary Headers { get; set;  }
@@ -92,7 +92,7 @@ namespace Couchbase
 
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof (NSObject), Name="RESTOperation")]
 	interface RestOperation {
 		[Export ("resource")]
 		RestResource Resource { get;  }
@@ -180,7 +180,7 @@ namespace Couchbase
 		string Dump ();
 	}
 
-	[BaseType (typeof (NSObject), Name="RestResource")]
+	[BaseType (typeof (NSObject), Name="RESTResource")]
 	interface RestResource {
 		[Export ("URL")]
 		NSUrl Url { get;  }
