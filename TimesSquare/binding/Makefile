@@ -7,7 +7,7 @@ SMCS=/Developer/MonoTouch/usr/bin/smcs
 
 all: TimesSquare.iOS.dll
 
-objc-TimesSquare-master:
+objc-TimesSquare-master: clean
 	git clone git@github.com:square/objc-TimesSquare.git
 
 libTimesSquare-i386.a: objc-TimesSquare-master
