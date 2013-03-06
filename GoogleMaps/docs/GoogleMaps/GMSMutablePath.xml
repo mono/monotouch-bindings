@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="GMSMutablePath" FullName="GoogleMaps.GMSMutablePath">
+  <TypeSignature Language="C#" Value="public class GMSMutablePath : GoogleMaps.GMSPath" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GMSMutablePath extends GoogleMaps.GMSPath" />
+  <AssemblyInfo>
+    <AssemblyName>GoogleMaps</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>GoogleMaps.GMSPath</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("GMSMutablePath", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>
+        <see cref="T:GoogleMaps.GMSMutablePath" /> is a dynamic (resizable) array of CLLocationCoordinate2D structs. It is the mutable counterpart to the immutable <see cref="T:GoogleMaps.GMSPath" />. </para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:GoogleMaps.GMSMutablePath" /> is a dynamic (resizable) array of CLLocationCoordinate2D structs. It is the mutable counterpart to the immutable <see cref="T:GoogleMaps.GMSPath" />. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GMSMutablePath ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GMSMutablePath (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GMSMutablePath (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GMSMutablePath (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddCoordinate">
+      <MemberSignature Language="C#" Value="public virtual void AddCoordinate (MonoTouch.CoreLocation.CLLocationCoordinate2D coord);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddCoordinate(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coord) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addCoordinate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="coord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+      </Parameters>
+      <Docs>
+        <param name="coord">To be added.</param>
+        <summary>
+          <para>Adds |coord| at the end of the path. </para>
+        </summary>
+        <remarks>
+          <para>Adds |coord| at the end of the path. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddLatLong">
+      <MemberSignature Language="C#" Value="public virtual void AddLatLong (double latitude, double longitude);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddLatLong(float64 latitude, float64 longitude) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addLatitude:longitude:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="latitude" Type="System.Double" />
+        <Parameter Name="longitude" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="latitude">To be added.</param>
+        <param name="longitude">To be added.</param>
+        <summary>
+          <para>Adds a new CLLocationCoordinate2D instance with the given lat/lng. </para>
+        </summary>
+        <remarks>
+          <para>Adds a new CLLocationCoordinate2D instance with the given lat/lng. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InsertCoordinate">
+      <MemberSignature Language="C#" Value="public virtual void InsertCoordinate (MonoTouch.CoreLocation.CLLocationCoordinate2D coord, uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void InsertCoordinate(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coord, unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("insertCoordinate:atIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="coord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="coord">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>
+          <para>Inserts |coord| at |index|.</para>
+        </summary>
+        <remarks>
+          <para>Inserts |coord| at |index|.</para>
+          <para>If this is smaller than the size of the path, shifts all coordinates forward by one. Otherwise, behaves as replaceCoordinateAtIndex:withCoordinate: and grows the array with kCLLocationCoordinate2DInvalid. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAllCoordinates">
+      <MemberSignature Language="C#" Value="public virtual void RemoveAllCoordinates ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveAllCoordinates() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeAllCoordinates")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Removes all coordinates in this path. </para>
+        </summary>
+        <remarks>
+          <para>Removes all coordinates in this path. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveCoordinate">
+      <MemberSignature Language="C#" Value="public virtual void RemoveCoordinate (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveCoordinate(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeCoordinateAtIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+          <para>Remove entry at |index|.</para>
+        </summary>
+        <remarks>
+          <para>Remove entry at |index|.</para>
+          <para>If |index| &lt; count decrements size. If |index| &gt;= count this is a silent no-op. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveLastCoordinate">
+      <MemberSignature Language="C#" Value="public virtual void RemoveLastCoordinate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveLastCoordinate() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeLastCoordinate")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Removes the last coordinate of the path.</para>
+        </summary>
+        <remarks>
+          <para>Removes the last coordinate of the path.</para>
+          <para>If the array is non-empty decrements size. If the array is empty, this is a silent no-op. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReplaceCoordinate">
+      <MemberSignature Language="C#" Value="public virtual void ReplaceCoordinate (uint index, MonoTouch.CoreLocation.CLLocationCoordinate2D coord);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReplaceCoordinate(unsigned int32 index, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coord) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("replaceCoordinateAtIndex:withCoordinate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="coord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="coord">To be added.</param>
+        <summary>
+          <para>Replace the coordinate at |index| with |coord|.</para>
+        </summary>
+        <remarks>
+          <para>Replace the coordinate at |index| with |coord|.</para>
+          <para>If |index| is after the end, grows the array with kCLLocationCoordinate2DInvalid. </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
