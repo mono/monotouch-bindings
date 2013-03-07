@@ -85,6 +85,8 @@ namespace sample {
 			ShowMessage ("Request Result", "Successfully sent " + count + " requests");
 		}
 		
+
+private FBDialogDelegate _requestDialogHandler;		
 		void RequestsToMany ()
 		{
 			var gift = new JsonObject ();
@@ -95,7 +97,8 @@ namespace sample {
 				new object [] { "Learn how to make your iOS apps social", "Check this out", gift.ToString () },
 				new object [] { "message", "notification_text", "data" });
 				
-			facebook.Dialog ("apprequests", parameters, DialogCallback (RequestsCallback));
+			_requestDialogHandler = DialogCallback (RequestsCallback);
+			facebook.Dialog ("apprequests", parameters, _requestDialogHandler);
 		}
 		
 		void PostUserWall ()
