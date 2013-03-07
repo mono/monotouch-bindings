@@ -1149,6 +1149,7 @@ namespace MonoTouch.Cocos2D {
 		void SetPriority (int priority, NSObject delegate_);
 	}	
 
+#if !MONOMAC
 	[BaseType (typeof (CCDirector))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: Attempted to allocate a second instance of a singleton.
 	interface CCDirectorIOS {
@@ -1169,6 +1170,35 @@ namespace MonoTouch.Cocos2D {
 	interface CCDirectorDisplayLink {
 
 	}
+#else
+	[BaseType (typeof (CCDirector))]
+	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: Attempted to allocate a second instance of a singleton.
+	interface CCDirectorMac {
+		[Export ("isFullScreen")]
+		bool IsFullScreen { get; }
+
+		[Export ("resizeMode")]
+		int ResizeMode { get; set; }
+
+		[Export ("originalWinSize")]
+		SizeF OriginalWinSize { get; set; }
+
+		//TODO change this to IsFullScreen property setter
+		[Export ("setFullScreen:")]
+		void SetFullScreen (bool value);
+
+		[Export ("convertToLogicalCoordinates:")]
+		PointF ConvertToLogicalCoordinates (PointF coordinates);
+	}
+
+	[BaseType (typeof (CCDirectorMac))]
+	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: Attempted to allocate a second instance of a singleton.
+	interface CCDirectorDisplayLink {
+	
+	}
+	
+	
+#endif
 
 #if !MONOMAC
 	[Model]
