@@ -1,0 +1,589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="SDImageCache" FullName="SDWebImage.SDImageCache">
+  <TypeSignature Language="C#" Value="public class SDImageCache : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SDImageCache extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>SDWebImage</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("SDImageCache", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>
+        <see cref="T:SDWebImage.SDImageCache" /> maintains a memory cache and an optional disk cache. Disk cache write operations are performed asynchronous so it doesn’t add unnecessary latency to the UI. </para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:SDWebImage.SDImageCache" /> maintains a memory cache and an optional disk cache. Disk cache write operations are performed asynchronous so it doesn’t add unnecessary latency to the UI. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SDImageCache ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SDImageCache (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SDImageCache (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SDImageCache (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SDImageCache (string aNamespace);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string aNamespace) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithNamespace:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="aNamespace" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="aNamespace">The namespace to use for this cache store </param>
+        <summary>
+          <para>Init a new cache store with a specific namespace</para>
+        </summary>
+        <remarks>
+          <para>Init a new cache store with a specific namespace</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CleanDisk">
+      <MemberSignature Language="C#" Value="public virtual void CleanDisk ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CleanDisk() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cleanDisk")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Remove all expired cached image from disk </para>
+        </summary>
+        <remarks>
+          <para>Remove all expired cached image from disk </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClearDisk">
+      <MemberSignature Language="C#" Value="public virtual void ClearDisk ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ClearDisk() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("clearDisk")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Clear all disk cached images </para>
+        </summary>
+        <remarks>
+          <para>Clear all disk cached images </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClearMemory">
+      <MemberSignature Language="C#" Value="public virtual void ClearMemory ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ClearMemory() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("clearMemory")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Clear all memory cached images </para>
+        </summary>
+        <remarks>
+          <para>Clear all memory cached images </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDiskCount">
+      <MemberSignature Language="C#" Value="public virtual int GetDiskCount ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance int32 GetDiskCount() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getDiskCount")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Get the number of images in the disk cache </para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Get the number of images in the disk cache </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSize">
+      <MemberSignature Language="C#" Value="public virtual int GetSize ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance int32 GetSize() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("getSize")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Get the size used by the disk cache </para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Get the size used by the disk cache </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ImageFromDiskCache">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIImage ImageFromDiskCache (string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.UIKit.UIImage ImageFromDiskCache(string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("imageFromDiskCacheForKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIImage</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="key">The unique key used to store the wanted image </param>
+        <summary>
+          <para>Query the disk cache synchronousely.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Query the disk cache synchronousely.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ImageFromMemoryCache">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIImage ImageFromMemoryCache (string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.UIKit.UIImage ImageFromMemoryCache(string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("imageFromMemoryCacheForKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIImage</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="key">The unique key used to store the wanted image </param>
+        <summary>
+          <para>Query the memory cache.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Query the memory cache.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxCacheAge">
+      <MemberSignature Language="C#" Value="public virtual int MaxCacheAge { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MaxCacheAge" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("maxCacheAge", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setMaxCacheAge:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueryDiskCache">
+      <MemberSignature Language="C#" Value="public virtual void QueryDiskCache (string key, SDWebImage.SDImageCacheDoneHandler doneHandler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void QueryDiskCache(string key, class SDWebImage.SDImageCacheDoneHandler doneHandler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("queryDiskCacheForKey:done:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="doneHandler" Type="SDWebImage.SDImageCacheDoneHandler" />
+      </Parameters>
+      <Docs>
+        <param name="key">The unique key used to store the wanted image </param>
+        <param name="doneHandler">To be added.</param>
+        <summary>
+          <para>Query the disk cache asynchronousely.</para>
+        </summary>
+        <remarks>
+          <para>Query the disk cache asynchronousely.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveImage">
+      <MemberSignature Language="C#" Value="public virtual void RemoveImage (string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveImage(string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeImageForKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="key">The unique image cache key </param>
+        <summary>
+          <para>Remove the image from memory and disk cache synchronousely</para>
+        </summary>
+        <remarks>
+          <para>Remove the image from memory and disk cache synchronousely</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveImage">
+      <MemberSignature Language="C#" Value="public virtual void RemoveImage (string key, bool fromDisk);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveImage(string key, bool fromDisk) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeImageForKey:fromDisk:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="fromDisk" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="key">The unique image cache key </param>
+        <param name="fromDisk">Also remove cache entry from disk if true </param>
+        <summary>
+          <para>Remove the image from memory and optionaly disk cache synchronousely</para>
+        </summary>
+        <remarks>
+          <para>Remove the image from memory and optionaly disk cache synchronousely</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SharedImageCache">
+      <MemberSignature Language="C#" Value="public static SDWebImage.SDImageCache SharedImageCache { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class SDWebImage.SDImageCache SharedImageCache" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sharedImageCache")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>SDWebImage.SDImageCache</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Returns global shared cache instance</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Returns global shared cache instance</para>
+          <para>
+            <para>
+              <see cref="T:SDWebImage.SDImageCache" /> global instance </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StoreImage">
+      <MemberSignature Language="C#" Value="public virtual void StoreImage (MonoTouch.UIKit.UIImage image, string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void StoreImage(class MonoTouch.UIKit.UIImage image, string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("storeImage:forKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="image">The image to store </param>
+        <param name="key">The unique image cache key, usually it's image absolute URL </param>
+        <summary>
+          <para>Store an image into memory and disk cache at the given key.</para>
+        </summary>
+        <remarks>
+          <para>Store an image into memory and disk cache at the given key.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StoreImage">
+      <MemberSignature Language="C#" Value="public virtual void StoreImage (MonoTouch.UIKit.UIImage image, string key, bool toDisk);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void StoreImage(class MonoTouch.UIKit.UIImage image, string key, bool toDisk) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("storeImage:forKey:toDisk:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="toDisk" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="image">The image to store </param>
+        <param name="key">The unique image cache key, usually it's image absolute URL </param>
+        <param name="toDisk">Store the image to disk cache if true </param>
+        <summary>
+          <para>Store an image into memory and optionally disk cache at the given key.</para>
+        </summary>
+        <remarks>
+          <para>Store an image into memory and optionally disk cache at the given key.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StoreImage">
+      <MemberSignature Language="C#" Value="public virtual void StoreImage (MonoTouch.UIKit.UIImage image, MonoTouch.Foundation.NSData imageData, string key, bool toDisk);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void StoreImage(class MonoTouch.UIKit.UIImage image, class MonoTouch.Foundation.NSData imageData, string key, bool toDisk) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("storeImage:imageData:forKey:toDisk:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="imageData" Type="MonoTouch.Foundation.NSData" />
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="toDisk" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="image">The image to store </param>
+        <param name="imageData">The image data as returned by the server, this representation will be used for disk storage instead of converting the given image object into a storable/compressed image format in order to save quality and CPU </param>
+        <param name="key">The unique image cache key, usually it's image absolute URL </param>
+        <param name="toDisk">Store the image to disk cache if true </param>
+        <summary>
+          <para>Store an image into memory and optionally disk cache at the given key.</para>
+        </summary>
+        <remarks>
+          <para>Store an image into memory and optionally disk cache at the given key.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

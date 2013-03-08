@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="SDWebImageDownloader" FullName="SDWebImage.SDWebImageDownloader">
+  <TypeSignature Language="C#" Value="public class SDWebImageDownloader : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SDWebImageDownloader extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>SDWebImage</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("SDWebImageDownloader", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>Asynchronous downloader dedicated and optimized for image loading. </para>
+    </summary>
+    <remarks>
+      <para>Asynchronous downloader dedicated and optimized for image loading. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SDWebImageDownloader ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SDWebImageDownloader (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SDWebImageDownloader (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SDWebImageDownloader (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DownloadImageWithURL">
+      <MemberSignature Language="C#" Value="public virtual SDWebImage.SDWebImageOperation DownloadImageWithURL (MonoTouch.Foundation.NSUrl url, SDWebImage.SDWebImageDownloaderOptions options, SDWebImage.SDWebImageDownloaderProgressHandler progressHandler, SDWebImage.SDWebImageDownloaderCompleteHandler completedHandler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class SDWebImage.SDWebImageOperation DownloadImageWithURL(class MonoTouch.Foundation.NSUrl url, valuetype SDWebImage.SDWebImageDownloaderOptions options, class SDWebImage.SDWebImageDownloaderProgressHandler progressHandler, class SDWebImage.SDWebImageDownloaderCompleteHandler completedHandler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("downloadImageWithURL:options:progress:completed:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>SDWebImage.SDWebImageOperation</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="options" Type="SDWebImage.SDWebImageDownloaderOptions" />
+        <Parameter Name="progressHandler" Type="SDWebImage.SDWebImageDownloaderProgressHandler" />
+        <Parameter Name="completedHandler" Type="SDWebImage.SDWebImageDownloaderCompleteHandler" />
+      </Parameters>
+      <Docs>
+        <param name="url">The URL to the image to download </param>
+        <param name="options">The options to be used for this download </param>
+        <param name="progressHandler">A block called repeatedly while the image is downloading </param>
+        <param name="completedHandler">A block called once the download is completed. If the download succeeded, the image parameter is set, in case of error, error parameter is set with the error. The last parameter is always YES if SDWebImageDownloaderProgressiveDownload isn't use. With the SDWebImageDownloaderProgressiveDownload option, this block is called repeatedly with the partial image object and the finished argument set to NO before to be called a last time with the full image and finished argument set to YES. In case of error, the finished argument is always YES.</param>
+        <summary>
+          <para>Creates a <see cref="T:SDWebImage.SDWebImageDownloader" /> async downloader instance with a given URL</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Creates a <see cref="T:SDWebImage.SDWebImageDownloader" /> async downloader instance with a given URL</para>
+          <para>The delegate will be informed when the image is finish downloaded or an error has happen.</para>
+          <para>
+            <para>SDWebImageDownloaderDelegate</para>
+            <para>A cancellable <see cref="T:SDWebImage.SDWebImageOperation" /></para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DownloadStartNotification">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString DownloadStartNotification { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString DownloadStartNotification" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DownloadStopNotification">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString DownloadStopNotification { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString DownloadStopNotification" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxConcurrentDownloads">
+      <MemberSignature Language="C#" Value="public virtual int MaxConcurrentDownloads { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MaxConcurrentDownloads" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("maxConcurrentDownloads", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setMaxConcurrentDownloads:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueueMode">
+      <MemberSignature Language="C#" Value="public virtual SDWebImage.SDWebImageDownloaderQueueMode QueueMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype SDWebImage.SDWebImageDownloaderQueueMode QueueMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("queueMode", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setQueueMode:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>SDWebImage.SDWebImageDownloaderQueueMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetValueforHTTPHeaderField">
+      <MemberSignature Language="C#" Value="public virtual void SetValueforHTTPHeaderField (string value, string field);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetValueforHTTPHeaderField(string value, string field) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setValue:forHTTPHeaderField:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+        <Parameter Name="field" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">The value for the header field. Use nil value to remove the header. </param>
+        <param name="field">The name of the header field to set. </param>
+        <summary>
+          <para>Set a value for a HTTP header to be appended to each download HTTP request.</para>
+        </summary>
+        <remarks>
+          <para>Set a value for a HTTP header to be appended to each download HTTP request.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SharedDownloader">
+      <MemberSignature Language="C#" Value="public static SDWebImage.SDWebImageDownloader SharedDownloader { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class SDWebImage.SDWebImageDownloader SharedDownloader" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sharedDownloader")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>SDWebImage.SDWebImageDownloader</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ValueForHTTPHeaderField">
+      <MemberSignature Language="C#" Value="public virtual string ValueForHTTPHeaderField (string field);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance string ValueForHTTPHeaderField(string field) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("valueForHTTPHeaderField:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="field" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="field">To be added.</param>
+        <summary>
+          <para>Returns the value of the specified HTTP header field.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Returns the value of the specified HTTP header field.</para>
+          <para>
+            <para>The value associated with the header field field, or <computeroutput>nil</computeroutput> if there is no corresponding header field. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

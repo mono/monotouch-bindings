@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="WebCacheUIImageViewExtension" FullName="SDWebImage.WebCacheUIImageViewExtension">
+  <TypeSignature Language="C#" Value="public static class WebCacheUIImageViewExtension" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit WebCacheUIImageViewExtension extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>SDWebImage</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="CancelCurrentImageLoad">
+      <MemberSignature Language="C#" Value="public static void CancelCurrentImageLoad (this MonoTouch.UIKit.UIImageView This);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CancelCurrentImageLoad(class MonoTouch.UIKit.UIImageView This) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cancelCurrentImageLoad")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="MonoTouch.UIKit.UIImageView" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetImageWithURL">
+      <MemberSignature Language="C#" Value="public static void SetImageWithURL (this MonoTouch.UIKit.UIImageView This, MonoTouch.Foundation.NSUrl url);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetImageWithURL(class MonoTouch.UIKit.UIImageView This, class MonoTouch.Foundation.NSUrl url) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setImageWithURL:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="MonoTouch.UIKit.UIImageView" RefType="this" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="url">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetImageWithURL">
+      <MemberSignature Language="C#" Value="public static void SetImageWithURL (this MonoTouch.UIKit.UIImageView This, MonoTouch.Foundation.NSUrl url, MonoTouch.UIKit.UIImage placeholder);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetImageWithURL(class MonoTouch.UIKit.UIImageView This, class MonoTouch.Foundation.NSUrl url, class MonoTouch.UIKit.UIImage placeholder) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setImageWithURL:placeholderImage:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="MonoTouch.UIKit.UIImageView" RefType="this" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="placeholder" Type="MonoTouch.UIKit.UIImage" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="placeholder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetImageWithURL">
+      <MemberSignature Language="C#" Value="public static void SetImageWithURL (this MonoTouch.UIKit.UIImageView This, MonoTouch.Foundation.NSUrl url, SDWebImage.SDWebImageCompletedHandler completedHandler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetImageWithURL(class MonoTouch.UIKit.UIImageView This, class MonoTouch.Foundation.NSUrl url, class SDWebImage.SDWebImageCompletedHandler completedHandler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setImageWithURL:completed:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="MonoTouch.UIKit.UIImageView" RefType="this" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="completedHandler" Type="SDWebImage.SDWebImageCompletedHandler" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="completedHandler">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetImageWithURL">
+      <MemberSignature Language="C#" Value="public static void SetImageWithURL (this MonoTouch.UIKit.UIImageView This, MonoTouch.Foundation.NSUrl url, MonoTouch.UIKit.UIImage placeholder, SDWebImage.SDWebImageCompletedHandler completedHandler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetImageWithURL(class MonoTouch.UIKit.UIImageView This, class MonoTouch.Foundation.NSUrl url, class MonoTouch.UIKit.UIImage placeholder, class SDWebImage.SDWebImageCompletedHandler completedHandler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setImageWithURL:placeholderImage:completed:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="MonoTouch.UIKit.UIImageView" RefType="this" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="placeholder" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="completedHandler" Type="SDWebImage.SDWebImageCompletedHandler" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="placeholder">To be added.</param>
+        <param name="completedHandler">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetImageWithURL">
+      <MemberSignature Language="C#" Value="public static void SetImageWithURL (this MonoTouch.UIKit.UIImageView This, MonoTouch.Foundation.NSUrl url, MonoTouch.UIKit.UIImage placeholder, SDWebImage.SDWebImageOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetImageWithURL(class MonoTouch.UIKit.UIImageView This, class MonoTouch.Foundation.NSUrl url, class MonoTouch.UIKit.UIImage placeholder, valuetype SDWebImage.SDWebImageOptions options) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setImageWithURL:placeholderImage:options:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="MonoTouch.UIKit.UIImageView" RefType="this" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="placeholder" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="options" Type="SDWebImage.SDWebImageOptions" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="placeholder">To be added.</param>
+        <param name="options">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetImageWithURL">
+      <MemberSignature Language="C#" Value="public static void SetImageWithURL (this MonoTouch.UIKit.UIImageView This, MonoTouch.Foundation.NSUrl url, MonoTouch.UIKit.UIImage placeholder, SDWebImage.SDWebImageOptions options, SDWebImage.SDWebImageCompletedHandler completedHandler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetImageWithURL(class MonoTouch.UIKit.UIImageView This, class MonoTouch.Foundation.NSUrl url, class MonoTouch.UIKit.UIImage placeholder, valuetype SDWebImage.SDWebImageOptions options, class SDWebImage.SDWebImageCompletedHandler completedHandler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setImageWithURL:placeholderImage:options:completed:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="MonoTouch.UIKit.UIImageView" RefType="this" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="placeholder" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="options" Type="SDWebImage.SDWebImageOptions" />
+        <Parameter Name="completedHandler" Type="SDWebImage.SDWebImageCompletedHandler" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="placeholder">To be added.</param>
+        <param name="options">To be added.</param>
+        <param name="completedHandler">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetImageWithURL">
+      <MemberSignature Language="C#" Value="public static void SetImageWithURL (this MonoTouch.UIKit.UIImageView This, MonoTouch.Foundation.NSUrl url, MonoTouch.UIKit.UIImage placeholder, SDWebImage.SDWebImageOptions options, SDWebImage.SDWebImageDownloaderProgressHandler progress, SDWebImage.SDWebImageCompletedHandler completedHandler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetImageWithURL(class MonoTouch.UIKit.UIImageView This, class MonoTouch.Foundation.NSUrl url, class MonoTouch.UIKit.UIImage placeholder, valuetype SDWebImage.SDWebImageOptions options, class SDWebImage.SDWebImageDownloaderProgressHandler progress, class SDWebImage.SDWebImageCompletedHandler completedHandler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setImageWithURL:placeholderImage:options:progress:completed:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="MonoTouch.UIKit.UIImageView" RefType="this" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="placeholder" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="options" Type="SDWebImage.SDWebImageOptions" />
+        <Parameter Name="progress" Type="SDWebImage.SDWebImageDownloaderProgressHandler" />
+        <Parameter Name="completedHandler" Type="SDWebImage.SDWebImageCompletedHandler" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="placeholder">To be added.</param>
+        <param name="options">To be added.</param>
+        <param name="progress">To be added.</param>
+        <param name="completedHandler">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
