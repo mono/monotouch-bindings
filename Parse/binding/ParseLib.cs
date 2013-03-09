@@ -1251,7 +1251,7 @@ namespace ParseTouch
 		UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath, ParseObject obj);
 
 		[Export ("tableView:cellForNextPageAtIndexPath:")]
-		UITableViewCell TableViewcellForNextPageAtIndexPath (UITableView tableView, NSIndexPath indexPath);
+		UITableViewCell TableViewCellForNextPageAtIndexPath (UITableView tableView, NSIndexPath indexPath);
 	}
 	
 	[BaseType (typeof(UIView), Name="PF_MBProgressHUD", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(ParseMBProgressHUDDelegate)})]
