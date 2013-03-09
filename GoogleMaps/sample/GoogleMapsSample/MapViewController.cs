@@ -1,14 +1,14 @@
 using System;
 using MonoTouch.UIKit;
-using GoogleMaps;
 using System.Drawing;
 using MonoTouch.CoreLocation;
+using Google.Maps;
 
 namespace GoogleMapsSample
 {
 	public class MapViewController : UIViewController
 	{
-		GMSMapView mapView;
+		MapView mapView;
 		public MapViewController ()
 		{
 
@@ -24,12 +24,12 @@ namespace GoogleMapsSample
 		{
 			base.LoadView ();
 
-			GMSCameraPosition camera = GMSCameraPosition.FromCamera (37.797865, -122.402526, 6);
-			mapView = GMSMapView.FromCamera(RectangleF.Empty, camera);
+			CameraPosition camera = CameraPosition.FromCamera (37.797865, -122.402526, 6);
+			mapView = MapView.FromCamera(RectangleF.Empty, camera);
 			mapView.MyLocationEnabled = true;
-			this.View = mapView;
+			View = mapView;
 			
-			var xamarinhq = new GMSMarkerOptions {
+			var xamarinhq = new MarkerOptions {
 				Title = "Xamarin HQ",
 				Snippet = "Where the magic happens.",
 				Position = new CLLocationCoordinate2D (37.797865, -122.402526)

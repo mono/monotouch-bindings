@@ -4,7 +4,7 @@ using System.Linq;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using GoogleMaps;
+using Google.Maps;
 
 namespace GoogleMapsSample
 {
@@ -29,7 +29,7 @@ namespace GoogleMapsSample
 			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 
-			GMSServices.ProvideAPIKey ("YOUR_API_KEY");
+			Services.ProvideAPIKey ("<Get your Api Key at https://code.google.com/apis/console/>");
 
 			window.RootViewController = new MapViewController ();
 			window.MakeKeyAndVisible ();
