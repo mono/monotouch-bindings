@@ -619,7 +619,7 @@ namespace ParseTouch
 
 		[Static]
 		[Export ("queryWithClassName:")]
-		ParseQuery FromClassNAme (string className);
+		ParseQuery FromClassName (string className);
 
 		[Export ("initWithClassName:")]
 		IntPtr Constructor (string newClassName);
