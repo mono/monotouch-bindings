@@ -437,7 +437,7 @@ namespace Google.Maps
 	}
 
 	[BaseType(typeof (NSObject), Name="GMSServices")]
-	interface Services {
+	interface MapServices {
 
 		[Static]
 		[Export ("provideAPIKey:")]

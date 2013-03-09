@@ -29,7 +29,7 @@ namespace GoogleMapsSample
 			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 
-			Services.ProvideAPIKey ("<Get your Api Key at https://code.google.com/apis/console/>");
+			MapServices.ProvideAPIKey ("<Get your Api Key at https://code.google.com/apis/console/>");
 
 			window.RootViewController = new MapViewController ();
 			window.MakeKeyAndVisible ();
