@@ -4,27 +4,27 @@ using MonoTouch.CoreLocation;
 using System.Drawing;
 using MonoTouch.ObjCRuntime;
 
-namespace GoogleMaps
+namespace Google.Maps
 {
-	public partial class GMSMapView {
+	public partial class MapView {
 
-		public GMSMarker AddMarker (GMSMarkerOptions options)
+		public Marker AddMarker (MarkerOptions options)
 		{
-			return new GMSMarker (InternalAddMarker (options));
+			return new Marker (InternalAddMarker (options));
 		}
 
-		public GMSPolyline AddPolyline (GMSPolylineOptions options)
+		public Polyline AddPolyline (PolylineOptions options)
 		{
-			return new GMSPolyline (InternalAddPolyline (options));
+			return new Polyline (InternalAddPolyline (options));
 		}
 
-		public GMSGroundOverlay AddGroundOverlay (GMSGroundOverlayOptions options)
+		public GroundOverlay AddGroundOverlay (GroundOverlayOptions options)
 		{
-			return new GMSGroundOverlay (InternalAddGroundOverlay (options));
+			return new GroundOverlay (InternalAddGroundOverlay (options));
 		}
 	}
 
-	public partial class GMSMarkerOptions
+	public partial class MarkerOptions
 	{
 		private static PointF kGMSMarkerDefaultGroundAnchor;
 		public static PointF DefaultAnchor
@@ -53,7 +53,7 @@ namespace GoogleMaps
 		}
 	}
 
-	public partial class GMSGroundOverlayOptions
+	public partial class GroundOverlayOptions
 	{
 		private static PointF kGMSGroundOverlayDefaultAnchor;
 		public static PointF DefaultAnchor

@@ -2,9 +2,9 @@ using System;
 using System.Runtime.InteropServices;
 using MonoTouch.CoreLocation;
 
-namespace GoogleMaps
+namespace Google.Maps
 {
-	public enum GMSMapViewType {
+	public enum MapViewType {
 		/** Basic maps.  The default. */
 		Normal = 1,
 		
@@ -20,14 +20,14 @@ namespace GoogleMaps
 	} 
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct GMSVisibleRegion {
+	public struct VisibleRegion {
 
 		public CLLocationCoordinate2D NearLeft;
 		public CLLocationCoordinate2D NearRight;
 		public CLLocationCoordinate2D FarLeft;
 		public CLLocationCoordinate2D FarRight;
 
-		public GMSVisibleRegion (double nearLeftLatitude, double nearLeftLongitude, 
+		public VisibleRegion (double nearLeftLatitude, double nearLeftLongitude, 
 		                         double nearRightLatitude, double nearRightLongitude, 
 		                         double farLeftLatitude, double farLeftLongitude, 
 		                         double farRightLatitude, double farRightLongitude)
