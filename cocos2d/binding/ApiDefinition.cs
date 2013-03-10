@@ -3329,6 +3329,10 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (NSObject))]
 	interface CCSpriteFrameCache {
+		[Static]
+		[Export("sharedSpriteFrameCache")]
+		CCSpriteFrameCache SharedSpriteFrameCache { get; }
+
 		[Export ("addSpriteFramesWithFile:")]
 		void AddSpriteFrames (string plist);
 
