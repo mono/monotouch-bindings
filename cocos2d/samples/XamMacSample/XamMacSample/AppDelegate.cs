@@ -6,32 +6,32 @@ using MonoMac.ObjCRuntime;
 
 using MonoMac.Cocos2D;
 
+[assembly: MonoMac.RequiredFramework("cocos2d.dylib")]
 namespace XamMacSample
 {
+
 	public partial class AppDelegate : NSApplicationDelegate
 	{
-		MainWindowController mainWindowController;
-		
+
 		public AppDelegate ()
 		{
+			Type t = typeof(CCDirector);
+			MonoMac.ObjCRuntime.Runtime.RegisterAssembly (t.Assembly);
 		}
 
 		public override void FinishedLaunching (NSObject notification)
 		{
-			var layer = new CCLayer ();
 			var director = (CCDirectorMac)CCDirector.SharedDirector;
 #if DEBUG
-			director.DisplayStats = true;
+			//director.DisplayStats = true;
 #endif
-			mainWindowController = new MainWindowController ();
-			var window = mainWindowController.Window;
-			director.View = window.GLView;
-			window.AcceptsMouseMovedEvents = false;
-			window.Center ();
+
+			director.View = glView;
+			//window.AcceptsMouseMovedEvents = false;
+			//window.Center ();
 
 			director.Run (new HelloWorldLayer().Scene ());
 
-			mainWindowController.Window.MakeKeyAndOrderFront (this);
 		}
 	}
 }

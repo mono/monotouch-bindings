@@ -12,13 +12,13 @@ using MonoMac.Cocos2D;
 
 namespace XamMacSample
 {
-	public class HelloWorldLayer : CCLayer
+	public class HelloWorldLayer : CCLayerColor
 	{
-		public HelloWorldLayer ()
+		public HelloWorldLayer () : base (new CCColor4B (0xaa, 0xaa, 0xaa, 0xff))
 		{
 			var size = CCDirector.SharedDirector.WinSize;
 
-			var label = new CCLabelTTF ("Hello Xamarin.Mac", "Marker Felt", 64) {
+			var label = new CCLabelTTF ("Hello Xamarin.Mac", "Marker Felt", 32) {
 				Position = new PointF (size.Width/2,size.Height/2),
 			};
 			Add (label);

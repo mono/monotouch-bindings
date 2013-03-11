@@ -79,11 +79,6 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindow.cs" />
-    <Compile Include="MainWindowController.cs" />
-    <Compile Include="MainWindow.designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="AppDelegate.designer.cs">
@@ -93,7 +88,6 @@
     <Compile Include="CCLayerExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="MainWindow.xib" />
     <InterfaceDefinition Include="MainMenu.xib" />
   </ItemGroup>
   <ItemGroup>
@@ -101,4 +95,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\v0.0\Xamarin.Mac.targets" />
+  <ItemGroup>
+    <BundleResource Include="Resources\fps_images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\binding\cocos2d.dylib">
+      <Link>cocos2d.dylib</Link>
+    </Content>
+  </ItemGroup>
 </Project>

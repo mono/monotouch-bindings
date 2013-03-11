@@ -78,6 +78,9 @@ libcocos2d-osx.a: $(PROJECTOSX)
 libkazmath-osx.a: libcocos2d-osx.a
 	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)/libkazmath.a $@
 
+cocos2d.dylib: libcocos2d-osx.a
+	libtool -dynamic $< -o $@ -framework OpenGL -lz -ObjC -lm -framework AppKit -framework Foundation -framework QuartzCore -framework Cocoa
+
 ## libChipmunk.a
 libChipmunk.a: libChipmunk-i386.a libChipmunk-armv7.a libChipmunk-armv7s.a
 	lipo -create -output $@ $^
