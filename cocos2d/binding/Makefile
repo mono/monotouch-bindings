@@ -1,4 +1,4 @@
-ENABLE_CHIPMUNK_INTEGRATION=1
+ENABLE_CHIPMUNK_INTEGRATION=0
 VERSION=2.1-rc0a
 
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
@@ -22,8 +22,8 @@ ifeq ($(ENABLE_CHIPMUNK_INTEGRATION), 1)
 			../../chipmunk/binding/src/Shape.cs			\
 			../../chipmunk/binding/src/Space.cs			\
 			../../chipmunk/binding/src/Constraint.cs
-
 	CHIPMUNK_LIB= 	libChipmunk.a
+	CHIPMUNK_DEFINE= -define:ENABLE_CHIPMUNK_INTEGRATION
 CHIPMUNK_RES= -res:libChipmunk.a
 else
 	XCODEEXTRA=
@@ -51,9 +51,13 @@ $(PROJECT_ROOT)/patched_for_chipmunk: $(PROJECT_TGZ) ../../chipmunk/binding/chip
 	patch -d $(PROJECT_ROOT)/external/Chipmunk -p1 < ../../chipmunk/binding/chipmunk-diff
 	touch $(PROJECT_ROOT)/patched_for_chipmunk
 
+$(PROJECT_ROOT)/patched_for_dylib: $(PROJECT)
+	patch -d $(PROJECTOSX) < dylib.patch
+	touch $(PROJECT_ROOT)/patched_for_dylib
+
 $(PROJECT): $(PROJECT_ROOT)/patched_for_chipmunk
 
-$(PROJECTOSX): $(PROJECT)
+$(PROJECTOSX): $(PROJECT_ROOT)/patched_for_dylib
 
 ## libcocos2d
 libcocos2d.a: libcocos2d-i386.a libcocos2d-armv7.a libcocos2d-armv7s.a
@@ -71,15 +75,9 @@ libcocos2d-armv7s.a: $(PROJECT)
 	$(XBUILD) -project $(PROJECT) -target cocos2d -sdk iphoneos -arch armv7s -configuration $(CONFIGURATION) $(XCODEEXTRA) clean build "GCC_SYMBOLS_PRIVATE_EXTERN=NO"
 	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/libcocos2d.a $@
 
-libcocos2d-osx.a: $(PROJECTOSX)
+cocos2d.dylib: $(PROJECTOSX)
 	$(XBUILD) -project $(PROJECTOSX) -target cocos2d -sdk macosx -configuration $(CONFIGURATION) $(XCODEEXTRA) clean build "GCC_SYMBOLS_PRIVATE_EXTERN=NO"
-	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)/libcocos2d.a $@
-
-libkazmath-osx.a: libcocos2d-osx.a
-	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)/libkazmath.a $@
-
-cocos2d.dylib: libcocos2d-osx.a
-	libtool -dynamic $< -o $@ -framework OpenGL -lz -ObjC -lm -framework AppKit -framework Foundation -framework QuartzCore -framework Cocoa
+	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)/cocos2d.dylib $@
 
 ## libChipmunk.a
 libChipmunk.a: libChipmunk-i386.a libChipmunk-armv7.a libChipmunk-armv7s.a
@@ -101,10 +99,10 @@ libChipmunk-armv7s.a: $(PROJECT)
 Cocos2D.dll: ApiDefinition.cs StructsAndEnums.cs Extra.cs $(CHIPMUNK_CS) AssemblyInfo.cs libcocos2d.a $(CHIPMUNK_LIB)
 	-mkdir -p ios
 	$(BTOUCH) -unsafe ApiDefinition.cs -s StructsAndEnums.cs --tmpdir=ios --sourceonly ios/sources.list -d ENABLE_CHIPMUNK_INTEGRATION 
-	$(SMCS) -noconfig -o- -out:$@ -res:libcocos2d.a $(CHIPMUNK_RES) AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list $(CHIPMUNK_CS) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll -define:ENABLE_CHIPMUNK_INTEGRATION
+	$(SMCS) -noconfig -o- -out:$@ -res:libcocos2d.a $(CHIPMUNK_RES) AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list $(CHIPMUNK_CS) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll $(CHIPMUNK_DEFINE)
 	cp $@ ../template/Cocos2D/
 
-Cocos2DMacOS.dll: mac/ApiDefinition.cs mac/StructsAndEnums.cs mac/Extra.cs libcocos2d-osx.a libkazmath-osx.a
+Cocos2DMacOS.dll: mac/ApiDefinition.cs mac/StructsAndEnums.cs mac/Extra.cs cocos2d.dylib
 	mkdir -p xamarin
 	$(XAM_BMAC) --ns MonoMac.Cocos2D -d=MONOMAC -o $@ -e mac/ApiDefinition.cs -s mac/StructsAndEnums.cs -x mac/Extra.cs --tmpdir=xamarin -r:System.Drawing -baselib=$(XAMMAC_DLL)
 
@@ -123,7 +121,7 @@ mac/Extra.cs: Extra.cs
 
 
 clean: 
-	-rm -f *.a *.dll
+	-rm -f *.a *.dll *.dylib
 
 clean-all: clean
 	-rm -rf $(PROJECT_ROOT) $(PROJECT_TGZ) ios
