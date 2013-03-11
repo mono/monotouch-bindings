@@ -1,12 +1,15 @@
-ENABLE_CHIPMUNK_INTEGRATION=1
+ENABLE_CHIPMUNK_INTEGRATION=0
 VERSION=2.1-rc0a
 
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+XAM_BMAC=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/bin/bmac
+XAMMAC_DLL=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/lib/mono/XamMac.dll
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 PROJECT_ROOT=cocos2d-iphone-$(VERSION)
 PROJECT_TGZ=$(PROJECT_ROOT).tar.gz
 PROJECT=$(PROJECT_ROOT)/cocos2d-ios.xcodeproj
+PROJECTOSX=$(PROJECT_ROOT)/cocos2d-osx.xcodeproj
 CONFIGURATION=Release
 
 ifeq ($(ENABLE_CHIPMUNK_INTEGRATION), 1)	
@@ -19,8 +22,8 @@ ifeq ($(ENABLE_CHIPMUNK_INTEGRATION), 1)
 			../../chipmunk/binding/src/Shape.cs			\
 			../../chipmunk/binding/src/Space.cs			\
 			../../chipmunk/binding/src/Constraint.cs
-
 	CHIPMUNK_LIB= 	libChipmunk.a
+	CHIPMUNK_DEFINE= -define:ENABLE_CHIPMUNK_INTEGRATION
 CHIPMUNK_RES= -res:libChipmunk.a
 else
 	XCODEEXTRA=
@@ -30,7 +33,11 @@ else
 endif
 
 
-all: Cocos2D.dll
+all: ios
+
+ios: Cocos2D.dll
+
+osx: Cocos2DMacOS.dll
 
 debug: CONFIGURATION = Debug
 debug: all
@@ -44,7 +51,13 @@ $(PROJECT_ROOT)/patched_for_chipmunk: $(PROJECT_TGZ) ../../chipmunk/binding/chip
 	patch -d $(PROJECT_ROOT)/external/Chipmunk -p1 < ../../chipmunk/binding/chipmunk-diff
 	touch $(PROJECT_ROOT)/patched_for_chipmunk
 
+$(PROJECT_ROOT)/patched_for_dylib: $(PROJECT)
+	patch -d $(PROJECTOSX) < dylib.patch
+	touch $(PROJECT_ROOT)/patched_for_dylib
+
 $(PROJECT): $(PROJECT_ROOT)/patched_for_chipmunk
+
+$(PROJECTOSX): $(PROJECT_ROOT)/patched_for_dylib
 
 ## libcocos2d
 libcocos2d.a: libcocos2d-i386.a libcocos2d-armv7.a libcocos2d-armv7s.a
@@ -62,6 +75,10 @@ libcocos2d-armv7s.a: $(PROJECT)
 	$(XBUILD) -project $(PROJECT) -target cocos2d -sdk iphoneos -arch armv7s -configuration $(CONFIGURATION) $(XCODEEXTRA) clean build "GCC_SYMBOLS_PRIVATE_EXTERN=NO"
 	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/libcocos2d.a $@
 
+cocos2d.dylib: $(PROJECTOSX)
+	$(XBUILD) -project $(PROJECTOSX) -target cocos2d -sdk macosx -configuration $(CONFIGURATION) $(XCODEEXTRA) clean build "GCC_SYMBOLS_PRIVATE_EXTERN=NO"
+	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)/cocos2d.dylib $@
+
 ## libChipmunk.a
 libChipmunk.a: libChipmunk-i386.a libChipmunk-armv7.a libChipmunk-armv7s.a
 	lipo -create -output $@ $^
@@ -78,13 +95,33 @@ libChipmunk-armv7s.a: $(PROJECT)
 	$(XBUILD) -project $(PROJECT) -target Chipmunk -sdk iphoneos -arch armv7s -configuration $(CONFIGURATION) GCC_PREPROCESSOR_DEFINITIONS="CHIPMUNK_BIND" clean build "GCC_SYMBOLS_PRIVATE_EXTERN=NO"
 	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/libChipmunk.a $@
 
+## .NET assemblies
 Cocos2D.dll: ApiDefinition.cs StructsAndEnums.cs Extra.cs $(CHIPMUNK_CS) AssemblyInfo.cs libcocos2d.a $(CHIPMUNK_LIB)
 	-mkdir -p ios
 	$(BTOUCH) -unsafe ApiDefinition.cs -s StructsAndEnums.cs --tmpdir=ios --sourceonly ios/sources.list -d ENABLE_CHIPMUNK_INTEGRATION 
-	$(SMCS) -noconfig -o- -out:$@ -res:libcocos2d.a $(CHIPMUNK_RES) AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list $(CHIPMUNK_CS) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll -define:ENABLE_CHIPMUNK_INTEGRATION
+	$(SMCS) -noconfig -o- -out:$@ -res:libcocos2d.a $(CHIPMUNK_RES) AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list $(CHIPMUNK_CS) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll $(CHIPMUNK_DEFINE)
 	cp $@ ../template/Cocos2D/
+
+Cocos2DMacOS.dll: mac/ApiDefinition.cs mac/StructsAndEnums.cs mac/Extra.cs cocos2d.dylib
+	mkdir -p xamarin
+	$(XAM_BMAC) --ns MonoMac.Cocos2D -d=MONOMAC -o $@ -e mac/ApiDefinition.cs -s mac/StructsAndEnums.cs -x mac/Extra.cs --tmpdir=xamarin -r:System.Drawing -baselib=$(XAMMAC_DLL)
+
+## Mac namespace
+mac/ApiDefinition.cs: ApiDefinition.cs
+	@mkdir -p mac
+	sed 's/MonoTouch/MonoMac/g' < $^ > $@
+
+mac/StructsAndEnums.cs: StructsAndEnums.cs
+	@mkdir -p mac
+	sed 's/MonoTouch/MonoMac/g' < $^ > $@
+
+mac/Extra.cs: Extra.cs
+	@mkdir -p mac
+	sed 's/MonoTouch/MonoMac/g' < $^ > $@
+
+
 clean: 
-	-rm -f *.a *.dll
+	-rm -f *.a *.dll *.dylib
 
 clean-all: clean
 	-rm -rf $(PROJECT_ROOT) $(PROJECT_TGZ) ios

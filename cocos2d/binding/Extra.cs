@@ -12,8 +12,11 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
+#if !MONOMAC
 using MonoTouch.UIKit;
-
+#else
+using MonoMac.AppKit;
+#endif
 namespace MonoTouch.Cocos2D {
 	// Use this for synchronous operations
 	[Register ("__My_NSActionDispatcher")]
@@ -212,19 +215,31 @@ namespace MonoTouch.Cocos2D {
 
 	public partial class CCTexture2D {
 		[Obsolete ("Obsolete since 2.1. Use CCTexture2D (string text, string fontName, float fontSize, UITextAlignment alignmenr, CCVerticalTextAlignment vertAlignmenr) instead.")]
+#if MONOMAC
+		public CCTexture2D (string text, SizeF dimensions, NSTextAlignment alignment, CCVerticalTextAlignment vertAlignment, string fontName, float fontSize) : this (text, fontName, fontSize, dimensions, alignment, vertAlignment)
+#else
 		public CCTexture2D (string text, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, string fontName, float fontSize) : this (text, fontName, fontSize, dimensions, alignment, vertAlignment)
+#endif
 		{
 		}
 	}
 
 	public partial class CCLabelTTF {
 		[Obsolete ("Obsolete since 2.1. Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode) instead.")]
+#if MONOMAC
+		public CCLabelTTF (string label, SizeF dimensions, NSTextAlignment alignment, NSLineBreakMode lineBreakMode, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment, lineBreakMode)
+#else
 		public CCLabelTTF (string label, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment, lineBreakMode)
+#endif
 		{
 		}
 
 		[Obsolete ("Obsolete since 2.1, Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment) instead.")]
+#if MONOMAC
+		public CCLabelTTF (string label, SizeF dimensions, NSTextAlignment alignment, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment)
+#else
 		public CCLabelTTF (string label, SizeF dimensions, UITextAlignment alignment, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment)
+#endif
 		{
 		}
 	}

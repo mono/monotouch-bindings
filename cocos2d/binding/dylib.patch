@@ -1,0 +1,101 @@
+diff -uN cocos2d-iphone-2.1-rc0a/cocos2d-osx.xcodeproj/project.pbxproj cocos2d-iphone-2.1-rc0a-mod/cocos2d-osx.xcodeproj/project.pbxproj
+--- cocos2d-iphone-2.1-rc0a/cocos2d-osx.xcodeproj/project.pbxproj	2013-01-26 08:20:53.000000000 +0100
++++ cocos2d-iphone-2.1-rc0a-mod/cocos2d-osx.xcodeproj/project.pbxproj	2013-03-11 20:28:14.000000000 +0100
+@@ -22,6 +22,8 @@
+ /* Begin PBXBuildFile section */
+ 		2B19285F163379400049A044 /* CCClippingNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B19285D163379400049A044 /* CCClippingNode.h */; };
+ 		2B192860163379400049A044 /* CCClippingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B19285E163379400049A044 /* CCClippingNode.m */; };
++		2E6EC5AF16EE3D7400C1B967 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F9256D1224207200EF2362 /* libz.dylib */; };
++		2E6EC5B116EE3D7800C1B967 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6EC5B016EE3D7800C1B967 /* AppKit.framework */; };
+ 		4AD3B8A0159A5415002E68D1 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01E6A3D121EDCD3001A484F /* ApplicationServices.framework */; };
+ 		4AD3B8A1159A5415002E68D1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E036A79E121B5C870037C5C6 /* QuartzCore.framework */; };
+ 		4AD3B8A2159A5415002E68D1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E036A79C121B5C720037C5C6 /* OpenGL.framework */; };
+@@ -1227,6 +1229,7 @@
+ 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+ 		2B19285D163379400049A044 /* CCClippingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCClippingNode.h; sourceTree = "<group>"; };
+ 		2B19285E163379400049A044 /* CCClippingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCClippingNode.m; sourceTree = "<group>"; };
++		2E6EC5B016EE3D7800C1B967 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+ 		4AD3B8A7159A5415002E68D1 /* libCocosDenshion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocosDenshion.a; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		A003ACA5165731D500C7B792 /* ccFPSImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccFPSImages.h; sourceTree = "<group>"; };
+ 		A003ACA6165731D500C7B792 /* ccFPSImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccFPSImages.m; sourceTree = "<group>"; };
+@@ -1749,7 +1752,7 @@
+ 		A0FF338315E2A4CB008707BD /* CCPhysicsDebugNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPhysicsDebugNode.m; sourceTree = "<group>"; };
+ 		A0FF338415E2A4CB008707BD /* CCPhysicsSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPhysicsSprite.h; sourceTree = "<group>"; };
+ 		A0FF338515E2A4CB008707BD /* CCPhysicsSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCPhysicsSprite.mm; sourceTree = "<group>"; };
+-		E01E663D121CA00A001A484F /* libcocos2d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcocos2d.a; sourceTree = BUILT_PRODUCTS_DIR; };
++		E01E663D121CA00A001A484F /* cocos2d.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = cocos2d.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		E01E6A3D121EDCD3001A484F /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+ 		E02BBC79126CD870006E46A2 /* CCAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimation.m; sourceTree = "<group>"; };
+ 		E02BBC7A126CD870006E46A2 /* CCAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimation.h; sourceTree = "<group>"; };
+@@ -2021,6 +2024,8 @@
+ 			isa = PBXFrameworksBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++				2E6EC5B116EE3D7800C1B967 /* AppKit.framework in Frameworks */,
++				2E6EC5AF16EE3D7400C1B967 /* libz.dylib in Frameworks */,
+ 				E01E6A3E121EDCD3001A484F /* ApplicationServices.framework in Frameworks */,
+ 				E01E6B36121EDCED001A484F /* QuartzCore.framework in Frameworks */,
+ 				E01E6B49121EDCF4001A484F /* OpenGL.framework in Frameworks */,
+@@ -2058,7 +2063,7 @@
+ 		19C28FACFE9D520D11CA2CBB /* Products */ = {
+ 			isa = PBXGroup;
+ 			children = (
+-				E01E663D121CA00A001A484F /* libcocos2d.a */,
++				E01E663D121CA00A001A484F /* cocos2d.dylib */,
+ 				A06430E713C1414300CC5554 /* libkazmath.a */,
+ 				A0FBA8A614A51386002DF395 /* libchipmunk.a */,
+ 				A0FBA8AF14A5138F002DF395 /* libbox2d.a */,
+@@ -2074,6 +2079,7 @@
+ 		29B97314FDCFA39411CA2CEA /* cocos2d-mac */ = {
+ 			isa = PBXGroup;
+ 			children = (
++				2E6EC5B016EE3D7800C1B967 /* AppKit.framework */,
+ 				A0E55417141EAEEE003F1E5A /* README.md */,
+ 				E076E61C1225EC1E00DE0DA2 /* AUTHORS */,
+ 				E076EB3E1225F05200DE0DA2 /* RELEASE_NOTES */,
+@@ -4446,8 +4452,8 @@
+ 			);
+ 			name = cocos2d;
+ 			productName = cocos2d;
+-			productReference = E01E663D121CA00A001A484F /* libcocos2d.a */;
+-			productType = "com.apple.product-type.library.static";
++			productReference = E01E663D121CA00A001A484F /* cocos2d.dylib */;
++			productType = "com.apple.product-type.library.dynamic";
+ 		};
+ /* End PBXNativeTarget section */
+ 
+@@ -5162,6 +5168,7 @@
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
++				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+ 				COMBINE_HIDPI_IMAGES = YES;
+ 				COPY_PHASE_STRIP = NO;
+ 				GCC_DYNAMIC_NO_PIC = NO;
+@@ -5174,6 +5181,7 @@
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
++				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+ 				COMBINE_HIDPI_IMAGES = YES;
+ 				COPY_PHASE_STRIP = YES;
+ 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+@@ -5386,6 +5394,7 @@
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
++				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+ 				COMBINE_HIDPI_IMAGES = YES;
+ 				COPY_PHASE_STRIP = NO;
+ 				GCC_DYNAMIC_NO_PIC = NO;
+@@ -5398,6 +5407,7 @@
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
++				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+ 				COMBINE_HIDPI_IMAGES = YES;
+ 				COPY_PHASE_STRIP = YES;
+ 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+Common subdirectories: cocos2d-iphone-2.1-rc0a/cocos2d-osx.xcodeproj/project.xcworkspace and cocos2d-iphone-2.1-rc0a-mod/cocos2d-osx.xcodeproj/project.xcworkspace
+Common subdirectories: cocos2d-iphone-2.1-rc0a/cocos2d-osx.xcodeproj/xcshareddata and cocos2d-iphone-2.1-rc0a-mod/cocos2d-osx.xcodeproj/xcshareddata
+Common subdirectories: cocos2d-iphone-2.1-rc0a/cocos2d-osx.xcodeproj/xcuserdata and cocos2d-iphone-2.1-rc0a-mod/cocos2d-osx.xcodeproj/xcuserdata
