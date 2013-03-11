@@ -23,7 +23,7 @@ namespace XamMacSample
 		{
 			var director = (CCDirectorMac)CCDirector.SharedDirector;
 #if DEBUG
-			//director.DisplayStats = true;
+			director.DisplayStats = true;
 #endif
 
 			director.View = glView;
