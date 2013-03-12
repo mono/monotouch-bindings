@@ -1,6 +1,6 @@
 ##Xamarin.iOS Google Maps
 
-This bounds `version 1.1.0` of GoogleMaps iOS
+This bounds `version 1.1.1` of GoogleMaps iOS
 
 ##Building GoogleMaps.dll
 

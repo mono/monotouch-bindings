@@ -80,6 +80,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="GoogleMaps">
+      <HintPath>..\..\binding\GoogleMaps.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -95,11 +98,5 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <BundleResource Include="Default-568h%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\binding\GoogleMaps.csproj">
-      <Project>{C0841C5F-02D9-429C-9651-69A1B268DDD7}</Project>
-      <Name>GoogleMaps</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>
