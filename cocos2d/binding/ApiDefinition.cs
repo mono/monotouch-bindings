@@ -26,11 +26,7 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.CoreGraphics;
-#if MONOMAC
-using MonoMac.AppKit;
-#else
 using MonoTouch.UIKit;
-#endif
 
 using ARCH_OPTIMAL_PARTICLE_SYSTEM = MonoTouch.Cocos2D.CCParticleSystemQuad;
 
