@@ -93,11 +93,12 @@ namespace Jumpy
 			base.OnEnter ();
 			Schedule(Step);
 
-			IsTouchEnabled = false;
-			//IsAccelerometerEnabled = true;
+			TouchEnabled = false;
+			AccelerometerEnabled = true;
+			SetAccelerometerInterval (1 / 60);
 
-			UIAccelerometer.SharedAccelerometer.UpdateInterval = 1/60;
-			UIAccelerometer.SharedAccelerometer.Delegate = new AccelerometerDelegate(DidAccelerate);
+			//UIAccelerometer.SharedAccelerometer.UpdateInterval = 1/60;
+			//UIAccelerometer.SharedAccelerometer.Delegate = new AccelerometerDelegate(DidAccelerate);
 			StartGame ();
 		}
 
@@ -393,7 +394,7 @@ namespace Jumpy
 			Add (particle,-1,(int)Tags.Particles);
 		}
 
-		void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration)
+		public override void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration)
 		{
 			if(gameSuspended) 
 				return;
@@ -409,14 +410,14 @@ namespace Jumpy
 		}
 	}
 
-	public class AccelerometerDelegate : UIAccelerometerDelegate {
-		Action<UIAccelerometer,UIAcceleration> Callback;
-		public AccelerometerDelegate (Action<UIAccelerometer,UIAcceleration> callback) {
-			Callback = callback;
-		}
-		public override void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration)
-		{
-			Callback(accelerometer,acceleration);
-		}
-	}
+	//public class AccelerometerDelegate : UIAccelerometerDelegate {
+	//	Action<UIAccelerometer,UIAcceleration> Callback;
+	//	public AccelerometerDelegate (Action<UIAccelerometer,UIAcceleration> callback) {
+	//		Callback = callback;
+	//	}
+	//	public override void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration)
+	//	{
+	//		Callback(accelerometer,acceleration);
+	//	}
+	//}
 }
