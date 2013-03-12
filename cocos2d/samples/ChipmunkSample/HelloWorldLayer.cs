@@ -27,8 +27,8 @@ namespace CC2DSharp
 		Random rnd = new Random();
 		public HelloWorldLayer ()
 		{
-			IsTouchEnabled = true;
-			UIAccelerometer.SharedAccelerometer.Delegate = new AccelerometerDelegate(DidAccelerate);
+			TouchEnabled = true;
+			AccelerometerEnabled = true;
 
 			var s = CCDirector.SharedDirector.WinSize;
 			
@@ -55,7 +55,7 @@ namespace CC2DSharp
 
 		float prevX=0f;
 		float prevY=0f;
-		void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration)
+		public override void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration)
 		{
 			var filterFactor =.5f;
 			var accelX = (float)acceleration.X * filterFactor+(1-filterFactor)*prevX;
@@ -64,6 +64,11 @@ namespace CC2DSharp
 			prevY=accelY;
 			PointF v;
 			space.Gravity=new PointF(300*accelY, -300*accelX);
+		}
+
+		public override void OnTouchesBegan (NSSet touches, UIEvent ev)
+		{
+			//The presence of this one is mandatory if TouchEnabled is true
 		}
 
 		public override void OnTouchesEnded (NSSet touches, UIEvent ev)
@@ -159,20 +164,6 @@ namespace CC2DSharp
 
 			space.Add(shape);
 			sprite.Body = body;
-		}
-	}
-
-	public class AccelerometerDelegate : UIAccelerometerDelegate
-	{
-		Action<UIAccelerometer, UIAcceleration> callback;
-		public AccelerometerDelegate (Action<UIAccelerometer, UIAcceleration> callback)
-		{
-			this.callback = callback;
-		}
-
-		public override void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration)
-		{
-			callback(accelerometer,acceleration);
 		}
 	}
 }
