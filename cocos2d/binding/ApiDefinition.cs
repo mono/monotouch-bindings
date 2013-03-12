@@ -1196,6 +1196,12 @@ namespace MonoTouch.Cocos2D {
 
 #if !MONOMAC
 	[Model]
+	interface CCAccelerometerDelegate {
+		[Export ("accelerometer:didAccelerate:")]
+		void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration);
+	}
+
+	[Model]
 	interface CCTargetedTouchDelegate {
 		[Export ("ccTouchBegan:withEvent:")]
 		bool OnTouchBegan(UITouch touch, UIEvent ev);
@@ -1283,49 +1289,53 @@ namespace MonoTouch.Cocos2D {
 #if MONOMAC
 	[BaseType (typeof (CCNode))]
 	interface CCLayer : CCKeyboardEventDelegate, CCMouseEventDelegate/*, CCTouchEventDelegate, CCGestureEventDelegate*/ {
-#else
-	[BaseType (typeof (CCNode))]
-	interface CCLayer : CCStandardTouchDelegate, CCTargetedTouchDelegate {
-#endif
-		[Export ("registerWithTouchDispatcher")]
-		void RegisterWithTouchDispatcher ();
-
 		[Export ("touchEnabled")]
 		bool TouchEnabled { [Bind ("isTouchEnabled")]get; set; }
-		
-#if !MONOMAC
-		[Export ("touchMode")]
-		CCTouchesMode TouchMode { get; set; }
-#endif
+	
 		[Export ("touchPriority")]
 		int TouchPriority { get; set; }
 		
+		[Export ("gestureEnabled")]
+		bool GestureEnabled { [Bind ("isGestureEnabled")]get; set; }
+
+		[Export ("gesturePriority")]
+		int GesturePriority { get; set; }
+		
+		[Export ("mouseEnabled")]
+		bool MouseEnabled { [Bind ("isMouseEnabled")]get; set; }
+
+		[Export ("mousePriority")]
+		int MousePriority ();
+
+		[Export ("keyboardEnabled")]
+		bool KeyboardEnabled { [Bind ("isKeyboardEnabled")]get; set;  }
+
+		[Export ("keyboardPriority")]
+		int KeyboardPriority ();
+
+		
+	}
+#else //MONOTOUCH
+	[BaseType (typeof (CCNode))]
+	interface CCLayer : CCAccelerometerDelegate, CCStandardTouchDelegate, CCTargetedTouchDelegate {
+
 		[Export ("accelerometerEnabled")]
 		bool AccelerometerEnabled { [Bind ("isAccelerometerEnabled")]get; set; }
+
+		[Export ("touchEnabled")]
+		bool TouchEnabled { [Bind ("isTouchEnabled")]get; set; }
+	
+		[Export ("touchPriority")]
+		int TouchPriority { get; set; }
+		
+		[Export ("touchMode")]
+		CCTouchesMode TouchMode { get; set; }
 
 		[Export ("setAccelerometerInterval:")]
 		void SetAccelerometerInterval (float interval);
 		
-
-
-#if MONOMAC
-		[Export ("keyboardEnabled")]
-		bool KeyboardEnabled { [Bind ("isKeyboardEnabled")]get; set;  }
-
-		[Export ("mouseEnabled")]
-		bool MouseEnabled { [Bind ("isMouseEnabled")]get; set; }
-
-
-		[Export ("mouseDelegatePriority")]
-		int MouseDelegatePriority ();
-
-		[Export ("keyboardDelegatePriority")]
-		int KeyboardDelegatePriority ();
-
-		[Export ("touchDelegatePriority")]
-		int TouchDelegatePriority ();
-#endif
 	}
+#endif
 
 	[BaseType (typeof (CCLayer))]
 	interface CCLayerColor : CCRGBAProtocol, CCBlendProtocol {
