@@ -1290,8 +1290,8 @@ namespace MonoTouch.Cocos2D {
 		[Export ("registerWithTouchDispatcher")]
 		void RegisterWithTouchDispatcher ();
 
-		[Export ("isTouchEnabled")]
-		bool IsTouchEnabled { get; set; }
+		[Export ("touchEnabled")]
+		bool TouchEnabled { [Bind ("isTouchEnabled")]get; set; }
 		
 #if !MONOMAC
 		[Export ("touchMode")]
@@ -1300,16 +1300,20 @@ namespace MonoTouch.Cocos2D {
 		[Export ("touchPriority")]
 		int TouchPriority { get; set; }
 		
-		[Export ("isAccelerometerEnabled")]
-		bool IsAccelerometerEnabled { get; set; }
+		[Export ("accelerometerEnabled")]
+		bool AccelerometerEnabled { [Bind ("isAccelerometerEnabled")]get; set; }
+
+		[Export ("setAccelerometerInterval:")]
+		void SetAccelerometerInterval (float interval);
+		
 
 
 #if MONOMAC
-		[Export ("isKeyboardEnabled")]
-		bool IsKeyboardEnabled { get; set;  }
+		[Export ("keyboardEnabled")]
+		bool KeyboardEnabled { [Bind ("isKeyboardEnabled")]get; set;  }
 
-		[Export ("isMouseEnabled")]
-		bool IsMouseEnabled { get; set; }
+		[Export ("mouseEnabled")]
+		bool MouseEnabled { [Bind ("isMouseEnabled")]get; set; }
 
 
 		[Export ("mouseDelegatePriority")]
