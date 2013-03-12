@@ -25,15 +25,13 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
+using MonoTouch.CoreGraphics;
 #if MONOMAC
 using MonoMac.AppKit;
 #else
 using MonoTouch.UIKit;
 #endif
-using MonoTouch.CoreGraphics;
-#if !MONOMAC
-using OpenTK;
-#endif
+
 using ARCH_OPTIMAL_PARTICLE_SYSTEM = MonoTouch.Cocos2D.CCParticleSystemQuad;
 
 namespace MonoTouch.Cocos2D {
@@ -2495,25 +2493,13 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCGrid3DAction {
 		[Export ("vertex:")]
-#if MONOMAC
 		CCVertex3F GetVertex (Point pos);
-#else
-		Vector3 GetVertex (Point pos);
-#endif
 
 		[Export ("originalVertex:")]
-#if MONOMAC
 		CCVertex3F GetOriginalVertex (Point pos);
-#else
-		Vector3 GetOriginalVertex (Point pos);
-#endif
 
 		[Export ("setVertex:vertex:")]
-#if MONOMAC
 		void SetVertex (Point position, CCVertex3F vertex);
-#else
-		void SetVertex (Point position, Vector3 vertex);
-#endif
 
 		[Export ("initWithSize:duration:")]
 		IntPtr Constructor (Size gridSize, float duration);
@@ -2625,25 +2611,13 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCGridBase))]
 	interface CCGrid3D {
 		[Export ("vertex:")]
-#if MONOMAC
 		CCVertex3F GetVertex (Point pos);
-#else
-		Vector3 GetVertex (Point pos);
-#endif
 
 		[Export ("originalVertex:")]
-#if MONOMAC
 		CCVertex3F GetOriginalVertex (Point pos);
-#else
-		Vector3 GetOriginalVertex (Point pos);
-#endif
 
 		[Export ("setVertex:vertex:")]
-#if MONOMAC
 		void SetVertex (Point pos, CCVertex3F vertex);
-#else
-		void SetVertex (Point pos, Vector3 vertex);
-#endif
 
 	}
 
