@@ -27,6 +27,10 @@ using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.CoreGraphics;
 using MonoTouch.UIKit;
+#if MONOMAC
+using UITextAlignment = MonoMac.AppKit.NSTextAlignment;
+using UILineBreakMode = MonoMac.AppKit.NSLineBreakMode;
+#endif
 
 using ARCH_OPTIMAL_PARTICLE_SYSTEM = MonoTouch.Cocos2D.CCParticleSystemQuad;
 
@@ -895,18 +899,12 @@ namespace MonoTouch.Cocos2D {
 #endif
 
 		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:lineBreakMode:")]
-#if MONOMAC
-		IntPtr Constructor (string text, string fontName, float fontSize, SizeF dimensions, NSTextAlignment alignment, CCVerticalTextAlignment vertAlignment, NSLineBreakMode lineBreakMode);
-#else
+		[PrologueSnippet ("if ((int)alignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"alignment\");")]
 		IntPtr Constructor (string text, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
-#endif
 
 		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:")]
-#if MONOMAC
-		IntPtr Constructor (string text, string fontName, float fontSize, SizeF dimensions, NSTextAlignment alignment, CCVerticalTextAlignment vertAlignment);
-#else
+		[PrologueSnippet ("if ((int)alignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"alignment\");")]
 		IntPtr Constructor (string text, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment);
-#endif
 
 		[Export ("initWithString:fontName:fontSize:")]
 		IntPtr Constructor (string text, string fontName, float fontSize);
@@ -1377,32 +1375,20 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (string label, string fontName, float fontSize);
 
 		[Export ("initWithString:fontName:fontSize:dimensions:halignment:")]
-#if MONOMAC
-		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, NSTextAlignment halignment);
-#else
+		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment);
-#endif
 
 		[Export ("initWithString:fontName:fontSize:dimensions:halignment:lineBreakMode:")]
-#if MONOMAC
-		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, NSTextAlignment halignment, NSLineBreakMode lineBreakMode);
-#else
+		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, UILineBreakMode lineBreakMode);
-#endif
 
 		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:")]
-#if MONOMAC
-		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, NSTextAlignment halignment, CCVerticalTextAlignment vertAlignment);
-#else
+		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment);
-#endif
 
 		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:lineBreakMode:")]
-#if MONOMAC
-		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, NSTextAlignment halignment, CCVerticalTextAlignment vertAlignment, NSLineBreakMode lineBreakMode);
-#else
+		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
-#endif
 	}
 	
 	[BaseType (typeof(CCSpriteBatchNode))]
@@ -1412,11 +1398,11 @@ namespace MonoTouch.Cocos2D {
 		void PurgeCachedData  ();
 
 		[Export("alignment")]
-#if MONOMAC
-		NSTextAlignment Alignment { get; set; }
-#else
-		UITextAlignment Alignment { get; set; }
-#endif
+		UITextAlignment Alignment { 
+			get; 
+			[PrologueSnippet ("if ((int)value >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"alignment\");")]
+			set; 
+		}
 
 		[Export("fntFile")]
 		string FontFile { get; set; }
@@ -1425,18 +1411,12 @@ namespace MonoTouch.Cocos2D {
 		CCLabelBMFont Constructor (string label, string fontFile);
 
 		[Export ("initWithString:fntFile:width:alignment:")]
-#if MONOMAC
-		IntPtr Constructor (string label, string fontFile, float width, NSTextAlignment alignment);
-#else
+		[PrologueSnippet ("if ((int)alignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"alignment\");")]
 		IntPtr Constructor (string label, string fontFile, float width, UITextAlignment alignment);
-#endif
 
 		[Export ("initWithString:fntFile:width:alignment:imageOffset:")]
-#if MONOMAC
-		IntPtr Constructor (string label, string fontFile, float width, NSTextAlignment alignment, PointF offset);
-#else
+		[PrologueSnippet ("if ((int)alignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"alignment\");")]
 		IntPtr Constructor (string label, string fontFile, float width, UITextAlignment alignment, PointF offset);
-#endif
 
 		[Export ("createFontChars")]
 		void CreateFontChars ();
