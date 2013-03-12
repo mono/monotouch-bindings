@@ -25,15 +25,9 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
-#if MONOMAC
-using MonoMac.AppKit;
-#else
-using MonoTouch.UIKit;
-#endif
 using MonoTouch.CoreGraphics;
-#if !MONOMAC
-using OpenTK;
-#endif
+using MonoTouch.UIKit;
+
 using ARCH_OPTIMAL_PARTICLE_SYSTEM = MonoTouch.Cocos2D.CCParticleSystemQuad;
 
 namespace MonoTouch.Cocos2D {
@@ -1202,6 +1196,12 @@ namespace MonoTouch.Cocos2D {
 
 #if !MONOMAC
 	[Model]
+	interface CCAccelerometerDelegate {
+		[Export ("accelerometer:didAccelerate:")]
+		void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration);
+	}
+
+	[Model]
 	interface CCTargetedTouchDelegate {
 		[Export ("ccTouchBegan:withEvent:")]
 		bool OnTouchBegan(UITouch touch, UIEvent ev);
@@ -1289,45 +1289,53 @@ namespace MonoTouch.Cocos2D {
 #if MONOMAC
 	[BaseType (typeof (CCNode))]
 	interface CCLayer : CCKeyboardEventDelegate, CCMouseEventDelegate/*, CCTouchEventDelegate, CCGestureEventDelegate*/ {
-#else
-	[BaseType (typeof (CCNode))]
-	interface CCLayer : CCStandardTouchDelegate, CCTargetedTouchDelegate {
-#endif
-		[Export ("registerWithTouchDispatcher")]
-		void RegisterWithTouchDispatcher ();
-
-		[Export ("isTouchEnabled")]
-		bool IsTouchEnabled { get; set; }
-		
-#if !MONOMAC
-		[Export ("touchMode")]
-		CCTouchesMode TouchMode { get; set; }
-#endif
+		[Export ("touchEnabled")]
+		bool TouchEnabled { [Bind ("isTouchEnabled")]get; set; }
+	
 		[Export ("touchPriority")]
 		int TouchPriority { get; set; }
 		
-		[Export ("isAccelerometerEnabled")]
-		bool IsAccelerometerEnabled { get; set; }
+		[Export ("gestureEnabled")]
+		bool GestureEnabled { [Bind ("isGestureEnabled")]get; set; }
 
+		[Export ("gesturePriority")]
+		int GesturePriority { get; set; }
+		
+		[Export ("mouseEnabled")]
+		bool MouseEnabled { [Bind ("isMouseEnabled")]get; set; }
 
-#if MONOMAC
-		[Export ("isKeyboardEnabled")]
-		bool IsKeyboardEnabled { get; set;  }
+		[Export ("mousePriority")]
+		int MousePriority ();
 
-		[Export ("isMouseEnabled")]
-		bool IsMouseEnabled { get; set; }
+		[Export ("keyboardEnabled")]
+		bool KeyboardEnabled { [Bind ("isKeyboardEnabled")]get; set;  }
 
+		[Export ("keyboardPriority")]
+		int KeyboardPriority ();
 
-		[Export ("mouseDelegatePriority")]
-		int MouseDelegatePriority ();
-
-		[Export ("keyboardDelegatePriority")]
-		int KeyboardDelegatePriority ();
-
-		[Export ("touchDelegatePriority")]
-		int TouchDelegatePriority ();
-#endif
+		
 	}
+#else //MONOTOUCH
+	[BaseType (typeof (CCNode))]
+	interface CCLayer : CCAccelerometerDelegate, CCStandardTouchDelegate, CCTargetedTouchDelegate {
+
+		[Export ("accelerometerEnabled")]
+		bool AccelerometerEnabled { [Bind ("isAccelerometerEnabled")]get; set; }
+
+		[Export ("touchEnabled")]
+		bool TouchEnabled { [Bind ("isTouchEnabled")]get; set; }
+	
+		[Export ("touchPriority")]
+		int TouchPriority { get; set; }
+		
+		[Export ("touchMode")]
+		CCTouchesMode TouchMode { get; set; }
+
+		[Export ("setAccelerometerInterval:")]
+		void SetAccelerometerInterval (float interval);
+		
+	}
+#endif
 
 	[BaseType (typeof (CCLayer))]
 	interface CCLayerColor : CCRGBAProtocol, CCBlendProtocol {
@@ -2495,25 +2503,13 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCGrid3DAction {
 		[Export ("vertex:")]
-#if MONOMAC
 		CCVertex3F GetVertex (Point pos);
-#else
-		Vector3 GetVertex (Point pos);
-#endif
 
 		[Export ("originalVertex:")]
-#if MONOMAC
 		CCVertex3F GetOriginalVertex (Point pos);
-#else
-		Vector3 GetOriginalVertex (Point pos);
-#endif
 
 		[Export ("setVertex:vertex:")]
-#if MONOMAC
 		void SetVertex (Point position, CCVertex3F vertex);
-#else
-		void SetVertex (Point position, Vector3 vertex);
-#endif
 
 		[Export ("initWithSize:duration:")]
 		IntPtr Constructor (Size gridSize, float duration);
@@ -2625,25 +2621,13 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCGridBase))]
 	interface CCGrid3D {
 		[Export ("vertex:")]
-#if MONOMAC
 		CCVertex3F GetVertex (Point pos);
-#else
-		Vector3 GetVertex (Point pos);
-#endif
 
 		[Export ("originalVertex:")]
-#if MONOMAC
 		CCVertex3F GetOriginalVertex (Point pos);
-#else
-		Vector3 GetOriginalVertex (Point pos);
-#endif
 
 		[Export ("setVertex:vertex:")]
-#if MONOMAC
 		void SetVertex (Point pos, CCVertex3F vertex);
-#else
-		void SetVertex (Point pos, Vector3 vertex);
-#endif
 
 	}
 

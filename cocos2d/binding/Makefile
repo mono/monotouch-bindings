@@ -23,7 +23,7 @@ ifeq ($(ENABLE_CHIPMUNK_INTEGRATION), 1)
 			../../chipmunk/binding/src/Space.cs			\
 			../../chipmunk/binding/src/Constraint.cs
 	CHIPMUNK_LIB= 	libChipmunk.a
-	CHIPMUNK_DEFINE= -define:ENABLE_CHIPMUNK_INTEGRATION
+	CHIPMUNK_DEFINE= -d:ENABLE_CHIPMUNK_INTEGRATION
 CHIPMUNK_RES= -res:libChipmunk.a
 else
 	XCODEEXTRA=
@@ -98,7 +98,7 @@ libChipmunk-armv7s.a: $(PROJECT)
 ## .NET assemblies
 Cocos2D.dll: ApiDefinition.cs StructsAndEnums.cs Extra.cs $(CHIPMUNK_CS) AssemblyInfo.cs libcocos2d.a $(CHIPMUNK_LIB)
 	-mkdir -p ios
-	$(BTOUCH) -unsafe ApiDefinition.cs -s StructsAndEnums.cs --tmpdir=ios --sourceonly ios/sources.list -d ENABLE_CHIPMUNK_INTEGRATION 
+	$(BTOUCH) -unsafe ApiDefinition.cs -s StructsAndEnums.cs --tmpdir=ios --sourceonly ios/sources.list $(CHIPMUNK_DEFINE) 
 	$(SMCS) -noconfig -o- -out:$@ -res:libcocos2d.a $(CHIPMUNK_RES) AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list $(CHIPMUNK_CS) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll $(CHIPMUNK_DEFINE)
 	cp $@ ../template/Cocos2D/
 
@@ -109,22 +109,22 @@ Cocos2DMacOS.dll: mac/ApiDefinition.cs mac/StructsAndEnums.cs mac/Extra.cs cocos
 ## Mac namespace
 mac/ApiDefinition.cs: ApiDefinition.cs
 	@mkdir -p mac
-	sed 's/MonoTouch/MonoMac/g' < $^ > $@
+	sed -e 's/MonoTouch\.UIKit/MonoMac\.AppKit/g' -e 's/MonoTouch/MonoMac/g' < $^ > $@
 
 mac/StructsAndEnums.cs: StructsAndEnums.cs
 	@mkdir -p mac
-	sed 's/MonoTouch/MonoMac/g' < $^ > $@
+	sed -e 's/MonoTouch\.UIKit/MonoMac\.AppKit/g' -e 's/MonoTouch/MonoMac/g' < $^ > $@
 
 mac/Extra.cs: Extra.cs
 	@mkdir -p mac
-	sed 's/MonoTouch/MonoMac/g' < $^ > $@
+	sed -e 's/MonoTouch\.UIKit/MonoMac\.AppKit/g' -e 's/MonoTouch/MonoMac/g' < $^ > $@
 
 
 clean: 
 	-rm -f *.a *.dll *.dylib
 
 clean-all: clean
-	-rm -rf $(PROJECT_ROOT) $(PROJECT_TGZ) ios
+	-rm -rf $(PROJECT_ROOT) $(PROJECT_TGZ) ios mac xamarin
 
 .PHONY: clean clean-all tags
 
