@@ -124,7 +124,7 @@ clean:
 	-rm -f *.a *.dll *.dylib
 
 clean-all: clean
-	-rm -rf $(PROJECT_ROOT) $(PROJECT_TGZ) ios
+	-rm -rf $(PROJECT_ROOT) $(PROJECT_TGZ) ios mac xamarin
 
 .PHONY: clean clean-all tags
 
