@@ -12,11 +12,8 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
-#if !MONOMAC
 using MonoTouch.UIKit;
-#else
-using MonoMac.AppKit;
-#endif
+
 namespace MonoTouch.Cocos2D {
 	// Use this for synchronous operations
 	[Register ("__My_NSActionDispatcher")]

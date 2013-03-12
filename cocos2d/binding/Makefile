@@ -109,15 +109,15 @@ Cocos2DMacOS.dll: mac/ApiDefinition.cs mac/StructsAndEnums.cs mac/Extra.cs cocos
 ## Mac namespace
 mac/ApiDefinition.cs: ApiDefinition.cs
 	@mkdir -p mac
-	sed 's/MonoTouch/MonoMac/g' < $^ > $@
+	sed -e 's/MonoTouch\.UIKit/MonoMac\.AppKit/g' -e 's/MonoTouch/MonoMac/g' < $^ > $@
 
 mac/StructsAndEnums.cs: StructsAndEnums.cs
 	@mkdir -p mac
-	sed 's/MonoTouch/MonoMac/g' < $^ > $@
+	sed -e 's/MonoTouch\.UIKit/MonoMac\.AppKit/g' -e 's/MonoTouch/MonoMac/g' < $^ > $@
 
 mac/Extra.cs: Extra.cs
 	@mkdir -p mac
-	sed 's/MonoTouch/MonoMac/g' < $^ > $@
+	sed -e 's/MonoTouch\.UIKit/MonoMac\.AppKit/g' -e 's/MonoTouch/MonoMac/g' < $^ > $@
 
 
 clean: 
