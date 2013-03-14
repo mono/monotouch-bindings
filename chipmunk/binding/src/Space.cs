@@ -417,12 +417,82 @@ namespace Chipmunk
 		delegate void PostSolveFunc (IntPtr arbiter, IntPtr space, IntPtr data);
 		delegate void SeparateFunc (IntPtr arbiter, IntPtr space, IntPtr data);
 
+		[MonoTouch.MonoPInvokeCallback (typeof (BeginFunc))]
+		static bool CollisionBegin (IntPtr arb, IntPtr space, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var callbacks = (Tuple<Func<Arbiter,bool>, 
+					   Func<Arbiter,bool>,
+					   Action<Arbiter>,
+					   Action<Arbiter>>)handle.Target;
+		    //handle.Free ();
+		    var arbiter = (arb == IntPtr.Zero ? null : new Arbiter (arb));
+		    var func = callbacks.Item1;
+		    if (func == null)
+			return false;
+		    return func (arbiter);
+		}
+		
+		[MonoTouch.MonoPInvokeCallback (typeof (PreSolveFunc))]
+		static bool CollisionPreSolve (IntPtr arb, IntPtr space, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var callbacks = (Tuple<Func<Arbiter,bool>, 
+					   Func<Arbiter,bool>,
+					   Action<Arbiter>,
+					   Action<Arbiter>>)handle.Target;
+		    //handle.Free ();
+		    var arbiter = (arb == IntPtr.Zero ? null : new Arbiter (arb));
+		    var func = callbacks.Item2;
+		    if (func == null)
+			return false;
+		    return func (arbiter);
+		}
+
+		[MonoTouch.MonoPInvokeCallback (typeof (PostSolveFunc))]
+		static void CollisionPostSolve (IntPtr arb, IntPtr space, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var callbacks = (Tuple<Func<Arbiter,bool>, 
+					   Func<Arbiter,bool>,
+					   Action<Arbiter>,
+					   Action<Arbiter>>)handle.Target;
+		    //handle.Free ();
+		    var arbiter = (arb == IntPtr.Zero ? null : new Arbiter (arb));
+		    var func = callbacks.Item3;
+		    if (func == null)
+			return;
+		    func (arbiter);
+		}
+
+		[MonoTouch.MonoPInvokeCallback (typeof (SeparateFunc))]
+		static void CollisionSeparate (IntPtr arb, IntPtr space, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var callbacks = (Tuple<Func<Arbiter,bool>, 
+					   Func<Arbiter,bool>,
+					   Action<Arbiter>,
+					   Action<Arbiter>>)handle.Target;
+		    //handle.Free ();
+		    var arbiter = (arb == IntPtr.Zero ? null : new Arbiter (arb));
+		    var func = callbacks.Item4;
+		    if (func == null)
+			return;
+		    func (arbiter);
+		}
+
 		[DllImport ("__Internal")]
 		extern static void cpSpaceAddCollisionHandler (IntPtr space, uint collisionTypeA, uint collisionTypeB, BeginFunc begin, PreSolveFunc presolve, PostSolveFunc postsolve, SeparateFunc separate, IntPtr data);
 
-		public void AddCollisionHandler (uint collisionTypeA, uint collisionTypeB, Func<Arbiter,Space, bool> beginFunc, Func<Arbiter,Space,bool> preSolveFunc, Action<Arbiter,Space> postSolveFunc, Action<Arbiter,Space> separateFunc)
+		public void AddCollisionHandler (uint collisionTypeA, uint collisionTypeB, Func<Arbiter,bool> beginFunc, Func<Arbiter,bool> preSolveFunc, Action<Arbiter> postSolveFunc, Action<Arbiter> separateFunc)
 		{
+		    var callbacks = new Tuple<Func<Arbiter,bool>,Func<Arbiter,bool>,Action<Arbiter>,Action<Arbiter>> (beginFunc, preSolveFunc, postSolveFunc, separateFunc);
+		    var data = GCHandle.ToIntPtr(GCHandle.Alloc (callbacks));
+
+		    cpSpaceAddCollisionHandler (Handle.Handle, collisionTypeA, collisionTypeB, CollisionBegin, CollisionPreSolve, CollisionPostSolve, CollisionSeparate, data);
+		    /*
 		    BeginFunc begin = beginFunc == null ? (BeginFunc)null : (arbiter, space, data) => {
+			Console.Write("b");
 			return beginFunc(new Arbiter(arbiter), this);
 		    };
 		    PreSolveFunc presolve = preSolveFunc == null ? (PreSolveFunc)null : (arbiter, space, data) => {
@@ -435,6 +505,7 @@ namespace Chipmunk
 			separateFunc (new Arbiter(arbiter), this);
 		    };
 		    cpSpaceAddCollisionHandler (Handle.Handle, collisionTypeA, collisionTypeB, begin, presolve, postsolve, separate, IntPtr.Zero);
+		    */
 		}
 
 		[DllImport ("__Internal")]
