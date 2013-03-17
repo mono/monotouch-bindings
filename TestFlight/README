@@ -5,7 +5,9 @@ This is a MonoTouch binding for the TestFlight SDK which can be found at
 
      https://testflightapp.com/sdk/
 
-The current version of this binding is for TestFlight SDK 1.1
+The current version of this binding is for TestFlight SDK 1.2.1
+v 1.2.1 released on 26 dec 2012
+Bindings updated on 17 mrt 2013
 
 
 Building
@@ -19,3 +21,5 @@ Using TestFlight.dll with your own iOS App
 
 Simply add TestFlight.dll to your project's References in MonoDevelop and you
 are good to go!
+
+To use the thread safe TakeOff methode. Change TestFlight.TakeOff(token) to TestFlight.TakeOffThreadSafe(token)
