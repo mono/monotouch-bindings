@@ -9,6 +9,7 @@ using MonoTouch.Dialog;
 using MonoTouch.FacebookConnect;
 using System.Drawing;
 using System.Json;
+using System.Text.RegularExpressions;
 
 namespace sample {
 	[Register ("AppDelegate")]
@@ -72,19 +73,27 @@ namespace sample {
 		{
 			facebook.Authorize (new string [] { "user_likes" });
 		}
-		
+
+		// Get success uids from apprequests response
+		string[] GetUids(string url) {
+			List<string> result = new List<string> ();
+			var matches = Regex.Matches (url, "&to.+?=(?<id>\\d+)");
+			foreach (Match match in matches) {
+				var group = match.Groups ["id"];
+				result.Add (group.Value);
+			}
+			return result.ToArray();
+		}
+
 		// Method called back by all of the various Requests* methods
 		void RequestsCallback (NSUrl url)
 		{
-			var collection = System.Web.HttpUtility.ParseQueryString (url.Query);
-			int count = 0;
-			foreach (var k in collection.AllKeys){
-				if (k.StartsWith ("request_ids"))
-					count++;
-			}
+			var uids = GetUids (url.Query);
+			var count = uids.Length;
 			ShowMessage ("Request Result", "Successfully sent " + count + " requests");
 		}
-		
+
+private FBDialogDelegate _requestDialogHandler;		
 		void RequestsToMany ()
 		{
 			var gift = new JsonObject ();
@@ -95,7 +104,8 @@ namespace sample {
 				new object [] { "Learn how to make your iOS apps social", "Check this out", gift.ToString () },
 				new object [] { "message", "notification_text", "data" });
 				
-			facebook.Dialog ("apprequests", parameters, DialogCallback (RequestsCallback));
+			_requestDialogHandler = DialogCallback (RequestsCallback);
+			facebook.Dialog ("apprequests", parameters, _requestDialogHandler);
 		}
 		
 		void PostUserWall ()
@@ -122,7 +132,7 @@ namespace sample {
 			facebook.Dialog ("feed", parameters, _wallDialogHandler);
 		}
 		
-		private FBDialogDelegate _wallDialogHandler;		
+private FBDialogDelegate _wallDialogHandler;		
 		internal void ShowLoggedIn ()
 		{
 			dvc.Root = new RootElement ("Logged In") { 
