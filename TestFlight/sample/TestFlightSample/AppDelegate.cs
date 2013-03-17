@@ -17,6 +17,8 @@ namespace TestFlightSample
 		TestFlightSampleViewController viewController;
 		private static NSUserDefaults prefs = NSUserDefaults.StandardUserDefaults;
 		
+		
+		const String TestFlightAppToken = "your_token_goes_here";
 
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -27,7 +29,7 @@ namespace TestFlightSample
 		//
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			TestFlight.TakeOff("8a2f26739dc3810018973494f39c9019_ODY2MjAxMS0xMC0wNCAxODozMDozOC4wMTk4Mzk");
+			TestFlight.TakeOffThreadSafe(TestFlightAppToken);
 			
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
