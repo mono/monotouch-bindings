@@ -1,5 +1,5 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-VERSION=1.1
+VERSION=1.2.1
 all: TestFlight.dll
 
 TestFlightSDK$(VERSION).zip:
@@ -12,8 +12,8 @@ TestFlightSDK$(VERSION).zip:
 libTestFlight.a: TestFlightSDK$(VERSION).zip
 	unzip -p $^ $@ > $@
 
-TestFlight.dll: Makefile AssemblyInfo.cs testflight.cs testflight-cplusplus.cs libTestFlight.a
-	$(BTOUCH) -e testflight.cs AssemblyInfo.cs -x:testflight-cplusplus.cs --out=$@ --link-with=libTestFlight.a,libTestFlight.a
+TestFlight.dll: Makefile AssemblyInfo.cs testflight.cs testflight-threadsafe.cs testflight-cplusplus.cs libTestFlight.a
+	$(BTOUCH) -e testflight.cs AssemblyInfo.cs -x:testflight-threadsafe.cs -x:testflight-cplusplus.cs --out=$@ --link-with=libTestFlight.a,libTestFlight.a
 
 clean:
 	-rm -f *.a *.dll
