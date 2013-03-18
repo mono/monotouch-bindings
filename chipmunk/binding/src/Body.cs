@@ -20,7 +20,7 @@ using MonoTouch.UIKit;
 
 namespace Chipmunk
 {
-	public sealed partial class Body : ChipmunkObject
+	public partial class Body : ChipmunkObject
 	{
 		public Body (IntPtr ptr) : base (ptr)
 		{
@@ -39,6 +39,15 @@ namespace Chipmunk
 		public static Body CreateStatic ()
 		{
 		    return new Body (cpBodyNewStatic ());
+		}
+
+		internal static Body FromIntPtr (IntPtr ptr)
+		{
+		    var userdata = __cpBodyGetUserData (ptr);
+		    if (userdata == IntPtr.Zero) 
+			return new Body (ptr);
+		    var gchandle = GCHandle.FromIntPtr (__cpBodyGetUserData (ptr));
+		    return (Body)gchandle.Target;
 		}
 
 		[DllImport("__Internal")]
@@ -182,7 +191,7 @@ namespace Chipmunk
 		[DllImport("__Internal")]
 		extern static void __cpBodySetUserData (IntPtr body, IntPtr userData);
 
-		public IntPtr UserData {
+		internal override IntPtr UserData {
 		    get { return __cpBodyGetUserData (Handle.Handle); }
 		    set { __cpBodySetUserData (Handle.Handle, value); }
 		}
@@ -278,7 +287,8 @@ namespace Chipmunk
 		public void EachShape (Action<Body, Shape> action)
 		{
 		    ShapeIterator iterator = (body, shape, data) => {
-			action (new Body(body), new Shape(shape));
+			action (Body.FromIntPtr (body), 
+				Shape.FromIntPtr (shape));
 		    };
 		    cpBodyEachShape (Handle.Handle, iterator, IntPtr.Zero);
 		}
@@ -291,7 +301,8 @@ namespace Chipmunk
 		public void EachConstraint (Action<Body, Constraint> action)
 		{
 		    ConstraintIterator iterator = (body, constraint, data) => {
-			action (new Body(body), new Constraint(constraint));
+			action (Body.FromIntPtr (body), 
+				Constraint.FromIntPtr (constraint));
 		    };
 		    cpBodyEachConstraint (Handle.Handle, iterator, IntPtr.Zero);
 		}
@@ -304,7 +315,8 @@ namespace Chipmunk
 		public void EachArbiter (Action<Body, Arbiter> action)
 		{
 		    ArbiterIterator iterator = (body, arbiter, data) => {
-			action (new Body(body), new Arbiter(arbiter));
+			action (Body.FromIntPtr (body), 
+				new Arbiter(arbiter));
 		    };
 		    cpBodyEachArbiter (Handle.Handle, iterator, IntPtr.Zero);
 		}

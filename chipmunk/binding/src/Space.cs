@@ -155,7 +155,7 @@ namespace Chipmunk
 		extern static IntPtr __cpSpaceGetStaticBody(IntPtr space);
 
 		public Body StaticBody {
-			get { return new Body (__cpSpaceGetStaticBody(Handle.Handle)); }
+			get { return Body.FromIntPtr (__cpSpaceGetStaticBody(Handle.Handle)); }
 		}
 
 		//operations on the space
@@ -286,7 +286,7 @@ namespace Chipmunk
 		{
 		    var handle = GCHandle.FromIntPtr (data);
 		    var action = (Action<Body>)handle.Target;
-		    action (new Body(body));
+		    action (Body.FromIntPtr (body));
 		}
 		
 		[DllImport ("__Internal")]
@@ -307,7 +307,7 @@ namespace Chipmunk
 		{
 		    var handle = GCHandle.FromIntPtr (data);
 		    var action = (Action<Shape>)handle.Target;
-		    action (new Shape(shape));
+		    action (Shape.FromIntPtr (shape));
 		}
 	
 		[DllImport ("__Internal")]
@@ -328,7 +328,7 @@ namespace Chipmunk
 		{
 		    var handle = GCHandle.FromIntPtr (data);
 		    var action = (Action<Constraint>)handle.Target;
-		    action (new Constraint (constraint));
+		    action (Constraint.FromIntPtr (constraint));
 		}
 		
 		[DllImport ("__Internal")]
@@ -360,7 +360,7 @@ namespace Chipmunk
 		    var handle = GCHandle.FromIntPtr (data);
 		    var action = (Action<Body>)handle.Target;
 		    handle.Free ();
-		    action (obj == IntPtr.Zero ? null :  new Body (obj));
+		    action (obj == IntPtr.Zero ? null :  Body.FromIntPtr (obj));
 		}
 
 		[MonoTouch.MonoPInvokeCallback (typeof (PostStepFunc))]
@@ -369,7 +369,7 @@ namespace Chipmunk
 		    var handle = GCHandle.FromIntPtr (data);
 		    var action = (Action<Shape>)handle.Target;
 		    handle.Free ();
-		    action (obj == IntPtr.Zero ? null :  new Shape (obj));
+		    action (obj == IntPtr.Zero ? null :  Shape.FromIntPtr (obj));
 		}
 
 		[MonoTouch.MonoPInvokeCallback (typeof (PostStepFunc))]
@@ -378,7 +378,7 @@ namespace Chipmunk
 		    var handle = GCHandle.FromIntPtr (data);
 		    var action = (Action<Constraint>)handle.Target;
 		    handle.Free ();
-		    action (obj == IntPtr.Zero ? null :  new Constraint (obj));
+		    action (obj == IntPtr.Zero ? null :  Constraint.FromIntPtr (obj));
 		}
 
 		[DllImport ("__Internal")]
@@ -535,5 +535,18 @@ namespace Chipmunk
 		    };
 		    cpSpaceSetDefaultCollisionHandler (Handle.Handle, begin, presolve, postsolve, separate, IntPtr.Zero);
 		}
+
+		[DllImport("__Internal")]
+		extern static IntPtr __cpSpaceGetUserData (IntPtr body);
+
+		[DllImport("__Internal")]
+		extern static void __cpSpaceSetUserData (IntPtr body, IntPtr userData);
+
+		internal override IntPtr UserData {
+		    get { return __cpSpaceGetUserData (Handle.Handle); }
+		    set { __cpSpaceSetUserData (Handle.Handle, value); }
+		}
+
+	
 	}
 }
