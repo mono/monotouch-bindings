@@ -99,8 +99,8 @@ namespace Chipmunk
 	{
 	    IntPtr a, b;
 	    __cpArbiterGetShapes (Handle.Handle, out a, out b);
-	    shapeA = new Shape (a);
-	    shapeB = new Shape (b);
+	    shapeA = Shape.FromIntPtr (a);
+	    shapeB = Shape.FromIntPtr (b);
 	}
 
 	[DllImport ("__Internal")]
@@ -110,8 +110,8 @@ namespace Chipmunk
 	{
 	    IntPtr a, b;
 	    __cpArbiterGetBodies (Handle.Handle, out a, out b);
-	    bodyA = new Body (a);
-	    bodyB = new Body (b);
+	    bodyA = Body.FromIntPtr (a);
+	    bodyB = Body.FromIntPtr (b);
 	}
 	
 	//TODO contact point set
@@ -137,7 +137,15 @@ namespace Chipmunk
 	    get { return cpArbiterTotalKE (Handle.Handle); }
 	}
 	
-	
-	
+	[DllImport("__Internal")]
+	extern static IntPtr __cpArbiterGetUserData (IntPtr body);
+
+	[DllImport("__Internal")]
+	extern static void __cpArbiterSetUserData (IntPtr body, IntPtr userData);
+
+	internal override IntPtr UserData {
+	    get { return __cpArbiterGetUserData (Handle.Handle); }
+	    set { __cpArbiterSetUserData (Handle.Handle, value); }
+	}
     }
 }

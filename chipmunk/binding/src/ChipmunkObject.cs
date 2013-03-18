@@ -17,7 +17,7 @@ using MonoTouch.UIKit;
 
 namespace Chipmunk
 {
-    public class ChipmunkObject : IDisposable
+    public abstract class ChipmunkObject : IDisposable
     {
 	static Dictionary<IntPtr, List<ChipmunkObject>> references = new Dictionary<IntPtr, List<ChipmunkObject>> ();
 
@@ -31,14 +31,17 @@ namespace Chipmunk
 	}
 
 	bool refcount;
-	protected ChipmunkObject (IntPtr ptr, bool refcount = true)
+	internal protected ChipmunkObject (IntPtr ptr, bool refcount = true)
 	{
 	    Handle = new HandleRef (this, ptr);
 	    this.refcount = refcount;
-	    if (refcount)
+	    if (refcount) 
 		AddRef (this, ptr);
+
+	    if (refcount) //Don't set it for Arbiters, as we have no way to free it
+		UserData = GCHandle.ToIntPtr (GCHandle.Alloc (this));
 	}
-	
+
 	public static bool operator ==(ChipmunkObject a, ChipmunkObject b)
 	{
 	    if (System.Object.ReferenceEquals (a, b))
@@ -76,6 +79,11 @@ namespace Chipmunk
 
 	void Cleanup ()
 	{
+	    if (refcount && UserData!= IntPtr.Zero) {
+		var gchandle = GCHandle.FromIntPtr (UserData);
+		gchandle.Free ();
+	    }
+	    
 	    if (refcount && RemoveRef (this, Handle.Handle))
 		Free ();
 	    Handle = new HandleRef (this, IntPtr.Zero);
@@ -111,5 +119,7 @@ namespace Chipmunk
 #endif
 	    return false;
 	}
+
+	internal abstract IntPtr UserData { get; set; }
     }    
 }

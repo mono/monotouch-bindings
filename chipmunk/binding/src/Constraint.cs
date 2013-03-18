@@ -18,6 +18,15 @@ namespace Chipmunk
 	{
 	}
 
+	internal static Constraint FromIntPtr (IntPtr ptr)
+	{
+	    var userdata = __cpConstraintGetUserData (ptr);
+	    if (userdata == IntPtr.Zero)
+		return new Constraint (ptr);
+	    var gchandle = GCHandle.FromIntPtr (__cpConstraintGetUserData (ptr));
+	    return (Constraint)gchandle.Target;
+	}
+
 	[DllImport ("__Internal")]
 	extern static void cpConstraintFree (IntPtr constraint);
 	
@@ -30,14 +39,14 @@ namespace Chipmunk
 	extern static IntPtr __cpConstraintGetA (IntPtr constraint);
 
 	public Body A {
-	    get { return new Body (__cpConstraintGetA (Handle.Handle)); }
+	    get { return Body.FromIntPtr (__cpConstraintGetA (Handle.Handle)); }
 	}
 
 	[DllImport("__Internal")]
 	extern static IntPtr __cpConstraintGetB (IntPtr constraint);
 
 	public Body B {
-	    get { return new Body (__cpConstraintGetA (Handle.Handle)); }
+	    get { return Body.FromIntPtr (__cpConstraintGetA (Handle.Handle)); }
 	}
 
 	[DllImport("__Internal")]
@@ -73,12 +82,12 @@ namespace Chipmunk
 	    set { __cpConstraintSetMaxBias (Handle.Handle, value); }
 	}
 	
-	[DllImport ("__Internal")]
-	extern static IntPtr __cpConstraintGetSpace (IntPtr constraint);
+	//[DllImport ("__Internal")]
+	//extern static IntPtr __cpConstraintGetSpace (IntPtr constraint);
 
-	public Space Space {
-	    get { return new Space (__cpConstraintGetSpace (Handle.Handle)); }
-	}
+	//public Space Space {
+	//    get { return new Space (__cpConstraintGetSpace (Handle.Handle)); }
+	//}
 
 	[DllImport("__Internal")]
 	extern static float __cpConstraintGetImpulse (IntPtr constraint);
@@ -86,10 +95,20 @@ namespace Chipmunk
 	public float Impulse {
 	    get { return __cpConstraintGetImpulse (Handle.Handle); }
 	}
+	
+	[DllImport("__Internal")]
+	extern static IntPtr __cpConstraintGetUserData (IntPtr body);
 
+	[DllImport("__Internal")]
+	extern static void __cpConstraintSetUserData (IntPtr body, IntPtr userData);
+
+	internal override IntPtr UserData {
+	    get { return __cpConstraintGetUserData (Handle.Handle); }
+	    set { __cpConstraintSetUserData (Handle.Handle, value); }
+	}
     }
 
-    public sealed partial class PinJoint : Constraint
+    public partial class PinJoint : Constraint
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpPinJointNew (IntPtr bodyA, IntPtr bodyB, PointF anchr1, PointF anchr2);
@@ -132,7 +151,7 @@ namespace Chipmunk
 	}
     }
 
-    public sealed partial class SlideJoint : Constraint
+    public partial class SlideJoint : Constraint
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpSlideJointNew (IntPtr bodyA, IntPtr bodyB, PointF anchr1, PointF anchr2, float min, float max);
@@ -186,7 +205,7 @@ namespace Chipmunk
 	}	
     }
 
-    public sealed partial class PivotJoint : Constraint
+    public partial class PivotJoint : Constraint
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpPivotJointNew (IntPtr bodyA, IntPtr bodyB, PointF pivot);
@@ -225,7 +244,7 @@ namespace Chipmunk
 	}
     }
 
-    public sealed partial class GrooveJoint : Constraint
+    public partial class GrooveJoint : Constraint
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpGrooveJointNew (IntPtr bodyA, IntPtr bodyB, PointF grooveA, PointF grooveB, PointF anchr2);
@@ -268,7 +287,7 @@ namespace Chipmunk
 	}
     }
 
-    public sealed partial class DampedSpring : Constraint
+    public partial class DampedSpring : Constraint
     {
 	[DllImport("__Internal")]
 	extern static IntPtr cpDampedSpringNew (IntPtr bodyA, IntPtr bodyB, PointF anchr1, PointF anchr2, float restLength, float stiffness, float damping);
@@ -333,7 +352,7 @@ namespace Chipmunk
 	}
     }
 
-    public sealed partial class DampedRotarySpring : Constraint
+    public partial class DampedRotarySpring : Constraint
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpDampedRotarySpringNew (IntPtr bodyA, IntPtr bodyB, float restAngle, float stiffness, float damping);
@@ -376,7 +395,7 @@ namespace Chipmunk
 	}
     }
 
-    public sealed partial class RotaryLimitJoint : Constraint
+    public partial class RotaryLimitJoint : Constraint
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpRotaryLimitJointNew (IntPtr bodyA, IntPtr bodyB, float min, float max);
@@ -408,7 +427,7 @@ namespace Chipmunk
 	}
     }
 
-    public sealed partial class RatchetJoint : Constraint
+    public partial class RatchetJoint : Constraint
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpRatchetJointNew (IntPtr bodyA, IntPtr bodyB, float phase, float ratchet);
@@ -451,7 +470,7 @@ namespace Chipmunk
 	}	
     }
 
-    public sealed partial class GearJoint : Constraint
+    public partial class GearJoint : Constraint
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpGearJointNew (IntPtr bodyA, IntPtr bodyB, float pahse, float ratio);
@@ -483,7 +502,7 @@ namespace Chipmunk
 	}
     }
 
-    public sealed partial class SimpleMotor : Constraint
+    public partial class SimpleMotor : Constraint
     {
 	[DllImport ("__Internal")]
 	extern static IntPtr cpSimpleMotorNew (IntPtr bodyA, IntPtr bodyB, float rate);

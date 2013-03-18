@@ -236,7 +236,7 @@ namespace MonoTouch.Cocos2D {
 #if ENABLE_CHIPMUNK_INTEGRATION
 	public partial class CCPhysicsSprite {
 		public Chipmunk.Body Body {
-			get { return new Chipmunk.Body (BodyPtr); }
+			get { return Chipmunk.Body.FromIntPtr (BodyPtr); }
 			set { BodyPtr = value.Handle.Handle; }
 		} 
 
