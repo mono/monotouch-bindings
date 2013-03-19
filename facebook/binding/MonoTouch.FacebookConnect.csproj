@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4201B259-04C6-4508-A6BB-8ADBD96B0299}</ProjectGuid>
+    <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MonoTouch.FacebookConnect</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\FacebookSDKResources.bundle\" />
+    <Folder Include="Resources\FBUserSettingsViewResources.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libFacebookSDK.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="libFacebookSDK.linkwith.cs">
+      <DependentUpon>libFacebookSDK.a</DependentUpon>
+    </Compile>
+    <Compile Include="extensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\Contents\Resources\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\Contents\Resources\he.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBDialog\images\close.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBDialog\images\close%402x.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBDialog\images\fbicon.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBFriendPickerView\images\default.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\bluetint.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\f_logo.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\facebook.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\login-button-small-pressed.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\login-button-small-pressed%402x.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\login-button-small.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\login-button-small%402x.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBPlacePickerView\images\fb_generic_place.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBProfilePictureView\images\fb_blank_profile_portrait.png" />
+    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBProfilePictureView\images\fb_blank_profile_square.png" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\Contents\Resources\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\Contents\Resources\he.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\facebook-logo.png" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\facebook-logo%402x.png" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPadLandscape.jpg" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPadLandscape%402x.jpg" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPadPortrait.jpg" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPadPortrait%402x.jpg" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPhonePortrait.jpg" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPhonePortrait%402x.jpg" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\silver-button-normal.png" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\silver-button-normal%402x.png" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\silver-button-pressed.png" />
+    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\silver-button-pressed%402x.png" />
+  </ItemGroup>
+</Project>
