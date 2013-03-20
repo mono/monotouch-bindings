@@ -33,10 +33,10 @@ namespace Cocos2D.Bindings {
 		public BindingSignatureTest ()
 		{
 			// Useful to know what was being tried if things crash
-			LogProgress = true;
+			// LogProgress = true;
 
 			// Useful for fixing several errors before rebuilding the bindings
-			ContinueOnFailure = true;
+			// ContinueOnFailure = true;
 		}
 		
 		protected override Assembly Assembly {
@@ -74,6 +74,8 @@ namespace Cocos2D.Bindings {
 				return type.Name == "CCBlendFunc";
 			case "_ccColor3B":
 				return type.Name == "CCColor3B";
+			case "_ccColor4B":
+				return type.Name == "CCColor4B";
 			case "_ccColor4F":
 				return type.Name == "CCColor4F";
 			case "sCCParticle":

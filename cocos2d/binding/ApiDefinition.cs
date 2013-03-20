@@ -1435,7 +1435,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, Size gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, SizeF gridSize, float duration);
 	}
 
 	interface CCBlendProtocol {
@@ -1923,10 +1923,10 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCMenuItemLabel))]
 	interface CCMenuItemAtlasFont {
 		[Export ("initWithString:charMapFile:itemWidth:itemHeight:startCharMap:target:selector:")]
-		IntPtr Constructor (string value, string charMapFile, int itemWidth, int itemHeight, char startCharMap, NSObject target, Selector selector);
+		IntPtr Constructor (string value, string charMapFile, int itemWidth, int itemHeight, sbyte startCharMap, NSObject target, Selector selector);
 
 		[Export ("initWithString:charMapFile:itemWidth:itemHeight:startCharMap:block:")]
-		IntPtr Constructor (string value, string charMapFile, int itemWidth, int itemHeight, char startCharMap, NSCallbackWithSender callback);
+		IntPtr Constructor (string value, string charMapFile, int itemWidth, int itemHeight, sbyte startCharMap, NSCallbackWithSender callback);
 	}
 
 	
@@ -2141,7 +2141,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithPosition:twirls:amplitude:grid:duration:")]
-		IntPtr Constructor (PointF position, int twirls, float amplitude, Size gridSize, float duration);
+		IntPtr Constructor (PointF position, int twirls, float amplitude, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCGrid3DAction))]
@@ -2154,7 +2154,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:horizontal:vertical:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, bool horizontal, bool vertical, Size gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, bool horizontal, bool vertical, SizeF gridSize, float duration);
 
 	}
 
@@ -2168,7 +2168,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, Size gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCActionInstant))]
@@ -2193,7 +2193,7 @@ namespace MonoTouch.Cocos2D {
 		PointF Position { get; set;  }
 
 		[Export ("initWithPosition:radius:grid:duration:")]
-		IntPtr Constructor (PointF position, float radius, Point gridSize, float duration);
+		IntPtr Constructor (PointF position, float radius, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCActionCamera))]
@@ -2285,21 +2285,21 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithPosition:radius:waves:amplitude:grid:duration:")]
-		IntPtr Constructor (PointF position, float radius, int waves, float amplitude, Point gridSize, float duration);
+		IntPtr Constructor (PointF position, float radius, int waves, float amplitude, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCGrid3DAction))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCShaky3D {
 		[Export ("initWithRange:shakeZ:grid:duration:")]
-		IntPtr Constructor (int range, bool shakeZ, Size gridSize, float duration);
+		IntPtr Constructor (int range, bool shakeZ, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCGridAction))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCTiledGrid3DAction {
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Size gridSize, float duration);
+		IntPtr Constructor (SizeF gridSize, float duration);
 
 		[Export ("tile:")]
 		CCQuad3 GetTile (PointF position);
@@ -2481,7 +2481,7 @@ namespace MonoTouch.Cocos2D {
 		SizeF GridSize { get; set; }
 
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Size gridSize, float duration);
+		IntPtr Constructor (SizeF gridSize, float duration);
 
 		[Export ("grid")]
 		CCGridBase Grid ();
@@ -2500,7 +2500,7 @@ namespace MonoTouch.Cocos2D {
 		void SetVertex (PointF position, CCVertex3F vertex);
 
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Size gridSize, float duration);
+		IntPtr Constructor (SizeF gridSize, float duration);
 
 	}
 
@@ -2543,7 +2543,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCPageTurn3D {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Size gridSize, float duration);
+		IntPtr Constructor (SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCActionInterval))]
@@ -2584,10 +2584,10 @@ namespace MonoTouch.Cocos2D {
 		bool IsTextureFlipped { get; set;  }
 
 		[Export ("initWithSize:texture:flippedTexture:")]
-		IntPtr Constructor (Size gridSize, CCTexture2D texture, bool flippedTexture);
+		IntPtr Constructor (SizeF gridSize, CCTexture2D texture, bool flippedTexture);
 
 		[Export ("initWithSize:")]
-		IntPtr Constructor (Size gridSize);
+		IntPtr Constructor (SizeF gridSize);
 
 		[Export ("beforeDraw")]
 		void BeforeDraw ();
@@ -2648,21 +2648,21 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCShakyTiles3D {
 		[Export ("initWithRange:shakeZ:grid:duration:")]
-		IntPtr Constructor (int range, bool shakeZ, Size gridSize, float duration);
+		IntPtr Constructor (int range, bool shakeZ, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCShatteredTiles3D {
 		[Export ("initWithRange:shatterZ:grid:duration:")]
-		IntPtr Constructor (int range, bool shatterZ, Size gridSize, float duration);
+		IntPtr Constructor (int range, bool shatterZ, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCShuffleTiles {
 		[Export ("initWithSeed:grid:duration:")]
-		IntPtr Constructor (int seed, Size gridSize, float duration);
+		IntPtr Constructor (int seed, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -2670,7 +2670,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCFadeOutTRTiles {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Size gridSize, float duration);
+		IntPtr Constructor (SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCFadeOutTRTiles))]
@@ -2678,7 +2678,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCFadeOutBLTiles {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Size gridSize, float duration);
+		IntPtr Constructor (SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCFadeOutTRTiles))]
@@ -2686,7 +2686,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCFadeOutUpTiles {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Size gridSize, float duration);
+		IntPtr Constructor (SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCFadeOutUpTiles))]
@@ -2694,14 +2694,15 @@ namespace MonoTouch.Cocos2D {
 	interface CCFadeOutDownTiles {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (Size gridSize, float duration);
+		IntPtr Constructor (SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCTurnOffTiles {
 		[Export ("initWithSeed:grid:duration:")]
-		IntPtr Constructor (int seed, Size gridSize, float duration);
+		[Obsolete]
+		IntPtr Constructor (int seed, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -2714,7 +2715,8 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, Size gridSize, float duration);
+		[Obsolete]
+		IntPtr Constructor (int waves, float amplitude, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -2727,7 +2729,8 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithJumps:amplitude:grid:duration:")]
-		IntPtr Constructor (int jumps, float amplitude, Size gridSize, float duration);
+		[Obsolete]
+		IntPtr Constructor (int jumps, float amplitude, SizeF gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -2851,7 +2854,7 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCLabelAtlas : CCLabelProtocol {
 		[Export ("initWithString:charMapFile:itemWidth:itemHeight:startCharMap:")]
-		IntPtr Constructor (string text, string atlasCharmapFile, uint elementWidth, uint elementHeight, char startingCharInAtlas);
+		IntPtr Constructor (string text, string atlasCharmapFile, uint elementWidth, uint elementHeight, uint startingCharInAtlas);
 
 		[Export ("initWithString:fntFile:")]
 		IntPtr Constructor (string text, string fontConfigFile);
