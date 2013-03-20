@@ -23,6 +23,7 @@ using System.Reflection;
 using NUnit.Framework;
 using TouchUnit.Bindings;
 
+using MonoTouch.UIKit;
 using MonoTouch.Cocos2D;
 using MonoTouch.Foundation;
 
@@ -42,7 +43,28 @@ namespace Cocos2D.Bindings {
 			// Useful to know which types are being skipped for lack of a default ctor
 			// LogUntestedTypes = true;
 		}
-		
+
+		//protected override bool Skip (Type type)
+		//{
+		//	return type == typeof(CCDrawNode);
+		//}
+
+		[SetUp]
+		public void Setup ()
+		{
+			//Some types require a working Director, like CCTextureCache
+			var director =  CCDirector.SharedDirector;
+			var glView = new CCGLView (MonoTouch.UIKit.UIScreen.MainScreen.Bounds);
+			director.View = glView;
+			//UIApplication.SharedApplication.Windows[0].RootViewController.PresentViewController (new UINavigationController (director), false, null);
+		}
+
+		//[TearDown]
+		//public void TearDown ()
+		//{
+		//	UIApplication.SharedApplication.Windows[0].RootViewController.DismissViewController (false, null);
+		//}
+
 		protected override Assembly Assembly {
 			get { return typeof (CCAccelAmplitude).Assembly; }
 		}
