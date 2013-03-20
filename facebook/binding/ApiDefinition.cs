@@ -1034,11 +1034,11 @@ namespace MonoTouch.FacebookConnect
 		
 		[Static]
 		[Export ("publishInstall:")]
-		bool PublishInstall ([NullAllowed] string appID);
+		void PublishInstall ([NullAllowed] string appID);
 
 		[Static]
 		[Export ("publishInstall:withHandler:")]
-		bool PublishInstall ([NullAllowed] string appID, [NullAllowed] FBInstallResponseDataHandler handler);
+		void PublishInstall ([NullAllowed] string appID, [NullAllowed] FBInstallResponseDataHandler handler);
 	
 		[Static]
 		[Export ("clientToken")]
