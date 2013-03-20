@@ -1658,17 +1658,17 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (NSObject))]
 	interface CCFileUtils {
-		[Export ("iPhoneRetinaDisplaySuffix")]
-		string IPhoneRetinaDisplaySuffix {[Bind ("setiPhoneRetinaDisplaySuffix:")] set; }
+		[Export ("setiPhoneRetinaDisplaySuffix:")]
+		void SetIPhoneRetinaDisplaySuffix (string suffix); 
 
-		[Export ("iPadSuffix")]
-		string IPadSuffix { [Bind ("setiPadSuffix:")] set; }
+		[Export ("setiPadSuffix:")]
+		void SetIPadSuffix (string suffix); 
 
-		[Export ("iPadRetinaDisplaySuffix")]
-		string IPadRetinaDisplaySuffix { [Bind ("setiPadRetinaDisplaySuffix:")] set; }
+		[Export ("setiPadRetinaDisplaySuffix:")]
+		void SetIPadRetinaDisplaySuffix (string suffix);
 
-		[Export ("enableFallbackSuffixes")]
-		bool EnableFallbackSuffixes { set; }
+		[Export ("setEnableFallbackSuffixes:")]
+		void SetEnableFallbackSuffixes (bool enable);
 
 		[Static]
 		[Export ("sharedFileUtils")]
