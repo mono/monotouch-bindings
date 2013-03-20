@@ -930,10 +930,10 @@ namespace MonoTouch.Cocos2D {
 		CCGLView Constructor (RectangleF frame, string format, uint depth, bool retained, MonoTouch.OpenGLES.EAGLSharegroup sharegroup, bool sampling, uint nSamples);
 
 		[Export ("pixelFormat")]
-		string PixelFormat { get; set; }
+		string PixelFormat { get; }
 
 		[Export ("depthFormat")]
-		uint DepthFormat { get; set; }
+		uint DepthFormat { get; }
 
 		[Export ("surfaceSize")]
 		SizeF SurfaceSize { get; }
@@ -1556,8 +1556,16 @@ namespace MonoTouch.Cocos2D {
 		[Export ("reorderBatch:")]
 		void ReorderBatch (bool reorder);
 
-		[Export ("addQuadFromSprite:quadIndex:")]
-		void AddQuadFromSprite (CCSprite sprite, uint quadIndex);
+		[Export ("insertQuadFromSprite:quadIndex:")]
+		void InsertQuad (CCSprite sprite, uint quadIndex);
+
+		[Export ("updateQuadFromSprite:quadIndex:")]
+		void UpdateQuad (CCSprite sprite, uint quadIndex);
+
+		[Export ("addSpriteWithoutQuad:z:tag:")]
+		CCSpriteBatchNode AddWithoutQuad (CCSprite sprite, uint z, int tag);
+		
+		
 	}
 
 	[BaseType (typeof (CCNode))]
@@ -1651,16 +1659,16 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (NSObject))]
 	interface CCFileUtils {
 		[Export ("iPhoneRetinaDisplaySuffix")]
-		string IPhoneRetinaDisplaySuffix { get; [Bind ("setiPhoneRetinaDisplaySuffix:")] set; }
+		string IPhoneRetinaDisplaySuffix {[Bind ("setiPhoneRetinaDisplaySuffix:")] set; }
 
 		[Export ("iPadSuffix")]
-		string IPadSuffix { get; [Bind ("setiPadSuffix:")] set; }
+		string IPadSuffix { [Bind ("setiPadSuffix:")] set; }
 
 		[Export ("iPadRetinaDisplaySuffix")]
-		string IPadRetinaDisplaySuffix { get; [Bind ("setiPadRetinaDisplaySuffix:")] set; }
+		string IPadRetinaDisplaySuffix { [Bind ("setiPadRetinaDisplaySuffix:")] set; }
 
 		[Export ("enableFallbackSuffixes")]
-		bool EnableFallbackSuffixes { get; set; }
+		bool EnableFallbackSuffixes { set; }
 
 		[Static]
 		[Export ("sharedFileUtils")]
@@ -2294,13 +2302,13 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (Size gridSize, float duration);
 
 		[Export ("tile:")]
-		CCQuad3 GetTile (Point position);
+		CCQuad3 GetTile (PointF position);
 
 		[Export ("originalTile:")]
-		CCQuad3 GetOriginalTile (Point pos);
+		CCQuad3 GetOriginalTile (PointF pos);
 
 		[Export ("setTile:coords:")]
-		void SetTile (Point pos, CCQuad3 coords);
+		void SetTile (PointF pos, CCQuad3 coords);
 	}
 
 	[BaseType (typeof (CCActionEase))]
@@ -2470,7 +2478,7 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCGridAction {
 		[Export ("gridSize")]
-		Point GridSize { get; set; }
+		SizeF GridSize { get; set; }
 
 		[Export ("initWithSize:duration:")]
 		IntPtr Constructor (Size gridSize, float duration);
@@ -2483,13 +2491,13 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCGrid3DAction {
 		[Export ("vertex:")]
-		CCVertex3F GetVertex (Point pos);
+		CCVertex3F GetVertex (PointF pos);
 
 		[Export ("originalVertex:")]
-		CCVertex3F GetOriginalVertex (Point pos);
+		CCVertex3F GetOriginalVertex (PointF pos);
 
 		[Export ("setVertex:vertex:")]
-		void SetVertex (Point position, CCVertex3F vertex);
+		void SetVertex (PointF position, CCVertex3F vertex);
 
 		[Export ("initWithSize:duration:")]
 		IntPtr Constructor (Size gridSize, float duration);
@@ -2561,7 +2569,7 @@ namespace MonoTouch.Cocos2D {
 		int ReuseGrid { get; set;  }
 
 		[Export ("gridSize")]
-		Point GridSize { get;  }
+		SizeF GridSize { get;  }
 
 		[Export ("step")]
 		PointF Step { get; set;  }
@@ -2601,26 +2609,26 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCGridBase))]
 	interface CCGrid3D {
 		[Export ("vertex:")]
-		CCVertex3F GetVertex (Point pos);
+		CCVertex3F GetVertex (PointF pos);
 
 		[Export ("originalVertex:")]
-		CCVertex3F GetOriginalVertex (Point pos);
+		CCVertex3F GetOriginalVertex (PointF pos);
 
 		[Export ("setVertex:vertex:")]
-		void SetVertex (Point pos, CCVertex3F vertex);
+		void SetVertex (PointF pos, CCVertex3F vertex);
 
 	}
 
 	[BaseType (typeof (CCGridBase))]
 	interface CCTiledGrid3D {
 		[Export ("tile:")]
-		CCQuad3 GetTile (Point pos);
+		CCQuad3 GetTile (PointF pos);
 
 		[Export ("originalTile:")]
-		CCQuad3 GetOriginalTile (Point pos);
+		CCQuad3 GetOriginalTile (PointF pos);
 
 		[Export ("setTile:coords:")]
-		void SetTile (Point pos, CCQuad3 coords);
+		void SetTile (PointF pos, CCQuad3 coords);
 
 	}	
 
@@ -2792,7 +2800,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCNode))]
 	interface CCDrawNode {
-		[Export ("drawDot:radius:dolor:")]
+		[Export ("drawDot:radius:color:")]
 		void DrawDot (PointF position, float radius, CCColor4F color);
 
 		[Export ("drawSegmentFrom:to:radius:color:")]
@@ -2809,9 +2817,6 @@ namespace MonoTouch.Cocos2D {
 	interface CCConfiguration {
 		[Export ("maxTextureSize")]
 		int MaxTextureSize { get;  }
-
-		[Export ("maxModelviewStackDepth")]
-		int MaxModelviewStackDepth { get;  }
 
 		[Export ("maxTextureUnits")]
 		int MaxTextureUnits { get;  }
@@ -3423,19 +3428,19 @@ namespace MonoTouch.Cocos2D {
 		void UpdateUniforms ();
 
 		[Export ("setUniformLocation:withI1:")]
-		void SetUniformLocation (uint location, int i1);
+		void SetUniformLocation (int location, int i1);
 
 		[Export ("setUniformLocation:withF1:")]
-		void SetUniformLocation (uint location, float f1);
+		void SetUniformLocation (int location, float f1);
 
 		[Export ("setUniformLocation:withF1:f2:")]
-		void SetUniformLocation (uint location, float f1, float f2);
+		void SetUniformLocation (int location, float f1, float f2);
 
 		[Export ("setUniformLocation:withF1:f2:f3:")]
-		void SetUniformLocation (uint location, float f1, float f2, float f3);
+		void SetUniformLocation (int location, float f1, float f2, float f3);
 
 		[Export ("setUniformLocation:withF1:f2:f3:f4:")]
-		void SetUniformLocation (uint location, float f1, float f2, float f3, float f4);
+		void SetUniformLocation (int location, float f1, float f2, float f3, float f4);
 
 		//[Export ("setUniformLocation:with2fv:count:")]
 		//unsafe void SetUniformLocation2f (uint location, float *floats, uint numberOfArrays);
@@ -3500,6 +3505,7 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[BaseType (typeof (NSObject))]
+	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: Attempted to allocate a second instance of a singleton.
 	interface CCTextureCache {
 		[Static]
 		[Export ("sharedTextureCache")]
@@ -3576,7 +3582,7 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (float duration, CCScene scene, bool backwards);
 
 		[Export ("actionWithSize:")]
-		CCActionInterval ActionWithSize (Size vector);
+		CCActionInterval ActionWithSize (SizeF vector);
 	}
 
 	[BaseType (typeof (CCTransitionScene))]
