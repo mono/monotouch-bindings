@@ -41,10 +41,10 @@ namespace DropBoxSync.iOS
 	[Flags]
 	public enum DBSyncStatus : uint
 	{
-		DBSyncStatusDownloading = 1,
-		DBSyncStatusUploading = 2,
-		DBSyncStatusSyncing = 4,
-		DBSyncStatusOnline = 8
+		Downloading = 1,
+		Uploading = 2,
+		Syncing = 4,
+		Online = 8
 	}
 }
 
