@@ -43,7 +43,7 @@ namespace Cocos2D.Bindings {
 			get { return typeof (CCAccelAmplitude).Assembly; }
 		}
 
-		protected override bool Skip (Type type, MethodInfo method, string selector)
+		protected override bool Skip (Type type, MethodBase method, string selector)
 		{
 			switch (type.Name) {
 			case "CCMenu":

@@ -19,6 +19,7 @@
 
 using System;
 using System.Reflection;
+using System.Collections.Generic;
 
 using NUnit.Framework;
 using TouchUnit.Bindings;
@@ -44,10 +45,15 @@ namespace Cocos2D.Bindings {
 			// LogUntestedTypes = true;
 		}
 
-		//protected override bool Skip (Type type)
-		//{
-		//	return type == typeof(CCDrawNode);
-		//}
+		static List<object> do_not_dispose = new List<object> ();
+		protected override void Dispose (NSObject obj, Type type)
+		{
+			if (type == typeof(CCDrawNode)) {
+				do_not_dispose.Add (obj);
+				return;
+			}
+			base.Dispose (obj, type);
+		}
 
 		[SetUp]
 		public void Setup ()
