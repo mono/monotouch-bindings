@@ -145,6 +145,25 @@ namespace MonoTouch.FacebookConnect
 		[Static, Export ("fberrorUserMessage", ArgumentSemantic.Copy)]
 		string FberrorUserMessage { get; }
 	}
+
+	[BaseType (typeof (FBCacheDescriptor))]
+	interface FBFrictionlessRecipientCache 
+	{
+		[Export ("recipientIDs", ArgumentSemantic.Copy)]
+		NSArray RecipientIDs { get; set; }
+
+		[Export("isFrictionlessRecipient:")]
+		bool IsFrictionlessRecipient (NSObject user);
+
+		[Export("areFrictionlessRecipients:")]
+		bool AreFrictionlessRecipients (NSArray users);
+
+		[Export("prefetchAndCacheForSession:")]
+		void PrefetchAndCache ([NullAllowed] FBSession session);
+
+		[Export("prefetchAndCacheForSession:completionHandler:")]
+		void PrefetchAndCache ([NullAllowed] FBSession session, [NullAllowed] FBRequestHandler handler);
+	}
 	
 	[BaseType (typeof (FBViewController),
 	           Delegates=new string [] {"WeakDelegate"},
@@ -1149,11 +1168,31 @@ namespace MonoTouch.FacebookConnect
 		[Static, Export ("presentDialogModallyWithSession:dialog:parameters:handler:")]
 		void PresentDialogModally ([NullAllowed] FBSession session, string dialog, [NullAllowed] NSDictionary parameters, [NullAllowed] FBWebDialogHandler handler);
 
+		[Static, Export ("presentDialogModallyWithSession:dialog:parameters:handler:delegate:")]
+		void PresentDialogModally ([NullAllowed] FBSession session, string dialog, [NullAllowed] NSDictionary parameters, [NullAllowed] FBWebDialogHandler handler, [NullAllowed] FBWebDialogsDelegate aDelegate);
+
 		[Static, Export ("presentRequestsDialogModallyWithSession:message:title:parameters:handler:")]
 		void PresentRequestsDialogModally ([NullAllowed] FBSession session, string message, string title, [NullAllowed] NSDictionary parameters, [NullAllowed] FBWebDialogHandler handler);
 
+		[Static, Export ("presentRequestsDialogModallyWithSession:message:title:parameters:handler:friendCache:")]
+		void PresentRequestsDialogModally ([NullAllowed] FBSession session, string message, string title, [NullAllowed] NSDictionary parameters, [NullAllowed] FBWebDialogHandler handler, FBFrictionlessRecipientCache friendCache);
+
 		[Static, Export ("presentFeedDialogModallyWithSession:parameters:handler:")]
 		void PresentFeedDialogModally ([NullAllowed] FBSession session, [NullAllowed] NSDictionary parameters, [NullAllowed] FBWebDialogHandler handler);
+	}
+
+	[BaseType (typeof (NSObject))]
+	[Model]
+	interface FBWebDialogsDelegate {
+
+		[Export ("webDialogsWillPresentDialog:parameters:session:")]
+		void WillPresentDialog (string dialog, NSMutableDictionary parameters, FBSession session);
+
+		[Export ("webDialogsDialog:parameters:session:shouldAutoHandleURL:")]
+		void ShouldAutoHandleURL (string dialog, NSMutableDictionary parameters, FBSession session, NSUrl url);
+
+		[Export ("webDialogsWillDismissDialog:parameters:session:result:url:error:")]
+		void WillDismissDialog (string dialog, NSMutableDictionary parameters, FBSession session, FBWebDialogResult result, out NSUrl url, out NSError error);
 	}
 
 	#region Old Facebook Apis
