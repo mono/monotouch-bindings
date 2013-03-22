@@ -23,8 +23,12 @@ using System.Reflection;
 using NUnit.Framework;
 using TouchUnit.Bindings;
 
+#if MONOMAC
+using MonoMac.Cocos2D;
+#else
 using MonoTouch.Cocos2D;
 using MonoTouch.Foundation;
+#endif
 
 namespace Cocos2D.Bindings {
 	
