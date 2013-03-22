@@ -82,12 +82,11 @@ namespace MonoTouch.Cocos2D {
 	}
 	
 	public partial class CCNode {
-		static CCScheduler scheduler = CCDirector.SharedDirector.Scheduler;
 		public const uint RepeatForever = uint.MaxValue - 1;
 
 		public void Schedule (Action<float> callback, float interval=0, uint repeat=RepeatForever, float delay=0)
 		{
-			scheduler.ScheduleSelector(NSActionDispatcherWithFloat.Selector, new NSActionDispatcherWithFloat(callback), interval, !IsRunning, repeat, delay);
+			CCDirector.SharedDirector.Scheduler.ScheduleSelector(NSActionDispatcherWithFloat.Selector, new NSActionDispatcherWithFloat(callback), interval, !IsRunning, repeat, delay);
 		}
 
 		public void ScheduleOnce (Action<float> callback, float delay)
