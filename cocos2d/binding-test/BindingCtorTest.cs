@@ -18,16 +18,22 @@
 //
 
 using System;
+using System.Drawing;
 using System.Reflection;
 using System.Collections.Generic;
 
 using NUnit.Framework;
 using TouchUnit.Bindings;
 
+#if MONOMAC
+using MonoMac.AppKit;
+using MonoMac.Cocos2D;
+using MonoMac.Foundation;
+#else
 using MonoTouch.UIKit;
 using MonoTouch.Cocos2D;
 using MonoTouch.Foundation;
-
+#endif
 namespace Cocos2D.Bindings {
 
 	[TestFixture]
@@ -60,9 +66,14 @@ namespace Cocos2D.Bindings {
 		{
 			//Some types require a working Director, like CCTextureCache
 			var director =  CCDirector.SharedDirector;
+#if MONOMAC
+			//var glView = new CCGLView ();
+#else
 			var glView = new CCGLView (MonoTouch.UIKit.UIScreen.MainScreen.Bounds);
 			director.View = glView;
 			//UIApplication.SharedApplication.Windows[0].RootViewController.PresentViewController (new UINavigationController (director), false, null);
+#endif
+
 		}
 
 		//[TearDown]
