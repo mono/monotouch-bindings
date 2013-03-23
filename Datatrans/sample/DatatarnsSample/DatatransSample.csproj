@@ -43,10 +43,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Arcantel SA</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <MtouchProfiling>true</MtouchProfiling>
-    <CodesignProvision>93E825E1-0813-4CD9-B664-A16BD7774578</CodesignProvision>
     <MtouchI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -66,9 +64,7 @@
     <Reference Include="Datatrans">
       <HintPath>..\..\binding\Datatrans.dll</HintPath>
     </Reference>
-    <Reference Include="MonoTouch.Dialog">
-      <HintPath>..\..\..\MonoTouch.Dialog.dll</HintPath>
-    </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
