@@ -5,15 +5,13 @@ This is a MonoTouch binding for the TestFlight SDK which can be found at
 
      https://testflightapp.com/sdk/
 
-The current version of this binding is for TestFlight SDK 1.2.1
-v 1.2.1 released on 26 dec 2012
-Bindings updated on 17 mrt 2013
-
+The current version of this binding is for TestFlight SDK 1.2.4 released on 18 March 2013
 
 Building
 ========
 
-Run `make` in the binding directory to build TestFlight.dll
+1. Download the sdk zip from the url to the binding directory.
+2. Run `make` in the binding directory to build TestFlight.dll
 
 
 Using TestFlight.dll with your own iOS App
@@ -23,3 +21,16 @@ Simply add TestFlight.dll to your project's References in MonoDevelop and you
 are good to go!
 
 To use the thread safe TakeOff methode. Change TestFlight.TakeOff(token) to TestFlight.TakeOffThreadSafe(token)
+
+Testflight settings
+===================
+The TestFlight settings are now implemented in C# as well.
+
+- TestFlight.setAttachBacktraceToFeedback => Defaults to false. Setting to true attaches the current backtrace, with symbols, to the feedback.
+- TestFlight.setDisableInAppUpdates => Defaults to false. Setting to true, disables the in app update screen shown in BETA apps when there is a new version available on TestFlight.
+- TestFlight.setLogToConsole => Defaults to true. Prints remote logs to Apple System Log.
+- TestFlight.setLogToSTDERR => Defaults to true. Sends remote logs to STDERR when debugger is attached.
+- TestFlight.setReinstallCrashHandlers => If set to true: Reinstalls crash handlers, to be used if a third party library installs crash handlers overtop of the TestFlight Crash Handlers.
+- TestFlight.setSendLogOnlyOnCrash => Defaults to false. Setting to true stops remote logs from being sent when sessions end. They would only be sent in the event of a crash.
+
+		
