@@ -54,7 +54,7 @@ namespace SDWebImageMTDialogSample
 			cell.TextLabel.Text = Caption;
 			cell.TextLabel.TextAlignment = Alignment;
 			
-			cell.ImageView.SetImageWithURL (ImageUrl, Placeholder);
+			cell.ImageView.SetImage (ImageUrl, Placeholder);
 			
 			// The check is needed because the cell might have been recycled.
 			if (cell.DetailTextLabel != null)
