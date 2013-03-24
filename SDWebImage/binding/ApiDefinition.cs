@@ -203,40 +203,40 @@ namespace SDWebImage
 	interface WebCacheUIButtonExtension {
 
 		[Export ("setImageWithURL:forState:")]
-		void SetImageWithURL (NSUrl url, UIControlState state);
+		void SetImage (NSUrl url, UIControlState state);
 
 		[Export ("setImageWithURL:forState:placeholderImage:")]
-		void SetImageWithURL (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder);
+		void SetImage (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder);
 
 		[Export ("setImageWithURL:forState:placeholderImage:options:")]
-		void SetImageWithURL (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, SDWebImageOptions options);
+		void SetImage (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, SDWebImageOptions options);
 
 		[Export ("setImageWithURL:forState:completed:")]
-		void SetImageWithURL (NSUrl url, UIControlState state, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetImage (NSUrl url, UIControlState state, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 
 		[Export ("setImageWithURL:forState:placeholderImage:completed:")]
-		void SetImageWithURL (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetImage (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 
 		[Export ("setImageWithURL:forState:placeholderImage:options:completed:")]
-		void SetImageWithURL (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, SDWebImageOptions options, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetImage (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, SDWebImageOptions options, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 
 		[Export ("setBackgroundImageWithURL:forState:")]
-		void SetBackgroundImageWithURL (NSUrl url, UIControlState state);
+		void SetBackgroundImage (NSUrl url, UIControlState state);
 
 		[Export ("setBackgroundImageWithURL:forState:placeholderImage:")]
-		void SetBackgroundImageWithURL (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder);
+		void SetBackgroundImage (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder);
 
 		[Export ("setBackgroundImageWithURL:forState:placeholderImage:options:")]
-		void SetBackgroundImageWithURL (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, SDWebImageOptions options);
+		void SetBackgroundImage (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, SDWebImageOptions options);
 
 		[Export ("setBackgroundImageWithURL:forState:completed:")]
-		void SetBackgroundImageWithURL (NSUrl url, UIControlState state, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetBackgroundImage (NSUrl url, UIControlState state, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 
 		[Export ("setBackgroundImageWithURL:forState:placeholderImage:completed:")]
-		void SetBackgroundImageWithURL (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetBackgroundImage (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 		
 		[Export ("setBackgroundImageWithURL:forState:placeholderImage:options:completed:")]
-		void SetBackgroundImageWithURL (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, SDWebImageOptions options, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetBackgroundImage (NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder, SDWebImageOptions options, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 
 		[Export ("cancelCurrentImageLoad")]
 		void CancelCurrentImageLoad ();
@@ -247,25 +247,25 @@ namespace SDWebImage
 	interface WebCacheUIImageViewExtension {
 		
 		[Export ("setImageWithURL:")]
-		void SetImageWithURL (NSUrl url);
+		void SetImage (NSUrl url);
 		
 		[Export ("setImageWithURL:placeholderImage:")]
-		void SetImageWithURL (NSUrl url, [NullAllowed] UIImage placeholder);
+		void SetImage (NSUrl url, [NullAllowed] UIImage placeholder);
 		
 		[Export ("setImageWithURL:placeholderImage:options:")]
-		void SetImageWithURL (NSUrl url, [NullAllowed] UIImage placeholder, SDWebImageOptions options);
+		void SetImage (NSUrl url, [NullAllowed] UIImage placeholder, SDWebImageOptions options);
 		
 		[Export ("setImageWithURL:completed:")]
-		void SetImageWithURL (NSUrl url, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetImage (NSUrl url, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 		
 		[Export ("setImageWithURL:placeholderImage:completed:")]
-		void SetImageWithURL (NSUrl url, [NullAllowed] UIImage placeholder, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetImage (NSUrl url, [NullAllowed] UIImage placeholder, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 		
 		[Export ("setImageWithURL:placeholderImage:options:completed:")]
-		void SetImageWithURL (NSUrl url, [NullAllowed] UIImage placeholder, SDWebImageOptions options, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetImage (NSUrl url, [NullAllowed] UIImage placeholder, SDWebImageOptions options, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 		
 		[Export ("setImageWithURL:placeholderImage:options:progress:completed:")]
-		void SetImageWithURL (NSUrl url, [NullAllowed] UIImage placeholder, SDWebImageOptions options, [NullAllowed] SDWebImageDownloaderProgressHandler progress, [NullAllowed] SDWebImageCompletedHandler completedHandler);
+		void SetImage (NSUrl url, [NullAllowed] UIImage placeholder, SDWebImageOptions options, [NullAllowed] SDWebImageDownloaderProgressHandler progress, [NullAllowed] SDWebImageCompletedHandler completedHandler);
 
 		[Export ("cancelCurrentImageLoad")]
 		void CancelCurrentImageLoad ();

@@ -13,7 +13,9 @@ namespace SDWebImage
 	public enum SDWebImageDownloaderOptions
 	{
 		LowPriority = 1,
-		ProgressiveDownload = 2
+		ProgressiveDownload = 2,
+		UseNSUrlCache = 4,
+		IgnoreCachedResponse = 8
 	}
 
 	public enum SDWebImageDownloaderQueueMode
@@ -28,7 +30,8 @@ namespace SDWebImage
 		RetryFailed = 1,
 		LowPriority = 2,
 		CacheMemoryOnly = 4,
-		ProgressiveDownload = 8
+		ProgressiveDownload = 8,
+		RefreshCached = 16
 	}
 }
 
