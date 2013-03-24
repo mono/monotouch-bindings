@@ -38,7 +38,7 @@ namespace SDWebImageSample
 		void configureView ()
 		{
 			if (ImageUrl != null) {
-				ImageView.SetImageWithURL (ImageUrl, null, SDWebImageOptions.ProgressiveDownload, ProgressHandler, CompletedHandler);
+				ImageView.SetImage (ImageUrl, null, SDWebImageOptions.ProgressiveDownload, ProgressHandler, CompletedHandler);
 			}
 		}
 

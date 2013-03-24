@@ -79,7 +79,7 @@ namespace SDWebImageSample
 				}
 
 				cell.TextLabel.Text = string.Format ("Image #{0}", indexPath.Row);
-				cell.ImageView.SetImageWithURL (new NSUrl (ctrl.objects [indexPath.Row]), UIImage.FromBundle ("placeholder"));
+				cell.ImageView.SetImage (new NSUrl (ctrl.objects [indexPath.Row]), UIImage.FromBundle ("placeholder"));
 
 				return cell;
 			}
