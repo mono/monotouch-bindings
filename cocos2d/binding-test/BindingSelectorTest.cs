@@ -38,14 +38,21 @@ namespace Cocos2D.Bindings {
 		public BindingSelectorTest ()
 		{
 			// Useful to know what was being tried if things crash
-			// LogProgress = true;
+			LogProgress = true;
 
 			// Useful for fixing several errors before rebuilding the bindings
-			// ContinueOnFailure = true;
+			ContinueOnFailure = true;
 		}
 		
 		protected override Assembly Assembly {
-			get { return typeof (CCAccelAmplitude).Assembly; }
+			get { 
+				var assembly = typeof (CCAccelAmplitude).Assembly;
+#if MONOMAC
+				MonoMac.ObjCRuntime.Runtime.RegisterAssembly (assembly);
+#endif
+				
+				return assembly; 
+			}
 		}
 		
 		protected override bool Skip (Type type, string selectorName)
@@ -74,6 +81,7 @@ namespace Cocos2D.Bindings {
 			case "ccTouchesMoved:withEvent:":
 			case "ccTouchesEnded:withEvent:":
 			case "ccTouchesCancelled:withEvent:":
+			case "accelerometer:didAccelerate:":
 				return type.Name == "CCLayer";
 			}
 			return base.Skip (type, selectorName);

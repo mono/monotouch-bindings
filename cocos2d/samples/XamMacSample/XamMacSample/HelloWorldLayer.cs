@@ -24,6 +24,13 @@ namespace XamMacSample
 			Add (label);
 
 		}
+
+		public override void OnEnter ()
+		{
+			//var sprite = new CCSprite ("Character0") {Position = new PointF (10,10)};
+			//Add (sprite);
+			base.OnEnter ();
+		}
 	}
 }
 

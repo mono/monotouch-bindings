@@ -113,5 +113,18 @@
     <Compile Include="..\binding-test\BindingSelectorTest.cs">
       <Link>BindingSelectorTest.cs</Link>
     </Compile>
+    <Compile Include="TestWindow.cs" />
+    <Compile Include="TestWindow.designer.cs">
+      <DependentUpon>TestWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="TestWindow.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\binding\cocos2d.dylib">
+      <Link>cocos2d.dylib</Link>
+    </Content>
   </ItemGroup>
 </Project>
