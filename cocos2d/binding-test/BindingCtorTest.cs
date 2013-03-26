@@ -42,13 +42,13 @@ namespace Cocos2D.Bindings {
 		public BindingCtorTest ()
 		{
 			// Useful to know what was being tested if the application crash
-			// LogProgress = true;
+			LogProgress = true;
 
 			// Useful for fixing several errors before rebuilding the bindings
-			// ContinueOnFailure = true;
-
+			ContinueOnFailure = true;
+		
 			// Useful to know which types are being skipped for lack of a default ctor
-			// LogUntestedTypes = true;
+			LogUntestedTypes = true;
 		}
 
 		static List<object> do_not_dispose = new List<object> ();
@@ -83,7 +83,14 @@ namespace Cocos2D.Bindings {
 		//}
 
 		protected override Assembly Assembly {
-			get { return typeof (CCAccelAmplitude).Assembly; }
+			get { 
+				var assembly = typeof (CCAccelAmplitude).Assembly;
+#if MONOMAC
+				MonoMac.ObjCRuntime.Runtime.RegisterAssembly (assembly);
+#endif
+
+				return assembly; 
+			}
 		}
 	}
 }

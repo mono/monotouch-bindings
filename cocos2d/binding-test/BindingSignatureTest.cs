@@ -38,14 +38,21 @@ namespace Cocos2D.Bindings {
 		public BindingSignatureTest ()
 		{
 			// Useful to know what was being tried if things crash
-			// LogProgress = true;
+			LogProgress = true;
 
 			// Useful for fixing several errors before rebuilding the bindings
-			// ContinueOnFailure = true;
+			ContinueOnFailure = true;
 		}
 		
 		protected override Assembly Assembly {
-			get { return typeof (CCAccelAmplitude).Assembly; }
+			get { 
+				var assembly = typeof (CCAccelAmplitude).Assembly;
+#if MONOMAC
+				MonoMac.ObjCRuntime.Runtime.RegisterAssembly (assembly);
+#endif
+				
+				return assembly; 
+			}
 		}
 
 		protected override bool Skip (Type type, MethodBase method, string selector)
