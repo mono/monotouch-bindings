@@ -125,7 +125,7 @@ namespace MG {
 		[Export ("splitViewController")]
 		MGSplitViewController SplitViewController { get; set; }
 
-		[Export ("allowsDragging:")]
+		[Export ("allowsDragging")]
 		bool AllowsDragging { get; set; }
 
 		[Export ("drawGripThumbInRect:")]
