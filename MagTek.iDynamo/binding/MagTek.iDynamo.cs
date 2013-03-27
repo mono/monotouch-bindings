@@ -255,13 +255,13 @@ namespace MagTek.iDynamo
 		/// <summary>
 		/// Get the device type.
 		/// </summary>
-		[Export ("getDeviceType:")]
+		[Export ("getDeviceType")]
 		MTSCRADeviceType GetDeviceType ();
 		
 		/// <summary>
 		/// Retrieves the Length of the PAN
 		/// </summary>
-		[Export ("getCardPANLength:")]
+		[Export ("getCardPANLength")]
 		int GetCardPANLength ();
 		
 		/// <summary>
