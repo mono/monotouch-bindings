@@ -79,8 +79,8 @@ namespace SDWebImage
 		[Export ("maxConcurrentDownloads", ArgumentSemantic.Assign)]
 		int MaxConcurrentDownloads { get; set; }
 
-		[Export ("queueMode", ArgumentSemantic.Assign)]
-		SDWebImageDownloaderQueueMode QueueMode { get; set; }
+		[Export ("executionOrder", ArgumentSemantic.Assign)]
+		SDWebImageDownloaderExecutionOrder ExecutionOrder { get; set; }
 
 		[Static, Export ("sharedDownloader")]
 		SDWebImageDownloader SharedDownloader { get; }
