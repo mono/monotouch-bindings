@@ -23,7 +23,7 @@ namespace SDWebImageSample
 			Title = "SDWebImage";
 			NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Clear Cache", UIBarButtonItemStyle.Plain, ClearCache);
 			SDWebImageManager.SharedManager.ImageDownloader.SetValueforHTTPHeaderField ("SDWebImage Demo", "AppName");
-			SDWebImageManager.SharedManager.ImageDownloader.QueueMode = SDWebImageDownloaderQueueMode.LIFO;
+			SDWebImageManager.SharedManager.ImageDownloader.ExecutionOrder = SDWebImageDownloaderExecutionOrder.LIFO;
 
 			TableView.Source = new MyTableViewSource (this);
 		}
