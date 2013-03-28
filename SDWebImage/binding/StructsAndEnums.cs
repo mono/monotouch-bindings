@@ -18,7 +18,7 @@ namespace SDWebImage
 		IgnoreCachedResponse = 8
 	}
 
-	public enum SDWebImageDownloaderQueueMode
+	public enum SDWebImageDownloaderExecutionOrder
 	{
 		FILO,
 		LIFO
