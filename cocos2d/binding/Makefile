@@ -1,4 +1,4 @@
-ENABLE_CHIPMUNK_INTEGRATION=0
+ENABLE_CHIPMUNK_INTEGRATION=1
 VERSION=2.1-rc0a
 
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
@@ -37,6 +37,7 @@ all: ios
 
 ios: Cocos2D.dll
 
+osx: ENABLE_CHIPMUNK_INTEGRATION=0
 osx: Cocos2DMacOS.dll
 
 debug: CONFIGURATION = Debug
