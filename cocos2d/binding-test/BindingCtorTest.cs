@@ -18,14 +18,22 @@
 //
 
 using System;
+using System.Drawing;
 using System.Reflection;
+using System.Collections.Generic;
 
 using NUnit.Framework;
 using TouchUnit.Bindings;
 
+#if MONOMAC
+using MonoMac.AppKit;
+using MonoMac.Cocos2D;
+using MonoMac.Foundation;
+#else
+using MonoTouch.UIKit;
 using MonoTouch.Cocos2D;
 using MonoTouch.Foundation;
-
+#endif
 namespace Cocos2D.Bindings {
 
 	[TestFixture]
@@ -34,17 +42,55 @@ namespace Cocos2D.Bindings {
 		public BindingCtorTest ()
 		{
 			// Useful to know what was being tested if the application crash
-			// LogProgress = true;
+			LogProgress = true;
 
 			// Useful for fixing several errors before rebuilding the bindings
-			// ContinueOnFailure = true;
-
-			// Useful to know which types are being skipped for lack of a default ctor
-			// LogUntestedTypes = true;
-		}
+			ContinueOnFailure = true;
 		
+			// Useful to know which types are being skipped for lack of a default ctor
+			LogUntestedTypes = true;
+		}
+
+		static List<object> do_not_dispose = new List<object> ();
+		protected override void Dispose (NSObject obj, Type type)
+		{
+			if (type == typeof(CCDrawNode)) {
+				do_not_dispose.Add (obj);
+				return;
+			}
+			base.Dispose (obj, type);
+		}
+
+		[SetUp]
+		public void Setup ()
+		{
+			//Some types require a working Director, like CCTextureCache
+			var director =  CCDirector.SharedDirector;
+#if MONOMAC
+			//var glView = new CCGLView ();
+#else
+			var glView = new CCGLView (MonoTouch.UIKit.UIScreen.MainScreen.Bounds);
+			director.View = glView;
+			//UIApplication.SharedApplication.Windows[0].RootViewController.PresentViewController (new UINavigationController (director), false, null);
+#endif
+
+		}
+
+		//[TearDown]
+		//public void TearDown ()
+		//{
+		//	UIApplication.SharedApplication.Windows[0].RootViewController.DismissViewController (false, null);
+		//}
+
 		protected override Assembly Assembly {
-			get { return typeof (CCAccelAmplitude).Assembly; }
+			get { 
+				var assembly = typeof (CCAccelAmplitude).Assembly;
+#if MONOMAC
+				MonoMac.ObjCRuntime.Runtime.RegisterAssembly (assembly);
+#endif
+
+				return assembly; 
+			}
 		}
 	}
 }
