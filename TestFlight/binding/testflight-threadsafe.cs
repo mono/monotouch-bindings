@@ -30,39 +30,39 @@ namespace MonoTouch.TestFlight
 
 		}
 
-		private static void setOption(NSString option, Boolean newValue)
+		private static void SetOption(NSString option, Boolean newValue)
 		{
 			TestFlight.SetOptions(new NSDictionary(option,NSNumber.FromBoolean(newValue)));
 		}
 
-		public static void setAttachBacktraceToFeedback(Boolean newValue)
+		public static void SetAttachBacktraceToFeedback(Boolean newValue)
 		{
-			setOption(new NSString("attachBacktraceToFeedback"),newValue);
+			SetOption(new NSString("attachBacktraceToFeedback"),newValue);
 		}
 
-		public static void setDisableInAppUpdates(Boolean newValue)
+		public static void SetDisableInAppUpdates(Boolean newValue)
 		{
-			setOption(new NSString("disableInAppUpdates"),newValue);
+			SetOption(new NSString("disableInAppUpdates"),newValue);
 		}
 
-		public static void setLogToConsole(Boolean newValue)
+		public static void SetLogToConsole(Boolean newValue)
 		{
-			setOption(new NSString("logToConsole"),newValue);
+			SetOption(new NSString("logToConsole"),newValue);
 		}
 
-		public static void setLogToSTDERR(Boolean newValue)
+		public static void SetLogToSTDERR(Boolean newValue)
 		{
-			setOption(new NSString("logToSTDERR"),newValue);
+			SetOption(new NSString("logToSTDERR"),newValue);
 		}
 
-		public static void setReinstallCrashHandlers(Boolean newValue)
+		public static void SetReinstallCrashHandlers(Boolean newValue)
 		{
-			setOption(new NSString("reinstallCrashHandlers"),newValue);
+			SetOption(new NSString("reinstallCrashHandlers"),newValue);
 		}
 
-		public static void setSendLogOnlyOnCrash(Boolean newValue)
+		public static void SetSendLogOnlyOnCrash(Boolean newValue)
 		{
-			setOption(new NSString("sendLogOnlyOnCrash"),newValue);
+			SetOption(new NSString("sendLogOnlyOnCrash"),newValue);
 		}
 
 
