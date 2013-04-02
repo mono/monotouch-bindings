@@ -23,7 +23,12 @@ using System.Reflection;
 using NUnit.Framework;
 using TouchUnit.Bindings;
 
+#if MONOMAC
+using MonoMac.Cocos2D;
+#else
 using MonoTouch.Cocos2D;
+using MonoTouch.Foundation;
+#endif
 
 namespace Cocos2D.Bindings {
 	
@@ -33,14 +38,21 @@ namespace Cocos2D.Bindings {
 		public BindingSignatureTest ()
 		{
 			// Useful to know what was being tried if things crash
-			//LogProgress = true;
+			LogProgress = true;
 
 			// Useful for fixing several errors before rebuilding the bindings
-			//ContinueOnFailure = true;
+			ContinueOnFailure = true;
 		}
 		
 		protected override Assembly Assembly {
-			get { return typeof (CCAccelAmplitude).Assembly; }
+			get { 
+				var assembly = typeof (CCAccelAmplitude).Assembly;
+#if MONOMAC
+				MonoMac.ObjCRuntime.Runtime.RegisterAssembly (assembly);
+#endif
+				
+				return assembly; 
+			}
 		}
 
 		protected override bool Skip (Type type, MethodBase method, string selector)
@@ -74,16 +86,16 @@ namespace Cocos2D.Bindings {
 				return type.Name == "CCBlendFunc";
 			case "_ccColor3B":
 				return type.Name == "CCColor3B";
-			case "ccColor4F":
+			case "_ccColor4B":
+				return type.Name == "CCColor4B";
+			case "_ccColor4F":
 				return type.Name == "CCColor4F";
-			case "_ccGridSize": // =ii
-				return type.Name == "Size" || type.Name == "Point";
 			case "sCCParticle":
 				return type.Name == "CCParticle";
 			case "_ccQuad3":
 				return type.Name == "CCQuad3";
 			case "_ccVertex3F": // =fff
-				return type.Name == "Vector3";
+				return type.Name == "CCVertex3F";
 			case "_ccV2F_C4B_T2F":
 				return type.Name == "CCV2F_C4B_T2F";
 			case "_ccV3F_C4B_T2F_Quad":
