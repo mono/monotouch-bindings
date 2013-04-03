@@ -105,8 +105,8 @@ namespace WEPopover
 	[BaseType(typeof(UIView))]
 	interface WEPopoverContainerView
 	{
-		[Export("initWithSize:anchorRect:displayArea::permittedArrowDirections:properties:")]
-		IntPtr Constructor(SizeF size, RectangleF achorRect, RectangleF displayArea, UIPopoverArrowDirection direction);
+		[Export("initWithSize:anchorRect:displayArea:permittedArrowDirections:properties:")]
+		IntPtr Constructor(SizeF size, RectangleF anchorRect, RectangleF displayArea, UIPopoverArrowDirection direction, WEPopoverContainerViewProperties properties);
 		
 		[Export("arrowDirection")]
 		UIPopoverArrowDirection ArrowDirection { get; set; }
