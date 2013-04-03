@@ -358,11 +358,6 @@ namespace Tapku
 
         [Export("initWithFrame:")]
         IntPtr Constructor(RectangleF frame);
-        
-        [Export("setNumberOfCovers:")]
-        void SetNumberOfCovers(int coverCount);
-
-
     }
 
     [BaseType (typeof (UIScrollViewDelegate))]

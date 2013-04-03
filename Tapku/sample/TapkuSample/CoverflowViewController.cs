@@ -106,7 +106,7 @@ namespace TapkuSample
 				};
 			}
 			
-			coverflow.SetNumberOfCovers(580);
+			coverflow.NumberOfCovers = 580;
 		}
 		
 		public override void ViewDidAppear (bool animated)
