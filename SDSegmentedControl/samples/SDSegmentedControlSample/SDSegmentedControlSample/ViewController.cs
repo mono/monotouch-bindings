@@ -25,7 +25,7 @@ namespace SDSegmentedControlSample
 				Frame = new RectangleF (0, 0, 320, 44)
 			};
 			niceSegmentedCtrl.SetImage (UIImage.FromBundle ("google"), 0);
-			niceSegmentedCtrl.SetImage (UIImage.FromBundle ("bingico"), 1);
+			niceSegmentedCtrl.SetImage (UIImage.FromBundle ("bicon"), 1);
 			niceSegmentedCtrl.SetImage (UIImage.FromBundle ("yahoo"), 2);
 			niceSegmentedCtrl.ValueChanged += HandleValueChanged;
 
