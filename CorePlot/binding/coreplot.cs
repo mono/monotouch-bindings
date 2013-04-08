@@ -1491,7 +1491,7 @@ namespace CorePlot {
 		[Export ("setScaleType:forCoordinate:")]
 		void SetScaleType (CPTScaleType scaleType, CPTCoordinate forCoordinate);
 
-		[Export ("scaleTypeForCoordinate")]
+		[Export ("scaleTypeForCoordinate:")]
 		CPTScaleType GetScaleType (CPTCoordinate forCoordinate);
 		
 		[Export ("scaleToFitPlots:")]
