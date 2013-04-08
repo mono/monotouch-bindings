@@ -10,15 +10,11 @@ libMGSplitViewController-i386.a:
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
 	mv -f $(PROJECT_ROOT)/build/Release-iphonesimulator/lib$(TARGET).a $@
 
-libMGSplitViewController-armv6.a: 
-	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv6 -configuration Release clean build
+libMGSplitViewController-%.a: 
+	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch $* -configuration Release clean build
 	mv -f $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
 
-libMGSplitViewController-armv7.a: 
-	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7 -configuration Release clean build
-	mv -f $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
-
-libMGSplitViewControllerSDK.a: libMGSplitViewController-i386.a libMGSplitViewController-armv6.a libMGSplitViewController-armv7.a
+libMGSplitViewControllerSDK.a: libMGSplitViewController-i386.a libMGSplitViewController-armv7.a libMGSplitViewController-armv7s.a
 	lipo -create -output $@ $^
 
 MGSplitViewController.dll: api.cs enums.cs AssemblyInfo.cs libMGSplitViewControllerSDK.a
