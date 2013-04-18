@@ -214,6 +214,18 @@ namespace MonoTouch.Cocos2D {
 		}
 	}
 
+	public partial class CCDrawNode {
+		public void DrawPoly (PointF[] vertices, CCColor4F fillColor, float borderWidth, CCColor4F borderColor)
+		{
+			if (vertices == null)
+				throw new ArgumentNullException ("vertices");
+
+			GCHandle pinnedArray = GCHandle.Alloc (vertices, GCHandleType.Pinned);
+			DrawPoly (pinnedArray.AddrOfPinnedObject (), vertices.Length, fillColor, borderWidth, borderColor);
+			pinnedArray.Free ();
+		}
+	}
+
 	public partial class CCTexture2D {
 		[Obsolete ("Obsolete since 2.1. Use CCTexture2D (string text, string fontName, float fontSize, UITextAlignment alignmenr, CCVerticalTextAlignment vertAlignmenr) instead.")]
 		public CCTexture2D (string text, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, string fontName, float fontSize) : this (text, fontName, fontSize, dimensions, alignment, vertAlignment)

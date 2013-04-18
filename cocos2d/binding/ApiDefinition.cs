@@ -2809,9 +2809,9 @@ namespace MonoTouch.Cocos2D {
 		[Export ("drawSegmentFrom:to:radius:color:")]
 		void DrawSegment (PointF from, PointF to, float radius, CCColor4F color);
 
-		//[Export ("drawPolyWithVerts:count:fillColor:borderWidth:borderColor:")]
-		//void DrawPoly (Pointf [] vertices, CCColor4F fillColor, float borderWidth, CCColor4F borderColor);
-		
+		[Internal]
+		[Export ("drawPolyWithVerts:count:fillColor:borderWidth:borderColor:")]
+		void DrawPoly (IntPtr vertices, int count, CCColor4F fillColor, float borderWidth, CCColor4F borderColor);
 	}
 
 	[BaseType (typeof (NSObject))]
