@@ -1,5 +1,5 @@
 ENABLE_CHIPMUNK_INTEGRATION=1
-VERSION=2.1-rc0a
+VERSION=2.1-rc1
 
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
@@ -97,15 +97,15 @@ libChipmunk-armv7s.a: $(PROJECT)
 	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphoneos/libChipmunk.a $@
 
 ## .NET assemblies
-Cocos2D.dll: ApiDefinition.cs StructsAndEnums.cs Extra.cs $(CHIPMUNK_CS) AssemblyInfo.cs libcocos2d.a $(CHIPMUNK_LIB)
+Cocos2D.dll: ApiDefinition.cs StructsAndEnums.cs Extra.cs Obsolete.cs $(CHIPMUNK_CS) AssemblyInfo.cs libcocos2d.a $(CHIPMUNK_LIB)
 	-mkdir -p ios
 	$(BTOUCH) -unsafe ApiDefinition.cs -s StructsAndEnums.cs --tmpdir=ios --sourceonly ios/sources.list $(CHIPMUNK_DEFINE) 
-	$(SMCS) -noconfig -o- -out:$@ -res:libcocos2d.a $(CHIPMUNK_RES) AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list $(CHIPMUNK_CS) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll $(CHIPMUNK_DEFINE)
+	$(SMCS) -noconfig -o- -out:$@ -res:libcocos2d.a $(CHIPMUNK_RES) AssemblyInfo.cs StructsAndEnums.cs Extra.cs Obsolete.cs @ios/sources.list $(CHIPMUNK_CS) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll $(CHIPMUNK_DEFINE)
 	cp $@ ../template/Cocos2D/
 
-Cocos2DMacOS.dll: mac/ApiDefinition.cs mac/StructsAndEnums.cs mac/Extra.cs cocos2d.dylib
+Cocos2DMacOS.dll: mac/ApiDefinition.cs mac/StructsAndEnums.cs mac/Extra.cs mac/Obsolete.cs cocos2d.dylib
 	mkdir -p xamarin
-	$(XAM_BMAC) --ns MonoMac.Cocos2D -d=MONOMAC -o $@ -e mac/ApiDefinition.cs -s mac/StructsAndEnums.cs -x mac/Extra.cs --tmpdir=xamarin -r:System.Drawing -baselib=$(XAMMAC_DLL)
+	$(XAM_BMAC) --ns MonoMac.Cocos2D -d=MONOMAC -o $@ -e mac/ApiDefinition.cs -s mac/StructsAndEnums.cs -x mac/Extra.cs mac/Obsolete.cs --tmpdir=xamarin -r:System.Drawing -baselib=$(XAMMAC_DLL)
 
 ## Mac namespace
 mac/ApiDefinition.cs: ApiDefinition.cs
@@ -120,6 +120,9 @@ mac/Extra.cs: Extra.cs
 	@mkdir -p mac
 	sed -e 's/MonoTouch\.UIKit/MonoMac\.AppKit/g' -e 's/MonoTouch/MonoMac/g' < $^ > $@
 
+mac/Obsolete.cs: Obsolete.cs
+	@mkdir -p mac
+	sed -e 's/MonoTouch\.UIKit/MonoMac\.AppKit/g' -e 's/MonoTouch/MonoMac/g' < $^ > $@
 
 clean: 
 	-rm -f *.a *.dll *.dylib

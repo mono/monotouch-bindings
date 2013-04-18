@@ -1886,8 +1886,8 @@ namespace MonoTouch.Cocos2D {
 		[Export ("setBlock:")]
 		void SetCallback (NSCallbackWithSender callback);		
 
-		[Export ("rect")]
-		RectangleF Rect { get; }
+		[Export ("activeArea")]
+		RectangleF ActiveArea { get; set; }
 
 		[Export ("isEnabled")]
 		bool Enabled { get; set; }
@@ -3430,6 +3430,9 @@ namespace MonoTouch.Cocos2D {
 		[Export ("updateUniforms")]
 		void UpdateUniforms ();
 
+		[Export ("uniformLocationForName:")]
+		int UniformLocation (string name);
+
 		[Export ("setUniformLocation:withI1:")]
 		void SetUniformLocation (int location, int i1);
 
@@ -3457,8 +3460,8 @@ namespace MonoTouch.Cocos2D {
 		//[Export ("setUniformLocation:withMatrix4fv:arraycount:")]
 		//unsafe void SetUniformLocationMatrix4 (uint location, float *matrix_array, uint numberOfMatrix);
 
-		[Export ("setUniformForModelViewProjectionMatrix")]
-		void SetUniformForModelViewProjectionMatrix ();
+		[Export ("setUniformsForBuiltins")]
+		void SetUniformsForBuiltins ();
 
 		[Export ("vertexShaderLog")]
 		string GetVertexShaderLog ();

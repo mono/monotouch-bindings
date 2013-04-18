@@ -192,14 +192,6 @@ namespace MonoTouch.Cocos2D {
 		public extern static PointF GetPosition (PointF p0, PointF p1, PointF p2, PointF p3, float tension, float time);
 	}
 
-	public partial class CCDirector {
-		[Obsolete ("Poorly named, use PushScene instead")]
-		public void Push (CCScene scene)
-		{
-			PushScene (scene);
-		}
-	}
-
 	public partial class CCLabelBMFont {
 		public float Width {
 			set {
@@ -214,24 +206,7 @@ namespace MonoTouch.Cocos2D {
 		}
 	}
 
-	public partial class CCTexture2D {
-		[Obsolete ("Obsolete since 2.1. Use CCTexture2D (string text, string fontName, float fontSize, UITextAlignment alignmenr, CCVerticalTextAlignment vertAlignmenr) instead.")]
-		public CCTexture2D (string text, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, string fontName, float fontSize) : this (text, fontName, fontSize, dimensions, alignment, vertAlignment)
-		{
-		}
-	}
 
-	public partial class CCLabelTTF {
-		[Obsolete ("Obsolete since 2.1. Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode) instead.")]
-		public CCLabelTTF (string label, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment, lineBreakMode)
-		{
-		}
-
-		[Obsolete ("Obsolete since 2.1, Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment) instead.")]
-		public CCLabelTTF (string label, SizeF dimensions, UITextAlignment alignment, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment)
-		{
-		}
-	}
 #if ENABLE_CHIPMUNK_INTEGRATION
 	public partial class CCPhysicsSprite {
 		public Chipmunk.Body Body {
