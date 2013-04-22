@@ -5,6 +5,7 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.CoreLocation;
+using MonoTouch.CoreAnimation;
 
 namespace Google.Maps
 {
@@ -27,6 +28,9 @@ namespace Google.Maps
 		[Static, Export ("cameraWithLatitude:longitude:zoom:bearing:viewingAngle:")]
 		CameraPosition FromCamera (double latitude, double longitude, float zoom, double bearing, double viewingAngle);
 
+		[Static, Export ("zoomAtCoordinate:forMeters:perPoints:")]
+		float ZoomAtCoordinate (CLLocationCoordinate2D coord, float meters, float points);
+
 		[Export ("target")]
 		CLLocationCoordinate2D Target { [Bind ("targetAsCoordinate")] get; }
 
@@ -46,6 +50,66 @@ namespace Google.Maps
 		float MinZoomLevel { get; }
 	}
 
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSCameraUpdate")]
+	interface CameraUpdate {
+
+		[Static, Export ("zoomIn")]
+		CameraUpdate ZoomIn { get; }
+
+		[Static, Export ("zoomOut")]
+		CameraUpdate ZoomOut { get; }
+
+		[Static, Export ("zoomBy:")]
+		CameraUpdate ZoomByDelta (float delta);
+
+		[Static, Export ("zoomTo:")]
+		CameraUpdate ZoomToZoom (float zoom);
+
+		[Static, Export ("setTarget:")]
+		CameraUpdate SetTarget (CLLocationCoordinate2D target);
+
+		[Static, Export ("setTarget:zoom:")]
+		CameraUpdate SetTarget (CLLocationCoordinate2D target, float zoom);
+
+		[Static, Export ("setCamera:")]
+		CameraUpdate SetCamera (CameraPosition camera);
+
+		[Static, Export ("fitBounds:")]
+		CameraUpdate FitBounds (CoordinateBounds bounds);
+
+		[Static, Export ("fitBounds:withPadding:")]
+		CameraUpdate FitBounds (CoordinateBounds bounds, float padding);
+
+		[Static, Export ("scrollByX:Y:")]
+		CameraUpdate Scroll (float x, float y);
+
+		[Static, Export ("zoomBy:atPoint:")]
+		CameraUpdate ZoomByZoom (float zoom, PointF point);
+	}
+
+	[BaseType (typeof (Overlay), Name="GMSCircle")]
+	interface Circle {
+
+		[Export ("position", ArgumentSemantic.Assign)]
+		CLLocationCoordinate2D Position { get; set; }
+
+		[Export ("radius", ArgumentSemantic.Assign)]
+		float Radius { get; set; }
+
+		[Export ("strokeWidth", ArgumentSemantic.Assign)]
+		float StrokeWidth { get; set; }
+
+		[Export ("strokeColor")]
+		UIColor StrokeColor { get; set; }
+
+		[Export ("fillColor")]
+		UIColor FillColor { get; set; }
+
+		[Static, Export ("circleWithPosition:radius:")]
+		Circle FromPosition (CLLocationCoordinate2D position, float radius);
+	}
+
 	[BaseType (typeof (NSObject), Name="GMSCoordinateBounds")]
 	interface CoordinateBounds {
 
@@ -61,11 +125,23 @@ namespace Google.Maps
 		[Export ("initWithRegion:")]
 		IntPtr Constructor (VisibleRegion region);
 
-		[Export ("including:")]
+		[Export ("initWithPath:")]
+		IntPtr Constructor (Google.Maps.Path path);
+
+		[Export ("includingCoordinate:")]
 		CoordinateBounds Including (CLLocationCoordinate2D coordinate);
+
+		[Export ("includingBounds:")]
+		CoordinateBounds Including (CoordinateBounds bounds);
 
 		[Export ("containsCoordinate:")]
 		bool ContainsCoordinate (CLLocationCoordinate2D coordinate);
+
+		[Export ("intersectsBounds:")]
+		bool IntersectsBounds (CoordinateBounds bounds);
+
+		[Export ("valid")]
+		bool Valid { [Bind ("isValid")] get; }
 	}
 
 	delegate void ReverseGeocodeCallback (ReverseGeocodeResponse response, NSError error);
@@ -80,8 +156,7 @@ namespace Google.Maps
 		void ReverseGeocodeCord(CLLocationCoordinate2D coordinate, ReverseGeocodeCallback handler);
 	}
 
-	[BaseType (typeof (NSObject), Name="GMSGroundOverlay")]
-	[Model]
+	[BaseType (typeof (Overlay), Name="GMSGroundOverlay")]
 	interface GroundOverlay {
 		
 		[Export ("position", ArgumentSemantic.Assign)]
@@ -99,40 +174,57 @@ namespace Google.Maps
 		[Export ("bearing", ArgumentSemantic.Assign)]
 		double Bearing { get; set; }
 
-		[Export ("remove")]
-		void Remove ();
+		[Static, Export ("groundOverlayWithPosition:icon:")]
+		GroundOverlay GetGroundOverlay (CLLocationCoordinate2D position, UIImage icon);
+
+		// HACK: This is to not break Release builds -> Avoid Symbol not found
+		// This is to avoid user to setup --nosymbolstrip:kGMSGroundOverlayDefaultAnchor etc.
+		[Field ("kGMSGroundOverlayDefaultAnchor", "__Internal")][Internal]
+		NSString DefaultAnchor_Do_Not_Use { get; }
+
+		[Field ("kGMSGroundOverlayDefaultZoom", "__Internal")][Internal]
+		NSString DefaultZoom_Do_Not_Use { get; }
 	}
 
-	[BaseType (typeof (NSObject), Name="GMSGroundOverlayOptions")]
-	interface GroundOverlayOptions {
+	[BaseType (typeof (CALayer), Name="GMSMapLayer")]
+	interface MapLayer {
 
-		[Export ("position", ArgumentSemantic.Assign)]
-		CLLocationCoordinate2D Position { get; set; }
+		[Field ("kGMSLayerCameraLatitudeKey", "__Internal")]
+		NSString CameraLatitudeKey { get; }
 
-		[Export ("anchor", ArgumentSemantic.Assign)]
-		PointF Anchor { get; set; }
+		[Field ("kGMSLayerCameraLongitudeKey", "__Internal")]
+		NSString CameraLongitudeKey { get; }
 
-		[Export ("icon")]
-		UIImage Icon { get; set; }
+		[Field ("kGMSLayerCameraBearingKey", "__Internal")]
+		NSString CameraBearingKey { get; }
 
-		[Export ("zoomLevel", ArgumentSemantic.Assign)]
-		float ZoomLevel { get; set; }
+		[Field ("kGMSLayerCameraZoomLevelKey", "__Internal")]
+		NSString CameraZoomLevelKey { get; }
 
-		[Export ("bearing", ArgumentSemantic.Assign)]
-		double Bearing { get; set; }
+		[Field ("kGMSLayerCameraViewingAngleKey", "__Internal")]
+		NSString CameraViewingAngleKey { get; }
 
-		[Static, Export ("options")]
-		GroundOverlayOptions Pptions { get; }
+		[Export ("cameraLatitude", ArgumentSemantic.Assign)]
+		double CameraLatitude { get; set; }
 
-		[Field ("kGMSGroundOverlayDefaultZoom", "__Internal")]
-		float DefaultZoom { get; }
+		[Export ("cameraLongitude", ArgumentSemantic.Assign)]
+		double CameraLongitude { get; set; }
+
+		[Export ("cameraBearing", ArgumentSemantic.Assign)]
+		double CameraBearing { get; set; }
+
+		[Export ("cameraZoomLevel", ArgumentSemantic.Assign)]
+		float CameraZoomLevel { get; set; }
+
+		[Export ("cameraViewingAngle", ArgumentSemantic.Assign)]
+		double CameraViewingAngle { get; set; }
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSMapViewDelegate")]
 	[Model]
 	interface MapViewDelegate {
 
-		[Export ("mapView:didChangeCameraPosition:"), EventArgs ("GMSCamera"), EventName ("ChangedCameraPosition")]
+		[Export ("mapView:didChangeCameraPosition:"), EventArgs ("GMSCamera"), EventName ("CameraPositionChanged")]
 		void DidChangeCameraPosition (MapView mapView, CameraPosition position);
 		
 		[Export ("mapView:didTapAtCoordinate:"), EventArgs ("GMSCoord"), EventName ("Tapped")]
@@ -144,9 +236,12 @@ namespace Google.Maps
 		[Export ("mapView:didTapMarker:"), DelegateName ("GMSTappedMarker"), DefaultValue(false)]
 		bool TappedMarker (MapView mapView, Marker marker);
 		
-		[Export ("mapView:didTapInfoWindowOfMarker:"), EventArgs ("GMSMarkerEvent"), EventName ("TapedInfo")]
+		[Export ("mapView:didTapInfoWindowOfMarker:"), EventArgs ("GMSMarkerEvent"), EventName ("TappedInfo")]
 		void DidTapInfoWindowOfMarker (MapView mapView, Marker marker);
-		
+
+		[Export ("mapView:didTapOverlay:"), EventArgs ("GMSOverlayEvent"), EventName ("TappedOverlay")]
+		void DidTapOverlay (MapView mapView, Overlay overlay);
+
 		[Export ("mapView:markerInfoWindow:"), DelegateName ("GMSInfoFor"), DefaultValue(null)]
 		UIView InfoFor (MapView mapView, Marker marker);
 	}
@@ -185,6 +280,9 @@ namespace Google.Maps
 
 		[Export ("settings")]
 		UISettings Settings { get; }
+
+		[Export ("layer")]
+		MapLayer Layer { get; }
 		
 		[Static]
 		[Export ("mapWithFrame:camera:")]
@@ -196,56 +294,56 @@ namespace Google.Maps
 		[Export ("stopRendering")]
 		void StopRendering ();
 
-		[Export ("animateToCameraPosition:")]
-		void AnimateToCameraPosition (CameraPosition cameraPosition);
-
-		[Export ("animateToLocation:")]
-		void AnimateToLocation (CLLocationCoordinate2D location);
-		
-		[Export ("animateToZoom:")]
-		void AnimateToZoom (float zoom);
-		
-		[Export ("animateToBearing:")]
-		void AnimateToBearing (double bearing);
-		
-		[Export ("animateToViewingAngle:")]
-		void AnimateToViewingAngle (double viewingAngle);
-		
-		[Internal]
-		[Export ("addMarkerWithOptions:")]
-		IntPtr InternalAddMarker (MarkerOptions options);
-
-		[Export ("markers")]
-		Marker [] Markers { get; }
-
-		[Internal]
-		[Export ("addPolylineWithOptions:")]
-		IntPtr InternalAddPolyline (PolylineOptions options);
-
-		[Export ("polylines")]
-		Polyline [] Polylines { get; }
-
-		[Internal]
-		[Export ("addGroundOverlayWithOptions:")] 
-		IntPtr InternalAddGroundOverlay (GroundOverlayOptions options);
-		
-		[Export ("groundOverlays")]
-		GroundOverlay [] GroundOverlays { get; }
-		
 		[Export ("clear")]
-		void Clear ();	
+		void Clear ();
+
+		[Export ("moveCamera")]
+		void MoveCamera (GMSCameraUpdate update);
 	}
 
-	[BaseType (typeof (NSObject), Name="GMSMarker")]
-	[Model]
+	[BaseType (typeof (MapView))]
+	[Category]
+	interface MapViewAnimation {
+
+		[Export ("animateToCameraPosition:")]
+		void Animate (CameraPosition cameraPosition);
+
+		[Export ("animateToLocation:")]
+		void Animate (CLLocationCoordinate2D location);
+
+		[Export ("animateToZoom:")]
+		void Animate (float zoom);
+
+		[Export ("animateToBearing:")]
+		void AnimateToBearing (double bearing);
+
+		[Export ("animateToViewingAngle:")]
+		void Animate (double viewingAngle);
+
+		[Export ("animateWithCameraUpdate:")]
+		void Animate (CameraUpdate cameraUpdate);
+	}
+
+	[BaseType (typeof (MapView))]
+	[Category]
+	interface MapViewOverlays {
+		
+		[Export ("markers"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
+		Marker [] Markers { get; }
+
+		[Export ("groundOverlays"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
+		GroundOverlay [] GroundOverlays { get; }
+
+		[Export ("polylines"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
+		Polyline [] Polylines { get; }
+	}
+
+	[BaseType (typeof (Overlay), Name="GMSMarker")]
 	interface Marker {
 
 		[Export ("position", ArgumentSemantic.Assign)]
 		CLLocationCoordinate2D Position { get; set; }
 		
-		[Export ("title", ArgumentSemantic.Copy)]
-		string Title { get; set; }
-		
 		[Export ("snippet", ArgumentSemantic.Copy)]
 		string Snippet { get; set; }
 		
@@ -257,47 +355,26 @@ namespace Google.Maps
 		
 		[Export ("infoWindowAnchor", ArgumentSemantic.Assign)]
 		PointF InfoWindowAnchor { get; set; }
-		
-		[Export ("accessibilityLabel", ArgumentSemantic.Copy)]
-		string AccessibilityLabel { get; set; }
+
+		[Export ("animated", ArgumentSemantic.Assign)]
+		bool Animated { [Bind ("isAnimated")] get; set; }
 		
 		[Export ("userData")]
 		NSObject UserData { get; set; }
-		
-		[Export ("remove")]
-		void Remove ();
-	}
 
-	[BaseType (typeof (NSObject), Name="GMSMarkerOptions")]
-	interface MarkerOptions {
+		[Static, Export ("markerWithPosition:")]
+		Marker FromPosition (CLLocationCoordinate2D position);
 
-		[Export ("position", ArgumentSemantic.Assign)]
-		CLLocationCoordinate2D Position { get; set; }
+		[Static, Export ("markerImageWithColor:")]
+		UIImage MarkerImage (UIColor color);
+
+		// HACK: This is to not break Release builds -> Avoid Symbol not found
+		// This is to avoid user to setup --nosymbolstrip:kGMSGroundOverlayDefaultAnchor etc.
+		[Field ("kGMSMarkerDefaultGroundAnchor", "__Internal")][Internal]
+		NSString DefaultGroundAnchor_Do_Not_Use { get; }
 		
-		[Export ("title", ArgumentSemantic.Copy)]
-		string Title { get; set; }
-		
-		[Export ("snippet", ArgumentSemantic.Copy)]
-		string Snippet { get; set; }
-		
-		[Export ("icon")]
-		UIImage Icon { get; set; }
-		
-		[Export ("groundAnchor", ArgumentSemantic.Assign)]
-		PointF GroundAnchor { get; set; }
-		
-		[Export ("infoWindowAnchor", ArgumentSemantic.Assign)]
-		PointF InfoWindowAnchor { get; set; }
-		
-		[Export ("accessibilityLabel", ArgumentSemantic.Copy)]
-		string AccessibilityLabel { get; set; }
-		
-		[Export ("userData")]
-		NSObject UserData { get; set;  }
-		
-		[Static]
-		[Export ("options")]
-		MarkerOptions Options { get; }	
+		[Field ("kGMSMarkerDefaultInfoWindowAnchor", "__Internal")][Internal]
+		NSString DefaultInfoWindowAnchor_Do_Not_Use { get; }
 	}
 
 	[BaseType (typeof (Path), Name="GMSMutablePath")]
@@ -325,66 +402,81 @@ namespace Google.Maps
 		void RemoveAllCoordinates ();
 	}
 
-	[BaseType (typeof (NSObject), Name="GMSPath")]
-	interface Path {
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSOverlay")]
+	interface Overlay {
 
-		[Static, Export ("path")]
-		Path GetPath { get; }
+		[Export ("title", ArgumentSemantic.Copy)]
+		string Title { get; set; }
 
-		[Export ("initWithPath:")]
-		IntPtr Constructor (Path path);
+		[Export ("map")]
+		MapView Map { get; set; }
 
-		[Export ("count")]
-		uint Count { get; }
-
-		[Export ("coordinateAtIndex:")]
-		CLLocationCoordinate2D CoordinateAtIndex (uint index);
+		[Export ("tappable", ArgumentSemantic.Assign)]
+		bool Tappable { [Bind ("isTappable")] get; set; }
 	}
 
-	[BaseType (typeof (NSObject), Name="GMSPolyline")]
-	[Model]
+	[BaseType (typeof (NSObject), Name="GMSPath")]
+	interface Path {
+		
+		[Static, Export ("path")]
+		Path GetPath { get; }
+		
+		[Export ("initWithPath:")]
+		IntPtr Constructor (Path path);
+		
+		[Export ("count")]
+		uint Count { get; }
+		
+		[Export ("coordinateAtIndex:")]
+		CLLocationCoordinate2D CoordinateAtIndex (uint index);
+
+		[Static, Export ("pathFromEncodedPath:")]
+		Path FromEncodedPath (string encodedPath);
+
+		[Export ("encodedPath")]
+		string EncodedPath { get; }
+	}
+
+	[BaseType (typeof (Overlay), Name="GMSPolygon")]
+	interface Polygon {
+
+		[Export ("path", ArgumentSemantic.Copy)]
+		Path Path { get; set; }
+
+		[Export ("strokeWidth", ArgumentSemantic.Assign)]
+		float StrokeWidth { get; set; }
+
+		[Export ("strokeColor")]
+		UIColor StrokeColor { get; set; }
+
+		[Export ("fillColor")]
+		UIColor FillColor { get; set; }
+
+		[Export ("geodesic", ArgumentSemantic.Assign)]
+		bool Geodesic { get; set; }
+
+		[Static, Export ("polygonWithPath:")]
+		Polygon FromPath (Google.Maps.Path path);
+	}
+
+	[BaseType (typeof (Overlay), Name="GMSPolyline")]
 	interface Polyline {
 
 		[Export ("path", ArgumentSemantic.Copy)]
 		Path Path { get; set; }
 
-		[Export ("color")]
-		UIColor Color { get; set; }
+		[Export ("strokeWidth", ArgumentSemantic.Assign)]
+		float StrokeWidth { get; set; }
 		
-		[Export ("width", ArgumentSemantic.Assign)]
-		float Width { get; set; }
+		[Export ("strokeColor")]
+		UIColor StrokeColor { get; set; }
 
 		[Export ("geodesic", ArgumentSemantic.Assign)]
 		bool Geodesic { get; set; }
-		
-		[Export ("accessibilityLabel", ArgumentSemantic.Copy)]
-		string AccessibilityLabel { get; set; }
 
-		[Export ("remove")]
-		void Remove ();
-	}
-
-	[BaseType (typeof (NSObject), Name="PolylineOptions")]
-	interface PolylineOptions {
-
-		[Export ("path", ArgumentSemantic.Copy)]
-		Path Path { get; set; }
-
-		[Export ("color")]
-		UIColor Color { get; set;  }
-
-		[Export ("width", ArgumentSemantic.Assign)]
-		float Width { get; set; }
-		
-		[Export ("geodesic", ArgumentSemantic.Assign)]
-		bool Geodesic { get; set; }
-		
-		[Export ("accessibilityLabel", ArgumentSemantic.Copy)]
-		string AccessibilityLabel { get; set; }
-		
-		[Static]
-		[Export ("options")]
-		PolylineOptions Options { get; }
+		[Static, Export ("polylineWithPath:")]
+		Polyline FromPath (Google.Maps.Path path);
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSProjection")]
@@ -420,22 +512,13 @@ namespace Google.Maps
 	interface ReverseGeocodeResponse {
 
 		[Export ("firstResult")]
-		ReverseGeocodeResult FirstResult ();
+		ReverseGeocodeResult FirstResult { get; }
 		
 		[Export ("results")]
 		ReverseGeocodeResult [] Results { get; }
 	}
-	
-	[BaseType (typeof (NSObject), Name="GMSScreenshot")]
-	interface Screenshot {
 
-		[Static, Export ("screenshotOfMainScreen")]
-		UIImage ScreenshotOfMainScreen { get; }
-
-		[Static, Export ("screenshotOfScreen:")]
-		UIImage ScreenshotOfScreen (UIScreen screen);
-	}
-
+	[DisableDefaultCtor]
 	[BaseType(typeof (NSObject), Name="GMSServices")]
 	interface MapServices {
 
@@ -455,6 +538,9 @@ namespace Google.Maps
 	[BaseType(typeof(NSObject), Name="GMSUISettings")]
 	interface UISettings {
 
+		[Export ("setAllGesturesEnabled:")]
+		void SetAllGesturesEnabled (bool enabled);
+
 		[Export ("scrollGestures", ArgumentSemantic.Assign)]
 		bool ScrollGestures { get; set; }
 
@@ -466,6 +552,12 @@ namespace Google.Maps
 
 		[Export ("rotateGestures", ArgumentSemantic.Assign)]
 		bool RotateGestures { get; set; }
+
+		[Export ("compassButton", ArgumentSemantic.Assign)]
+		bool CompassButton { get; set; }
+
+		[Export ("myLocationButton", ArgumentSemantic.Assign)]
+		bool MyLocationButton { get; set; }
 	}
 }
 
