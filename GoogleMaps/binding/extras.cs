@@ -6,25 +6,36 @@ using MonoTouch.ObjCRuntime;
 
 namespace Google.Maps
 {
-	public partial class MapView {
-
-		public Marker AddMarker (MarkerOptions options)
+	public partial class GroundOverlay
+	{
+		private static PointF kGMSGroundOverlayDefaultAnchor;
+		public static PointF DefaultAnchor
 		{
-			return new Marker (InternalAddMarker (options));
+			get 
+			{
+				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSGroundOverlayDefaultAnchor");
+				kGMSGroundOverlayDefaultAnchor = (PointF)Marshal.PtrToStructure(ptr, typeof(PointF));
+				
+				return kGMSGroundOverlayDefaultAnchor;
+			}
 		}
 
-		public Polyline AddPolyline (PolylineOptions options)
+		private static PointF kGMSGroundOverlayDefaultZoom;
+		public static PointF DefaultZoom
 		{
-			return new Polyline (InternalAddPolyline (options));
-		}
-
-		public GroundOverlay AddGroundOverlay (GroundOverlayOptions options)
-		{
-			return new GroundOverlay (InternalAddGroundOverlay (options));
+			get 
+			{
+				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSGroundOverlayDefaultZoom");
+				kGMSGroundOverlayDefaultZoom = (PointF)Marshal.PtrToStructure(ptr, typeof(PointF));
+				
+				return kGMSGroundOverlayDefaultZoom;
+			}
 		}
 	}
 
-	public partial class MarkerOptions
+	public partial class Marker
 	{
 		private static PointF kGMSMarkerDefaultGroundAnchor;
 		public static PointF DefaultAnchor
@@ -52,21 +63,6 @@ namespace Google.Maps
 			}
 		}
 	}
-
-	public partial class GroundOverlayOptions
-	{
-		private static PointF kGMSGroundOverlayDefaultAnchor;
-		public static PointF DefaultAnchor
-		{
-			get 
-			{
-				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSGroundOverlayDefaultAnchor");
-				kGMSGroundOverlayDefaultAnchor = (PointF)Marshal.PtrToStructure(ptr, typeof(PointF));
-				
-				return kGMSGroundOverlayDefaultAnchor;
-			}
-		}
-	}
+	
 }
 
