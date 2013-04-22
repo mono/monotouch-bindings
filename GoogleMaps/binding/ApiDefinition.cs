@@ -281,7 +281,7 @@ namespace Google.Maps
 		[Export ("settings")]
 		UISettings Settings { get; }
 
-		[Export ("layer")]
+		[Export ("layer")] [New]
 		MapLayer Layer { get; }
 		
 		[Static]
@@ -298,7 +298,18 @@ namespace Google.Maps
 		void Clear ();
 
 		[Export ("moveCamera")]
-		void MoveCamera (GMSCameraUpdate update);
+		void MoveCamera (CameraUpdate update);
+
+		// MapView + Overlays 
+
+		[Export ("markers"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
+		Marker [] Markers { get; }
+		
+		[Export ("groundOverlays"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
+		GroundOverlay [] GroundOverlays { get; }
+		
+		[Export ("polylines"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
+		Polyline [] Polylines { get; }
 	}
 
 	[BaseType (typeof (MapView))]
@@ -322,20 +333,6 @@ namespace Google.Maps
 
 		[Export ("animateWithCameraUpdate:")]
 		void Animate (CameraUpdate cameraUpdate);
-	}
-
-	[BaseType (typeof (MapView))]
-	[Category]
-	interface MapViewOverlays {
-		
-		[Export ("markers"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
-		Marker [] Markers { get; }
-
-		[Export ("groundOverlays"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
-		GroundOverlay [] GroundOverlays { get; }
-
-		[Export ("polylines"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
-		Polyline [] Polylines { get; }
 	}
 
 	[BaseType (typeof (Overlay), Name="GMSMarker")]
