@@ -18,12 +18,15 @@ namespace GoogleMapsSample
 
 			mapView = MapView.FromCamera (RectangleF.Empty, camera);
 			mapView.MyLocationEnabled = true;
-			
-			mapView.AddMarker (new MarkerOptions {
+
+			var xamMarker = new Marker () {
 				Title = "Xamarin HQ",
 				Snippet = "Where the magic happens.",
-				Position = new CLLocationCoordinate2D (37.797865, -122.402526)
-			});
+				Position = new CLLocationCoordinate2D (37.797865, -122.402526),
+				Map = mapView
+			};
+
+			mapView.SelectedMarker = xamMarker;
 
 			View = mapView;
 		}
