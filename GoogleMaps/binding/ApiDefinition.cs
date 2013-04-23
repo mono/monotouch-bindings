@@ -119,7 +119,7 @@ namespace Google.Maps
 		[Export ("southWest")]
 		CLLocationCoordinate2D SouthWest { get; }
 
-		[Export ("initWithCoordinate:andCoordinate:")]
+		[Export ("initWithCoordinate:coordinate:")]
 		IntPtr Constructor (CLLocationCoordinate2D coord1, CLLocationCoordinate2D coord2);
 		
 		[Export ("initWithRegion:")]
