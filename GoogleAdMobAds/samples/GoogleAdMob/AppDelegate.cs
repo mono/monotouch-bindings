@@ -29,7 +29,7 @@ namespace sample
 			bannerView.RootViewController = vc;
 			
 			vc.View.AddSubview(bannerView);
-			bannerView.LoadRequest(new GADRequest());
+			bannerView.LoadRequest(GADRequest.Request);
 			
 			return true;
 		}

@@ -81,7 +81,7 @@ namespace GoogleAdmobSample
 					}
 				};
 			}
-			adViewTableView.LoadRequest (new GADRequest());
+			adViewTableView.LoadRequest (GADRequest.Request);
 		}
 
 		void RemoveAdFromTableView ()
@@ -119,7 +119,7 @@ namespace GoogleAdmobSample
 					}
 				};
 			}
-			adViewWindow.LoadRequest (new GADRequest());
+			adViewWindow.LoadRequest (GADRequest.Request);
 		}
 
 		void RemoveAdFromWindow ()
