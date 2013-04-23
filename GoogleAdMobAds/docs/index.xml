@@ -3,7 +3,7 @@
     <Assembly Name="GoogleAdMobAds" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAdMobAds.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true, Frameworks="AudioToolbox MessageUI SystemConfiguration CoreGraphics MediaPlayer StoreKit", IsCxx=true, LinkerFlags="-lz -lsqlite3", WeakFrameworks="AdSupport")</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAdMobAds.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="AudioToolbox MessageUI SystemConfiguration CoreGraphics MediaPlayer StoreKit", IsCxx=true, LinkerFlags="-lz -lsqlite3", WeakFrameworks="AdSupport")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libAdmobExporter.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true)</AttributeName>
@@ -18,12 +18,15 @@
   <Copyright>To be added.</Copyright>
   <Types>
     <Namespace Name="admobads">
+    </Namespace>
+    <Namespace Name="ApiDefinition">
       <Type Name="Messaging" Kind="Class" />
     </Namespace>
     <Namespace Name="GoogleAdMobAds">
       <Type Name="DFPBannerView" Kind="Class" />
       <Type Name="DFPExtras" Kind="Class" />
       <Type Name="DFPInterstitial" Kind="Class" />
+      <Type Name="DFPSwipeableBannerView" Kind="Class" />
       <Type Name="GADAdMobExtras" Kind="Class" />
       <Type Name="GADAdNetworkExtras" Kind="Class" />
       <Type Name="GADAdSize" Kind="Structure" />
@@ -56,6 +59,7 @@
       <Type Name="GADSearchBannerView" Kind="Class" />
       <Type Name="GADSearchBorderType" Kind="Enumeration" />
       <Type Name="GADSearchRequest" Kind="Class" />
+      <Type Name="GADSwipeableBannerViewDelegate" Kind="Class" />
     </Namespace>
   </Types>
   <Title>GoogleAdMobAds</Title>
