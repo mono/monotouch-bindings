@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
 <Type Name="DFPBannerView" FullName="GoogleAdMobAds.DFPBannerView">
-  <TypeSignature Language="C#" Value="public class DFPBannerView : GoogleAdMobAds.GADBannerView"/>
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DFPBannerView extends GoogleAdMobAds.GADBannerView"/>
+  <TypeSignature Language="C#" Value="public class DFPBannerView : GoogleAdMobAds.GADBannerView" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DFPBannerView extends GoogleAdMobAds.GADBannerView" />
   <AssemblyInfo>
     <AssemblyName>GoogleAdMobAds</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -9,7 +8,7 @@
   <Base>
     <BaseTypeName>GoogleAdMobAds.GADBannerView</BaseTypeName>
   </Base>
-  <Interfaces/>
+  <Interfaces />
   <Attributes>
     <Attribute>
       <AttributeName>MonoTouch.Foundation.Register("DFPBannerView", true)</AttributeName>
@@ -17,12 +16,13 @@
   </Attributes>
   <Docs>
     <summary>
-      A "DoubleClick for Publishers" (DFP) <see cref="T:GoogleAdMobAds.GADBannerView"/>s that display small HTML5 ads that respond to user touch.    </summary>
+      A "DoubleClick for Publishers" (DFP) <see cref="T:GoogleAdMobAds.GADBannerView" />s that display small HTML5 ads that respond to user touch.    </summary>
     <remarks>
-      <para>The <see cref="T:GoogleAdMobAds.DFPBannerView"/> is a <see cref="T:GoogleAdMobAds.GADBannerView"/> that displays small HTML5 ads that respond to user touch.</para>
-      <para><see cref="T:GoogleAdMobAds.DFPBannerView"/>s are more flexible than AdMob-based <see cref="T:GoogleAdMobAds.DFPBannerView"/>s in that they can request multiple ad sizes and can respond to application events.</para>
-      <para>The <see cref="P:GoogleAdMobAds.DFPBannerView.RootViewController"/> must be set prior to calling <see cref="M:GoogleAdMobAds.DFPBannerView.LoadRequest"/>.</para>
-      <para>The following code demonstrates how a <see cref="T:GoogleAdMobAds.DFPBannerView"/> is created and displayed:</para>
+      <para>The <see cref="T:GoogleAdMobAds.DFPBannerView" /> is a <see cref="T:GoogleAdMobAds.GADBannerView" /> that displays small HTML5 ads that respond to user touch.</para>
+      <para>
+        <see cref="T:GoogleAdMobAds.DFPBannerView" />s are more flexible than AdMob-based <see cref="T:GoogleAdMobAds.DFPBannerView" />s in that they can request multiple ad sizes and can respond to application events.</para>
+      <para>The <see cref="P:GoogleAdMobAds.DFPBannerView.RootViewController" /> must be set prior to calling <see cref="M:GoogleAdMobAds.DFPBannerView.LoadRequest" />.</para>
+      <para>The following code demonstrates how a <see cref="T:GoogleAdMobAds.DFPBannerView" /> is created and displayed:</para>
       <example>
         <code lang="C#">
 var myBanner = new DFPBannerView (GADAdSizeCons.Banner);
@@ -35,8 +35,8 @@ window.RootViewController.View.AddSubview (myBanner);
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public DFPBannerView ();"/>
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed"/>
+      <MemberSignature Language="C#" Value="public DFPBannerView ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -49,15 +49,36 @@ window.RootViewController.View.AddSubview (myBanner);
           <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
         </Attribute>
       </Attributes>
-      <Parameters/>
+      <Parameters />
       <Docs>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public DFPBannerView (MonoTouch.Foundation.NSCoder coder);"/>
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed"/>
+      <MemberSignature Language="C#" Value="public DFPBannerView (GoogleAdMobAds.GADAdSize size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype GoogleAdMobAds.GADAdSize size) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAdSize:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="size" Type="GoogleAdMobAds.GADAdSize" />
+      </Parameters>
+      <Docs>
+        <param name="size">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DFPBannerView (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -71,7 +92,7 @@ window.RootViewController.View.AddSubview (myBanner);
         </Attribute>
       </Attributes>
       <Parameters>
-        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder"/>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
       </Parameters>
       <Docs>
         <param name="coder">To be added.</param>
@@ -80,8 +101,8 @@ window.RootViewController.View.AddSubview (myBanner);
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public DFPBannerView (MonoTouch.Foundation.NSObjectFlag t);"/>
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed"/>
+      <MemberSignature Language="C#" Value="public DFPBannerView (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -92,7 +113,7 @@ window.RootViewController.View.AddSubview (myBanner);
         </Attribute>
       </Attributes>
       <Parameters>
-        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag"/>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
       </Parameters>
       <Docs>
         <param name="t">To be added.</param>
@@ -101,8 +122,8 @@ window.RootViewController.View.AddSubview (myBanner);
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public DFPBannerView (IntPtr handle);"/>
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed"/>
+      <MemberSignature Language="C#" Value="public DFPBannerView (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -113,7 +134,7 @@ window.RootViewController.View.AddSubview (myBanner);
         </Attribute>
       </Attributes>
       <Parameters>
-        <Parameter Name="handle" Type="System.IntPtr"/>
+        <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
       <Docs>
         <param name="handle">To be added.</param>
@@ -121,9 +142,32 @@ window.RootViewController.View.AddSubview (myBanner);
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DFPBannerView (GoogleAdMobAds.GADAdSize size, System.Drawing.PointF origin);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype GoogleAdMobAds.GADAdSize size, valuetype System.Drawing.PointF origin) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAdSize:origin:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="size" Type="GoogleAdMobAds.GADAdSize" />
+        <Parameter Name="origin" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="size">To be added.</param>
+        <param name="origin">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="AdSizeDelegate">
-      <MemberSignature Language="C#" Value="public GoogleAdMobAds.GADAdSizeDelegate AdSizeDelegate { get; set; }"/>
-      <MemberSignature Language="ILAsm" Value=".property instance class GoogleAdMobAds.GADAdSizeDelegate AdSizeDelegate"/>
+      <MemberSignature Language="C#" Value="public GoogleAdMobAds.GADAdSizeDelegate AdSizeDelegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class GoogleAdMobAds.GADAdSizeDelegate AdSizeDelegate" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -138,8 +182,8 @@ window.RootViewController.View.AddSubview (myBanner);
       </Docs>
     </Member>
     <Member MemberName="AdViewDidReceiveAppEvent">
-      <MemberSignature Language="C#" Value="public event EventHandler&lt;GoogleAdMobAds.GADAppEventDelegateNameInfoEventArgs&gt; AdViewDidReceiveAppEvent;"/>
-      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class GoogleAdMobAds.GADAppEventDelegateNameInfoEventArgs&gt; AdViewDidReceiveAppEvent"/>
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;GoogleAdMobAds.GADAppEventDelegateNameInfoEventArgs&gt; AdViewDidReceiveAppEvent;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class GoogleAdMobAds.GADAppEventDelegateNameInfoEventArgs&gt; AdViewDidReceiveAppEvent" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -153,8 +197,8 @@ window.RootViewController.View.AddSubview (myBanner);
       </Docs>
     </Member>
     <Member MemberName="AppEventDelegate">
-      <MemberSignature Language="C#" Value="public GoogleAdMobAds.GADAppEventDelegate AppEventDelegate { get; set; }"/>
-      <MemberSignature Language="ILAsm" Value=".property instance class GoogleAdMobAds.GADAppEventDelegate AppEventDelegate"/>
+      <MemberSignature Language="C#" Value="public GoogleAdMobAds.GADAppEventDelegate AppEventDelegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class GoogleAdMobAds.GADAppEventDelegate AppEventDelegate" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -169,8 +213,8 @@ window.RootViewController.View.AddSubview (myBanner);
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
-      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }"/>
-      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle"/>
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -185,8 +229,8 @@ window.RootViewController.View.AddSubview (myBanner);
       </Docs>
     </Member>
     <Member MemberName="Dispose">
-      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);"/>
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed"/>
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -195,7 +239,7 @@ window.RootViewController.View.AddSubview (myBanner);
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="disposing" Type="System.Boolean"/>
+        <Parameter Name="disposing" Type="System.Boolean" />
       </Parameters>
       <Docs>
         <param name="disposing">To be added.</param>
@@ -203,9 +247,33 @@ window.RootViewController.View.AddSubview (myBanner);
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="EnableManualImpressions">
+      <MemberSignature Language="C#" Value="public virtual bool EnableManualImpressions { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool EnableManualImpressions" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("enableManualImpressions")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setEnableManualImpressions:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="InterstitialDidReceiveAppEvent">
-      <MemberSignature Language="C#" Value="public event EventHandler&lt;GoogleAdMobAds.GADAppEventDelegateInterstitialEventArgs&gt; InterstitialDidReceiveAppEvent;"/>
-      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class GoogleAdMobAds.GADAppEventDelegateInterstitialEventArgs&gt; InterstitialDidReceiveAppEvent"/>
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;GoogleAdMobAds.GADAppEventDelegateInterstitialEventArgs&gt; InterstitialDidReceiveAppEvent;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class GoogleAdMobAds.GADAppEventDelegateInterstitialEventArgs&gt; InterstitialDidReceiveAppEvent" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -218,9 +286,54 @@ window.RootViewController.View.AddSubview (myBanner);
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="RecordImpression">
+      <MemberSignature Language="C#" Value="public virtual void RecordImpression ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RecordImpression() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("recordImpression")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Resize">
+      <MemberSignature Language="C#" Value="public virtual void Resize (GoogleAdMobAds.GADAdSize size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Resize(valuetype GoogleAdMobAds.GADAdSize size) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("resize:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="size" Type="GoogleAdMobAds.GADAdSize" />
+      </Parameters>
+      <Docs>
+        <param name="size">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ValidAdSizes">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject[] ValidAdSizes { get; set; }"/>
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject[] ValidAdSizes"/>
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSArray ValidAdSizes { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSArray ValidAdSizes" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -234,7 +347,7 @@ window.RootViewController.View.AddSubview (myBanner);
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>MonoTouch.Foundation.NSObject[]</ReturnType>
+        <ReturnType>MonoTouch.Foundation.NSArray</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -243,8 +356,8 @@ window.RootViewController.View.AddSubview (myBanner);
       </Docs>
     </Member>
     <Member MemberName="WeakAdSizeDelegate">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject WeakAdSizeDelegate { get; set; }"/>
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject WeakAdSizeDelegate"/>
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject WeakAdSizeDelegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject WeakAdSizeDelegate" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -267,8 +380,8 @@ window.RootViewController.View.AddSubview (myBanner);
       </Docs>
     </Member>
     <Member MemberName="WeakAppEventDelegate">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject WeakAppEventDelegate { get; set; }"/>
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject WeakAppEventDelegate"/>
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject WeakAppEventDelegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject WeakAppEventDelegate" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -291,8 +404,8 @@ window.RootViewController.View.AddSubview (myBanner);
       </Docs>
     </Member>
     <Member MemberName="WillChangeAdSizeTo">
-      <MemberSignature Language="C#" Value="public event EventHandler&lt;GoogleAdMobAds.GADAdSizeDelegateSizeEventArgs&gt; WillChangeAdSizeTo;"/>
-      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class GoogleAdMobAds.GADAdSizeDelegateSizeEventArgs&gt; WillChangeAdSizeTo"/>
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;GoogleAdMobAds.GADAdSizeDelegateSizeEventArgs&gt; WillChangeAdSizeTo;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class GoogleAdMobAds.GADAdSizeDelegateSizeEventArgs&gt; WillChangeAdSizeTo" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>

@@ -1,17 +1,17 @@
-<Type Name="GADSearchBannerView" FullName="GoogleAdMobAds.GADSearchBannerView">
-  <TypeSignature Language="C#" Value="public class GADSearchBannerView : GoogleAdMobAds.GADBannerView" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GADSearchBannerView extends GoogleAdMobAds.GADBannerView" />
+<Type Name="DFPSwipeableBannerView" FullName="GoogleAdMobAds.DFPSwipeableBannerView">
+  <TypeSignature Language="C#" Value="public class DFPSwipeableBannerView : GoogleAdMobAds.DFPBannerView" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DFPSwipeableBannerView extends GoogleAdMobAds.DFPBannerView" />
   <AssemblyInfo>
     <AssemblyName>GoogleAdMobAds</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>GoogleAdMobAds.GADBannerView</BaseTypeName>
+    <BaseTypeName>GoogleAdMobAds.DFPBannerView</BaseTypeName>
   </Base>
   <Interfaces />
   <Attributes>
     <Attribute>
-      <AttributeName>MonoTouch.Foundation.Register("GADSearchBannerView", true)</AttributeName>
+      <AttributeName>MonoTouch.Foundation.Register("DFPSwipeableBannerView", true)</AttributeName>
     </Attribute>
   </Attributes>
   <Docs>
@@ -20,7 +20,7 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GADSearchBannerView ();" />
+      <MemberSignature Language="C#" Value="public DFPSwipeableBannerView ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -41,7 +41,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GADSearchBannerView (GoogleAdMobAds.GADAdSize size);" />
+      <MemberSignature Language="C#" Value="public DFPSwipeableBannerView (GoogleAdMobAds.GADAdSize size);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype GoogleAdMobAds.GADAdSize size) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -62,7 +62,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GADSearchBannerView (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="C#" Value="public DFPSwipeableBannerView (MonoTouch.Foundation.NSCoder coder);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -86,7 +86,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GADSearchBannerView (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="C#" Value="public DFPSwipeableBannerView (MonoTouch.Foundation.NSObjectFlag t);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -107,7 +107,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GADSearchBannerView (IntPtr handle);" />
+      <MemberSignature Language="C#" Value="public DFPSwipeableBannerView (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -128,7 +128,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public GADSearchBannerView (GoogleAdMobAds.GADAdSize size, System.Drawing.PointF origin);" />
+      <MemberSignature Language="C#" Value="public DFPSwipeableBannerView (GoogleAdMobAds.GADAdSize size, System.Drawing.PointF origin);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype GoogleAdMobAds.GADAdSize size, valuetype System.Drawing.PointF origin) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -159,6 +159,95 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidActivateAd">
+      <MemberSignature Language="C#" Value="public event EventHandler DidActivateAd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DidActivateAd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidDeactivateAd">
+      <MemberSignature Language="C#" Value="public event EventHandler DidDeactivateAd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DidDeactivateAd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SwipeDelegate">
+      <MemberSignature Language="C#" Value="public GoogleAdMobAds.GADSwipeableBannerViewDelegate SwipeDelegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class GoogleAdMobAds.GADSwipeableBannerViewDelegate SwipeDelegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADSwipeableBannerViewDelegate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WeakSwipeDelegate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject WeakSwipeDelegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject WeakSwipeDelegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("swipeDelegate", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSwipeDelegate:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
