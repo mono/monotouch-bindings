@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="Messaging" FullName="ApiDefinition.Messaging">
   <TypeSignature Language="C#" Value="public class Messaging" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Messaging extends System.Object" />
@@ -128,6 +127,34 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="float_objc_msgSend_CLLocationCoordinate2D_float_float">
+      <MemberSignature Language="C#" Value="public static float float_objc_msgSend_CLLocationCoordinate2D_float_float (IntPtr receiver, IntPtr selector, MonoTouch.CoreLocation.CLLocationCoordinate2D arg1, float arg2, float arg3);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)float32 float_objc_msgSend_CLLocationCoordinate2D_float_float(native int receiver, native int selector, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D arg1, float32 arg2, float32 arg3) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="arg2" Type="System.Single" />
+        <Parameter Name="arg3" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
+        <param name="arg3">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="float_objc_msgSend_float_CLLocationCoordinate2D">
       <MemberSignature Language="C#" Value="public static float float_objc_msgSend_float_CLLocationCoordinate2D (IntPtr receiver, IntPtr selector, float arg1, MonoTouch.CoreLocation.CLLocationCoordinate2D arg2);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)float32 float_objc_msgSend_float_CLLocationCoordinate2D(native int receiver, native int selector, float32 arg1, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D arg2) cil managed" />
@@ -149,6 +176,34 @@
         <param name="selector">To be added.</param>
         <param name="arg1">To be added.</param>
         <param name="arg2">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="float_objc_msgSendSuper_CLLocationCoordinate2D_float_float">
+      <MemberSignature Language="C#" Value="public static float float_objc_msgSendSuper_CLLocationCoordinate2D_float_float (IntPtr receiver, IntPtr selector, MonoTouch.CoreLocation.CLLocationCoordinate2D arg1, float arg2, float arg3);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)float32 float_objc_msgSendSuper_CLLocationCoordinate2D_float_float(native int receiver, native int selector, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D arg1, float32 arg2, float32 arg3) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="arg2" Type="System.Single" />
+        <Parameter Name="arg3" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
+        <param name="arg3">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -177,52 +232,6 @@
         <param name="arg2">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="GMSVisibleRegion_objc_msgSend_stret">
-      <MemberSignature Language="C#" Value="public static void GMSVisibleRegion_objc_msgSend_stret (out GoogleMaps.GMSVisibleRegion retval, IntPtr receiver, IntPtr selector);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend_stret&quot; winapi)void GMSVisibleRegion_objc_msgSend_stret(valuetype GoogleMaps.GMSVisibleRegion retval, native int receiver, native int selector) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="retval" Type="GoogleMaps.GMSVisibleRegion&amp;" RefType="out" />
-        <Parameter Name="receiver" Type="System.IntPtr" />
-        <Parameter Name="selector" Type="System.IntPtr" />
-      </Parameters>
-      <Docs>
-        <param name="retval">To be added.</param>
-        <param name="receiver">To be added.</param>
-        <param name="selector">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="GMSVisibleRegion_objc_msgSendSuper_stret">
-      <MemberSignature Language="C#" Value="public static void GMSVisibleRegion_objc_msgSendSuper_stret (out GoogleMaps.GMSVisibleRegion retval, IntPtr receiver, IntPtr selector);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper_stret&quot; winapi)void GMSVisibleRegion_objc_msgSendSuper_stret(valuetype GoogleMaps.GMSVisibleRegion retval, native int receiver, native int selector) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="retval" Type="GoogleMaps.GMSVisibleRegion&amp;" RefType="out" />
-        <Parameter Name="receiver" Type="System.IntPtr" />
-        <Parameter Name="selector" Type="System.IntPtr" />
-      </Parameters>
-      <Docs>
-        <param name="retval">To be added.</param>
-        <param name="receiver">To be added.</param>
-        <param name="selector">To be added.</param>
-        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -368,9 +377,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IntPtr_objc_msgSend_GMSVisibleRegion">
-      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSend_GMSVisibleRegion (IntPtr receiver, IntPtr selector, GoogleMaps.GMSVisibleRegion arg1);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)native int IntPtr_objc_msgSend_GMSVisibleRegion(native int receiver, native int selector, valuetype GoogleMaps.GMSVisibleRegion arg1) cil managed" />
+    <Member MemberName="IntPtr_objc_msgSend_float_PointF">
+      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSend_float_PointF (IntPtr receiver, IntPtr selector, float arg1, System.Drawing.PointF arg2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)native int IntPtr_objc_msgSend_float_PointF(native int receiver, native int selector, float32 arg1, valuetype System.Drawing.PointF arg2) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -381,7 +390,33 @@
       <Parameters>
         <Parameter Name="receiver" Type="System.IntPtr" />
         <Parameter Name="selector" Type="System.IntPtr" />
-        <Parameter Name="arg1" Type="GoogleMaps.GMSVisibleRegion" />
+        <Parameter Name="arg1" Type="System.Single" />
+        <Parameter Name="arg2" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IntPtr_objc_msgSend_VisibleRegion">
+      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSend_VisibleRegion (IntPtr receiver, IntPtr selector, Google.Maps.VisibleRegion arg1);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend&quot; winapi)native int IntPtr_objc_msgSend_VisibleRegion(native int receiver, native int selector, valuetype Google.Maps.VisibleRegion arg1) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="Google.Maps.VisibleRegion" />
       </Parameters>
       <Docs>
         <param name="receiver">To be added.</param>
@@ -534,9 +569,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IntPtr_objc_msgSendSuper_GMSVisibleRegion">
-      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSendSuper_GMSVisibleRegion (IntPtr receiver, IntPtr selector, GoogleMaps.GMSVisibleRegion arg1);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)native int IntPtr_objc_msgSendSuper_GMSVisibleRegion(native int receiver, native int selector, valuetype GoogleMaps.GMSVisibleRegion arg1) cil managed" />
+    <Member MemberName="IntPtr_objc_msgSendSuper_float_PointF">
+      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSendSuper_float_PointF (IntPtr receiver, IntPtr selector, float arg1, System.Drawing.PointF arg2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)native int IntPtr_objc_msgSendSuper_float_PointF(native int receiver, native int selector, float32 arg1, valuetype System.Drawing.PointF arg2) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -547,7 +582,33 @@
       <Parameters>
         <Parameter Name="receiver" Type="System.IntPtr" />
         <Parameter Name="selector" Type="System.IntPtr" />
-        <Parameter Name="arg1" Type="GoogleMaps.GMSVisibleRegion" />
+        <Parameter Name="arg1" Type="System.Single" />
+        <Parameter Name="arg2" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <param name="arg1">To be added.</param>
+        <param name="arg2">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IntPtr_objc_msgSendSuper_VisibleRegion">
+      <MemberSignature Language="C#" Value="public static IntPtr IntPtr_objc_msgSendSuper_VisibleRegion (IntPtr receiver, IntPtr selector, Google.Maps.VisibleRegion arg1);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper&quot; winapi)native int IntPtr_objc_msgSendSuper_VisibleRegion(native int receiver, native int selector, valuetype Google.Maps.VisibleRegion arg1) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+        <Parameter Name="arg1" Type="Google.Maps.VisibleRegion" />
       </Parameters>
       <Docs>
         <param name="receiver">To be added.</param>
@@ -652,6 +713,52 @@
         <param name="receiver">To be added.</param>
         <param name="selector">To be added.</param>
         <param name="arg1">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VisibleRegion_objc_msgSend_stret">
+      <MemberSignature Language="C#" Value="public static void VisibleRegion_objc_msgSend_stret (out Google.Maps.VisibleRegion retval, IntPtr receiver, IntPtr selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSend_stret&quot; winapi)void VisibleRegion_objc_msgSend_stret(valuetype Google.Maps.VisibleRegion retval, native int receiver, native int selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="retval" Type="Google.Maps.VisibleRegion&amp;" RefType="out" />
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="retval">To be added.</param>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VisibleRegion_objc_msgSendSuper_stret">
+      <MemberSignature Language="C#" Value="public static void VisibleRegion_objc_msgSendSuper_stret (out Google.Maps.VisibleRegion retval, IntPtr receiver, IntPtr selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;/usr/lib/libobjc.dylib&quot; as &quot;objc_msgSendSuper_stret&quot; winapi)void VisibleRegion_objc_msgSendSuper_stret(valuetype Google.Maps.VisibleRegion retval, native int receiver, native int selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="retval" Type="Google.Maps.VisibleRegion&amp;" RefType="out" />
+        <Parameter Name="receiver" Type="System.IntPtr" />
+        <Parameter Name="selector" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="retval">To be added.</param>
+        <param name="receiver">To be added.</param>
+        <param name="selector">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
