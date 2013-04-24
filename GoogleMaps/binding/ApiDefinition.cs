@@ -9,6 +9,46 @@ using MonoTouch.CoreAnimation;
 
 namespace Google.Maps
 {
+	#region CustomLib
+	// This is a custom class created by me and is not part of Google Maps lib
+	// But it is necesary for this binding to work
+	[BaseType (typeof (NSObject), Name="libGoogleMapsExporter")]
+	interface Constants
+	{
+		[Static, Export ("kGMSLayerCameraLatitudeKeyGlobal")]
+		NSString LayerCameraLatitudeKey { get; }
+		
+		[Static, Export ("kGMSLayerCameraLongitudeKeyGlobal")]
+		NSString LayerCameraLongitudeKey { get; }
+
+		[Static, Export ("kGMSLayerCameraBearingKeyGlobal")]
+		NSString LayerCameraBearingKey { get; }
+
+		[Static, Export ("kGMSLayerCameraZoomLevelKeyGlobal")]
+		NSString LayerCameraZoomLevelKey { get; }
+
+		[Static, Export ("kGMSLayerCameraViewingAngleKeyGlobal")]
+		NSString LayerCameraViewingAngleKey { get; }
+
+		[Static, Export ("kGMSMaxZoomLevelGlobal")]
+		float MaxZoomLevel { get; }
+
+		[Static, Export ("kGMSMinZoomLevelGlobal")]
+		float MinZoomLevel { get; }
+
+		[Static, Export ("kGMSGroundOverlayDefaultAnchorGlobal")]
+		PointF GroundOverlayDefaultAnchor { get; }
+
+		[Static, Export ("kGMSGroundOverlayDefaultZoomGlobal")]
+		float GroundOverlayDefaultZoom { get; }
+
+		[Static, Export ("kGMSMarkerDefaultGroundAnchorGlobal")]
+		PointF MarkerDefaultGroundAnchor { get; }
+
+		[Static, Export ("kGMSMarkerDefaultInfoWindowAnchorGlobal")]
+		PointF MarkerDefaultInfoWindowAnchor { get; }
+	}
+	#endregion
 
 	[BaseType (typeof (NSObject), Name="GMSCameraPosition")]
 	interface CameraPosition {
@@ -42,12 +82,6 @@ namespace Google.Maps
 
 		[Export ("viewingAngle")]
 		double ViewingAngle { get; }
-
-		[Field ("kGMSMaxZoomLevel", "__Internal")]
-		float MaxZoomLevel { get; }
-
-		[Field ("kGMSMinZoomLevel", "__Internal")]
-		float MinZoomLevel { get; }
 	}
 
 	[DisableDefaultCtor]
@@ -176,34 +210,11 @@ namespace Google.Maps
 
 		[Static, Export ("groundOverlayWithPosition:icon:")]
 		GroundOverlay GetGroundOverlay (CLLocationCoordinate2D position, UIImage icon);
-
-		// HACK: This is to not break Release builds -> Avoid Symbol not found
-		// This is to avoid user to setup --nosymbolstrip:kGMSGroundOverlayDefaultAnchor etc.
-		[Field ("kGMSGroundOverlayDefaultAnchor", "__Internal")][Internal]
-		NSString DefaultAnchor_Do_Not_Use { get; }
-
-		[Field ("kGMSGroundOverlayDefaultZoom", "__Internal")][Internal]
-		NSString DefaultZoom_Do_Not_Use { get; }
 	}
 
 	[BaseType (typeof (CALayer), Name="GMSMapLayer")]
 	interface MapLayer {
-
-		[Field ("kGMSLayerCameraLatitudeKey", "__Internal")]
-		NSString CameraLatitudeKey { get; }
-
-		[Field ("kGMSLayerCameraLongitudeKey", "__Internal")]
-		NSString CameraLongitudeKey { get; }
-
-		[Field ("kGMSLayerCameraBearingKey", "__Internal")]
-		NSString CameraBearingKey { get; }
-
-		[Field ("kGMSLayerCameraZoomLevelKey", "__Internal")]
-		NSString CameraZoomLevelKey { get; }
-
-		[Field ("kGMSLayerCameraViewingAngleKey", "__Internal")]
-		NSString CameraViewingAngleKey { get; }
-
+		
 		[Export ("cameraLatitude", ArgumentSemantic.Assign)]
 		double CameraLatitude { get; set; }
 
@@ -364,14 +375,6 @@ namespace Google.Maps
 
 		[Static, Export ("markerImageWithColor:")]
 		UIImage MarkerImage (UIColor color);
-
-		// HACK: This is to not break Release builds -> Avoid Symbol not found
-		// This is to avoid user to setup --nosymbolstrip:kGMSGroundOverlayDefaultAnchor etc.
-		[Field ("kGMSMarkerDefaultGroundAnchor", "__Internal")][Internal]
-		NSString DefaultGroundAnchor_Do_Not_Use { get; }
-		
-		[Field ("kGMSMarkerDefaultInfoWindowAnchor", "__Internal")][Internal]
-		NSString DefaultInfoWindowAnchor_Do_Not_Use { get; }
 	}
 
 	[BaseType (typeof (Path), Name="GMSMutablePath")]

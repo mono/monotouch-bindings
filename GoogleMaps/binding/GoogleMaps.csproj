@@ -51,10 +51,13 @@
     <ObjcBindingNativeLibrary Include="GoogleMaps">
       <Link>GoogleMaps</Link>
     </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="libGoogleMapsExporter.a" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoogleMaps.linkwith.cs" />
-    <Compile Include="extras.cs" />
+    <Compile Include="libGoogleMapsExporter.linkwith.cs">
+      <DependentUpon>libGoogleMapsExporter.a</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\GoogleMaps.bundle\GMSSprites-0.png" />
