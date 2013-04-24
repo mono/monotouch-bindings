@@ -12,6 +12,7 @@ namespace Google.Maps
 	#region CustomLib
 	// This is a custom class created by me and is not part of Google Maps lib
 	// But it is necesary for this binding to work
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name="libGoogleMapsExporter")]
 	interface Constants
 	{
