@@ -297,7 +297,7 @@ namespace Google.Maps
 		[Export ("clear")]
 		void Clear ();
 
-		[Export ("moveCamera")]
+		[Export ("moveCamera:")]
 		void MoveCamera (CameraUpdate update);
 
 		// MapView + Overlays 
