@@ -3,10 +3,10 @@
     <Assembly Name="GoogleMaps" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGMapsWorkaround.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true)</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("GoogleMaps", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, "-ObjC -lz -licucore -lc++", ForceLoad=true, Frameworks="AVFoundation CoreData CoreLocation CoreText GLKit ImageIO OpenGLES QuartzCore SystemConfiguration")</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("GoogleMaps", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, "-ObjC -lz -licucore -lstdc++", ForceLoad=true, Frameworks="AVFoundation CoreData CoreLocation CoreText GLKit ImageIO OpenGLES QuartzCore SystemConfiguration")</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleMapsExporter.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
@@ -20,35 +20,181 @@
     <Namespace Name="ApiDefinition">
       <Type Name="Messaging" Kind="Class" />
     </Namespace>
-    <Namespace Name="GoogleMaps">
+    <Namespace Name="Google.Maps">
+      <Type Name="CameraPosition" Kind="Class" />
+      <Type Name="CameraUpdate" Kind="Class" />
+      <Type Name="Circle" Kind="Class" />
+      <Type Name="Constants" Kind="Class" />
+      <Type Name="CoordinateBounds" Kind="Class" />
+      <Type Name="Geocoder" Kind="Class" />
       <Type Name="GMSCameraEventArgs" Kind="Class" />
-      <Type Name="GMSCameraPosition" Kind="Class" />
       <Type Name="GMSCoordEventArgs" Kind="Class" />
-      <Type Name="GMSCoordinateBounds" Kind="Class" />
-      <Type Name="GMSGeocoder" Kind="Class" />
-      <Type Name="GMSGroundOverlay" Kind="Class" />
-      <Type Name="GMSGroundOverlayOptions" Kind="Class" />
       <Type Name="GMSInfoFor" Kind="Delegate" />
-      <Type Name="GMSMapView" Kind="Class" />
-      <Type Name="GMSMapViewDelegate" Kind="Class" />
-      <Type Name="GMSMapViewType" Kind="Enumeration" />
-      <Type Name="GMSMarker" Kind="Class" />
       <Type Name="GMSMarkerEventEventArgs" Kind="Class" />
-      <Type Name="GMSMarkerOptions" Kind="Class" />
-      <Type Name="GMSMutablePath" Kind="Class" />
-      <Type Name="GMSPath" Kind="Class" />
-      <Type Name="GMSPolyline" Kind="Class" />
-      <Type Name="GMSPolylineOptions" Kind="Class" />
-      <Type Name="GMSProjection" Kind="Class" />
-      <Type Name="GMSReverseGeocodeCallback" Kind="Delegate" />
-      <Type Name="GMSReverseGeocodeResponse" Kind="Class" />
-      <Type Name="GMSReverseGeocodeResult" Kind="Class" />
-      <Type Name="GMSScreenshot" Kind="Class" />
-      <Type Name="GMSServices" Kind="Class" />
+      <Type Name="GMSOverlayEventEventArgs" Kind="Class" />
       <Type Name="GMSTappedMarker" Kind="Delegate" />
-      <Type Name="GMSUISettings" Kind="Class" />
-      <Type Name="GMSVisibleRegion" Kind="Structure" />
+      <Type Name="GroundOverlay" Kind="Class" />
+      <Type Name="MapLayer" Kind="Class" />
+      <Type Name="MapServices" Kind="Class" />
+      <Type Name="MapView" Kind="Class" />
+      <Type Name="MapViewAnimation" Kind="Class" />
+      <Type Name="MapViewDelegate" Kind="Class" />
+      <Type Name="MapViewType" Kind="Enumeration" />
+      <Type Name="Marker" Kind="Class" />
+      <Type Name="MutablePath" Kind="Class" />
+      <Type Name="Overlay" Kind="Class" />
+      <Type Name="Path" Kind="Class" />
+      <Type Name="Polygon" Kind="Class" />
+      <Type Name="Polyline" Kind="Class" />
+      <Type Name="Projection" Kind="Class" />
+      <Type Name="ReverseGeocodeCallback" Kind="Delegate" />
+      <Type Name="ReverseGeocodeResponse" Kind="Class" />
+      <Type Name="ReverseGeocodeResult" Kind="Class" />
+      <Type Name="UISettings" Kind="Class" />
+      <Type Name="VisibleRegion" Kind="Structure" />
+    </Namespace>
+    <Namespace Name="GoogleMaps">
     </Namespace>
   </Types>
   <Title>GoogleMaps</Title>
+  <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.MapView" />
+      </Targets>
+      <Member MemberName="Animate">
+        <MemberSignature Language="C#" Value="public static void Animate (this Google.Maps.MapView This, Google.Maps.CameraPosition cameraPosition);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Animate(class Google.Maps.MapView This, class Google.Maps.CameraPosition cameraPosition) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.MapView" RefType="this" />
+          <Parameter Name="cameraPosition" Type="Google.Maps.CameraPosition" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="cameraPosition">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewAnimation" Member="M:Google.Maps.MapViewAnimation.Animate(Google.Maps.MapView,Google.Maps.CameraPosition)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.MapView" />
+      </Targets>
+      <Member MemberName="Animate">
+        <MemberSignature Language="C#" Value="public static void Animate (this Google.Maps.MapView This, Google.Maps.CameraUpdate cameraUpdate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Animate(class Google.Maps.MapView This, class Google.Maps.CameraUpdate cameraUpdate) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.MapView" RefType="this" />
+          <Parameter Name="cameraUpdate" Type="Google.Maps.CameraUpdate" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="cameraUpdate">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewAnimation" Member="M:Google.Maps.MapViewAnimation.Animate(Google.Maps.MapView,Google.Maps.CameraUpdate)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.MapView" />
+      </Targets>
+      <Member MemberName="Animate">
+        <MemberSignature Language="C#" Value="public static void Animate (this Google.Maps.MapView This, MonoTouch.CoreLocation.CLLocationCoordinate2D location);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Animate(class Google.Maps.MapView This, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D location) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.MapView" RefType="this" />
+          <Parameter Name="location" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="location">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewAnimation" Member="M:Google.Maps.MapViewAnimation.Animate(Google.Maps.MapView,MonoTouch.CoreLocation.CLLocationCoordinate2D)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.MapView" />
+      </Targets>
+      <Member MemberName="Animate">
+        <MemberSignature Language="C#" Value="public static void Animate (this Google.Maps.MapView This, double viewingAngle);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Animate(class Google.Maps.MapView This, float64 viewingAngle) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.MapView" RefType="this" />
+          <Parameter Name="viewingAngle" Type="System.Double" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="viewingAngle">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewAnimation" Member="M:Google.Maps.MapViewAnimation.Animate(Google.Maps.MapView,System.Double)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.MapView" />
+      </Targets>
+      <Member MemberName="Animate">
+        <MemberSignature Language="C#" Value="public static void Animate (this Google.Maps.MapView This, float zoom);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Animate(class Google.Maps.MapView This, float32 zoom) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.MapView" RefType="this" />
+          <Parameter Name="zoom" Type="System.Single" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="zoom">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewAnimation" Member="M:Google.Maps.MapViewAnimation.Animate(Google.Maps.MapView,System.Single)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.MapView" />
+      </Targets>
+      <Member MemberName="AnimateToBearing">
+        <MemberSignature Language="C#" Value="public static void AnimateToBearing (this Google.Maps.MapView This, double bearing);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void AnimateToBearing(class Google.Maps.MapView This, float64 bearing) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.MapView" RefType="this" />
+          <Parameter Name="bearing" Type="System.Double" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="bearing">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewAnimation" Member="M:Google.Maps.MapViewAnimation.AnimateToBearing(Google.Maps.MapView,System.Double)" />
+      </Member>
+    </ExtensionMethod>
+  </ExtensionMethods>
 </Overview>
