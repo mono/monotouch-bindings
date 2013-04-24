@@ -411,7 +411,7 @@ namespace Google.Maps
 		string Title { get; set; }
 
 		[Export ("map")]
-		MapView Map { get; set; }
+		MapView Map { get; [NullAllowed] set; }
 
 		[Export ("tappable", ArgumentSemantic.Assign)]
 		bool Tappable { [Bind ("isTappable")] get; set; }
