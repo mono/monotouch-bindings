@@ -1,8 +1,8 @@
 //
-// ApiDefinition.cs: Bindings to the Facebook iOS SDK.
+// extensions.cs: Convenience methods.
 //
 //	Authors:
-//		Alex Soto	(alex.soto@xamarin.com)
+//		Alex Soto (alex.soto@xamarin.com)
 //
 //
 
