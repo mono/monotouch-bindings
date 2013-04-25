@@ -11,6 +11,14 @@ using System;
 
 namespace MonoTouch.FacebookConnect
 {
+
+	public enum FBOSIntegratedShareDialogResult
+	{
+		Succeeded = 0,
+		Cancelled = 1,
+		Error = 2
+	}
+
 	public enum FBErrorCode
 	{
 		Invalid = 0,
@@ -20,10 +28,25 @@ namespace MonoTouch.FacebookConnect
 		ProtocolMismatch,
 		HTTPError,
 		NonTextMimeTypeReturned,
-		NativeDialog,
+		Dialog,
 		Insights,
 		SystemAPI,
 		PublishInstallResponse,
+		AppActivatedWhilePendingAppCall,
+		UntrustedURL,
+		MalformedURL
+	}
+
+	public enum FBNativeApplicationErrorCode
+	{
+		FBAppCallErrorUnknown = 1,
+		FBAppCallErrorUnsupported = 2,
+		FBAppCallErrorUnknownMethod = 3,
+		FBAppCallErrorServiceBusy = 4,
+		FBShareErrorInvalidParam = 100,
+		FBShareErrorServer = 102,
+		FBShareErrorUnknown = 103,
+		FBShareErrorDenied = 104,
 	}
 	
 	public enum FBErrorCategory
@@ -56,7 +79,8 @@ namespace MonoTouch.FacebookConnect
 		ByFirstName,
 		ByLastName
 	}
-	
+
+	[Obsolete]
 	public enum FBNativeDialogResult
 	{
 		Succeeded,
@@ -105,6 +129,13 @@ namespace MonoTouch.FacebookConnect
 		FacebookViaSafari  = 3,
 		WebView = 4,
 		TestUser = 5
+	}
+
+	public enum FBBetaFeatures : uint
+	{
+		None                 = 0,
+		ShareDialog          = 1 << 0,
+		OpenGraphShareDialog = 1 << 1,
 	}
 
 	public enum FBWebDialogResult
