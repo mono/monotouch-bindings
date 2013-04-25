@@ -3,7 +3,7 @@
   <TypeSignature Language="C#" Value="public class FBTestSession : MonoTouch.FacebookConnect.FBSession" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBTestSession extends MonoTouch.FacebookConnect.FBSession" />
   <AssemblyInfo>
-    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -45,6 +45,30 @@
       </Attributes>
       <Parameters />
       <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBTestSession (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -115,12 +139,58 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SessionWithPrivateUserWithPermissions">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBTestSession SessionWithPrivateUserWithPermissions (string[] permissions);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBTestSession SessionWithPrivateUserWithPermissions(string[] permissions) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("sessionWithPrivateUserWithPermissions:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBTestSession</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="permissions" Type="System.String[]" />
+      </Parameters>
+      <Docs>
+        <param name="permissions">array of strings naming permissions to authorize; nil indicates a common default set of permissions should be used for unit testing </param>
+        <summary>
+          <para>Constructor helper to create a session for use in unit tests</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Constructor helper to create a session for use in unit tests</para>
+          <para>This method creates a session object which creates a test user on open, and destroys the user on close; This method should not be used in application code <ndash /> but is useful for creating unit tests that use the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> SDK.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SessionWithPrivateUserWithPermissions">
       <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSObject SessionWithPrivateUserWithPermissions (string[] permissions);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.Foundation.NSObject SessionWithPrivateUserWithPermissions(string[] permissions) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -147,11 +217,42 @@
       </Docs>
     </Member>
     <Member MemberName="SessionWithSharedUserWithPermissions">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBTestSession SessionWithSharedUserWithPermissions (string[] permissions);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBTestSession SessionWithSharedUserWithPermissions(string[] permissions) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("sessionWithSharedUserWithPermissions:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBTestSession</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="permissions" Type="System.String[]" />
+      </Parameters>
+      <Docs>
+        <param name="permissions">array of strings naming permissions to authorize; nil indicates a common default set of permissions should be used for unit testing </param>
+        <summary>
+          <para>Constructor helper to create a session for use in unit tests</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Constructor helper to create a session for use in unit tests</para>
+          <para>This method creates a session object which uses a shared test user with the right permissions, creating one if necessary on open (but not deleting it on close, so it can be re-used in later tests). Calling this method multiple times may return sessions with the same user. If this is not desired, use the variant sessionWithSharedUserWithPermissions:uniqueUserTag:.</para>
+          <para>This method should not be used in application code <ndash /> but is useful for creating unit tests that use the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> SDK.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SessionWithSharedUserWithPermissions">
       <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSObject SessionWithSharedUserWithPermissions (string[] permissions);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.Foundation.NSObject SessionWithSharedUserWithPermissions(string[] permissions) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -179,11 +280,44 @@
       </Docs>
     </Member>
     <Member MemberName="SessionWithSharedUserWithPermissions">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBTestSession SessionWithSharedUserWithPermissions (string[] permissions, string uniqueUserTag);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBTestSession SessionWithSharedUserWithPermissions(string[] permissions, string uniqueUserTag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("sessionWithSharedUserWithPermissions:uniqueUserTag:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBTestSession</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="permissions" Type="System.String[]" />
+        <Parameter Name="uniqueUserTag" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="permissions">array of strings naming permissions to authorize; nil indicates a common default set of permissions should be used for unit testing</param>
+        <param name="uniqueUserTag">a string which will be used to make this user unique among other users with the same permissions. Useful for tests which require two or more users to interact with each other, and which therefore must have sessions associated with different users. For this case, consider using kSecondTestUserTag and kThirdTestUserTag so these users can be shared with other, similar, tests. </param>
+        <summary>
+          <para>Constructor helper to create a session for use in unit tests</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Constructor helper to create a session for use in unit tests</para>
+          <para>This method creates a session object which uses a shared test user with the right permissions, creating one if necessary on open (but not deleting it on close, so it can be re-used in later tests).</para>
+          <para>This method should not be used in application code <ndash /> but is useful for creating unit tests that use the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> SDK.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SessionWithSharedUserWithPermissions">
       <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSObject SessionWithSharedUserWithPermissions (string[] permissions, string uniqueUserTag);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.Foundation.NSObject SessionWithSharedUserWithPermissions(string[] permissions, string uniqueUserTag) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>

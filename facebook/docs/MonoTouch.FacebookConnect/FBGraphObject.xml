@@ -3,7 +3,7 @@
   <TypeSignature Language="C#" Value="public class FBGraphObject : MonoTouch.Foundation.NSMutableDictionary" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBGraphObject extends MonoTouch.Foundation.NSMutableDictionary" />
   <AssemblyInfo>
-    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -38,6 +38,30 @@
       </Attributes>
       <Parameters />
       <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBGraphObject (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -84,6 +108,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GraphObject">
       <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBGraphObject GraphObject ();" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBGraphObject GraphObject() cil managed" />
@@ -102,11 +142,11 @@
       <Parameters />
       <Docs>
         <summary>
-          <para>Used to create a graph object for, usually for use in posting a new graph object or action </para>
+          <para>Used to create a graph object, usually for use in posting a new graph object or action. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
-          <para>Used to create a graph object for, usually for use in posting a new graph object or action </para>
+          <para>Used to create a graph object, usually for use in posting a new graph object or action. </para>
         </remarks>
       </Docs>
     </Member>
@@ -151,7 +191,7 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("isGraphObjectID:")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("isGraphObjectID:sameAs:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -162,11 +202,104 @@
         <Parameter Name="anotherObject" Type="MonoTouch.FacebookConnect.FBGraphObject" />
       </Parameters>
       <Docs>
-        <param name="anObject">To be added.</param>
-        <param name="anotherObject">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="anObject">an  to test</param>
+        <param name="anotherObject">the  to compare it against </param>
+        <summary>
+          <para>Used to compare two <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBGraphObject" /></computeroutput>s to determine if represent the same object. We do not overload the concept of equality as there are various types of equality that may be important for an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBGraphObject" /></computeroutput> (for instance, two different <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBGraphObject" /></computeroutput>s could represent the same object, but contain different subsets of fields).</para>
+        </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Used to compare two <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBGraphObject" /></computeroutput>s to determine if represent the same object. We do not overload the concept of equality as there are various types of equality that may be important for an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBGraphObject" /></computeroutput> (for instance, two different <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBGraphObject" /></computeroutput>s could represent the same object, but contain different subsets of fields).</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenGraphAction">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBOpenGraphAction OpenGraphAction { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.FacebookConnect.FBOpenGraphAction OpenGraphAction" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("openGraphActionForPost")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBOpenGraphAction</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Used to create a graph object that's provisioned for POST, usually for use in posting a new Open Graph Action. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Used to create a graph object that's provisioned for POST, usually for use in posting a new Open Graph Action. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenGraphObject">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBOpenGraphObject OpenGraphObject { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.FacebookConnect.FBOpenGraphObject OpenGraphObject" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("openGraphObjectForPost")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBOpenGraphObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Used to create a graph object that's provisioned for POST, usually for use in posting a new Open Graph object. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Used to create a graph object that's provisioned for POST, usually for use in posting a new Open Graph object. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenGraphObjectForPost">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBOpenGraphObject OpenGraphObjectForPost (string aType, string title, MonoTouch.Foundation.NSObject image, MonoTouch.Foundation.NSObject url, string description);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBOpenGraphObject OpenGraphObjectForPost(string aType, string title, class MonoTouch.Foundation.NSObject image, class MonoTouch.Foundation.NSObject url, string description) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("openGraphObjectForPostWithType:title:image:url:description:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBOpenGraphObject</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aType" Type="System.String" />
+        <Parameter Name="title" Type="System.String" />
+        <Parameter Name="image" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="description" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="aType">the object type name, in the form namespace:typename </param>
+        <param name="title">a title for the object </param>
+        <param name="image">the image property for the object </param>
+        <param name="url">the url property for the object </param>
+        <param name="description">the description for the object </param>
+        <summary>
+          <para>Used to create a graph object that's provisioned for POST, usually for use in posting a new Open Graph object.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Used to create a graph object that's provisioned for POST, usually for use in posting a new Open Graph object.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

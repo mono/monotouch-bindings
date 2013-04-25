@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="FBAccessTokenData" FullName="MonoTouch.FacebookConnect.FBAccessTokenData">
+  <TypeSignature Language="C#" Value="public class FBAccessTokenData : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBAccessTokenData extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FBAccessTokenData", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>Represents an access token used for the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> login flow and includes associated metadata such as expiration date and permissions. You should use factory methods (createToken...) to construct instances and should be treated as immutable.</para>
+    </summary>
+    <remarks>
+      <para>Represents an access token used for the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> login flow and includes associated metadata such as expiration date and permissions. You should use factory methods (createToken...) to construct instances and should be treated as immutable.</para>
+      <para>For more information, see <ulink url="https://developers.facebook.com/docs/concepts/login/access-tokens-and-types/">https://developers.facebook.com/docs/concepts/login/access-tokens-and-types/</ulink>. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBAccessTokenData (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBAccessTokenData (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBAccessTokenData (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AccessToken">
+      <MemberSignature Language="C#" Value="public virtual string AccessToken { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string AccessToken" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("accessToken", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateToken">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAccessTokenData CreateToken (MonoTouch.Foundation.NSDictionary dictionary);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAccessTokenData CreateToken(class MonoTouch.Foundation.NSDictionary dictionary) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createTokenFromDictionary:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAccessTokenData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dictionary" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="dictionary">the dictionary with  keys. </param>
+        <summary>
+          <para>Creates an <see cref="T:MonoTouch.FacebookConnect.FBAccessTokenData" /> from a dictionary or returns nil if required data is missing. </para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Creates an <see cref="T:MonoTouch.FacebookConnect.FBAccessTokenData" /> from a dictionary or returns nil if required data is missing. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateToken">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAccessTokenData CreateToken (MonoTouch.Foundation.NSUrl url, string appId, string urlSchemeSuffix);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAccessTokenData CreateToken(class MonoTouch.Foundation.NSUrl url, string appId, string urlSchemeSuffix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createTokenFromFacebookURL:appID:urlSchemeSuffix:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAccessTokenData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="appId" Type="System.String" />
+        <Parameter Name="urlSchemeSuffix" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="url">The url provided. </param>
+        <param name="appId">needed in order to verify URL format. </param>
+        <param name="urlSchemeSuffix">needed in order to verify URL format. </param>
+        <summary>
+          <para>Creates an <see cref="T:MonoTouch.FacebookConnect.FBAccessTokenData" /> from an App Link provided by the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application or nil if the url is not valid.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Creates an <see cref="T:MonoTouch.FacebookConnect.FBAccessTokenData" /> from an App Link provided by the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application or nil if the url is not valid.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateToken">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAccessTokenData CreateToken (string accessToken, string[] permissions, MonoTouch.Foundation.NSDate expirationDate, MonoTouch.FacebookConnect.FBSessionLoginType loginType, MonoTouch.Foundation.NSDate refreshDate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAccessTokenData CreateToken(string accessToken, string[] permissions, class MonoTouch.Foundation.NSDate expirationDate, valuetype MonoTouch.FacebookConnect.FBSessionLoginType loginType, class MonoTouch.Foundation.NSDate refreshDate) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createTokenFromString:permissions:expirationDate:loginType:refreshDate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAccessTokenData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="accessToken" Type="System.String" />
+        <Parameter Name="permissions" Type="System.String[]" />
+        <Parameter Name="expirationDate" Type="MonoTouch.Foundation.NSDate" />
+        <Parameter Name="loginType" Type="MonoTouch.FacebookConnect.FBSessionLoginType" />
+        <Parameter Name="refreshDate" Type="MonoTouch.Foundation.NSDate" />
+      </Parameters>
+      <Docs>
+        <param name="accessToken">The token string. If nil or empty, this method will return nil. </param>
+        <param name="permissions">The permissions set. A value of nil indicates basic permissions. </param>
+        <param name="expirationDate">The expiration date. A value of nil defaults to [NSDate distantFuture]. </param>
+        <param name="loginType">The login source of the token. </param>
+        <param name="refreshDate">The date that token was last refreshed. A value of nil defaults to [NSDate date]. </param>
+        <summary>
+          <para>Creates an <see cref="T:MonoTouch.FacebookConnect.FBAccessTokenData" /> from existing information or returns nil if required data is missing.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Creates an <see cref="T:MonoTouch.FacebookConnect.FBAccessTokenData" /> from existing information or returns nil if required data is missing.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dictionary">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSMutableDictionary Dictionary { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSMutableDictionary Dictionary" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("dictionary")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSMutableDictionary</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Returns a dictionary representation of this instance.</para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Returns a dictionary representation of this instance.</para>
+          <para>This is provided for backwards compatibility with previous access token related APIs that used a NSDictionary (see <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy" /></computeroutput>). </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExpirationDate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate ExpirationDate { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate ExpirationDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("expirationDate", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsEqualToAccessTokenData">
+      <MemberSignature Language="C#" Value="public virtual bool IsEqualToAccessTokenData (MonoTouch.FacebookConnect.FBAccessTokenData accessTokenData);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool IsEqualToAccessTokenData(class MonoTouch.FacebookConnect.FBAccessTokenData accessTokenData) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("isEqualToAccessTokenData:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="accessTokenData" Type="MonoTouch.FacebookConnect.FBAccessTokenData" />
+      </Parameters>
+      <Docs>
+        <param name="accessTokenData">the data to compare to the receiver. </param>
+        <summary>
+          <para>Returns a Boolean value that indicates whether a given object is an <see cref="T:MonoTouch.FacebookConnect.FBAccessTokenData" /> object and exactly equal the receiver.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Returns a Boolean value that indicates whether a given object is an <see cref="T:MonoTouch.FacebookConnect.FBAccessTokenData" /> object and exactly equal the receiver.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoginType">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBSessionLoginType LoginType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.FacebookConnect.FBSessionLoginType LoginType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("loginType")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBSessionLoginType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>returns the login type associated with the token. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>returns the login type associated with the token. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Permissions">
+      <MemberSignature Language="C#" Value="public virtual string[] Permissions { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string[] Permissions" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("permissions", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RefreshDate">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDate RefreshDate { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDate RefreshDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("refreshDate", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

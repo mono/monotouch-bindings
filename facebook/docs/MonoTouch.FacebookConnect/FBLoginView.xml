@@ -3,7 +3,7 @@
   <TypeSignature Language="C#" Value="public class FBLoginView : MonoTouch.UIKit.UIView" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBLoginView extends MonoTouch.UIKit.UIView" />
   <AssemblyInfo>
-    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -16,8 +16,15 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>
+      <para>
+        <see cref="T:MonoTouch.FacebookConnect.FBLoginView" /> is a custom UIView that renders a button to login or logout based on the state of <computeroutput><ref refid="interface_f_b_session_1a9972752078310311e8c664ac4e9ac5bc" kindref="member">activeSession (FBSession)</ref></computeroutput></para>
+    </summary>
     <remarks>
+      <para>
+        <see cref="T:MonoTouch.FacebookConnect.FBLoginView" /> is a custom UIView that renders a button to login or logout based on the state of <computeroutput><ref refid="interface_f_b_session_1a9972752078310311e8c664ac4e9ac5bc" kindref="member">activeSession (FBSession)</ref></computeroutput></para>
+      <para>This view is closely associated with <computeroutput><ref refid="interface_f_b_session_1a9972752078310311e8c664ac4e9ac5bc" kindref="member">activeSession (FBSession)</ref></computeroutput>. Upon initialization, it will attempt to open an active session without UI if the current active session is not open.</para>
+      <para>The <see cref="T:MonoTouch.FacebookConnect.FBLoginView" /> instance also monitors for changes to the active session. </para>
     </remarks>
   </Docs>
   <Members>
@@ -44,6 +51,30 @@
         <remarks>
           <para>Initializes and returns an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBLoginView" /></computeroutput> object. The underlying session has basic permissions granted to it. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBLoginView (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -142,6 +173,22 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DefaultAudience">
       <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBSessionDefaultAudience DefaultAudience { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.FacebookConnect.FBSessionDefaultAudience DefaultAudience" />
@@ -210,6 +257,21 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.EventHandler&lt;MonoTouch.FacebookConnect.FBLoginViewUserInfoEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleError">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;MonoTouch.FacebookConnect.FBLoginViewErrorEventArgs&gt; HandleError;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class MonoTouch.FacebookConnect.FBLoginViewErrorEventArgs&gt; HandleError" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;MonoTouch.FacebookConnect.FBLoginViewErrorEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

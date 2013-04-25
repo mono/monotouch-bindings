@@ -3,7 +3,7 @@
   <TypeSignature Language="C#" Value="public class FBNativeDialogs : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBNativeDialogs extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
-    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -17,10 +17,10 @@
   </Attributes>
   <Docs>
     <summary>
-      <para>Provides methods to display native (i.e., non-Web-based) dialogs to the user. Currently the iOS 6 sharing dialog is supported. </para>
+      <para>Please note that <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBNativeDialogs" /></computeroutput> has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput>. </para>
     </summary>
     <remarks>
-      <para>Provides methods to display native (i.e., non-Web-based) dialogs to the user. Currently the iOS 6 sharing dialog is supported. </para>
+      <para>Please note that <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBNativeDialogs" /></computeroutput> has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput>. </para>
     </remarks>
   </Docs>
   <Members>
@@ -41,6 +41,30 @@
       </Attributes>
       <Parameters />
       <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBNativeDialogs (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -98,6 +122,9 @@
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("canPresentShareDialogWithSession:")</AttributeName>
         </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("please migrate your code to use `FBDialogs` and the related method `CanPresentOSIntegratedShareDialog`", false)</AttributeName>
+        </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
@@ -108,15 +135,28 @@
       <Docs>
         <param name="session">The &lt;FBSession&gt; to use to determine whether or not the user has been authenticated with iOS native authentication. If nil, then [ activeSession] will be checked. See discussion above for the implications of nil or non-nil session.</param>
         <summary>
-          <para>Determines whether a call to presentShareDialogModallyFrom: will successfully present a dialog. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform and for the current user.</para>
+          <para>Please note that this method has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput> and the related method <computeroutput>canPresentOSIntegratedShareDialogWithSession</computeroutput>. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
-          <para>Determines whether a call to presentShareDialogModallyFrom: will successfully present a dialog. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform and for the current user.</para>
-          <para>
-            <para>YES if the dialog would be presented for the session, and NO if not </para>
-          </para>
+          <para>Please note that this method has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput> and the related method <computeroutput>canPresentOSIntegratedShareDialogWithSession</computeroutput>. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="PresentShareDialogModallyFrom">
@@ -129,6 +169,9 @@
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("presentShareDialogModallyFrom:initialText:image:url:handler:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("Please migrate your code to use `FBDialogs` and the related method `PresentOSIntegratedShareDialogModally`", false)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -148,14 +191,11 @@
         <param name="url">An NSURL that will be attached to the status update. May be nil.</param>
         <param name="handler">A handler that will be called when the dialog is dismissed, or if an error occurs. May be nil.</param>
         <summary>
-          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
+          <para>Please note that this method has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput> and the related method <computeroutput>presentOSIntegratedShareDialogModallyFrom</computeroutput>. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
-          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
-          <para>
-            <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
-          </para>
+          <para>Please note that this method has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput> and the related method <computeroutput>presentOSIntegratedShareDialogModallyFrom</computeroutput>. </para>
         </remarks>
       </Docs>
     </Member>
@@ -164,7 +204,6 @@
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentShareDialogModallyFrom(class MonoTouch.UIKit.UIViewController viewController, string initialText, class MonoTouch.UIKit.UIImage image, class MonoTouch.Foundation.NSUrl[] urls, class MonoTouch.FacebookConnect.FBShareDialogHandler handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -188,15 +227,48 @@
         <param name="urls">An array of NSURLs that will be attached to the status update. May be nil.</param>
         <param name="handler">A handler that will be called when the dialog is dismissed, or if an error occurs. May be nil.</param>
         <summary>
-          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
+          <para>Please note that this method has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput> and the related method <computeroutput>presentOSIntegratedShareDialogModallyFrom</computeroutput>. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
-          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
-          <para>
-            <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
-          </para>
+          <para>Please note that this method has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput> and the related method <computeroutput>presentOSIntegratedShareDialogModallyFrom</computeroutput>. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialogModallyFrom">
+      <MemberSignature Language="C#" Value="public static bool PresentShareDialogModallyFrom (MonoTouch.UIKit.UIViewController viewController, string initialText, MonoTouch.UIKit.UIImage[] images, MonoTouch.Foundation.NSUrl[] urls, MonoTouch.FacebookConnect.FBShareDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentShareDialogModallyFrom(class MonoTouch.UIKit.UIViewController viewController, string initialText, class MonoTouch.UIKit.UIImage[] images, class MonoTouch.Foundation.NSUrl[] urls, class MonoTouch.FacebookConnect.FBShareDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogModallyFrom:initialText:images:urls:handler:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("Please migrate your code to use `FBDialogs` and the related method `PresentOSIntegratedShareDialogModally`", false)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="initialText" Type="System.String" />
+        <Parameter Name="images" Type="MonoTouch.UIKit.UIImage[]" />
+        <Parameter Name="urls" Type="MonoTouch.Foundation.NSUrl[]" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBShareDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">To be added.</param>
+        <param name="initialText">To be added.</param>
+        <param name="images">To be added.</param>
+        <param name="urls">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="PresentShareDialogModallyFrom">
@@ -204,7 +276,6 @@
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentShareDialogModallyFrom(class MonoTouch.UIKit.UIViewController viewController, class MonoTouch.FacebookConnect.FBSession session, string initialText, class MonoTouch.UIKit.UIImage image, class MonoTouch.Foundation.NSUrl[] urls, class MonoTouch.FacebookConnect.FBShareDialogHandler handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -230,15 +301,50 @@
         <param name="urls">An array of NSURLs that will be attached to the status update. May be nil.</param>
         <param name="handler">A handler that will be called when the dialog is dismissed, or if an error occurs. May be nil.</param>
         <summary>
-          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. An &lt;FBSession&gt; may be specified, or nil may be passed to indicate that the current active session should be used. If a session is specified (whether explicitly or by virtue of being the active session), it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session is specified (and there is no active session), then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
+          <para>Please note that this method has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput> and the related method <computeroutput>presentOSIntegratedShareDialogModallyFrom</computeroutput>. </para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
-          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. An &lt;FBSession&gt; may be specified, or nil may be passed to indicate that the current active session should be used. If a session is specified (whether explicitly or by virtue of being the active session), it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session is specified (and there is no active session), then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
-          <para>
-            <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
-          </para>
+          <para>Please note that this method has been deprecated, please migrate your code to use <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBDialogs" /></computeroutput> and the related method <computeroutput>presentOSIntegratedShareDialogModallyFrom</computeroutput>. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialogModallyFrom">
+      <MemberSignature Language="C#" Value="public static bool PresentShareDialogModallyFrom (MonoTouch.UIKit.UIViewController viewController, MonoTouch.FacebookConnect.FBSession session, string initialText, MonoTouch.UIKit.UIImage[] images, MonoTouch.Foundation.NSUrl[] urls, MonoTouch.FacebookConnect.FBShareDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentShareDialogModallyFrom(class MonoTouch.UIKit.UIViewController viewController, class MonoTouch.FacebookConnect.FBSession session, string initialText, class MonoTouch.UIKit.UIImage[] images, class MonoTouch.Foundation.NSUrl[] urls, class MonoTouch.FacebookConnect.FBShareDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogModallyFrom:session:initialText:images:urls:handler:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("Please migrate your code to use `FBDialogs` and the related method `PresentOSIntegratedShareDialogModally`", false)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="initialText" Type="System.String" />
+        <Parameter Name="images" Type="MonoTouch.UIKit.UIImage[]" />
+        <Parameter Name="urls" Type="MonoTouch.Foundation.NSUrl[]" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBShareDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">To be added.</param>
+        <param name="session">To be added.</param>
+        <param name="initialText">To be added.</param>
+        <param name="images">To be added.</param>
+        <param name="urls">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

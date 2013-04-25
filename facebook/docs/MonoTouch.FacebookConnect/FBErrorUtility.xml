@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="FBErrorUtility" FullName="MonoTouch.FacebookConnect.FBErrorUtility">
+  <TypeSignature Language="C#" Value="public class FBErrorUtility : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBErrorUtility extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FBErrorUtility", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>A utility class with methods to provide more information for <see cref="T:MonoTouch.FacebookConnect.Facebook" /> related errors if you do not want to use the NSError(FBError) category. </para>
+    </summary>
+    <remarks>
+      <para>A utility class with methods to provide more information for <see cref="T:MonoTouch.FacebookConnect.Facebook" /> related errors if you do not want to use the NSError(FBError) category. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBErrorUtility (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBErrorUtility (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBErrorUtility (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ErrorCategory">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBErrorCategory ErrorCategory (MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype MonoTouch.FacebookConnect.FBErrorCategory ErrorCategory(class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("errorCategoryForError:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBErrorCategory</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="error">the error to be categorized. </param>
+        <summary>
+          <para>Categorizes the error, if it is <see cref="T:MonoTouch.FacebookConnect.Facebook" /> related, to simplify application mitigation behavior</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Categorizes the error, if it is <see cref="T:MonoTouch.FacebookConnect.Facebook" /> related, to simplify application mitigation behavior</para>
+          <para>In general, in response to an error connecting to <see cref="T:MonoTouch.FacebookConnect.Facebook" />, an application should, retry the operation, request permissions, reconnect the application, or prompt the user to take an action. The error category can be used to understand the class of error received from <see cref="T:MonoTouch.FacebookConnect.Facebook" />. For more infomation on this see <ulink url="https://developers.facebook.com/docs/reference/api/errors/">https://developers.facebook.com/docs/reference/api/errors/</ulink></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldNotifyUser">
+      <MemberSignature Language="C#" Value="public static bool ShouldNotifyUser (MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldNotifyUser(class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("shouldNotifyUserForError:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="error">the error to inspect. </param>
+        <summary>
+          <para>If YES indicates that a user action is required in order to successfully continue with the facebook operation</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>If YES indicates that a user action is required in order to successfully continue with the facebook operation</para>
+          <para>In general if this returns NO, then the application has a straightforward mitigation, such as retry the operation or request permissions from the user, etc. In some cases it is necessary for the user to take an action before the application continues to attempt a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> connection. For more infomation on this see <ulink url="https://developers.facebook.com/docs/reference/api/errors/">https://developers.facebook.com/docs/reference/api/errors/</ulink></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UserMessage">
+      <MemberSignature Language="C#" Value="public static string UserMessage (MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string UserMessage(class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("userMessageForError:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="error">the error to inspect. </param>
+        <summary>
+          <para>A message suitable for display to the user, describing a user action necessary to enable <see cref="T:MonoTouch.FacebookConnect.Facebook" /> functionality. Not all <see cref="T:MonoTouch.FacebookConnect.Facebook" /> errors yield a message suitable for user display; however in all cases where fberrorShouldNotifyUser is YES, this property returns a localizable message suitable for display.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>A message suitable for display to the user, describing a user action necessary to enable <see cref="T:MonoTouch.FacebookConnect.Facebook" /> functionality. Not all <see cref="T:MonoTouch.FacebookConnect.Facebook" /> errors yield a message suitable for user display; however in all cases where fberrorShouldNotifyUser is YES, this property returns a localizable message suitable for display.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
