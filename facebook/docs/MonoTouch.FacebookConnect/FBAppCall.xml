@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="FBAppCall" FullName="MonoTouch.FacebookConnect.FBAppCall">
+  <TypeSignature Language="C#" Value="public class FBAppCall : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBAppCall extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FBAppCall", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>The <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object is used to encapsulate state when the app performs an action that requires switching over to the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, or when the app receives an App Link.</para>
+    </summary>
+    <remarks>
+      <para>The <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object is used to encapsulate state when the app performs an action that requires switching over to the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, or when the app receives an App Link.</para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>Each FBAppCall instance will have a unique ID</description>
+          </item>
+          <item>
+            <description>This object is passed into an FBAppCallHandler for context</description>
+          </item>
+          <item>
+            <description>dialogData will be present if this AppCall is for a Native Dialog</description>
+          </item>
+          <item>
+            <description>appLinkData will be present if this AppCall is for an App Link</description>
+          </item>
+          <item>
+            <description>accessTokenData will be present if this AppCall contains an access token. </description>
+          </item>
+        </list>
+      </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBAppCall ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBAppCall (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBAppCall (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBAppCall (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AccessTokenData">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBAccessTokenData AccessTokenData { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBAccessTokenData AccessTokenData" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("accessTokenData")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAccessTokenData</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Access Token that was returned in this AppCall </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Access Token that was returned in this AppCall </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AppLinkData">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBAppLinkData AppLinkData { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBAppLinkData AppLinkData" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("appLinkData")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAppLinkData</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Data for native app link </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Data for native app link </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DialogData">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBDialogsData DialogData { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBDialogsData DialogData" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("dialogData")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBDialogsData</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Data related to a Dialog AppCall </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Data related to a Dialog AppCall </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Error">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSError Error { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSError Error" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("error")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSError</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Error that occurred in processing this AppCall </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Error that occurred in processing this AppCall </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleDidBecomeActive">
+      <MemberSignature Language="C#" Value="public static void HandleDidBecomeActive ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void HandleDidBecomeActive() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("handleDidBecomeActive")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Call this method when the application's applicationDidBecomeActive: is invoked. This ensures proper state management of any pending FBAppCalls or pending login flow for the <ref refid="interface_f_b_session_1a9972752078310311e8c664ac4e9ac5bc" kindref="member">activeSession (FBSession)</ref>. If any pending FBAppCalls are found, their registered callbacks will be invoked with appropriate state </para>
+        </summary>
+        <remarks>
+          <para>Call this method when the application's applicationDidBecomeActive: is invoked. This ensures proper state management of any pending FBAppCalls or pending login flow for the <ref refid="interface_f_b_session_1a9972752078310311e8c664ac4e9ac5bc" kindref="member">activeSession (FBSession)</ref>. If any pending FBAppCalls are found, their registered callbacks will be invoked with appropriate state </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleDidBecomeActive">
+      <MemberSignature Language="C#" Value="public static void HandleDidBecomeActive (MonoTouch.FacebookConnect.FBSession session);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void HandleDidBecomeActive(class MonoTouch.FacebookConnect.FBSession session) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("handleDidBecomeActiveWithSession:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+      </Parameters>
+      <Docs>
+        <param name="session">Session that is currently being used. Any pending calls to open will be cancelled. If no session is provided, then the activeSession (if present) is used. </param>
+        <summary>
+          <para>Call this method when the application's applicationDidBecomeActive: is invoked. This ensures proper state management of any pending FBAppCalls or a pending open for the passed in <see cref="T:MonoTouch.FacebookConnect.FBSession" />. If any pending FBAppCalls are found, their registered callbacks will be invoked with appropriate state</para>
+        </summary>
+        <remarks>
+          <para>Call this method when the application's applicationDidBecomeActive: is invoked. This ensures proper state management of any pending FBAppCalls or a pending open for the passed in <see cref="T:MonoTouch.FacebookConnect.FBSession" />. If any pending FBAppCalls are found, their registered callbacks will be invoked with appropriate state</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleOpenURL">
+      <MemberSignature Language="C#" Value="public static bool HandleOpenURL (MonoTouch.Foundation.NSUrl url, string sourceApplication);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool HandleOpenURL(class MonoTouch.Foundation.NSUrl url, string sourceApplication) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("handleOpenURL:sourceApplication:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="sourceApplication" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="url">The URL as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:].</param>
+        <param name="sourceApplication">The sourceApplication as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:].</param>
+        <summary>
+          <para>Call this method from the [UIApplicationDelegate application:openURL:sourceApplication:annotation:] method of the AppDelegate for your app. It should be invoked for the proper processing of responses during interaction with the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or as part of SSO authorization flow.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Call this method from the [UIApplicationDelegate application:openURL:sourceApplication:annotation:] method of the AppDelegate for your app. It should be invoked for the proper processing of responses during interaction with the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or as part of SSO authorization flow.</para>
+          <para>
+            <para>YES if the url was intended for the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> SDK, NO if not. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleOpenURL">
+      <MemberSignature Language="C#" Value="public static bool HandleOpenURL (MonoTouch.Foundation.NSUrl url, string sourceApplication, MonoTouch.FacebookConnect.FBAppCallHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool HandleOpenURL(class MonoTouch.Foundation.NSUrl url, string sourceApplication, class MonoTouch.FacebookConnect.FBAppCallHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("handleOpenURL:sourceApplication:fallbackHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="sourceApplication" Type="System.String" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBAppCallHandler" />
+      </Parameters>
+      <Docs>
+        <param name="url">The URL as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:].</param>
+        <param name="sourceApplication">The sourceApplication as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:].</param>
+        <param name="handler">Optional handler that gives the app the opportunity to do some further processing on urls that the SDK could not completely process. A fallback handler is not a requirement for such a url to be considered handled. The fallback handler, if specified, is only ever called sychronously, before the method returns.</param>
+        <summary>
+          <para>Call this method from the [UIApplicationDelegate application:openURL:sourceApplication:annotation:] method of the AppDelegate for your app. It should be invoked for the proper processing of responses during interaction with the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or as part of SSO authorization flow.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Call this method from the [UIApplicationDelegate application:openURL:sourceApplication:annotation:] method of the AppDelegate for your app. It should be invoked for the proper processing of responses during interaction with the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or as part of SSO authorization flow.</para>
+          <para>
+            <para>YES if the url was intended for the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> SDK, NO if not. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleOpenURL">
+      <MemberSignature Language="C#" Value="public static bool HandleOpenURL (MonoTouch.Foundation.NSUrl url, string sourceApplication, MonoTouch.FacebookConnect.FBSession session);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool HandleOpenURL(class MonoTouch.Foundation.NSUrl url, string sourceApplication, class MonoTouch.FacebookConnect.FBSession session) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("handleOpenURL:sourceApplication:withSession:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="sourceApplication" Type="System.String" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+      </Parameters>
+      <Docs>
+        <param name="url">The URL as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:].</param>
+        <param name="sourceApplication">The sourceApplication as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:].</param>
+        <param name="session">If this url is being sent back to this app as part of SSO authorization flow, then pass in the session that was being opened. A nil value defaults to activeSession (FBSession)</param>
+        <summary>
+          <para>Call this method from the [UIApplicationDelegate application:openURL:sourceApplication:annotation:] method of the AppDelegate for your app. It should be invoked for the proper processing of responses during interaction with the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or as part of SSO authorization flow.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Call this method from the [UIApplicationDelegate application:openURL:sourceApplication:annotation:] method of the AppDelegate for your app. It should be invoked for the proper processing of responses during interaction with the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or as part of SSO authorization flow.</para>
+          <para>
+            <para>YES if the url was intended for the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> SDK, NO if not. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleOpenURL">
+      <MemberSignature Language="C#" Value="public static bool HandleOpenURL (MonoTouch.Foundation.NSUrl url, string sourceApplication, MonoTouch.FacebookConnect.FBSession session, MonoTouch.FacebookConnect.FBAppCallHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool HandleOpenURL(class MonoTouch.Foundation.NSUrl url, string sourceApplication, class MonoTouch.FacebookConnect.FBSession session, class MonoTouch.FacebookConnect.FBAppCallHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("handleOpenURL:sourceApplication:withSession:fallbackHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="sourceApplication" Type="System.String" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBAppCallHandler" />
+      </Parameters>
+      <Docs>
+        <param name="url">The URL as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:].</param>
+        <param name="sourceApplication">The sourceApplication as passed to [UIApplicationDelegate application:openURL:sourceApplication:annotation:].</param>
+        <param name="session">If this url is being sent back to this app as part of SSO authorization flow, then pass in the session that was being opened. A nil value defaults to activeSession (FBSession)</param>
+        <param name="handler">Optional handler that gives the app the opportunity to do some further processing on urls that the SDK could not completely process. A fallback handler is not a requirement for such a url to be considered handled. The fallback handler, if specified, is only ever called sychronously, before the method returns.</param>
+        <summary>
+          <para>Call this method from the [UIApplicationDelegate application:openURL:sourceApplication:annotation:] method of the AppDelegate for your app. It should be invoked for the proper processing of responses during interaction with the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or as part of SSO authorization flow.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Call this method from the [UIApplicationDelegate application:openURL:sourceApplication:annotation:] method of the AppDelegate for your app. It should be invoked for the proper processing of responses during interaction with the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app or as part of SSO authorization flow.</para>
+          <para>
+            <para>YES if the url was intended for the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> SDK, NO if not. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Id">
+      <MemberSignature Language="C#" Value="public virtual string Id { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Id" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("ID")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The ID of this <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> instance </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The ID of this <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> instance </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsEqualToAppCall">
+      <MemberSignature Language="C#" Value="public virtual bool IsEqualToAppCall (MonoTouch.FacebookConnect.FBAppCall appCall);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool IsEqualToAppCall(class MonoTouch.FacebookConnect.FBAppCall appCall) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("isEqualToAppCall:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="appCall" Type="MonoTouch.FacebookConnect.FBAppCall" />
+      </Parameters>
+      <Docs>
+        <param name="appCall">the other  to compare to.</param>
+        <summary>
+          <para>Compares the receiving <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> to the passed in <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /></para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Compares the receiving <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> to the passed in <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /></para>
+          <para>
+            <para>YES if the AppCalls can be considered to be the same; NO if otherwise. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

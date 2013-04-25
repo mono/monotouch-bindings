@@ -3,7 +3,7 @@
   <TypeSignature Language="C#" Value="public class FBSessionTokenCachingStrategy : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBSessionTokenCachingStrategy extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
-    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -44,6 +44,30 @@
         <remarks>
           <para>Initializes and returns an instance </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBSessionTokenCachingStrategy (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -114,6 +138,34 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="CacheFBAccessTokenData">
+      <MemberSignature Language="C#" Value="public virtual void CacheFBAccessTokenData (MonoTouch.FacebookConnect.FBAccessTokenData accessToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CacheFBAccessTokenData(class MonoTouch.FacebookConnect.FBAccessTokenData accessToken) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cacheFBAccessTokenData:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="accessToken" Type="MonoTouch.FacebookConnect.FBAccessTokenData" />
+      </Parameters>
+      <Docs>
+        <param name="accessToken">The token instance.  This essentially wraps a call to cacheTokenInformation so you should override this when providing a custom token caching strategy. </param>
+        <summary>
+          <para>Cache the supplied token. </para>
+        </summary>
+        <remarks>
+          <para>Cache the supplied token. </para>
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="CacheTokenInformation">
       <MemberSignature Language="C#" Value="public virtual void CacheTokenInformation (MonoTouch.Foundation.NSDictionary tokenInformation);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CacheTokenInformation(class MonoTouch.Foundation.NSDictionary tokenInformation) cil managed" />
@@ -133,7 +185,7 @@
         <Parameter Name="tokenInformation" Type="MonoTouch.Foundation.NSDictionary" />
       </Parameters>
       <Docs>
-        <param name="tokenInformation">Dictionary containing token information to be cached by the method </param>
+        <param name="tokenInformation">Dictionary containing token information to be cached by the method  You should favor overriding this instead of cacheFBAccessTokenData only if you intend to cache additional data not captured by the  type. </param>
         <summary>
           <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to cache token information.</para>
         </summary>
@@ -141,6 +193,22 @@
           <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to cache token information.</para>
           <para />
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ClearToken">
@@ -193,6 +261,33 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="FetchFBAccessTokenData">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBAccessTokenData FetchFBAccessTokenData ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.FacebookConnect.FBAccessTokenData FetchFBAccessTokenData() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchFBAccessTokenData")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAccessTokenData</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Fetches the cached token instance.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Fetches the cached token instance.</para>
+          <para>This essentially wraps a call to <computeroutput>fetchTokenInformation</computeroutput> so you should override this when providing a custom token caching strategy. </para>
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="FetchTokenInformation">
       <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDictionary FetchTokenInformation ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSDictionary FetchTokenInformation() cil managed" />
@@ -216,7 +311,7 @@
         <returns>To be added.</returns>
         <remarks>
           <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to fetch cached token information</para>
-          <para>An overriding implementation should only return a token if it can also return an expiration date, otherwise return nil </para>
+          <para>An overriding implementation should only return a token if it can also return an expiration date, otherwise return nil. You should favor overriding this instead of <computeroutput>fetchFBAccessTokenData</computeroutput> only if you intend to cache additional data not captured by the <see cref="T:MonoTouch.FacebookConnect.FBAccessTokenData" /> type. </para>
         </remarks>
       </Docs>
     </Member>
@@ -248,6 +343,143 @@
           <para>Helper function called by the SDK as well as application code, used to determine whether a given dictionary contains the minimum token information usable by the &lt;FBSession&gt;.</para>
           <para />
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NullCacheInstance">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy NullCacheInstance { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy NullCacheInstance" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("nullCacheInstance")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Helper function to return a <see cref="T:MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy" /> instance that does not perform any caching. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Helper function to return a <see cref="T:MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy" /> instance that does not perform any caching. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TokenInformationExpirationDateKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString TokenInformationExpirationDateKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString TokenInformationExpirationDateKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TokenInformationIsFacebookLoginKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString TokenInformationIsFacebookLoginKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString TokenInformationIsFacebookLoginKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TokenInformationLoginTypeLoginKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString TokenInformationLoginTypeLoginKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString TokenInformationLoginTypeLoginKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TokenInformationPermissionsKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString TokenInformationPermissionsKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString TokenInformationPermissionsKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TokenInformationRefreshDateKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString TokenInformationRefreshDateKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString TokenInformationRefreshDateKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TokenInformationTokenKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString TokenInformationTokenKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString TokenInformationTokenKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TokenInformationUserFBIDKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString TokenInformationUserFBIDKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString TokenInformationUserFBIDKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

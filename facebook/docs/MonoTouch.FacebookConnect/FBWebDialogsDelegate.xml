@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="FBWebDialogsDelegate" FullName="MonoTouch.FacebookConnect.FBWebDialogsDelegate">
+  <TypeSignature Language="C#" Value="public class FBWebDialogsDelegate : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBWebDialogsDelegate extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FBWebDialogsDelegate", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBWebDialogsDelegate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBWebDialogsDelegate (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBWebDialogsDelegate (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBWebDialogsDelegate (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldAutoHandleURL">
+      <MemberSignature Language="C#" Value="public virtual void ShouldAutoHandleURL (string dialog, MonoTouch.Foundation.NSMutableDictionary parameters, MonoTouch.FacebookConnect.FBSession session, MonoTouch.Foundation.NSUrl url);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ShouldAutoHandleURL(string dialog, class MonoTouch.Foundation.NSMutableDictionary parameters, class MonoTouch.FacebookConnect.FBSession session, class MonoTouch.Foundation.NSUrl url) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("webDialogsDialog:parameters:session:shouldAutoHandleURL:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dialog" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSMutableDictionary" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+      </Parameters>
+      <Docs>
+        <param name="dialog">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="session">To be added.</param>
+        <param name="url">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillDismissDialog">
+      <MemberSignature Language="C#" Value="public virtual void WillDismissDialog (string dialog, MonoTouch.Foundation.NSMutableDictionary parameters, MonoTouch.FacebookConnect.FBSession session, MonoTouch.FacebookConnect.FBWebDialogResult result, out MonoTouch.Foundation.NSUrl url, out MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WillDismissDialog(string dialog, class MonoTouch.Foundation.NSMutableDictionary parameters, class MonoTouch.FacebookConnect.FBSession session, valuetype MonoTouch.FacebookConnect.FBWebDialogResult result, class MonoTouch.Foundation.NSUrl url, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("webDialogsWillDismissDialog:parameters:session:result:url:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dialog" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSMutableDictionary" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="result" Type="MonoTouch.FacebookConnect.FBWebDialogResult" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl&amp;" RefType="out" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="dialog">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="session">To be added.</param>
+        <param name="result">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillPresentDialog">
+      <MemberSignature Language="C#" Value="public virtual void WillPresentDialog (string dialog, MonoTouch.Foundation.NSMutableDictionary parameters, MonoTouch.FacebookConnect.FBSession session);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WillPresentDialog(string dialog, class MonoTouch.Foundation.NSMutableDictionary parameters, class MonoTouch.FacebookConnect.FBSession session) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("webDialogsWillPresentDialog:parameters:session:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dialog" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSMutableDictionary" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+      </Parameters>
+      <Docs>
+        <param name="dialog">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="session">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

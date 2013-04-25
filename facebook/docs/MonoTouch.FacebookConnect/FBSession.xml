@@ -3,7 +3,7 @@
   <TypeSignature Language="C#" Value="public class FBSession : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBSession extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
-    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -64,6 +64,30 @@
           <para>Creating a session</para>
           <para>Returns a newly initialized <see cref="T:MonoTouch.FacebookConnect.Facebook" /> session with default values for the parameters to &lt;initWithAppID:permissions:urlSchemeSuffix:tokenCacheStrategy:&gt;. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBSession (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -212,11 +236,35 @@ It is required that any single permission request request (including initial log
       </AssemblyInfo>
       <Attributes>
         <Attribute>
+          <AttributeName>System.Obsolete("Use the `AccessTokenData` property.", false)</AttributeName>
+        </Attribute>
+        <Attribute>
           <AttributeName>get: MonoTouch.Foundation.Export("accessToken", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AccessTokenData">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.FacebookConnect.FBAccessTokenData AccessTokenData { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBAccessTokenData AccessTokenData" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("accessTokenData", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAccessTokenData</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -244,11 +292,11 @@ It is required that any single permission request request (including initial log
       </ReturnValue>
       <Docs>
         <summary>
-          <para>An appication may get or set the current active session. Certain high-level components in the SDK will use the activeSession to set default session (e.g. <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBLoginView" /></computeroutput>, <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput>)</para>
+          <para>An application may get or set the current active session. Certain high-level components in the SDK will use the activeSession to set default session (e.g. <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBLoginView" /></computeroutput>, <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput>)</para>
         </summary>
         <value>To be added.</value>
         <remarks>
-          <para>An appication may get or set the current active session. Certain high-level components in the SDK will use the activeSession to set default session (e.g. <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBLoginView" /></computeroutput>, <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput>)</para>
+          <para>An application may get or set the current active session. Certain high-level components in the SDK will use the activeSession to set default session (e.g. <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBLoginView" /></computeroutput>, <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBFriendPickerViewController" /></computeroutput>)</para>
           <para>If sessionOpen* is called, the resulting <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> object also becomes the activeSession. If another session was active at the time, it is closed automatically. If activeSession is called when no session is active, a session object is instatiated and returned; in this case open must be called on the session in order for it to be useable for communication with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. </para>
         </remarks>
       </Docs>
@@ -267,6 +315,22 @@ It is required that any single permission request request (including initial log
       </Attributes>
       <ReturnValue>
         <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -333,6 +397,9 @@ It is required that any single permission request request (including initial log
       </AssemblyInfo>
       <Attributes>
         <Attribute>
+          <AttributeName>System.Obsolete("Deprecated in favor of FBSettings.DefaultAppID", false)</AttributeName>
+        </Attribute>
+        <Attribute>
           <AttributeName>get: MonoTouch.Foundation.Export("defaultAppID")</AttributeName>
         </Attribute>
         <Attribute>
@@ -350,6 +417,97 @@ It is required that any single permission request request (including initial log
         <remarks>
           <para>Get the default <see cref="T:MonoTouch.FacebookConnect.Facebook" /> App ID to use for sessions. If not explicitly set, the default will be read from the application's plist. The app ID may be overridden on a per session basis. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultUrlSchemeSuffix">
+      <MemberSignature Language="C#" Value="public static string DefaultUrlSchemeSuffix { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property string DefaultUrlSchemeSuffix" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Deprecated in favor of FBSettings.DefaultUrlSchemeSuffix", false)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultUrlSchemeSuffix")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDefaultUrlSchemeSuffix:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidBecomeClosedActiveSessionNotification">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString DidBecomeClosedActiveSessionNotification { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString DidBecomeClosedActiveSessionNotification" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidBecomeOpenActiveSessionNotification">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString DidBecomeOpenActiveSessionNotification { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString DidBecomeOpenActiveSessionNotification" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidSetActiveSessionNotification">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString DidSetActiveSessionNotification { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString DidSetActiveSessionNotification" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidUnsetActiveSessionNotification">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString DidUnsetActiveSessionNotification { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString DidUnsetActiveSessionNotification" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -379,6 +537,9 @@ It is required that any single permission request request (including initial log
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use the `AccessTokenData` property.", false)</AttributeName>
+        </Attribute>
         <Attribute>
           <AttributeName>get: MonoTouch.Foundation.Export("expirationDate", MonoTouch.ObjCRuntime.ArgumentSemantic.Copy)</AttributeName>
         </Attribute>
@@ -481,6 +642,9 @@ It is required that any single permission request request (including initial log
       </AssemblyInfo>
       <Attributes>
         <Attribute>
+          <AttributeName>System.Obsolete("Use the `AccessTokenData` property.", false)</AttributeName>
+        </Attribute>
+        <Attribute>
           <AttributeName>get: MonoTouch.Foundation.Export("loginType")</AttributeName>
         </Attribute>
       </Attributes>
@@ -525,6 +689,40 @@ It is required that any single permission request request (including initial log
           <para>Opens a session for the <see cref="T:MonoTouch.FacebookConnect.Facebook" />.</para>
           <para>A session may not be used with &lt;FBRequest&gt; and other classes in the SDK until it is open. If, prior to calling open, the session is in the &lt;FBSessionStateCreatedTokenLoaded&gt; state, then no UX occurs, and the session becomes available for use. If the session is in the &lt;FBSessionStateCreated&gt; state, prior to calling open, then a call to open causes login UX to occur, either via the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application or via mobile Safari.</para>
           <para>Open may be called at most once and must be called after the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> is initialized. Open must be called before the session is closed. Calling an open method at an invalid time will result in an exception. The open session methods may be passed a block that will be called back when the session state changes. The block will be released when the session is closed.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Open">
+      <MemberSignature Language="C#" Value="public virtual void Open (MonoTouch.FacebookConnect.FBAccessTokenData accessTokenData, MonoTouch.FacebookConnect.FBSessionStateHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Open(class MonoTouch.FacebookConnect.FBAccessTokenData accessTokenData, class MonoTouch.FacebookConnect.FBSessionStateHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("openFromAccessTokenData:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="accessTokenData" Type="MonoTouch.FacebookConnect.FBAccessTokenData" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionStateHandler" />
+      </Parameters>
+      <Docs>
+        <param name="accessTokenData">The token data. See  for construction methods. </param>
+        <param name="handler">A block to call with session state changes. The default is nil. </param>
+        <summary>
+          <para>Imports an existing access token and opens the session with it.</para>
+        </summary>
+        <remarks>
+          <para>Imports an existing access token and opens the session with it.</para>
+          <para>The method attempts to open the session using an existing access token. No UX will occur. If successful, the session with be in an Open state and the method will return YES; otherwise, NO.</para>
+          <para>The method may be called at most once and must be called after the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBSession" /></computeroutput> is initialized (see below). It must be called before the session is closed. Calling the method at an invalid time will result in an exception. The open session methods may be passed a block that will be called back when the session state changes. The block will be released when the session is closed.</para>
+          <para>The initialized session must not have already been initialized from a cache (for example, you could use the <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy" /> nullCacheInstance]</computeroutput> instance).</para>
           <para />
         </remarks>
       </Docs>
@@ -699,6 +897,9 @@ Returns true if the session was opened synchronously without presenting UI to th
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("reauthorizeWithPermissions:behavior:completionHandler:")</AttributeName>
         </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("", false)</AttributeName>
+        </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -733,6 +934,9 @@ Methods and properties that specify permissions without a read or publish qualif
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("reauthorizeWithPublishPermissions:defaultAudience:completionHandler:")</AttributeName>
         </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use `RequestNewPublishPermissions` instead", false)</AttributeName>
+        </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -745,13 +949,14 @@ Methods and properties that specify permissions without a read or publish qualif
       <Docs>
         <param name="writePermissions">An array of strings representing the permissions to request during the authentication flow.</param>
         <param name="defaultAudience">Specifies the audience for posts.</param>
-        <param name="handler">A block to call with session state changes. The default is nil. </param>
+        <param name="handler">A block to call with session state changes. The default is nil.</param>
         <summary>
           <para>Reauthorizes the session, with additional permissions.</para>
         </summary>
         <remarks>
           <para>Reauthorizes the session, with additional permissions.</para>
-          <para />
+          <para>
+This method is a deprecated alias of &lt;[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> requestNewPublishPermissions:defaultAudience:completionHandler:]&gt;. Consider using &lt;[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> requestNewPublishPermissions:defaultAudience:completionHandler:]&gt;, which is preferred for readability. </para>
         </remarks>
       </Docs>
     </Member>
@@ -766,6 +971,9 @@ Methods and properties that specify permissions without a read or publish qualif
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("reauthorizeWithReadPermissions:completionHandler:")</AttributeName>
         </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use `RequestNewReadPermissions` instead", false)</AttributeName>
+        </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
@@ -776,13 +984,111 @@ Methods and properties that specify permissions without a read or publish qualif
       </Parameters>
       <Docs>
         <param name="readPermissions">An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions.</param>
-        <param name="handler">A block to call with session state changes. The default is nil. </param>
+        <param name="handler">A block to call with session state changes. The default is nil.</param>
         <summary>
           <para>Reauthorizes the session, with additional permissions.</para>
         </summary>
         <remarks>
           <para>Reauthorizes the session, with additional permissions.</para>
-          <para />
+          <para>
+This method is a deprecated alias of &lt;[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> requestNewReadPermissions:completionHandler:]&gt;. Consider using &lt;[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> requestNewReadPermissions:completionHandler:]&gt;, which is preferred for readability. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenewSystemCredentials">
+      <MemberSignature Language="C#" Value="public static void RenewSystemCredentials (MonoTouch.FacebookConnect.FBSessionRenewSystemCredentialsHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RenewSystemCredentials(class MonoTouch.FacebookConnect.FBSessionRenewSystemCredentialsHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("renewSystemCredentials:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionRenewSystemCredentialsHandler" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The completion handler to call when the renewal is completed. The handler will be invoked on the main thread.</param>
+        <summary>
+          <para>Issues an asychronous renewCredentialsForAccount call to the device <see cref="T:MonoTouch.FacebookConnect.Facebook" /> account store.</para>
+        </summary>
+        <remarks>
+          <para>Issues an asychronous renewCredentialsForAccount call to the device <see cref="T:MonoTouch.FacebookConnect.Facebook" /> account store.</para>
+          <para>
+This can be used to explicitly renew account credentials on iOS 6 devices and is provided as a convenience wrapper around <computeroutput>[ACAccountStore renewCredentialsForAccount:completion]</computeroutput>. Note the method will not issue the renewal call if the the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> account has not been set on the device, or if access had not been granted to the account (though the handler wil receive an error).</para>
+          <para>This is safe to call (and will surface an error to the handler) on versions of iOS before 6 or if the user logged in via Safari or <see cref="T:MonoTouch.FacebookConnect.Facebook" /> SSO. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RequestNewPublishPermissions">
+      <MemberSignature Language="C#" Value="public virtual void RequestNewPublishPermissions (string[] writePermissions, MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, MonoTouch.FacebookConnect.FBSessionRequestPermissionResultHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RequestNewPublishPermissions(string[] writePermissions, valuetype MonoTouch.FacebookConnect.FBSessionDefaultAudience defaultAudience, class MonoTouch.FacebookConnect.FBSessionRequestPermissionResultHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestNewPublishPermissions:defaultAudience:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writePermissions" Type="System.String[]" />
+        <Parameter Name="defaultAudience" Type="MonoTouch.FacebookConnect.FBSessionDefaultAudience" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionRequestPermissionResultHandler" />
+      </Parameters>
+      <Docs>
+        <param name="writePermissions">An array of strings representing the permissions to request during the authentication flow.</param>
+        <param name="defaultAudience">Specifies the audience for posts.</param>
+        <param name="handler">A block to call with session state changes. The default is nil.</param>
+        <summary>
+          <para>Requests new or additional write permissions for the session.</para>
+        </summary>
+        <remarks>
+          <para>Requests new or additional write permissions for the session.</para>
+          <para>
+The handler, if non-nil, is called once the operation has completed or failed. This is in contrast to the state completion handler used in &lt;[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> openWithCompletionHandler:]&gt; (and other <computeroutput>open*</computeroutput> methods) which is called for each state-change for the session. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RequestNewReadPermissions">
+      <MemberSignature Language="C#" Value="public virtual void RequestNewReadPermissions (string[] readPermissions, MonoTouch.FacebookConnect.FBSessionRequestPermissionResultHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RequestNewReadPermissions(string[] readPermissions, class MonoTouch.FacebookConnect.FBSessionRequestPermissionResultHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestNewReadPermissions:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="readPermissions" Type="System.String[]" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBSessionRequestPermissionResultHandler" />
+      </Parameters>
+      <Docs>
+        <param name="readPermissions">An array of strings representing the permissions to request during the authentication flow. A value of nil indicates basic permissions.</param>
+        <param name="handler">A block to call with session state changes. The default is nil.</param>
+        <summary>
+          <para>Requests new or additional read permissions for the session.</para>
+        </summary>
+        <remarks>
+          <para>Requests new or additional read permissions for the session.</para>
+          <para>
+The handler, if non-nil, is called once the operation has completed or failed. This is in contrast to the state completion handler used in &lt;[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> openWithCompletionHandler:]&gt; (and other <computeroutput>open*</computeroutput> methods) which is called for each state-change for the session. </para>
         </remarks>
       </Docs>
     </Member>

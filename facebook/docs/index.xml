@@ -1,6 +1,6 @@
 <Overview>
   <Assemblies>
-    <Assembly Name="Facebook" Version="0.0.0.0">
+    <Assembly Name="MonoTouch.FacebookConnect" Version="0.0.0.0">
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libFacebookSDK.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, "-ObjC -lsqlite3", ForceLoad=true, Frameworks="CoreGraphics CoreLocation QuartzCore", WeakFrameworks="Accounts AdSupport Social")</AttributeName>
@@ -14,15 +14,30 @@
   <Remarks>To be added.</Remarks>
   <Copyright>To be added.</Copyright>
   <Types>
-    <Namespace Name="facebook">
+    <Namespace Name="ApiDefinition">
       <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="facebook">
     </Namespace>
     <Namespace Name="MonoTouch.FacebookConnect">
       <Type Name="Facebook" Kind="Class" />
+      <Type Name="FBAccessTokenData" Kind="Class" />
+      <Type Name="FBAppCall" Kind="Class" />
+      <Type Name="FBAppCallHandler" Kind="Delegate" />
+      <Type Name="FBAppLinkData" Kind="Class" />
+      <Type Name="FBBetaFeatures" Kind="Enumeration" />
       <Type Name="FBCacheDescriptor" Kind="Class" />
       <Type Name="FBDialog" Kind="Class" />
+      <Type Name="FBDialogAppCallCompletionHandler" Kind="Delegate" />
       <Type Name="FBDialogDelegate" Kind="Class" />
+      <Type Name="FBDialogs" Kind="Class" />
+      <Type Name="FBDialogsData" Kind="Class" />
+      <Type Name="FBDialogsParams" Kind="Class" />
+      <Type Name="FBError" Kind="Class" />
+      <Type Name="FBErrorCategory" Kind="Enumeration" />
       <Type Name="FBErrorCode" Kind="Enumeration" />
+      <Type Name="FBErrorUtility" Kind="Class" />
+      <Type Name="FBFrictionlessRecipientCache" Kind="Class" />
       <Type Name="FBFriendDisplayOrdering" Kind="Enumeration" />
       <Type Name="FBFriendPickerCondition" Kind="Delegate" />
       <Type Name="FBFriendPickerDelegate" Kind="Class" />
@@ -33,13 +48,23 @@
       <Type Name="FBGraphObject" Kind="Class" />
       <Type Name="FBGraphPlace" Kind="Class" />
       <Type Name="FBGraphUser" Kind="Class" />
+      <Type Name="FBInsights" Kind="Class" />
+      <Type Name="FBInsights+Notifications" Kind="Class" />
+      <Type Name="FBInsightsFlushBehavior" Kind="Enumeration" />
+      <Type Name="FBInstallResponseDataHandler" Kind="Delegate" />
       <Type Name="FBLoginView" Kind="Class" />
       <Type Name="FBLoginViewDelegate" Kind="Class" />
+      <Type Name="FBLoginViewErrorEventArgs" Kind="Class" />
       <Type Name="FBLoginViewUserInfoEventArgs" Kind="Class" />
       <Type Name="FBModalCompletionHandler" Kind="Delegate" />
+      <Type Name="FBNativeApplicationErrorCode" Kind="Enumeration" />
       <Type Name="FBNativeDialogResult" Kind="Enumeration" />
       <Type Name="FBNativeDialogs" Kind="Class" />
       <Type Name="FBOpenGraphAction" Kind="Class" />
+      <Type Name="FBOpenGraphActionShareDialogParams" Kind="Class" />
+      <Type Name="FBOpenGraphObject" Kind="Class" />
+      <Type Name="FBOSIntegratedShareDialogHandler" Kind="Delegate" />
+      <Type Name="FBOSIntegratedShareDialogResult" Kind="Enumeration" />
       <Type Name="FBPlacePickerCondition" Kind="Delegate" />
       <Type Name="FBPlacePickerDelegate" Kind="Class" />
       <Type Name="FBPlacePickerErrorEventArgs" Kind="Class" />
@@ -52,21 +77,29 @@
       <Type Name="FBRequestHandler" Kind="Delegate" />
       <Type Name="FBRequestState" Kind="Enumeration" />
       <Type Name="FBSession" Kind="Class" />
+      <Type Name="FBSession+Notifications" Kind="Class" />
       <Type Name="FBSessionDefaultAudience" Kind="Enumeration" />
       <Type Name="FBSessionDelegate" Kind="Class" />
       <Type Name="FBSessionLoginBehavior" Kind="Enumeration" />
       <Type Name="FBSessionLoginType" Kind="Enumeration" />
       <Type Name="FBSessionReauthorizeResultHandler" Kind="Delegate" />
+      <Type Name="FBSessionRenewSystemCredentialsHandler" Kind="Delegate" />
+      <Type Name="FBSessionRequestPermissionResultHandler" Kind="Delegate" />
       <Type Name="FBSessionState" Kind="Enumeration" />
       <Type Name="FBSessionStateHandler" Kind="Delegate" />
       <Type Name="FBSessionTokenCachingStrategy" Kind="Class" />
       <Type Name="FBSettings" Kind="Class" />
       <Type Name="FBShareDialogHandler" Kind="Delegate" />
+      <Type Name="FBShareDialogParams" Kind="Class" />
       <Type Name="FBTestSession" Kind="Class" />
       <Type Name="FBUserSettingsDelegate" Kind="Class" />
       <Type Name="FBUserSettingsViewController" Kind="Class" />
       <Type Name="FBViewController" Kind="Class" />
       <Type Name="FBViewControllerDelegate" Kind="Class" />
+      <Type Name="FBWebDialogHandler" Kind="Delegate" />
+      <Type Name="FBWebDialogResult" Kind="Enumeration" />
+      <Type Name="FBWebDialogs" Kind="Class" />
+      <Type Name="FBWebDialogsDelegate" Kind="Class" />
     </Namespace>
   </Types>
   <Title>Facebook</Title>

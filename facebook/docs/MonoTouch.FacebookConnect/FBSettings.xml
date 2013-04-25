@@ -3,7 +3,7 @@
   <TypeSignature Language="C#" Value="public class FBSettings : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBSettings extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
-    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -22,22 +22,25 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public FBSettings ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="C#" Value="public FBSettings (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
         </Attribute>
       </Attributes>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
       <Docs>
+        <param name="coder">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -84,6 +87,253 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClientToken">
+      <MemberSignature Language="C#" Value="public static string ClientToken { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property string ClientToken" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("clientToken")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setClientToken:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Retrieve the Client Token that has been set via [<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> setClientToken] </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Retrieve the Client Token that has been set via [<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> setClientToken] </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultAppID">
+      <MemberSignature Language="C#" Value="public static string DefaultAppID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property string DefaultAppID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultAppID")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDefaultAppID:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Get the default <see cref="T:MonoTouch.FacebookConnect.Facebook" /> App ID used by the SDK. If not explicitly set, the default will be read from the application's plist. The SDK allows the appID to be overridden per instance in certain cases (e.g. per instance of <see cref="T:MonoTouch.FacebookConnect.FBSession" />) </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Get the default <see cref="T:MonoTouch.FacebookConnect.Facebook" /> App ID used by the SDK. If not explicitly set, the default will be read from the application's plist. The SDK allows the appID to be overridden per instance in certain cases (e.g. per instance of <see cref="T:MonoTouch.FacebookConnect.FBSession" />) </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultDisplayName">
+      <MemberSignature Language="C#" Value="public static string DefaultDisplayName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property string DefaultDisplayName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultDisplayName")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDefaultDisplayName:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Get the default <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Display Name used by the SDK. If not explicitly set, the default will be read from the application's plist. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Get the default <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Display Name used by the SDK. If not explicitly set, the default will be read from the application's plist. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultUrlSchemeSuffix">
+      <MemberSignature Language="C#" Value="public static string DefaultUrlSchemeSuffix { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property string DefaultUrlSchemeSuffix" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultUrlSchemeSuffix")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDefaultUrlSchemeSuffix:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Get the default url scheme suffix used for sessions. If not explicitly set, the default will be read from the application's plist. The SDK allows the url scheme suffix to be overridden per instance in certain cases (e.g. per instance of <see cref="T:MonoTouch.FacebookConnect.FBSession" />) </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Get the default url scheme suffix used for sessions. If not explicitly set, the default will be read from the application's plist. The SDK allows the url scheme suffix to be overridden per instance in certain cases (e.g. per instance of <see cref="T:MonoTouch.FacebookConnect.FBSession" />) </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DisableBetaFeature">
+      <MemberSignature Language="C#" Value="public static void DisableBetaFeature (MonoTouch.FacebookConnect.FBBetaFeatures betaFeature);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DisableBetaFeature(valuetype MonoTouch.FacebookConnect.FBBetaFeatures betaFeature) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("disableBetaFeature:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="betaFeature" Type="MonoTouch.FacebookConnect.FBBetaFeatures" />
+      </Parameters>
+      <Docs>
+        <param name="betaFeature">The beta feature to disable. </param>
+        <summary>
+          <para>Disables a beta feature.</para>
+        </summary>
+        <remarks>
+          <para>Disables a beta feature.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnableBetaFeature">
+      <MemberSignature Language="C#" Value="public static void EnableBetaFeature (MonoTouch.FacebookConnect.FBBetaFeatures betaFeature);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void EnableBetaFeature(valuetype MonoTouch.FacebookConnect.FBBetaFeatures betaFeature) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("enableBetaFeature:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="betaFeature" Type="MonoTouch.FacebookConnect.FBBetaFeatures" />
+      </Parameters>
+      <Docs>
+        <param name="betaFeature">The beta feature to enable. </param>
+        <summary>
+          <para>Enables a beta feature. Beta features are for evaluation only, and are therefore only enabled for debug builds. Beta features should not be enabled in release builds.</para>
+        </summary>
+        <remarks>
+          <para>Enables a beta feature. Beta features are for evaluation only, and are therefore only enabled for debug builds. Beta features should not be enabled in release builds.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnableBetaFeatures">
+      <MemberSignature Language="C#" Value="public static void EnableBetaFeatures (uint betaFeatures);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void EnableBetaFeatures(unsigned int32 betaFeatures) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("enableBetaFeatures:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="betaFeatures" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="betaFeatures">The beta features to enable (expects a bitwise OR of FBBetaFeatures) </param>
+        <summary>
+          <para>Enables the specified beta features. Beta features are for evaluation only, and are therefore only enabled for debug builds. Beta features should not be enabled in release builds.</para>
+        </summary>
+        <remarks>
+          <para>Enables the specified beta features. Beta features are for evaluation only, and are therefore only enabled for debug builds. Beta features should not be enabled in release builds.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsBetaFeatureEnabled">
+      <MemberSignature Language="C#" Value="public static bool IsBetaFeatureEnabled (MonoTouch.FacebookConnect.FBBetaFeatures betaFeature);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsBetaFeatureEnabled(valuetype MonoTouch.FacebookConnect.FBBetaFeatures betaFeature) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("isBetaFeatureEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="betaFeature" Type="MonoTouch.FacebookConnect.FBBetaFeatures" />
+      </Parameters>
+      <Docs>
+        <param name="betaFeature">The beta feature to check.</param>
+        <summary>
+          <para>Determines whether a beta feature is enabled or not.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Determines whether a beta feature is enabled or not.</para>
+          <para>
+            <para>YES if the beta feature is enabled, NO if not. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="LoggingBehavior">
       <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSSet LoggingBehavior { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSSet LoggingBehavior" />
@@ -112,29 +362,176 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="LoggingBehaviorAccessTokens">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LoggingBehaviorAccessTokens { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LoggingBehaviorAccessTokens" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoggingBehaviorDeveloperErrors">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LoggingBehaviorDeveloperErrors { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LoggingBehaviorDeveloperErrors" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoggingBehaviorFBRequests">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LoggingBehaviorFBRequests { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LoggingBehaviorFBRequests" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoggingBehaviorFBURLConnections">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LoggingBehaviorFBURLConnections { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LoggingBehaviorFBURLConnections" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoggingBehaviorInsights">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LoggingBehaviorInsights { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LoggingBehaviorInsights" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoggingBehaviorPerformanceCharacteristics">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LoggingBehaviorPerformanceCharacteristics { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LoggingBehaviorPerformanceCharacteristics" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoggingBehaviorSessionStateTransitions">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LoggingBehaviorSessionStateTransitions { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LoggingBehaviorSessionStateTransitions" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="PublishInstall">
-      <MemberSignature Language="C#" Value="public static bool PublishInstall (string appID);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PublishInstall(string appID) cil managed" />
+      <MemberSignature Language="C#" Value="public static void PublishInstall (string appID);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PublishInstall(string appID) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("publishInstall")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("publishInstall:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="appID" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="appID">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="appID">A specific appID to publish an install for. If nil, uses [ defaultAppID]. </param>
+        <summary>
+          <para>Manually publish an attributed install to the facebook graph. Calling this method will implicitly turn off auto-publish. This method acquires the current attribution id from the facebook application, queries the graph API to determine if the application has install attribution enabled, publishes the id, and records success to avoid reporting more than once.</para>
+        </summary>
+        <remarks>
+          <para>Manually publish an attributed install to the facebook graph. Calling this method will implicitly turn off auto-publish. This method acquires the current attribution id from the facebook application, queries the graph API to determine if the application has install attribution enabled, publishes the id, and records success to avoid reporting more than once.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PublishInstall">
+      <MemberSignature Language="C#" Value="public static void PublishInstall (string appID, MonoTouch.FacebookConnect.FBInstallResponseDataHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PublishInstall(string appID, class MonoTouch.FacebookConnect.FBInstallResponseDataHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("publishInstall:withHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="appID" Type="System.String" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBInstallResponseDataHandler" />
+      </Parameters>
+      <Docs>
+        <param name="appID">A specific appID to publish an install for. If nil, uses [ defaultAppID]. </param>
+        <param name="handler">A block to call with the server's response. </param>
+        <summary>
+          <para>Manually publish an attributed install to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> graph, and return the server response back in the supplied handler. Calling this method will implicitly turn off auto-publish. This method acquires the current attribution id from the facebook application, queries the graph API to determine if the application has install attribution enabled, publishes the id, and records success to avoid reporting more than once.</para>
+        </summary>
+        <remarks>
+          <para>Manually publish an attributed install to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> graph, and return the server response back in the supplied handler. Calling this method will implicitly turn off auto-publish. This method acquires the current attribution id from the facebook application, queries the graph API to determine if the application has install attribution enabled, publishes the id, and records success to avoid reporting more than once.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ShouldAutoPublishInstall">

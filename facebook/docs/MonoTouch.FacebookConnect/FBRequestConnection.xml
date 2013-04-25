@@ -3,7 +3,7 @@
   <TypeSignature Language="C#" Value="public class FBRequestConnection : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBRequestConnection extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
-    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -49,6 +49,30 @@
           <para>Creating a request</para>
           <para>Calls &lt;initWithTimeout:&gt; with a default timeout of 180 seconds. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBRequestConnection (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -161,8 +185,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddRequest">
-      <MemberSignature Language="C#" Value="public virtual void AddRequest (MonoTouch.FacebookConnect.FBRequest request, MonoTouch.FacebookConnect.FBRequestHandler handler, string name);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddRequest(class MonoTouch.FacebookConnect.FBRequest request, class MonoTouch.FacebookConnect.FBRequestHandler handler, string name) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void AddRequest (MonoTouch.FacebookConnect.FBRequest request, MonoTouch.FacebookConnect.FBRequestHandler handler, string batchEntryName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddRequest(class MonoTouch.FacebookConnect.FBRequest request, class MonoTouch.FacebookConnect.FBRequestHandler handler, string batchEntryName) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -178,11 +202,12 @@
       <Parameters>
         <Parameter Name="request" Type="MonoTouch.FacebookConnect.FBRequest" />
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
-        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="batchEntryName" Type="System.String" />
       </Parameters>
       <Docs>
         <param name="request">A request to be included in the round-trip when start is called.</param>
         <param name="handler">A handler to call back when the round-trip completes or times out.</param>
+        <param name="batchEntryName">An optional name for this request. This can be used to feed the results of one request to the input of another &lt;FBRequest&gt; in the same  as described in Graph API Batch Requests. </param>
         <param name="name">An optional name for this request. This can be used to feed the results of one request to the input of another &lt;FBRequest&gt; in the same  as described in Graph API Batch Requests. </param>
         <summary>
           <para>This method adds an &lt;FBRequest&gt; object to this connection and then calls &lt;start&gt; on the connection.</para>
@@ -220,6 +245,22 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Dispose">
       <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
@@ -236,6 +277,22 @@
       <Docs>
         <param name="disposing">To be added.</param>
         <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NonJSONResponseProperty">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString NonJSONResponseProperty { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString NonJSONResponseProperty" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -278,6 +335,75 @@
             </list>
           </para>
           <para>This method cannot be called twice for an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequestConnection" /></computeroutput> instance. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForCustomAudienceThirdPartyID">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForCustomAudienceThirdPartyID (MonoTouch.FacebookConnect.FBSession session, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForCustomAudienceThirdPartyID(class MonoTouch.FacebookConnect.FBSession session, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForCustomAudienceThirdPartyID:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="session">The handler block to call when the request completes with a success, error, or cancel action. </param>
+        <param name="handler">To be added.</param>
+        <summary>
+          <para>Starts a request representing the Graph API call to retrieve a Custom Audience "third party ID" for the app's <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user. Callers will send this ID back to their own servers, collect up a set to create a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Custom Audience with, and then use the resultant Custom Audience to target ads.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Starts a request representing the Graph API call to retrieve a Custom Audience "third party ID" for the app's <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user. Callers will send this ID back to their own servers, collect up a set to create a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Custom Audience with, and then use the resultant Custom Audience to target ads.</para>
+          <para>
+This method will thrown an exception if either &lt;[<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> defaultAppID]&gt; or &lt;[<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> clientToken]&gt; are <computeroutput>nil</computeroutput>. The appID won't be nil when the pList includes the appID, or if it's explicitly set. The clientToken needs to be set via &lt;[<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> setClientToken:]&gt;.</para>
+          <para>The JSON in the request's response will include an "custom_audience_third_party_id" key/value pair, with the value being the ID retrieved. This ID is an encrypted encoding of the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user's ID and the invoking <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app ID. Multiple calls with the same user will return different IDs, thus these IDs cannot be used to correlate behavior across devices or applications, and are only meaningful when sent back to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> for creating Custom Audiences.</para>
+          <para>The ID retrieved represents the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user identified in the following way: if the specified session (or activeSession if the specified session is <computeroutput>nil</computeroutput>) is open, the ID will represent the user associated with the activeSession; otherwise the ID will represent the user logged into the native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app on the device. If there is no native <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, no one is logged into it, or the user has opted out at the iOS level from ad tracking, then a <computeroutput>nil</computeroutput> ID will be returned.</para>
+          <para>This method itself returning <computeroutput>nil</computeroutput> indicates that either the user has opted-out (via iOS) from Ad Tracking, or a specific <see cref="T:MonoTouch.FacebookConnect.Facebook" /> user cannot be identified.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForDeleteObject">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForDeleteObject (MonoTouch.Foundation.NSObject aObject, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForDeleteObject(class MonoTouch.Foundation.NSObject aObject, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForDeleteObject:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aObject" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="aObject">The object to delete, may be an NSString or NSNumber representing an fbid or an NSDictionary with an id property </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
+        <summary>
+          <para>Simple method to delete an object using the graph API, creates an &lt;FBRequest&gt; object for HTTP DELETE, then uses an &lt;FBRequestConnection&gt; object to start the connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Simple method to delete an object using the graph API, creates an &lt;FBRequest&gt; object for HTTP DELETE, then uses an &lt;FBRequestConnection&gt; object to start the connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+          <para />
         </remarks>
       </Docs>
     </Member>
@@ -383,6 +509,80 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="StartForPostOpenGraphObject">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForPostOpenGraphObject (MonoTouch.FacebookConnect.FBOpenGraphObject aObject, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForPostOpenGraphObject(class MonoTouch.FacebookConnect.FBOpenGraphObject aObject, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForPostOpenGraphObject:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequestConnection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aObject" Type="MonoTouch.FacebookConnect.FBOpenGraphObject" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="aObject">The Open Graph object to create. Some common expected fields include "title", "image", "url", etc.</param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
+        <summary>
+          <para>Creates an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> for creating a user owned Open Graph object, instantiate a &lt;FBRequestConnection&gt; object, add the request to the newly created connection and finally start the connection. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Creates an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> for creating a user owned Open Graph object, instantiate a &lt;FBRequestConnection&gt; object, add the request to the newly created connection and finally start the connection. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForPostOpenGraphObject">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequest StartForPostOpenGraphObject (string aType, string title, MonoTouch.Foundation.NSObject image, MonoTouch.Foundation.NSObject url, string description, MonoTouch.Foundation.NSDictionary objectProperties, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequest StartForPostOpenGraphObject(string aType, string title, class MonoTouch.Foundation.NSObject image, class MonoTouch.Foundation.NSObject url, string description, class MonoTouch.Foundation.NSDictionary objectProperties, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForPostOpenGraphObjectWithType:title:image:url:description:objectProperties:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aType" Type="System.String" />
+        <Parameter Name="title" Type="System.String" />
+        <Parameter Name="image" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="description" Type="System.String" />
+        <Parameter Name="objectProperties" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="aType">The fully-specified Open Graph object type (e.g., my_app_namespace:my_object_name) </param>
+        <param name="title">The title of the Open Graph object. </param>
+        <param name="image">The link to an image to be associated with the Open Graph object. </param>
+        <param name="url">The url to be associated with the Open Graph object. </param>
+        <param name="description">The description for the object. </param>
+        <param name="objectProperties">Any additional properties for the Open Graph object. </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
+        <summary>
+          <para>Creates an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> for creating a user owned Open Graph object, instantiate a &lt;FBRequestConnection&gt; object, add the request to the newly created connection and finally start the connection. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Creates an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> for creating a user owned Open Graph object, instantiate a &lt;FBRequestConnection&gt; object, add the request to the newly created connection and finally start the connection. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="StartForPostStatusUpdate">
       <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartForPostStatusUpdate (string message, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartForPostStatusUpdate(string message, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
@@ -476,11 +676,85 @@
         <param name="graphObject">An object or open graph action to post.</param>
         <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
-          <para>Simple method to make post an object using the graph API, creates an &lt;FBRequest&gt; object for HTTP POST, then uses &lt;FBRequestConnection&gt; to start a connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+          <para>Simple method to post an object using the graph API, creates an &lt;FBRequest&gt; object for HTTP POST, then uses &lt;FBRequestConnection&gt; to start a connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
-          <para>Simple method to make post an object using the graph API, creates an &lt;FBRequest&gt; object for HTTP POST, then uses &lt;FBRequestConnection&gt; to start a connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+          <para>Simple method to post an object using the graph API, creates an &lt;FBRequest&gt; object for HTTP POST, then uses &lt;FBRequestConnection&gt; to start a connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForUpdateOpenGraphObject">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequest StartForUpdateOpenGraphObject (MonoTouch.FacebookConnect.FBOpenGraphObject aObject, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequest StartForUpdateOpenGraphObject(class MonoTouch.FacebookConnect.FBOpenGraphObject aObject, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForUpdateOpenGraphObject:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aObject" Type="MonoTouch.FacebookConnect.FBOpenGraphObject" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="aObject">The Open Graph object to update the existing object with.</param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
+        <summary>
+          <para>Creates an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> for updating a user owned Open Graph object, instantiate a &lt;FBRequestConnection&gt; object, add the request to the newly created connection and finally start the connection. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Creates an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> for updating a user owned Open Graph object, instantiate a &lt;FBRequestConnection&gt; object, add the request to the newly created connection and finally start the connection. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartForUpdateOpenGraphObject">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequest StartForUpdateOpenGraphObject (MonoTouch.Foundation.NSObject objectId, string title, MonoTouch.Foundation.NSObject image, MonoTouch.Foundation.NSObject url, string description, MonoTouch.Foundation.NSDictionary objectProperties, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequest StartForUpdateOpenGraphObject(class MonoTouch.Foundation.NSObject objectId, string title, class MonoTouch.Foundation.NSObject image, class MonoTouch.Foundation.NSObject url, string description, class MonoTouch.Foundation.NSDictionary objectProperties, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForUpdateOpenGraphObjectWithId:title:image:url:description:objectProperties:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectId" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="title" Type="System.String" />
+        <Parameter Name="image" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="description" Type="System.String" />
+        <Parameter Name="objectProperties" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="objectId">The id of the Open Graph object to update. </param>
+        <param name="title">The updated title of the Open Graph object. </param>
+        <param name="image">The updated link to an image to be associated with the Open Graph object. </param>
+        <param name="url">The updated url to be associated with the Open Graph object. </param>
+        <param name="description">The object's description. </param>
+        <param name="objectProperties">Any additional properties to update for the Open Graph object. </param>
+        <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
+        <summary>
+          <para>Creates an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> for updating a user owned Open Graph object, instantiate a &lt;FBRequestConnection&gt; object, add the request to the newly created connection and finally start the connection. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Creates an <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBRequest" /></computeroutput> for updating a user owned Open Graph object, instantiate a &lt;FBRequestConnection&gt; object, add the request to the newly created connection and finally start the connection. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
           <para />
         </remarks>
       </Docs>
@@ -517,6 +791,39 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="StartForUploadStagingResource">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequest StartForUploadStagingResource (MonoTouch.UIKit.UIImage image, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequest StartForUploadStagingResource(class MonoTouch.UIKit.UIImage image, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startForUploadStagingResourceWithImage:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBRequestHandler" />
+      </Parameters>
+      <Docs>
+        <param name="image">A UIImage for the image to upload. </param>
+        <param name="handler">The handler block to call when the request completes. </param>
+        <summary>
+          <para>Starts a request connection to upload an image to create a staging resource. Staging resources allow you to post binary data such as images, in preparation for a post of an open graph object or action which references the image. The URI returned when uploading a staging resource may be passed as the value for the image property of an open graph object or action.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Starts a request connection to upload an image to create a staging resource. Staging resources allow you to post binary data such as images, in preparation for a post of an open graph object or action which references the image. The URI returned when uploading a staging resource may be passed as the value for the image property of an open graph object or action.</para>
+          <para>This method simplifies the preparation of a Graph API call be creating the <see cref="T:MonoTouch.FacebookConnect.FBRequest" /> object and starting the request connection with a single method</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="StartWithGraphPath">
       <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBRequestConnection StartWithGraphPath (string graphPath, MonoTouch.FacebookConnect.FBRequestHandler handler);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBRequestConnection StartWithGraphPath(string graphPath, class MonoTouch.FacebookConnect.FBRequestHandler handler) cil managed" />
@@ -540,11 +847,11 @@
         <param name="graphPath">The Graph API endpoint to use for the request, for example "me". </param>
         <param name="handler">The handler block to call when the request completes with a success, error, or cancel action. </param>
         <summary>
-          <para>Simple method to make a graph API request, creates an &lt;FBRequest&gt; object for then uses an &lt;FBRequestConnection&gt; object to start the connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+          <para>Simple method to make a graph API request, creates an &lt;FBRequest&gt; object for HTTP GET, then uses an &lt;FBRequestConnection&gt; object to start the connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
         </summary>
         <returns>To be added.</returns>
         <remarks>
-          <para>Simple method to make a graph API request, creates an &lt;FBRequest&gt; object for then uses an &lt;FBRequestConnection&gt; object to start the connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
+          <para>Simple method to make a graph API request, creates an &lt;FBRequest&gt; object for HTTP GET, then uses an &lt;FBRequestConnection&gt; object to start the connection with <see cref="T:MonoTouch.FacebookConnect.Facebook" />. The request uses the active session represented by <computeroutput>[<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession]</computeroutput>.</para>
           <para>See &lt;connectionWithSession:graphPath:parameters:HTTPMethod:completionHandler:&gt;</para>
           <para />
         </remarks>
@@ -616,7 +923,7 @@
       </Docs>
     </Member>
     <Member MemberName="UrlResponse">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSHttpUrlResponse UrlResponse { get; set; }" />
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSHttpUrlResponse UrlResponse { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSHttpUrlResponse UrlResponse" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -625,9 +932,6 @@
       <Attributes>
         <Attribute>
           <AttributeName>get: MonoTouch.Foundation.Export("urlResponse")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setUrlResponse:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>

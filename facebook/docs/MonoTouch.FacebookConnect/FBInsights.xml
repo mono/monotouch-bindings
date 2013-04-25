@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="FBInsights" FullName="MonoTouch.FacebookConnect.FBInsights">
+  <TypeSignature Language="C#" Value="public class FBInsights : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBInsights extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FBInsights", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>Client-side event logging for specialized application analytics available through <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Insights and Conversion Pixel conversion tracking for ads optimization.</para>
+    </summary>
+    <remarks>
+      <para>Client-side event logging for specialized application analytics available through <see cref="T:MonoTouch.FacebookConnect.Facebook" /> Insights and Conversion Pixel conversion tracking for ads optimization.</para>
+      <para>The <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBInsights" /></computeroutput> static class has a few related roles:</para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>Logging predefined events to Facebook Application Insights with a numeric value to sum across a large number of events, and an optional set of key/value parameters that define "segments" for this event (e.g., 'purchaserStatus' : 'frequent', or 'gamerLevel' : 'intermediate')</description>
+          </item>
+        </list>
+      </para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>Logging 'purchase' events to later be used for ads optimization around lifetime value.</description>
+          </item>
+        </list>
+      </para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>Logging 'conversion pixels' for use in ads conversion tracking and optimization.</description>
+          </item>
+        </list>
+      </para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>Methods that control the way in which events are flushed out to the Facebook servers.</description>
+          </item>
+        </list>
+      </para>
+      <para>Here are some important characteristics of the logging mechanism provided by <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBInsights" /></computeroutput>:</para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>Events are not sent immediately when logged. They're cached and flushed out to the Facebook servers in a number of situations:when an event count threshold is passed.when a time threshold is passed.when an app has gone to background and is then brought back to the foreground.</description>
+          </item>
+        </list>
+      </para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>Events will be accumulated when the app is in a disconnected state, and sent when the connection is restored and one of the above 'flush' conditions are met.</description>
+          </item>
+        </list>
+      </para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>The FBInsights class in thread-safe in that events may be logged from any of the app's threads.</description>
+          </item>
+        </list>
+      </para>
+      <para>Some things to note when logging events:</para>
+      <para>
+        <list type="bullet">
+          <item>
+            <description>There is a limit to the number of unique parameter names in the provided parameters that can be used per event, on the order of 10. This is not just for an individual call, but for all invocations for that eventName.</description>
+          </item>
+          <item>
+            <description>Event names and parameter names (the keys in the NSDictionary) must be between 2 and 40 characters</description>
+          </item>
+          <item>
+            <description>The length of each parameter value can be no more than on the order of 100 characters.</description>
+          </item>
+          <item>
+            <description>When logging events, the "client token" must be set. An exception will be thrown if it isn't. See [FBSettings setClientToken] for more information. </description>
+          </item>
+        </list>
+      </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBInsights (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBInsights (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBInsights (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AppVersion">
+      <MemberSignature Language="C#" Value="public static string AppVersion { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property string AppVersion" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("appVersion")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAppVersion:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Gets the application version to the provided string. Insights allows breakdown of events by app version. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Gets the application version to the provided string. Insights allows breakdown of events by app version. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FBInsightsLoggingResultNotification">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString FBInsightsLoggingResultNotification { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString FBInsightsLoggingResultNotification" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Flush">
+      <MemberSignature Language="C#" Value="public static void Flush ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Flush() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("flush")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Explicitly kick off flushing of events to <see cref="T:MonoTouch.FacebookConnect.Facebook" />. This is an asynchronous method, but it does initiate an immediate kick off. Server failures will be reported through the NotificationCenter with notification ID <computeroutput>FBInsightsLoggingResultNotification</computeroutput>. </para>
+        </summary>
+        <remarks>
+          <para>Explicitly kick off flushing of events to <see cref="T:MonoTouch.FacebookConnect.Facebook" />. This is an asynchronous method, but it does initiate an immediate kick off. Server failures will be reported through the NotificationCenter with notification ID <computeroutput>FBInsightsLoggingResultNotification</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FlushBehavior">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBInsightsFlushBehavior FlushBehavior { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype MonoTouch.FacebookConnect.FBInsightsFlushBehavior FlushBehavior" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("flushBehavior")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setFlushBehavior:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBInsightsFlushBehavior</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Get the current event flushing behavior specifying when events are sent back to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> servers. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Get the current event flushing behavior specifying when events are sent back to <see cref="T:MonoTouch.FacebookConnect.Facebook" /> servers. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogConversionPixel">
+      <MemberSignature Language="C#" Value="public static void LogConversionPixel (string pixelId, double aValue);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogConversionPixel(string pixelId, float64 aValue) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logConversionPixel:valueOfPixel:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pixelId" Type="System.String" />
+        <Parameter Name="aValue" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="pixelId">Numeric ID for the conversion pixel to be logged. See https://www.facebook.com/help/435189689870514 to learn how to create a conversion pixel.</param>
+        <param name="aValue">Value of what the logging of this pixel is worth to you. The currency that this is expressed in doesn't matter, so long as it is consistent across all logging for this pixel. This value will be rounded to the thousandths place (e.g., 12.34567 becomes 12.346).</param>
+        <summary>
+          <para>Log, or "Fire" a Conversion Pixel. Conversion Pixels are used for Ads Conversion Tracking. See <ulink url="https://www.facebook.com/help/435189689870514">https://www.facebook.com/help/435189689870514</ulink> to learn more.</para>
+        </summary>
+        <remarks>
+          <para>Log, or "Fire" a Conversion Pixel. Conversion Pixels are used for Ads Conversion Tracking. See <ulink url="https://www.facebook.com/help/435189689870514">https://www.facebook.com/help/435189689870514</ulink> to learn more.</para>
+          <para>
+This event immediately triggers a flush of the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBInsights" /></computeroutput> event queue, unless the <computeroutput>flushBehavior</computeroutput> is set to <computeroutput>FBInsightsFlushBehaviorExplicitOnly</computeroutput>. The "client token" must be set via [<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> setClientToken] prior to calling this method. An exception is thrown if it's not. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogConversionPixel">
+      <MemberSignature Language="C#" Value="public static void LogConversionPixel (string pixelId, double aValue, MonoTouch.FacebookConnect.FBSession session);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogConversionPixel(string pixelId, float64 aValue, class MonoTouch.FacebookConnect.FBSession session) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logConversionPixel:valueOfPixel:session:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pixelId" Type="System.String" />
+        <Parameter Name="aValue" Type="System.Double" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+      </Parameters>
+      <Docs>
+        <param name="pixelId">Numeric ID for the conversion pixel to be logged. See https://www.facebook.com/help/435189689870514 to learn how to create a conversion pixel.</param>
+        <param name="aValue">Value of what the logging of this pixel is worth to you. The currency that this is expressed in doesn't matter, so long as it is consistent across all logging for this pixel. This value will be rounded to the thousandths place (e.g., 12.34567 becomes 12.346).</param>
+        <param name="session">&lt;FBSession&gt; to direct the event logging to, and thus be logged with whatever user (if any) is associated with that &lt;FBSession&gt;. A value of nil will use [ activeSession].</param>
+        <summary>
+          <para>Log, or "Fire" a Conversion Pixel. Conversion Pixels are used for Ads Conversion Tracking. See <ulink url="https://www.facebook.com/help/435189689870514">https://www.facebook.com/help/435189689870514</ulink> to learn more.</para>
+        </summary>
+        <remarks>
+          <para>Log, or "Fire" a Conversion Pixel. Conversion Pixels are used for Ads Conversion Tracking. See <ulink url="https://www.facebook.com/help/435189689870514">https://www.facebook.com/help/435189689870514</ulink> to learn more.</para>
+          <para>
+This event immediately triggers a flush of the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBInsights" /></computeroutput> event queue, unless the <computeroutput>flushBehavior</computeroutput> is set to <computeroutput>FBInsightsFlushBehaviorExplicitOnly</computeroutput>. The "client token" must be set via [<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> setClientToken] prior to calling this method. An exception is thrown if it's not. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogPurchase">
+      <MemberSignature Language="C#" Value="public static void LogPurchase (double purchaseAmount, string currency);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogPurchase(float64 purchaseAmount, string currency) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logPurchase:currency:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="purchaseAmount" Type="System.Double" />
+        <Parameter Name="currency" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="purchaseAmount">Purchase amount to be logged, as expressed in the specified currency. This value will be rounded to the thousandths place (e.g., 12.34567 becomes 12.346).</param>
+        <param name="currency">Currency, is denoted as, e.g. "USD", "EUR", "GBP". See ISO-4217 for specific values. One reference for these is http://en.wikipedia.org/wiki/ISO_4217.</param>
+        <summary>
+          <para>Log a purchase of the specified amount, in the specified currency.</para>
+        </summary>
+        <remarks>
+          <para>Log a purchase of the specified amount, in the specified currency.</para>
+          <para>
+This event immediately triggers a flush of the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBInsights" /></computeroutput> event queue, unless the <computeroutput>flushBehavior</computeroutput> is set to <computeroutput>FBInsightsFlushBehaviorExplicitOnly</computeroutput>. The "client token" must be set via [<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> setClientToken] prior to calling this method. An exception is thrown if it's not. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogPurchase">
+      <MemberSignature Language="C#" Value="public static void LogPurchase (double purchaseAmount, string currency, MonoTouch.Foundation.NSDictionary parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogPurchase(float64 purchaseAmount, string currency, class MonoTouch.Foundation.NSDictionary parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logPurchase:currency:parameters:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="purchaseAmount" Type="System.Double" />
+        <Parameter Name="currency" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="purchaseAmount">Purchase amount to be logged, as expressed in the specified currency.This value will be rounded to the thousandths place (e.g., 12.34567 becomes 12.346).</param>
+        <param name="currency">Currency, is denoted as, e.g. "USD", "EUR", "GBP". See ISO-4217 for specific values. One reference for these is http://en.wikipedia.org/wiki/ISO_4217.</param>
+        <param name="parameters">Arbitrary parameter dictionary of characteristics. The keys to this dictionary must be NSString's, and the values are expected to be NSString or NSNumber. Limitations on the number of parameters and name construction are given in the  documentation.</param>
+        <summary>
+          <para>Log a purchase of the specified amount, in the specified currency, also providing a set of additional characteristics describing the purchase.</para>
+        </summary>
+        <remarks>
+          <para>Log a purchase of the specified amount, in the specified currency, also providing a set of additional characteristics describing the purchase.</para>
+          <para>
+This event immediately triggers a flush of the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBInsights" /></computeroutput> event queue, unless the <computeroutput>flushBehavior</computeroutput> is set to <computeroutput>FBInsightsFlushBehaviorExplicitOnly</computeroutput>. The "client token" must be set via [<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> setClientToken] prior to calling this method. An exception is thrown if it's not. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogPurchase">
+      <MemberSignature Language="C#" Value="public static void LogPurchase (double purchaseAmount, string currency, MonoTouch.Foundation.NSDictionary parameters, MonoTouch.FacebookConnect.FBSession session);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LogPurchase(float64 purchaseAmount, string currency, class MonoTouch.Foundation.NSDictionary parameters, class MonoTouch.FacebookConnect.FBSession session) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("logPurchase:currency:parameters:session:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="purchaseAmount" Type="System.Double" />
+        <Parameter Name="currency" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+      </Parameters>
+      <Docs>
+        <param name="purchaseAmount">Purchase amount to be logged, as expressed in the specified currency.This value will be rounded to the thousandths place (e.g., 12.34567 becomes 12.346).</param>
+        <param name="currency">Currency, is denoted as, e.g. "USD", "EUR", "GBP". See ISO-4217 for specific values. One reference for these is http://en.wikipedia.org/wiki/ISO_4217.</param>
+        <param name="parameters">Arbitrary parameter dictionary of characteristics. The keys to this dictionary must be NSString's, and the values are expected to be NSString or NSNumber. Limitations on the number of parameters and name construction are given in the  documentation.</param>
+        <param name="session">&lt;FBSession&gt; to direct the event logging to, and thus be logged with whatever user (if any) is associated with that &lt;FBSession&gt;. A value of nil will use [ activeSession].</param>
+        <summary>
+          <para>Log a purchase of the specified amount, in the specified currency, also providing a set of additional characteristics describing the purchase, as well as an &lt;FBSession&gt; to log to.</para>
+        </summary>
+        <remarks>
+          <para>Log a purchase of the specified amount, in the specified currency, also providing a set of additional characteristics describing the purchase, as well as an &lt;FBSession&gt; to log to.</para>
+          <para>
+This event immediately triggers a flush of the <computeroutput><see cref="T:MonoTouch.FacebookConnect.FBInsights" /></computeroutput> event queue, unless the <computeroutput>flushBehavior</computeroutput> is set to <computeroutput>FBInsightsFlushBehaviorExplicitOnly</computeroutput>. The "client token" must be set via [<see cref="T:MonoTouch.FacebookConnect.FBSettings" /> setClientToken] prior to calling this method. An exception is thrown if it's not. </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="FBDialogs" FullName="MonoTouch.FacebookConnect.FBDialogs">
+  <TypeSignature Language="C#" Value="public class FBDialogs : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBDialogs extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FBDialogs", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>Provides methods to display native (i.e., non-Web-based) dialogs to the user. Currently the iOS 6 sharing dialog is supported. </para>
+    </summary>
+    <remarks>
+      <para>Provides methods to display native (i.e., non-Web-based) dialogs to the user. Currently the iOS 6 sharing dialog is supported. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBDialogs (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBDialogs (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBDialogs (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanPresentOSIntegratedShareDialog">
+      <MemberSignature Language="C#" Value="public static bool CanPresentOSIntegratedShareDialog (MonoTouch.FacebookConnect.FBSession session);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool CanPresentOSIntegratedShareDialog(class MonoTouch.FacebookConnect.FBSession session) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("canPresentOSIntegratedShareDialogWithSession:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+      </Parameters>
+      <Docs>
+        <param name="session">The &lt;FBSession&gt; to use to determine whether or not the user has been authenticated with iOS native authentication. If nil, then [ activeSession] will be checked. See discussion above for the implications of nil or non-nil session.</param>
+        <summary>
+          <para>Determines whether a call to presentShareDialogModallyFrom: will successfully present a dialog. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform and for the current user.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Determines whether a call to presentShareDialogModallyFrom: will successfully present a dialog. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform and for the current user.</para>
+          <para>
+            <para>YES if the dialog would be presented for the session, and NO if not </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanPresentShareDialog">
+      <MemberSignature Language="C#" Value="public static bool CanPresentShareDialog (MonoTouch.FacebookConnect.FBOpenGraphActionShareDialogParams aParams);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool CanPresentShareDialog(class MonoTouch.FacebookConnect.FBOpenGraphActionShareDialogParams aParams) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("canPresentShareDialogWithOpenGraphActionParams:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aParams" Type="MonoTouch.FacebookConnect.FBOpenGraphActionShareDialogParams" />
+      </Parameters>
+      <Docs>
+        <param name="aParams">The parameters for the FB share dialog.</param>
+        <summary>
+          <para>Determines whether a call to presentFBShareDialogWithOpenGraphActionParams:clientState:handler: will successfully present a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Determines whether a call to presentFBShareDialogWithOpenGraphActionParams:clientState:handler: will successfully present a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform.</para>
+          <para>
+A return value of YES here indicates that the corresponding presentFBShareDialogWithOpenGraphActionParams method will return a non-nil <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> for the same params. And vice versa. <para>YES if the dialog would be presented, and NO if not</para></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanPresentShareDialog">
+      <MemberSignature Language="C#" Value="public static bool CanPresentShareDialog (MonoTouch.FacebookConnect.FBShareDialogParams aParams);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool CanPresentShareDialog(class MonoTouch.FacebookConnect.FBShareDialogParams aParams) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("canPresentShareDialogWithParams:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aParams" Type="MonoTouch.FacebookConnect.FBShareDialogParams" />
+      </Parameters>
+      <Docs>
+        <param name="aParams">The parameters for the FB share dialog.</param>
+        <summary>
+          <para>Determines whether a call to presentFBShareDialogWithTarget: will successfully present a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Determines whether a call to presentFBShareDialogWithTarget: will successfully present a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application. This is useful for applications that need to modify the available UI controls depending on whether the dialog is available on the current platform.</para>
+          <para>
+A return value of YES here indicates that the corresponding presentFBShareDialogWithParams method will return a non-nil <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> for the same params. And vice versa. <para>YES if the dialog would be presented, and NO if not</para></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentOSIntegratedShareDialogModally">
+      <MemberSignature Language="C#" Value="public static bool PresentOSIntegratedShareDialogModally (MonoTouch.UIKit.UIViewController viewController, string initialText, MonoTouch.UIKit.UIImage image, MonoTouch.Foundation.NSUrl url, MonoTouch.FacebookConnect.FBOSIntegratedShareDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentOSIntegratedShareDialogModally(class MonoTouch.UIKit.UIViewController viewController, string initialText, class MonoTouch.UIKit.UIImage image, class MonoTouch.Foundation.NSUrl url, class MonoTouch.FacebookConnect.FBOSIntegratedShareDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentOSIntegratedShareDialogModallyFrom:initialText:image:url:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="initialText" Type="System.String" />
+        <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBOSIntegratedShareDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">The view controller which will present the dialog.</param>
+        <param name="initialText">The text which will initially be populated in the dialog. The user will have the opportunity to edit this text before posting it. May be nil.</param>
+        <param name="image">A UIImage that will be attached to the status update. May be nil.</param>
+        <param name="url">An NSURL that will be attached to the status update. May be nil.</param>
+        <param name="handler">A handler that will be called when the dialog is dismissed, or if an error occurs. May be nil.</param>
+        <summary>
+          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
+          <para>
+            <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentOSIntegratedShareDialogModally">
+      <MemberSignature Language="C#" Value="public static bool PresentOSIntegratedShareDialogModally (MonoTouch.UIKit.UIViewController viewController, string initialText, MonoTouch.UIKit.UIImage[] images, MonoTouch.Foundation.NSUrl[] urls, MonoTouch.FacebookConnect.FBOSIntegratedShareDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentOSIntegratedShareDialogModally(class MonoTouch.UIKit.UIViewController viewController, string initialText, class MonoTouch.UIKit.UIImage[] images, class MonoTouch.Foundation.NSUrl[] urls, class MonoTouch.FacebookConnect.FBOSIntegratedShareDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentOSIntegratedShareDialogModallyFrom:initialText:images:urls:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="initialText" Type="System.String" />
+        <Parameter Name="images" Type="MonoTouch.UIKit.UIImage[]" />
+        <Parameter Name="urls" Type="MonoTouch.Foundation.NSUrl[]" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBOSIntegratedShareDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">The view controller which will present the dialog.</param>
+        <param name="initialText">The text which will initially be populated in the dialog. The user will have the opportunity to edit this text before posting it. May be nil.</param>
+        <param name="images">An array of UIImages that will be attached to the status update. May be nil.</param>
+        <param name="urls">An array of NSURLs that will be attached to the status update. May be nil.</param>
+        <param name="handler">A handler that will be called when the dialog is dismissed, or if an error occurs. May be nil.</param>
+        <summary>
+          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. The current active session returned by [<see cref="T:MonoTouch.FacebookConnect.FBSession" /> activeSession] will be used to determine whether the dialog will be displayed. If a session is active, it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session active, then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
+          <para>
+            <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentOSIntegratedShareDialogModally">
+      <MemberSignature Language="C#" Value="public static bool PresentOSIntegratedShareDialogModally (MonoTouch.UIKit.UIViewController viewController, MonoTouch.FacebookConnect.FBSession session, string initialText, MonoTouch.UIKit.UIImage[] images, MonoTouch.Foundation.NSUrl[] urls, MonoTouch.FacebookConnect.FBOSIntegratedShareDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool PresentOSIntegratedShareDialogModally(class MonoTouch.UIKit.UIViewController viewController, class MonoTouch.FacebookConnect.FBSession session, string initialText, class MonoTouch.UIKit.UIImage[] images, class MonoTouch.Foundation.NSUrl[] urls, class MonoTouch.FacebookConnect.FBOSIntegratedShareDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentOSIntegratedShareDialogModallyFrom:session:initialText:images:urls:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="initialText" Type="System.String" />
+        <Parameter Name="images" Type="MonoTouch.UIKit.UIImage[]" />
+        <Parameter Name="urls" Type="MonoTouch.Foundation.NSUrl[]" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBOSIntegratedShareDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">The view controller which will present the dialog.</param>
+        <param name="session">The &lt;FBSession&gt; to use to determine whether or not the user has been authenticated with iOS native authentication. If nil, then [ activeSession] will be checked. See discussion above for the implications of nil or non-nil session.</param>
+        <param name="initialText">The text which will initially be populated in the dialog. The user will have the opportunity to edit this text before posting it. May be nil.</param>
+        <param name="images">An array of UIImages that will be attached to the status update. May be nil.</param>
+        <param name="urls">An array of NSURLs that will be attached to the status update. May be nil.</param>
+        <param name="handler">A handler that will be called when the dialog is dismissed, or if an error occurs. May be nil.</param>
+        <summary>
+          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. An &lt;FBSession&gt; may be specified, or nil may be passed to indicate that the current active session should be used. If a session is specified (whether explicitly or by virtue of being the active session), it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session is specified (and there is no active session), then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog that allows the user to share a status update that may include text, images, or URLs. This dialog is only available on iOS 6.0 and above. An &lt;FBSession&gt; may be specified, or nil may be passed to indicate that the current active session should be used. If a session is specified (whether explicitly or by virtue of being the active session), it must be open and the login method used to authenticate the user must be native iOS 6.0 authentication. If no session is specified (and there is no active session), then whether the call succeeds or not will depend on whether <see cref="T:MonoTouch.FacebookConnect.Facebook" /> integration has been configured.</para>
+          <para>
+            <para>YES if the dialog was presented, NO if not (in the case of a NO result, the handler will still be called, with an error indicating the reason the dialog was not displayed) </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialog">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAppCall PresentShareDialog (MonoTouch.Foundation.NSUrl link, MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAppCall PresentShareDialog(class MonoTouch.Foundation.NSUrl link, class MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogWithLink:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAppCall</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="link" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="link">The URL link to be attached to the post.</param>
+        <param name="handler">A completion handler that may be called when the status update is complete. May be nil. If non-nil, the handler will always be called asynchronously.</param>
+        <summary>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to share the supplied link. No session is required, and the app does not need to be authorized to call this.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to share the supplied link. No session is required, and the app does not need to be authorized to call this.</para>
+          <para>Note that this will perform an app switch to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, and will cause the current app to be suspended. When the share is complete, the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app will redirect to a url of the form "fb{APP_ID}://" that the application must handle. The app should then call [<see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> handleOpenURL:sourceApplication:fallbackHandler:] to trigger the appropriate handling. Note that <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> will first try to call the completion handler associated with this method, but since during an app switch, the calling app may be suspended or killed, the app must also give a fallbackHandler to the handleOpenURL: method in <see cref="T:MonoTouch.FacebookConnect.FBAppCall" />.</para>
+          <para>
+A non-nil <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object is only returned if the corresponding canPresetFBShareDialogWithParams method is also returning YES for the same params. <para>An <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object that will also be passed into the provided FBAppCallCompletionHandler.</para></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialog">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAppCall PresentShareDialog (MonoTouch.FacebookConnect.FBOpenGraphActionShareDialogParams aParams, MonoTouch.Foundation.NSDictionary clientState, MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAppCall PresentShareDialog(class MonoTouch.FacebookConnect.FBOpenGraphActionShareDialogParams aParams, class MonoTouch.Foundation.NSDictionary clientState, class MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogWithOpenGraphActionParams:clientState:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAppCall</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aParams" Type="MonoTouch.FacebookConnect.FBOpenGraphActionShareDialogParams" />
+        <Parameter Name="clientState" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="aParams">The parameters for the Open Graph action dialog.</param>
+        <param name="clientState">An NSDictionary that's passed through when the completion handler is called. This is useful for the app to maintain state about the share request that was made so as to have appropriate action when the handler is called. May be nil.</param>
+        <param name="handler">A completion handler that may be called when the status update is complete. May be nil. If non-nil, the handler will always be called asynchronously.</param>
+        <summary>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to publish an Open Graph action. No session is required, and the app does not need to be authorized to call this.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to publish an Open Graph action. No session is required, and the app does not need to be authorized to call this.</para>
+          <para>Note that this will perform an app switch to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, and will cause the current app to be suspended. When the share is complete, the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app will redirect to a url of the form "fb{APP_ID}://" that the application must handle. The app should then call [<see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> handleOpenURL:sourceApplication:fallbackHandler:] to trigger the appropriate handling. Note that <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> will first try to call the completion handler associated with this method, but since during an app switch, the calling app may be suspended or killed, the app must also give a fallbackHandler to the handleOpenURL: method in <see cref="T:MonoTouch.FacebookConnect.FBAppCall" />.</para>
+          <para>
+A non-nil <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object is only returned if the corresponding canPresentFBShareDialogWithOpenGraphActionParams method is also returning YES for the same params. <para>An <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object that will also be passed into the provided FBAppCallCompletionHandler.</para></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialog">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAppCall PresentShareDialog (MonoTouch.FacebookConnect.FBShareDialogParams aParams, MonoTouch.Foundation.NSDictionary clientState, MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAppCall PresentShareDialog(class MonoTouch.FacebookConnect.FBShareDialogParams aParams, class MonoTouch.Foundation.NSDictionary clientState, class MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogWithParams:clientState:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAppCall</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aParams" Type="MonoTouch.FacebookConnect.FBShareDialogParams" />
+        <Parameter Name="clientState" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="aParams">The parameters for the FB share dialog.</param>
+        <param name="clientState">An NSDictionary that's passed through when the completion handler is called. This is useful for the app to maintain state about the share request that was made so as to have appropriate action when the handler is called. May be nil.</param>
+        <param name="handler">A completion handler that may be called when the status update is complete. May be nil. If non-nil, the handler will always be called asynchronously.</param>
+        <summary>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to share a status update that may include text, images, or URLs. No session is required, and the app does not need to be authorized to call this.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to share a status update that may include text, images, or URLs. No session is required, and the app does not need to be authorized to call this.</para>
+          <para>Note that this will perform an app switch to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, and will cause the current app to be suspended. When the share is complete, the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app will redirect to a url of the form "fb{APP_ID}://" that the application must handle. The app should then call [<see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> handleOpenURL:sourceApplication:fallbackHandler:] to trigger the appropriate handling. Note that <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> will first try to call the completion handler associated with this method, but since during an app switch, the calling app may be suspended or killed, the app must also give a fallbackHandler to the handleOpenURL: method in <see cref="T:MonoTouch.FacebookConnect.FBAppCall" />.</para>
+          <para>
+A non-nil <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object is only returned if the corresponding canPresetFBShareDialogWithParams method is also returning YES for the same params. <para>An <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object that will also be passed into the provided FBAppCallCompletionHandler.</para></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialog">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAppCall PresentShareDialog (MonoTouch.Foundation.NSUrl link, string name, MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAppCall PresentShareDialog(class MonoTouch.Foundation.NSUrl link, string name, class MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogWithLink:name:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAppCall</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="link" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="link">The URL link to be attached to the post.</param>
+        <param name="name">The name, or title associated with the link. May be nil.</param>
+        <param name="handler">A completion handler that may be called when the status update is complete. May be nil. If non-nil, the handler will always be called asynchronously.</param>
+        <summary>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to share the supplied link. No session is required, and the app does not need to be authorized to call this.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to share the supplied link. No session is required, and the app does not need to be authorized to call this.</para>
+          <para>Note that this will perform an app switch to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, and will cause the current app to be suspended. When the share is complete, the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app will redirect to a url of the form "fb{APP_ID}://" that the application must handle. The app should then call [<see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> handleOpenURL:sourceApplication:fallbackHandler:] to trigger the appropriate handling. Note that <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> will first try to call the completion handler associated with this method, but since during an app switch, the calling app may be suspended or killed, the app must also give a fallbackHandler to the handleOpenURL: method in <see cref="T:MonoTouch.FacebookConnect.FBAppCall" />.</para>
+          <para>
+A non-nil <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object is only returned if the corresponding canPresetFBShareDialogWithParams method is also returning YES for the same params. <para>An <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object that will also be passed into the provided FBAppCallCompletionHandler.</para></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialog">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAppCall PresentShareDialog (MonoTouch.FacebookConnect.FBOpenGraphAction action, string actionType, string previewPropertyName, MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAppCall PresentShareDialog(class MonoTouch.FacebookConnect.FBOpenGraphAction action, string actionType, string previewPropertyName, class MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogWithOpenGraphAction:actionType:previewPropertyName:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAppCall</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="MonoTouch.FacebookConnect.FBOpenGraphAction" />
+        <Parameter Name="actionType" Type="System.String" />
+        <Parameter Name="previewPropertyName" Type="System.String" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="action">The Open Graph action to be published. May not be nil.</param>
+        <param name="actionType">the fully-specified Open Graph action type of the action (e.g., my_app_namespace:my_action).</param>
+        <param name="previewPropertyName">the name of the property on the action that represents the primary Open Graph object associated with the action; this object will be displayed in the preview portion of the share dialog.</param>
+        <param name="handler">A completion handler that may be called when the status update is complete. May be nil. If non-nil, the handler will always be called asynchronously.</param>
+        <summary>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to publish the supplied Open Graph action. No session is required, and the app does not need to be authorized to call this.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to publish the supplied Open Graph action. No session is required, and the app does not need to be authorized to call this.</para>
+          <para>Note that this will perform an app switch to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, and will cause the current app to be suspended. When the share is complete, the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app will redirect to a url of the form "fb{APP_ID}://" that the application must handle. The app should then call [<see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> handleOpenURL:sourceApplication:fallbackHandler:] to trigger the appropriate handling. Note that <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> will first try to call the completion handler associated with this method, but since during an app switch, the calling app may be suspended or killed, the app must also give a fallbackHandler to the handleOpenURL: method in <see cref="T:MonoTouch.FacebookConnect.FBAppCall" />.</para>
+          <para>
+A non-nil <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object is only returned if the corresponding canPresentFBShareDialogWithOpenGraphActionParams method is also returning YES for the same params. <para>An <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object that will also be passed into the provided FBAppCallCompletionHandler.</para></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialog">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAppCall PresentShareDialog (MonoTouch.FacebookConnect.FBOpenGraphAction action, string actionType, string previewPropertyName, MonoTouch.Foundation.NSDictionary clientState, MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAppCall PresentShareDialog(class MonoTouch.FacebookConnect.FBOpenGraphAction action, string actionType, string previewPropertyName, class MonoTouch.Foundation.NSDictionary clientState, class MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogWithOpenGraphAction:actionType:previewPropertyName:clientState:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAppCall</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="MonoTouch.FacebookConnect.FBOpenGraphAction" />
+        <Parameter Name="actionType" Type="System.String" />
+        <Parameter Name="previewPropertyName" Type="System.String" />
+        <Parameter Name="clientState" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="action">The Open Graph action to be published. May not be nil.</param>
+        <param name="actionType">the fully-specified Open Graph action type of the action (e.g., my_app_namespace:my_action).</param>
+        <param name="previewPropertyName">the name of the property on the action that represents the primary Open Graph object associated with the action; this object will be displayed in the preview portion of the share dialog.</param>
+        <param name="clientState">An NSDictionary that's passed through when the completion handler is called. This is useful for the app to maintain state about the share request that was made so as to have appropriate action when the handler is called. May be nil.</param>
+        <param name="handler">A completion handler that may be called when the status update is complete. May be nil. If non-nil, the handler will always be called asynchronously.</param>
+        <summary>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to publish the supplied Open Graph action. No session is required, and the app does not need to be authorized to call this.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to publish the supplied Open Graph action. No session is required, and the app does not need to be authorized to call this.</para>
+          <para>Note that this will perform an app switch to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, and will cause the current app to be suspended. When the share is complete, the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app will redirect to a url of the form "fb{APP_ID}://" that the application must handle. The app should then call [<see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> handleOpenURL:sourceApplication:fallbackHandler:] to trigger the appropriate handling. Note that <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> will first try to call the completion handler associated with this method, but since during an app switch, the calling app may be suspended or killed, the app must also give a fallbackHandler to the handleOpenURL: method in <see cref="T:MonoTouch.FacebookConnect.FBAppCall" />.</para>
+          <para>
+A non-nil <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object is only returned if the corresponding canPresentFBShareDialogWithOpenGraphActionParams method is also returning YES for the same params. <para>An <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object that will also be passed into the provided FBAppCallCompletionHandler.</para></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentShareDialog">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBAppCall PresentShareDialog (MonoTouch.Foundation.NSUrl link, string name, string caption, string description, MonoTouch.Foundation.NSUrl picture, MonoTouch.Foundation.NSDictionary clientState, MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.FacebookConnect.FBAppCall PresentShareDialog(class MonoTouch.Foundation.NSUrl link, string name, string caption, string description, class MonoTouch.Foundation.NSUrl picture, class MonoTouch.Foundation.NSDictionary clientState, class MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentShareDialogWithLink:name:caption:description:picture:clientState:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBAppCall</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="link" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="caption" Type="System.String" />
+        <Parameter Name="description" Type="System.String" />
+        <Parameter Name="picture" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="clientState" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBDialogAppCallCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="link">The URL link to be attached to the post.</param>
+        <param name="name">The name, or title associated with the link. May be nil.</param>
+        <param name="caption">The caption to be used with the link. May be nil.</param>
+        <param name="description">The description associated with the link. May be nil.</param>
+        <param name="picture">The link to a thumbnail to associate with the link. May be nil.</param>
+        <param name="clientState">An NSDictionary that's passed through when the completion handler is called. This is useful for the app to maintain state about the share request that was made so as to have appropriate action when the handler is called. May be nil.</param>
+        <param name="handler">A completion handler that may be called when the status update is complete. May be nil. If non-nil, the handler will always be called asynchronously.</param>
+        <summary>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to share the supplied link. No session is required, and the app does not need to be authorized to call this.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Presents a dialog in the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> application that allows the user to share the supplied link. No session is required, and the app does not need to be authorized to call this.</para>
+          <para>Note that this will perform an app switch to the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app, and will cause the current app to be suspended. When the share is complete, the <see cref="T:MonoTouch.FacebookConnect.Facebook" /> app will redirect to a url of the form "fb{APP_ID}://" that the application must handle. The app should then call [<see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> handleOpenURL:sourceApplication:fallbackHandler:] to trigger the appropriate handling. Note that <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> will first try to call the completion handler associated with this method, but since during an app switch, the calling app may be suspended or killed, the app must also give a fallbackHandler to the handleOpenURL: method in <see cref="T:MonoTouch.FacebookConnect.FBAppCall" />.</para>
+          <para>
+A non-nil <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object is only returned if the corresponding canPresetFBShareDialogWithParams method is also returning YES for the same params. <para>An <see cref="T:MonoTouch.FacebookConnect.FBAppCall" /> object that will also be passed into the provided FBAppCallCompletionHandler.</para></para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

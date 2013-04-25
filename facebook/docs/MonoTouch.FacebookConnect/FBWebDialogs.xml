@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="FBWebDialogs" FullName="MonoTouch.FacebookConnect.FBWebDialogs">
+  <TypeSignature Language="C#" Value="public class FBWebDialogs : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBWebDialogs extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FBWebDialogs", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>Provides methods to display web based dialogs to the user. </para>
+    </summary>
+    <remarks>
+      <para>Provides methods to display web based dialogs to the user. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBWebDialogs ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBWebDialogs (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBWebDialogs (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBWebDialogs (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentDialogModally">
+      <MemberSignature Language="C#" Value="public static void PresentDialogModally (MonoTouch.FacebookConnect.FBSession session, string dialog, MonoTouch.Foundation.NSDictionary parameters, MonoTouch.FacebookConnect.FBWebDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentDialogModally(class MonoTouch.FacebookConnect.FBSession session, string dialog, class MonoTouch.Foundation.NSDictionary parameters, class MonoTouch.FacebookConnect.FBWebDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentDialogModallyWithSession:dialog:parameters:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="dialog" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBWebDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="session">Represents the session to use for the dialog. May be nil, which uses the active session if present, or returns NO, if not.</param>
+        <param name="dialog">Represents the dialog or method name, such as "feed"</param>
+        <param name="parameters">A dictionary of parameters to be passed to the dialog</param>
+        <param name="handler">An optional handler that will be called when the dialog is dismissed. Note, that if the method returns NO, the handler is not called. May be nil. </param>
+        <summary>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> web dialog (<ulink url="https://developers.facebook.com/docs/reference/dialogs/">https://developers.facebook.com/docs/reference/dialogs/</ulink>) such as feed or apprequest.</para>
+        </summary>
+        <remarks>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> web dialog (<ulink url="https://developers.facebook.com/docs/reference/dialogs/">https://developers.facebook.com/docs/reference/dialogs/</ulink>) such as feed or apprequest.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentDialogModally">
+      <MemberSignature Language="C#" Value="public static void PresentDialogModally (MonoTouch.FacebookConnect.FBSession session, string dialog, MonoTouch.Foundation.NSDictionary parameters, MonoTouch.FacebookConnect.FBWebDialogHandler handler, MonoTouch.FacebookConnect.FBWebDialogsDelegate aDelegate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentDialogModally(class MonoTouch.FacebookConnect.FBSession session, string dialog, class MonoTouch.Foundation.NSDictionary parameters, class MonoTouch.FacebookConnect.FBWebDialogHandler handler, class MonoTouch.FacebookConnect.FBWebDialogsDelegate aDelegate) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentDialogModallyWithSession:dialog:parameters:handler:delegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="dialog" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBWebDialogHandler" />
+        <Parameter Name="aDelegate" Type="MonoTouch.FacebookConnect.FBWebDialogsDelegate" />
+      </Parameters>
+      <Docs>
+        <param name="session">Represents the session to use for the dialog. May be nil, which uses the active session if present, or returns NO, if not.</param>
+        <param name="dialog">Represents the dialog or method name, such as "feed"</param>
+        <param name="parameters">A dictionary of parameters to be passed to the dialog</param>
+        <param name="handler">An optional handler that will be called when the dialog is dismissed. Note, that if the method returns NO, the handler is not called. May be nil.</param>
+        <param name="aDelegate">An optional delegate to allow for advanced processing of web based dialogs. See '' for more details. </param>
+        <summary>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> web dialog (<ulink url="https://developers.facebook.com/docs/reference/dialogs/">https://developers.facebook.com/docs/reference/dialogs/</ulink>) such as feed or apprequest.</para>
+        </summary>
+        <remarks>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> web dialog (<ulink url="https://developers.facebook.com/docs/reference/dialogs/">https://developers.facebook.com/docs/reference/dialogs/</ulink>) such as feed or apprequest.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentFeedDialogModally">
+      <MemberSignature Language="C#" Value="public static void PresentFeedDialogModally (MonoTouch.FacebookConnect.FBSession session, MonoTouch.Foundation.NSDictionary parameters, MonoTouch.FacebookConnect.FBWebDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentFeedDialogModally(class MonoTouch.FacebookConnect.FBSession session, class MonoTouch.Foundation.NSDictionary parameters, class MonoTouch.FacebookConnect.FBWebDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentFeedDialogModallyWithSession:parameters:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBWebDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="session">Represents the session to use for the dialog. May be nil, which uses the active session if present.</param>
+        <param name="parameters">A dictionary of additional parameters to be passed to the dialog. May be nil</param>
+        <param name="handler">An optional handler that will be called when the dialog is dismissed. May be nil. </param>
+        <summary>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> feed dialog.</para>
+        </summary>
+        <remarks>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> feed dialog.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentRequestsDialogModally">
+      <MemberSignature Language="C#" Value="public static void PresentRequestsDialogModally (MonoTouch.FacebookConnect.FBSession session, string message, string title, MonoTouch.Foundation.NSDictionary parameters, MonoTouch.FacebookConnect.FBWebDialogHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentRequestsDialogModally(class MonoTouch.FacebookConnect.FBSession session, string message, string title, class MonoTouch.Foundation.NSDictionary parameters, class MonoTouch.FacebookConnect.FBWebDialogHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentRequestsDialogModallyWithSession:message:title:parameters:handler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="title" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBWebDialogHandler" />
+      </Parameters>
+      <Docs>
+        <param name="session">Represents the session to use for the dialog. May be nil, which uses the active session if present.</param>
+        <param name="message">The required message for the dialog.</param>
+        <param name="title">An optional title for the dialog.</param>
+        <param name="parameters">A dictionary of additional parameters to be passed to the dialog. May be nil</param>
+        <param name="handler">An optional handler that will be called when the dialog is dismissed. May be nil. </param>
+        <summary>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> apprequest dialog.</para>
+        </summary>
+        <remarks>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> apprequest dialog.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentRequestsDialogModally">
+      <MemberSignature Language="C#" Value="public static void PresentRequestsDialogModally (MonoTouch.FacebookConnect.FBSession session, string message, string title, MonoTouch.Foundation.NSDictionary parameters, MonoTouch.FacebookConnect.FBWebDialogHandler handler, MonoTouch.FacebookConnect.FBFrictionlessRecipientCache friendCache);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentRequestsDialogModally(class MonoTouch.FacebookConnect.FBSession session, string message, string title, class MonoTouch.Foundation.NSDictionary parameters, class MonoTouch.FacebookConnect.FBWebDialogHandler handler, class MonoTouch.FacebookConnect.FBFrictionlessRecipientCache friendCache) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentRequestsDialogModallyWithSession:message:title:parameters:handler:friendCache:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="session" Type="MonoTouch.FacebookConnect.FBSession" />
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="title" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBWebDialogHandler" />
+        <Parameter Name="friendCache" Type="MonoTouch.FacebookConnect.FBFrictionlessRecipientCache" />
+      </Parameters>
+      <Docs>
+        <param name="session">Represents the session to use for the dialog. May be nil, which uses the active session if present.</param>
+        <param name="message">The required message for the dialog.</param>
+        <param name="title">An optional title for the dialog.</param>
+        <param name="parameters">A dictionary of additional parameters to be passed to the dialog. May be nil</param>
+        <param name="handler">An optional handler that will be called when the dialog is dismissed. May be nil.</param>
+        <param name="friendCache">An optional cache object used to enable frictionless sharing for a known set of friends. The cache instance should be preserved for the life of the session and reused for multiple calls to the present method. As the users set of friends enabled for frictionless sharing changes, this method auto-updates the cache. </param>
+        <summary>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> apprequest dialog.</para>
+        </summary>
+        <remarks>
+          <para>Presents a <see cref="T:MonoTouch.FacebookConnect.Facebook" /> apprequest dialog.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

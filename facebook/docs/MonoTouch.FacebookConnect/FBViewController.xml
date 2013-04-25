@@ -3,7 +3,7 @@
   <TypeSignature Language="C#" Value="public class FBViewController : MonoTouch.UIKit.UIViewController" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBViewController extends MonoTouch.UIKit.UIViewController" />
   <AssemblyInfo>
-    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyName>MonoTouch.FacebookConnect</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -41,6 +41,30 @@
       </Attributes>
       <Parameters />
       <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBViewController (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -140,6 +164,22 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Delegate">
       <MemberSignature Language="C#" Value="public MonoTouch.FacebookConnect.FBViewControllerDelegate Delegate { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.FacebookConnect.FBViewControllerDelegate Delegate" />
@@ -228,10 +268,10 @@
         <param name="animated">If true, presenting and dismissing the view controller is animated. </param>
         <param name="handler">The block called when the Done or Cancel button is pressed. </param>
         <summary>
-          <para>Provides a wrapper that presents the view controller modally and automatically dismisses it when either the Done or Cancel button is pressed. If Done is pressed, the block provided by the doneHandler parameter is called.</para>
+          <para>Provides a wrapper that presents the view controller modally and automatically dismisses it when either the Done or Cancel button is pressed.</para>
         </summary>
         <remarks>
-          <para>Provides a wrapper that presents the view controller modally and automatically dismisses it when either the Done or Cancel button is pressed. If Done is pressed, the block provided by the doneHandler parameter is called.</para>
+          <para>Provides a wrapper that presents the view controller modally and automatically dismisses it when either the Done or Cancel button is pressed.</para>
           <para />
         </remarks>
       </Docs>
