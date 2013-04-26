@@ -3,7 +3,7 @@
     <Assembly Name="MonoTouch.FacebookConnect" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libFacebookSDK.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, "-ObjC -lsqlite3", ForceLoad=true, Frameworks="CoreGraphics CoreLocation QuartzCore", WeakFrameworks="Accounts AdSupport Social")</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libFacebookSDK.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, "-ObjC -lsqlite3", ForceLoad=true, Frameworks="CoreGraphics CoreLocation QuartzCore Security", WeakFrameworks="Accounts AdSupport Social")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
