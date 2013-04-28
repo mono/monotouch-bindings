@@ -1,3 +1,3 @@
-ASSEMBLY=Facebook.dll
+ASSEMBLY=FacebookiOS.dll
 include ../Rules.make
 
