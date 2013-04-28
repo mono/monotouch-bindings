@@ -50,12 +50,16 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libFacebookSDK.a" />
+    <ObjcBindingNativeLibrary Include="libarclite.a" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="libFacebookSDK.linkwith.cs">
       <DependentUpon>libFacebookSDK.a</DependentUpon>
     </Compile>
     <Compile Include="extensions.cs" />
+    <Compile Include="libarclite.linkwith.cs">
+      <DependentUpon>libarclite.a</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\Contents\Resources\en.lproj\Localizable.strings" />
