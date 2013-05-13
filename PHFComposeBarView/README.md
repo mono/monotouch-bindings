@@ -1,6 +1,6 @@
 # PHFComposeBarView
 
-![demo](Screenshots/demo.gif)
+![demo](https://github.com/fphilipe/PHFComposeBarView/blob/master/Screenshots/demo.gif?raw=true)
 
 This is a precise reconstruction of the compose bar from the iOS Messages.app,
 mimicking the behaviors and graphics while also allowing you to customize many
