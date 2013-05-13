@@ -1,0 +1,396 @@
+<Type Name="ComposeBarViewDelegate" FullName="PHFComposeBarView.ComposeBarViewDelegate">
+  <TypeSignature Language="C#" Value="public class ComposeBarViewDelegate : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ComposeBarViewDelegate extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>PHFComposeBarView</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("PHFComposeBarViewDelegate", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ComposeBarViewDelegate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ComposeBarViewDelegate (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ComposeBarViewDelegate (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ComposeBarViewDelegate (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Changed">
+      <MemberSignature Language="C#" Value="public virtual void Changed (MonoTouch.UIKit.UITextView textView);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Changed(class MonoTouch.UIKit.UITextView textView) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("textViewDidChange:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+      </Parameters>
+      <Docs>
+        <param name="textView">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidChangeFrameSize">
+      <MemberSignature Language="C#" Value="public virtual void DidChangeFrameSize (PHFComposeBarView.ComposeBarView composeBarView, System.Drawing.RectangleF startFrame, System.Drawing.RectangleF endFrame);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidChangeFrameSize(class PHFComposeBarView.ComposeBarView composeBarView, valuetype System.Drawing.RectangleF startFrame, valuetype System.Drawing.RectangleF endFrame) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("composeBarView:didChangeFromFrame:toFrame:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="composeBarView" Type="PHFComposeBarView.ComposeBarView" />
+        <Parameter Name="startFrame" Type="System.Drawing.RectangleF" />
+        <Parameter Name="endFrame" Type="System.Drawing.RectangleF" />
+      </Parameters>
+      <Docs>
+        <param name="composeBarView">To be added.</param>
+        <param name="startFrame">To be added.</param>
+        <param name="endFrame">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidPressButton">
+      <MemberSignature Language="C#" Value="public virtual void DidPressButton (PHFComposeBarView.ComposeBarView composeBarView);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidPressButton(class PHFComposeBarView.ComposeBarView composeBarView) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("composeBarViewDidPressButton:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="composeBarView" Type="PHFComposeBarView.ComposeBarView" />
+      </Parameters>
+      <Docs>
+        <param name="composeBarView">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidPressUtilityButton">
+      <MemberSignature Language="C#" Value="public virtual void DidPressUtilityButton (PHFComposeBarView.ComposeBarView composeBarView);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidPressUtilityButton(class PHFComposeBarView.ComposeBarView composeBarView) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("composeBarViewDidPressUtilityButton:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="composeBarView" Type="PHFComposeBarView.ComposeBarView" />
+      </Parameters>
+      <Docs>
+        <param name="composeBarView">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EditingEnded">
+      <MemberSignature Language="C#" Value="public virtual void EditingEnded (MonoTouch.UIKit.UITextView textView);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void EditingEnded(class MonoTouch.UIKit.UITextView textView) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("textViewDidEndEditing:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+      </Parameters>
+      <Docs>
+        <param name="textView">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EditingStarted">
+      <MemberSignature Language="C#" Value="public virtual void EditingStarted (MonoTouch.UIKit.UITextView textView);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void EditingStarted(class MonoTouch.UIKit.UITextView textView) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("textViewDidBeginEditing:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+      </Parameters>
+      <Docs>
+        <param name="textView">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectionChanged">
+      <MemberSignature Language="C#" Value="public virtual void SelectionChanged (MonoTouch.UIKit.UITextView textView);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SelectionChanged(class MonoTouch.UIKit.UITextView textView) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("textViewDidChangeSelection:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+      </Parameters>
+      <Docs>
+        <param name="textView">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldBeginEditing">
+      <MemberSignature Language="C#" Value="public virtual bool ShouldBeginEditing (MonoTouch.UIKit.UITextView textView);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool ShouldBeginEditing(class MonoTouch.UIKit.UITextView textView) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("textViewShouldBeginEditing:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+      </Parameters>
+      <Docs>
+        <param name="textView">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldChangeText">
+      <MemberSignature Language="C#" Value="public virtual bool ShouldChangeText (MonoTouch.UIKit.UITextView textView, MonoTouch.Foundation.NSRange range, string text);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool ShouldChangeText(class MonoTouch.UIKit.UITextView textView, valuetype MonoTouch.Foundation.NSRange range, string text) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("textView:shouldChangeTextInRange:replacementText:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+        <Parameter Name="range" Type="MonoTouch.Foundation.NSRange" />
+        <Parameter Name="text" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="textView">To be added.</param>
+        <param name="range">To be added.</param>
+        <param name="text">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldEndEditing">
+      <MemberSignature Language="C#" Value="public virtual bool ShouldEndEditing (MonoTouch.UIKit.UITextView textView);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool ShouldEndEditing(class MonoTouch.UIKit.UITextView textView) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("textViewShouldEndEditing:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+      </Parameters>
+      <Docs>
+        <param name="textView">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillChangeFrameSize">
+      <MemberSignature Language="C#" Value="public virtual void WillChangeFrameSize (PHFComposeBarView.ComposeBarView composeBarView, System.Drawing.RectangleF startFrame, System.Drawing.RectangleF endFrame, double duration, MonoTouch.UIKit.UIViewAnimationCurve animationCurve);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WillChangeFrameSize(class PHFComposeBarView.ComposeBarView composeBarView, valuetype System.Drawing.RectangleF startFrame, valuetype System.Drawing.RectangleF endFrame, float64 duration, valuetype MonoTouch.UIKit.UIViewAnimationCurve animationCurve) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("composeBarView:willChangeFromFrame:toFrame:duration:animationCurve:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="composeBarView" Type="PHFComposeBarView.ComposeBarView" />
+        <Parameter Name="startFrame" Type="System.Drawing.RectangleF" />
+        <Parameter Name="endFrame" Type="System.Drawing.RectangleF" />
+        <Parameter Name="duration" Type="System.Double" />
+        <Parameter Name="animationCurve" Type="MonoTouch.UIKit.UIViewAnimationCurve" />
+      </Parameters>
+      <Docs>
+        <param name="composeBarView">To be added.</param>
+        <param name="startFrame">To be added.</param>
+        <param name="endFrame">To be added.</param>
+        <param name="duration">To be added.</param>
+        <param name="animationCurve">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

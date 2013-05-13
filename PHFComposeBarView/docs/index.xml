@@ -1,0 +1,33 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="PHFComposeBarView" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libPHFComposeBarView.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="CoreGraphics")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="PHFComposeBarView">
+      <Type Name="ComposeBarView" Kind="Class" />
+      <Type Name="ComposeBarView+Notifications" Kind="Class" />
+      <Type Name="ComposeBarViewDelegate" Kind="Class" />
+      <Type Name="ComposeBarViewDidChangeFrameEventArgs" Kind="Class" />
+      <Type Name="ComposeBarViewFrameAnimationArgsEventArgs" Kind="Class" />
+      <Type Name="ComposeBarViewFrameArgsEventArgs" Kind="Class" />
+      <Type Name="ComposeBarViewTextViewChange" Kind="Delegate" />
+      <Type Name="ComposeBarViewTextViewCondition" Kind="Delegate" />
+      <Type Name="ComposeBarViewViewWillChangeFrameEventArgs" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>PHFComposeBarView</Title>
+</Overview>
