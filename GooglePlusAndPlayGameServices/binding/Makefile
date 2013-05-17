@@ -37,4 +37,4 @@ Google.Plus.dll: Makefile GoogleOpenSource.linkwith.cs GooglePlus.linkwith.cs Pl
 prepare: Resources/GooglePlus.bundle Resources/PlayGameServices.bundle
 
 clean:
-	-rm -rf README list ios Resources/ PlayGameServices.framework/ google-plus-ios-sdk-$(VERSIONGP)/ bin/ obj/ *.bundle *.dll *.o *.zip *.mdb GooglePlus GoogleOpenSource
+	-rm -rf README list ios Resources/ PlayGameServices.framework/ google-plus-ios-sdk-$(VERSIONGP)/ bin/ obj/ *.bundle *.dll *.o *.zip *.mdb GooglePlus GoogleOpenSource PlayGameServices
