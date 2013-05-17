@@ -1,0 +1,268 @@
+<Type Name="ShareBuilder" FullName="Google.Plus.ShareBuilder">
+  <TypeSignature Language="C#" Value="public class ShareBuilder : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ShareBuilder extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Google.Plus</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("GPPShareBuilder", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareBuilder ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareBuilder (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareBuilder (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShareBuilder (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Open">
+      <MemberSignature Language="C#" Value="public virtual bool Open ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Open() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("open")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetCallToActionButton">
+      <MemberSignature Language="C#" Value="public virtual Google.Plus.ShareBuilder SetCallToActionButton (string label, MonoTouch.Foundation.NSUrl url, string deepLinkID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.Plus.ShareBuilder SetCallToActionButton(string label, class MonoTouch.Foundation.NSUrl url, string deepLinkID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setCallToActionButtonWithLabel:URL:deepLinkID:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.Plus.ShareBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="label" Type="System.String" />
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="deepLinkID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="label">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="deepLinkID">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetContentDeepLinkID">
+      <MemberSignature Language="C#" Value="public virtual Google.Plus.ShareBuilder SetContentDeepLinkID (string contentDeepLinkID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.Plus.ShareBuilder SetContentDeepLinkID(string contentDeepLinkID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setContentDeepLinkID:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.Plus.ShareBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contentDeepLinkID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="contentDeepLinkID">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPrefillText">
+      <MemberSignature Language="C#" Value="public virtual Google.Plus.ShareBuilder SetPrefillText (string prefillText);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.Plus.ShareBuilder SetPrefillText(string prefillText) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setPrefillText:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.Plus.ShareBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prefillText" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="prefillText">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTitle">
+      <MemberSignature Language="C#" Value="public virtual Google.Plus.ShareBuilder SetTitle (string title, string description, MonoTouch.Foundation.NSUrl thumbnailUrl);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.Plus.ShareBuilder SetTitle(string title, string description, class MonoTouch.Foundation.NSUrl thumbnailUrl) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setTitle:description:thumbnailURL:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.Plus.ShareBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="title" Type="System.String" />
+        <Parameter Name="description" Type="System.String" />
+        <Parameter Name="thumbnailUrl" Type="MonoTouch.Foundation.NSUrl" />
+      </Parameters>
+      <Docs>
+        <param name="title">To be added.</param>
+        <param name="description">To be added.</param>
+        <param name="thumbnailUrl">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetURLToShare">
+      <MemberSignature Language="C#" Value="public virtual Google.Plus.ShareBuilder SetURLToShare (MonoTouch.Foundation.NSUrl urlToShare);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.Plus.ShareBuilder SetURLToShare(class MonoTouch.Foundation.NSUrl urlToShare) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setURLToShare:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.Plus.ShareBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="urlToShare" Type="MonoTouch.Foundation.NSUrl" />
+      </Parameters>
+      <Docs>
+        <param name="urlToShare">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,92 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="Google.Plus" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("PlayGameServices", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="CoreData Security SystemConfiguration")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("GooglePlus", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="SystemConfiguration Security")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("GoogleOpenSource.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, IsCxx=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="Google.OpenSource">
+      <Type Name="OAuth2Authentication" Kind="Class" />
+    </Namespace>
+    <Namespace Name="Google.Play.GameServices">
+      <Type Name="Achievement" Kind="Class" />
+      <Type Name="AchievementController" Kind="Class" />
+      <Type Name="AchievementControllerDelegate" Kind="Class" />
+      <Type Name="AchievementDidIncrementHandler" Kind="Delegate" />
+      <Type Name="AchievementDidRevealHandler" Kind="Delegate" />
+      <Type Name="AchievementDidUnlockHandler" Kind="Delegate" />
+      <Type Name="AchievementMetadata" Kind="Class" />
+      <Type Name="AchievementModel" Kind="Class" />
+      <Type Name="AchievementState" Kind="Enumeration" />
+      <Type Name="AchievementType" Kind="Enumeration" />
+      <Type Name="ApplicationModel" Kind="Class" />
+      <Type Name="AppStateConflictHandler" Kind="Delegate" />
+      <Type Name="AppStateListHandler" Kind="Delegate" />
+      <Type Name="AppStateListInfo" Kind="Class" />
+      <Type Name="AppStateListKeysHandler" Kind="Delegate" />
+      <Type Name="AppStateLoadResultHandler" Kind="Delegate" />
+      <Type Name="AppStateLoadStatus" Kind="Enumeration" />
+      <Type Name="AppStateModel" Kind="Class" />
+      <Type Name="AppStateWriteResultHandler" Kind="Delegate" />
+      <Type Name="AppStateWriteStatus" Kind="Enumeration" />
+      <Type Name="KeyedModel" Kind="Class" />
+      <Type Name="Leaderboard" Kind="Class" />
+      <Type Name="LeaderboardController" Kind="Class" />
+      <Type Name="LeaderboardControllerDelegate" Kind="Class" />
+      <Type Name="LeaderboardLoadScoresHandler" Kind="Delegate" />
+      <Type Name="LeaderboardMetadata" Kind="Class" />
+      <Type Name="LeaderboardModel" Kind="Class" />
+      <Type Name="LeaderboardOrder" Kind="Enumeration" />
+      <Type Name="LeaderboardsController" Kind="Class" />
+      <Type Name="LeaderboardsControllerDelegate" Kind="Class" />
+      <Type Name="LeaderboardTimeScope" Kind="Enumeration" />
+      <Type Name="LocalPlayerRank" Kind="Class" />
+      <Type Name="LocalPlayerScore" Kind="Class" />
+      <Type Name="Manager" Kind="Class" />
+      <Type Name="Manager+Notifications" Kind="Class" />
+      <Type Name="ModelDidLoadHandler" Kind="Delegate" />
+      <Type Name="Player" Kind="Class" />
+      <Type Name="PlayerModel" Kind="Class" />
+      <Type Name="ReAuthenticationHandler" Kind="Delegate" />
+      <Type Name="RevisionCheckHandler" Kind="Delegate" />
+      <Type Name="RevisionStatus" Kind="Enumeration" />
+      <Type Name="Score" Kind="Class" />
+      <Type Name="ScoreBatchReportHandler" Kind="Delegate" />
+      <Type Name="ScoreReport" Kind="Class" />
+      <Type Name="ScoreReportScoreHandler" Kind="Delegate" />
+      <Type Name="ToastPlacement" Kind="Enumeration" />
+    </Namespace>
+    <Namespace Name="Google.Plus">
+      <Type Name="DeepLink" Kind="Class" />
+      <Type Name="DeepLinkDelegate" Kind="Class" />
+      <Type Name="Share" Kind="Class" />
+      <Type Name="ShareBuilder" Kind="Class" />
+      <Type Name="ShareDelegate" Kind="Class" />
+      <Type Name="SignIn" Kind="Class" />
+      <Type Name="SignInButton" Kind="Class" />
+      <Type Name="SignInButtonColorScheme" Kind="Enumeration" />
+      <Type Name="SignInButtonStyle" Kind="Enumeration" />
+      <Type Name="SignInDelegate" Kind="Class" />
+      <Type Name="UrlHandler" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>Google.Plus</Title>
+</Overview>
