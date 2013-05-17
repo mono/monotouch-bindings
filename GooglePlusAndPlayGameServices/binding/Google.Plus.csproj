@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5BC8E620-44B2-41B4-8ECC-19F8B16C1036}</ProjectGuid>
+    <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Google.Plus</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Google.Plus</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\PlayGameServices.bundle\" />
+    <Folder Include="Resources\GooglePlus.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="PlayGameServices" />
+    <ObjcBindingNativeLibrary Include="GoogleOpenSource" />
+    <ObjcBindingNativeLibrary Include="GooglePlus" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PlayGameServices.linkwith.cs">
+      <DependentUpon>PlayGameServices</DependentUpon>
+    </Compile>
+    <Compile Include="GoogleOpenSource.linkwith.cs">
+      <DependentUpon>GoogleOpenSource</DependentUpon>
+    </Compile>
+    <Compile Include="GooglePlus.linkwith.cs">
+      <DependentUpon>GooglePlus</DependentUpon>
+    </Compile>
+    <Compile Include="Extras.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PlayGameServices.bundle\GTMOAuth2ViewTouch.nib" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\Info.plist" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\achievement_inner_frame.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\achievement_inner_frame%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\achievement_mask.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\achievement_mask%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\achievement_unknown.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\achievement_unknown%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\avatar_unknown.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\avatar_unknown%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-footer.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-footer%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-list-item-highlight.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-list-item-highlight%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-list-item-selected.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-list-item-selected%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-notification-logo.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-notification-logo%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-player-autoselect-avatar.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-player-autoselect-avatar%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-player-autoselect.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-player-autoselect%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-selected.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-selected%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-you-highlight.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg-you-highlight%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\bg%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\blueArrow.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\blueArrow%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-blue-lrg.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-blue-lrg%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-default-pressed.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-default-pressed%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-default.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-default%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-green-pressed.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-green-pressed%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-green.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-green%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-nav-white-pressed.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-nav-white-pressed%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-nav-white.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-nav-white%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-red.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-red%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-white-pressed.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-white-pressed%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-white.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\btn-white%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\button.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\button%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\celldivider.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\checkbox_checked.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\checkbox_checked%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\checkbox_empty.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\checkbox_empty%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\divider.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\divider%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-back.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-back%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-googleplus.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-googleplus%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-lock.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-lock%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-outlink.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-outlink%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-setting.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icn-setting%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icon-trash.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\icon-trash%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\navbarbg.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\navbarbg%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\navbarbglandscape.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\navbarbglandscape%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment_divider.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment_divider%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment_divider_l.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment_divider_l%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment_divider_r.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment_divider_r%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment_selected.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\segment_selected%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\selected-list-bg-cover%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\shadow.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\shadow%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\tablecelldivider.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\tablecelldivider%402x.png" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\GamesModel.momd\VersionInfo.plist" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ar.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ar.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ca.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ca.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\cs.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\cs.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\da.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\da.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\de.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\de.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\el.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\el.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\en-GB.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\en-GB.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\en.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\en.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\es.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\es.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\fi.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\fi.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\fr.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\fr.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\he.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\he.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\hr.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\hr.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\hu.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\hu.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\id.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\id.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\it.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\it.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ja.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ja.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ko.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ko.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ms.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ms.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\nb.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\nb.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\nl.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\nl.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\pl.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\pl.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\pt-BR.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\pt-BR.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\pt.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\pt.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ro.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ro.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ru.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\ru.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\sk.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\sk.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\sv.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\sv.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\th.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\th.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\tr.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\tr.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\uk.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\uk.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\vi.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\vi.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\zh-Hans.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\zh-Hans.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\zh-Hant-TW.lproj\GamesSDK_v1.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\zh-Hant-TW.lproj\GamesSDK_vNext.strings" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\GamesModel.momd\GamesModel 2.mom" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\GamesModel.momd\GamesModel 3.mom" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\GamesModel.momd\GamesModel 4.mom" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\GamesModel.momd\GamesModel 5.mom" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\GamesModel.momd\GamesModel 6.mom" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\GamesModel.momd\GamesModel 7.mom" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\GamesModel.momd\GamesModel 7.omo" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\GamesModel.momd\GamesModel.mom" />
+    <BundleResource Include="Resources\PlayGameServices.bundle\css\global.css" />
+    <BundleResource Include="Resources\GooglePlus.bundle\Info.plist" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_button_disabled.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_button_disabled%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_button_normal.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_button_normal%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_button_pressed.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_button_pressed%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_icon_disabled.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_icon_disabled%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_icon_normal.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_icon_normal%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_icon_pressed.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_dark_icon_pressed%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_button_disabled.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_button_disabled%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_button_normal.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_button_normal%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_button_pressed.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_button_pressed%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_icon_disabled.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_icon_disabled%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_icon_normal.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_icon_normal%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_icon_pressed.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gpp_sign_in_light_icon_pressed%402x.png" />
+    <BundleResource Include="Resources\GooglePlus.bundle\af.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\am.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\ar.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\be.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\bg.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\ca.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\cs.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\da.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\de.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\de_AT.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\de_CH.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\el.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\en.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\en_GB.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\en_IE.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\en_IN.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\en_SG.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\en_ZA.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_419.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_AR.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_BO.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_CL.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_CO.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_CR.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_DO.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_EC.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_GT.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_HN.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_MX.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_NI.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_PA.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_PE.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_PR.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_PY.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_SV.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_US.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_UY.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\es_VE.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\et.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\fa.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\fi.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\fil.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\fr.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\fr_CH.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\gsw.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\he.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\hi.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\hr.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\hu.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\id.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\in.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\it.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\iw.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\ja.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\ko.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\ln.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\lt.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\lv.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\mo.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\ms.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\nb.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\nl.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\no.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\pl.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\pt.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\pt_BR.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\pt_PT.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\ro.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\ru.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\sk.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\sl.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\sr.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\sv.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\sw.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\th.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\tl.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\tr.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\uk.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\vi.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\zh.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\zh_CN.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\zh_HK.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\zh_TW.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\zu.lproj\GooglePlusPlatform.strings" />
+    <BundleResource Include="Resources\GooglePlus.bundle\GooglePlus" />
+  </ItemGroup>
+</Project>
