@@ -1,0 +1,32 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="SMCalloutView" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libSMCalloutView.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="QuartzCore")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="SMCalloutView">
+      <Type Name="CalloutAnimation" Kind="Enumeration" />
+      <Type Name="CalloutArrowDirection" Kind="Enumeration" />
+      <Type Name="CalloutBackgroundView" Kind="Class" />
+      <Type Name="CalloutDrawnBackgroundView" Kind="Class" />
+      <Type Name="CalloutImageBackgroundView" Kind="Class" />
+      <Type Name="CalloutView" Kind="Class" />
+      <Type Name="CalloutViewDelegate" Kind="Class" />
+      <Type Name="CVDelayForReposition" Kind="Delegate" />
+    </Namespace>
+  </Types>
+  <Title>SMCalloutView</Title>
+</Overview>
