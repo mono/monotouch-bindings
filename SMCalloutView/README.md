@@ -1,4 +1,4 @@
-![Example Screenshot](SampleAssets/CalloutScreenshot.png)
+![Example Screenshot](https://a248.e.akamai.net/camo.github.com/28ff6b4dc349ae712c36723daa0c8704c19b1e9f/687474703a2f2f636c2e6c792f696d6167652f3261326a31703355323433502f496d616765253230323031322e30392e303225323031303a30343a3538253230414d2e706e67)
 
 
 Overview
