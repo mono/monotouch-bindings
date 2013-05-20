@@ -26,8 +26,8 @@ libGoogleAnalytics.a: GoogleAnalyticsiOS.zip
 
 GoogleAnalytics.dll: Makefile AssemblyInfo.cs googleanalytics.cs enums.cs extras.cs libGoogleAnalytics.a
 	-mkdir -p ios
-	$(BTOUCH) --out=$@ -e googleanalytics.cs enums.cs --sourceonly=list --tmpdir=ios
-	$(SMCS) $(BUILD_FLAGS) -out:$@ @list enums.cs extras.cs AssemblyInfo.cs -r:monotouch.dll -res:libGoogleAnalytics.a,libGoogleAnalytics.a
-
+	$(MONOXBUILD) /p:Configuration=Release Googleanalytics.csproj
+	cp bin/Release/GoogleAnalytics.dll GoogleAnalytics.dll
+	
 clean:
 	-rm -rf list ios *.a *.dll *.o
