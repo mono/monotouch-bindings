@@ -1,6 +1,6 @@
 
 BUILD_FLAGS=-unsafe -target:library -nowarn:436 -nowarn:219
-BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 CLANG=clang -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk
 
@@ -24,7 +24,7 @@ GoogleAnalyticsiOS.zip:
 libGoogleAnalytics.a: GoogleAnalyticsiOS.zip
 	unzip -p $< 'GoogleAnalyticsiOS_2.0beta*/Library/libGoogleAnalytics.a' > $@
 
-GoogleAnalytics.dll: Makefile AssemblyInfo.cs googleanalytics.cs enums.cs extras.cs libGoogleAnalytics.a
+GoogleAnalytics.dll: Makefile libGoogleAnalytics.a
 	-mkdir -p ios
 	$(MONOXBUILD) /p:Configuration=Release Googleanalytics.csproj
 	cp bin/Release/GoogleAnalytics.dll GoogleAnalytics.dll
