@@ -62,6 +62,10 @@ namespace GoogleMapsAdvSample
 					new StringElement ("Ground Overlays", () => {
 						var ctrl = new GroundOverlayViewController ();
 						NavigationController.PushViewController (ctrl, true);
+					}),
+					new StringElement ("Tile Layers", () => {
+						var ctrl = new TileLayerViewController ();
+						NavigationController.PushViewController (ctrl, true);
 					})
 				},
 				new Section ("Camera") {

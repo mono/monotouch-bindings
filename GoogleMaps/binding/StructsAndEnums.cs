@@ -7,16 +7,18 @@ namespace Google.Maps
 	public enum MapViewType {
 		/** Basic maps.  The default. */
 		Normal = 1,
-		
+
 		/** Satellite maps with no labels. */
 		Satellite,
-		
+
 		/** Terrain maps. */
 		Terrain,
-		
+
 		/** Satellite maps with a transparent label overview. */
 		Hybrid,
-		
+
+		/** No maps, no labels.  Display of traffic data is not supported. */
+		None	
 	} 
 
 	[StructLayout (LayoutKind.Sequential)]

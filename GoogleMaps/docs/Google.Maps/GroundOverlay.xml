@@ -154,6 +154,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Bounds">
+      <MemberSignature Language="C#" Value="public virtual Google.Maps.CoordinateBounds Bounds { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Google.Maps.CoordinateBounds Bounds" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("bounds")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setBounds:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.Maps.CoordinateBounds</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ClassHandle">
       <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
@@ -186,6 +210,33 @@
       <Docs>
         <param name="disposing">To be added.</param>
         <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetGroundOverlay">
+      <MemberSignature Language="C#" Value="public static Google.Maps.GroundOverlay GetGroundOverlay (Google.Maps.CoordinateBounds bounds, MonoTouch.UIKit.UIImage icon);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Google.Maps.GroundOverlay GetGroundOverlay(class Google.Maps.CoordinateBounds bounds, class MonoTouch.UIKit.UIImage icon) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("groundOverlayWithBounds:icon:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.Maps.GroundOverlay</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="bounds" Type="Google.Maps.CoordinateBounds" />
+        <Parameter Name="icon" Type="MonoTouch.UIKit.UIImage" />
+      </Parameters>
+      <Docs>
+        <param name="bounds">To be added.</param>
+        <param name="icon">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
