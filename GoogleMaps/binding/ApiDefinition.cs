@@ -10,7 +10,7 @@ using MonoTouch.CoreAnimation;
 namespace Google.Maps
 {
 	#region CustomLib
-	// This is a custom class created by me and is not part of Google Maps lib
+	// This is a custom class created by me (dalexsoto) and is not part of Google Maps lib
 	// But it is necesary for this binding to work
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name="libGoogleMapsExporter")]
@@ -48,6 +48,9 @@ namespace Google.Maps
 
 		[Static, Export ("kGMSMarkerDefaultInfoWindowAnchorGlobal")]
 		PointF MarkerDefaultInfoWindowAnchor { get; }
+
+		[Static, Export ("kGMSTileLayerNoTileGlobal")]
+		UIImage TileLayerNoTile { get; }
 	}
 	#endregion
 
@@ -169,6 +172,9 @@ namespace Google.Maps
 		[Export ("includingBounds:")]
 		CoordinateBounds Including (CoordinateBounds bounds);
 
+		[Export ("includingPath:")]
+		CoordinateBounds Including (Google.Maps.Path path);
+
 		[Export ("containsCoordinate:")]
 		bool ContainsCoordinate (CLLocationCoordinate2D coordinate);
 
@@ -209,8 +215,14 @@ namespace Google.Maps
 		[Export ("bearing", ArgumentSemantic.Assign)]
 		double Bearing { get; set; }
 
+		[Export ("bounds")]
+		CoordinateBounds Bounds { get; set; }
+
 		[Static, Export ("groundOverlayWithPosition:icon:")]
 		GroundOverlay GetGroundOverlay (CLLocationCoordinate2D position, UIImage icon);
+
+		[Static, Export ("groundOverlayWithBounds:icon:")]
+		GroundOverlay GetGroundOverlay (CoordinateBounds bounds, UIImage icon);
 	}
 
 	[BaseType (typeof (CALayer), Name="GMSMapLayer")]
@@ -289,6 +301,9 @@ namespace Google.Maps
 		
 		[Export ("mapType", ArgumentSemantic.Assign)]
 		MapViewType MapType { get; set; }
+
+		[Export ("buildingsEnabled", ArgumentSemantic.Assign)]
+		bool BuildingsEnabled {[Bind ("isBuildingsEnabled")] get; set; }
 
 		[Export ("settings")]
 		UISettings Settings { get; }
@@ -385,7 +400,7 @@ namespace Google.Maps
 		void AddCoordinate (CLLocationCoordinate2D coord);
 
 		[Export ("addLatitude:longitude:")]
-		void AddLatLong (double latitude, double longitude);
+		void AddLatLon (double latitude, double longitude);
 
 		[Export ("insertCoordinate:atIndex:")]
 		void InsertCoordinate (CLLocationCoordinate2D coord, uint index);
@@ -520,7 +535,7 @@ namespace Google.Maps
 	}
 
 	[DisableDefaultCtor]
-	[BaseType(typeof (NSObject), Name="GMSServices")]
+	[BaseType (typeof (NSObject), Name="GMSServices")]
 	interface MapServices {
 
 		[Static]
@@ -536,7 +551,38 @@ namespace Google.Maps
 		string SDKVersion { get; }		
 	}
 
-	[BaseType(typeof(NSObject), Name="GMSUISettings")]
+	[BaseType (typeof (TileLayer), Name="GMSSyncTileLayer")]
+	interface SyncTileLayer {
+
+		[Export ("tileForX:y:zoom:")]
+		UIImage Tile (uint x, uint y, uint zoom);
+	}
+
+	[BaseType (typeof (NSObject), Name="GMSTileReceiver")]
+	[Model]
+	interface TileReceiver {
+
+		[Export ("receiveTileWithX:y:zoom:image:")]
+		void RecieveTile (uint x, uint y, uint zoom, UIImage image);
+	}
+
+	[BaseType (typeof (NSObject), Name="GMSTileLayer")]
+	interface TileLayer {
+
+		[Export ("requestTileForX:y:zoom:image:receiver:")]
+		void RequestTile (uint x, uint y, uint zoom, TileReceiver receiver);
+
+		[Export ("clearTileCache")]
+		void ClearTileCache ();
+
+		[Export ("map")]
+		MapView Map { get; [NullAllowed] set; }
+
+		[Export ("zIndex", ArgumentSemantic.Assign)]
+		uint ZIndex { get; set; }
+	}
+
+	[BaseType (typeof (NSObject), Name="GMSUISettings")]
 	interface UISettings {
 
 		[Export ("setAllGesturesEnabled:")]
@@ -559,6 +605,19 @@ namespace Google.Maps
 
 		[Export ("myLocationButton", ArgumentSemantic.Assign)]
 		bool MyLocationButton { get; set; }
+	}
+
+	delegate NSUrl TileURLConstructor (uint x, uint y, uint zoom);
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (TileLayer), Name="GMSURLTileLayer")]
+	interface UrlTileLayer {
+	
+		[Static, Export ("tileLayerWithURLConstructor:")]
+		UrlTileLayer FromUrlConstructor (TileURLConstructor constructor);
+
+		[Export ("userAgent", ArgumentSemantic.Copy)] [NullAllowed]
+		string UserAgent { get; set; }
 	}
 }
 
