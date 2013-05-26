@@ -14,9 +14,20 @@ namespace MonoTouch.TestFlight {
 
 	[BaseType (typeof (NSObject))]
 	public interface TestFlight {
+		/// <summary>
+		/// Add custom environment information
+		/// If you want to track custom information such as a user name from your application you can add it here
+		/// </summary>
+		/// <param name="information">A string containing the environment you are storing</param>
+		/// <param name="key">The key to store the information with</param>
 		[Static, Export ("addCustomEnvironmentInformation:forKey:")]
 		void AddCustomEnvironmentInformation (string information, string key);
 
+		/// <summary>
+		/// TakeOff with TestFlight
+		/// This methode connects your app with TestFlight
+		/// </summary>
+		/// <param name="applicationToken">Your Application Token can be found on the TestFlight site</param>
 		[Static, Export ("takeOff:")]
 		void TakeOff (string applicationToken);
 
@@ -30,15 +41,34 @@ namespace MonoTouch.TestFlight {
 		[Static, Export ("setOptions:")]
 		void SetOptions (NSDictionary options);
 
+		/// <summary>
+		/// Track when a user has passed a checkpoint after the flight has taken off. Eg. passed level 1, posted high score
+		/// </summary>
+		/// <param name="checkpointName">The name of the checkpoint, this should be a static string</param>
 		[Static, Export ("passCheckpoint:")]
 		void PassCheckpoint (string checkpointName);
 
+		/// <summary>
+		/// Opens a feedback window that is not attached to a checkpoint
+		/// </summary>
 		[Static, Export ("openFeedbackView")]
 		void OpenFeedbackView ();
 
+		/// <summary>
+		/// Submits the feedback to the site, only if feedback is not null or empty.
+		/// </summary>
+		/// <param name="feedback">The feedback your user type in some text field. Or is collected in some other way</param>
 		[Static, Export ("submitFeedback:")]
 		void SubmitFeedback (string feedback);
 
+		/// <summary>
+		/// Sets the device identifier.
+		/// DO NOT CALL THIS IN A APPSTORE APP!!!
+		/// Your app won't be processed if you do!
+		/// 
+		/// If you want to use this during testing, you have to call it before TakeOff / ThreadSafeTakeOff
+		/// </summary>
+		/// <param name="deviceIdentifer"> Only use this with the Apple device UDID. DO NOT use Open ID or your own identifier</param>
 		[Static, Export ("setDeviceIdentifier:")]
 		void SetDeviceIdentifier (string deviceIdentifer);
 
