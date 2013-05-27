@@ -726,5 +726,21 @@ namespace GPUImage
 			[Export("intensity")]
 			float Intensity {get;set;}
 		}
+
+		[BaseType(typeof(GPUImageFilter))]
+		public interface GPUImageGrayscaleFilter
+		{
+		}
+
+		[BaseType(typeof(GPUImageFilter))]
+		public interface GPUImageMonochromeFilter
+		{
+			[Export("intensity")]
+			float Intensity {get;set;}
+
+			[Export("color")]
+			GPUVector3 color {get;set;}
+		}
+
 	}
 }
