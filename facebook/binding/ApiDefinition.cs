@@ -347,8 +347,8 @@ namespace MonoTouch.FacebookConnect
 		[Export("userID", ArgumentSemantic.Copy)]
 		string UserID { get; set; }
 		
-		[Export("selection")] [Internal]
-		IntPtr Selection_ { get; }
+		[Export("selection")]
+		FBGraphUser [] Selection { get; }
 		
 		[Export("sortOrdering")]
 		FBFriendSortOrdering SortOrdering { get; set; }
@@ -403,46 +403,50 @@ namespace MonoTouch.FacebookConnect
 	[BaseType (typeof (FBGraphObject))]
 	interface FBGraphLocation
 	{
-		[Export("street")]
-		string Street { get; set; }
-		
-		[Export("city")]
-		string City { get; set; }
-		
-		[Export("state")]
-		string State { get; set; }
-		
-		[Export("country")]
-		string Country { get; set; }
-		
-		[Export("zip")]
-		string Zip { get; set; }
-		
-		[Export("latitude")]
-		NSNumber Latitude { get; set; }
-		
-		[Export("longitude")]
-		NSNumber Longitude { get; set; }
-		
-		// FBGraphObject Model Properties and Methods
-		
-		[Export("count")] [New]
-		uint Count { get; }
-		
-		[Export("objectForKey:")] [New]
-		NSObject ObjectForKey (NSObject aKey);
-		
-		[Export("keyEnumerator")]
-		NSEnumerator KeyEnumerator { get; }
-		
-		[Export("removeObjectForKey:")]
-		NSObject RemoveObjectForKey (NSObject aKey);
-		
-		[Export("setObject:forKey:")]
-		void SetObject (NSObject anObject, NSObject aKey);
+		[Bind ("street")] [Internal]
+		string GetStreet ();
+
+		[Bind ("setStreet:")] [Internal]
+		void SetStreet (string street);
+
+		[Bind ("city")] [Internal]
+		string GetCity ();
+
+		[Bind ("setCity:")] [Internal]
+		void SetCity (string city);
+
+		[Bind ("state")] [Internal]
+		string GetState ();
+
+		[Bind ("setState:")] [Internal]
+		void SetState (string state);
+
+		[Bind ("country")] [Internal]
+		string GetCountry ();
+
+		[Bind ("setCountry:")] [Internal]
+		void SetCountry (string country);
+
+		[Bind ("zip")] [Internal]
+		string GetZip ();
+
+		[Bind ("setZip:")] [Internal]
+		void SetZip (string zip);
+
+		[Bind ("latitude")] [Internal]
+		NSNumber GetLatitude ();
+
+		[Bind ("setLatitude:")] [Internal]
+		void SetLatitude (NSNumber latitude);
+
+		[Bind ("longitude")] [Internal]
+		NSNumber GetLongitude ();
+
+		[Bind ("setLongitude:")] [Internal]
+		void SetLongitude (NSNumber longitude);
 	}
 	
-	[BaseType (typeof (NSMutableDictionary))]
+	[BaseType (typeof (NSObject))]
 	interface FBGraphObject
 	{
 		[Static]
@@ -468,87 +472,121 @@ namespace MonoTouch.FacebookConnect
 		[Static]
 		[Export("isGraphObjectID:sameAs:")]
 		bool IsGraphObjectIDEqual (FBGraphObject anObject, FBGraphObject anotherObject);
+
+		// FBGraphObject Model Properties and Methods
+
+		[Export("count")]
+		uint Count { get; }
+
+		[Export("objectForKey:")]
+		NSObject ObjectForKey (string aKey);
+
+		[Export("keyEnumerator")]
+		NSEnumerator KeyEnumerator { get; }
+
+		[Export("removeObjectForKey:")]
+		NSObject RemoveObjectForKey (string aKey);
+
+		[Export("setObject:forKey:")]
+		void SetObject (NSObject anObject, string aKey);
 	}
 	
 	[BaseType (typeof (FBGraphObject))]
 	interface FBGraphPlace
 	{
-		[Export("id")]
-		string Id { get; set; }
-		
-		[Export("name")]
-		string Name { get; set; }
-		
-		[Export("category")]
-		string Category { get; set; }
-		
-		[Export("location")] [Internal]
-		NSObject Location_ { get; set; }
-		
-		// FBGraphObject Model Properties and Methods
-		
-		[Export("count")] [New]
-		uint Count { get; }
-		
-		[Export("objectForKey:")] [New]
-		NSObject ObjectForKey (NSObject aKey);
-		
-		[Export("keyEnumerator")]
-		NSEnumerator KeyEnumerator { get; }
-		
-		[Export("removeObjectForKey:")]
-		NSObject RemoveObjectForKey (NSObject aKey);
-		
-		[Export("setObject:forKey:")]
-		void SetObject (NSObject anObject, NSObject aKey);
+		[Bind ("id")] [Internal]
+		string GetId ();
+
+		[Bind ("setId:")] [Internal]
+		void SetId (string id);
+
+		[Bind ("name")] [Internal]
+		string GetName ();
+
+		[Bind ("setName:")] [Internal]
+		void SetName (string name);
+
+		[Bind ("category")] [Internal]
+		string GetCategory ();
+
+		[Bind ("setCategory:")] [Internal]
+		void SetCategory (string category);
+
+		[Bind ("location")] [Internal]
+		IntPtr GetLocation ();
+
+		[Bind ("setLocation")] [Internal]
+		void SetLocation (IntPtr location);
+
+//		[Bind ("location")] [Internal]
+//		FBGraphLocation GetLocation ();
+//
+//		[Bind ("setLocation")] [Internal]
+//		void SetLocation (FBGraphLocation location);
 	}
 	
 	[BaseType (typeof (FBGraphObject))]
 	interface FBGraphUser
 	{
-		[Export("id")]
-		string Id { get; set; }
-		
-		[Export("name")]
-		string Name { get; set; }
-		
-		[Export("first_name")]
-		string FirstName { get; set; }
-		
-		[Export("middle_name")]
-		string MiddleName { get; set; }
-		
-		[Export("last_name")]
-		string LastName { get; set; }
-		
-		[Export("link")]
-		string Link { get; set; }
-		
-		[Export("username")]
-		string Username { get; set; }
-		
-		[Export("birthday")]
-		string Birthday { get; set; }
-		
-		[Export("location")] [Internal]
-		NSObject Location_ { get; set; }
-		
-		// FBGraphObject Model Properties and Methods
-		
-		[Export("count")] [New]
-		uint Count { get; }
-		
-		[Export("objectForKey:")] [New]
-		NSObject ObjectForKey (NSObject aKey);
-		
-		[Export("keyEnumerator")]
-		NSEnumerator KeyEnumerator { get; }
-		
-		[Export("removeObjectForKey:")]
-		NSObject RemoveObjectForKey (NSObject aKey);
-		
-		[Export("setObject:forKey:")]
-		void SetObject (NSObject anObject, NSObject aKey);
+		[Bind ("id")] [Internal]
+		string GetId ();
+
+		[Bind ("setId:")] [Internal]
+		void SetId (string id);
+
+		[Bind ("name")] [Internal]
+		string GetName ();
+
+		[Bind ("setName:")] [Internal]
+		void SetName (string name);
+
+		[Bind ("first_name")] [Internal]
+		string GetFirstName ();
+
+		[Bind ("setFirst_name:")] [Internal]
+		void SetFirstName (string firstName);
+
+		[Bind ("middle_name")] [Internal]
+		string GetMiddleName ();
+
+		[Bind ("setMiddle_name:")] [Internal]
+		void SetMiddleName (string middleName);
+
+		[Bind ("last_name")] [Internal]
+		string GetLastName ();
+
+		[Bind ("setLast_name:")] [Internal]
+		void SetLastName (string middleName);
+
+		[Bind ("link")] [Internal]
+		string GetLink ();
+
+		[Bind ("setLink:")] [Internal]
+		void SetLink (string link);
+
+		[Bind ("username")] [Internal]
+		string GetUsername ();
+
+		[Bind ("setUsername:")] [Internal]
+		void SetUsername (string username);
+
+		[Bind ("birthday")] [Internal]
+		string GetBirthday ();
+
+		[Bind ("setBirthday")] [Internal]
+		void SetBirthday (string birthday);
+
+		[Bind ("location")] [Internal]
+		IntPtr GetLocation ();
+
+		[Bind ("setLocation")] [Internal]
+		void SetLocation (IntPtr location);
+
+//		[Bind ("location")] [Internal]
+//		FBGraphPlace GetLocation ();
+//
+//		[Bind ("setLocation")] [Internal]
+//		void SetLocation (FBGraphPlace location);
 	}
 
 	[DisableDefaultCtor]
@@ -654,67 +692,107 @@ namespace MonoTouch.FacebookConnect
 	[BaseType (typeof (FBGraphObject))]
 	interface FBOpenGraphAction
 	{
-		[Export("id")]
-		string Id { get; set; }
-		
-		[Export("start_time")]
-		string StartTime { get; set; }
-		
-		[Export("end_time")]
-		string EndTime { get; set; }
-		
-		[Export("publish_time")]
-		string PublishTime { get; set; }
-		
-		[Export("created_time")]
-		string CreatedTime { get; set; }
-		
-		[Export("expires_time")]
-		string ExpiresTime { get; set; }
-		
-		[Export("ref")]
-		string Ref { get; set; }
-		
-		[Export("message")]
-		string Message { get; set; }
-		
-		[Export("place")] [Internal]
-		NSObject Place_ { get; set; }
-		
-		[Export("tags")]
-		NSObject [] Tags { get; set; }
-		
-		[Export("image")]
-		NSObject [] Image { get; set; }
-		
-		[Export("from")] [Internal]
-		NSObject From_ { get; set; }
-		
-		[Export("likes")]
-		NSObject [] Likes { get; set; }
-		
-		[Export("application")] [Internal]
-		NSObject Application_ { get; set; }
-		
-		[Export("comments")]
-		NSArray Comments { get; set; }
-		
-		// FBGraphObject Model Properties and Methods
-		
-		[Export("count")] [New]
-		uint Count { get; }
-		
-		[Export("objectForKey:")] [New]
-		NSObject ObjectForKey (NSObject aKey);
-		
-		[Export("keyEnumerator")]
-		NSEnumerator KeyEnumerator { get; }
-		
-		[Export("removeObjectForKey:")]
-		NSObject RemoveObjectForKey (NSObject aKey);
-		
-		[Export("setObject:forKey:")]
-		void SetObject (NSObject anObject, NSObject aKey);
+		[Bind ("id")] [Internal]
+		string GetId ();
+
+		[Bind ("setId:")] [Internal]
+		void SetId (string id);
+
+		[Bind ("start_time")] [Internal]
+		string GetStartTime ();
+
+		[Bind ("setStart_time:")] [Internal]
+		void SetStartTime (string startTime);
+
+		[Bind ("end_time")] [Internal]
+		string GetEndTime ();
+
+		[Bind ("setEnd_time:")] [Internal]
+		void SetEndTime (string endTime);
+
+		[Bind ("publish_time")] [Internal]
+		string GetPublishTime ();
+
+		[Bind ("setPublish_time:")] [Internal]
+		void SetPublishTime (string publishTime);
+
+		[Bind ("created_time")] [Internal]
+		string GetCreatedTime ();
+
+		[Bind ("setCreated_time:")] [Internal]
+		void SetCreatedTime (string createdTime);
+
+		[Bind ("expires_time")] [Internal]
+		string GetExpiresTime ();
+
+		[Bind ("setExpires_time:")] [Internal]
+		void SetExpiresTime (string expiresTime);
+
+		[Bind ("ref")] [Internal]
+		string GetRef ();
+
+		[Bind ("setRef:")] [Internal]
+		void SetRef (string aRef);
+
+		[Bind ("message")] [Internal]
+		string GetMessage ();
+
+		[Bind ("setMessage:")] [Internal]
+		void SetMessage (string message);
+
+		[Bind ("place")] [Internal]
+		IntPtr GetPlace ();
+
+		[Bind ("setPlace:")] [Internal]
+		void SetPlace (IntPtr place);
+
+//		[Bind ("place")] [Internal]
+//		FBGraphPlace GetPlace ();
+//
+//		[Bind ("setPlace:")] [Internal]
+//		void SetPlace (FBGraphPlace place);
+
+		[Bind ("tags")] [Internal]
+		NSObject [] GetTags ();
+
+		[Bind ("setTags:")] [Internal]
+		void SetTags (NSObject [] tags);
+
+		[Bind ("image")] [Internal]
+		NSObject GetImage ();
+
+		[Bind ("setImage:")] [Internal]
+		void SetImage (NSObject image);
+
+		[Bind ("from")] [Internal]
+		IntPtr GetFrom ();
+
+		[Bind ("setFrom:")] [Internal]
+		void SetFrom (IntPtr fromUser);
+
+//		[Bind ("from")] [Internal]
+//		FBGraphUser GetFrom ();
+//
+//		[Bind ("setFrom:")] [Internal]
+//		void SetFrom (FBGraphUser fromUser);
+
+		[Bind ("likes")] [Internal]
+		NSObject [] GetLikes ();
+
+		[Bind ("setLikes:")] [Internal]
+		void SetLikes (NSObject [] likes);
+
+		[Bind ("application")] [Internal]
+		FBGraphObject GetApplication ();
+
+		[Bind ("setApplication:")] [Internal]
+		void SetApplication (FBGraphObject application);
+
+		[Bind ("comments")] [Internal]
+		NSObject [] GetComments ();
+
+		[Bind ("setComments:")] [Internal]
+		void SetComments (NSObject [] comments);
 	}
 
 	[BaseType (typeof (FBDialogsParams))]
@@ -736,43 +814,47 @@ namespace MonoTouch.FacebookConnect
 	[BaseType (typeof (FBGraphObject))]
 	interface FBOpenGraphObject 
 	{	
-		[Export("id")]
-		string Id { get; set; }
+		[Bind ("id")] [Internal]
+		string GetId ();
 
-		[Export("type")]
-		string aType { get; set; }
+		[Bind ("setId:")] [Internal]
+		void SetId (string id);
 
-		[Export("title")]
-		string Title { get; set; }
+		[Bind ("type")] [Internal]
+		string GetAType ();
 
-		[Export("image")]
-		NSObject Image { get; set; }
+		[Bind ("setType:")] [Internal]
+		void SetAType (string aType);
 
-		[Export("url")]
-		NSObject Url { get; set; }
+		[Bind ("title")] [Internal]
+		string GetTitle ();
 
-		[Export("description")] [New]
-		NSObject Description { get; set; }
+		[Bind ("setTitle:")] [Internal]
+		void SetTitle (string title);
 
-		[Export("data")]
-		FBGraphObject Data { get; set; }
+		[Bind ("image")] [Internal]
+		NSObject GetImage ();
 
-		// FBGraphObject Model Properties and Methods
-		
-		[Export("count")] [New]
-		uint Count { get; }
-		
-		[Export("objectForKey:")] [New]
-		NSObject ObjectForKey (NSObject aKey);
-		
-		[Export("keyEnumerator")]
-		NSEnumerator KeyEnumerator { get; }
-		
-		[Export("removeObjectForKey:")]
-		NSObject RemoveObjectForKey (NSObject aKey);
-		
-		[Export("setObject:forKey:")]
-		void SetObject (NSObject anObject, NSObject aKey);
+		[Bind ("setImage:")] [Internal]
+		void SetImage (NSObject image);
+
+		[Bind ("url")] [Internal]
+		NSObject GetUrl ();
+
+		[Bind ("setUrl:")] [Internal]
+		void SetUrl (NSObject url);
+
+		[Bind ("description")] [Internal]
+		NSObject GetDescription ();
+
+		[Bind ("setDescription:")] [Internal]
+		void SetDescription (NSObject description);
+
+		[Bind ("data")] [Internal]
+		FBGraphObject GetData ();
+
+		[Bind ("setData:")] [Internal]
+		void SetData (FBGraphObject data);
 	}
 	
 	[BaseType (typeof (FBViewController),
@@ -807,8 +889,8 @@ namespace MonoTouch.FacebookConnect
 		[Export("session")]
 		FBSession Session { get; set; }
 		
-		[Export("selection")] [Internal]
-		IntPtr Selection_ { get; }
+		[Export("selection")]
+		FBGraphPlace Selection { get; }
 		
 		[Export("clearSelection")]
 		void ClearSelection ();
@@ -854,7 +936,7 @@ namespace MonoTouch.FacebookConnect
 	interface FBProfilePictureView 
 	{
 		[Export ("profileID", ArgumentSemantic.Copy)]
-		string ProfileID { get; set; }
+		string ProfileID { get; [NullAllowed] set; }
 		
 		[Export ("pictureCropping")]
 		FBProfilePictureCropping PictureCropping { get; set; }
