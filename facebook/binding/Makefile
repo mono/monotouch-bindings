@@ -49,3 +49,6 @@ merge-docs: facebook-ios-sdk
 
 clean:
 	-rm -rf libarclite.linkwith.cs *.a *.dll *.mdb bin/ obj/ list ios facebook-ios-sdk/ Resources/
+
+cleanproject:
+	-rm -rf *.dll bin/ obj/ list ios/
