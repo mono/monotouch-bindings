@@ -8,6 +8,7 @@
 
 using System;
 using MonoTouch.Foundation;
+using MonoTouch.ObjCRuntime;
 using System.Collections.Generic;
 
 namespace MonoTouch.FacebookConnect
@@ -18,6 +19,17 @@ namespace MonoTouch.FacebookConnect
 		{
 			get{ return this.ObjectForKey (key); }
 			set{ this.SetObject (value,key); }
+		}
+
+		public static FBGraphObject [] FromResultObject (NSObject resultObject)
+		{
+			var results = new List<FBGraphObject> ();
+			var dataObject = resultObject.ValueForKey (new NSString ("data")) as NSMutableArray;
+			for (uint i = 0; i < dataObject.Count; i++) {
+				var o = Runtime.GetNSObject (dataObject.ValueAt (i));
+				results.Add (o as FBGraphObject);
+			}
+			return results.ToArray ();
 		}
 	}
 
@@ -241,6 +253,35 @@ namespace MonoTouch.FacebookConnect
 		public FBGraphObject Data { 
 			get { return GetData (); } 
 			set { SetData (value); }
+		}
+	}
+
+	public partial class FBFriendPickerViewController : FBViewController
+	{
+		public FBGraphUser [] Selection
+		{
+			get 
+			{ 
+				IntPtr ptr = Selection_;
+				NSArray arr = new NSArray(ptr);
+
+				List<FBGraphUser> list = new List<FBGraphUser>();
+
+				for (uint i = 0; i < arr.Count; i++) 
+				{
+					list.Add(new FBGraphUser(arr.ValueAt(i)));
+				}
+
+				return list.ToArray();
+			}
+		}
+	}
+
+	public partial class FBPlacePickerViewController : FBViewController
+	{
+		public FBGraphPlace Selection
+		{
+			get { return new FBGraphPlace (Selection_); }
 		}
 	}
 }

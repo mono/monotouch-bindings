@@ -347,8 +347,8 @@ namespace MonoTouch.FacebookConnect
 		[Export("userID", ArgumentSemantic.Copy)]
 		string UserID { get; set; }
 		
-		[Export("selection")]
-		FBGraphUser [] Selection { get; }
+		[Export("selection")] [Internal]
+		IntPtr Selection_ { get; }
 		
 		[Export("sortOrdering")]
 		FBFriendSortOrdering SortOrdering { get; set; }
@@ -889,8 +889,8 @@ namespace MonoTouch.FacebookConnect
 		[Export("session")]
 		FBSession Session { get; set; }
 		
-		[Export("selection")]
-		FBGraphPlace Selection { get; }
+		[Export("selection")] [Internal]
+		IntPtr Selection_ { get; }
 		
 		[Export("clearSelection")]
 		void ClearSelection ();
