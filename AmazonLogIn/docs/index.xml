@@ -1,0 +1,55 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="Amazon.LogIn" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("login-with-amazon-sdk.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="Security")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="Amazon.LogIn">
+      <Type Name="AIAuthenticationDelegate" Kind="Class" />
+      <Type Name="AIError" Kind="Class" />
+      <Type Name="AIErrorCode" Kind="Enumeration" />
+      <Type Name="AIErrorCons" Kind="Class" />
+      <Type Name="AIMobileLib" Kind="Class" />
+      <Type Name="ApiChooser" Kind="Enumeration" />
+      <Type Name="ApiError" Kind="Class" />
+      <Type Name="ApiResult" Kind="Class" />
+    </Namespace>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>Amazon.LogIn</Title>
+  <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IntPtr" />
+      </Targets>
+      <Member MemberName="ToUint">
+        <MemberSignature Language="C#" Value="public static uint ToUint (this IntPtr ptr);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 ToUint(native int ptr) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.UInt32</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="ptr" Type="System.IntPtr" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="ptr">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Amazon.LogIn.AIErrorCons" Member="M:Amazon.LogIn.AIErrorCons.ToUint(System.IntPtr)" />
+      </Member>
+    </ExtensionMethod>
+  </ExtensionMethods>
+</Overview>
