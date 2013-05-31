@@ -9,8 +9,9 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Possible error codes encoded in the AIError.</summary>
+    <remarks>
+     </remarks>
   </Docs>
   <Members>
     <Member MemberName="AccessDenied">
@@ -24,7 +25,13 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+	<summary>      
+	  <para>The resource owner or authorization server denied the
+	  request.</para>
+	  <para>
+	    In general on getting this type of error, the application can call the AuthorizeUser method.
+	  </para>
+	</summary>
       </Docs>
     </Member>
     <Member MemberName="ApplicationNotAuthorized">
@@ -38,7 +45,9 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A valid refersh token was not found.   The refresh token held by the SDK is invalid, expired, revoked, does not match the redirection URI used in the authorization request, does not have the required scopes, or was issued to an
+	other client.  
+      </summary>
       </Docs>
     </Member>
     <Member MemberName="DeviceError">
@@ -52,7 +61,7 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The SDK encountered a device error.   Currently, the SDK only throws this error when it receives the some error from the keychain service.</summary>
       </Docs>
     </Member>
     <Member MemberName="ErrorUserInterrupted">
@@ -66,7 +75,7 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The user cancelled the login page. </summary>
       </Docs>
     </Member>
     <Member MemberName="InternalError">
@@ -80,7 +89,7 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>An internal SDK error, can not be handled by the application.</summary>
       </Docs>
     </Member>
     <Member MemberName="InvalidInput">
@@ -94,7 +103,9 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>One of the API parameters is invalid.  The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed.
+ 
+ Check your method parameters and try again. This error is expected from all APIs.</summary>
       </Docs>
     </Member>
     <Member MemberName="NetworkError">
@@ -108,7 +119,7 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A network error occurred, possibly due to the user being offline. In general on getting this error the application can ask the user to check their network connections.</summary>
       </Docs>
     </Member>
     <Member MemberName="NoError">
@@ -122,7 +133,7 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>No error.</summary>
       </Docs>
     </Member>
     <Member MemberName="ServerError">
@@ -136,7 +147,7 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>An error ocurred on the server.  The server encountered an error while completing the request, or the SDK received an unknown response from the server.   In general, when getting this error, the application can ask the user to retry the operation.</summary>
       </Docs>
     </Member>
     <Member MemberName="UnauthorizedClient">
@@ -150,7 +161,7 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The client is not authorized to request an authorization.  The application is not authorized to make this call. Make sure the registered Bundle identifier matches your application, and that you have a valid APIKey property in the application property list.</summary>
       </Docs>
     </Member>
     <Member MemberName="UnknownError">
@@ -164,7 +175,7 @@
         <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>An unknown error ocurred</summary>
       </Docs>
     </Member>
   </Members>
