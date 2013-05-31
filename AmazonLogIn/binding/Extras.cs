@@ -34,7 +34,30 @@ namespace Amazon.LogIn
 					return AIErrorCode.UnknownError;
 			}
 			set {
-				Code_ = (uint)value;
+				var code = value;
+				
+				if (code == AIErrorCode.NoError)
+					Code_ = AIErrorCons.NoError.ToUint ();
+				else if (code == AIErrorCode.ApplicationNotAuthorized)
+					Code_ = AIErrorCons.ApplicationNotAuthorized.ToUint ();
+				else if (code == AIErrorCode.ServerError)
+					Code_ = AIErrorCons.ServerError.ToUint ();
+				else if (code == AIErrorCode.ErrorUserInterrupted)
+					Code_ = AIErrorCons.ErrorUserInterrupted.ToUint ();
+				else if (code == AIErrorCode.AccessDenied)
+					Code_ = AIErrorCons.AccessDenied.ToUint ();
+				else if (code == AIErrorCode.DeviceError)
+					Code_ = AIErrorCons.DeviceError.ToUint ();
+				else if (code == AIErrorCode.InvalidInput)
+					Code_ = AIErrorCons.InvalidInput.ToUint ();
+				else if (code == AIErrorCode.NetworkError)
+					Code_ = AIErrorCons.NetworkError.ToUint ();
+				else if (code == AIErrorCode.UnauthorizedClient)
+					Code_ = AIErrorCons.UnauthorizedClient.ToUint ();
+				else if (code == AIErrorCode.InternalError)
+					Code_ = AIErrorCons.InternalError.ToUint ();
+				else
+					Code_ = (uint)AIErrorCode.UnknownError;
 			}
 		}
 	}
