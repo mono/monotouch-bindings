@@ -10,7 +10,7 @@ namespace Amazon.LogIn
 	interface ApiResult {
 
 		[Export ("result", ArgumentSemantic.Retain)]
-		NSObject Resutl { get; set; }
+		NSObject Result { get; set; }
 
 		[Export ("api")]
 		ApiChooser Api { get; set; }
