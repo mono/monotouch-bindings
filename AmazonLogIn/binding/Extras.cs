@@ -4,6 +4,14 @@ using System.Runtime.InteropServices;
 
 namespace Amazon.LogIn
 {
+	public partial class ApiResult
+	{
+		public NSObject this [string key]
+		{
+			get{ return this.ValueForKey (new NSString (key)); }
+		}
+	}
+
 	public partial class AIError : NSObject
 	{
 		public AIErrorCode Code { 
