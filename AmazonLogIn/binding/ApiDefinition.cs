@@ -114,7 +114,7 @@ namespace Amazon.LogIn
 
 		[Static]
 		[Export ("handleOpenURL:sourceApplication:")]
-		void HandleOpenUrl (NSUrl url, string sourceApplication);
+		bool HandleOpenUrl (NSUrl url, string sourceApplication);
 	}
 }
 
