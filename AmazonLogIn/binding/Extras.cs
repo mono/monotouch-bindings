@@ -8,7 +8,7 @@ namespace Amazon.LogIn
 	{
 		public NSObject this [string key]
 		{
-			get{ return this.ValueForKey (new NSString (key)); }
+			get{ return this.Result.ValueForKey (new NSString (key)); }
 		}
 	}
 
