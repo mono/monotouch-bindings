@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace Amazon.LogIn
 {
-	public partial class ApiResult, IDisposable
+	public partial class ApiResult : NSObject, IDisposable
 	{
 		public NSObject this [string key]
 		{
@@ -12,7 +12,7 @@ namespace Amazon.LogIn
 		}
 	}
 	
-	public partial class ApiError, IDisposable
+	public partial class ApiError : NSObject, IDisposable
 	{
 	}
 
