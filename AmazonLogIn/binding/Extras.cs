@@ -4,12 +4,16 @@ using System.Runtime.InteropServices;
 
 namespace Amazon.LogIn
 {
-	public partial class ApiResult
+	public partial class ApiResult, IDisposable
 	{
 		public NSObject this [string key]
 		{
 			get{ return this.Result.ValueForKey (new NSString (key)); }
 		}
+	}
+	
+	public partial class ApiError, IDisposable
+	{
 	}
 
 	public partial class AIError : NSObject
