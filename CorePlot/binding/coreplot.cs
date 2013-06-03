@@ -1421,7 +1421,7 @@ namespace CorePlot {
 		CPTPlotRangeComparisonResult CompareToDouble (double number);
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof (CALayerDelegate))]
 	[Model]
 	interface CPTPlotSpaceDelegate {
 		[DelegateName ("CPTEventPointPredicate"), DefaultValue (false)]
