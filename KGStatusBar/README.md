@@ -1,7 +1,7 @@
 # StatusBar
 A minimal status bar for iOS. It covers the top status bar and appears like the message is embedded within. StatusBar is available in the [Xamarin Component Store](http://components.xamarin.com/) as a free component download.
 
-![StatusBar Screenshot](KGStatusBar.png)
+![StatusBar Screenshot](https://github.com/pierceboggan/StatusBar/blob/master/KGStatusBar.png)
 
 ## Installation
 ### Binding
@@ -23,9 +23,9 @@ Prior to Use: Add a using directive to the top of the class you are wishing to u
     using KGStatusBar;
 
 Usage:
-    StatusBar.ShowWithStatus ("Status message!");
-    StatusBar.ShowErrorWithStatus ("Error message!");
-		StatusBar.ShowSuccessWithStatus ("Success message!");
+    StatusBar.ShowStatus ("Status message!");
+    StatusBar.ShowError ("Error message!");
+		StatusBar.ShowSuccess ("Success message!");
     StatusBar.Dismiss ();
 
 ## Credits
