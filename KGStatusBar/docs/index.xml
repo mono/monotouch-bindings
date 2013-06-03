@@ -1,0 +1,25 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="KGStatusBar" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libKGStatusBar.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="CoreGraphics")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="KGStatusBar">
+      <Type Name="StatusBar" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>KGStatusBar</Title>
+</Overview>
