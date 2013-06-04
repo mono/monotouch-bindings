@@ -143,7 +143,7 @@ namespace Google.Plus
 		bool ShouldFetchGoogleUserEmail { get; set; }
 
 		[Export ("shouldFetchGoogleUserID", ArgumentSemantic.Assign)]
-		bool AhouldFetchGoogleUserId { get; set; }
+		bool ShouldFetchGoogleUserId { get; set; }
 
 		[Static]
 		[Export ("sharedInstance")]
