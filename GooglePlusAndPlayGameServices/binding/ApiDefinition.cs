@@ -7,6 +7,7 @@ using MonoTouch.UIKit;
 namespace Google.Plus
 {
 	[BaseType (typeof (NSObject), Name = "GPPDeepLinkDelegate")]
+	[Protocol]
 	[Model]
 	interface DeepLinkDelegate {
 		[Export ("didReceiveDeepLink:")]
@@ -38,6 +39,7 @@ namespace Google.Plus
 	}
 
 	[BaseType (typeof (NSObject), Name = "GPPShareDelegate")]
+	[Protocol]
 	[Model]
 	interface ShareDelegate {
 		[Export ("finishedSharing:")]
@@ -45,6 +47,7 @@ namespace Google.Plus
 	}
 
 	[BaseType (typeof (NSObject), Name = "GPPShareBuilder")]
+	[Protocol]
 	[Model]
 	interface ShareBuilder {
 
@@ -88,6 +91,7 @@ namespace Google.Plus
 	}
 
 	[BaseType (typeof (NSObject), Name = "GPPSignInDelegate")]
+	[Protocol]
 	[Model]
 	interface SignInDelegate {
 
@@ -323,6 +327,7 @@ namespace Google.Play.GameServices
 	}
 
 	[BaseType (typeof (NSObject), Name = "GPGAchievementControllerDelegate")]
+	[Protocol]
 	[Model]
 	interface AchievementControllerDelegate {
 		[Abstract]
@@ -555,6 +560,7 @@ namespace Google.Play.GameServices
 	}
 
 	[BaseType (typeof (NSObject), Name = "GPGLeaderboardControllerDelegate")]
+	[Protocol]
 	[Model]
 	interface LeaderboardControllerDelegate {
 		[Abstract]
@@ -601,6 +607,7 @@ namespace Google.Play.GameServices
 	}
 
 	[BaseType (typeof (NSObject), Name = "GPGLeaderboardsControllerDelegate")]
+	[Protocol]
 	[Model]
 	interface LeaderboardsControllerDelegate {
 		[Abstract]
