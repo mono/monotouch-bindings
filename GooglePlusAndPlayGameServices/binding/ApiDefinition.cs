@@ -96,14 +96,16 @@ namespace Google.Plus
 	interface SignInDelegate {
 
 		[Abstract]
-		[Export ("finishedWithAuth:error:")]
+		[Export ("finishedWithAuth:error:"), EventArgs ("SignInDelegateFinished")]
 		void Finished (Google.OpenSource.OAuth2Authentication auth, NSError error);
 
-		[Export ("didDisconnectWithError:")]
+		[Export ("didDisconnectWithError:"), EventArgs ("SignInDelegateDidDisconnect")]
 		void DidDisconnect (NSError error);
 	}
 
-	[BaseType (typeof (NSObject), Name = "GPPSignIn")]
+	[BaseType (typeof (NSObject), Name = "GPPSignIn",
+	Delegates= new string [] {"WeakDelegate"},
+	Events=new Type [] { typeof (SignInDelegate) })]
 	interface SignIn {
 
 		[Export ("authentication")]
@@ -542,7 +544,7 @@ namespace Google.Play.GameServices
 	}
 
 	[BaseType (typeof (UINavigationController), Name = "GPGLeaderboardController",
-	           Delegates= new string [] {"LeaderboardWeakDelegate"},
+	Delegates= new string [] {"LeaderboardWeakDelegate"},
 	Events=new Type [] { typeof (LeaderboardControllerDelegate) })]
 	interface LeaderboardController {
 
