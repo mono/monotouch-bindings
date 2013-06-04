@@ -4,9 +4,9 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-using Amazon.LogIn;
+using Amazon.Login;
 
-namespace AmazonLogInSample
+namespace AmazonLoginSample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
 	// User Interface of the application, as well as listening (and optionally responding) to 

@@ -1,8 +1,8 @@
-<Type Name="AIMobileLib" FullName="Amazon.LogIn.AIMobileLib">
+<Type Name="AIMobileLib" FullName="Amazon.Login.AIMobileLib">
   <TypeSignature Language="C#" Value="public class AIMobileLib : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit AIMobileLib extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
-    <AssemblyName>Amazon.LogIn</AssemblyName>
+    <AssemblyName>Amazon.Login</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -26,9 +26,9 @@
       </para>
       <para>or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</para>
       <para>
-        <ref refid="_a_i_mobile_lib_8h_source" kindref="compound">AIMobileLib.h</ref>  This header includes the <see cref="T:Amazon.LogIn.AIMobileLib" /> interface that provides all the Login with Amazon APIs.</para>
+        <ref refid="_a_i_mobile_lib_8h_source" kindref="compound">AIMobileLib.h</ref>  This header includes the <see cref="T:Amazon.Login.AIMobileLib" /> interface that provides all the Login with Amazon APIs.</para>
       <para>
-        <see cref="T:Amazon.LogIn.AIMobileLib" /> is a static class that contains Login with Amazon APIs. This class provides APIs for getting authorization from users, getting profile information, clearing authorization state, and getting authorization tokens to access secure data.</para>
+        <see cref="T:Amazon.Login.AIMobileLib" /> is a static class that contains Login with Amazon APIs. This class provides APIs for getting authorization from users, getting profile information, clearing authorization state, and getting authorization tokens to access secure data.</para>
       <para>
         <para>1.0 </para>
       </para>
@@ -153,8 +153,8 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
       </Docs>
     </Member>
     <Member MemberName="AuthorizeUser">
-      <MemberSignature Language="C#" Value="public static void AuthorizeUser (string[] scopes, Amazon.LogIn.AIAuthenticationDelegate authenticationDelegate);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void AuthorizeUser(string[] scopes, class Amazon.LogIn.AIAuthenticationDelegate authenticationDelegate) cil managed" />
+      <MemberSignature Language="C#" Value="public static void AuthorizeUser (string[] scopes, Amazon.Login.AIAuthenticationDelegate authenticationDelegate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void AuthorizeUser(string[] scopes, class Amazon.Login.AIAuthenticationDelegate authenticationDelegate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -169,7 +169,7 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
       </ReturnValue>
       <Parameters>
         <Parameter Name="scopes" Type="System.String[]" />
-        <Parameter Name="authenticationDelegate" Type="Amazon.LogIn.AIAuthenticationDelegate" />
+        <Parameter Name="authenticationDelegate" Type="Amazon.Login.AIAuthenticationDelegate" />
       </Parameters>
       <Docs>
         <param name="scopes">The profile scopes that the application is requesting from the user. The first scope must be "profile". "postal_code" is an optional second scope. </param>
@@ -200,8 +200,8 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
       </Docs>
     </Member>
     <Member MemberName="ClearAuthorizationState">
-      <MemberSignature Language="C#" Value="public static void ClearAuthorizationState (Amazon.LogIn.AIAuthenticationDelegate authenticationDelegate);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void ClearAuthorizationState(class Amazon.LogIn.AIAuthenticationDelegate authenticationDelegate) cil managed" />
+      <MemberSignature Language="C#" Value="public static void ClearAuthorizationState (Amazon.Login.AIAuthenticationDelegate authenticationDelegate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void ClearAuthorizationState(class Amazon.Login.AIAuthenticationDelegate authenticationDelegate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -215,7 +215,7 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="authenticationDelegate" Type="Amazon.LogIn.AIAuthenticationDelegate" />
+        <Parameter Name="authenticationDelegate" Type="Amazon.Login.AIAuthenticationDelegate" />
       </Parameters>
       <Docs>
         <param name="authenticationDelegate">A delegate implementing the @/link protocol to receive success and failure messages.   This method removes the authorization tokens from the key chain. It also clears the cookies from the local cookie storage to clear the authorization state of the users who checked the "Remember me" checkbox.   Pass in a valid instance of  //apple_ref/occ/intf/AIAuthenticationDelegate @/link to receive success and failure notifications.  If clearing succeeds the  //apple_ref/doc/anysymbol/requestDidSucceed: @/link method is called on the delegate.  If clearing fails the  //apple_ref/doc/anysymbol/requestDidFail: @/link method is called on the delegate. The error code and an error message are passed to the method in an APIError object. clearAuthorizationState can produce the following error codes:  1.  //apple_ref/doc/anysymbol/kAIInvalidInput @/link - One of the API parameters is invalid. See the error message for more information.  2.  //apple_ref/doc/anysymbol/kAIDeviceError @/link - The SDK encountered an error on the device. Currently, the SDK only throws this error when it receives the same error from the keychain service. Calling  clearAuthorizationState: @/link will help.   1.0 </param>
@@ -229,8 +229,8 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
       </Docs>
     </Member>
     <Member MemberName="GetAccessToken">
-      <MemberSignature Language="C#" Value="public static void GetAccessToken (string[] scopes, MonoTouch.Foundation.NSDictionary overrideParams, Amazon.LogIn.AIAuthenticationDelegate authenticationDelegate);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void GetAccessToken(string[] scopes, class MonoTouch.Foundation.NSDictionary overrideParams, class Amazon.LogIn.AIAuthenticationDelegate authenticationDelegate) cil managed" />
+      <MemberSignature Language="C#" Value="public static void GetAccessToken (string[] scopes, MonoTouch.Foundation.NSDictionary overrideParams, Amazon.Login.AIAuthenticationDelegate authenticationDelegate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void GetAccessToken(string[] scopes, class MonoTouch.Foundation.NSDictionary overrideParams, class Amazon.Login.AIAuthenticationDelegate authenticationDelegate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -246,7 +246,7 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
       <Parameters>
         <Parameter Name="scopes" Type="System.String[]" />
         <Parameter Name="overrideParams" Type="MonoTouch.Foundation.NSDictionary" />
-        <Parameter Name="authenticationDelegate" Type="Amazon.LogIn.AIAuthenticationDelegate" />
+        <Parameter Name="authenticationDelegate" Type="Amazon.Login.AIAuthenticationDelegate" />
       </Parameters>
       <Docs>
         <param name="scopes">The profile scopes required for the token. The first scope must be "profile". "postal_code" is an optional second scope. </param>
@@ -262,8 +262,8 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
       </Docs>
     </Member>
     <Member MemberName="GetProfile">
-      <MemberSignature Language="C#" Value="public static void GetProfile (Amazon.LogIn.AIAuthenticationDelegate authenticationDelegate);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void GetProfile(class Amazon.LogIn.AIAuthenticationDelegate authenticationDelegate) cil managed" />
+      <MemberSignature Language="C#" Value="public static void GetProfile (Amazon.Login.AIAuthenticationDelegate authenticationDelegate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void GetProfile(class Amazon.Login.AIAuthenticationDelegate authenticationDelegate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -277,7 +277,7 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="authenticationDelegate" Type="Amazon.LogIn.AIAuthenticationDelegate" />
+        <Parameter Name="authenticationDelegate" Type="Amazon.Login.AIAuthenticationDelegate" />
       </Parameters>
       <Docs>
         <param name="authenticationDelegate">A delegate implementing the @/link protocol to receive success and failure messages.  Pass in a valid instance of  //apple_ref/occ/intf/AIAuthenticationDelegate @/link to receive success and failure notifications.  If the profile is retrieved successfully the  //apple_ref/doc/anysymbol/requestDidSucceed: @/link method is called on the delegate. The user profile is passed in the result property of the APIResult parameter as a dictionary. That dictionary includes key:value pairs with the following keys:  1. "name" - The name of the user.  2. "email" - The registered email address of the user.  3. "user_id" - The used id of the user, in the form of "amzn1.user.VALUE". The user id is unique to the user.  4. "postal_code" - The registered postal code of the user.  If authorization fails the  //apple_ref/doc/anysymbol/requestDidFail: @/link method is called on the delegate. The error code and an error message are passed to the method in an APIError object. getAccessTokenForScopes can produce the following error codes:  1.  //apple_ref/doc/anysymbol/kAIApplicationNotAuthorized @/link - The application is not authorized for the "profile" scope. Call  authorizeUserForScopes:delegate: @/link to prompt the user to login and authorize the application.  2.  //apple_ref/doc/anysymbol/kAIInternalError @/link - An internal error occured in the SDK. You can retry the method call.  3.  //apple_ref/doc/anysymbol/kAIInvalidInput @/link - One of the API parameters is invalid. See the error message for more information.  4.  //apple_ref/doc/anysymbol/kAIDeviceError @/link - The SDK encountered an error on the device. Currently, the SDK only throws this error when it receives the same error from the keychain service. Calling  clearAuthorizationState: @/link will help.  5.  //apple_ref/doc/anysymbol/kAINetworkError @/link - A network error occurred, possibly due to the user being offline.  6.  //apple_ref/doc/anysymbol/kAIServerError @/link - The server encountered an error while completing the request, or the SDK received an unknown response from the server. You can retry the method call.   1.0 </param>

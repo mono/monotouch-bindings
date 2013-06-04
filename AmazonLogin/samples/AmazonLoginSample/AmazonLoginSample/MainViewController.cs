@@ -3,18 +3,18 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-using Amazon.LogIn;
+using Amazon.Login;
 
-namespace AmazonLogInSample
+namespace AmazonLoginSample
 {
 	public class MainViewController : UIViewController
 	{
 		public MainViewController () : base ()
 		{
-			Title = "Amazon LogIn";
+			Title = "Amazon Login";
 		}
 
-		UIButton btnLogIn;
+		UIButton btnLogin;
 		UITextView message;
 
 		public override void ViewDidLoad ()
@@ -40,16 +40,16 @@ namespace AmazonLogInSample
 				Font = UIFont.SystemFontOfSize (14.0f)
 			};
 
-			// Here we create the Amazon LogIn Button
+			// Here we create the Amazon Login Button
 			// You can get button graphics from http://login.amazon.com/button-guide#ios_images
-			btnLogIn = UIButton.FromType (UIButtonType.RoundedRect);
-			btnLogIn.Frame = new RectangleF (55, 206, 209, 48);
-			btnLogIn.SetImage (UIImage.FromBundle ("btnLWA_gold_209x48.png"), UIControlState.Normal);
-			btnLogIn.SetImage (UIImage.FromBundle ("btnLWA_gold_209x48_pressed.png"), UIControlState.Highlighted);
-			btnLogIn.BackgroundColor = UIColor.Clear;
+			btnLogin = UIButton.FromType (UIButtonType.RoundedRect);
+			btnLogin.Frame = new RectangleF (55, 206, 209, 48);
+			btnLogin.SetImage (UIImage.FromBundle ("btnLWA_gold_209x48.png"), UIControlState.Normal);
+			btnLogin.SetImage (UIImage.FromBundle ("btnLWA_gold_209x48_pressed.png"), UIControlState.Highlighted);
+			btnLogin.BackgroundColor = UIColor.Clear;
 
 			// Here we handle the user's touch action 
-			btnLogIn.TouchUpInside += (sender, e) => {
+			btnLogin.TouchUpInside += (sender, e) => {
 				// Make authorize call to SDK to get secure access token for the user.
 				// While making the first call you can specify the minimum basic scopes needed.
 				// Requesting both scopes for the current user.
@@ -57,7 +57,7 @@ namespace AmazonLogInSample
 			};
 
 			View.AddSubview (message);
-			View.AddSubview (btnLogIn);
+			View.AddSubview (btnLogin);
 		}
 	}
 }

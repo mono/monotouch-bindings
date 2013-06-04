@@ -1,8 +1,8 @@
-<Type Name="AIAuthenticationDelegate" FullName="Amazon.LogIn.AIAuthenticationDelegate">
+<Type Name="AIAuthenticationDelegate" FullName="Amazon.Login.AIAuthenticationDelegate">
   <TypeSignature Language="C#" Value="public abstract class AIAuthenticationDelegate : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit AIAuthenticationDelegate extends MonoTouch.Foundation.NSObject" />
   <AssemblyInfo>
-    <AssemblyName>Amazon.LogIn</AssemblyName>
+    <AssemblyName>Amazon.Login</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -147,8 +147,8 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
       </Docs>
     </Member>
     <Member MemberName="RequestDidFail">
-      <MemberSignature Language="C#" Value="public abstract void RequestDidFail (Amazon.LogIn.ApiError errorResponse);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RequestDidFail(class Amazon.LogIn.ApiError errorResponse) cil managed" />
+      <MemberSignature Language="C#" Value="public abstract void RequestDidFail (Amazon.Login.ApiError errorResponse);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RequestDidFail(class Amazon.Login.ApiError errorResponse) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -162,7 +162,7 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="errorResponse" Type="Amazon.LogIn.ApiError" />
+        <Parameter Name="errorResponse" Type="Amazon.Login.ApiError" />
       </Parameters>
       <Docs>
         <param name="errorResponse">To be added.</param>
@@ -171,8 +171,8 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
       </Docs>
     </Member>
     <Member MemberName="RequestDidSucceed">
-      <MemberSignature Language="C#" Value="public abstract void RequestDidSucceed (Amazon.LogIn.ApiResult apiResult);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RequestDidSucceed(class Amazon.LogIn.ApiResult apiResult) cil managed" />
+      <MemberSignature Language="C#" Value="public abstract void RequestDidSucceed (Amazon.Login.ApiResult apiResult);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RequestDidSucceed(class Amazon.Login.ApiResult apiResult) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -186,7 +186,7 @@ public UIView (System.Drawing.RectangleF frame) : base (NSObjectFlag.Empty)
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="apiResult" Type="Amazon.LogIn.ApiResult" />
+        <Parameter Name="apiResult" Type="Amazon.Login.ApiResult" />
       </Parameters>
       <Docs>
         <param name="apiResult">To be added.</param>

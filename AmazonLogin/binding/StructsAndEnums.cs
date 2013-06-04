@@ -1,6 +1,6 @@
 using System;
 
-namespace Amazon.LogIn
+namespace Amazon.Login
 {
 	public enum ApiChooser
 	{

@@ -1,8 +1,8 @@
-<Type Name="AIErrorCode" FullName="Amazon.LogIn.AIErrorCode">
+<Type Name="AIErrorCode" FullName="Amazon.Login.AIErrorCode">
   <TypeSignature Language="C#" Value="public enum AIErrorCode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed AIErrorCode extends System.Enum" />
   <AssemblyInfo>
-    <AssemblyName>Amazon.LogIn</AssemblyName>
+    <AssemblyName>Amazon.Login</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
@@ -16,13 +16,13 @@
   <Members>
     <Member MemberName="AccessDenied">
       <MemberSignature Language="C#" Value="AccessDenied" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode AccessDenied = unsigned int32(4)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode AccessDenied = unsigned int32(4)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
 	<summary>      
@@ -36,13 +36,13 @@
     </Member>
     <Member MemberName="ApplicationNotAuthorized">
       <MemberSignature Language="C#" Value="ApplicationNotAuthorized" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode ApplicationNotAuthorized = unsigned int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode ApplicationNotAuthorized = unsigned int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>A valid refersh token was not found.   The refresh token held by the SDK is invalid, expired, revoked, does not match the redirection URI used in the authorization request, does not have the required scopes, or was issued to an
@@ -52,13 +52,13 @@
     </Member>
     <Member MemberName="DeviceError">
       <MemberSignature Language="C#" Value="DeviceError" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode DeviceError = unsigned int32(5)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode DeviceError = unsigned int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>The SDK encountered a device error.   Currently, the SDK only throws this error when it receives the some error from the keychain service.</summary>
@@ -66,13 +66,13 @@
     </Member>
     <Member MemberName="ErrorUserInterrupted">
       <MemberSignature Language="C#" Value="ErrorUserInterrupted" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode ErrorUserInterrupted = unsigned int32(3)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode ErrorUserInterrupted = unsigned int32(3)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>The user cancelled the login page. </summary>
@@ -80,13 +80,13 @@
     </Member>
     <Member MemberName="InternalError">
       <MemberSignature Language="C#" Value="InternalError" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode InternalError = unsigned int32(9)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode InternalError = unsigned int32(9)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>An internal SDK error, can not be handled by the application.</summary>
@@ -94,13 +94,13 @@
     </Member>
     <Member MemberName="InvalidInput">
       <MemberSignature Language="C#" Value="InvalidInput" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode InvalidInput = unsigned int32(6)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode InvalidInput = unsigned int32(6)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>One of the API parameters is invalid.  The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed.
@@ -110,13 +110,13 @@
     </Member>
     <Member MemberName="NetworkError">
       <MemberSignature Language="C#" Value="NetworkError" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode NetworkError = unsigned int32(7)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode NetworkError = unsigned int32(7)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>A network error occurred, possibly due to the user being offline. In general on getting this error the application can ask the user to check their network connections.</summary>
@@ -124,13 +124,13 @@
     </Member>
     <Member MemberName="NoError">
       <MemberSignature Language="C#" Value="NoError" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode NoError = unsigned int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode NoError = unsigned int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>No error.</summary>
@@ -138,13 +138,13 @@
     </Member>
     <Member MemberName="ServerError">
       <MemberSignature Language="C#" Value="ServerError" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode ServerError = unsigned int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode ServerError = unsigned int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>An error ocurred on the server.  The server encountered an error while completing the request, or the SDK received an unknown response from the server.   In general, when getting this error, the application can ask the user to retry the operation.</summary>
@@ -152,13 +152,13 @@
     </Member>
     <Member MemberName="UnauthorizedClient">
       <MemberSignature Language="C#" Value="UnauthorizedClient" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode UnauthorizedClient = unsigned int32(8)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode UnauthorizedClient = unsigned int32(8)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>The client is not authorized to request an authorization.  The application is not authorized to make this call. Make sure the registered Bundle identifier matches your application, and that you have a valid APIKey property in the application property list.</summary>
@@ -166,13 +166,13 @@
     </Member>
     <Member MemberName="UnknownError">
       <MemberSignature Language="C#" Value="UnknownError" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.LogIn.AIErrorCode UnknownError = unsigned int32(4294967295)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Amazon.Login.AIErrorCode UnknownError = unsigned int32(4294967295)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Amazon.LogIn.AIErrorCode</ReturnType>
+        <ReturnType>Amazon.Login.AIErrorCode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>An unknown error ocurred</summary>

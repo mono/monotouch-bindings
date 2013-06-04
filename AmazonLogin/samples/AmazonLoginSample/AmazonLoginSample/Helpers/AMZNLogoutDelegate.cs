@@ -1,9 +1,9 @@
 using System;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using Amazon.LogIn;
+using Amazon.Login;
 
-namespace AmazonLogInSample
+namespace AmazonLoginSample
 {
 	// Class that hanldes Logout Success/Failure
 	public class AMZNLogoutDelegate : AIAuthenticationDelegate
