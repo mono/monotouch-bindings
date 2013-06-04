@@ -5,9 +5,9 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.Dialog;
 
-using Amazon.LogIn;
+using Amazon.Login;
 
-namespace AmazonLogInSample
+namespace AmazonLoginSample
 {
 	// This uses MonoTouch.Dialog to create the User Details View
 	// http://docs.xamarin.com/guides/ios/user_interface/monotouch.dialog

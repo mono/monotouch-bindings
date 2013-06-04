@@ -9,10 +9,10 @@ Getting Started
 Run the `make' command in this directory, this will download Amazon's
 native iOS library and build the C# binding to the library.
 
-This will produce a standalone Amazon.LogIn.dll assembly that you can
+This will produce a standalone Amazon.Login.dll assembly that you can
 reference from your project.
 
-Using Amazon.LogIn
+Using Amazon.Login
 ==================
 
 Visit

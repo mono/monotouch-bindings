@@ -1,3 +1,3 @@
-ASSEMBLY=Amazon.LogIn.dll
+ASSEMBLY=Amazon.Login.dll
 include ../Rules.make
 

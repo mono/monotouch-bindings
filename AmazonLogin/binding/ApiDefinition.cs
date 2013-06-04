@@ -4,7 +4,7 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace Amazon.LogIn
+namespace Amazon.Login
 {
 	[BaseType (typeof (NSObject), Name = "APIResult")]
 	interface ApiResult {

@@ -1,6 +1,6 @@
 <Overview>
   <Assemblies>
-    <Assembly Name="Amazon.LogIn" Version="0.0.0.0">
+    <Assembly Name="Amazon.Login" Version="0.0.0.0">
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.ObjCRuntime.LinkWith("login-with-amazon-sdk.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="Security")</AttributeName>
@@ -14,7 +14,7 @@
   <Remarks>To be added.</Remarks>
   <Copyright>To be added.</Copyright>
   <Types>
-    <Namespace Name="Amazon.LogIn">
+    <Namespace Name="Amazon.Login">
       <Type Name="AIAuthenticationDelegate" Kind="Class" />
       <Type Name="AIError" Kind="Class" />
       <Type Name="AIErrorCode" Kind="Enumeration" />
@@ -28,7 +28,7 @@
       <Type Name="Messaging" Kind="Class" />
     </Namespace>
   </Types>
-  <Title>Amazon.LogIn</Title>
+  <Title>Amazon.Login</Title>
   <ExtensionMethods>
     <ExtensionMethod>
       <Targets>
@@ -48,7 +48,7 @@
           <param name="ptr">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Amazon.LogIn.AIErrorCons" Member="M:Amazon.LogIn.AIErrorCons.ToUint(System.IntPtr)" />
+        <Link Type="Amazon.Login.AIErrorCons" Member="M:Amazon.Login.AIErrorCons.ToUint(System.IntPtr)" />
       </Member>
     </ExtensionMethod>
   </ExtensionMethods>

@@ -2,7 +2,7 @@ using System;
 using MonoTouch.Foundation;
 using System.Runtime.InteropServices;
 
-namespace Amazon.LogIn
+namespace Amazon.Login
 {
 	public partial class ApiResult : NSObject, IDisposable
 	{
