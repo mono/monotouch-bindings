@@ -187,7 +187,7 @@ namespace Google.Plus
 	interface UrlHandler {
 		[Static]
 		[Export ("handleURL:sourceApplication:annotation:")]
-		bool HandleUrl (NSUrl url, string sourceApplication, NSObject annotation);
+		bool HandleUrl ([NullAllowed] NSUrl url, [NullAllowed] string sourceApplication, [NullAllowed] NSObject annotation);
 	}
 }
 
