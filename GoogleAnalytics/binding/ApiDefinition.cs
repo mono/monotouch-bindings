@@ -12,7 +12,7 @@ using MonoTouch.Foundation;
 namespace GoogleAnalytics {
 
 	[BaseType (typeof (NSObject))]
-	interface GAI {
+	public interface GAI {
 		[Internal]
 		[Export ("defaultTracker")]
 		IntPtr InternalDefaultTracker { get; set;  }
@@ -43,7 +43,7 @@ namespace GoogleAnalytics {
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface GAITracker {
+	public interface GAITracker {
 		[Export ("trackingId")]
 		string TrackingId { get;  }
 
@@ -130,7 +130,7 @@ namespace GoogleAnalytics {
 		
 	}
 	[BaseType (typeof (NSObject))]
-	interface GAITransaction {
+	public interface GAITransaction {
 		[Export ("transactionId")]
 		string TransactionId { get;  }
 		
@@ -161,7 +161,7 @@ namespace GoogleAnalytics {
 		
 	}
 	[BaseType (typeof (NSObject))]
-	interface GAITransactionItem {
+	public interface GAITransactionItem {
 		[Export ("productCode")]
 		string ProductCode { get;  }
 		
