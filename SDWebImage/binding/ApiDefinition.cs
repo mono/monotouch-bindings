@@ -16,11 +16,17 @@ namespace SDWebImage
 		[Export ("maxCacheAge", ArgumentSemantic.Assign)]
 		int MaxCacheAge { get; set; }
 
+		[Export ("maxCacheSize", ArgumentSemantic.Assign)]
+		ulong MaxCacheSize { get; set; }
+
 		[Static, Export ("sharedImageCache")]
 		SDImageCache SharedImageCache { get; }
 
 		[Export ("initWithNamespace:")]
 		IntPtr Constructor (string aNamespace);
+
+		[Export ("addReadOnlyCachePath:")]
+		void AddReadOnlyCachePath (string path);
 
 		[Export ("storeImage:forKey:")]
 		void StoreImage (UIImage image, string key);
@@ -56,10 +62,10 @@ namespace SDWebImage
 		void CleanDisk ();
 
 		[Export ("getSize")]
-		int GetSize ();
+		int GetSize { get; }
 
 		[Export ("getDiskCount")]
-		int GetDiskCount ();
+		int GetDiskCount { get; }
 	}
 
 	delegate void SDWebImageDownloaderProgressHandler (uint receivedSize, long expectedSize);
@@ -107,8 +113,8 @@ namespace SDWebImage
 		[Export ("options", ArgumentSemantic.Assign)]
 		SDWebImageDownloaderOptions Options { get; }
 
-		[Export ("initWithRequest:queue:options:progress:completed:cancelled:")]
-		IntPtr Constructor (NSUrlRequest request, dispatch_queue_t queue, SDWebImageDownloaderOptions options, SDWebImageDownloaderProgressHandler progressHandler, SDWebImageDownloaderCompleteHandler completedHandler, SDWebImageDownloaderOperationCancelHandler CancelHandler);
+		[Export ("initWithRequest:options:progress:completed:cancelled:")]
+		IntPtr Constructor (NSUrlRequest request, SDWebImageDownloaderOptions options, [NullAllowed] SDWebImageDownloaderProgressHandler progressHandler, [NullAllowed] SDWebImageDownloaderCompleteHandler completedHandler, [NullAllowed] SDWebImageDownloaderOperationCancelHandler CancelHandler);
 	}
 
 	delegate void SDWebImageCompletedHandler (UIImage image, NSError error, SDImageCacheType cacheType);
@@ -117,6 +123,7 @@ namespace SDWebImage
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface SDWebImageManagerDelegate
 	{
 		[Export ("imageManager:shouldDownloadImageForURL:"), DelegateName ("SDWebImageManagerDelegateCondition"), DefaultValue (true)]
@@ -150,7 +157,7 @@ namespace SDWebImage
 		SDWebImageManager SharedManager { get; }
 
 		[Export ("downloadWithURL:options:progress:completed:")]
-		SDWebImageOperation DownloadWithURL (NSUrl url, SDWebImageOptions options, SDWebImageDownloaderProgressHandler progressHandler, SDWebImageCompletedWithFinishedHandler completedHandler);
+		SDWebImageOperation DownloadWithURL (NSUrl url, SDWebImageOptions options,[NullAllowed] SDWebImageDownloaderProgressHandler progressHandler,[NullAllowed] SDWebImageCompletedWithFinishedHandler completedHandler);
 
 		[Export ("cancelAll")]
 		void CancelAll ();
@@ -161,6 +168,7 @@ namespace SDWebImage
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface SDWebImageOperation
 	{
 		[Export ("cancel")] [Abstract]
@@ -185,7 +193,7 @@ namespace SDWebImage
 		void prefetchURLs (NSUrl [] urls);
 
 		[Export ("prefetchURLs:completed:")]
-		void prefetchURLs (NSUrl [] urls, SDWebImagePrefetcherCompletedHandler completionHandler);
+		void prefetchURLs (NSUrl [] urls, [NullAllowed] SDWebImagePrefetcherCompletedHandler completionHandler);
 
 		[Export ("cancelPrefetching")]
 		void CancelPrefetching ();
@@ -195,7 +203,7 @@ namespace SDWebImage
 	[Category]
 	interface ForceDecodeUIImageExtension {
 		[Static, Export ("decodedImageWithImage:")]
-		UIImage DecodedImageWithImage (UIImage image);
+		UIImage DecodedImage (UIImage image);
 	}
 
 	[BaseType (typeof (UIButton))]

@@ -20,7 +20,7 @@ namespace SDWebImage
 
 	public enum SDWebImageDownloaderExecutionOrder
 	{
-		FILO,
+		FIFO,
 		LIFO
 	}
 

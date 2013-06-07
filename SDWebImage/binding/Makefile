@@ -8,7 +8,7 @@ SMCS=/Developer/MonoTouch/usr/bin/smcs
 all: SDWebImage.dll
 
 SDWebImage: clean
-	git clone git@github.com:rs/SDWebImage.git
+	git clone --recursive git@github.com:rs/SDWebImage.git
 	curl -L https://github.com/dalexsoto/MonoTouch-PSPDFKit-bindings/raw/master/AlexTouch.PSPDFKit/libarclite.a > libarclite.a
 	curl -L https://github.com/dalexsoto/MonoTouch-PSPDFKit-bindings/raw/master/AlexTouch.PSPDFKit/libarclite.linkwith.cs > libarclite.linkwith.cs
 
