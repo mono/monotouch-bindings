@@ -35,15 +35,17 @@ namespace SDWebImageSimpleSample
 		void ProgressHandler (uint receivedSize, long expectedSize)
 		{
 			if (expectedSize > 0) {
-				float progress = (float)receivedSize / (float)expectedSize;
-				progressBar.SetProgress (progress, true);
-				lblPercent.Text = "Downloading...";
+				InvokeOnMainThread (()=> {
+					float progress = (float)receivedSize / (float)expectedSize;
+					progressBar.SetProgress (progress, true);
+					lblPercent.Text = "Downloading...";
+				});
 			}
 		}
 		
 		void CompletedHandler (UIImage image, NSError error, SDImageCacheType cacheType)
 		{
-			lblPercent.Text = "Download Completed";
+		 	InvokeOnMainThread (()=> lblPercent.Text = "Download Completed");
 		}
 	}
 }
