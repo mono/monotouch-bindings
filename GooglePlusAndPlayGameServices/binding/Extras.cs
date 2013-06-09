@@ -1,10 +1,11 @@
 using System;
+using MonoTouch.Foundation;
 
 namespace Google.Plus
 {
-	public partial class Share
+	public partial class Share : NSObject
 	{
-		ShareBuilder ShareDialog { get { return new ShareBuilder (ShareDialog_); } }
+		public ShareBuilder ShareDialog { get { return new ShareBuilder (ShareDialog_); } }
 	}
 
 	public static class PlusConstants
