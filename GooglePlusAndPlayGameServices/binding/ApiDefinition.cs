@@ -1550,6 +1550,9 @@ namespace Google.OpenSource
 		[Export ("APIKey")]
 		string APIKey { get; set; }
 
+		[Export ("authorizer")]
+		NSObject Authorizer { get; set; }
+
 		[Export ("retrySelector")]
 		Selector RetrySelector { get; set; }
 
