@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="SignIn" FullName="Google.Plus.SignIn">
   <TypeSignature Language="C#" Value="public class SignIn : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SignIn extends MonoTouch.Foundation.NSObject" />
@@ -130,30 +131,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="AhouldFetchGoogleUserId">
-      <MemberSignature Language="C#" Value="public virtual bool AhouldFetchGoogleUserId { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool AhouldFetchGoogleUserId" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("shouldFetchGoogleUserID", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setShouldFetchGoogleUserID:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="AttemptSSO">
       <MemberSignature Language="C#" Value="public virtual bool AttemptSSO { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool AttemptSSO" />
@@ -277,6 +254,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DidDisconnect">
+      <MemberSignature Language="C#" Value="public event EventHandler DidDisconnect;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DidDisconnect" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Disconnect">
       <MemberSignature Language="C#" Value="public virtual bool Disconnect ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Disconnect() cil managed" />
@@ -314,6 +306,21 @@
       </Parameters>
       <Docs>
         <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Finished">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;Google.Plus.SignInDelegateFinishedEventArgs&gt; Finished;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Google.Plus.SignInDelegateFinishedEventArgs&gt; Finished" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;Google.Plus.SignInDelegateFinishedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -474,6 +481,30 @@
         </Attribute>
         <Attribute>
           <AttributeName>set: MonoTouch.Foundation.Export("setShouldFetchGoogleUserEmail:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldFetchGoogleUserId">
+      <MemberSignature Language="C#" Value="public virtual bool ShouldFetchGoogleUserId { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ShouldFetchGoogleUserId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("shouldFetchGoogleUserID", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setShouldFetchGoogleUserID:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
