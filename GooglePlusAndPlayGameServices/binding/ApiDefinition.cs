@@ -881,7 +881,7 @@ namespace Google.OpenSource
 		PlusDateTime Updated { get; set; }
 	}
 
-	[BaseType (typeof (PlusObject))]
+	[BaseType (typeof (PlusObject), Name = "GTLPlusItemScope")]
 	interface PlusItemScope {
 
 		[Export ("about")]
@@ -1152,7 +1152,7 @@ namespace Google.OpenSource
 		string DisplayName { get; set; }
 
 		[Export ("emails")]
-		NSObject [] Emails { get; set; }
+		PlusPersonEmailsItem [] Emails { get; set; }
 
 		[Export ("ETag")]
 		string ETAg { get; set; }
@@ -1381,31 +1381,31 @@ namespace Google.OpenSource
 	[BaseType (typeof (NSObject), Name = "GTLQuery")]
 	interface Query {
 
-		[Export ("methodName")]
+		[Export ("methodName", ArgumentSemantic.Copy)]
 		string MethodName { get; }
 
-		[Export ("JSON")]
+		[Export ("JSON", ArgumentSemantic.Retain)]
 		NSMutableDictionary Json { get; set; }
 
-		[Export ("bodyObject")]
+		[Export ("bodyObject", ArgumentSemantic.Retain)]
 		PlusObject BodyObject { get; set; }
 
-		[Export ("requestID")]
+		[Export ("requestID", ArgumentSemantic.Copy)]
 		string RequestId { get; set; }
 
-		[Export ("uploadParameters")]
+		[Export ("uploadParameters", ArgumentSemantic.Copy)]
 		UploadParameters UploadParametrs { get; set; }
 
-		[Export ("urlQueryParameters")]
+		[Export ("urlQueryParameters", ArgumentSemantic.Copy)]
 		NSDictionary UrlQueryParameters { get; set; }
 
-		[Export ("additionalHTTPHeaders")]
+		[Export ("additionalHTTPHeaders", ArgumentSemantic.Copy)]
 		NSDictionary AdditionalHTTPHeaders { get; set; }
 
-		[Export ("expectedObjectClass")]
+		[Export ("expectedObjectClass", ArgumentSemantic.Assign)]
 		Class ExpectedObjectClass { get; set; }
 
-		[Export ("shouldSkipAuthorization")]
+		[Export ("shouldSkipAuthorization", ArgumentSemantic.Assign)]
 		bool ShouldSkipAuthorization { get; set; }
 
 		[Export ("setCompletionBlock:")]
@@ -1433,62 +1433,62 @@ namespace Google.OpenSource
 		[Export ("arrayPropertyToClassMap")]
 		NSDictionary ArrayPropertyToClassMap { get; }
 
-		[Export ("isBatchQuery")]
+		[Bind ("isBatchQuery")]
 		bool IsBatchQuery ();
 
-		[Export ("uploadParameters")]
+		[Bind ("uploadParameters")]
 		UploadParameters UploadParams ();
 
-		[Export ("executionDidStop")]
+		[Bind ("executionDidStop")]
 		void ExecutionDidStop ();
 	}
 
 	[BaseType (typeof (Query), Name = "GTLQueryPlus")]
 	interface QueryPlus {
 
-		[Export ("fields")]
+		[Export ("fields", ArgumentSemantic.Copy)]
 		string Fields { get; set; }
 
-		[Export ("activityId")]
+		[Export ("activityId", ArgumentSemantic.Copy)]
 		string ActivityId { get; set; }
 
-		[Export ("collection")]
+		[Export ("collection", ArgumentSemantic.Copy)]
 		string Collection { get; set; }
 
-		[Export ("commentId")]
+		[Export ("commentId", ArgumentSemantic.Copy)]
 		string CommentId { get; set; }
 
-		[Export ("debug")]
+		[Export ("debug", ArgumentSemantic.Assign)]
 		bool Debug { get; set; }
 
-		[Export ("identifier")]
+		[Export ("identifier", ArgumentSemantic.Copy)]
 		string Identifier { get; set; }
 
-		[Export ("language")]
+		[Export ("language", ArgumentSemantic.Copy)]
 		string Language { get; set; }
 
-		[Export ("maxResults")]
+		[Export ("maxResults", ArgumentSemantic.Assign)]
 		uint MaxResults { get; set; }
 
-		[Export ("orderBy")]
+		[Export ("orderBy", ArgumentSemantic.Copy)]
 		string OrderBy { get; set; }
 
-		[Export ("pageToken")]
+		[Export ("pageToken", ArgumentSemantic.Copy)]
 		string PageToken { get; set; }
 
-		[Export ("query")]
+		[Export ("query", ArgumentSemantic.Copy)]
 		string Query { get; set; }
 
-		[Export ("sortOrder")]
+		[Export ("sortOrder", ArgumentSemantic.Copy)]
 		string SortOrder { get; set; }
 
-		[Export ("targetUrl")]
+		[Export ("targetUrl", ArgumentSemantic.Copy)]
 		string TargetUrl { get; set; }
 
-		[Export ("type")]
+		[Export ("type", ArgumentSemantic.Copy)]
 		string Type { get; set; }
 
-		[Export ("userId")]
+		[Export ("userId", ArgumentSemantic.Copy)]
 		string UserId { get; set; }
 
 		[Static, Export ("queryForActivitiesGetWithActivityId:")]
@@ -1536,10 +1536,10 @@ namespace Google.OpenSource
 	interface Service {
 
 		[Export ("executeQuery:delegate:didFinishSelector:")]
-		ServiceTicket ExecuteQuery (QueryProtocol query, NSObject aDelegate, Selector finishedSelector);
+		ServiceTicket ExecuteQuery (Query query, NSObject aDelegate, Selector finishedSelector);
 
-		[Export ("executeQuery:delegate:didFinishSelector:")]
-		ServiceTicket ExecuteQuery (QueryProtocol query, ServiceCompletionHandler handler);
+		[Export ("executeQuery:completionHandler:")]
+		ServiceTicket ExecuteQuery (Query query, ServiceCompletionHandler handler);
 
 		[Export ("shouldFetchNextPages")]
 		bool ShouldFetchNextPages { get; set; }
@@ -2129,7 +2129,7 @@ namespace Google.Play.GameServices
 		[Export ("allMetadata")]
 		LeaderboardMetadata [] AllMetadata { get; }
 
-		[Export ("metadataForLeaderboardId")]
+		[Export ("metadataForLeaderboardId:")]
 		LeaderboardMetadata GetMetadata (string leaderboardId);
 	}
 
