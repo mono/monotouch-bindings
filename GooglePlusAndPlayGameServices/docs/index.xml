@@ -3,13 +3,13 @@
     <Assembly Name="Google.Plus" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("PlayGameServices", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="CoreData Security SystemConfiguration")</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("GoogleOpenSource", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, IsCxx=true)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>MonoTouch.ObjCRuntime.LinkWith("GooglePlus", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="SystemConfiguration Security")</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("GoogleOpenSource.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, IsCxx=true)</AttributeName>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("PlayGameServices", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="CoreData Security SystemConfiguration")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
@@ -24,7 +24,64 @@
       <Type Name="Messaging" Kind="Class" />
     </Namespace>
     <Namespace Name="Google.OpenSource">
+      <Type Name="CompletionHandler" Kind="Delegate" />
       <Type Name="OAuth2Authentication" Kind="Class" />
+      <Type Name="PlusAcl" Kind="Class" />
+      <Type Name="PlusAclentryResource" Kind="Class" />
+      <Type Name="PlusActivity" Kind="Class" />
+      <Type Name="PlusActivityActor" Kind="Class" />
+      <Type Name="PlusActivityActorImage" Kind="Class" />
+      <Type Name="PlusActivityActorName" Kind="Class" />
+      <Type Name="PlusActivityFeed" Kind="Class" />
+      <Type Name="PlusActivityObject" Kind="Class" />
+      <Type Name="PlusActivityObjectActor" Kind="Class" />
+      <Type Name="PlusActivityObjectActorImage" Kind="Class" />
+      <Type Name="PlusActivityObjectAttachmentsItem" Kind="Class" />
+      <Type Name="PlusActivityObjectAttachmentsItemEmbed" Kind="Class" />
+      <Type Name="PlusActivityObjectAttachmentsItemFullImage" Kind="Class" />
+      <Type Name="PlusActivityObjectAttachmentsItemImage" Kind="Class" />
+      <Type Name="PlusActivityObjectAttachmentsItemThumbnailsItem" Kind="Class" />
+      <Type Name="PlusActivityObjectAttachmentsItemThumbnailsItemImage" Kind="Class" />
+      <Type Name="PlusActivityObjectPlusoners" Kind="Class" />
+      <Type Name="PlusActivityObjectReplies" Kind="Class" />
+      <Type Name="PlusActivityObjectResharers" Kind="Class" />
+      <Type Name="PlusActivityProvider" Kind="Class" />
+      <Type Name="PlusCollectionObject" Kind="Class" />
+      <Type Name="PlusComment" Kind="Class" />
+      <Type Name="PlusCommentActor" Kind="Class" />
+      <Type Name="PlusCommentActorImage" Kind="Class" />
+      <Type Name="PlusCommentFeed" Kind="Class" />
+      <Type Name="PlusCommentInReplyToItem" Kind="Class" />
+      <Type Name="PlusCommentObject" Kind="Class" />
+      <Type Name="PlusCommentPlusoners" Kind="Class" />
+      <Type Name="PlusDateTime" Kind="Class" />
+      <Type Name="PlusItemScope" Kind="Class" />
+      <Type Name="PlusMoment" Kind="Class" />
+      <Type Name="PlusMomentsFeed" Kind="Class" />
+      <Type Name="PlusObject" Kind="Class" />
+      <Type Name="PlusPeopleFeed" Kind="Class" />
+      <Type Name="PlusPerson" Kind="Class" />
+      <Type Name="PlusPersonAgeRange" Kind="Class" />
+      <Type Name="PlusPersonCover" Kind="Class" />
+      <Type Name="PlusPersonCoverInfo" Kind="Class" />
+      <Type Name="PlusPersonCoverPhoto" Kind="Class" />
+      <Type Name="PlusPersonEmailsItem" Kind="Class" />
+      <Type Name="PlusPersonImage" Kind="Class" />
+      <Type Name="PlusPersonName" Kind="Class" />
+      <Type Name="PlusPersonOrganizationsItem" Kind="Class" />
+      <Type Name="PlusPersonPlacesLivedItem" Kind="Class" />
+      <Type Name="PlusPersonUrlsItem" Kind="Class" />
+      <Type Name="PlusResultArray" Kind="Class" />
+      <Type Name="Query" Kind="Class" />
+      <Type Name="QueryPlus" Kind="Class" />
+      <Type Name="QueryProtocol" Kind="Class" />
+      <Type Name="Service" Kind="Class" />
+      <Type Name="ServiceCompletionHandler" Kind="Delegate" />
+      <Type Name="ServicePlus" Kind="Class" />
+      <Type Name="ServiceRetryHandler" Kind="Delegate" />
+      <Type Name="ServiceTicket" Kind="Class" />
+      <Type Name="ServiceUploadProgressHandler" Kind="Delegate" />
+      <Type Name="UploadParameters" Kind="Class" />
     </Namespace>
     <Namespace Name="Google.Play.GameServices">
       <Type Name="Achievement" Kind="Class" />
@@ -77,6 +134,7 @@
     <Namespace Name="Google.Plus">
       <Type Name="DeepLink" Kind="Class" />
       <Type Name="DeepLinkDelegate" Kind="Class" />
+      <Type Name="PlusConstants" Kind="Class" />
       <Type Name="Share" Kind="Class" />
       <Type Name="ShareBuilder" Kind="Class" />
       <Type Name="ShareDelegate" Kind="Class" />
@@ -85,6 +143,7 @@
       <Type Name="SignInButtonColorScheme" Kind="Enumeration" />
       <Type Name="SignInButtonStyle" Kind="Enumeration" />
       <Type Name="SignInDelegate" Kind="Class" />
+      <Type Name="SignInDelegateFinishedEventArgs" Kind="Class" />
       <Type Name="UrlHandler" Kind="Class" />
     </Namespace>
   </Types>

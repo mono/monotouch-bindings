@@ -1,0 +1,1510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="Service" FullName="Google.OpenSource.Service">
+  <TypeSignature Language="C#" Value="public class Service : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Service extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Google.Plus</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("GTLService", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Service ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Service (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Service (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Service (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AdditionalHTTPHeaders">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDictionary AdditionalHTTPHeaders { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDictionary AdditionalHTTPHeaders" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("additionalHTTPHeaders")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAdditionalHTTPHeaders:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDictionary</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="APIKey">
+      <MemberSignature Language="C#" Value="public virtual string APIKey { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string APIKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("APIKey")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAPIKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApiVersion">
+      <MemberSignature Language="C#" Value="public virtual string ApiVersion { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ApiVersion" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("apiVersion")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setApiVersion:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Authorizer">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject Authorizer { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject Authorizer" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("authorizer")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAuthorizer:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CookieStorageMethod">
+      <MemberSignature Language="C#" Value="public virtual int CookieStorageMethod { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 CookieStorageMethod" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("cookieStorageMethod")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setCookieStorageMethod:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultServiceUploadChunkSize">
+      <MemberSignature Language="C#" Value="public static uint DefaultServiceUploadChunkSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 DefaultServiceUploadChunkSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultServiceUploadChunkSize")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DelegateQueue">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSOperationQueue DelegateQueue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSOperationQueue DelegateQueue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("delegateQueue")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDelegateQueue:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSOperationQueue</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteResource">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket DeleteResource (MonoTouch.Foundation.NSUrl destinationURL, string etagOrNull, Google.OpenSource.ServiceCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket DeleteResource(class MonoTouch.Foundation.NSUrl destinationURL, string etagOrNull, class Google.OpenSource.ServiceCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("deleteResourceURL:ETag:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="destinationURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="etagOrNull" Type="System.String" />
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="destinationURL">To be added.</param>
+        <param name="etagOrNull">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteResource">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket DeleteResource (MonoTouch.Foundation.NSUrl destinationURL, string etagOrNull, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket DeleteResource(class MonoTouch.Foundation.NSUrl destinationURL, string etagOrNull, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("deleteResourceURL:ETag:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="destinationURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="etagOrNull" Type="System.String" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="destinationURL">To be added.</param>
+        <param name="etagOrNull">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExecuteQuery">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket ExecuteQuery (Google.OpenSource.Query query, Google.OpenSource.ServiceCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket ExecuteQuery(class Google.OpenSource.Query query, class Google.OpenSource.ServiceCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("executeQuery:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="query" Type="Google.OpenSource.Query" />
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="query">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExecuteQuery">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket ExecuteQuery (Google.OpenSource.Query query, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket ExecuteQuery(class Google.OpenSource.Query query, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("executeQuery:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="query" Type="Google.OpenSource.Query" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="query">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (MonoTouch.Foundation.NSUrl objectURL, Google.OpenSource.ServiceCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(class MonoTouch.Foundation.NSUrl objectURL, class Google.OpenSource.ServiceCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectWithURL:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="objectURL">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (Google.OpenSource.PlusObject bodyToPut, MonoTouch.Foundation.NSUrl destinationURL, Google.OpenSource.ServiceCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(class Google.OpenSource.PlusObject bodyToPut, class MonoTouch.Foundation.NSUrl destinationURL, class Google.OpenSource.ServiceCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectByInsertingObject:forURL:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="bodyToPut" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="destinationURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="bodyToPut">To be added.</param>
+        <param name="destinationURL">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (MonoTouch.Foundation.NSUrl objectURL, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(class MonoTouch.Foundation.NSUrl objectURL, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectWithURL:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="objectURL">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (Google.OpenSource.PlusObject bodyToPut, MonoTouch.Foundation.NSUrl destinationURL, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(class Google.OpenSource.PlusObject bodyToPut, class MonoTouch.Foundation.NSUrl destinationURL, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectByInsertingObject:forURL:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="bodyToPut" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="destinationURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="bodyToPut">To be added.</param>
+        <param name="destinationURL">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (MonoTouch.Foundation.NSUrl objectURL, MonoTouch.ObjCRuntime.Class objectClass, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(class MonoTouch.Foundation.NSUrl objectURL, class MonoTouch.ObjCRuntime.Class objectClass, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectWithURL:objectClass:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="objectClass" Type="MonoTouch.ObjCRuntime.Class" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="objectURL">To be added.</param>
+        <param name="objectClass">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (string methodName, Google.OpenSource.PlusObject bodyObject, MonoTouch.ObjCRuntime.Class objectClass, Google.OpenSource.ServiceCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(string methodName, class Google.OpenSource.PlusObject bodyObject, class MonoTouch.ObjCRuntime.Class objectClass, class Google.OpenSource.ServiceCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectWithMethodNamed:insertingObject:objectClass:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="methodName" Type="System.String" />
+        <Parameter Name="bodyObject" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="objectClass" Type="MonoTouch.ObjCRuntime.Class" />
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="methodName">To be added.</param>
+        <param name="bodyObject">To be added.</param>
+        <param name="objectClass">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (string methodName, MonoTouch.Foundation.NSDictionary parameters, MonoTouch.ObjCRuntime.Class objectClass, Google.OpenSource.ServiceCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(string methodName, class MonoTouch.Foundation.NSDictionary parameters, class MonoTouch.ObjCRuntime.Class objectClass, class Google.OpenSource.ServiceCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectWithMethodNamed:parameters:objectClass:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="methodName" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="objectClass" Type="MonoTouch.ObjCRuntime.Class" />
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="methodName">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="objectClass">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (string methodName, Google.OpenSource.PlusObject bodyObject, MonoTouch.ObjCRuntime.Class objectClass, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(string methodName, class Google.OpenSource.PlusObject bodyObject, class MonoTouch.ObjCRuntime.Class objectClass, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectWithMethodNamed:insertingObject:objectClass:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="methodName" Type="System.String" />
+        <Parameter Name="bodyObject" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="objectClass" Type="MonoTouch.ObjCRuntime.Class" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="methodName">To be added.</param>
+        <param name="bodyObject">To be added.</param>
+        <param name="objectClass">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (string methodName, MonoTouch.Foundation.NSDictionary parameters, Google.OpenSource.PlusObject bodyObject, MonoTouch.ObjCRuntime.Class objectClass, Google.OpenSource.ServiceCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(string methodName, class MonoTouch.Foundation.NSDictionary parameters, class Google.OpenSource.PlusObject bodyObject, class MonoTouch.ObjCRuntime.Class objectClass, class Google.OpenSource.ServiceCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectWithMethodNamed:parameters:insertingObject:objectClass:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="methodName" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="bodyObject" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="objectClass" Type="MonoTouch.ObjCRuntime.Class" />
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="methodName">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="bodyObject">To be added.</param>
+        <param name="objectClass">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (string methodName, MonoTouch.Foundation.NSDictionary parameters, MonoTouch.ObjCRuntime.Class objectClass, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(string methodName, class MonoTouch.Foundation.NSDictionary parameters, class MonoTouch.ObjCRuntime.Class objectClass, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectWithMethodNamed:parameters:objectClass:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="methodName" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="objectClass" Type="MonoTouch.ObjCRuntime.Class" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="methodName">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="objectClass">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObject (string methodName, MonoTouch.Foundation.NSDictionary parameters, Google.OpenSource.PlusObject bodyObject, MonoTouch.ObjCRuntime.Class objectClass, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObject(string methodName, class MonoTouch.Foundation.NSDictionary parameters, class Google.OpenSource.PlusObject bodyObject, class MonoTouch.ObjCRuntime.Class objectClass, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectWithMethodNamed:parameters:insertingObject:objectClass:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="methodName" Type="System.String" />
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="bodyObject" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="objectClass" Type="MonoTouch.ObjCRuntime.Class" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="methodName">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <param name="bodyObject">To be added.</param>
+        <param name="objectClass">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObjectByUpdating">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObjectByUpdating (Google.OpenSource.PlusObject bodyToPut, MonoTouch.Foundation.NSUrl destinationURL, Google.OpenSource.ServiceCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObjectByUpdating(class Google.OpenSource.PlusObject bodyToPut, class MonoTouch.Foundation.NSUrl destinationURL, class Google.OpenSource.ServiceCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectByUpdatingObject:forURL:completionHandler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="bodyToPut" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="destinationURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceCompletionHandler" />
+      </Parameters>
+      <Docs>
+        <param name="bodyToPut">To be added.</param>
+        <param name="destinationURL">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchObjectByUpdating">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchObjectByUpdating (Google.OpenSource.PlusObject bodyToPut, MonoTouch.Foundation.NSUrl destinationURL, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchObjectByUpdating(class Google.OpenSource.PlusObject bodyToPut, class MonoTouch.Foundation.NSUrl destinationURL, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchObjectByUpdatingObject:forURL:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="bodyToPut" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="destinationURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="bodyToPut">To be added.</param>
+        <param name="destinationURL">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchPublicObject">
+      <MemberSignature Language="C#" Value="public virtual Google.OpenSource.ServiceTicket FetchPublicObject (MonoTouch.Foundation.NSUrl objectURL, MonoTouch.ObjCRuntime.Class objectClass, MonoTouch.Foundation.NSObject aDelegate, MonoTouch.ObjCRuntime.Selector finishedSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Google.OpenSource.ServiceTicket FetchPublicObject(class MonoTouch.Foundation.NSUrl objectURL, class MonoTouch.ObjCRuntime.Class objectClass, class MonoTouch.Foundation.NSObject aDelegate, class MonoTouch.ObjCRuntime.Selector finishedSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchPublicObjectWithURL:objectClass:delegate:didFinishSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.OpenSource.ServiceTicket</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectURL" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="objectClass" Type="MonoTouch.ObjCRuntime.Class" />
+        <Parameter Name="aDelegate" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="finishedSelector" Type="MonoTouch.ObjCRuntime.Selector" />
+      </Parameters>
+      <Docs>
+        <param name="objectURL">To be added.</param>
+        <param name="objectClass">To be added.</param>
+        <param name="aDelegate">To be added.</param>
+        <param name="finishedSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRESTDataWrapperRequired">
+      <MemberSignature Language="C#" Value="public virtual bool IsRESTDataWrapperRequired { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsRESTDataWrapperRequired" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isRESTDataWrapperRequired")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setIsRESTDataWrapperRequired:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxRetryInterval">
+      <MemberSignature Language="C#" Value="public virtual double MaxRetryInterval { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 MaxRetryInterval" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("maxRetryInterval")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setMaxRetryInterval:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ObjectRequestForUrl">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSMutableUrlRequest ObjectRequestForUrl (MonoTouch.Foundation.NSUrl url, Google.OpenSource.PlusObject obj, string etagOrNull, string httpMethodOrNull, bool isRest, MonoTouch.Foundation.NSDictionary additionalHeaders, Google.OpenSource.ServiceTicket ticket);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSMutableUrlRequest ObjectRequestForUrl(class MonoTouch.Foundation.NSUrl url, class Google.OpenSource.PlusObject obj, string etagOrNull, string httpMethodOrNull, bool isRest, class MonoTouch.Foundation.NSDictionary additionalHeaders, class Google.OpenSource.ServiceTicket ticket) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("objectRequestForURL:object:ETag:httpMethod:isREST:additionalHeaders:ticket:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSMutableUrlRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="obj" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="etagOrNull" Type="System.String" />
+        <Parameter Name="httpMethodOrNull" Type="System.String" />
+        <Parameter Name="isRest" Type="System.Boolean" />
+        <Parameter Name="additionalHeaders" Type="MonoTouch.Foundation.NSDictionary" />
+        <Parameter Name="ticket" Type="Google.OpenSource.ServiceTicket" />
+      </Parameters>
+      <Docs>
+        <param name="url">To be added.</param>
+        <param name="obj">To be added.</param>
+        <param name="etagOrNull">To be added.</param>
+        <param name="httpMethodOrNull">To be added.</param>
+        <param name="isRest">To be added.</param>
+        <param name="additionalHeaders">To be added.</param>
+        <param name="ticket">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ParseQueue">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSOperationQueue ParseQueue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSOperationQueue ParseQueue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("parseQueue")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setParseQueue:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSOperationQueue</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RequestForUrl">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSMutableUrlRequest RequestForUrl (MonoTouch.Foundation.NSUrl url, string etagOrNull, string httpMethodOrNull);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSMutableUrlRequest RequestForUrl(class MonoTouch.Foundation.NSUrl url, string etagOrNull, string httpMethodOrNull) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("requestForURL:ETag:httpMethod:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSMutableUrlRequest</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+        <Parameter Name="etagOrNull" Type="System.String" />
+        <Parameter Name="httpMethodOrNull" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="url">To be added.</param>
+        <param name="etagOrNull">To be added.</param>
+        <param name="httpMethodOrNull">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RequestUserAgent">
+      <MemberSignature Language="C#" Value="public virtual string RequestUserAgent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RequestUserAgent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("requestUserAgent")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RetryEnabled">
+      <MemberSignature Language="C#" Value="public virtual bool RetryEnabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool RetryEnabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isRetryEnabled")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setRetryEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RetrySelector">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.ObjCRuntime.Selector RetrySelector { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.ObjCRuntime.Selector RetrySelector" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("retrySelector")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setRetrySelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.ObjCRuntime.Selector</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RpcUploadUrl">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSUrl RpcUploadUrl { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSUrl RpcUploadUrl" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("rpcUploadURL")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setRpcUploadURL:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSUrl</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RpcUrl">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSUrl RpcUrl { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSUrl RpcUrl" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("rpcURL")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setRpcURL:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSUrl</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RunLoopModes">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject[] RunLoopModes { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject[] RunLoopModes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("runLoopModes")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setRunLoopModes:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ServiceProperties">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDictionary ServiceProperties { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDictionary ServiceProperties" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("serviceProperties")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setServiceProperties:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDictionary</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ServiceUploadChunkSize">
+      <MemberSignature Language="C#" Value="public virtual uint ServiceUploadChunkSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 ServiceUploadChunkSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("serviceUploadChunkSize")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setServiceUploadChunkSize:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ServiceUserData">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject ServiceUserData { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject ServiceUserData" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("serviceUserData")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setServiceUserData:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRetryHandler">
+      <MemberSignature Language="C#" Value="public virtual void SetRetryHandler (Google.OpenSource.ServiceRetryHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetRetryHandler(class Google.OpenSource.ServiceRetryHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setRetryBlock:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceRetryHandler" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetServiceProperty">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject SetServiceProperty (string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSObject SetServiceProperty(string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("servicePropertyForKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetServiceProperty">
+      <MemberSignature Language="C#" Value="public virtual void SetServiceProperty (MonoTouch.Foundation.NSObject obj, string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetServiceProperty(class MonoTouch.Foundation.NSObject obj, string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setServiceProperty:forKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="obj" Type="MonoTouch.Foundation.NSObject" />
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="obj">To be added.</param>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetUploadProgressHandler">
+      <MemberSignature Language="C#" Value="public virtual void SetUploadProgressHandler (Google.OpenSource.ServiceUploadProgressHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetUploadProgressHandler(class Google.OpenSource.ServiceUploadProgressHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setUploadProgressBlock:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="Google.OpenSource.ServiceUploadProgressHandler" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldFetchInBackground">
+      <MemberSignature Language="C#" Value="public virtual bool ShouldFetchInBackground { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ShouldFetchInBackground" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("shouldFetchInBackground")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setShouldFetchInBackground:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldFetchNextPages">
+      <MemberSignature Language="C#" Value="public virtual bool ShouldFetchNextPages { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ShouldFetchNextPages" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("shouldFetchNextPages")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setShouldFetchNextPages:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Surrogates">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDictionary Surrogates { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDictionary Surrogates" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("surrogates")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSurrogates:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDictionary</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UploadProgressSelector">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.ObjCRuntime.Selector UploadProgressSelector { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.ObjCRuntime.Selector UploadProgressSelector" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("uploadProgressSelector")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUploadProgressSelector:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.ObjCRuntime.Selector</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UrlQueryParameters">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDictionary UrlQueryParameters { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDictionary UrlQueryParameters" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("urlQueryParameters")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUrlQueryParameters:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDictionary</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UserAgent">
+      <MemberSignature Language="C#" Value="public virtual string UserAgent { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string UserAgent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("userAgent")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUserAgent:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UserAgentAddition">
+      <MemberSignature Language="C#" Value="public virtual string UserAgentAddition { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string UserAgentAddition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("userAgentAddition")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUserAgentAddition:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WaitForTicket">
+      <MemberSignature Language="C#" Value="public virtual bool WaitForTicket (Google.OpenSource.ServiceTicket ticket, double timeoutInSeconds, Google.OpenSource.PlusObject outObjectOrNull, MonoTouch.Foundation.NSError outErrorOrNull);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool WaitForTicket(class Google.OpenSource.ServiceTicket ticket, float64 timeoutInSeconds, class Google.OpenSource.PlusObject outObjectOrNull, class MonoTouch.Foundation.NSError outErrorOrNull) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("waitForTicket:timeout:fetchedObject:error:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ticket" Type="Google.OpenSource.ServiceTicket" />
+        <Parameter Name="timeoutInSeconds" Type="System.Double" />
+        <Parameter Name="outObjectOrNull" Type="Google.OpenSource.PlusObject" />
+        <Parameter Name="outErrorOrNull" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="ticket">To be added.</param>
+        <param name="timeoutInSeconds">To be added.</param>
+        <param name="outObjectOrNull">To be added.</param>
+        <param name="outErrorOrNull">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
