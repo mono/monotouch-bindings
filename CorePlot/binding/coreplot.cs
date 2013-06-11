@@ -717,7 +717,7 @@ namespace CorePlot {
 		[Export ("newAxisSet")]
 		CPTAxisSet NewAxisSet ();
 
-		[Export ("legent")]
+		[Export ("legend")]
 		CPTLegend Legend { get; set; }
 
 		[Export ("legendAnchor")]
@@ -1247,7 +1247,7 @@ namespace CorePlot {
 		string GetTitleForLegendEntry (int index);
 
 	        [Export ("drawSwatchForLegend:atIndex:inRect:inContext:")]
-		void DrawSwatch (CPTLegend legent, int index, RectangleF rect, CGContext context);
+		void DrawSwatch (CPTLegend legend, int index, RectangleF rect, CGContext context);
 
 		[Export ("numberOfFields")]
 		int NumberOfFields { get; }

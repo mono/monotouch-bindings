@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <Overview>
   <Assemblies>
     <Assembly Name="CorePlotiOS" Version="0.0.0.0">
@@ -14,8 +13,7 @@
   </Assemblies>
   <Remarks>
     <para>Binding to the CorePlot open source plotting library for MonoTouch and MonoMac,
-      available from: <format type="text/html"><a href="http://code.google.com/p/core-plot/">http://code.google.com/p/core-plot/</a></format>
-    </para>
+      available from: <format type="text/html"><a href="http://code.google.com/p/core-plot/">http://code.google.com/p/core-plot/</a></format></para>
     <para>
       This binding is for version 0.9 released on September 25, 2011
     </para>
@@ -26,113 +24,113 @@
   <Copyright>To be added.</Copyright>
   <Types>
     <Namespace Name="coreplot">
-      <Type Name="Messaging" Kind="Class"/>
     </Namespace>
     <Namespace Name="CorePlot">
-      <Type Name="CPBarPlotDataSource" Kind="Class"/>
-      <Type Name="CPPieChartDataSource" Kind="Class"/>
-      <Type Name="CPTAlignment" Kind="Enumeration"/>
-      <Type Name="CPTAnnotation" Kind="Class"/>
-      <Type Name="CPTAnnotationHostLayer" Kind="Class"/>
-      <Type Name="CPTAxis" Kind="Class"/>
-      <Type Name="CPTAxisDelegate" Kind="Class"/>
-      <Type Name="CPTAxisLabel" Kind="Class"/>
-      <Type Name="CPTAxisLabelGroup" Kind="Class"/>
-      <Type Name="CPTAxisLabelingPolicy" Kind="Enumeration"/>
-      <Type Name="CPTAxisNSSetPredicate" Kind="Delegate"/>
-      <Type Name="CPTAxisPredicate" Kind="Delegate"/>
-      <Type Name="CPTAxisSet" Kind="Class"/>
-      <Type Name="CPTAxisTitle" Kind="Class"/>
-      <Type Name="CPTBarPlot" Kind="Class"/>
-      <Type Name="CPTBarPlotDataSource" Kind="Class"/>
-      <Type Name="CPTBarPlotDelegate" Kind="Class"/>
-      <Type Name="CPTBorderedLayer" Kind="Class"/>
-      <Type Name="CPTColor" Kind="Class"/>
-      <Type Name="CPTColorSpace" Kind="Class"/>
-      <Type Name="CPTConstrainedPosition" Kind="Class"/>
-      <Type Name="CPTConstraint" Kind="Enumeration"/>
-      <Type Name="CPTConstraints" Kind="Structure"/>
-      <Type Name="CPTCoordinate" Kind="Enumeration"/>
-      <Type Name="CPTDarkGradientTheme" Kind="Class"/>
-      <Type Name="CPTDataTypeFormat" Kind="Enumeration"/>
-      <Type Name="CPTDerivedXYGraph" Kind="Class"/>
-      <Type Name="CPTDisplacement" Kind="Delegate"/>
-      <Type Name="CPTErrorBarType" Kind="Enumeration"/>
-      <Type Name="CPTEventPointPredicate" Kind="Delegate"/>
-      <Type Name="CPTEventPredicate" Kind="Delegate"/>
-      <Type Name="CPTFill" Kind="Class"/>
-      <Type Name="CPTGradient" Kind="Class"/>
-      <Type Name="CPTGradientBlendingMode" Kind="Enumeration"/>
-      <Type Name="CPTGradientType" Kind="Enumeration"/>
-      <Type Name="CPTGraph" Kind="Class"/>
-      <Type Name="CPTGraphHostingView" Kind="Class"/>
-      <Type Name="CPTGraphLayerType" Kind="Enumeration"/>
-      <Type Name="CPTGraphXY" Kind="Class"/>
-      <Type Name="CPTGridLineGroup" Kind="Class"/>
-      <Type Name="CPTGridLines" Kind="Class"/>
-      <Type Name="CPTImage" Kind="Class"/>
-      <Type Name="CPTLayer" Kind="Class"/>
-      <Type Name="CPTLayerAnnotation" Kind="Class"/>
-      <Type Name="CPTLayoutManager" Kind="Class"/>
-      <Type Name="CPTLegend" Kind="Class"/>
-      <Type Name="CPTLegendDelegate" Kind="Class"/>
-      <Type Name="CPTLimitBand" Kind="Class"/>
-      <Type Name="CPTLineStyle" Kind="Class"/>
-      <Type Name="CPTMutableLineStyle" Kind="Class"/>
-      <Type Name="CPTMutableNumericData" Kind="Class"/>
-      <Type Name="CPTMutableTextStyle" Kind="Class"/>
-      <Type Name="CPTNumericData" Kind="Class"/>
-      <Type Name="CPTNumericDataType" Kind="Structure"/>
-      <Type Name="CPTNumericType" Kind="Enumeration"/>
-      <Type Name="CPTPieChart" Kind="Class"/>
-      <Type Name="CPTPieChartDataSource" Kind="Class"/>
-      <Type Name="CPTPieChartDelegate" Kind="Class"/>
-      <Type Name="CPTPieChartSliceSelectedEventArgs" Kind="Class"/>
-      <Type Name="CPTPieDirection" Kind="Enumeration"/>
-      <Type Name="CPTPlainBlackTheme" Kind="Class"/>
-      <Type Name="CPTPlainWhiteTheme" Kind="Class"/>
-      <Type Name="CPTPlot" Kind="Class"/>
-      <Type Name="CPTPlotArea" Kind="Class"/>
-      <Type Name="CPTPlotAreaFrame" Kind="Class"/>
-      <Type Name="CPTPlotCachePrecision" Kind="Enumeration"/>
-      <Type Name="CPTPlotChangedEventArgs" Kind="Class"/>
-      <Type Name="CPTPlotDataSource" Kind="Class"/>
-      <Type Name="CPTPlotField" Kind="Enumeration"/>
-      <Type Name="CPTPlotGroup" Kind="Class"/>
-      <Type Name="CPTPlotRange" Kind="Class"/>
-      <Type Name="CPTPlotRangeComparisonResult" Kind="Enumeration"/>
-      <Type Name="CPTPlotSpace" Kind="Class"/>
-      <Type Name="CPTPlotSpaceAnnotation" Kind="Class"/>
-      <Type Name="CPTPlotSpaceDelegate" Kind="Class"/>
-      <Type Name="CPTPlotSymbol" Kind="Class"/>
-      <Type Name="CPTPlotSymbolType" Kind="Enumeration"/>
-      <Type Name="CPTPolarPlotSpace" Kind="Class"/>
-      <Type Name="CPTRangePlot" Kind="Class"/>
-      <Type Name="CPTRectAnchor" Kind="Enumeration"/>
-      <Type Name="CPTRgbaColor" Kind="Structure"/>
-      <Type Name="CPTScaleType" Kind="Enumeration"/>
-      <Type Name="CPTScatterPlot" Kind="Class"/>
-      <Type Name="CPTScatterPlotDataSource" Kind="Class"/>
-      <Type Name="CPTScatterPlotDelegate" Kind="Class"/>
-      <Type Name="CPTScatterPlotInterpolation" Kind="Enumeration"/>
-      <Type Name="CPTScatterSymbolSelectedEventArgs" Kind="Class"/>
-      <Type Name="CPTSign" Kind="Enumeration"/>
-      <Type Name="CPTSlateTheme" Kind="Class"/>
-      <Type Name="CPTStocksTheme" Kind="Class"/>
-      <Type Name="CPTTextAlignment" Kind="Enumeration"/>
-      <Type Name="CPTTextLayer" Kind="Class"/>
-      <Type Name="CPTTextStyle" Kind="Class"/>
-      <Type Name="CPTTextStyleDelegate" Kind="Class"/>
-      <Type Name="CPTTheme" Kind="Class"/>
-      <Type Name="CPTTimeFormatter" Kind="Class"/>
-      <Type Name="CPTTradingRangePlot" Kind="Class"/>
-      <Type Name="CPTTradingRangePlotStyle" Kind="Enumeration"/>
-      <Type Name="CPTWillChangePlotRange" Kind="Delegate"/>
-      <Type Name="CPTXYAxis" Kind="Class"/>
-      <Type Name="CPTXYAxisSet" Kind="Class"/>
-      <Type Name="CPTXYGraph" Kind="Class"/>
-      <Type Name="CPTXYPlotSpace" Kind="Class"/>
-      <Type Name="CPTXYTheme" Kind="Class"/>
+      <Type Name="CPBarPlotDataSource" Kind="Class" />
+      <Type Name="CPPieChartDataSource" Kind="Class" />
+      <Type Name="CPTAlignment" Kind="Enumeration" />
+      <Type Name="CPTAnnotation" Kind="Class" />
+      <Type Name="CPTAnnotationHostLayer" Kind="Class" />
+      <Type Name="CPTAxis" Kind="Class" />
+      <Type Name="CPTAxisDelegate" Kind="Class" />
+      <Type Name="CPTAxisLabel" Kind="Class" />
+      <Type Name="CPTAxisLabelGroup" Kind="Class" />
+      <Type Name="CPTAxisLabelingPolicy" Kind="Enumeration" />
+      <Type Name="CPTAxisNSSetPredicate" Kind="Delegate" />
+      <Type Name="CPTAxisPredicate" Kind="Delegate" />
+      <Type Name="CPTAxisSet" Kind="Class" />
+      <Type Name="CPTAxisTitle" Kind="Class" />
+      <Type Name="CPTBarPlot" Kind="Class" />
+      <Type Name="CPTBarPlotDataSource" Kind="Class" />
+      <Type Name="CPTBarPlotDelegate" Kind="Class" />
+      <Type Name="CPTBorderedLayer" Kind="Class" />
+      <Type Name="CPTColor" Kind="Class" />
+      <Type Name="CPTColorSpace" Kind="Class" />
+      <Type Name="CPTConstrainedPosition" Kind="Class" />
+      <Type Name="CPTConstraint" Kind="Enumeration" />
+      <Type Name="CPTConstraints" Kind="Structure" />
+      <Type Name="CPTCoordinate" Kind="Enumeration" />
+      <Type Name="CPTDarkGradientTheme" Kind="Class" />
+      <Type Name="CPTDataTypeFormat" Kind="Enumeration" />
+      <Type Name="CPTDerivedXYGraph" Kind="Class" />
+      <Type Name="CPTDisplacement" Kind="Delegate" />
+      <Type Name="CPTErrorBarType" Kind="Enumeration" />
+      <Type Name="CPTEventPointPredicate" Kind="Delegate" />
+      <Type Name="CPTEventPredicate" Kind="Delegate" />
+      <Type Name="CPTFill" Kind="Class" />
+      <Type Name="CPTGradient" Kind="Class" />
+      <Type Name="CPTGradientBlendingMode" Kind="Enumeration" />
+      <Type Name="CPTGradientType" Kind="Enumeration" />
+      <Type Name="CPTGraph" Kind="Class" />
+      <Type Name="CPTGraphHostingView" Kind="Class" />
+      <Type Name="CPTGraphLayerType" Kind="Enumeration" />
+      <Type Name="CPTGraphXY" Kind="Class" />
+      <Type Name="CPTGridLineGroup" Kind="Class" />
+      <Type Name="CPTGridLines" Kind="Class" />
+      <Type Name="CPTImage" Kind="Class" />
+      <Type Name="CPTLayer" Kind="Class" />
+      <Type Name="CPTLayerAnnotation" Kind="Class" />
+      <Type Name="CPTLayoutManager" Kind="Class" />
+      <Type Name="CPTLegend" Kind="Class" />
+      <Type Name="CPTLegendDelegate" Kind="Class" />
+      <Type Name="CPTLimitBand" Kind="Class" />
+      <Type Name="CPTLineStyle" Kind="Class" />
+      <Type Name="CPTMutableLineStyle" Kind="Class" />
+      <Type Name="CPTMutableNumericData" Kind="Class" />
+      <Type Name="CPTMutableTextStyle" Kind="Class" />
+      <Type Name="CPTNumericData" Kind="Class" />
+      <Type Name="CPTNumericDataType" Kind="Structure" />
+      <Type Name="CPTNumericType" Kind="Enumeration" />
+      <Type Name="CPTPieChart" Kind="Class" />
+      <Type Name="CPTPieChartDataSource" Kind="Class" />
+      <Type Name="CPTPieChartDelegate" Kind="Class" />
+      <Type Name="CPTPieChartSliceSelectedEventArgs" Kind="Class" />
+      <Type Name="CPTPieDirection" Kind="Enumeration" />
+      <Type Name="CPTPlainBlackTheme" Kind="Class" />
+      <Type Name="CPTPlainWhiteTheme" Kind="Class" />
+      <Type Name="CPTPlot" Kind="Class" />
+      <Type Name="CPTPlotArea" Kind="Class" />
+      <Type Name="CPTPlotAreaFrame" Kind="Class" />
+      <Type Name="CPTPlotCachePrecision" Kind="Enumeration" />
+      <Type Name="CPTPlotChangedEventArgs" Kind="Class" />
+      <Type Name="CPTPlotDataSource" Kind="Class" />
+      <Type Name="CPTPlotField" Kind="Enumeration" />
+      <Type Name="CPTPlotGroup" Kind="Class" />
+      <Type Name="CPTPlotRange" Kind="Class" />
+      <Type Name="CPTPlotRangeComparisonResult" Kind="Enumeration" />
+      <Type Name="CPTPlotSpace" Kind="Class" />
+      <Type Name="CPTPlotSpaceAnnotation" Kind="Class" />
+      <Type Name="CPTPlotSpaceDelegate" Kind="Class" />
+      <Type Name="CPTPlotSymbol" Kind="Class" />
+      <Type Name="CPTPlotSymbolType" Kind="Enumeration" />
+      <Type Name="CPTPolarPlotSpace" Kind="Class" />
+      <Type Name="CPTRangePlot" Kind="Class" />
+      <Type Name="CPTRectAnchor" Kind="Enumeration" />
+      <Type Name="CPTRgbaColor" Kind="Structure" />
+      <Type Name="CPTScaleType" Kind="Enumeration" />
+      <Type Name="CPTScatterPlot" Kind="Class" />
+      <Type Name="CPTScatterPlotDataSource" Kind="Class" />
+      <Type Name="CPTScatterPlotDelegate" Kind="Class" />
+      <Type Name="CPTScatterPlotInterpolation" Kind="Enumeration" />
+      <Type Name="CPTScatterSymbolSelectedEventArgs" Kind="Class" />
+      <Type Name="CPTSign" Kind="Enumeration" />
+      <Type Name="CPTSlateTheme" Kind="Class" />
+      <Type Name="CPTStocksTheme" Kind="Class" />
+      <Type Name="CPTTextAlignment" Kind="Enumeration" />
+      <Type Name="CPTTextLayer" Kind="Class" />
+      <Type Name="CPTTextStyle" Kind="Class" />
+      <Type Name="CPTTextStyleDelegate" Kind="Class" />
+      <Type Name="CPTTheme" Kind="Class" />
+      <Type Name="CPTTimeFormatter" Kind="Class" />
+      <Type Name="CPTTradingRangePlot" Kind="Class" />
+      <Type Name="CPTTradingRangePlotStyle" Kind="Enumeration" />
+      <Type Name="CPTWillChangePlotRange" Kind="Delegate" />
+      <Type Name="CPTXYAxis" Kind="Class" />
+      <Type Name="CPTXYAxisSet" Kind="Class" />
+      <Type Name="CPTXYGraph" Kind="Class" />
+      <Type Name="CPTXYPlotSpace" Kind="Class" />
+      <Type Name="CPTXYTheme" Kind="Class" />
+      <Type Name="Messaging" Kind="Class" />
     </Namespace>
   </Types>
   <Title>CorePlotiOS</Title>
