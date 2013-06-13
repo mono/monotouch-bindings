@@ -138,13 +138,13 @@ namespace GoogleAnalytics {
 		string Affiliation { get;  }
 		
 		[Export ("revenueMicros")]
-		int RevenueMicros { get; set;  }
+		long RevenueMicros { get; set;  }
 		
 		[Export ("taxMicros")]
-		int TaxMicros { get; set;  }
+		long TaxMicros { get; set;  }
 		
 		[Export ("shippingMicros")]
-		int ShippingMicros { get; set;  }
+		long ShippingMicros { get; set;  }
 		
 		[Export ("items")]
 		GAITransactionItem[] Items { get;  }
@@ -157,7 +157,7 @@ namespace GoogleAnalytics {
 		void AddItem (GAITransactionItem item);
 		
 		[Export ("addItemWithCode:name:category:priceMicros:quantity:")]
-		void AddItem (string productCode, string productName, string productCategory, int priceMicros, int quantity);
+		void AddItem (string productCode, string productName, string productCategory, long priceMicros, int quantity);
 		
 	}
 	[BaseType (typeof (NSObject))]
@@ -172,14 +172,14 @@ namespace GoogleAnalytics {
 		string ProductCategory { get; set;  }
 		
 		[Export ("priceMicros")]
-		int PriceMicros { get; set;  }
+		long PriceMicros { get; set;  }
 		
 		[Export ("quantity")]
 		int Quantity { get; set;  }
 		
 		[Static]
 		[Export ("itemWithCode:name:category:priceMicros:quantity:")]
-		GAITransactionItem ItemFrom (string productCode, string productName, string productCategory, int priceMicros, int quantity);
+		GAITransactionItem ItemFrom (string productCode, string productName, string productCategory, long priceMicros, int quantity);
 		
 	}
 	
