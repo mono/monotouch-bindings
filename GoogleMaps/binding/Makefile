@@ -1,7 +1,7 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-VERSION=1.3.0
+VERSION=1.3.1
 
 all: GoogleMaps.dll
 
@@ -23,4 +23,4 @@ GoogleMaps.dll: Makefile GoogleMaps.linkwith.cs ApiDefinition.cs StructsAndEnums
 prepare: Resources/GoogleMaps.bundle
 
 clean:
-	-rm -rf list ios Resources/ GoogleMaps-iOS-$(VERSION)/ bin/ obj/ *.dll *.o *.zip *.mdb GoogleMaps 
+	-rm -rf list ios Resources/ GoogleMaps-iOS-$(VERSION)/ bin/ obj/ *.sln *.userprefs *.dll *.o *.zip *.mdb GoogleMaps 
