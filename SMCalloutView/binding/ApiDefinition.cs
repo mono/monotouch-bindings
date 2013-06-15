@@ -111,6 +111,7 @@ namespace SMCalloutView
 	}
 
 	[BaseType (typeof (NSObject), Name = "SMCalloutViewDelegate")]
+	[Protocol]
 	[Model]
 	interface CalloutViewDelegate {
 		[Export ("calloutView:delayForRepositionWithSize:"), DelegateName ("CVDelayForReposition"), DefaultValue ("1.0/3.0")]
