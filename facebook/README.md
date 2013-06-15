@@ -1,18 +1,18 @@
 facebook
 ========
 
-These are bindings to the native Facebook SDK for iOS.
+These are bindings to the native Facebook SDK for iOS, currently we bind version 3.5.2.
 
 Using
 =====
 
-Copy the Facebook.dll project in the binding directory to your
+Copy the MonoTouch.FacebookConnect.dll project in the binding directory to your
 project, and add it as a reference in your project.
 
 Building
 ========
 
-Run `make' in the binding directory to build Facebook.dll.
+Run `make' in the binding directory to build MonoTouch.FacebookConnect.dll.
 
 Sample
 ======
@@ -46,3 +46,4 @@ Authors
 =======
 
 Miguel de Icaza
+Alex Soto
