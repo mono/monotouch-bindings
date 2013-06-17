@@ -52,11 +52,15 @@
       <Link>GoogleMaps</Link>
     </ObjcBindingNativeLibrary>
     <ObjcBindingNativeLibrary Include="libGoogleMapsExporter.a" />
+    <ObjcBindingNativeLibrary Include="libarclite.a" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoogleMaps.linkwith.cs" />
     <Compile Include="libGoogleMapsExporter.linkwith.cs">
       <DependentUpon>libGoogleMapsExporter.a</DependentUpon>
+    </Compile>
+    <Compile Include="libarclite.linkwith.cs">
+      <DependentUpon>libarclite.a</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
