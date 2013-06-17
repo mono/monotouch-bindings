@@ -1,8 +1,8 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-VERSION=1.1.0
-# PHFComposeBarView Version 1.1.0
+VERSION=1.1.1
+# PHFComposeBarView Version 1.1.1
 
 all: PHFComposeBarView.dll
 
