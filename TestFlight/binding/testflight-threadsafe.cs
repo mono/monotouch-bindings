@@ -16,10 +16,12 @@ namespace MonoTouch.TestFlight
 
 				IntPtr sigbus = Marshal.AllocHGlobal (512);
 				IntPtr sigsegv = Marshal.AllocHGlobal (512);
+				IntPtr sigpipe = Marshal.AllocHGlobal (512);
 				
 				// Store Mono SIGSEGV and SIGBUS handlers
 				sigaction (Signal.SIGBUS, IntPtr.Zero, sigbus);
 				sigaction (Signal.SIGSEGV, IntPtr.Zero, sigsegv);
+			  	sigaction (Signal.SIGPIPE, IntPtr.Zero, sigpipe);
 				
 				// Enable crash reporting libraries
 				//MonoTouch.TestFlight.TestFlight.SetDeviceIdentifier(UIDevice.CurrentDevice.UniqueIdentifier);
@@ -29,10 +31,11 @@ namespace MonoTouch.TestFlight
 				// Restore Mono SIGSEGV and SIGBUS handlers            
 				sigaction (Signal.SIGBUS, sigbus, IntPtr.Zero);
 				sigaction (Signal.SIGSEGV, sigsegv, IntPtr.Zero);
-				
+				sigaction (Signal.SIGPIPE, sigpipe, IntPtr.Zero);
+		 		
 				Marshal.FreeHGlobal (sigbus);
 				Marshal.FreeHGlobal (sigsegv);
-
+				Marshal.FreeHGlobal (sigpipe);
 		}
 
 		private static void SetOption(NSString option, Boolean newValue)
@@ -100,7 +103,8 @@ namespace MonoTouch.TestFlight
 		private static extern int sigaction (Signal sig, IntPtr act, IntPtr oact);
 		enum Signal {
 			SIGBUS = 10,
-			SIGSEGV = 11
+			SIGSEGV = 11,
+			SIGPIPE = 13
 		}
 	}
 }
