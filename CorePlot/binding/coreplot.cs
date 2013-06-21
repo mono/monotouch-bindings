@@ -332,8 +332,8 @@ namespace CorePlot {
 		[Export ("baseValue")]
 		NSDecimal BaseValue { get; set;  }
 
-		[Export ("barBaseVary")]
-		bool BarBaseVary { get; set; }
+		[Export ("barBasesVary")]
+		bool BarBasesVary { get; set; }
 
 		[Export ("plotRange")]
 		CPTPlotRange PlotRange { get; set;  }
