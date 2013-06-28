@@ -124,7 +124,7 @@ namespace SDWebImage
 
 	delegate void SDWebImageCompletedHandler (UIImage image, NSError error, SDImageCacheType cacheType);
 	delegate void SDWebImageCompletedWithFinishedHandler (UIImage image, NSError error, SDImageCacheType cacheType, bool finished);
-	delegate string SDWebImageManagerCacheKeyFilterHandler (NSUrl url);
+	delegate NSString SDWebImageManagerCacheKeyFilterHandler (NSUrl url);
 
 	[BaseType (typeof (NSObject))]
 	[Model]
