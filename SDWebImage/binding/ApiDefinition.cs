@@ -9,6 +9,8 @@ using MonoTouch.MapKit;
 namespace SDWebImage
 {
 	delegate void SDImageCacheDoneHandler (UIImage image, SDImageCacheType cacheType);
+	delegate void SDImageCacheCalculateHandler (uint fileCount, ulong totalSize);
+
 
 	[BaseType (typeof (NSObject))]
 	interface SDImageCache
@@ -62,10 +64,13 @@ namespace SDWebImage
 		void CleanDisk ();
 
 		[Export ("getSize")]
-		int GetSize { get; }
+		ulong GetSize { get; }
 
 		[Export ("getDiskCount")]
 		int GetDiskCount { get; }
+
+		[Export ("calculateSizeWithCompletionBlock:")]
+		void CalculateSize (SDImageCacheCalculateHandler completionHandler);
 	}
 
 	delegate void SDWebImageDownloaderProgressHandler (uint receivedSize, long expectedSize);
@@ -98,7 +103,7 @@ namespace SDWebImage
 		string ValueForHTTPHeaderField (string field);
 
 		[Export ("downloadImageWithURL:options:progress:completed:")]
-		SDWebImageOperation DownloadImageWithURL (NSUrl url, SDWebImageDownloaderOptions options, SDWebImageDownloaderProgressHandler progressHandler, SDWebImageDownloaderCompleteHandler completedHandler);
+		SDWebImageOperation DownloadImage (NSUrl url, SDWebImageDownloaderOptions options, SDWebImageDownloaderProgressHandler progressHandler, SDWebImageDownloaderCompleteHandler completedHandler);
 	}
 
 	delegate void dispatch_queue_t ();
