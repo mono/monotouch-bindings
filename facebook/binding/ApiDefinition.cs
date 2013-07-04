@@ -147,13 +147,13 @@ namespace MonoTouch.FacebookConnect
 		FBAppCall PresentShareDialog (FBShareDialogParams aParams, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
 		[Static, Export ("presentShareDialogWithLink:handler:")]
-		FBAppCall PresentShareDialog (NSUrl link, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+		FBAppCall PresentShareDialog ([NullAllowed] NSUrl link, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
 		[Static, Export ("presentShareDialogWithLink:name:handler:")]
-		FBAppCall PresentShareDialog (NSUrl link, [NullAllowed] string name, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+		FBAppCall PresentShareDialog ([NullAllowed] NSUrl link, [NullAllowed] string name, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
 		[Static, Export ("presentShareDialogWithLink:name:caption:description:picture:clientState:handler:")]
-		FBAppCall PresentShareDialog (NSUrl link, [NullAllowed] string name, [NullAllowed] string caption, [NullAllowed] string description, [NullAllowed] NSUrl picture, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+		FBAppCall PresentShareDialog ([NullAllowed] NSUrl link, [NullAllowed] string name, [NullAllowed] string caption, [NullAllowed] string description, [NullAllowed] NSUrl picture, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
 		[Static, Export ("canPresentShareDialogWithOpenGraphActionParams:")]
 		bool CanPresentShareDialog (FBOpenGraphActionShareDialogParams aParams);
