@@ -1278,15 +1278,12 @@ namespace MonoTouch.FacebookConnect
 		[Export ("accessTokenData", ArgumentSemantic.Copy)]
 		FBAccessTokenData AccessTokenData { get; }
 
-		[Async (ResultTypeName = "FBSessionResult")]
 		[Export ("openWithCompletionHandler:")]
 		void Open (FBSessionStateHandler handler);
 
-		[Async (ResultTypeName = "FBSessionResult")]
 		[Export ("openWithBehavior:completionHandler:")]
 		void Open (FBSessionLoginBehavior behavior, [NullAllowed] FBSessionStateHandler handler);
 
-		[Async (ResultTypeName = "FBSessionResult")]
 		[Export ("openFromAccessTokenData:completionHandler:")]
 		void Open (FBAccessTokenData accessTokenData, [NullAllowed] FBSessionStateHandler handler);
 
@@ -1319,12 +1316,10 @@ namespace MonoTouch.FacebookConnect
 		bool OpenActiveSession (bool allowLoginUI);
 		
 		[Static]
-		[Async (ResultTypeName = "FBSessionResult")]
 		[Export ("openActiveSessionWithReadPermissions:allowLoginUI:completionHandler:")]
 		bool OpenActiveSession ([NullAllowed] string[] readPermissions, bool allowLoginUI, FBSessionStateHandler completion);
 		
 		[Static]
-		[Async (ResultTypeName = "FBSessionResult")]
 		[Export ("openActiveSessionWithPublishPermissions:defaultAudience:allowLoginUI:completionHandler:")]
 		bool OpenActiveSession (string[] publishPermissions, FBSessionDefaultAudience defaultAudience, bool allowLoginUI, FBSessionStateHandler completion);
 		
