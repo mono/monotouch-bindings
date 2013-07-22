@@ -1437,4 +1437,28 @@ namespace RouteMe
 	}
 
 	#endregion
+	
+	#region DBMap
+
+	[BaseType (typeof(RMAbstractMercatorTileSource))]
+	interface RMDBMapSource{
+		//- (id)initWithPath:(NSString *)path;
+		[Export ("initWithPath:")]
+		IntPtr Constructor (string path);
+
+		//- (CLLocationCoordinate2D)topLeftOfCoverage;
+		[Export("topLeftOfCoverage")]
+		CLLocationCoordinate2D TopLeftOfCoverage();
+
+		//- (CLLocationCoordinate2D)bottomRightOfCoverage;
+		[Export("bottomRightOfCoverage")]
+		CLLocationCoordinate2D BottomRightOfCoverage();
+
+		//- (CLLocationCoordinate2D)centerOfCoverage;
+		[Export("centerOfCoverage")]
+		CLLocationCoordinate2D CenterOfCoverage();
+
+	}
+
+	#endregion
 }
