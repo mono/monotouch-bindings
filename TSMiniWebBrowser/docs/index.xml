@@ -1,0 +1,27 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="TSMiniWebBrowser" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libTSMiniWebBrowser.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="CoreGraphics")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="TSMiniWebBrowser">
+      <Type Name="MiniWebBrowser" Kind="Class" />
+      <Type Name="MiniWebBrowserDelegate" Kind="Class" />
+      <Type Name="MiniWebBrowserMode" Kind="Enumeration" />
+    </Namespace>
+  </Types>
+  <Title>TSMiniWebBrowser</Title>
+</Overview>
