@@ -30,6 +30,9 @@
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
         </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
       </Attributes>
       <Parameters />
       <Docs>
@@ -44,6 +47,11 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
       </Parameters>
@@ -60,6 +68,11 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
@@ -167,6 +180,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetDeviceIdentifier">
+      <MemberSignature Language="C#" Value="public static void SetDeviceIdentifier (string deviceIdentifer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetDeviceIdentifier(string deviceIdentifer) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setDeviceIdentifier:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="deviceIdentifer" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="deviceIdentifer">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetOptions">
       <MemberSignature Language="C#" Value="public static void SetOptions (MonoTouch.Foundation.NSDictionary options);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetOptions(class MonoTouch.Foundation.NSDictionary options) cil managed" />
@@ -191,6 +228,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SubmitFeedback">
+      <MemberSignature Language="C#" Value="public static void SubmitFeedback (string feedback);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SubmitFeedback(string feedback) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("submitFeedback:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="feedback" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="feedback">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="TakeOff">
       <MemberSignature Language="C#" Value="public static void TakeOff (string teamToken);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig void TakeOff(string teamToken) cil managed" />
@@ -211,6 +272,25 @@
       </Parameters>
       <Docs>
         <param name="teamToken">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TakeOffThreadSafe">
+      <MemberSignature Language="C#" Value="public static void TakeOffThreadSafe (string appToken);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void TakeOffThreadSafe(string appToken) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="appToken" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="appToken">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
