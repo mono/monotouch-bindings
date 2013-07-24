@@ -40,4 +40,11 @@ namespace GoogleAdMobAds
 		public SizeF size;
 		public uint flags;
 	}
+
+	public enum GADSearchCallButtonColor
+	{
+		Light,
+		Medium,
+		Dark
+	}
 }

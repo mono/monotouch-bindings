@@ -217,6 +217,9 @@ namespace GoogleAdMobAds
 		
 		[Export ("setLocationWithDescription:")]
 		void SetLocationWithDescription (string locationDescription);
+
+		[Export ("tagForChildDirectedTreatment:")]
+		void TagForChildDirectedTreatment (bool childDirectedTreatment);
 		
 		[Export ("keywords", ArgumentSemantic.Retain), NullAllowed]
 		string [] keywords { get; set; }
@@ -283,6 +286,9 @@ namespace GoogleAdMobAds
 		
 		[Export ("customChannels", ArgumentSemantic.Copy)]
 		string CustomChannels { get; set; }
+
+		[Export ("callButtonColor")]
+		GADSearchCallButtonColor CallButtonColor { get; set; }
 		
 		[Export ("request")]
 		GADRequest Request { get; }
