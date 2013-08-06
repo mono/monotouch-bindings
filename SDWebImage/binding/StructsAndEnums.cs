@@ -8,7 +8,7 @@ namespace SDWebImage
 		Disk,
 		Memory
 	}
-
+	
 	[Flags]
 	public enum SDWebImageDownloaderOptions
 	{
@@ -17,13 +17,13 @@ namespace SDWebImage
 		UseNSUrlCache = 4,
 		IgnoreCachedResponse = 8
 	}
-
+	
 	public enum SDWebImageDownloaderExecutionOrder
 	{
-		FIFO,
+		FILO,
 		LIFO
 	}
-
+	
 	[Flags]
 	public enum SDWebImageOptions
 	{
@@ -34,4 +34,3 @@ namespace SDWebImage
 		RefreshCached = 16
 	}
 }
-
