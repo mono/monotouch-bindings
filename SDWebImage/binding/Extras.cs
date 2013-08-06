@@ -13,7 +13,7 @@ namespace SDWebImage
 
 	public partial class SDWebImageManager
 	{
-		public SDWebImageOperation DownloadImageWithURL (NSUrl url, SDWebImageOptions options, SDWebImageDownloaderProgressHandler progressHandler, SDWebImageCompletedWithFinishedHandler completedHandler)
+		public SDWebImageOperation DownloadWithURL (NSUrl url, SDWebImageOptions options, SDWebImageDownloaderProgressHandler progressHandler, SDWebImageCompletedWithFinishedHandler completedHandler)
 		{
 			return new SDWebImageOperation (DownloadWithURL_ (url, options, progressHandler, completedHandler));
 		}
