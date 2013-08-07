@@ -18,7 +18,7 @@ libATMHudSDK.a: libATMHud-i386.a libATMHud-armv7.a
 	lipo -create -output $@ $^
 
 ATMHud.dll: atmhud.cs enums.cs AssemblyInfo.cs libATMHudSDK.a
-	$(BTOUCH) -e atmhud.cs enums.cs AssemblyInfo.cs --out=$@ --link-with=libATMHudSDK.a,libATMHudSDK.a
+	$(BTOUCH) atmhud.cs enums.cs AssemblyInfo.cs --out=$@ --link-with=libATMHudSDK.a,libATMHudSDK.a
 
 clean: 
 	-rm -f *.a *.dll
