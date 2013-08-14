@@ -11,8 +11,6 @@
     <RootNamespace>TSMiniWebBrowser</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>TSMiniWebBrowser</AssemblyName>
-    <ReleaseVersion>1.0</ReleaseVersion>
-    <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,6 +53,7 @@
     <Compile Include="libTSMiniWebBrowser.linkwith.cs">
       <DependentUpon>libTSMiniWebBrowser.a</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\back_icon.png" />
