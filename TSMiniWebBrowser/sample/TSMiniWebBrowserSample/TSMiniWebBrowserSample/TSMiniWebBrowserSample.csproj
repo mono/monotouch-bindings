@@ -81,9 +81,6 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
     <Reference Include="MonoTouch.Dialog-1" />
-    <Reference Include="TSMiniWebBrowser">
-      <HintPath>..\..\..\binding\TSMiniWebBrowser.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -104,5 +101,11 @@
     <BundleResource Include="Resources\icon-57.png" />
     <BundleResource Include="Resources\icon-72.png" />
     <BundleResource Include="Resources\icon-114.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\binding\TSMiniWebBrowser.csproj">
+      <Project>{FF4DE794-A2BB-4316-9836-C96E79303225}</Project>
+      <Name>TSMiniWebBrowser</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
