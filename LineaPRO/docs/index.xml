@@ -1,0 +1,38 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="LineaProSdk" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libdtdev.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="ExternalAccessory", IsCxx=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="LineaProSdk">
+      <Type Name="Barcodes" Kind="Enumeration" />
+      <Type Name="BarcodesEx" Kind="Enumeration" />
+      <Type Name="BluetoothFilter" Kind="Enumeration" />
+      <Type Name="BtModes" Kind="Enumeration" />
+      <Type Name="ButtonStates" Kind="Enumeration" />
+      <Type Name="ConnStates" Kind="Enumeration" />
+      <Type Name="DTRFCardInfo" Kind="Class" />
+      <Type Name="FelicaSmarttagBateryStatuses" Kind="Enumeration" />
+      <Type Name="Linea" Kind="Class" />
+      <Type Name="LineaDelegate" Kind="Class" />
+      <Type Name="MsModes" Kind="Enumeration" />
+      <Type Name="RfCardTypes" Kind="Enumeration" />
+      <Type Name="ScanModes" Kind="Enumeration" />
+      <Type Name="UpdatePhases" Kind="Enumeration" />
+    </Namespace>
+  </Types>
+  <Title>LineaProSdk</Title>
+</Overview>

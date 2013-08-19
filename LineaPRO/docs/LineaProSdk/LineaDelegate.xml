@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="LineaDelegate" FullName="LineaProSdk.LineaDelegate">
+  <TypeSignature Language="C#" Value="public class LineaDelegate : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit LineaDelegate extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>LineaProSdk</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Protocol</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("LineaDelegate", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public LineaDelegate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public LineaDelegate (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public LineaDelegate (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public LineaDelegate (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BarcodeData">
+      <MemberSignature Language="C#" Value="public virtual void BarcodeData (string barcode, int type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BarcodeData(string barcode, int32 type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("barcodeData:type:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="barcode" Type="System.String" />
+        <Parameter Name="type" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="barcode">To be added.</param>
+        <param name="type">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BarcodeData">
+      <MemberSignature Language="C#" Value="public virtual void BarcodeData (string barcode, string isotype);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BarcodeData(string barcode, string isotype) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("barcodeData:isotype:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="barcode" Type="System.String" />
+        <Parameter Name="isotype" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="barcode">To be added.</param>
+        <param name="isotype">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BluetoothDeviceDiscovered">
+      <MemberSignature Language="C#" Value="public virtual void BluetoothDeviceDiscovered (string btAddress, string btName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BluetoothDeviceDiscovered(string btAddress, string btName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("bluetoothDeviceDiscovered:name:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="btAddress" Type="System.String" />
+        <Parameter Name="btName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="btAddress">To be added.</param>
+        <param name="btName">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BluetoothDiscoverComplete">
+      <MemberSignature Language="C#" Value="public virtual void BluetoothDiscoverComplete (bool success);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BluetoothDiscoverComplete(bool success) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("bluetoothDiscoverComplete:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="success" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="success">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ButtonPressed">
+      <MemberSignature Language="C#" Value="public virtual void ButtonPressed (int which);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ButtonPressed(int32 which) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("buttonPressed:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="which" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="which">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ButtonReleased">
+      <MemberSignature Language="C#" Value="public virtual void ButtonReleased (int which);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ButtonReleased(int32 which) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("buttonReleased:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="which" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="which">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConnectionState">
+      <MemberSignature Language="C#" Value="public virtual void ConnectionState (LineaProSdk.ConnStates state);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ConnectionState(valuetype LineaProSdk.ConnStates state) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("connectionState:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="state" Type="LineaProSdk.ConnStates" />
+      </Parameters>
+      <Docs>
+        <param name="state">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FirmwareUpdateProgress">
+      <MemberSignature Language="C#" Value="public virtual void FirmwareUpdateProgress (int phase, int percent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void FirmwareUpdateProgress(int32 phase, int32 percent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("firmwareUpdateProgress:percent:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="phase" Type="System.Int32" />
+        <Parameter Name="percent" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="phase">To be added.</param>
+        <param name="percent">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MagneticCardData">
+      <MemberSignature Language="C#" Value="public virtual void MagneticCardData (string track1, string track2, string track3);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void MagneticCardData(string track1, string track2, string track3) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("magneticCardData:track2:track3:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="track1" Type="System.String" />
+        <Parameter Name="track2" Type="System.String" />
+        <Parameter Name="track3" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="track1">To be added.</param>
+        <param name="track2">To be added.</param>
+        <param name="track3">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MagneticCardEncryptedData">
+      <MemberSignature Language="C#" Value="public virtual void MagneticCardEncryptedData (int encryption, MonoTouch.Foundation.NSData data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void MagneticCardEncryptedData(int32 encryption, class MonoTouch.Foundation.NSData data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("magneticCardEncryptedData:data:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="encryption" Type="System.Int32" />
+        <Parameter Name="data" Type="MonoTouch.Foundation.NSData" />
+      </Parameters>
+      <Docs>
+        <param name="encryption">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MagneticCardEncryptedData">
+      <MemberSignature Language="C#" Value="public virtual void MagneticCardEncryptedData (int encryption, int tracks, MonoTouch.Foundation.NSData data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void MagneticCardEncryptedData(int32 encryption, int32 tracks, class MonoTouch.Foundation.NSData data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("magneticCardEncryptedData:tracks:data:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="encryption" Type="System.Int32" />
+        <Parameter Name="tracks" Type="System.Int32" />
+        <Parameter Name="data" Type="MonoTouch.Foundation.NSData" />
+      </Parameters>
+      <Docs>
+        <param name="encryption">To be added.</param>
+        <param name="tracks">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MagneticCardEncryptedData">
+      <MemberSignature Language="C#" Value="public virtual void MagneticCardEncryptedData (int encryption, int tracks, MonoTouch.Foundation.NSData data, string track1masked, string track2masked, string track3);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void MagneticCardEncryptedData(int32 encryption, int32 tracks, class MonoTouch.Foundation.NSData data, string track1masked, string track2masked, string track3) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("magneticCardEncryptedData:tracks:data:track1masked:track2masked:track3:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="encryption" Type="System.Int32" />
+        <Parameter Name="tracks" Type="System.Int32" />
+        <Parameter Name="data" Type="MonoTouch.Foundation.NSData" />
+        <Parameter Name="track1masked" Type="System.String" />
+        <Parameter Name="track2masked" Type="System.String" />
+        <Parameter Name="track3" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="encryption">To be added.</param>
+        <param name="tracks">To be added.</param>
+        <param name="data">To be added.</param>
+        <param name="track1masked">To be added.</param>
+        <param name="track2masked">To be added.</param>
+        <param name="track3">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MagneticCardEncryptedRawData">
+      <MemberSignature Language="C#" Value="public virtual void MagneticCardEncryptedRawData (int encryption, MonoTouch.Foundation.NSData data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void MagneticCardEncryptedRawData(int32 encryption, class MonoTouch.Foundation.NSData data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("magneticCardEncryptedRawData:data:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="encryption" Type="System.Int32" />
+        <Parameter Name="data" Type="MonoTouch.Foundation.NSData" />
+      </Parameters>
+      <Docs>
+        <param name="encryption">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MagneticCardRawData">
+      <MemberSignature Language="C#" Value="public virtual void MagneticCardRawData (MonoTouch.Foundation.NSData tracks);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void MagneticCardRawData(class MonoTouch.Foundation.NSData tracks) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("magneticCardRawData:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tracks" Type="MonoTouch.Foundation.NSData" />
+      </Parameters>
+      <Docs>
+        <param name="tracks">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MagneticJISCardData">
+      <MemberSignature Language="C#" Value="public virtual void MagneticJISCardData (string data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void MagneticJISCardData(string data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("magneticJISCardData:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RfCardDetected">
+      <MemberSignature Language="C#" Value="public virtual void RfCardDetected (int cardIndex, LineaProSdk.DTRFCardInfo info);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RfCardDetected(int32 cardIndex, class LineaProSdk.DTRFCardInfo info) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("rfCardDetected:info:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cardIndex" Type="System.Int32" />
+        <Parameter Name="info" Type="LineaProSdk.DTRFCardInfo" />
+      </Parameters>
+      <Docs>
+        <param name="cardIndex">To be added.</param>
+        <param name="info">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RfCardRemoved">
+      <MemberSignature Language="C#" Value="public virtual void RfCardRemoved (int cardIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RfCardRemoved(int32 cardIndex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("rfCardRemoved:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cardIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="cardIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
