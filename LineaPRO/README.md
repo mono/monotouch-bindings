@@ -18,22 +18,22 @@ Steps to obtain and include `libdtdev.a`:
 
 In order to build `LineaProSdk.dll` you have two options:
 
-**Using Xamarin Studio**
+**Via Xamarin Studio**
 
 1. Open Xamarin Studio
-2. Clic on File > Open… and locate `.../monotouch-bindings/LineaPro/binding/LineaProSdk.csproj`
-3. build
-4. You will find `LineaProSdk.dll` inside `.../monotouch-bindings/LineaPro/binding/bin/`
+2. Click on **File > Open…** and locate `/Path/to/monotouch-bindings/LineaPro/binding/LineaProSdk.csproj`
+3. Build the project.
+4. You will find `LineaProSdk.dll` inside `/Path/to/monotouch-bindings/LineaPro/binding/bin/`
 
-**Using Terminal.app**
+**Via Command-line**
 
 1. Open `Terminal.app` and **cd** into `/Path/to/monotouch-bindings/LineaPRO/`
-2. run command `make`
+2. Run the `make` command.
 3. The `LineaProSdk.dll` will be generated inside `binding` directory.
 
 ## Code Code Code...
 
-Once you have your freshly baked `LineaProSdk.dll` you can run the included sample in your device and start developing awesome apps!!
+Once you have your freshly baked `LineaProSdk.dll` you can run the included sample in your device and start developing awesome apps!
 
 __Just one note:__ Whenever you create a new Xamarin.iOS project that will be using Linea PRO SDK don't forget to add the following keys inside your __info.plist__ file:
 
