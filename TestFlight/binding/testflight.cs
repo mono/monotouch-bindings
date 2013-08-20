@@ -27,7 +27,7 @@ namespace MonoTouch.TestFlight {
 		/// TakeOff with TestFlight
 		/// This methode connects your app with TestFlight
 		/// </summary>
-		/// <param name="applicationToken">Your Application Token can be found on the TestFlight site</param>
+		/// <param name="applicationToken">Your Application Token can be found on https://testflightapp.com/dashboard/applications/ selecting this application from the list then selecting SDK.</param>
 		[Static, Export ("takeOff:")]
 		void TakeOff (string applicationToken);
 
@@ -48,11 +48,11 @@ namespace MonoTouch.TestFlight {
 		[Static, Export ("passCheckpoint:")]
 		void PassCheckpoint (string checkpointName);
 
-		/// <summary>
-		/// Opens a feedback window that is not attached to a checkpoint
-		/// </summary>
-		[Static, Export ("openFeedbackView")]
-		void OpenFeedbackView ();
+//		/// <summary>
+//		/// Opens a feedback window that is not attached to a checkpoint
+//		/// </summary>
+//		[Static, Export ("openFeedbackView")]
+//		void OpenFeedbackView ();
 
 		/// <summary>
 		/// Submits the feedback to the site, only if feedback is not null or empty.
@@ -69,6 +69,7 @@ namespace MonoTouch.TestFlight {
 		/// If you want to use this during testing, you have to call it before TakeOff / ThreadSafeTakeOff
 		/// </summary>
 		/// <param name="deviceIdentifer"> Only use this with the Apple device UDID. DO NOT use Open ID or your own identifier</param>
+		[Obsolete("You cannot use this anymore with Xamarin")]
 		[Static, Export ("setDeviceIdentifier:")]
 		void SetDeviceIdentifier (string deviceIdentifer);
 
