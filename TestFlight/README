@@ -5,7 +5,7 @@ This is a MonoTouch binding for the TestFlight SDK which can be found at
 
      https://testflightapp.com/sdk/
 
-The current version of this binding is for TestFlight SDK 1.2.5 released on 1 May 2013
+The current version of this binding is for TestFlight SDK 2.0.0 released on 19 August 2013
 
 Building
 ========
@@ -26,12 +26,15 @@ Testflight settings
 ===================
 The TestFlight settings are now implemented in C# as well.
 
-- TestFlight.SetAttachBacktraceToFeedback => Defaults to false. Setting to true attaches the current backtrace, with symbols, to the feedback.
 - TestFlight.SetDisableInAppUpdates => Defaults to false. Setting to true, disables the in app update screen shown in BETA apps when there is a new version available on TestFlight.
+- TestFlight.SetFlushSecondsInterval => Defaults to 60, 0 turns of the flush timer and 30 is the minimum value.
+- TestFlight.SetLogOnCheckpoint=> Defaults to true. Because logging is synchronous, if you have a high preformance app, you might want to turn this off.
 - TestFlight.SetLogToConsole => Defaults to true. Prints remote logs to Apple System Log.
 - TestFlight.SetLogToSTDERR => Defaults to true. Sends remote logs to STDERR when debugger is attached.
 - TestFlight.SetReinstallCrashHandlers => If set to true: Reinstalls crash handlers, to be used if a third party library installs crash handlers overtop of the TestFlight Crash Handlers.
+- TestFlight.SetReportCrashes => Defaults to true. Sets the report crashes. If set to false, crash handlers are never installed. Must be set **before** calling `takeOff:`.
 - TestFlight.SetSendLogOnlyOnCrash => Defaults to false. Setting to true stops remote logs from being sent when sessions end. They would only be sent in the event of a crash.
+- TestFlight.SetSessionKeepAliveTimeout => Defaults to 30. Sets the session keep alive timeout. This is the amount of time a user can leave the app for and still continue the same session when they come back.
 
 Future versions
 ===============

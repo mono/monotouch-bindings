@@ -40,14 +40,19 @@ namespace MonoTouch.TestFlight
 			TestFlight.SetOptions(new NSDictionary(option,NSNumber.FromBoolean(newValue)));
 		}
 
-		/// <summary>
-		/// Setting to true attaches the current backtrace, with symbols, to the feedback
-		/// </summary>
-		/// <param name="newValue">Defaults to false</param>
-		public static void SetAttachBacktraceToFeedback(Boolean newValue)
+		private static void SetOption(NSString option, Int32 newValue)
 		{
-			SetOption(new NSString("attachBacktraceToFeedback"),newValue);
+			TestFlight.SetOptions(new NSDictionary(option, NSNumber.FromInt32(newValue)));
 		}
+
+//		/// <summary>
+//		/// Setting to true attaches the current backtrace, with symbols, to the feedback
+//		/// </summary>
+//		/// <param name="newValue">Defaults to false</param>
+//		public static void SetAttachBacktraceToFeedback(Boolean newValue)
+//		{
+//			SetOption(new NSString("attachBacktraceToFeedback"),newValue);
+//		}
 
 		/// <summary>
 		/// Setting to true, disables the in app update screen shown in BETA apps when there is a new version available on TestFlight
@@ -56,6 +61,26 @@ namespace MonoTouch.TestFlight
 		public static void SetDisableInAppUpdates(Boolean newValue)
 		{
 			SetOption(new NSString("disableInAppUpdates"),newValue);
+		}
+
+		/// <summary>
+		/// Set to a number. 0 turns off the flush timer. 30 seconds is the minimum flush interval.
+		/// </summary>
+		/// <param name="newValue">Defaults to 60</param>
+		public static void SetFlushSecondsInterval(Int32 newValue)
+		{
+			if (newValue < 0 || (newValue > 0 && newValue < 30))
+				throw new ArgumentOutOfRangeException ("newValue", "Should be either 0 or above 30");
+			SetOption (new NSString ("flushSecondsInterval"), newValue);
+		}
+
+		/// <summary>
+		/// Because logging is synchronous, if you have a high preformance app, you might want to turn this off.
+		/// </summary>
+		/// <param name="newValue">Defaults to true</param>
+		public static void SetLogOnCheckpoint(Boolean newValue)
+		{
+			SetOption (new NSString("logOnCheckpoint"), newValue);
 		}
 
 		/// <summary>
@@ -86,12 +111,30 @@ namespace MonoTouch.TestFlight
 		}
 
 		/// <summary>
+		/// Sets the report crashes. If set to false, crash handlers are never installed. Must be set **before** calling `takeOff:`.
+		/// </summary>
+		/// <param name="newValue">Defaults to true</param>
+		public static void SetReportCrashes(Boolean newValue)
+		{
+			SetOption (new NSString ("reportChrashes"), newValue);
+		}
+
+		/// <summary>
 		/// Setting to true stops remote logs from being sent when sessions end. They would only be sent in the event of a crash
 		/// </summary>
 		/// <param name="newValue">Defaults to false</param>
 		public static void SetSendLogOnlyOnCrash(Boolean newValue)
 		{
 			SetOption(new NSString("sendLogOnlyOnCrash"),newValue);
+		}
+
+		/// <summary>
+		/// Sets the session keep alive timeout. This is the amount of time a user can leave the app for and still continue the same session when they come back.
+		/// </summary>
+		/// <param name="newValue">Defaults to 30</param>
+		public static void SetSessionKeepAliveTimeout(Int32 newValue)
+		{
+			SetOption (new NSString ("sessionKeepAliveTimeout"), newValue);
 		}
 
 
