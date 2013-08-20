@@ -1,4 +1,4 @@
-Linea PRO SDK fro Xamarin.iOS
+Linea PRO SDK for Xamarin.iOS
 =============================
 
 This Xamarin.iOS project binds `DTDevices-iOS_2013-02-28_v1` library AKA (Version 1.77).
@@ -38,13 +38,11 @@ Once you have your freshly baked `LineaProSdk.dll` you can run the included samp
 __Just one note:__ Whenever you create a new Xamarin.iOS project that will be using Linea PRO SDK don't forget to add the following keys inside your __info.plist__ file:
 
 ```xml
-	
 	<key>UISupportedExternalAccessoryProtocols</key>
 	<array>
 		<string>com.datecs.linea.pro.msr</string>
 		<string>com.datecs.linea.pro.bar</string>
 	</array>
-
 ```
 
 ## License
