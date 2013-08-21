@@ -83,31 +83,58 @@ namespace GoogleAnalytics {
 		[Export ("sessionTimeout")]
 		double SessionTimeout { get; set;  }
 		
-		[Export ("trackView")]
+		[Export ("sendView")]
+		bool SendView ();
+		
+		[Export ("trackView"), Obsolete("This method is deprecated. See SendView.", false)]
 		bool TrackView ();
 		
-		[Export ("trackView:")]
+		[Export ("sendView:")]
+		bool SendView (string screen);
+		
+		[Export ("trackView:"), Obsolete("This method is deprecated. See SendView.", false)]
 		bool TrackView (string screen);
 		
-		[Export ("trackEventWithCategory:withAction:withLabel:withValue:")]
+		[Export ("sendEventWithCategory:withAction:withLabel:withValue:")]
+		bool SendEvent(string category, string action, string label, NSNumber value);
+		
+		[Export ("trackEventWithCategory:withAction:withLabel:withValue:"), Obsolete("This method is deprecated. See SendEvent.", false)]
 		bool TrackEvent(string category, string action, string label, NSNumber value);
 		
-		[Export ("trackTransaction:")]
+		[Export ("sendTransaction:")]
+		bool SendTransaction (GAITransaction transaction);
+		
+		[Export ("trackTransaction:"), Obsolete("This method is deprecated. See SendTransaction.", false)]
 		bool TrackTransaction (GAITransaction transaction);
 		
-		[Export ("trackException:withDescription:")]
-		bool TrackException (bool isFatal, string format );
+		[Export ("sendException:withDescription:")]
+		bool SendException (bool isFatal, string format);
 		
-		[Export ("trackException:withNSException:")]
+		[Export ("trackException:withDescription:"), Obsolete("This method is deprecated. See SendException.", false)]
+		bool TrackException (bool isFatal, string format);
+		
+		[Export ("sendException:withNSException:")]
+		bool SendException (bool isFatal, NSException exception);
+		
+		[Export ("trackException:withNSException:"), Obsolete("This method is deprecated. See SendException.", false)]
 		bool TrackException (bool isFatal, NSException exception);
 		
-		[Export ("trackException:withNSError:")]
+		[Export ("sendException:withNSError:")]
+		bool SendException (bool isFatal, NSError error);
+		
+		[Export ("trackException:withNSError:"), Obsolete("This method is deprecated. See SendException.", false)]
 		bool TrackException (bool isFatal, NSError error);
 		
-		[Export ("trackTimingWithCategory:withValue:withName:withLabel:")]
+		[Export ("sendTimingWithCategory:withValue:withName:withLabel:")]
+		bool SendTiming (string category, double time, string name, string label);
+		
+		[Export ("trackTimingWithCategory:withValue:withName:withLabel:"), Obsolete("This method is deprecated. See SendTiming.", false)]
 		bool TrackTiming (string category, double time, string name, string label);
 		
-		[Export ("trackSocial:withAction:withTarget:")]
+		[Export ("sendSocial:withAction:withTarget:")]
+		bool SendSocial (string network, string action, string target);
+		
+		[Export ("trackSocial:withAction:withTarget:"), Obsolete("This method is deprecated. See SendSocial.", false)]
 		bool TrackSocial (string network, string action, string target);
 		
 		[Export ("set:value:")]
