@@ -128,13 +128,13 @@ namespace MonoTouch.FacebookConnect
 	[BaseType (typeof (NSObject))]
 	interface FBDialogs 
 	{
-		[Static, Export("presentOSIntegratedShareDialogModallyFrom:initialText:image:url:handler:")]
+		[Async, Static, Export("presentOSIntegratedShareDialogModallyFrom:initialText:image:url:handler:")]
 		bool PresentOSIntegratedShareDialogModally (UIViewController viewController, [NullAllowed] string initialText, [NullAllowed] UIImage image, [NullAllowed] NSUrl url, [NullAllowed] FBOSIntegratedShareDialogHandler handler);
 
-		[Static, Export("presentOSIntegratedShareDialogModallyFrom:initialText:images:urls:handler:")]
+		[Async, Static, Export("presentOSIntegratedShareDialogModallyFrom:initialText:images:urls:handler:")]
 		bool PresentOSIntegratedShareDialogModally (UIViewController viewController, [NullAllowed] string initialText, [NullAllowed] UIImage [] images, [NullAllowed] NSUrl [] urls, [NullAllowed] FBOSIntegratedShareDialogHandler handler);
 	
-		[Static, Export("presentOSIntegratedShareDialogModallyFrom:session:initialText:images:urls:handler:")]
+		[Async, Static, Export("presentOSIntegratedShareDialogModallyFrom:session:initialText:images:urls:handler:")]
 		bool PresentOSIntegratedShareDialogModally (UIViewController viewController, [NullAllowed] FBSession session, [NullAllowed] string initialText, [NullAllowed] UIImage [] images, [NullAllowed] NSUrl [] urls, [NullAllowed] FBOSIntegratedShareDialogHandler handler);
 	
 		[Static, Export ("canPresentOSIntegratedShareDialogWithSession:")]
@@ -143,27 +143,34 @@ namespace MonoTouch.FacebookConnect
 		[Static, Export ("canPresentShareDialogWithParams:")]
 		bool CanPresentShareDialog (FBShareDialogParams aParams);
 
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithParams:clientState:handler:")]
 		FBAppCall PresentShareDialog (FBShareDialogParams aParams, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithLink:handler:")]
 		FBAppCall PresentShareDialog ([NullAllowed] NSUrl link, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithLink:name:handler:")]
 		FBAppCall PresentShareDialog ([NullAllowed] NSUrl link, [NullAllowed] string name, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithLink:name:caption:description:picture:clientState:handler:")]
 		FBAppCall PresentShareDialog ([NullAllowed] NSUrl link, [NullAllowed] string name, [NullAllowed] string caption, [NullAllowed] string description, [NullAllowed] NSUrl picture, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
 		[Static, Export ("canPresentShareDialogWithOpenGraphActionParams:")]
 		bool CanPresentShareDialog (FBOpenGraphActionShareDialogParams aParams);
 
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithOpenGraphActionParams:clientState:handler:")]
 		FBAppCall PresentShareDialog (FBOpenGraphActionShareDialogParams aParams, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithOpenGraphAction:actionType:previewPropertyName:handler:")]
 		FBAppCall PresentShareDialog (FBOpenGraphAction action, [NullAllowed] string actionType, string previewPropertyName, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithOpenGraphAction:actionType:previewPropertyName:clientState:handler:")]
 		FBAppCall PresentShareDialog (FBOpenGraphAction action, [NullAllowed] string actionType, string previewPropertyName, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 	}
@@ -317,6 +324,7 @@ namespace MonoTouch.FacebookConnect
 		[Export("prefetchAndCacheForSession:")]
 		void PrefetchAndCache ([NullAllowed] FBSession session);
 
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export("prefetchAndCacheForSession:completionHandler:")]
 		void PrefetchAndCache ([NullAllowed] FBSession session, [NullAllowed] FBRequestHandler handler);
 	}
@@ -980,73 +988,74 @@ namespace MonoTouch.FacebookConnect
 		
 		[Export ("graphObject")]
 		FBGraphObject GraphObject { get; set; }
-		
+
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startWithCompletionHandler:")]
 		FBRequestConnection Start (FBRequestHandler handler);
 		
 		[Static]
 		[Export ("requestForMe")]
-		FBRequest GetRequestForMe { get; }
+		FBRequest ForMe { get; }
 		
 		[Static]
 		[Export ("requestForMyFriends")]
-		FBRequest GetRequestForMyFriends { get; }
+		FBRequest ForMyFriends { get; }
 		
 		[Static]
 		[Export ("requestForUploadPhoto:")]
-		FBRequest RequestForUploadPhoto (UIImage photo);
+		FBRequest ForUploadPhoto (UIImage photo);
 		
 		[Static]
 		[Export ("requestForPostStatusUpdate:")]
-		FBRequest RequestForPostStatusUpdate (string message);
+		FBRequest ForPostStatusUpdate (string message);
 		
 		[Static]
 		[Export ("requestForPostStatusUpdate:place:tags:")]
-		FBRequest RequestForPostStatusUpdate (string message, [NullAllowed] NSObject place, NSObject [] tags);
+		FBRequest ForPostStatusUpdate (string message, [NullAllowed] NSObject place, NSObject [] tags);
 		
 		[Static]
 		[Export ("requestForPlacesSearchAtCoordinate:radiusInMeters:resultsLimit:searchText:")]
-		FBRequest RequestForPlacesSearchAtCoordinate (CLLocationCoordinate2D coordinate, int radius, int limit, string searchText);
+		FBRequest ForPlacesSearchAtCoordinate (CLLocationCoordinate2D coordinate, int radius, int limit, string searchText);
 
 		[Static]
 		[Export ("requestForCustomAudienceThirdPartyID:")]
-		FBRequest RequestForCustomAudienceThirdPartyID (FBSession session);
+		FBRequest ForCustomAudienceThirdPartyID (FBSession session);
 
 		[Static]
 		[Export ("requestForGraphPath:")]
-		FBRequest RequestForGraphPath (string graphPath);
+		FBRequest ForGraphPath (string graphPath);
 
 		[Static]
 		[Export ("requestForDeleteObject:")]
-		FBRequest RequestForDeleteObject (NSObject aObject);
+		FBRequest ForDeleteObject (NSObject aObject);
 		
 		[Static]
 		[Export ("requestForPostWithGraphPath:graphObject:")]
-		FBRequest RequestForPostWithGraphPath (string graphPath, FBGraphObject graphObject);
+		FBRequest ForPostWithGraphPath (string graphPath, FBGraphObject graphObject);
 		
 		[Static]
 		[Export ("requestWithGraphPath:parameters:HTTPMethod:")]
-		FBRequest RequestWithGraphPath (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string HTTPMethod);
+		FBRequest WithGraphPath (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string HTTPMethod);
 
 		[Static]
 		[Export ("requestForPostOpenGraphObject:")]
-		FBRequest RequestForPostOpenGraphObject (FBOpenGraphObject aObject);
+		FBRequest ForPostOpenGraphObject (FBOpenGraphObject aObject);
 
 		[Static]
 		[Export ("requestForPostOpenGraphObjectWithType:title:image:url:description:objectProperties:")]
-		FBRequest RequestForPostOpenGraphObject (string aType, string title, NSObject image, NSObject url, string description, NSDictionary objectProperties);
+		FBRequest ForPostOpenGraphObject (string aType, string title, NSObject image, NSObject url, string description, NSDictionary objectProperties);
 
 		[Static]
 		[Export ("requestForUpdateOpenGraphObject:")]
-		FBRequest RequestForUpdateOpenGraphObject (FBOpenGraphObject aObject);
+		FBRequest ForUpdateOpenGraphObject (FBOpenGraphObject aObject);
 
 		[Static]
 		[Export ("requestForUpdateOpenGraphObjectWithId:title:image:url:description:objectProperties:")]
-		FBRequest RequestForPostOpenGraphObject (NSObject objectId, string title, NSObject image, NSObject url, string description, NSDictionary objectProperties);
+		FBRequest ForPostOpenGraphObject (NSObject objectId, string title, NSObject image, NSObject url, string description, NSDictionary objectProperties);
 
 		[Static]
 		[Export ("requestForUploadStagingResourceWithImage:")]
-		FBRequest RequestForUploadStagingResource (UIImage image);
+		FBRequest ForUploadStagingResource (UIImage image);
 
 		#region Old Facebook Apis
 
@@ -1126,68 +1135,84 @@ namespace MonoTouch.FacebookConnect
 		void Cancel ();
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForMeWithCompletionHandler:")]
-		FBRequestConnection StartForMeWithCompletionHandler (FBRequestHandler handler);
+		FBRequestConnection GetMe (FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForMyFriendsWithCompletionHandler:")]
-		FBRequestConnection StartForMyFriendsWithCompletionHandler (FBRequestHandler handler);
+		FBRequestConnection GetMyFriends (FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForUploadPhoto:completionHandler:")]
-		FBRequestConnection StartForUploadPhoto (UIImage photo, FBRequestHandler handler);
+		FBRequestConnection UploadPhoto (UIImage photo, FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForPostStatusUpdate:completionHandler:")]
-		FBRequestConnection StartForPostStatusUpdate (string message, FBRequestHandler handler);
+		FBRequestConnection PostStatusUpdate (string message, FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForPostStatusUpdate:place:tags:completionHandler:")]
-		FBRequestConnection StartForPostStatusUpdate (string message, [NullAllowed] NSObject place, NSObject [] tags, FBRequestHandler handler);
+		FBRequestConnection PostStatusUpdate (string message, [NullAllowed] NSObject place, NSObject [] tags, FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForPlacesSearchAtCoordinate:radiusInMeters:resultsLimit:searchText:completionHandler:")]
-		FBRequestConnection StartForPlacesSearchAtCoordinate (CLLocationCoordinate2D coordinate, int radius, int limit, string searchText, FBRequestHandler handler);
+		FBRequestConnection StartPlacesSearchAtCoordinate (CLLocationCoordinate2D coordinate, int radius, int limit, string searchText, FBRequestHandler handler);
 
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForCustomAudienceThirdPartyID:completionHandler:")]
-		FBRequestConnection StartForCustomAudienceThirdPartyID (FBSession session, FBRequestHandler handler);
+		FBRequestConnection GetCustomAudienceThirdPartyID (FBSession session, FBRequestHandler handler);
 
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startWithGraphPath:completionHandler:")]
-		FBRequestConnection StartWithGraphPath (string graphPath, FBRequestHandler handler);
+		FBRequestConnection GetGraphPath (string graphPath, FBRequestHandler handler);
 
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForDeleteObject:completionHandler:")]
-		FBRequestConnection StartForDeleteObject (NSObject aObject, FBRequestHandler handler);
+		FBRequestConnection DeleteObject (NSObject aObject, FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForPostWithGraphPath:graphObject:completionHandler:")]
-		FBRequestConnection StartForPostWithGraphPath (string graphPath, FBGraphObject graphObject, FBRequestHandler handler);
+		FBRequestConnection PostGraphPath (string graphPath, FBGraphObject graphObject, FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startWithGraphPath:parameters:HTTPMethod:completionHandler:")]
 		FBRequestConnection StartWithGraphPath (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string HTTPMethod, FBRequestHandler handler);
 
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForPostOpenGraphObject:completionHandler:")]
-		FBRequestConnection StartForPostOpenGraphObject (FBOpenGraphObject aObject, FBRequestHandler handler);
+		FBRequestConnection PostOpenGraphObject (FBOpenGraphObject aObject, FBRequestHandler handler);
 
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForPostOpenGraphObjectWithType:title:image:url:description:objectProperties:completionHandler:")]
-		FBRequest StartForPostOpenGraphObject (string aType, string title, NSObject image, NSObject url, string description, NSDictionary objectProperties, FBRequestHandler handler);
+		FBRequest PostOpenGraphObject (string aType, string title, NSObject image, NSObject url, string description, NSDictionary objectProperties, FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForUpdateOpenGraphObject:completionHandler:")]
-		FBRequest StartForUpdateOpenGraphObject (FBOpenGraphObject aObject, FBRequestHandler handler);
+		FBRequest UpdateOpenGraphObject (FBOpenGraphObject aObject, FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForUpdateOpenGraphObjectWithId:title:image:url:description:objectProperties:completionHandler:")]
-		FBRequest StartForUpdateOpenGraphObject (NSObject objectId, string title, NSObject image, NSObject url, string description, NSDictionary objectProperties, FBRequestHandler handler);
+		FBRequest UpdateOpenGraphObject (NSObject objectId, string title, NSObject image, NSObject url, string description, NSDictionary objectProperties, FBRequestHandler handler);
 		
 		[Static]
+		[Async (ResultTypeName = "FBRequestResult")]
 		[Export ("startForUploadStagingResourceWithImage:completionHandler:")]
-		FBRequest StartForUploadStagingResource (UIImage image, FBRequestHandler handler);
+		FBRequest UploadStagingResource (UIImage image, FBRequestHandler handler);
 	}
 	
 	delegate void FBSessionStateHandler (FBSession session, FBSessionState status, NSError error);
@@ -1252,10 +1277,10 @@ namespace MonoTouch.FacebookConnect
 
 		[Export ("accessTokenData", ArgumentSemantic.Copy)]
 		FBAccessTokenData AccessTokenData { get; }
-		
+
 		[Export ("openWithCompletionHandler:")]
 		void Open (FBSessionStateHandler handler);
-		
+
 		[Export ("openWithBehavior:completionHandler:")]
 		void Open (FBSessionLoginBehavior behavior, [NullAllowed] FBSessionStateHandler handler);
 
@@ -1274,10 +1299,10 @@ namespace MonoTouch.FacebookConnect
 		[Export ("reauthorizeWithPublishPermissions:defaultAudience:completionHandler:")] [Obsolete ("Use `RequestNewPublishPermissions` instead")]
 		void ReauthorizeWithPublishPermissions (string [] writePermissions, FBSessionDefaultAudience defaultAudience, [NullAllowed] FBSessionReauthorizeResultHandler handler);
 
-		[Export ("requestNewReadPermissions:completionHandler:")]
+		[Async, Export ("requestNewReadPermissions:completionHandler:")]
 		void RequestNewReadPermissions (string [] readPermissions, [NullAllowed] FBSessionRequestPermissionResultHandler handler);
 
-		[Export ("requestNewPublishPermissions:defaultAudience:completionHandler:")]
+		[Async, Export ("requestNewPublishPermissions:defaultAudience:completionHandler:")]
 		void RequestNewPublishPermissions (string [] writePermissions, FBSessionDefaultAudience defaultAudience, [NullAllowed] FBSessionRequestPermissionResultHandler handler);
 
 		[Export ("handleOpenURL:")]
