@@ -1448,15 +1448,15 @@ namespace RouteMe
 
 		//- (CLLocationCoordinate2D)topLeftOfCoverage;
 		[Export("topLeftOfCoverage")]
-		CLLocationCoordinate2D TopLeftOfCoverage();
+		CLLocationCoordinate2D TopLeftOfCoverage { get; }
 
 		//- (CLLocationCoordinate2D)bottomRightOfCoverage;
 		[Export("bottomRightOfCoverage")]
-		CLLocationCoordinate2D BottomRightOfCoverage();
+		CLLocationCoordinate2D BottomRightOfCoverage { get; }
 
 		//- (CLLocationCoordinate2D)centerOfCoverage;
 		[Export("centerOfCoverage")]
-		CLLocationCoordinate2D CenterOfCoverage();
+		CLLocationCoordinate2D CenterOfCoverage { get; }
 
 	}
 
