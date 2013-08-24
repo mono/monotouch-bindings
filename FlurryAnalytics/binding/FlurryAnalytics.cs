@@ -5,6 +5,10 @@ namespace FlurryAnalytics
 	[BaseType (typeof (NSObject))]
 	interface Flurry {
 		[Static]
+		[Export ("setCrashReportingEnabled:")]
+		void SetCrashReportingEnabled (bool value);
+
+		[Static]
 		[Export ("setAppVersion:")]
 		void SetAppVersion (string version);
 
