@@ -84,16 +84,19 @@ namespace GPUImage
 		[Export ("processAudioSampleBuffer:")]
 		void ProcessAudioSampleBuffer (CMSampleBuffer sampleBuffer);
 
-		[Export ("cameraPosition"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 116)]
+//		Export ("cameraPosition"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 116)]
+		[Export ("cameraPosition")]
 		AVCaptureDevicePosition CameraPosition { get; }
 
-		[Export ("videoCaptureConnection"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 120)]
-		AVCaptureConnection VideoCaptureConnection { get; }
+//		[Export ("videoCaptureConnection"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 120)]
+		[Export ("videoCaptureConnection")]
+AVCaptureConnection VideoCaptureConnection { get; }
 
 		[Export ("rotateCamera")]
 		void RotateCamera ();
 
-		[Export ("averageFrameDurationDuringCapture"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 130)]
+//		[Export ("averageFrameDurationDuringCapture"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 130)]
+		[Export ("averageFrameDurationDuringCapture")]
 		float AverageFrameDurationDuringCapture { get; }
 	}
 
@@ -186,16 +189,19 @@ namespace GPUImage
 		[Export ("processAudioSampleBuffer:")]
 		void ProcessAudioSampleBuffer (CMSampleBuffer sampleBuffer);
 
-		[Export ("cameraPosition"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 116)]
+//		[Export ("cameraPosition"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 116)]
+		[Export ("cameraPosition")]
 		AVCaptureDevicePosition CameraPosition { get; }
 
-		[Export ("videoCaptureConnection"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 120)]
+//		[Export ("videoCaptureConnection"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 120)]
+		[Export ("videoCaptureConnection")]
 		AVCaptureConnection VideoCaptureConnection { get; }
 
 		[Export ("rotateCamera")]
 		void RotateCamera ();
 
-		[Export ("averageFrameDurationDuringCapture"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 130)]
+//		[Export ("averageFrameDurationDuringCapture"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 130)]
+		[Export ("averageFrameDurationDuringCapture")]
 		float AverageFrameDurationDuringCapture { get; }
 	}
 	
