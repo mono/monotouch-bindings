@@ -23,79 +23,14 @@ namespace GPUImage
 		[Export ("willOutputSampleBuffer:")]
 		void WillOutputSampleBuffer(CMSampleBuffer sampleBuffer);
 	}
+	
+//	public delegate void CapturePhotoAsSampleBufferDelegate (CMSampleBufferRef imageSampleBuffer, NSError error);
 
-	[BaseType (typeof (GPUImageOutput))]
-	public partial interface GPUImageVideoCamera : AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
+	public delegate void CapturePhotoAsImageDelegate (UIImage processedImage, NSError error);
 
-		[Export ("captureSession", ArgumentSemantic.Retain)]
-		AVCaptureSession CaptureSession { get; }
+	public delegate void CapturePhotoAsJPEGDelegate (NSData processedJPEG, NSError error);
 
-		[Export ("captureSessionPreset", ArgumentSemantic.Copy)]
-		string CaptureSessionPreset { get; set; }
-
-		[Export ("frameRate")]
-		int FrameRate { get; set; }
-
-		[Export ("frontFacingCameraPresent")]
-		bool FrontFacingCameraPresent { [Bind ("isFrontFacingCameraPresent")] get; }
-
-		[Export ("backFacingCameraPresent")]
-		bool BackFacingCameraPresent { [Bind ("isBackFacingCameraPresent")] get; }
-
-		[Export ("runBenchmark")]
-		bool RunBenchmark { get; set; }
-
-		[Export ("inputCamera")]
-		AVCaptureDevice InputCamera { get; }
-
-		[Export ("outputImageOrientation")]
-		UIInterfaceOrientation OutputImageOrientation { get; set; }
-
-		[Export ("horizontallyMirrorFrontFacingCamera")]
-		bool HorizontallyMirrorFrontFacingCamera { get; set; }
-
-		[Export ("horizontallyMirrorRearFacingCamera")]
-		bool HorizontallyMirrorRearFacingCamera { get; set; }
-
-		[Export ("delegate", ArgumentSemantic.Assign)]
-		GPUImageVideoCameraDelegate Delegate { get; set; }
-
-		[Export ("initWithSessionPreset:cameraPosition:")]
-		IntPtr Constructor (string sessionPreset, AVCaptureDevicePosition cameraPosition);
-
-		[Export ("removeInputsAndOutputs")]
-		void RemoveInputsAndOutputs ();
-
-		[Export ("startCameraCapture")]
-		void StartCameraCapture ();
-
-		[Export ("stopCameraCapture")]
-		void StopCameraCapture ();
-
-		[Export ("pauseCameraCapture")]
-		void PauseCameraCapture ();
-
-		[Export ("resumeCameraCapture")]
-		void ResumeCameraCapture ();
-
-		[Export ("processVideoSampleBuffer:")]
-		void ProcessVideoSampleBuffer (CMSampleBuffer sampleBuffer);
-
-		[Export ("processAudioSampleBuffer:")]
-		void ProcessAudioSampleBuffer (CMSampleBuffer sampleBuffer);
-
-		[Export ("cameraPosition")]
-		AVCaptureDevicePosition CameraPosition { get; }
-
-		[Export ("videoCaptureConnection")]
-AVCaptureConnection VideoCaptureConnection { get; }
-
-		[Export ("rotateCamera")]
-		void RotateCamera ();
-
-		[Export ("averageFrameDurationDuringCapture")]
-		float AverageFrameDurationDuringCapture { get; }
-	}
+	public delegate void CapturePhotoAsPNGDelegate (NSData processedPNG, NSError error);
 
 	[BaseType (typeof (GPUImageVideoCamera))]
 	public partial interface GPUImageStillCamera {
@@ -106,28 +41,23 @@ AVCaptureConnection VideoCaptureConnection { get; }
 		[Export ("currentCaptureMetadata")]
 		NSDictionary CurrentCaptureMetadata { get; }
 
-		[Export ("capturePhotoAsSampleBufferWithCompletionHandler:")]
-		void CapturePhotoAsSampleBufferWithCompletionHandler (Delegate block);
+//		[Export ("capturePhotoAsSampleBufferWithCompletionHandler:")]
+//		void CapturePhotoAsSampleBufferWithCompletionHandler (CapturePhotoAsSampleBufferDelegate block);
 
 		[Export ("capturePhotoAsImageProcessedUpToFilter:withCompletionHandler:")]
-		void CapturePhotoAsImageProcessedUpToFilter (GPUImageOutput finalFilterInChain, Delegate block);
+		void CapturePhotoAsImageProcessedUpToFilter (GPUImageOutput finalFilterInChain, CapturePhotoAsImageDelegate block);
 
 		[Export ("capturePhotoAsJPEGProcessedUpToFilter:withCompletionHandler:")]
-		void CapturePhotoAsJPEGProcessedUpToFilter (GPUImageOutput finalFilterInChain, Delegate block);
+		void CapturePhotoAsJPEGProcessedUpToFilter (GPUImageOutput finalFilterInChain, CapturePhotoAsJPEGDelegate block);
 
 		[Export ("capturePhotoAsPNGProcessedUpToFilter:withCompletionHandler:")]
-		void CapturePhotoAsPNGProcessedUpToFilter (GPUImageOutput finalFilterInChain, Delegate block);
-	}
-
-	[Model, BaseType (typeof (NSObject))]
-	public partial interface GPUImageVideoCameraDelegate {
-
-		[Export ("willOutputSampleBuffer:")]
-		void  (CMSampleBuffer sampleBuffer);
+		void CapturePhotoAsPNGProcessedUpToFilter (GPUImageOutput finalFilterInChain, CapturePhotoAsPNGDelegate block);
 	}
 
 	[BaseType (typeof (GPUImageOutput))]
-	public partial interface GPUImageVideoCamera : AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
+//	public partial interface GPUImageVideoCamera : AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate 
+	public partial interface GPUImageVideoCamera 
+	{
 
 		[Export ("captureSession", ArgumentSemantic.Retain)]
 		AVCaptureSession CaptureSession { get; }
