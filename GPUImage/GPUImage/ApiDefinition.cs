@@ -5,6 +5,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.CoreGraphics;
 using MonoTouch.CoreMedia;
+using MonoTouch.AVFoundation;
 
 namespace GPUImage
 {
@@ -14,6 +15,188 @@ namespace GPUImage
 	{
 		[Export("textureNoLongerNeededForTarget:")]
 		void TextureNoLongerNeededForTarget(GPUImageInput textureTarget);
+	}
+
+	[Model, BaseType (typeof (NSObject))]
+	public partial interface GPUImageVideoCameraDelegate {
+
+		[Export ("willOutputSampleBuffer:")]
+		void WillOutputSampleBuffer(CMSampleBuffer sampleBuffer);
+	}
+
+	[BaseType (typeof (GPUImageOutput))]
+	public partial interface GPUImageVideoCamera : AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
+
+		[Export ("captureSession", ArgumentSemantic.Retain)]
+		AVCaptureSession CaptureSession { get; }
+
+		[Export ("captureSessionPreset", ArgumentSemantic.Copy)]
+		string CaptureSessionPreset { get; set; }
+
+		[Export ("frameRate")]
+		int FrameRate { get; set; }
+
+		[Export ("frontFacingCameraPresent")]
+		bool FrontFacingCameraPresent { [Bind ("isFrontFacingCameraPresent")] get; }
+
+		[Export ("backFacingCameraPresent")]
+		bool BackFacingCameraPresent { [Bind ("isBackFacingCameraPresent")] get; }
+
+		[Export ("runBenchmark")]
+		bool RunBenchmark { get; set; }
+
+		[Export ("inputCamera")]
+		AVCaptureDevice InputCamera { get; }
+
+		[Export ("outputImageOrientation")]
+		UIInterfaceOrientation OutputImageOrientation { get; set; }
+
+		[Export ("horizontallyMirrorFrontFacingCamera")]
+		bool HorizontallyMirrorFrontFacingCamera { get; set; }
+
+		[Export ("horizontallyMirrorRearFacingCamera")]
+		bool HorizontallyMirrorRearFacingCamera { get; set; }
+
+		[Export ("delegate", ArgumentSemantic.Assign)]
+		GPUImageVideoCameraDelegate Delegate { get; set; }
+
+		[Export ("initWithSessionPreset:cameraPosition:")]
+		IntPtr Constructor (string sessionPreset, AVCaptureDevicePosition cameraPosition);
+
+		[Export ("removeInputsAndOutputs")]
+		void RemoveInputsAndOutputs ();
+
+		[Export ("startCameraCapture")]
+		void StartCameraCapture ();
+
+		[Export ("stopCameraCapture")]
+		void StopCameraCapture ();
+
+		[Export ("pauseCameraCapture")]
+		void PauseCameraCapture ();
+
+		[Export ("resumeCameraCapture")]
+		void ResumeCameraCapture ();
+
+		[Export ("processVideoSampleBuffer:")]
+		void ProcessVideoSampleBuffer (CMSampleBuffer sampleBuffer);
+
+		[Export ("processAudioSampleBuffer:")]
+		void ProcessAudioSampleBuffer (CMSampleBuffer sampleBuffer);
+
+		[Export ("cameraPosition"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 116)]
+		AVCaptureDevicePosition CameraPosition { get; }
+
+		[Export ("videoCaptureConnection"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 120)]
+		AVCaptureConnection VideoCaptureConnection { get; }
+
+		[Export ("rotateCamera")]
+		void RotateCamera ();
+
+		[Export ("averageFrameDurationDuringCapture"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 130)]
+		float AverageFrameDurationDuringCapture { get; }
+	}
+
+	[BaseType (typeof (GPUImageVideoCamera))]
+	public partial interface GPUImageStillCamera {
+
+		[Export ("jpegCompressionQuality")]
+		float JpegCompressionQuality { get; set; }
+
+		[Export ("currentCaptureMetadata")]
+		NSDictionary CurrentCaptureMetadata { get; }
+
+		[Export ("capturePhotoAsSampleBufferWithCompletionHandler:")]
+		void CapturePhotoAsSampleBufferWithCompletionHandler (Delegate block);
+
+		[Export ("capturePhotoAsImageProcessedUpToFilter:withCompletionHandler:")]
+		void CapturePhotoAsImageProcessedUpToFilter (GPUImageOutput finalFilterInChain, Delegate block);
+
+		[Export ("capturePhotoAsJPEGProcessedUpToFilter:withCompletionHandler:")]
+		void CapturePhotoAsJPEGProcessedUpToFilter (GPUImageOutput finalFilterInChain, Delegate block);
+
+		[Export ("capturePhotoAsPNGProcessedUpToFilter:withCompletionHandler:")]
+		void CapturePhotoAsPNGProcessedUpToFilter (GPUImageOutput finalFilterInChain, Delegate block);
+	}
+
+	[Model, BaseType (typeof (NSObject))]
+	public partial interface GPUImageVideoCameraDelegate {
+
+		[Export ("willOutputSampleBuffer:")]
+		void  (CMSampleBuffer sampleBuffer);
+	}
+
+	[BaseType (typeof (GPUImageOutput))]
+	public partial interface GPUImageVideoCamera : AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
+
+		[Export ("captureSession", ArgumentSemantic.Retain)]
+		AVCaptureSession CaptureSession { get; }
+
+		[Export ("captureSessionPreset", ArgumentSemantic.Copy)]
+		string CaptureSessionPreset { get; set; }
+
+		[Export ("frameRate")]
+		int FrameRate { get; set; }
+
+		[Export ("frontFacingCameraPresent")]
+		bool FrontFacingCameraPresent { [Bind ("isFrontFacingCameraPresent")] get; }
+
+		[Export ("backFacingCameraPresent")]
+		bool BackFacingCameraPresent { [Bind ("isBackFacingCameraPresent")] get; }
+
+		[Export ("runBenchmark")]
+		bool RunBenchmark { get; set; }
+
+		[Export ("inputCamera")]
+		AVCaptureDevice InputCamera { get; }
+
+		[Export ("outputImageOrientation")]
+		UIInterfaceOrientation OutputImageOrientation { get; set; }
+
+		[Export ("horizontallyMirrorFrontFacingCamera")]
+		bool HorizontallyMirrorFrontFacingCamera { get; set; }
+
+		[Export ("horizontallyMirrorRearFacingCamera")]
+		bool HorizontallyMirrorRearFacingCamera { get; set; }
+
+		[Export ("delegate", ArgumentSemantic.Assign)]
+		GPUImageVideoCameraDelegate Delegate { get; set; }
+
+		[Export ("initWithSessionPreset:cameraPosition:")]
+		IntPtr Constructor (string sessionPreset, AVCaptureDevicePosition cameraPosition);
+
+		[Export ("removeInputsAndOutputs")]
+		void RemoveInputsAndOutputs ();
+
+		[Export ("startCameraCapture")]
+		void StartCameraCapture ();
+
+		[Export ("stopCameraCapture")]
+		void StopCameraCapture ();
+
+		[Export ("pauseCameraCapture")]
+		void PauseCameraCapture ();
+
+		[Export ("resumeCameraCapture")]
+		void ResumeCameraCapture ();
+
+		[Export ("processVideoSampleBuffer:")]
+		void ProcessVideoSampleBuffer (CMSampleBuffer sampleBuffer);
+
+		[Export ("processAudioSampleBuffer:")]
+		void ProcessAudioSampleBuffer (CMSampleBuffer sampleBuffer);
+
+		[Export ("cameraPosition"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 116)]
+		AVCaptureDevicePosition CameraPosition { get; }
+
+		[Export ("videoCaptureConnection"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 120)]
+		AVCaptureConnection VideoCaptureConnection { get; }
+
+		[Export ("rotateCamera")]
+		void RotateCamera ();
+
+		[Export ("averageFrameDurationDuringCapture"), Verify ("ObjC method massaged into getter property", "/Users/micha/Desktop/gpucamera/GPUImageVideoCamera.h", Line = 130)]
+		float AverageFrameDurationDuringCapture { get; }
 	}
 	
 	[BaseType(typeof(NSObject))]
