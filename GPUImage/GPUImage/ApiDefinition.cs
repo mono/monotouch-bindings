@@ -619,8 +619,8 @@ namespace GPUImage
 			[Export("radius")]
 			float Radius { get; set; }
 			
-			[Export("angle")]
-			float Angle { get; set; }
+			[Export("scale")]
+			float Scale { get; set; }
 		}
 
 		
