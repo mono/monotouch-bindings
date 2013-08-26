@@ -9,23 +9,6 @@ using MonoTouch.AVFoundation;
 
 namespace GPUImage
 {
-	#region Filter
-
-	[BaseType (typeof (GPUImageFilter))]
-	public partial interface GPUImageBulgeDistortionFilter {
-
-		[Export ("center")]
-		PointF Center { get; set; }
-
-		[Export ("radius")]
-		float Radius { get; set; }
-
-		[Export ("scale")]
-		float Scale { get; set; }
-	}
-
-	#endregion
-
 	[BaseType(typeof(NSObject))]
 	[Model]
 	public interface GPUImageTextureDelegate
