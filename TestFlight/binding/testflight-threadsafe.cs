@@ -14,24 +14,26 @@ namespace MonoTouch.TestFlight
 		public static void TakeOffThreadSafe(String applicationToken)
 		{
 
-				IntPtr sigbus = Marshal.AllocHGlobal (512);
-				IntPtr sigsegv = Marshal.AllocHGlobal (512);
-				
-				// Store Mono SIGSEGV and SIGBUS handlers
-				sigaction (Signal.SIGBUS, IntPtr.Zero, sigbus);
-				sigaction (Signal.SIGSEGV, IntPtr.Zero, sigsegv);
-				
-				// Enable crash reporting libraries
-				//MonoTouch.TestFlight.TestFlight.SetDeviceIdentifier(UIDevice.CurrentDevice.UniqueIdentifier);
-				//MonoTouch.TestFlight.TestFlight.SetDeviceIdentifier(MonoTouch.AdSupport.ASIdentifierManager.SharedManager.AdvertisingIdentifier.ToString());
-				TestFlight.TakeOff(applicationToken);
-				
-				// Restore Mono SIGSEGV and SIGBUS handlers            
-				sigaction (Signal.SIGBUS, sigbus, IntPtr.Zero);
-				sigaction (Signal.SIGSEGV, sigsegv, IntPtr.Zero);
-				
-				Marshal.FreeHGlobal (sigbus);
-				Marshal.FreeHGlobal (sigsegv);
+			IntPtr sigbus = Marshal.AllocHGlobal (512);
+			IntPtr sigsegv = Marshal.AllocHGlobal (512);
+			IntPtr sigpipe = Marshal.AllocHGlobal (512);
+
+			// Store Mono SIGSEGV, SIGBUS and SIGPIPE handlers
+			sigaction (Signal.SIGBUS, IntPtr.Zero, sigbus);
+			sigaction (Signal.SIGSEGV, IntPtr.Zero, sigsegv);
+			sigaction (Signal.SIGPIPE, IntPtr.Zero, sigpipe);
+
+			// Enable crash reporting libraries
+			TestFlight.TakeOff(applicationToken);
+
+			// Restore Mono SIGSEGV, SIGBUS and SIGPIPE handlers            
+			sigaction (Signal.SIGBUS, sigbus, IntPtr.Zero);
+			sigaction (Signal.SIGSEGV, sigsegv, IntPtr.Zero);
+			sigaction (Signal.SIGPIPE, sigpipe, IntPtr.Zero);
+
+			Marshal.FreeHGlobal (sigbus);
+			Marshal.FreeHGlobal (sigsegv);
+			Marshal.FreeHGlobal (sigpipe);
 
 		}
 
@@ -45,14 +47,6 @@ namespace MonoTouch.TestFlight
 			TestFlight.SetOptions(new NSDictionary(option, NSNumber.FromInt32(newValue)));
 		}
 
-//		/// <summary>
-//		/// Setting to true attaches the current backtrace, with symbols, to the feedback
-//		/// </summary>
-//		/// <param name="newValue">Defaults to false</param>
-//		public static void SetAttachBacktraceToFeedback(Boolean newValue)
-//		{
-//			SetOption(new NSString("attachBacktraceToFeedback"),newValue);
-//		}
 
 		/// <summary>
 		/// Setting to true, disables the in app update screen shown in BETA apps when there is a new version available on TestFlight
@@ -60,7 +54,7 @@ namespace MonoTouch.TestFlight
 		/// <param name="newValue">Defaults to false</param>
 		public static void SetDisableInAppUpdates(Boolean newValue)
 		{
-			SetOption(new NSString("disableInAppUpdates"),newValue);
+			SetOption(Options.TFOptionDisableInAppUpdates,newValue);
 		}
 
 		/// <summary>
@@ -71,7 +65,7 @@ namespace MonoTouch.TestFlight
 		{
 			if (newValue < 0 || (newValue > 0 && newValue < 30))
 				throw new ArgumentOutOfRangeException ("newValue", "Should be either 0 or above 30");
-			SetOption (new NSString ("flushSecondsInterval"), newValue);
+			SetOption (Options.TFOptionFlushSecondsInterval, newValue);
 		}
 
 		/// <summary>
@@ -80,7 +74,7 @@ namespace MonoTouch.TestFlight
 		/// <param name="newValue">Defaults to true</param>
 		public static void SetLogOnCheckpoint(Boolean newValue)
 		{
-			SetOption (new NSString("logOnCheckpoint"), newValue);
+			SetOption (Options.TFOptionLogOnCheckpoint, newValue);
 		}
 
 		/// <summary>
@@ -89,7 +83,7 @@ namespace MonoTouch.TestFlight
 		/// <param name="newValue">Defaults to true</param>
 		public static void SetLogToConsole(Boolean newValue)
 		{
-			SetOption(new NSString("logToConsole"),newValue);
+			SetOption (Options.TFOptionLogToConsole, newValue);
 		}
 
 		/// <summary>
@@ -98,7 +92,7 @@ namespace MonoTouch.TestFlight
 		/// <param name="newValue">Defaults to true</param>
 		public static void SetLogToSTDERR(Boolean newValue)
 		{
-			SetOption(new NSString("logToSTDERR"),newValue);
+			SetOption (Options.TFOptionLogToSTDERR, newValue);
 		}
 
 		/// <summary>
@@ -107,7 +101,7 @@ namespace MonoTouch.TestFlight
 		/// <param name="newValue">Only works when set to true</param>
 		public static void SetReinstallCrashHandlers(Boolean newValue)
 		{
-			SetOption(new NSString("reinstallCrashHandlers"),newValue);
+			SetOption(Options.TFOptionReinstallCrashHandlers,newValue);
 		}
 
 		/// <summary>
@@ -116,7 +110,7 @@ namespace MonoTouch.TestFlight
 		/// <param name="newValue">Defaults to true</param>
 		public static void SetReportCrashes(Boolean newValue)
 		{
-			SetOption (new NSString ("reportChrashes"), newValue);
+			SetOption (Options.TFOptionReportCrashes, newValue);
 		}
 
 		/// <summary>
@@ -125,7 +119,7 @@ namespace MonoTouch.TestFlight
 		/// <param name="newValue">Defaults to false</param>
 		public static void SetSendLogOnlyOnCrash(Boolean newValue)
 		{
-			SetOption(new NSString("sendLogOnlyOnCrash"),newValue);
+			SetOption (Options.TFOptionSendLogOnlyOnCrash, newValue);
 		}
 
 		/// <summary>
@@ -134,7 +128,7 @@ namespace MonoTouch.TestFlight
 		/// <param name="newValue">Defaults to 30</param>
 		public static void SetSessionKeepAliveTimeout(Int32 newValue)
 		{
-			SetOption (new NSString ("sessionKeepAliveTimeout"), newValue);
+			SetOption (Options.TFOptionSessionKeepAliveTimeout, newValue);
 		}
 
 
@@ -143,7 +137,8 @@ namespace MonoTouch.TestFlight
 		private static extern int sigaction (Signal sig, IntPtr act, IntPtr oact);
 		enum Signal {
 			SIGBUS = 10,
-			SIGSEGV = 11
+			SIGSEGV = 11,
+			SIGPIPE = 13
 		}
 	}
 }

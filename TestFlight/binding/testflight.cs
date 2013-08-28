@@ -48,12 +48,6 @@ namespace MonoTouch.TestFlight {
 		[Static, Export ("passCheckpoint:")]
 		void PassCheckpoint (string checkpointName);
 
-//		/// <summary>
-//		/// Opens a feedback window that is not attached to a checkpoint
-//		/// </summary>
-//		[Static, Export ("openFeedbackView")]
-//		void OpenFeedbackView ();
-
 		/// <summary>
 		/// Submits the feedback to the site, only if feedback is not null or empty.
 		/// </summary>
@@ -76,27 +70,34 @@ namespace MonoTouch.TestFlight {
 
 	}
 
-	//The NSStrings used for the options could be exposed to C#, but this doesn't seem to work. (someone please fix)
-	//They are kept for refrence.
-	//For now these constants are not used and the bindings define them themself
-//	[Static]
-//	public interface TestFlightOptions {
-//		[Static, Field("TFOptionAttachBacktraceToFeedback","__Internal")]
-//		NSString AttachBacktraceToFeedback {get;}
-//		
-//		[Static, Field("TFOptionDisableInAppUpdates","__Internal")]
-//		NSString DisableInAppUpdates {get;}
-//		
-//		[Static, Field("TFOptionLogToConsole","__Internal")]
-//		NSString LogToConsole {get;}
-//		
-//		[Static, Field("TFOptionLogToSTDERR","__Internal")]
-//		NSString LogToSTDERR {get;}
-//		
-//		[Static, Field("TFOptionReinstallCrashHandlers","__Internal")]
-//		NSString ReinstallCrashHandlers {get;}
-//		
-//		[Static, Field("TFOptionSendLogOnlyOnCrash","__Internal")]
-//		NSString SendLogOnlyOnCrash {get;}
-//	}
+	[Static]
+	public interface Options {
+
+		[Field ("TFOptionDisableInAppUpdates","__Internal")]
+		NSString TFOptionDisableInAppUpdates { get; }
+
+		[Field ("TFOptionFlushSecondsInterval","__Internal")]
+		NSString TFOptionFlushSecondsInterval { get; }
+
+		[Field ("TFOptionLogOnCheckpoint","__Internal")]
+		NSString TFOptionLogOnCheckpoint { get; }
+
+		[Field ("TFOptionLogToConsole","__Internal")]
+		NSString TFOptionLogToConsole { get; }
+
+		[Field ("TFOptionLogToSTDERR","__Internal")]
+		NSString TFOptionLogToSTDERR { get; }
+
+		[Field ("TFOptionReinstallCrashHandlers","__Internal")]
+		NSString TFOptionReinstallCrashHandlers { get; }
+
+		[Field ("TFOptionReportCrashes","__Internal")]
+		NSString TFOptionReportCrashes { get; }
+
+		[Field ("TFOptionSendLogOnlyOnCrash","__Internal")]
+		NSString TFOptionSendLogOnlyOnCrash { get; }
+
+		[Field ("TFOptionSessionKeepAliveTimeout","__Internal")]
+		NSString TFOptionSessionKeepAliveTimeout { get; }
+	}
 }
