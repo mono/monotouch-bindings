@@ -1,62 +1,52 @@
-using MonoTouch.UIKit;
-using System.Drawing;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+using MonoTouch.Dialog;
 using MonoTouch.TestFlight;
-
 namespace TestFlightSample
 {
-	public partial class TestFlightSampleViewController : UIViewController
+	public partial class TestFlightSampleViewController : DialogViewController
 	{
-		public TestFlightSampleViewController (string nibName, NSBundle bundle) : base (nibName, bundle)
+		public TestFlightSampleViewController () : base (UITableViewStyle.Grouped, null)
 		{
-		}
-		
-		public override void DidReceiveMemoryWarning ()
-		{
-			// Releases the view if it doesn't have a superview.
-			base.DidReceiveMemoryWarning ();
-			
-			// Release any cached data, images, etc that aren't in use.
-		}
-		
-		public override void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
-		
-			TestFlight.PassCheckpoint("Checkpoint 1");
-			
-			//any additional setup after loading the view, typically from a nib.
-		}
-		
-		partial void leaveFeedback (MonoTouch.Foundation.NSObject sender)
-		{
-			TestFlight.OpenFeedbackView();
-		}
-		
-		partial void passCheckpoint (MonoTouch.Foundation.NSObject sender)
-		{
-			TestFlight.PassCheckpoint("Checkpoint 2");
-		}
-		
-		partial void crashApp (MonoTouch.Foundation.NSObject sender)
-		{
-			var emptyString = String.Empty;
-			var breaks = emptyString.Substring(0, 20);
-		}
-		
-		public override void ViewDidUnload ()
-		{
-			base.ViewDidUnload ();
-			
-			// Release any retained subviews of the main view.
-			// e.g. myOutlet = null;
-		}
-		
-		public override bool ShouldAutorotateToInterfaceOrientation (UIInterfaceOrientation toInterfaceOrientation)
-		{
-			// Return true for supported orientations
-			return (toInterfaceOrientation != UIInterfaceOrientation.PortraitUpsideDown);
+			Root = new RootElement ("TestFlight") {
+				new Section ("Checkpoints"){
+					new StringElement ("Pass checkpoint 1", () => {
+						TestFlight.PassCheckpoint("Checkpoint 1");
+					}),
+					new StringElement ("Pass checkpoint 2", () => {
+						TestFlight.PassCheckpoint("Checkpoint 2");
+					}),
+				},
+				new Section ("Options"){
+					new StringElement("Set Flush Timeout to 30 sec.",()=>{
+						TestFlight.SetFlushSecondsInterval(31);
+					}),
+					new StringElement("Disable log on Checkpoint",()=>{
+						TestFlight.SetLogOnCheckpoint(false);
+					}),
+					new StringElement("Disable log to Console",()=>{
+						TestFlight.SetLogToConsole(false);
+					}),
+					new StringElement("Disable log to STDERR",()=>{
+						TestFlight.SetLogToSTDERR(false);
+					}),
+					new StringElement("Reinstall crashhandlers",()=>{
+						TestFlight.SetReinstallCrashHandlers(true);
+					}),
+					new StringElement("Disable crash reporting",()=>{
+						TestFlight.SetReportCrashes(false);
+					}),
+					new StringElement("Set send log on Crash only",()=>{
+						TestFlight.SetSendLogOnlyOnCrash(true);
+					}),
+					new StringElement("Set Session timeout to 60 sec.",()=>{
+						TestFlight.SetSessionKeepAliveTimeout(60);
+					})
+				},
+			};
 		}
 	}
 }
