@@ -76,6 +76,21 @@ namespace MonoTouch.TestFlight {
 
 	}
 
+	[Static]
+	public interface Options {
+
+		[Field ("TFOptionDisableInAppUpdates","__Internal")]
+		NSString DisableInAppUpdates { get; }
+
+		[Field ("TFOptionFlushSecondsInterval","__Internal")]
+		NSString FlushSecondsInterval { get; }
+
+		[Field ("TFOptionLogOnCheckpoint","__Internal")]
+		NSString LogOnCheckpoint { get; }
+
+		[Field ("TFOptionLogToConsole","__Internal")]
+		NSString LogToConsole { get; }
+
 	//The NSStrings used for the options could be exposed to C#, but this doesn't seem to work. (someone please fix)
 	//They are kept for refrence.
 	//For now these constants are not used and the bindings define them themself

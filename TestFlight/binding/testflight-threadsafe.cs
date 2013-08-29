@@ -6,13 +6,32 @@ namespace MonoTouch.TestFlight
 {
 	public partial class TestFlight : NSObject
 	{
-		/// <summary>
-		/// This is a better TakeOff methode for using with MonoTouch
-		/// The default one tends to crash your app unexpectedly
-		/// </summary>
-		/// <param name="applicationToken">You can find your Application Token on the TestFlight site</param>
-		public static void TakeOffThreadSafe(String applicationToken)
-		{
+        /// <summary>
+        /// This is a better TakeOff methode for using with MonoTouch
+        /// The default one tends to crash your app unexpectedly
+        /// </summary>
+        /// <param name="applicationToken">You can find your Application Token on the TestFlight site</param>
+        public static void TakeOffThreadSafe(String applicationToken)
+        {
+
+            IntPtr sigbus = Marshal.AllocHGlobal(512);
+            IntPtr sigsegv = Marshal.AllocHGlobal(512);
+            IntPtr sigpipe = Marshal.AllocHGlobal(512);
+
+            // Store Mono SIGSEGV and SIGBUS handlers
+            sigaction(Signal.SIGBUS, IntPtr.Zero, sigbus);
+            sigaction(Signal.SIGSEGV, IntPtr.Zero, sigsegv);
+            sigaction(Signal.SIGPIPE, IntPtr.Zero, sigpipe);
+
+            // Enable crash reporting libraries
+            //MonoTouch.TestFlight.TestFlight.SetDeviceIdentifier(UIDevice.CurrentDevice.UniqueIdentifier);
+            //MonoTouch.TestFlight.TestFlight.SetDeviceIdentifier(MonoTouch.AdSupport.ASIdentifierManager.SharedManager.AdvertisingIdentifier.ToString());
+            TestFlight.TakeOff(applicationToken);
+
+            // Restore Mono SIGSEGV and SIGBUS handlers            
+            sigaction(Signal.SIGBUS, sigbus, IntPtr.Zero);
+            sigaction(Signal.SIGSEGV, sigsegv, IntPtr.Zero);
+            sigaction(Signal.SIGPIPE, sigpipe, IntPtr.Zero);
 
 				IntPtr sigbus = Marshal.AllocHGlobal (512);
 				IntPtr sigsegv = Marshal.AllocHGlobal (512);
@@ -36,7 +55,7 @@ namespace MonoTouch.TestFlight
 				Marshal.FreeHGlobal (sigbus);
 				Marshal.FreeHGlobal (sigsegv);
 				Marshal.FreeHGlobal (sigpipe);
-		}
+        }
 
 		private static void SetOption(NSString option, Boolean newValue)
 		{
@@ -142,13 +161,14 @@ namespace MonoTouch.TestFlight
 
 
 
-		[DllImport ("libc")]
-		private static extern int sigaction (Signal sig, IntPtr act, IntPtr oact);
-		enum Signal {
-			SIGBUS = 10,
-			SIGSEGV = 11,
-			SIGPIPE = 13
-		}
+        [DllImport("libc")]
+        private static extern int sigaction(Signal sig, IntPtr act, IntPtr oact);
+        enum Signal
+        {
+            SIGBUS = 10,
+            SIGSEGV = 11,
+            SIGPIPE = 13
+        }
 	}
 }
 
