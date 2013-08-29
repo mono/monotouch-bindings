@@ -33,7 +33,7 @@ namespace TestFlightSample
 			
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
-			viewController = new TestFlightSampleViewController ("TestFlightSampleViewController", null);
+			viewController = new TestFlightSampleViewController ();
 			
 			window.RootViewController = viewController;
 
