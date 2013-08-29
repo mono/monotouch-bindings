@@ -74,30 +74,30 @@ namespace MonoTouch.TestFlight {
 	public interface Options {
 
 		[Field ("TFOptionDisableInAppUpdates","__Internal")]
-		NSString TFOptionDisableInAppUpdates { get; }
+		NSString DisableInAppUpdates { get; }
 
 		[Field ("TFOptionFlushSecondsInterval","__Internal")]
-		NSString TFOptionFlushSecondsInterval { get; }
+		NSString FlushSecondsInterval { get; }
 
 		[Field ("TFOptionLogOnCheckpoint","__Internal")]
-		NSString TFOptionLogOnCheckpoint { get; }
+		NSString LogOnCheckpoint { get; }
 
 		[Field ("TFOptionLogToConsole","__Internal")]
-		NSString TFOptionLogToConsole { get; }
+		NSString LogToConsole { get; }
 
 		[Field ("TFOptionLogToSTDERR","__Internal")]
-		NSString TFOptionLogToSTDERR { get; }
+		NSString LogToSTDERR { get; }
 
 		[Field ("TFOptionReinstallCrashHandlers","__Internal")]
-		NSString TFOptionReinstallCrashHandlers { get; }
+		NSString ReinstallCrashHandlers { get; }
 
 		[Field ("TFOptionReportCrashes","__Internal")]
-		NSString TFOptionReportCrashes { get; }
+		NSString ReportCrashes { get; }
 
 		[Field ("TFOptionSendLogOnlyOnCrash","__Internal")]
-		NSString TFOptionSendLogOnlyOnCrash { get; }
+		NSString SendLogOnlyOnCrash { get; }
 
 		[Field ("TFOptionSessionKeepAliveTimeout","__Internal")]
-		NSString TFOptionSessionKeepAliveTimeout { get; }
+		NSString SessionKeepAliveTimeout { get; }
 	}
 }
