@@ -68,6 +68,7 @@
     <Reference Include="TestFlight">
       <HintPath>..\..\binding\TestFlight.dll</HintPath>
     </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -76,12 +77,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="TestFlightSampleViewController.cs" />
-    <Compile Include="TestFlightSampleViewController.designer.cs">
-      <DependentUpon>TestFlightSampleViewController.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="TestFlightSampleViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -89,9 +84,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\114_icon.png" />
-    <Content Include="Images\512_icon.png" />
     <Content Include="Images\57_icon.png" />
     <Content Include="Default.png" />
     <Content Include="Default%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="Images\512_icon.png" />
   </ItemGroup>
 </Project>
