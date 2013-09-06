@@ -59,8 +59,30 @@ namespace CouchSample
 				}
 				return true;
 			});
+
+			AddNewItem ();
+
 			return true;
 		}
+
+		void AddNewItem ()
+		{
+			var value = "foo";
+
+			var jsonDate = DateTime.UtcNow.ToString("O");
+			var vals = NSDictionary.FromObjectsAndKeys (
+				new NSObject[] { new NSString(value), NSNumber.FromBoolean(false), new NSString(jsonDate) }, 
+			new NSObject[] { new NSString("text"), new NSString("check"), new NSString("created_at") }
+			);
+
+			var doc = database.CreateUntitledDocument();
+			NSError error;
+			var result = doc.PutProperties (vals);
+			if (result == null)
+				throw new ApplicationException ("failed to put props");
+		}
+
+
 
 		static void Main (string[] args)
 		{
