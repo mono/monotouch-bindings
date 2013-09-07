@@ -1,1075 +1,428 @@
 using System;
-using System.Drawing;
 
+using System.Runtime.InteropServices;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace Couchbase
-{
+namespace Couchbase {
 
-	[BaseType (typeof (NSObject), Name="RESTBody")]
-	interface RestBody {
-		[Export ("content")]
-		NSData Content { get;  }
+	public delegate void CBLMapEmitBlock(NSObject key, NSObject value);
+	public delegate bool CBLFilterBlock(CBLRevision revision, NSDictionary options);
+	public delegate bool CBLValidationBlock(CBLRevision newRevision, CBLValidationContext context);
+	public delegate void CBLMapBlock(NSDictionary doc, CBLView view);
+	public delegate NSObject CBLReduceBlock(NSArray keys, NSArray values, bool rereduce);
+	public delegate bool CBLChangeEnumeratorBlock(String key, NSObject oldValue, NSObject newValue);
 
-		[Export ("headers")]
-		NSDictionary Headers { get;  }
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLAttachment {
 
-		[Export ("resource")]
-		RestResource Resource { get;  }
+		[Export ("initWithContentType:body:")]
+		IntPtr Constructor (string contentType, NSObject body);
+
+		[Export ("revision", ArgumentSemantic.Retain)]
+		CBLRevisionBase Revision { get; }
+
+		[Export ("document")]
+		CBLDocument Document { get; }
+
+		[Export ("name", ArgumentSemantic.Copy)]
+		string Name { get; }
 
 		[Export ("contentType")]
-		string ContentType { get;  }
+		string ContentType { get; }
 
-		[Export ("eTag")]
-		string ETag { get;  }
+		[Export ("length")]
+		UInt64 Length { get; }
 
-		[Export ("lastModified")]
-		string LastModified { get;  }
+		[Export ("metadata")]
+		NSDictionary Metadata { get; }
 
-		[Export ("asString")]
-		string AsString { get;  }
+		[Export ("body")]
+		NSData Body { get; }
 
-		[Export ("fromJSON")]
-		NSObject FromJSON { get;  }
+		[Export ("bodyURL")]
+		NSUrl BodyURL { get; }
 
-		[Export ("entityHeadersFrom:")]
-		NSDictionary EntityHeadersFrom (NSDictionary headers);
-
-		[Export ("initWithContent:headers:resource:")]
-		IntPtr Constructor (NSData content, NSDictionary headers, RestResource resource);
-
-		[Export ("initWithData:contentType:")]
-		IntPtr Constructor (NSData content, string contentType);
-
-		[Static]
-		[Export ("stringWithJSONObject:")]
-		string StringFromJsonObject (NSObject obj);
-
-		[Static]
-		[Export ("prettyStringWithJSONObject:")]
-		string PrettyStringWithJsonObject (NSObject obj);
-
-		[Static]
-		[Export ("JSONObjectWithData:")]
-		NSObject JsonObjectFromData (NSData data);
-
-		[Static]
-		[Export ("JSONObjectWithString:")]
-		NSObject JsonObjectWithString (string str);
-
-		[Static]
-		[Export ("JSONObjectWithDate:")]
-		string JsonObjectWithDate (NSDate date);
-
-		[Static]
-		[Export ("dateWithJSONObject:")]
-		NSDate DateWithJSONObject (NSObject jsonObject);
-
-		[Static]
-		[Export ("base64WithData:")]
-		string EncodeBase64 (NSData data);
-
-		[Static]
-		[Export ("dataWithBase64:")]
-		NSData DecodeBase64 (string base64);
-	}
-
-	[BaseType (typeof (RestBody), Name="RESTMutableBody")]
-	interface RestMutableBody {
-		[Export ("headers"), New]
-		NSDictionary Headers { get; set;  }
-
-		[Export ("mutableHeaders")]
-		NSMutableDictionary MutableHeaders { get; set;  }
-
-		[Export ("contentType"), New]
-		string ContentType { get; set;  }
-
-		[Export ("resource"), New]
-		RestResource Resource { get; set;  }
-
-	}
-
-	[BaseType (typeof (NSObject), Name="RESTOperation")]
-	interface RestOperation {
-		[Export ("resource")]
-		RestResource Resource { get;  }
-
-		[Export ("URL")]
-		NSUrl Url { get;  }
-
-		[Export ("name")]
-		string Name { get;  }
-
-		[Export ("method")]
-		string Method { get;  }
-
-		[Export ("request")]
-		NSUrlRequest Request { get;  }
-
-		[Export ("isReadOnly")]
-		bool IsReadOnly { get;  }
-
-		[Export ("isGET")]
-		bool IsGet { get;  }
-
-		[Export ("isPUT")]
-		bool IsPut { get;  }
-
-		[Export ("isPOST")]
-		bool IsPost { get;  }
-
-		[Export ("isDELETE")]
-		bool IsDelte { get;  }
-
-		[Export ("requestBody")]
-		NSData RequestBody { get; set;  }
-
-		[Export ("error")]
-		NSError Error { get;  }
-
-		[Export ("isSuccessful")]
-		bool IsSuccessful { get;  }
-
-		[Export ("httpStatus")]
-		int HttpStatus { get;  }
-
-		[Export ("responseHeaders")]
-		NSDictionary ResponseHeaders { get;  }
-
-		[Export ("responseBody")]
-		RestBody ResponseBody { get;  }
-
-		[Export ("response")]
-		NSHttpUrlResponse Response { get;  }
-
-		[Export ("resultObject")]
-		NSObject ResultObject { get; set;  }
-
-		[Export ("initWithResource:request:")]
-		IntPtr Constructor (RestResource resource, NSUrlRequest request);
-
-		[Export ("setValue:forHeader:")]
-		void SetHeaderValue (string value, string headerName);
-
-		[Export ("start")]
-		RestOperation Start ();
-
-		[Export ("onCompletion:")]
-		bool OnCompletion (NSAction onComplete);
-
-		[Export ("wait")]
-		bool Wait ();
-
-		[Export ("wait:")]
-		bool Wait (out NSError outError);
-
-		[Static]
-		[Export ("wait:")]
-		bool Wait (NSSet operations);
-
-		[Export ("cancel")]
-		void Cancel ();
-
-		[Export ("isComplete")]
-		bool IsComplete { get; }
-
-		[Export ("dump")]
-		string Dump ();
-	}
-
-	[BaseType (typeof (NSObject), Name="RESTResource")]
-	interface RestResource {
-		[Export ("URL")]
-		NSUrl Url { get;  }
-
-		[Export ("parent")]
-		RestResource Parent { get;  }
-
-		[Export ("relativePath")]
-		string RelativePath { get;  }
-
-		[Export ("delegate"), NullAllowed]
-		NSObject WeakDelegate { get; set;  }
-
-		[Wrap ("WeakDelegate")]
-		RestResourceDelegate Delegate { get; set; }
-
-		[Export ("eTag")]
-		string ETag { get; set;  }
-
-		[Export ("lastModified")]
-		string LastModified { get; set;  }
-
-		[Export ("cachedURL")]
-		NSUrl CachedUrl { get; set;  }
-
-		[Export ("activeOperations")]
-		NSSet ActiveOperations { get;  }
-
-		[Export ("initWithURL:")]
-		IntPtr Constructor (NSUrl url);
-
-		[Export ("initWithParent:relativePath:")]
-		IntPtr Constructor (RestResource parent, string path);
-
-		[Export ("initUntitledWithParent:")]
-		IntPtr Constructor (RestResource parent);
-
-		[Export ("setCredential:")]
-		void SetCredential (NSUrlCredential credential);
-
-		[Export ("setProtectionSpace:")]
-		void SetProtectionSpace (NSUrlProtectionSpace protectionSpace);
-
-		[Export ("GET")]
-		RestOperation Get ();
-
-		[Export ("POST:parameters:")]
-		RestOperation Post (NSData body, NSDictionary parameters);
-
-		[Export ("PUT:parameters:")]
-		RestOperation Put (NSData body, NSDictionary parameters);
-
-		[Export ("PUTJSON:parameters:")]
-		RestOperation PutJson (NSObject body, NSDictionary parameters);
-
-		[Export ("POSTJSON:parameters:")]
-		RestOperation PostJson (NSObject body, NSDictionary parameters);
-
-		[Export ("DELETE")]
-		RestOperation Delete ();
-
-		[Export ("sendHTTP:parameters:")]
-		RestOperation SendHttp (string method, NSDictionary parameters);
-
-		[Export ("requestWithMethod:parameters:")]
-		NSMutableUrlRequest RequestWithMethod (string method, NSDictionary parameters);
-
-		[Export ("sendRequest:")]
-		RestOperation SendRequest (NSUrlRequest request);
-
-		[Export ("cacheResponse:")]
-		bool CacheResponse (RestOperation operation);
-
-		[Export ("operationDidStart:")]
-		void OperationDidStart (RestOperation op);
-
-		[Export ("operationDidComplete:")]
-		void OperationDidComplete (RestOperation op);
-
-		[Export ("operation:willCompleteWithError:")]
-		NSError OperationWillComplete (RestOperation op, NSError error);
-
-		[Export ("createdByPOST:")]
-		void CreatedByPost (RestOperation op);
-
+		[Export ("updateBody:contentType:error:")]
+		CBLRevision UpdateBody (NSData body, string contentType, out NSError outError);
 	}
 
 	[BaseType (typeof (NSObject))]
-	[Model]
-	interface RestResourceDelegate {
-		[Abstract]
-		[Export ("resource:willSendRequest:")]
-		void WillSendRequest (RestResource resource, NSMutableUrlRequest request);
+	public partial interface CBLViewCompiler {
 
-		[Abstract]
-		[Export ("resource:didReceiveResponse:")]
-		void DidReceiveResponse (RestResource resource, NSHttpUrlResponse response);
+		[Export ("compileMapFunction:language:")]
+		CBLMapBlock CompileMapFunction (string mapSource, string language);
+
+		[Export ("compileReduceFunction:language:")]
+		CBLReduceBlock CompileReduceFunction (string reduceSource, string language);
 	}
 
-	[BaseType (typeof (RestResource))]
-	interface CouchResource {
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLView {
+
+		[Export("emit:value:")]
+		void Emit (NSObject key, NSObject value);
+
+		[Export("foo")]
+		void Foo (CBLMapEmitBlock emit);
+
 		[Export ("database")]
-		CouchDatabase Database { get;  }
+		CBLDatabase Database { get; }
+
+		[Export ("name")]
+		string Name { get; }
+
+		[Export ("mapBlock")]
+		CBLMapBlock MapBlock { get; }
+
+		[Export ("reduceBlock")]
+		CBLReduceBlock ReduceBlock { get; }
+
+		[Export ("setMapBlock:reduceBlock:version:")]
+		bool SetMapBlock (CBLMapBlock mapBlock, [NullAllowed] CBLReduceBlock reduceBlock, string version);
+
+		[Export ("setMapBlock:version:")]
+		bool SetMapBlock (CBLMapBlock mapBlock, string version);
+
+		[Export ("stale")]
+		bool Stale { get; }
+
+		[Export ("lastSequenceIndexed")]
+		Int64 LastSequenceIndexed { get; }
+
+		[Export ("removeIndex")]
+		void RemoveIndex ();
+
+		[Export ("deleteView")]
+		void DeleteView ();
+
+		[Export ("query")]
+		CBLQuery Query { get; }
+
+		[Static, Export ("totalValues:")]
+		NSNumber TotalValues (NSObject [] values);
+
+		[Static, Export ("compiler")]
+		CBLViewCompiler Compiler { get; set; }
 	}
 
-	delegate string CouchDocumentPathMap (string documentId);
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLFilterCompiler {
 
-	[BaseType (typeof (CouchResource))]
-	interface CouchDatabase {
-		[Export ("server")]
-		CouchServer Server { get;  }
+		[Export ("compileFilterFunction:language:")]
+		CBLFilterBlock CompileFilterFunction (string filterSource, string language);
+	}
 
-		[Export ("documentPathMap")]
-		CouchDocumentPathMap DocumentPathMap { get; set;  }
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLDatabase {
+
+		[Export ("name")]
+		string Name { get; }
+
+		[Export ("manager")]
+		CBLManager Manager { get; }
+
+		[Export ("documentCount")]
+		uint DocumentCount { get; }
 
 		[Export ("lastSequenceNumber")]
-		uint LastSequenceNumber { get; set;  }
+		Int64 LastSequenceNumber { get; }
 
-		[Export ("replications")]
-		NSArray Replications { get;  }
+		[Export ("internalURL")]
+		NSUrl InternalURL { get; }
 
-		[Static]
-		[Export ("databaseWithURL:")]
-		CouchDatabase FromUrl (NSUrl databaseURL);
+		[Export ("compact:")]
+		bool Compact (out NSError outError);
 
-		[Static]
-		[Export ("databaseNamed:onServerWithURL:")]
-		CouchDatabase FromUrl (string databaseName, NSUrl serverURL);
-
-		[Export ("create")]
-		RestOperation Create ();
-
-		[Export ("ensureCreated:")]
-		bool EnsureCreated (out NSError outError);
-
-		[Export ("compact")]
-		RestOperation Compact ();
-
-		[Export ("getDocumentCount")]
-		int DocumentCount { get; }
+		[Export ("deleteDatabase:")]
+		bool DeleteDatabase (out NSError outError);
 
 		[Export ("documentWithID:")]
-		CouchDocument CreateDocumentWithID (string docID);
+		CBLDocument DocumentWithID (string docID);
+
+		[Export ("objectForKeyedSubscript:")]
+		CBLDocument ObjectForKeyedSubscript (string key);
 
 		[Export ("untitledDocument")]
-		CouchDocument CreateUntitledDocument ();
+		CBLDocument UntitledDocument { get; }
 
-		[Export ("getAllDocuments")]
-		CouchQuery GetAllDocuments ();
-
-		[Export ("getDocumentsWithIDs:")]
-		CouchQuery GetDocumentsWithIDs (string [] docIDs);
-
-		[Export ("putChanges:toRevisions:")]
-		RestOperation PutChanges (NSObject [] properties, NSObject [] revisions);
-
-		[Export ("putChanges:")]
-		RestOperation PutChanges (NSObject [] properties);
-
-		[Export ("deleteRevisions:")]
-		RestOperation DeleteRevisions (NSObject [] revisions);
-
-		[Export ("deleteDocuments:")]
-		RestOperation DeleteDocuments (NSObject []documents);
+		[Export ("cachedDocumentWithID:")]
+		CBLDocument CachedDocumentWithID (string docID);
 
 		[Export ("clearDocumentCache")]
 		void ClearDocumentCache ();
 
-		[Export ("slowQueryWithMap:reduce:language:")]
-		CouchQuery CreateSlowQuery (string map, string reduce, string language);
+		[Export ("getLocalDocumentWithID:")]
+		NSDictionary GetLocalDocumentWithID (string localDocID);
+
+		[Export ("putLocalDocument:withID:error:")]
+		bool PutLocalDocument (NSDictionary properties, string localDocID, out NSError outError);
+
+		[Export ("deleteLocalDocumentWithID:error:")]
+		bool DeleteLocalDocumentWithID (string localDocID, out NSError outError);
+
+		[Export ("queryAllDocuments")]
+		CBLQuery QueryAllDocuments { get; }
 
 		[Export ("slowQueryWithMap:")]
-		CouchQuery CreateSlowQuery (string map);
+		CBLQuery SlowQueryWithMap (CBLMapBlock mapBlock);
 
-		[Export ("designDocumentWithName:")]
-		CouchDesignDocument DesignDocumentWithName (string name);
+		[Export ("viewNamed:")]
+		CBLView ViewNamed (string name);
 
-		[Export ("pullFromDatabaseAtURL:")]
-		CouchReplication PullFromDatabase (NSUrl sourceURL);
+		[Export ("existingViewNamed:")]
+		CBLView ExistingViewNamed (string name);
 
-		[Export ("pushToDatabaseAtURL:")]
-		CouchReplication PushToDatabase (NSUrl targetURL);
+		[Export ("defineValidation:asBlock:")]
+		void DefineValidation (string validationName, CBLValidationBlock validationBlock);
+
+		[Export ("validationNamed:")]
+		CBLValidationBlock ValidationNamed (string validationName);
+
+		[Export ("defineFilter:asBlock:")]
+		void DefineFilter (string filterName, CBLFilterBlock filterBlock);
+
+		[Export ("filterNamed:")]
+		CBLFilterBlock FilterNamed (string filterName);
+
+		[Static, Export ("filterCompiler")]
+		CBLFilterCompiler FilterCompiler { get; set; }
+
+		[Export ("inTransaction:")]
+		bool InTransaction (Action<bool> bloc);
+
+		[Export ("allReplications")]
+		NSObject [] AllReplications { get; }
+
+		[Export ("pushToURL:")]
+		CBLReplication PushToURL (NSUrl url);
+
+		[Export ("pullFromURL:")]
+		CBLReplication PullFromURL (NSUrl url);
 
 		[Export ("replicateWithURL:exclusively:")]
-		CouchPersistentReplication [] Replicate (NSUrl otherURL, bool exclusively);
+		NSObject [] ReplicateWithURL (NSUrl otherDbURL, bool exclusively);
 
-		[Export ("replicationFromDatabaseAtURL:")]
-		CouchPersistentReplication ReplicationFromDatabase (NSUrl sourceURL);
-
-		[Export ("replicationToDatabaseAtURL:")]
-		CouchPersistentReplication ReplicationToDatabase (NSUrl targetURL);
-
-		[Field ("kCouchDatabaseChangeNotification", "__Internal")]
-		NSString ChangeNotification { get; }
-
-		[Export ("tracksChanges")]
-		bool TracksChanges { get; set; }
+		[Notification, Field ("kCBLDatabaseChangeNotification", "__Internal")]
+		NSString CBLDatabaseChangeNotification { get; }
 	}
 
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLValidationContext {
 
-	[BaseType (typeof (CouchResource))]
-	interface CouchServer {
-		[Export ("activityPollInterval")]
-		double ActivityPollInterval { get; set;  }
+		[Export ("currentRevision")]
+		CBLRevision CurrentRevision { get; }
 
-		[Export ("initWithURL:")]
-		IntPtr Constructor (NSUrl url);
+		[Export ("errorType")]
+		int ErrorType { get; set; }
 
-		[Export ("close")]
-		void Close ();
+		[Export ("errorMessage", ArgumentSemantic.Copy)]
+		string ErrorMessage { get; set; }
 
-		[Export ("getVersion:")]
-		string GetVersion (out NSError outError);
+		[Export ("changedKeys")]
+		NSObject [] ChangedKeys { get; }
 
-		[Export ("generateUUIDs:")]
-		string [] GenerateUUIDs (int count);
+		[Export ("allowChangesOnlyTo:")]
+		bool AllowChangesOnlyTo (NSObject [] allowedKeys);
 
-		[Export ("getDatabases")]
-		CouchDatabase [] GetDatabases ();
+		[Export ("disallowChangesTo:")]
+		bool DisallowChangesTo (NSObject [] disallowedKeys);
 
-		[Export ("databaseNamed:")]
-		CouchDatabase GetDatabase (string name);
-
-		[Export ("activeTasks")]
-		NSObject [] GetActiveTasks ();
-
-		[Export ("checkActiveTasks")]
-		void CheckActiveTasks ();
-
-		[Export ("replications")]
-		CouchPersistentReplication [] Replications { get; }
-
+		[Export ("enumerateChanges:")]
+		bool EnumerateChanges (Func<NSString, NSObject, NSObject, bool> enumerator);
 	}
 
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLDocument {
 
-	[BaseType (typeof (CouchServer))]
-	interface CouchTouchDBServer {
-		[Export ("error")]
-		NSError Error { get;  }
-
-		[Static, Export ("sharedInstance")]
-		CouchTouchDBServer SharedInstance { get; }
-
-		[Export ("initWithServerPath:")]
-		IntPtr Constructor (string serverPath);
-
-		[Export ("initWithURL:")]
-		IntPtr Constructor (NSUrl url);
-
-		[Export ("close")]
-		void Close ();
-
-		// Bind TDServer for this
-		//[Export ("tellTDServer:")]
-		//void InvokeOnTDServerThread (Action<TDServer> run);
-
-		//[Export ("tellTDDatabaseNamed:to:")]
-		//void InvokeOnTDServerThread (string dbName, Action<TDDatabase> block);
-
-	}
-
-	[BaseType (typeof (CouchResource))]
-	interface CouchDocument {
-		[Export ("abbreviatedID")]
-		string AbbreviatedID { get;  }
-
-		[Export ("isDeleted")]
-		bool IsDeleted { get;  }
-
-		[Export ("modelObject")]
-		NSObject ModelObject { get; set;  }
-
-		[Export ("userProperties")]
-		NSDictionary UserProperties { get;  }
+		[Export ("database")]
+		CBLDatabase Database { get; }
 
 		[Export ("documentID")]
 		string DocumentID { get; }
 
-		[Export ("currentRevisionID")]
+		[Export ("abbreviatedID")]
+		string AbbreviatedID { get; }
+
+		[Export ("isDeleted")]
+		bool IsDeleted { get; }
+
+		[Export ("deleteDocument:")]
+		bool DeleteDocument (out NSError outError);
+
+		[Export ("purgeDocument:")]
+		bool PurgeDocument (out NSError outError);
+
+		[Export ("currentRevisionID", ArgumentSemantic.Copy)]
 		string CurrentRevisionID { get; }
 
 		[Export ("currentRevision")]
-		CouchRevision GetCurrentRevision ();
+		CBLRevision CurrentRevision { get; }
 
 		[Export ("revisionWithID:")]
-		CouchRevision GetRevisionID (string revisionID);
+		CBLRevision RevisionWithID (string revisionID);
 
-		[Export ("getRevisionHistory")]
-		CouchRevision [] GetRevisionHistory ();
+		[Export ("getRevisionHistory:")]
+		NSObject [] GetRevisionHistory (out NSError outError);
 
-		[Export ("properties")]
+		[Export ("getConflictingRevisions:")]
+		NSObject [] GetConflictingRevisions (out NSError outError);
+
+		[Export ("getLeafRevisions:")]
+		NSObject [] GetLeafRevisions (out NSError outError);
+
+		[Export ("newRevision")]
+		CBLNewRevision NewRevision { get; }
+
+		[Export ("properties", ArgumentSemantic.Copy)]
 		NSDictionary Properties { get; }
 
-		[Export ("propertyForKey:")]
-		NSObject GetPropertyForKey (string key);
-
-		[Export ("putProperties:")]
-		RestOperation PutProperties (NSDictionary properties);
-
-		[Export ("getConflictingRevisions")]
-		CouchRevision [] GetConflictingRevisions ();
-
-		[Export ("resolveConflictingRevisions:withRevision:")]
-		RestOperation ResolveConflictingRevisions (CouchRevision [] conflicts, CouchRevision winningRevision);
-
-		[Export ("resolveConflictingRevisions:withProperties:")]
-		RestOperation ResolveConflictingRevisions (CouchRevision [] conflicts, NSDictionary properties);
-
-	}
-
-	[BaseType (typeof (NSObject))]
-	[Model]
-	interface CouchDocumentModel {
-		[Export ("couchDocumentChanged:")]
-		void CouchDocumentChanged (CouchDocument doc);
-	}
-
-
-	[BaseType (typeof (CouchResource))]
-	interface CouchQuery {
-		[Export ("limit")]
-		uint Limit { get; set;  }
-
-		[Export ("skip")]
-		uint Skip { get; set;  }
-
-		[Export ("descending")]
-		bool Descending { get; set;  }
-
-		[Export ("startKey")]
-		NSObject StartKey { get; set;  }
-
-		[Export ("endKey")]
-		NSObject EndKey { get; set;  }
-
-		[Export ("startKeyDocID")]
-		string StartKeyDocID { get; set;  }
-
-		[Export ("endKeyDocID")]
-		string EndKeyDocID { get; set;  }
-
-		[Export ("stale")]
-		CouchStaleness Stale { get; set;  }
-
-		[Export ("keys"), NullAllowed]
-		NSObject [] Keys { get; set;  }
-
-		[Export ("groupLevel")]
-		uint GroupLevel { get; set;  }
-
-		[Export ("prefetch")]
-		bool Prefetch { get; set;  }
-
-		[Export ("sequences")]
-		bool Sequences { get; set;  }
-
-		[Export ("error")]
-		NSError Error { get;  }
-
-		[Export ("designDocument")]
-		CouchDesignDocument GetDesignDocument ();
-
-		[Export ("start")]
-		RestOperation Start ();
-
-		[Export ("rows")]
-		CouchQueryEnumerator RowsEnumerator ();
-
-		[Export ("rowsIfChanged")]
-		CouchQueryEnumerator RowsEnumeratorIfChanged ();
-
-		[Export ("asLiveQuery")]
-		CouchLiveQuery AsLiveQuery ();
-	}
-
-	[BaseType (typeof (CouchQuery))]
-	interface CouchLiveQuery {
-		[Export ("rows")]
-		CouchQueryEnumerator LiveRowsEnumerator ();
-
-		[Export ("wait")]
-		bool Wait ();
-	}
-
-	[BaseType (typeof (NSEnumerator))]
-	interface CouchQueryEnumerator {
-		[Export ("totalCount")]
-		uint TotalCount { get;  }
-
-		[Export ("sequenceNumber")]
-		uint SequenceNumber { get;  }
-
-		[Export ("count")]
-		uint Count ();
-
-		[Export ("nextRow")]
-		CouchQueryRow GetNextRow ();
-
-		[Export ("rowAtIndex:")]
-		CouchQueryRow GetRow (uint index);
-
-	}
-
-	[BaseType (typeof (NSObject))]
-	interface CouchQueryRow {
-		[Export ("value")]
-		NSObject Value { get;  }
-
-		[Export ("key")]
-		NSObject Key { get;  }
-
-		[Export ("documentID")]
-		string DocumentID { get;  }
-
-		[Export ("sourceDocumentID")]
-		string SourceDocumentID { get;  }
-
-		[Export ("documentRevision")]
-		string DocumentRevision { get;  }
-
-		[Export ("document")]
-		CouchDocument Document { get;  }
-
-		[Export ("documentProperties")]
-		NSDictionary DocumentProperties { get;  }
-
-		[Export ("key0")]
-		NSObject Key0 { get;  }
-
-		[Export ("key1")]
-		NSObject Key1 { get;  }
-
-		[Export ("key2")]
-		NSObject Key2 { get;  }
-
-		[Export ("key3")]
-		NSObject Key3 { get;  }
-
-		[Export ("localSequence")]
-		long LocalSequence { get;  }
-
-		[Export ("keyAtIndex:")]
-		NSObject GetKeyAtIndex (uint index);
-
-	}
-
-	delegate void Emit (NSObject key, NSObject value);
-	delegate void TDMap (NSDictionary doc, Emit emit);
-	delegate NSObject TDReduce (NSObject [] keys, NSObject [] values, bool rereduce);
-	delegate bool TDValidation (TDRevision revision, TDValidationContext context);
-	delegate bool TDFilter (TDRevision revision);
-
-	[BaseType (typeof (CouchDocument))]
-	interface CouchDesignDocument {
-		[Export ("language")]
-		string Language { get; set;  }
-
-		[Export ("viewNames")]
-		string [] ViewNames { get;  }
-
-		[Export ("filters")]
-		NSDictionary Filters { get;  }
-
-		[Export ("validation")]
-		string ValidationScript { get; set;  }
-
-		[Export ("includeLocalSequence")]
-		bool IncludeLocalSequence { get; set;  }
-
-		[Export ("changed")]
-		bool Changed { get;  }
-
-		[Export ("queryViewNamed:")]
-		CouchQuery CereateQuery (string viewName);
-
-		[Export ("isLanguageAvailable:")]
-		bool IsLanguageAvailable (string language);
-
-		[Export ("mapFunctionOfViewNamed:")]
-		string GetMapFunction (string viewName);
-
-		[Export ("reduceFunctionOfViewNamed:")]
-		string GetReduceFunction (string viewName);
-
-		[Export ("defineViewNamed:map:reduce:")]
-		void DefineView (string viewName, string mapFunction, string reduceFunction);
-
-		[Export ("defineViewNamed:map:")]
-		void DefineView (string viewName, string mapFunction);
-
-		[Export ("defineFilterNamed:asFunction:")]
-		void DefineFilter (string filterName, string filterFunction);
-
-		[Export ("saveChanges")]
-		RestOperation SaveChanges ();
-
-#if !MONOMAC
-		[Export ("defineViewNamed:mapBlock:version:")]
-		void DefineView (string viewName, TDMap mapBlock, string version);
-
-		[Export ("defineViewNamed:mapBlock:reduceBlock:version:")]
-		void DefineView (string viewName, TDMap mapBlock, TDReduce reduceBlock, string version);
-
-		[Export ("defineFilterNamed:block:")]
-		void DefineFilter (string filterName, TDFilter filterBlock);
-
-		[Export ("setValidationBlock:")]
-		void SetValidationBlock (TDValidation validationBlock);
-#endif
-	}
-
-	[Static]
-	interface CouchLanguage {
-		[Field ("kCouchLanguageJavaScript", "__Internal")]
-		NSString Javascript { get; }
-
-		[Field ("kCouchLanguageErlang", "__Internal")]
-		NSString Erlang { get; }
-	}
-
-
-	[BaseType (typeof (NSObject))]
-	interface CouchReplication {
-		[Export ("remoteURL")]
-		NSUrl RemoteURL { get;  }
-
-		[Export ("pull")]
-		bool Pull { get;  }
-
-		[Export ("createTarget")]
-		bool CreateTarget { get; set;  }
-
-		[Export ("continuous")]
-		bool Continuous { get; set;  }
-
-		[Export ("filter")]
-		string Filter { get; set;  }
-
-		[Export ("filterParams")]
-		NSDictionary FilterParams { get; set;  }
-
-		[Export ("headers")]
-		NSDictionary Headers { get; set;  }
-
-		[Export ("OAuth")]
-		NSDictionary OAuth { get; set;  }
-
-		[Export ("options")]
-		NSDictionary Options { get; set;  }
-
-		[Export ("running")]
-		bool Running { get;  }
-
-		[Export ("status")]
-		string Status { get;  }
-
-		[Export ("completed")]
-		uint Completed { get;  }
-
-		[Export ("total")]
-		uint Total { get;  }
-
-		[Export ("error")]
-		NSError Error { get;  }
-
-		[Export ("mode")]
-		CouchReplicationMode Mode { get;  }
-
-		[Export ("localDatabase")]
-		CouchDatabase LocalDatabase ();
-
-		[Export ("start")]
-		RestOperation Start ();
-
-		[Export ("stop")]
-		void Stop ();
-	}
-
-	[BaseType (typeof (CouchModel))]
-	interface CouchPersistentReplication {
-		[Export ("remoteURL")]
-		NSUrl RemoteUrl { get;  }
-
-		[Export ("pull")]
-		bool Pull { get;  }
-
-		[Export ("create_target")]
-		bool CreateTarget { get; set;  }
-
-		[Export ("continuous")]
-		bool Continuous { get; set;  }
-
-		[Export ("filter")]
-		string Filter { get; set;  }
-
-		[Export ("query_params")]
-		NSDictionary QueryParams { get; set;  }
-
-		[Export ("doc_ids")]
-		NSObject DocIds { get; set;  }
-
-		[Export ("headers")]
-		NSDictionary Headers { get; set;  }
-
-		[Export ("OAuth")]
-		NSDictionary OAuth { get; set;  }
-
-		[Export ("state")]
-		CouchReplicationState State { get;  }
-
-		[Export ("completed")]
-		uint Completed { get;  }
-
-		[Export ("total")]
-		uint  Total { get;  }
-
-		[Export ("error")]
-		NSError Error { get;  }
-
-		[Export ("mode")]
-		CouchReplicationMode Mode { get;  }
-
-		[Export ("localDatabase")]
-		CouchDatabase LocalDatabase ();
-
-		[Export ("actAsUser:withRoles:")]
-		void ActAsUser (string username, string [] roles);
-
-		[Export ("actAsAdmin")]
-		void ActAsAdmin ();
-
-		[Export ("restart")]
-		void Restart ();
-	}
-
-
-	[BaseType (typeof (CouchResource))]
-	interface CouchRevision {
-		[Export ("documentID")]
-		string DocumentID { get;  }
-
-		[Export ("revisionID")]
-		string RevisionID { get;  }
-
-		[Export ("isCurrent")]
-		bool IsCurrent { get;  }
-
-		[Export ("isDeleted")]
-		bool IsDeleted { get;  }
-
-		[Export ("userProperties")]
-		NSDictionary UserProperties { get;  }
-
-		[Export ("propertiesAreLoaded")]
-		bool PropertiesAreLoaded { get;  }
-
-		[Export ("document")]
-		CouchDocument GetDocument ();
-
-		[Export ("properties")]
-		NSDictionary Properties ();
+		[Export ("userProperties", ArgumentSemantic.Copy)]
+		NSDictionary UserProperties { get; }
 
 		[Export ("propertyForKey:")]
-		NSObject GetPropertyForKey (string key);
+		NSObject PropertyForKey (string key);
 
-		[Export ("putProperties:")]
-		RestOperation PutProperties (NSDictionary properties);
+		[Export ("objectForKeyedSubscript:")]
+		NSObject ObjectForKeyedSubscript (string key);
 
-		[Export ("attachmentNames")]
-		string [] AttachmentNames ();
+		[Export ("putProperties:error:")]
+		CBLRevision PutProperties (NSDictionary properties, out NSError outError);
 
-		[Export ("attachmentNamed:")]
-		CouchAttachment GetAttachment (string name);
-
-		[Export ("createAttachmentWithName:type:")]
-		CouchAttachment CreateAttachment (string name, string contentType);
-
-	}
-
-
-	[BaseType (typeof (CouchResource))]
-	interface CouchAttachment {
-		[Export ("document")]
-		CouchDocument Document { get;  }
-
-		[Export ("name")]
-		string Name { get;  }
-
-		[Export ("contentType")]
-		string ContentType { get;  }
-
-		[Export ("length")]
-		long Length { get;  }
-
-		[Export ("metadata")]
-		NSDictionary Metadata { get;  }
-
-		[Export ("body")]
-		NSData Body { get; set;  }
-
-		[Export ("unversionedURL")]
-		NSUrl UnversionedUrl { get;  }
-
-		[Export ("revision")]
-		CouchRevision GetRevision ();
-
-		[Export ("PUT:contentType:")]
-		RestOperation Put (NSData body, string contentType);
-
-		[Export ("PUT:")]
-		RestOperation Put (NSData body);
-
+		[Export ("modelObject", ArgumentSemantic.Assign)]
+		NSObject ModelObject { get; set; }
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface TDRevision {
-		[Export ("docID")]
-		string DocID { get;  }
+	public partial interface CBLDocumentModel {
 
-		[Export ("revID")]
-		string RevID { get;  }
+		[Export ("tdDocumentChanged:")]
+		void TdDocumentChanged (CBLDocument doc);
 
-		[Export ("deleted")]
-		bool Deleted { get;  }
-
-		[Export ("body")]
-		TDBody Body { get; set;  }
-
-		[Export ("properties")]
-		NSDictionary Properties { get; set;  }
-
-		[Export ("asJSON")]
-		NSData AsJson { get; set;  }
-
-		[Export ("sequence")]
-		long Sequence { get; set;  }
-
-		[Export ("generation")]
-		uint Generation { get;  }
-
-		[Export ("initWithDocID:revID:deleted:")]
-		IntPtr Constructor (string docID, string revID, bool deleted);
-
-		[Export ("initWithBody:")]
-		IntPtr Constructor (TDBody body);
-
-		[Export ("initWithProperties:")]
-		IntPtr Constructor (NSDictionary properties);
-
-		[Static]
-		[Export ("revisionWithProperties:")]
-		TDRevision FromProperties (NSDictionary properties);
-
-		[Export ("compareSequences:")]
-		NSComparisonResult CompareSequences (TDRevision rev);
-
-		[Static]
-		[Export ("generationFromRevID:")]
-		uint GenerationFromRevID (string revID);
-
-		[Export ("copyWithDocID:revID:")]
-		TDRevision CopyWithDocIDrevID (string docID, string revID);
-
+		[Notification, Field ("kCBLDocumentChangeNotification", "__Internal")]
+		NSString CBLDocumentChangeNotification { get; }
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface TDRevisionList {
-		[Export ("count")]
-		uint Count { get;  }
+	public partial interface CBLManager {
 
-		[Export ("allRevisions")]
-		NSArray AllRevisions { get;  }
+		[Static, Export ("sharedInstance")]
+		CBLManager SharedInstance { get; }
 
-		[Export ("allDocIDs")]
-		NSArray AllDocIDs { get;  }
+		[Static, Export ("isValidDatabaseName:")]
+		bool IsValidDatabaseName (string name);
 
-		[Export ("allRevIDs")]
-		NSArray AllRevIDs { get;  }
+		[Static, Export ("defaultDirectory")]
+		string DefaultDirectory { get; }
 
-		[Export ("initWithArray:")]
-		NSObject InitWithArray (NSArray revs);
+		[Export ("initWithDirectory:options:error:")]
+		IntPtr Constructor (string directory, CBLManagerOptions options, out NSError outError);
 
-		[Export ("revWithDocID:revID:")]
-		TDRevision RevWithDocIDrevID (string docID, string revID);
+		[Export ("close")]
+		void Close ();
 
-		[Export ("objectEnumerator")]
-		NSEnumerator ObjectEnumerator ();
+		[Export ("directory")]
+		string Directory { get; }
 
-		[Export ("addRev:")]
-		void AddRev (TDRevision rev);
+		[Export ("databaseNamed:error:")]
+		CBLDatabase DatabaseNamed (string name, out NSError outError);
 
-		[Export ("removeRev:")]
-		void RemoveRev (TDRevision rev);
+		[Export ("objectForKeyedSubscript:")]
+		CBLDatabase ObjectForKeyedSubscript (string key);
 
-		[Export ("limit:")]
-		void Limit (uint limit);
+		[Export ("createDatabaseNamed:error:")]
+		CBLDatabase CreateDatabaseNamed (string name, out NSError outError);
 
-		[Export ("sortBySequence")]
-		void SortBySequence ();
+		[Export ("allDatabaseNames")]
+		NSObject [] AllDatabaseNames { get; }
 
+		[Export ("replaceDatabaseNamed:withDatabaseFile:withAttachments:error:")]
+		bool ReplaceDatabaseNamed (string databaseName, string databasePath, string attachmentsPath, out NSError outError);
+
+		[Export ("asyncTellDatabaseNamed:to:")]
+		void AsyncTellDatabaseNamed (string dbName, Action<CBLDatabase> block);
+
+		[Export ("internalURL")]
+		NSUrl InternalURL { get; }
 	}
-
 
 	[BaseType (typeof (NSObject))]
-	interface TDBody {
-		[Export ("isValidJSON")]
-		bool IsValidJson { get;  }
+	public partial interface MYDynamicObject {
 
-		[Export ("asJSON")]
-		NSData AsJson { get;  }
+		[Static, Export ("propertyNames")]
+		NSSet PropertyNames { get; }
 
-		[Export ("asPrettyJSON")]
-		NSData AsPrettyJson { get;  }
+		[Export ("getValueOfProperty:")]
+		NSObject GetValueOfProperty (string property);
 
-		[Export ("asJSONString")]
-		string AsJsonString { get;  }
+		[Export ("setValue:ofProperty:")]
+		bool SetValue (NSObject value, string property);
 
-		[Export ("asObject")]
-		NSObject AsObject { get;  }
+		[Static, Export ("classOfProperty:")]
+		Class ClassOfProperty (string propertyName);
 
-		[Export ("error")]
-		bool Error { get;  }
+		[Static, Export ("getterKey:")]
+		string GetterKey (Selector sel);
 
-		[Export ("properties")]
-		NSDictionary Properties { get;  }
+		[Static, Export ("setterKey:")]
+		string SetterKey (Selector sel);
 
-		[Export ("initWithProperties:")]
-		IntPtr Constructor (NSDictionary properties);
+		[Static, Export ("impForGetterOfProperty:ofClass:")]
+		IntPtr ImpForGetterOfProperty (string property, Class propertyClass);
 
-		[Export ("initWithArray:")]
-		IntPtr Constructor (NSArray array);
-
-		[Export ("initWithJSON:")]
-		IntPtr Constructor (NSData json);
-
-		[Static]
-		[Export ("bodyWithProperties:")]
-		TDBody FromProperties (NSObject properties);
-
-		[Static]
-		[Export ("bodyWithJSON:")]
-		TDBody FromJson (NSData json);
-
-		[Export ("propertyForKey:")]
-		NSObject GetPropertyForKey (string key);
+		[Static, Export ("impForSetterOfProperty:ofClass:")]
+		IntPtr ImpForSetterOfProperty (string property, Class propertyClass);
+//
+//		[Static, Export ("impForGetterOfProperty:ofType:")]
+//		unsafe IntPtr ImpForGetterOfProperty (string property, char* propertyType);
+//
+//		[Static, Export ("impForSetterOfProperty:ofType:")]
+//		unsafe IntPtr ImpForSetterOfProperty (string property, char* propertyType);
 	}
 
 
-	[BaseType (typeof (CouchDynamicObject))]
-	interface CouchModel {
-		[Export ("document")]
-		CouchDocument Document { get;  }
+	[BaseType (typeof (MYDynamicObject))]
+	public partial interface CBLModel : CBLDocumentModel {
 
-		[Export ("database")]
-		CouchDatabase Database { get; set;  }
-
-		[Export ("isNew")]
-		bool IsNew { get;  }
-
-		[Export ("autosaves")]
-		bool Autosaves { get; set;  }
-
-		[Export ("needsSave")]
-		bool NeedsSave { get;  }
-
-		[Export ("timeSinceExternallyChanged")]
-		double TimeSinceExternallyChanged { get;  }
-
-		[Export ("attachmentNames")]
-		string [] AttachmentNames { get;  }
-
-		[Export ("modelForDocument:")]
-		CouchModel FromDocument (CouchDocument document);
+		[Static, Export ("modelForDocument:")]
+		CBLModel ModelForDocument (CBLDocument document);
 
 		[Export ("initWithNewDocumentInDatabase:")]
-		IntPtr Constructor (CouchDatabase database);
+		IntPtr Constructor (CBLDatabase database);
 
-		[Export ("save")]
-		RestOperation Save ();
+		[Export ("document", ArgumentSemantic.Retain)]
+		CBLDocument Document { get; }
+
+		[Export ("database", ArgumentSemantic.Retain)]
+		CBLDatabase Database { get; set; }
+
+		[Export ("isNew")]
+		bool IsNew { get; }
+
+		[Export ("save:")]
+		bool Save (out NSError outError);
+
+		[Export ("autosaves")]
+		bool Autosaves { get; set; }
+
+		[Export ("autosaveDelay")]
+		double AutosaveDelay { get; }
+
+		[Export ("needsSave")]
+		bool NeedsSave { get; }
 
 		[Export ("propertiesToSave")]
-		NSDictionary PropertiesToSave ();
+		NSDictionary PropertiesToSave { get; }
 
-		[Export ("deleteDocument")]
-		RestOperation DeleteDocument ();
+		[Export ("deleteDocument:")]
+		bool DeleteDocument (out NSError outError);
 
-		[Static]
-		[Export ("saveModels:")]
-		RestOperation SaveModels (NSArray models);
+		[Export ("timeSinceExternallyChanged")]
+		double TimeSinceExternallyChanged { get; }
+
+		[Static, Export ("saveModels:error:")]
+		bool SaveModels (NSObject [] models, out NSError outError);
 
 		[Export ("markExternallyChanged")]
 		void MarkExternallyChanged ();
@@ -1078,87 +431,520 @@ namespace Couchbase
 		NSObject GetValueOfProperty (string property);
 
 		[Export ("setValue:ofProperty:")]
-		bool SetValueofProperty (NSObject value, string property);
+		bool SetValue (NSObject value, string property);
+
+		[Export ("attachmentNames")]
+		NSObject [] AttachmentNames { get; }
 
 		[Export ("attachmentNamed:")]
-		CouchAttachment GetAttachment (string name);
+		CBLAttachment AttachmentNamed (string name);
 
-		[Export ("createAttachmentWithName:type:body:")]
-		CouchAttachment CreateAttachment (string name, string contentType, NSData body);
+		[Export ("addAttachment:named:")]
+		void AddAttachment (CBLAttachment attachment, string name);
 
 		[Export ("removeAttachmentNamed:")]
-		void RemoveAttachment (string name);
+		void RemoveAttachmentNamed (string name);
+
+		[Export ("initWithDocument:")]
+		IntPtr Constructor (CBLDocument document);
 
 		[Export ("idForNewDocumentInDatabase:")]
-		string IdForNewDocumentInDatabase (CouchDatabase db);
+		string IdForNewDocumentInDatabase (CBLDatabase db);
 
 		[Export ("didLoadFromDocument")]
 		void DidLoadFromDocument ();
 
 		[Export ("databaseForModelProperty:")]
-		CouchDatabase DatabaseForModelProperty (string propertyName);
+		CBLDatabase DatabaseForModelProperty (string propertyName);
+
+		[Export ("markNeedsSave")]
+		void MarkNeedsSave ();
+
+		[Static, Export ("itemClassForArrayProperty:")]
+		Class ItemClassForArrayProperty (string property);
 	}
 
+//	[Category, BaseType (typeof (CBLDatabase))]
+//	public partial interface CBLModel_CBLDatabase {
+//
+//		[Export ("unsavedModels")]
+//		NSObject [] UnsavedModels { get; }
+//
+//		[Export ("saveAllModels:")]
+//		bool SaveAllModels (out NSError outError);
+//
+//		[Export ("autosaveAllModels:")]
+//		bool AutosaveAllModels (out NSError outError);
+//	}
+
+	[BaseType (typeof (NSArray))]
+	public partial interface CBLModelArray {
+
+		[Export ("initWithOwner:property:itemClass:docIDs:")]
+		IntPtr Constructor (CBLModel owner, string property, Class itemClass, String [] docIDs);
+
+		[Export ("initWithOwner:property:itemClass:models:")]
+		IntPtr Constructor (CBLModel owner, string property, Class itemClass, NSObject [] models);
+
+		[Export ("docIDs")]
+		NSObject [] DocIDs { get; }
+	}
+	
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLModelFactory {
+
+		[Static, Export ("sharedInstance")]
+		CBLModelFactory SharedInstance { get; }
+
+		[Export ("modelForDocument:")]
+		NSObject ModelForDocument (CBLDocument document);
+
+		[Export ("registerClass:forDocumentType:")]
+		void RegisterClass (NSObject classOrName, string type);
+
+		[Export ("classForDocument:")]
+		Class ClassForDocument (CBLDocument document);
+
+		[Export ("classForDocumentType:")]
+		Class ClassForDocumentType (string type);
+	}
 
 	[BaseType (typeof (NSObject))]
-	interface CouchDynamicObject {
-		[Static]
-		[Export ("propertyNames")]
-		NSSet GetPropertyNames ();
+	public partial interface CBLQuery {
 
-		[Export ("getValueOfProperty:")]
-		NSObject GetValue (string property);
+		[Export ("database")]
+		CBLDatabase Database { get; }
 
-		[Export ("setValue:ofProperty:")]
-		bool SetValue (NSObject value, string property);
+		[Export ("limit")]
+		uint Limit { get; set; }
 
-		[Static]
-		[Export ("classOfProperty:")]
-		Class ClassOfProperty (string propertyName);
+		[Export ("skip")]
+		uint Skip { get; set; }
 
-		[Static]
-		[Export ("getterKey:")]
-		string GetterKey (Selector sel);
+		[Export ("descending")]
+		bool Descending { get; set; }
 
-		[Static]
-		[Export ("setterKey:")]
-		string SetterKey (Selector sel);
+		[Export ("startKey", ArgumentSemantic.Copy)]
+		NSObject StartKey { get; set; }
 
+		[Export ("endKey", ArgumentSemantic.Copy)]
+		NSObject EndKey { get; set; }
+
+		[Export ("startKeyDocID", ArgumentSemantic.Copy)]
+		string StartKeyDocID { get; set; }
+
+		[Export ("endKeyDocID", ArgumentSemantic.Copy)]
+		string EndKeyDocID { get; set; }
+
+		[Export ("stale")]
+		CBLStaleness Stale { get; set; }
+
+		[Export ("keys", ArgumentSemantic.Copy)]
+		NSObject [] Keys { get; set; }
+
+		[Export ("mapOnly")]
+		bool MapOnly { get; set; }
+
+		[Export ("groupLevel")]
+		uint GroupLevel { get; set; }
+
+		[Export ("prefetch")]
+		bool Prefetch { get; set; }
+
+		[Export ("sequences")]
+		bool Sequences { get; set; }
+
+		[Export ("includeDeleted")]
+		bool IncludeDeleted { get; set; }
+
+		[Export ("error")]
+		NSError Error { get; }
+
+		[Export ("rows")]
+		CBLQueryEnumerator Rows { get; }
+
+		[Export ("rowsIfChanged")]
+		CBLQueryEnumerator RowsIfChanged { get; }
+
+		[Export ("runAsync:")]
+		void RunAsync (Action<CBLQueryEnumerator> onComplete);
+
+		[Export ("asLiveQuery")]
+		CBLLiveQuery AsLiveQuery { get; }
+	}
+
+	[BaseType (typeof (CBLQuery))]
+	public partial interface CBLLiveQuery {
+
+		[Export ("start")]
+		void Start ();
+
+		[Export ("stop")]
+		void Stop ();
+
+		[Export ("rows", ArgumentSemantic.Retain)]
+		CBLQueryEnumerator Rows { get; }
+	}
+
+	[BaseType (typeof (NSEnumerator))]
+	public partial interface CBLQueryEnumerator {
+
+		[Export ("count")]
+		uint Count { get; }
+
+		[Export ("sequenceNumber")]
+		UInt64 SequenceNumber { get; }
+
+		[Export ("nextRow")]
+		CBLQueryRow NextRow { get; }
+
+		[Export ("rowAtIndex:")]
+		CBLQueryRow RowAtIndex (uint index);
+
+		[Export ("error")]
+		NSError Error { get; }
 	}
 
 	[BaseType (typeof (NSObject))]
-	[Model]
-	interface TDValidationContext {
-		[Abstract]
-		[Export ("currentRevision")]
-		TDRevision CurrentRevision { get;  }
+	public partial interface CBLQueryRow {
 
-		[Abstract]
-		[Export ("errorType")]
-		TDStatus ErrorType { get; set;  }
+		[Export ("key")]
+		NSObject Key { get; }
 
-		[Abstract]
-		[Export ("errorMessage")]
-		string ErrorMessage { get; set;  }
+		[Export ("value")]
+		NSObject Value { get; }
 
-		[Abstract]
-		[Export ("changedKeys")]
-		NSObject [] ChangedKeys { get;  }
+		[Export ("documentID")]
+		string DocumentID { get; }
 
-		[Abstract]
-		[Export ("allowChangesOnlyTo:")]
-		bool AllowChangesOnlyTo (NSObject [] allowedKeys);
+		[Export ("sourceDocumentID")]
+		string SourceDocumentID { get; }
 
-		[Abstract]
-		[Export ("disallowChangesTo:")]
-		bool DisallowChangesTo (NSObject [] disallowedKeys);
+		[Export ("documentRevision")]
+		string DocumentRevision { get; }
 
-#if false
-		[Abstract]
-		[Export ("enumerateChanges:")]
-		bool EnumerateChanges (TDChangeEnumeratorBlock enumerator);
-#endif
+		[Export ("document")]
+		CBLDocument Document { get; }
+
+		[Export ("documentProperties")]
+		NSDictionary DocumentProperties { get; }
+
+		[Export ("keyAtIndex:")]
+		NSObject KeyAtIndex (uint index);
+
+		[Export ("key0")]
+		NSObject Key0 { get; }
+
+		[Export ("key1")]
+		NSObject Key1 { get; }
+
+		[Export ("key2")]
+		NSObject Key2 { get; }
+
+		[Export ("key3")]
+		NSObject Key3 { get; }
+
+		[Export ("localSequence")]
+		UInt64 LocalSequence { get; }
+	}
+	
+	[BaseType (typeof (CBLModel))]
+	public partial interface CBLReplication {
+
+		[Export ("initPullFromSourceURL:toDatabase:")]
+		IntPtr Constructor (NSUrl source, CBLDatabase database);
+
+		[Export ("initPushFromDatabase:toTargetURL:")]
+		IntPtr Constructor (CBLDatabase database, NSUrl target);
+
+		[Export ("localDatabase")]
+		CBLDatabase LocalDatabase { get; }
+
+		[Export ("remoteURL")]
+		NSUrl RemoteURL { get; }
+
+		[Export ("pull")]
+		bool Pull { get; }
+
+		[Export ("persistent")]
+		bool Persistent { get; set; }
+
+		[Export ("create_target")]
+		bool CreateTarget { get; set; }
+
+		[Export ("continuous")]
+		bool Continuous { get; set; }
+
+		[Export ("filter", ArgumentSemantic.Copy)]
+		string Filter { get; set; }
+
+		[Export ("query_params", ArgumentSemantic.Copy)]
+		NSDictionary Query_params { get; set; }
+
+		[Export ("doc_ids", ArgumentSemantic.Copy)]
+		NSObject [] Doc_ids { get; set; }
+
+		[Export ("headers", ArgumentSemantic.Copy)]
+		NSDictionary Headers { get; set; }
+
+		[Export ("credential", ArgumentSemantic.Retain)]
+		NSUrlCredential Credential { get; set; }
+
+		[Export ("OAuth", ArgumentSemantic.Copy)]
+		NSDictionary OAuth { get; set; }
+
+		[Export ("facebookEmailAddress", ArgumentSemantic.Copy)]
+		string FacebookEmailAddress { get; set; }
+
+		[Export ("registerFacebookToken:forEmailAddress:")]
+		bool RegisterFacebookToken (string token, string email);
+
+		[Export ("personaOrigin")]
+		NSUrl PersonaOrigin { get; }
+
+		[Export ("personaEmailAddress", ArgumentSemantic.Copy)]
+		string PersonaEmailAddress { get; set; }
+
+		[Export ("registerPersonaAssertion:")]
+		bool RegisterPersonaAssertion (string assertion);
+
+		[Static, Export ("setAnchorCerts:onlyThese:")]
+		void SetAnchorCerts (NSObject [] certs, bool onlyThese);
+
+		[Export ("start")]
+		void Start ();
+
+		[Export ("stop")]
+		void Stop ();
+
+		[Export ("restart")]
+		void Restart ();
+
+		[Export ("mode")]
+		CBLReplicationMode Mode { get; }
+
+		[Export ("running")]
+		bool Running { get; }
+
+		[Export ("error", ArgumentSemantic.Retain)]
+		NSError Error { get; }
+
+		[Export ("completed")]
+		uint Completed { get; }
+
+		[Export ("total")]
+		uint Total { get; }
+
+		[Notification, Field ("kCBLReplicationChangeNotification", "__Internal")]
+		NSString CBLReplicationChangeNotification { get; }
 	}
 
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLRevisionBase {
+
+		[Export ("document")]
+		CBLDocument Document { get; }
+
+		[Export ("database")]
+		CBLDatabase Database { get; }
+
+		[Export ("isDeleted")]
+		bool IsDeleted { get; }
+
+		[Export ("revisionID")]
+		string RevisionID { get; }
+
+		[Export ("properties", ArgumentSemantic.Copy)]
+		NSDictionary Properties { get; }
+
+		[Export ("userProperties", ArgumentSemantic.Copy)]
+		NSDictionary UserProperties { get; }
+
+		[Export ("propertyForKey:")]
+		NSObject PropertyForKey (string key);
+
+		[Export ("objectForKeyedSubscript:")]
+		NSObject ObjectForKeyedSubscript (string key);
+
+		[Export ("attachmentNames")]
+		NSObject [] AttachmentNames { get; }
+
+		[Export ("attachmentNamed:")]
+		CBLAttachment AttachmentNamed (string name);
+
+		[Export ("attachments")]
+		NSObject [] Attachments { get; }
+	}
+
+	[BaseType (typeof (CBLRevisionBase))]
+	public partial interface CBLRevision {
+
+		[Export ("propertiesAreLoaded")]
+		bool PropertiesAreLoaded { get; }
+
+		[Export ("newRevision")]
+		CBLNewRevision NewRevision { get; }
+
+		[Export ("putProperties:error:")]
+		CBLRevision PutProperties (NSDictionary properties, out NSError outError);
+
+		[Export ("deleteDocument:")]
+		CBLRevision DeleteDocument (out NSError outError);
+
+		[Export ("getRevisionHistory:")]
+		NSObject [] GetRevisionHistory (out NSError outError);
+	}
+
+	[BaseType (typeof (CBLRevisionBase))]
+	public partial interface CBLNewRevision {
+
+		[Export ("isDeleted")]
+		bool IsDeleted { get; set; }
+
+		[Export ("properties", ArgumentSemantic.Copy)]
+		NSMutableDictionary Properties { get; set; }
+
+		[Export ("userProperties", ArgumentSemantic.Copy)]
+		NSDictionary UserProperties { get; }
+
+		[Export ("setObject:forKeyedSubscript:")]
+		void SetObject (NSObject value, string key);
+
+		[Export ("parentRevision")]
+		CBLRevision ParentRevision { get; }
+
+		[Export ("parentRevisionID")]
+		string ParentRevisionID { get; }
+
+		[Export ("save:")]
+		CBLRevision Save (out NSError outError);
+
+		[Export ("addAttachment:named:")]
+		void AddAttachment (CBLAttachment attachment, string name);
+
+		[Export ("removeAttachmentNamed:")]
+		void RemoveAttachmentNamed (string name);
+	}
+
+	[Protocol, BaseType (typeof (NSObject))]
+	public partial interface UIDataSourceModelAssociation
+	{
+		[Export("modelIdentifierForElementAtIndexPath:inView:")]
+		NSIndexPath ModelIdForElementInView(string id, UIView view);
+
+		[Export("indexPathForElementWithModelIdentifier:inView:")]
+		string ModelIdForElementInView(NSIndexPath id, UIView view);
+	}
+
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLUICollectionSource : UIDataSourceModelAssociation {
+
+		[Export ("collectionView", ArgumentSemantic.Retain)]
+		UICollectionView CollectionView { get; set; }
+
+		[Export ("query", ArgumentSemantic.Retain)]
+		CBLLiveQuery Query { get; set; }
+
+		[Export ("reloadFromQuery")]
+		void ReloadFromQuery ();
+
+		[Export ("rows")]
+		NSMutableArray Rows { get; }
+
+		[Export ("rowAtIndex:")]
+		CBLQueryRow RowAtIndex (uint index);
+
+		[Export ("indexPathForDocument:")]
+		NSIndexPath IndexPathForDocument (CBLDocument document);
+
+		[Export ("rowAtIndexPath:")]
+		CBLQueryRow RowAtIndexPath (NSIndexPath path);
+
+		[Export ("documentAtIndexPath:")]
+		CBLDocument DocumentAtIndexPath (NSIndexPath path);
+
+		[Export ("deleteDocumentsAtIndexes:error:")]
+		bool DeleteDocumentsAtIndexes (NSObject [] indexPaths, out NSError outError);
+
+		[Export ("deleteDocuments:error:")]
+		bool DeleteDocuments (NSObject [] documents, out NSError outError);
+	}
+
+	[BaseType(typeof(UICollectionViewDelegate))]
+	public partial interface CBLUICollectionDelegate {
+
+		[Export ("couchCollectionSource:cellForRowAtIndexPath:")]
+		UICollectionViewCell CellForRowAtIndexPath (CBLUICollectionSource source, NSIndexPath indexPath);
+
+		[Export ("couchCollectionSource:willUpdateFromQuery:")]
+		void WillUpdateFromQuery (CBLUICollectionSource source, CBLLiveQuery query);
+
+		[Export ("couchCollectionSource:updateFromQuery:previousRows:")]
+		void UpdateFromQuery (CBLUICollectionSource source, CBLLiveQuery query, NSObject [] previousRows);
+
+		[Export ("couchCollectionSource:willUseCell:forRow:")]
+		void WillUseCell (CBLUICollectionSource source, UICollectionViewCell cell, CBLQueryRow row);
+	}
+
+	[BaseType (typeof (NSObject))]
+	public partial interface CBLUITableSource : UIDataSourceModelAssociation {
+
+		[Outlet, Export ("tableView", ArgumentSemantic.Assign)]
+		UITableView TableView { get; set; }
+
+		[Export ("query", ArgumentSemantic.Retain)]
+		CBLLiveQuery Query { get; set; }
+
+		[Export ("reloadFromQuery")]
+		void ReloadFromQuery ();
+
+		[Export ("rows")]
+		NSObject [] Rows { get; }
+
+		[Export ("rowAtIndex:")]
+		CBLQueryRow RowAtIndex (uint index);
+
+		[Export ("indexPathForDocument:")]
+		NSIndexPath IndexPathForDocument (CBLDocument document);
+
+		[Export ("rowAtIndexPath:")]
+		CBLQueryRow RowAtIndexPath (NSIndexPath path);
+
+		[Export ("documentAtIndexPath:")]
+		CBLDocument DocumentAtIndexPath (NSIndexPath path);
+
+		[Export ("labelProperty", ArgumentSemantic.Copy)]
+		string LabelProperty { get; set; }
+
+		[Export ("deletionAllowed")]
+		bool DeletionAllowed { get; set; }
+
+		[Export ("deleteDocumentsAtIndexes:error:")]
+		bool DeleteDocumentsAtIndexes (NSObject [] indexPaths, out NSError outError);
+
+		[Export ("deleteDocuments:error:")]
+		bool DeleteDocuments (NSObject [] documents, out NSError outError);
+	}
+
+	[BaseType(typeof (UITableViewDelegate))]
+	public partial interface CBLUITableDelegate {
+
+		[Export ("couchTableSource:cellForRowAtIndexPath:")]
+		UITableViewCell CellForRowAtIndexPath (CBLUITableSource source, NSIndexPath indexPath);
+
+		[Export ("couchTableSource:willUpdateFromQuery:")]
+		void WillUpdateFromQuery (CBLUITableSource source, CBLLiveQuery query);
+
+		[Export ("couchTableSource:updateFromQuery:previousRows:")]
+		void UpdateFromQuery (CBLUITableSource source, CBLLiveQuery query, NSObject [] previousRows);
+
+		[Export ("couchTableSource:willUseCell:forRow:")]
+		void WillUseCell (CBLUITableSource source, UITableViewCell cell, CBLQueryRow row);
+
+		[Export ("couchTableSource:deleteRow:")]
+		bool DeleteRow (CBLUITableSource source, CBLQueryRow row);
+
+		[Export ("couchTableSource:deleteFailed:")]
+		void DeleteFailed (CBLUITableSource source, NSError error);
+	}
 }
-
