@@ -1,1 +1,1 @@
-The Couchbaselite-iOS binding requires Xamarin.iOS 6.9.7.167+ to build.
+The Couchbaselite-iOS binding requires Xamarin.iOS 6.4+ to build.
