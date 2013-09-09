@@ -61,9 +61,13 @@ namespace Couchbase {
 	[BaseType (typeof (NSObject))]
 	public partial interface CBLView {
 
+		// NOTE.ZJG: Added a part of a custom-build of libCouchbaselite.
+		// This works around bugzilla #4781.
 		[Export("emit:value:")]
 		void Emit (NSObject key, NSObject value);
 
+		// NOTE.ZJG: Never called, and doesn't exist on objc side, 
+		// but ensures CBLMapEmitBlock is emitted by the generator.
 		[Export("foo")]
 		void Foo (CBLMapEmitBlock emit);
 
