@@ -40,5 +40,17 @@ namespace Google.Maps
 			FarRight = new CLLocationCoordinate2D (farRightLatitude, farRightLongitude);
 		}	
 	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Orientation {
+		public float Heading;
+		public float Pitch;
+
+		public Orientation (float heading, float pitch)
+		{
+			Heading = heading;
+			Pitch = pitch;
+		}
+	}
 }
 
