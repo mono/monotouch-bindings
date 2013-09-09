@@ -874,7 +874,7 @@ namespace Couchbase {
 		bool DeleteDocuments (NSObject [] documents, out NSError outError);
 	}
 
-	[BaseType(typeof(UICollectionViewDelegate))]
+	[Model, BaseType(typeof(UICollectionViewDelegate))]
 	public partial interface CBLUICollectionDelegate {
 
 		[Export ("couchCollectionSource:cellForRowAtIndexPath:")]
@@ -930,7 +930,7 @@ namespace Couchbase {
 		bool DeleteDocuments (NSObject [] documents, out NSError outError);
 	}
 
-	[BaseType(typeof (UITableViewDelegate))]
+	[Model, BaseType(typeof (UITableViewDelegate))]
 	public partial interface CBLUITableDelegate {
 
 		[Export ("couchTableSource:cellForRowAtIndexPath:")]
