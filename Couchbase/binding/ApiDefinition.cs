@@ -10,7 +10,7 @@ namespace Couchbase {
 	public delegate void CBLMapEmitBlock(NSObject key, NSObject value);
 	public delegate bool CBLFilterBlock(CBLRevision revision, NSDictionary options);
 	public delegate bool CBLValidationBlock(CBLRevision newRevision, CBLValidationContext context);
-	public delegate void CBLMapBlock(NSDictionary doc, CBLView view);
+	public delegate void CBLMapBlock(NSDictionary doc, CBLMapEmitBlock emit);
 	public delegate NSObject CBLReduceBlock(NSArray keys, NSArray values, bool rereduce);
 	public delegate bool CBLChangeEnumeratorBlock(String key, NSObject oldValue, NSObject newValue);
 
@@ -61,11 +61,11 @@ namespace Couchbase {
 	[BaseType (typeof (NSObject))]
 	public partial interface CBLView {
 
-		[Export("emit:value:")]
-		void Emit (NSObject key, NSObject value);
+//		[Export("emit:value:")]
+//		void Emit (NSObject key, NSObject value);
 
-		[Export("foo")]
-		void Foo (CBLMapEmitBlock emit);
+//		[Export("foo")]
+//		void Foo (CBLMapEmitBlock emit);
 
 		[Export ("database")]
 		CBLDatabase Database { get; }
@@ -230,7 +230,7 @@ namespace Couchbase {
 		bool DisallowChangesTo (NSObject [] disallowedKeys);
 
 		[Export ("enumerateChanges:")]
-		bool EnumerateChanges (Func<NSString, NSObject, NSObject, bool> enumerator);
+		bool EnumerateChanges (CBLChangeEnumeratorBlock enumerator);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -826,7 +826,7 @@ namespace Couchbase {
 		void RemoveAttachmentNamed (string name);
 	}
 
-	[Protocol, BaseType (typeof (NSObject))]
+	[BaseType (typeof (NSObject))]
 	public partial interface UIDataSourceModelAssociation
 	{
 		[Export("modelIdentifierForElementAtIndexPath:inView:")]
