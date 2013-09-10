@@ -61,6 +61,41 @@ namespace Google.Maps
 		[Static, Export ("kGMSLayerPanoramaZoomKeyGlobal")]
 		NSString LayerPanoramaZoomKey { get; }
 	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject))]
+	interface GeometryUtils
+	{
+		[Static, Export ("geometryContainsLocation:path:geodesic:")]
+		bool ContainsLocation (CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic);
+
+		[Static, Export ("geometryIsLocationOnPath:path:geodesic:tolerance:")]
+		bool IsLocationOnPath (CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic, double tolerance);
+
+		[Static, Export ("geometryIsLocationOnPath:path:geodesic:")]
+		bool IsLocationOnPath (CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic);
+
+		[Static, Export ("geometryDistance:to:")]
+		double Distance (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord);
+
+		[Static, Export ("geometryLength:")]
+		double Length (Google.Maps.Path path);
+
+		[Static, Export ("geometryArea:")]
+		double Area (Google.Maps.Path path);
+
+		[Static, Export ("geometrySignedArea:")]
+		double SignedArea (Google.Maps.Path path);
+
+		[Static, Export ("geometryHeading:to:")]
+		double Heading (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord);
+
+		[Static, Export ("geometryOffset:distance:heading:")]
+		CLLocationCoordinate2D Offset (CLLocationCoordinate2D fromCoord, double distance, double heading);
+
+		[Static, Export ("geometryInterpolate:to:fraction:")]
+		CLLocationCoordinate2D Interpolate (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord, double fraction);
+	}
 	#endregion
 
 	[BaseType (typeof (NSObject), Name="GMSCameraPosition")]
@@ -585,8 +620,7 @@ namespace Google.Maps
 		[Export ("setZoom:")]
 		PanoramaCameraUpdate SetZoom (float zoom);
 	}
-
-	//TODO: Make PanoramaKeys Available
+	
 	[DisableDefaultCtor]
 	[BaseType (typeof (CALayer), Name="GMSPanoramaLayer")]
 	interface PanoramaLayer {
