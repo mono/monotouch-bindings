@@ -39,7 +39,7 @@ namespace CouchbaseSample
 			base.ViewDidLoad ();
 
 			var deleteButton = new UIBarButtonItem ("Clean", UIBarButtonItemStyle.Plain, DeleteCheckedItems);
-			NavigationItem.LeftBarButtonItem = deleteButton;
+			NavigationItem.RightBarButtonItem = deleteButton;
 
 			ShowSyncButton ();
 
@@ -236,7 +236,7 @@ namespace CouchbaseSample
 				}
 				var progressItem = new UIBarButtonItem (Progress);
 				progressItem.Enabled = false;
-				NavigationItem.RightBarButtonItem = progressItem;
+				NavigationItem.LeftBarButtonItem = progressItem;
 			}
 		}
 

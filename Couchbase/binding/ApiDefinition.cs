@@ -206,7 +206,7 @@ namespace Couchbase {
 		CBLReplication PullFromURL (NSUrl url);
 
 		[Export ("replicateWithURL:exclusively:")]
-		NSObject [] ReplicateWithURL (NSUrl otherDbURL, bool exclusively);
+		NSObject [] ReplicateWithURL ([NullAllowed] NSUrl otherDbURL, bool exclusively);
 
 		[Notification, Field ("kCBLDatabaseChangeNotification", "__Internal")]
 		NSString CBLDatabaseChangeNotification { get; }
