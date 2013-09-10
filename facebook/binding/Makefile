@@ -10,6 +10,7 @@ all: MonoTouch.FacebookConnect.dll
 
 facebook-ios-sdk:
 	git clone git@github.com:facebook/facebook-ios-sdk.git
+	(cd facebook-ios-sdk; git checkout 56b40a4e75)
 
 libFacebook-i386.a: facebook-ios-sdk
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
