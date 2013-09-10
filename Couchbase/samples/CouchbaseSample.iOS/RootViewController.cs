@@ -1,35 +1,47 @@
 using System;
-using System.Drawing;
 using System.Collections.Generic;
 using MonoTouch.UIKit;
 using MonoTouch.Foundation;
-using Couchbase;
-using System.Diagnostics;
 using System.Linq;
 
-namespace CouchbaseSample.iOS
+using Couchbase;
+using System.Diagnostics;
+
+namespace CouchbaseSample
 {
 	public partial class RootViewController : UIViewController
 	{
-		const string DefaultViewName = "byDate";
-		const string DocumentDisplayPropertyName = "text";
+		private  const string ReplicationChangeNotification = "CBLReplicationChange";
+		private  const string DefaultViewName = "byDate";
+		private  const string DocumentDisplayPropertyName = "text";
 		internal const string CheckboxPropertyName = "check";
 
- 		public CBLDatabase Database { get; set; }
+		Boolean showingSyncButton;
+
+		CBLReplication pull;
+		CBLReplication push;
+
+		UIProgressView Progress { get; set; }
+ 		
+		public CBLDatabase Database { get; set; }
+
+		#region Initialization/Configuration
 
 		public RootViewController () : base ("RootViewController", null)
 		{
 			Title = NSBundle.MainBundle.LocalizedString ("Grocery Sync", "Grocery Sync");
 		}
 
-		public DetailViewController DetailViewController { get;	set; }
+		public ConfigViewController DetailViewController { get;	set; }
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
 			var deleteButton = new UIBarButtonItem ("Clean", UIBarButtonItemStyle.Plain, DeleteCheckedItems);
-			NavigationItem.RightBarButtonItem = deleteButton;
+			NavigationItem.LeftBarButtonItem = deleteButton;
+
+			ShowSyncButton ();
 
 			EntryField.ShouldEndEditing += (sender) => { 
 				EntryField.ResignFirstResponder (); 
@@ -47,6 +59,14 @@ namespace CouchbaseSample.iOS
 			Datasource.TableView.Delegate = new CouchtableDelegate(this, Datasource);
 
 			NavigationController.NavigationBar.TintColor = new UIColor (0.564f, 0.0f, 0.015f, 0f);
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			// Check for changes after returning from the sync config view:
+			UpdateSyncUrl();
 		}
 
 		void InitializeDatabase ()
@@ -96,6 +116,10 @@ namespace CouchbaseSample.iOS
 			Datasource.LabelProperty = DocumentDisplayPropertyName; // Document property to display in the cell label
 		}
 
+		#endregion
+
+		#region CRUD Operations
+
 		IEnumerable<NSObject> CheckedDocuments
 		{
 			get
@@ -121,13 +145,10 @@ namespace CouchbaseSample.iOS
 			if (String.IsNullOrWhiteSpace (value))
 				return;
 
-			var rows = Datasource.Rows;
-			var rowCount = rows == null ? "null" : rows.Length.ToString();
-
-			var jsonDate = DateTime.UtcNow.ToString("o");
+			var jsonDate = DateTime.UtcNow.ToString("o"); // ISO 8601 date/time format.
 			var vals = NSDictionary.FromObjectsAndKeys (
 				new NSObject[] { new NSString(value), NSNumber.FromBoolean(false), new NSString(jsonDate) }, 
-			new NSObject[] { new NSString(DocumentDisplayPropertyName), new NSString(CheckboxPropertyName), new NSString("created_at") }
+				new NSObject[] { new NSString(DocumentDisplayPropertyName), new NSString(CheckboxPropertyName), new NSString("created_at") }
 			);
 
 			var doc = Database.UntitledDocument;
@@ -164,6 +185,82 @@ namespace CouchbaseSample.iOS
 			alert.Show ();
 		}
 
+		void UpdateSyncUrl()
+		{
+			if (Database == null) return;
+
+			NSUrl newRemoteUrl = null;
+			var syncPoint = NSUserDefaults.StandardUserDefaults.StringForKey(ConfigViewController.SyncUrlKey);
+			if (!String.IsNullOrWhiteSpace (syncPoint))
+				newRemoteUrl = new NSUrl (syncPoint);
+
+			ForgetSync ();
+
+			var repls = Database.ReplicateWithURL (newRemoteUrl, true);
+			if (repls != null) {
+				pull = repls [0] as CBLReplication;
+				push = repls [1] as CBLReplication;
+				pull.Continuous = push.Continuous = true;
+				pull.Persistent = push.Persistent = true;
+				var nctr = NSNotificationCenter.DefaultCenter;
+				nctr.AddObserver ((NSString)ReplicationChangeNotification, ReplicationProgress, pull);
+				nctr.AddObserver ((NSString)ReplicationChangeNotification, ReplicationProgress, push);
+			}
+		}
+
+		void ReplicationProgress(NSNotification notification)
+		{
+			if (pull.Mode == CBLReplicationMode.Active || push.Mode == CBLReplicationMode.Active) {
+				var completed = pull.Completed + push.Completed;
+				var total = pull.Total + push.Total;
+				Debug.WriteLine ("Sync Progress: {0}/{1}", completed, total);
+				ShowSyncStatus ();
+				Progress.Progress = total == 0 
+					? 1f
+					: (float)completed / (float)Math.Max(total, 1u);
+			} else {
+				ShowSyncButton ();
+			}
+		}
+
+		void ShowSyncStatus ()
+		{
+			if (showingSyncButton) {
+				showingSyncButton = false;
+				if (Progress == null) {
+					Progress = new UIProgressView (UIProgressViewStyle.Bar);
+					var frame = Progress.Frame;
+					var size = new System.Drawing.SizeF (View.Frame.Size.Width / 4f, frame.Height);
+					frame.Size = size;
+					Progress.Frame = frame;
+				}
+				var progressItem = new UIBarButtonItem (Progress);
+				progressItem.Enabled = false;
+				NavigationItem.RightBarButtonItem = progressItem;
+			}
+		}
+
+		void ForgetSync()
+		{
+		    var nctr = NSNotificationCenter.DefaultCenter;
+
+			if (pull != null)
+			{
+				nctr.RemoveObserver (this, null, pull);
+				pull = null;
+			}
+
+			if (push != null)
+			{
+				nctr.RemoveObserver (this, null, push);
+				push = null;
+			}
+		}
+
+		#endregion
+
+		#region Error Handling
+
 		public void ShowErrorAlert (string errorMessage, NSError error, Boolean fatal = false)
 		{
 			if (error != null)
@@ -176,63 +273,28 @@ namespace CouchbaseSample.iOS
 			                             );
 			alert.Show ();
 		}
-	}
 
-	public class CouchtableDelegate : CBLUITableDelegate
-	{
-		static UIColor backgroundColor;
+		#endregion
 
-		RootViewController parent;
-		CBLUITableSource dataSource;
+		#region Sync
 
-		public CouchtableDelegate(RootViewController controller, CBLUITableSource source)
+		void ConfigureSync(object sender, EventArgs args)
 		{
-			parent = controller;
-			dataSource = source;
+			var navController = ParentViewController as UINavigationController;
+			var controller = new ConfigViewController ();
+			navController.PushViewController (controller, true);
 		}
 
-		public override float GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		void ShowSyncButton()
 		{
-			return 50f;
-		}
-
-		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-		{
-			var row = dataSource.RowAtIndexPath (indexPath);
-			var doc = row.Document;
-
-			// Toggle the document's 'checked' property
-			var docContent = doc.Properties.MutableCopy() as NSMutableDictionary;
-			var checkedVal = (NSNumber)docContent.ValueForKey ((NSString)RootViewController.CheckboxPropertyName);
-			var wasChecked = checkedVal.BoolValue;
-			docContent.SetValueForKey (new NSNumber(!wasChecked), (NSString)RootViewController.CheckboxPropertyName);
-
-			NSError error;
-			var newRevision = doc.CurrentRevision.PutProperties (docContent, out error);
-			if (newRevision == null)
-				parent.ShowErrorAlert ("Failed to update item", error, false);
-		}
-
-		public override void WillUseCell (CBLUITableSource source, UITableViewCell cell, CBLQueryRow row)
-		{
-			if (backgroundColor == null)
+			if (!showingSyncButton)
 			{
-				var image = UIImage.FromBundle("item_background");
-				backgroundColor = UIColor.FromPatternImage (image);
+				showingSyncButton = true;
+				var button = new UIBarButtonItem ("Configure", UIBarButtonItemStyle.Plain, ConfigureSync);
+				NavigationItem.LeftBarButtonItem = button;
 			}
-
-			cell.BackgroundColor = backgroundColor;
-			cell.SelectionStyle = UITableViewCellSelectionStyle.Gray;
-
-			cell.TextLabel.Font = UIFont.FromName ("Helvetica", 18f);
-			cell.TextLabel.BackgroundColor = UIColor.Clear;
-
-			var props = row.Value as NSDictionary;
-			var isChecked = ((NSNumber)props.ValueForKey ((NSString)RootViewController.CheckboxPropertyName)).BoolValue;
-			cell.TextLabel.TextColor = isChecked ? UIColor.Gray : UIColor.Black;
-			cell.ImageView.Image = UIImage.FromBundle (isChecked 
-			                                          ? "list_area___checkbox___checked" 
-			                                          : "list_area___checkbox___unchecked");
 		}
+
+		#endregion
 	}
 }
