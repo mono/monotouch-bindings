@@ -1,1 +1,1 @@
-The Couchbase binding requires MonoTouch 5.3.5 to build.
+The Couchbaselite-iOS binding requires Xamarin.iOS 6.4+ to build.
