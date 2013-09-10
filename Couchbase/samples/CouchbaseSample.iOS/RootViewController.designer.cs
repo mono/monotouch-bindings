@@ -13,7 +13,7 @@ namespace CouchbaseSample
 	partial class RootViewController
 	{
 		[Outlet]
-		Couchbase.CBLUITableSource Datasource { get; set; }
+		global::Couchbase.CBLUITableSource Datasource { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UITextField EntryField { get; set; }

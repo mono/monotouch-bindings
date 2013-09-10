@@ -48,7 +48,7 @@ namespace CouchbaseSample
 			var syncPoint = NSUserDefaults.StandardUserDefaults.StringForKey(SyncUrlKey);
 			UrlField.Text = syncPoint;
 
-		    VersionField.Text = Assembly.GetAssembly(typeof(Couchbase.CBLDatabase)).GetName().Version.ToString();
+		    VersionField.Text = Assembly.GetAssembly(typeof(Couchbase.Database)).GetName().Version.ToString();
 
 		}
 
