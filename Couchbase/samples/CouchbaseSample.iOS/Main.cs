@@ -4,7 +4,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace CouchbaseSample.iOS
+namespace CouchbaseSample
 {
 	public class Application
 	{

@@ -7,7 +7,7 @@
 using MonoTouch.Foundation;
 using System.CodeDom.Compiler;
 
-namespace CouchbaseSample.iOS
+namespace CouchbaseSample
 {
 	[Register ("RootViewController")]
 	partial class RootViewController
