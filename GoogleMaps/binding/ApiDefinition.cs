@@ -40,9 +40,6 @@ namespace Google.Maps
 		[Static, Export ("kGMSGroundOverlayDefaultAnchorGlobal")]
 		PointF GroundOverlayDefaultAnchor { get; }
 
-		[Static, Export ("kGMSGroundOverlayDefaultZoomGlobal")]
-		float GroundOverlayDefaultZoom { get; }
-
 		[Static, Export ("kGMSMarkerDefaultGroundAnchorGlobal")]
 		PointF MarkerDefaultGroundAnchor { get; }
 
@@ -51,6 +48,18 @@ namespace Google.Maps
 
 		[Static, Export ("kGMSTileLayerNoTileGlobal")]
 		UIImage TileLayerNoTile { get; }
+
+		[Static, Export ("kGMSLayerPanoramaFOVKeyGlobal")]
+		NSString LayerPanoramaFOVKey { get; }
+
+		[Static, Export ("kGMSLayerPanoramaHeadingKeyGlobal")]
+		NSString LayerPanoramaHeadingKey { get; }
+
+		[Static, Export ("kGMSLayerPanoramaPitchKeyGlobal")]
+		NSString LayerPanoramaPitchKey { get; }
+
+		[Static, Export ("kGMSLayerPanoramaZoomKeyGlobal")]
+		NSString LayerPanoramaZoomKey { get; }
 	}
 	#endregion
 
