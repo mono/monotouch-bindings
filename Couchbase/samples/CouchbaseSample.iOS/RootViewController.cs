@@ -18,12 +18,12 @@ namespace CouchbaseSample
 
 		Boolean showingSyncButton;
 
-		CBLReplication pull;
-		CBLReplication push;
+		Replication pull;
+		Replication push;
 
 		UIProgressView Progress { get; set; }
  		
-		public CBLDatabase Database { get; set; }
+		public Database Database { get; set; }
 
 		#region Initialization/Configuration
 
@@ -72,7 +72,7 @@ namespace CouchbaseSample
 		void InitializeDatabase ()
 		{
 			NSError error;
-			var db = CBLManager.SharedInstance.CreateDatabaseNamed ("grocery-sync", out error);
+			var db = Manager.SharedInstance.CreateDatabaseNamed ("grocery-sync", out error);
 			if (error != null)
 				throw new ApplicationException (error.Description);
 			else if (db == null)
@@ -86,7 +86,7 @@ namespace CouchbaseSample
 			var view = Database.ViewNamed (DefaultViewName);
 
 			NSObject key = new NSString("created_at");
-			var mapBlock = new CBLMapBlock ((doc, aview) => {
+			var mapBlock = new MapBlock ((doc, aview) => {
 				NSObject date  = doc.ObjectForKey (key);
 				if (date  != null) {
 					aview.Emit (date, doc);
@@ -95,7 +95,7 @@ namespace CouchbaseSample
 
 			view.SetMapBlock (mapBlock, null, "1.1");
 
-			var validationBlock = new CBLValidationBlock ((revision, context)=>{
+			var validationBlock = new ValidationBlock ((revision, context)=>{
 				if (revision.IsDeleted) return true;
 
 				NSObject date = revision.Properties.ObjectForKey(key);
@@ -109,7 +109,7 @@ namespace CouchbaseSample
 		void InitializeDatasource ()
 		{
 			var view = Database.ViewNamed (DefaultViewName);
-			CBLLiveQuery query = view.Query.AsLiveQuery;
+			LiveQuery query = view.Query.AsLiveQuery;
 			query.Descending = true;
 
 			Datasource.Query = query;
@@ -125,7 +125,7 @@ namespace CouchbaseSample
 			get
 			{
 				var docs = new List<NSObject> ();
-				foreach (CBLQueryRow row in Datasource.Rows)
+				foreach (QueryRow row in Datasource.Rows)
 				{
 					var doc = row.Document;
 					NSObject val;
@@ -198,8 +198,8 @@ namespace CouchbaseSample
 
 			var repls = Database.ReplicateWithURL (newRemoteUrl, true);
 			if (repls != null) {
-				pull = repls [0] as CBLReplication;
-				push = repls [1] as CBLReplication;
+				pull = repls [0] as Replication;
+				push = repls [1] as Replication;
 				pull.Continuous = push.Continuous = true;
 				pull.Persistent = push.Persistent = true;
 				var nctr = NSNotificationCenter.DefaultCenter;
@@ -210,7 +210,7 @@ namespace CouchbaseSample
 
 		void ReplicationProgress(NSNotification notification)
 		{
-			if (pull.Mode == CBLReplicationMode.Active || push.Mode == CBLReplicationMode.Active) {
+			if (pull.Mode == ReplicationMode.Active || push.Mode == ReplicationMode.Active) {
 				var completed = pull.Completed + push.Completed;
 				var total = pull.Total + push.Total;
 				Debug.WriteLine ("Sync Progress: {0}/{1}", completed, total);

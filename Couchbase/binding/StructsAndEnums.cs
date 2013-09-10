@@ -2,20 +2,20 @@ using System;
 
 namespace Couchbase
 {
-	public enum CBLStaleness {
+	public enum Staleness {
 		Never,
 		OK,
 		UpdateAfter
 	}
 
-	public enum CBLReplicationMode {
+	public enum ReplicationMode {
 		Stopped,
 		Offline,
 		Idle,
 		Active
 	}
 
-	public struct CBLManagerOptions {
+	public struct ManagerOptions {
 		public bool ReadOnly;
 		public bool NoReplicator;
 	}

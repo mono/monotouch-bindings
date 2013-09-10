@@ -7,24 +7,24 @@ using MonoTouch.UIKit;
 
 namespace Couchbase {
 
-	public delegate void CBLMapEmitBlock(NSObject key, NSObject value);
-	public delegate bool CBLFilterBlock(CBLRevision revision, NSDictionary options);
-	public delegate bool CBLValidationBlock(CBLRevision newRevision, CBLValidationContext context);
-	public delegate void CBLMapBlock(NSDictionary doc, CBLView view);
-	public delegate NSObject CBLReduceBlock(NSArray keys, NSArray values, bool rereduce);
-	public delegate bool CBLChangeEnumeratorBlock(String key, NSObject oldValue, NSObject newValue);
+	public delegate void MapEmitBlock(NSObject key, NSObject value);
+	public delegate bool FilterBlock(Revision revision, NSDictionary options);
+	public delegate bool ValidationBlock(Revision newRevision, ValidationContext context);
+	public delegate void MapBlock(NSDictionary doc, View view);
+	public delegate NSObject ReduceBlock(NSArray keys, NSArray values, bool rereduce);
+	public delegate bool ChangeEnumeratorBlock(String key, NSObject oldValue, NSObject newValue);
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLAttachment {
+	[BaseType (typeof (NSObject), Name = "CBLAttachment")]
+	public partial interface Attachment {
 
 		[Export ("initWithContentType:body:")]
 		IntPtr Constructor (string contentType, NSObject body);
 
 		[Export ("revision", ArgumentSemantic.Retain)]
-		CBLRevisionBase Revision { get; }
+		RevisionBase Revision { get; }
 
 		[Export ("document")]
-		CBLDocument Document { get; }
+		Document Document { get; }
 
 		[Export ("name", ArgumentSemantic.Copy)]
 		string Name { get; }
@@ -45,21 +45,21 @@ namespace Couchbase {
 		NSUrl BodyURL { get; }
 
 		[Export ("updateBody:contentType:error:")]
-		CBLRevision UpdateBody (NSData body, string contentType, out NSError outError);
+		Revision UpdateBody (NSData body, string contentType, out NSError outError);
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLViewCompiler {
+	[BaseType (typeof (NSObject), Name = "CBLViewCompiler")]
+	public partial interface ViewCompiler {
 
 		[Export ("compileMapFunction:language:")]
-		CBLMapBlock CompileMapFunction (string mapSource, string language);
+		MapBlock CompileMapFunction (string mapSource, string language);
 
 		[Export ("compileReduceFunction:language:")]
-		CBLReduceBlock CompileReduceFunction (string reduceSource, string language);
+		ReduceBlock CompileReduceFunction (string reduceSource, string language);
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLView {
+	[BaseType (typeof (NSObject), Name = "CBLView")]
+	public partial interface View {
 
 		// NOTE.ZJG: Added a part of a custom-build of libCouchbaselite.
 		// This works around bugzilla #4781.
@@ -67,27 +67,27 @@ namespace Couchbase {
 		void Emit (NSObject key, NSObject value);
 
 		// NOTE.ZJG: Never called, and doesn't exist on objc side, 
-		// but ensures CBLMapEmitBlock is emitted by the generator.
+		// but ensures MapEmitBlock is emitted by the generator.
 		[Export("foo")]
-		void Foo (CBLMapEmitBlock emit);
+		void Foo (MapEmitBlock emit);
 
 		[Export ("database")]
-		CBLDatabase Database { get; }
+		Database Database { get; }
 
 		[Export ("name")]
 		string Name { get; }
 
 		[Export ("mapBlock")]
-		CBLMapBlock MapBlock { get; }
+		MapBlock MapBlock { get; }
 
 		[Export ("reduceBlock")]
-		CBLReduceBlock ReduceBlock { get; }
+		ReduceBlock ReduceBlock { get; }
 
 		[Export ("setMapBlock:reduceBlock:version:")]
-		bool SetMapBlock (CBLMapBlock mapBlock, [NullAllowed] CBLReduceBlock reduceBlock, string version);
+		bool SetMapBlock (MapBlock mapBlock, [NullAllowed] ReduceBlock reduceBlock, string version);
 
 		[Export ("setMapBlock:version:")]
-		bool SetMapBlock (CBLMapBlock mapBlock, string version);
+		bool SetMapBlock (MapBlock mapBlock, string version);
 
 		[Export ("stale")]
 		bool Stale { get; }
@@ -102,30 +102,30 @@ namespace Couchbase {
 		void DeleteView ();
 
 		[Export ("query")]
-		CBLQuery Query { get; }
+		Query Query { get; }
 
 		[Static, Export ("totalValues:")]
 		NSNumber TotalValues (NSObject [] values);
 
 		[Static, Export ("compiler")]
-		CBLViewCompiler Compiler { get; set; }
+		ViewCompiler Compiler { get; set; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLFilterCompiler {
+	[BaseType (typeof (NSObject), Name = "CBLFilterCompiler")]
+	public partial interface FilterCompiler {
 
 		[Export ("compileFilterFunction:language:")]
-		CBLFilterBlock CompileFilterFunction (string filterSource, string language);
+		FilterBlock CompileFilterFunction (string filterSource, string language);
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLDatabase {
+	[BaseType (typeof (NSObject), Name = "CBLDatabase")]
+	public partial interface Database {
 
 		[Export ("name")]
 		string Name { get; }
 
 		[Export ("manager")]
-		CBLManager Manager { get; }
+		Manager Manager { get; }
 
 		[Export ("documentCount")]
 		uint DocumentCount { get; }
@@ -143,16 +143,16 @@ namespace Couchbase {
 		bool DeleteDatabase (out NSError outError);
 
 		[Export ("documentWithID:")]
-		CBLDocument DocumentWithID (string docID);
+		Document DocumentWithID (string docID);
 
 		[Export ("objectForKeyedSubscript:")]
-		CBLDocument ObjectForKeyedSubscript (string key);
+		Document ObjectForKeyedSubscript (string key);
 
 		[Export ("untitledDocument")]
-		CBLDocument UntitledDocument { get; }
+		Document UntitledDocument { get; }
 
 		[Export ("cachedDocumentWithID:")]
-		CBLDocument CachedDocumentWithID (string docID);
+		Document CachedDocumentWithID (string docID);
 
 		[Export ("clearDocumentCache")]
 		void ClearDocumentCache ();
@@ -167,31 +167,31 @@ namespace Couchbase {
 		bool DeleteLocalDocumentWithID (string localDocID, out NSError outError);
 
 		[Export ("queryAllDocuments")]
-		CBLQuery QueryAllDocuments { get; }
+		Query QueryAllDocuments { get; }
 
 		[Export ("slowQueryWithMap:")]
-		CBLQuery SlowQueryWithMap (CBLMapBlock mapBlock);
+		Query SlowQueryWithMap (MapBlock mapBlock);
 
 		[Export ("viewNamed:")]
-		CBLView ViewNamed (string name);
+		View ViewNamed (string name);
 
 		[Export ("existingViewNamed:")]
-		CBLView ExistingViewNamed (string name);
+		View ExistingViewNamed (string name);
 
 		[Export ("defineValidation:asBlock:")]
-		void DefineValidation (string validationName, CBLValidationBlock validationBlock);
+		void DefineValidation (string validationName, ValidationBlock validationBlock);
 
 		[Export ("validationNamed:")]
-		CBLValidationBlock ValidationNamed (string validationName);
+		ValidationBlock ValidationNamed (string validationName);
 
 		[Export ("defineFilter:asBlock:")]
-		void DefineFilter (string filterName, CBLFilterBlock filterBlock);
+		void DefineFilter (string filterName, FilterBlock filterBlock);
 
 		[Export ("filterNamed:")]
-		CBLFilterBlock FilterNamed (string filterName);
+		FilterBlock FilterNamed (string filterName);
 
 		[Static, Export ("filterCompiler")]
-		CBLFilterCompiler FilterCompiler { get; set; }
+		FilterCompiler FilterCompiler { get; set; }
 
 		[Export ("inTransaction:")]
 		bool InTransaction (Action<bool> bloc);
@@ -200,23 +200,23 @@ namespace Couchbase {
 		NSObject [] AllReplications { get; }
 
 		[Export ("pushToURL:")]
-		CBLReplication PushToURL (NSUrl url);
+		Replication PushToURL (NSUrl url);
 
 		[Export ("pullFromURL:")]
-		CBLReplication PullFromURL (NSUrl url);
+		Replication PullFromURL (NSUrl url);
 
 		[Export ("replicateWithURL:exclusively:")]
 		NSObject [] ReplicateWithURL ([NullAllowed] NSUrl otherDbURL, bool exclusively);
 
 		[Notification, Field ("kCBLDatabaseChangeNotification", "__Internal")]
-		NSString CBLDatabaseChangeNotification { get; }
+		NSString DatabaseChangeNotification { get; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLValidationContext {
+	[BaseType (typeof (NSObject), Name = "CBLValidationContext")]
+	public partial interface ValidationContext {
 
 		[Export ("currentRevision")]
-		CBLRevision CurrentRevision { get; }
+		Revision CurrentRevision { get; }
 
 		[Export ("errorType")]
 		int ErrorType { get; set; }
@@ -237,11 +237,11 @@ namespace Couchbase {
 		bool EnumerateChanges (Func<NSString, NSObject, NSObject, bool> enumerator);
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLDocument {
+	[BaseType (typeof (NSObject), Name = "CBLDocument")]
+	public partial interface Document {
 
 		[Export ("database")]
-		CBLDatabase Database { get; }
+		Database Database { get; }
 
 		[Export ("documentID")]
 		string DocumentID { get; }
@@ -262,10 +262,10 @@ namespace Couchbase {
 		string CurrentRevisionID { get; }
 
 		[Export ("currentRevision")]
-		CBLRevision CurrentRevision { get; }
+		Revision CurrentRevision { get; }
 
 		[Export ("revisionWithID:")]
-		CBLRevision RevisionWithID (string revisionID);
+		Revision RevisionWithID (string revisionID);
 
 		[Export ("getRevisionHistory:")]
 		NSObject [] GetRevisionHistory (out NSError outError);
@@ -277,7 +277,7 @@ namespace Couchbase {
 		NSObject [] GetLeafRevisions (out NSError outError);
 
 		[Export ("newRevision")]
-		CBLNewRevision NewRevision { get; }
+		NewRevision NewRevision { get; }
 
 		[Export ("properties", ArgumentSemantic.Copy)]
 		NSDictionary Properties { get; }
@@ -292,27 +292,27 @@ namespace Couchbase {
 		NSObject ObjectForKeyedSubscript (string key);
 
 		[Export ("putProperties:error:")]
-		CBLRevision PutProperties (NSDictionary properties, out NSError outError);
+		Revision PutProperties (NSDictionary properties, out NSError outError);
 
 		[Export ("modelObject", ArgumentSemantic.Assign)]
 		NSObject ModelObject { get; set; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLDocumentModel {
+	[BaseType (typeof (NSObject), Name = "CBLDocumentModel")]
+	public partial interface DocumentModel {
 
 		[Export ("tdDocumentChanged:")]
-		void TdDocumentChanged (CBLDocument doc);
+		void DocumentChanged (Document doc);
 
 		[Notification, Field ("kCBLDocumentChangeNotification", "__Internal")]
-		NSString CBLDocumentChangeNotification { get; }
+		NSString DocumentChangeNotification { get; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLManager {
+	[BaseType (typeof (NSObject), Name = "CBLManager")]
+	public partial interface Manager {
 
 		[Static, Export ("sharedInstance")]
-		CBLManager SharedInstance { get; }
+		Manager SharedInstance { get; }
 
 		[Static, Export ("isValidDatabaseName:")]
 		bool IsValidDatabaseName (string name);
@@ -321,7 +321,7 @@ namespace Couchbase {
 		string DefaultDirectory { get; }
 
 		[Export ("initWithDirectory:options:error:")]
-		IntPtr Constructor (string directory, CBLManagerOptions options, out NSError outError);
+		IntPtr Constructor (string directory, ManagerOptions options, out NSError outError);
 
 		[Export ("close")]
 		void Close ();
@@ -330,13 +330,13 @@ namespace Couchbase {
 		string Directory { get; }
 
 		[Export ("databaseNamed:error:")]
-		CBLDatabase DatabaseNamed (string name, out NSError outError);
+		Database DatabaseNamed (string name, out NSError outError);
 
 		[Export ("objectForKeyedSubscript:")]
-		CBLDatabase ObjectForKeyedSubscript (string key);
+		Database ObjectForKeyedSubscript (string key);
 
 		[Export ("createDatabaseNamed:error:")]
-		CBLDatabase CreateDatabaseNamed (string name, out NSError outError);
+		Database CreateDatabaseNamed (string name, out NSError outError);
 
 		[Export ("allDatabaseNames")]
 		NSObject [] AllDatabaseNames { get; }
@@ -345,14 +345,14 @@ namespace Couchbase {
 		bool ReplaceDatabaseNamed (string databaseName, string databasePath, string attachmentsPath, out NSError outError);
 
 		[Export ("asyncTellDatabaseNamed:to:")]
-		void AsyncTellDatabaseNamed (string dbName, Action<CBLDatabase> block);
+		void AsyncTellDatabaseNamed (string dbName, Action<Database> block);
 
 		[Export ("internalURL")]
 		NSUrl InternalURL { get; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface MYDynamicObject {
+	[BaseType (typeof (NSObject), Name = "MYDynamicObject")]
+	public partial interface CouchDynamicObject {
 
 		[Static, Export ("propertyNames")]
 		NSSet PropertyNames { get; }
@@ -377,29 +377,29 @@ namespace Couchbase {
 
 		[Static, Export ("impForSetterOfProperty:ofClass:")]
 		IntPtr ImpForSetterOfProperty (string property, Class propertyClass);
-//
-//		[Static, Export ("impForGetterOfProperty:ofType:")]
-//		unsafe IntPtr ImpForGetterOfProperty (string property, char* propertyType);
-//
-//		[Static, Export ("impForSetterOfProperty:ofType:")]
-//		unsafe IntPtr ImpForSetterOfProperty (string property, char* propertyType);
+
+		[Static, Export ("impForGetterOfProperty:ofType:")]
+		IntPtr ImpForGetterOfProperty (string property, string propertyType);
+
+		[Static, Export ("impForSetterOfProperty:ofType:")]
+		IntPtr ImpForSetterOfProperty (string property, string propertyType);
 	}
 
 
-	[BaseType (typeof (MYDynamicObject))]
-	public partial interface CBLModel : CBLDocumentModel {
+	[BaseType (typeof (CouchDynamicObject), Name = "CBLModel")]
+	public partial interface Model : DocumentModel {
 
 		[Static, Export ("modelForDocument:")]
-		CBLModel ModelForDocument (CBLDocument document);
+		Model ModelForDocument (Document document);
 
 		[Export ("initWithNewDocumentInDatabase:")]
-		IntPtr Constructor (CBLDatabase database);
+		IntPtr Constructor (Database database);
 
 		[Export ("document", ArgumentSemantic.Retain)]
-		CBLDocument Document { get; }
+		Document Document { get; }
 
 		[Export ("database", ArgumentSemantic.Retain)]
-		CBLDatabase Database { get; set; }
+		Database Database { get; set; }
 
 		[Export ("isNew")]
 		bool IsNew { get; }
@@ -441,25 +441,25 @@ namespace Couchbase {
 		NSObject [] AttachmentNames { get; }
 
 		[Export ("attachmentNamed:")]
-		CBLAttachment AttachmentNamed (string name);
+		Attachment AttachmentNamed (string name);
 
 		[Export ("addAttachment:named:")]
-		void AddAttachment (CBLAttachment attachment, string name);
+		void AddAttachment (Attachment attachment, string name);
 
 		[Export ("removeAttachmentNamed:")]
 		void RemoveAttachmentNamed (string name);
 
 		[Export ("initWithDocument:")]
-		IntPtr Constructor (CBLDocument document);
+		IntPtr Constructor (Document document);
 
 		[Export ("idForNewDocumentInDatabase:")]
-		string IdForNewDocumentInDatabase (CBLDatabase db);
+		string IdForNewDocumentInDatabase (Database db);
 
 		[Export ("didLoadFromDocument")]
 		void DidLoadFromDocument ();
 
 		[Export ("databaseForModelProperty:")]
-		CBLDatabase DatabaseForModelProperty (string propertyName);
+		Database DatabaseForModelProperty (string propertyName);
 
 		[Export ("markNeedsSave")]
 		void MarkNeedsSave ();
@@ -468,56 +468,56 @@ namespace Couchbase {
 		Class ItemClassForArrayProperty (string property);
 	}
 
-//	[Category, BaseType (typeof (CBLDatabase))]
-//	public partial interface CBLModel_CBLDatabase {
-//
-//		[Export ("unsavedModels")]
-//		NSObject [] UnsavedModels { get; }
-//
-//		[Export ("saveAllModels:")]
-//		bool SaveAllModels (out NSError outError);
-//
-//		[Export ("autosaveAllModels:")]
-//		bool AutosaveAllModels (out NSError outError);
-//	}
+	[Category, BaseType (typeof (Database))]
+	public partial interface Model_Database {
 
-	[BaseType (typeof (NSArray))]
-	public partial interface CBLModelArray {
+		[Static, Export ("unsavedModels")]
+		NSObject [] UnsavedModels { get; }
+
+		[Static, Export ("saveAllModels:")]
+		bool SaveAllModels (out NSError outError);
+
+		[Static, Export ("autosaveAllModels:")]
+		bool AutosaveAllModels (out NSError outError);
+	}
+
+	[BaseType (typeof (NSArray), Name = "CBLModelArray")]
+	public partial interface ModelArray {
 
 		[Export ("initWithOwner:property:itemClass:docIDs:")]
-		IntPtr Constructor (CBLModel owner, string property, Class itemClass, String [] docIDs);
+		IntPtr Constructor (Model owner, string property, Class itemClass, String [] docIDs);
 
 		[Export ("initWithOwner:property:itemClass:models:")]
-		IntPtr Constructor (CBLModel owner, string property, Class itemClass, NSObject [] models);
+		IntPtr Constructor (Model owner, string property, Class itemClass, NSObject [] models);
 
 		[Export ("docIDs")]
 		NSObject [] DocIDs { get; }
 	}
 	
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLModelFactory {
+	[BaseType (typeof (NSObject), Name = "CBLModelFactory")]
+	public partial interface ModelFactory {
 
 		[Static, Export ("sharedInstance")]
-		CBLModelFactory SharedInstance { get; }
+		ModelFactory SharedInstance { get; }
 
 		[Export ("modelForDocument:")]
-		NSObject ModelForDocument (CBLDocument document);
+		NSObject ModelForDocument (Document document);
 
 		[Export ("registerClass:forDocumentType:")]
 		void RegisterClass (NSObject classOrName, string type);
 
 		[Export ("classForDocument:")]
-		Class ClassForDocument (CBLDocument document);
+		Class ClassForDocument (Document document);
 
 		[Export ("classForDocumentType:")]
 		Class ClassForDocumentType (string type);
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLQuery {
+	[BaseType (typeof (NSObject), Name = "CBLQuery")]
+	public partial interface Query {
 
 		[Export ("database")]
-		CBLDatabase Database { get; }
+		Database Database { get; }
 
 		[Export ("limit")]
 		uint Limit { get; set; }
@@ -541,7 +541,7 @@ namespace Couchbase {
 		string EndKeyDocID { get; set; }
 
 		[Export ("stale")]
-		CBLStaleness Stale { get; set; }
+		Staleness Stale { get; set; }
 
 		[Export ("keys", ArgumentSemantic.Copy)]
 		NSObject [] Keys { get; set; }
@@ -565,20 +565,20 @@ namespace Couchbase {
 		NSError Error { get; }
 
 		[Export ("rows")]
-		CBLQueryEnumerator Rows { get; }
+		QueryEnumerator Rows { get; }
 
 		[Export ("rowsIfChanged")]
-		CBLQueryEnumerator RowsIfChanged { get; }
+		QueryEnumerator RowsIfChanged { get; }
 
 		[Export ("runAsync:")]
-		void RunAsync (Action<CBLQueryEnumerator> onComplete);
+		void RunAsync (Action<QueryEnumerator> onComplete);
 
 		[Export ("asLiveQuery")]
-		CBLLiveQuery AsLiveQuery { get; }
+		LiveQuery AsLiveQuery { get; }
 	}
 
-	[BaseType (typeof (CBLQuery))]
-	public partial interface CBLLiveQuery {
+	[BaseType (typeof (Query), Name = "CBLLiveQuery")]
+	public partial interface LiveQuery {
 
 		[Export ("start")]
 		void Start ();
@@ -587,11 +587,11 @@ namespace Couchbase {
 		void Stop ();
 
 		[Export ("rows", ArgumentSemantic.Retain)]
-		CBLQueryEnumerator Rows { get; }
+		QueryEnumerator Rows { get; }
 	}
 
-	[BaseType (typeof (NSEnumerator))]
-	public partial interface CBLQueryEnumerator {
+	[BaseType (typeof (NSEnumerator), Name = "CBLQueryEnumerator")]
+	public partial interface QueryEnumerator {
 
 		[Export ("count")]
 		uint Count { get; }
@@ -600,17 +600,17 @@ namespace Couchbase {
 		UInt64 SequenceNumber { get; }
 
 		[Export ("nextRow")]
-		CBLQueryRow NextRow { get; }
+		QueryRow NextRow { get; }
 
 		[Export ("rowAtIndex:")]
-		CBLQueryRow RowAtIndex (uint index);
+		QueryRow RowAtIndex (uint index);
 
 		[Export ("error")]
 		NSError Error { get; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLQueryRow {
+	[BaseType (typeof (NSObject), Name = "CBLQueryRow")]
+	public partial interface QueryRow {
 
 		[Export ("key")]
 		NSObject Key { get; }
@@ -628,7 +628,7 @@ namespace Couchbase {
 		string DocumentRevision { get; }
 
 		[Export ("document")]
-		CBLDocument Document { get; }
+		Document Document { get; }
 
 		[Export ("documentProperties")]
 		NSDictionary DocumentProperties { get; }
@@ -652,17 +652,17 @@ namespace Couchbase {
 		UInt64 LocalSequence { get; }
 	}
 	
-	[BaseType (typeof (CBLModel))]
-	public partial interface CBLReplication {
+	[BaseType (typeof (Model), Name = "CBLReplication")]
+	public partial interface Replication {
 
 		[Export ("initPullFromSourceURL:toDatabase:")]
-		IntPtr Constructor (NSUrl source, CBLDatabase database);
+		IntPtr Constructor (NSUrl source, Database database);
 
 		[Export ("initPushFromDatabase:toTargetURL:")]
-		IntPtr Constructor (CBLDatabase database, NSUrl target);
+		IntPtr Constructor (Database database, NSUrl target);
 
 		[Export ("localDatabase")]
-		CBLDatabase LocalDatabase { get; }
+		Database LocalDatabase { get; }
 
 		[Export ("remoteURL")]
 		NSUrl RemoteURL { get; }
@@ -725,7 +725,7 @@ namespace Couchbase {
 		void Restart ();
 
 		[Export ("mode")]
-		CBLReplicationMode Mode { get; }
+		ReplicationMode Mode { get; }
 
 		[Export ("running")]
 		bool Running { get; }
@@ -740,17 +740,17 @@ namespace Couchbase {
 		uint Total { get; }
 
 		[Notification, Field ("kCBLReplicationChangeNotification", "__Internal")]
-		NSString CBLReplicationChangeNotification { get; }
+		NSString ReplicationChangeNotification { get; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	public partial interface CBLRevisionBase {
+	[BaseType (typeof (NSObject), Name = "CBLRevisionBase")]
+	public partial interface RevisionBase {
 
 		[Export ("document")]
-		CBLDocument Document { get; }
+		Document Document { get; }
 
 		[Export ("database")]
-		CBLDatabase Database { get; }
+		Database Database { get; }
 
 		[Export ("isDeleted")]
 		bool IsDeleted { get; }
@@ -774,33 +774,33 @@ namespace Couchbase {
 		NSObject [] AttachmentNames { get; }
 
 		[Export ("attachmentNamed:")]
-		CBLAttachment AttachmentNamed (string name);
+		Attachment AttachmentNamed (string name);
 
 		[Export ("attachments")]
 		NSObject [] Attachments { get; }
 	}
 
-	[BaseType (typeof (CBLRevisionBase))]
-	public partial interface CBLRevision {
+	[BaseType (typeof (RevisionBase), Name = "CBLRevision")]
+	public partial interface Revision {
 
 		[Export ("propertiesAreLoaded")]
 		bool PropertiesAreLoaded { get; }
 
 		[Export ("newRevision")]
-		CBLNewRevision NewRevision { get; }
+		NewRevision NewRevision { get; }
 
 		[Export ("putProperties:error:")]
-		CBLRevision PutProperties (NSDictionary properties, out NSError outError);
+		Revision PutProperties (NSDictionary properties, out NSError outError);
 
 		[Export ("deleteDocument:")]
-		CBLRevision DeleteDocument (out NSError outError);
+		Revision DeleteDocument (out NSError outError);
 
 		[Export ("getRevisionHistory:")]
 		NSObject [] GetRevisionHistory (out NSError outError);
 	}
 
-	[BaseType (typeof (CBLRevisionBase))]
-	public partial interface CBLNewRevision {
+	[BaseType (typeof (RevisionBase), Name = "CBLNewRevision")]
+	public partial interface NewRevision {
 
 		[Export ("isDeleted")]
 		bool IsDeleted { get; set; }
@@ -815,16 +815,16 @@ namespace Couchbase {
 		void SetObject (NSObject value, string key);
 
 		[Export ("parentRevision")]
-		CBLRevision ParentRevision { get; }
+		Revision ParentRevision { get; }
 
 		[Export ("parentRevisionID")]
 		string ParentRevisionID { get; }
 
 		[Export ("save:")]
-		CBLRevision Save (out NSError outError);
+		Revision Save (out NSError outError);
 
 		[Export ("addAttachment:named:")]
-		void AddAttachment (CBLAttachment attachment, string name);
+		void AddAttachment (Attachment attachment, string name);
 
 		[Export ("removeAttachmentNamed:")]
 		void RemoveAttachmentNamed (string name);
@@ -847,7 +847,7 @@ namespace Couchbase {
 		UICollectionView CollectionView { get; set; }
 
 		[Export ("query", ArgumentSemantic.Retain)]
-		CBLLiveQuery Query { get; set; }
+		LiveQuery Query { get; set; }
 
 		[Export ("reloadFromQuery")]
 		void ReloadFromQuery ();
@@ -856,16 +856,16 @@ namespace Couchbase {
 		NSMutableArray Rows { get; }
 
 		[Export ("rowAtIndex:")]
-		CBLQueryRow RowAtIndex (uint index);
+		QueryRow RowAtIndex (uint index);
 
 		[Export ("indexPathForDocument:")]
-		NSIndexPath IndexPathForDocument (CBLDocument document);
+		NSIndexPath IndexPathForDocument (Document document);
 
 		[Export ("rowAtIndexPath:")]
-		CBLQueryRow RowAtIndexPath (NSIndexPath path);
+		QueryRow RowAtIndexPath (NSIndexPath path);
 
 		[Export ("documentAtIndexPath:")]
-		CBLDocument DocumentAtIndexPath (NSIndexPath path);
+		Document DocumentAtIndexPath (NSIndexPath path);
 
 		[Export ("deleteDocumentsAtIndexes:error:")]
 		bool DeleteDocumentsAtIndexes (NSObject [] indexPaths, out NSError outError);
@@ -875,19 +875,19 @@ namespace Couchbase {
 	}
 
 	[Model, BaseType(typeof(UICollectionViewDelegate))]
-	public partial interface CBLUICollectionDelegate {
+	public partial interface CBLCollectionDelegate {
 
 		[Export ("couchCollectionSource:cellForRowAtIndexPath:")]
 		UICollectionViewCell CellForRowAtIndexPath (CBLUICollectionSource source, NSIndexPath indexPath);
 
 		[Export ("couchCollectionSource:willUpdateFromQuery:")]
-		void WillUpdateFromQuery (CBLUICollectionSource source, CBLLiveQuery query);
+		void WillUpdateFromQuery (CBLUICollectionSource source, LiveQuery query);
 
 		[Export ("couchCollectionSource:updateFromQuery:previousRows:")]
-		void UpdateFromQuery (CBLUICollectionSource source, CBLLiveQuery query, NSObject [] previousRows);
+		void UpdateFromQuery (CBLUICollectionSource source, LiveQuery query, NSObject [] previousRows);
 
 		[Export ("couchCollectionSource:willUseCell:forRow:")]
-		void WillUseCell (CBLUICollectionSource source, UICollectionViewCell cell, CBLQueryRow row);
+		void WillUseCell (CBLUICollectionSource source, UICollectionViewCell cell, QueryRow row);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -897,7 +897,7 @@ namespace Couchbase {
 		UITableView TableView { get; set; }
 
 		[Export ("query", ArgumentSemantic.Retain)]
-		CBLLiveQuery Query { get; set; }
+		LiveQuery Query { get; set; }
 
 		[Export ("reloadFromQuery")]
 		void ReloadFromQuery ();
@@ -906,16 +906,16 @@ namespace Couchbase {
 		NSObject [] Rows { get; }
 
 		[Export ("rowAtIndex:")]
-		CBLQueryRow RowAtIndex (uint index);
+		QueryRow RowAtIndex (uint index);
 
 		[Export ("indexPathForDocument:")]
-		NSIndexPath IndexPathForDocument (CBLDocument document);
+		NSIndexPath IndexPathForDocument (Document document);
 
 		[Export ("rowAtIndexPath:")]
-		CBLQueryRow RowAtIndexPath (NSIndexPath path);
+		QueryRow RowAtIndexPath (NSIndexPath path);
 
 		[Export ("documentAtIndexPath:")]
-		CBLDocument DocumentAtIndexPath (NSIndexPath path);
+		Document DocumentAtIndexPath (NSIndexPath path);
 
 		[Export ("labelProperty", ArgumentSemantic.Copy)]
 		string LabelProperty { get; set; }
@@ -937,16 +937,16 @@ namespace Couchbase {
 		UITableViewCell CellForRowAtIndexPath (CBLUITableSource source, NSIndexPath indexPath);
 
 		[Export ("couchTableSource:willUpdateFromQuery:")]
-		void WillUpdateFromQuery (CBLUITableSource source, CBLLiveQuery query);
+		void WillUpdateFromQuery (CBLUITableSource source, LiveQuery query);
 
 		[Export ("couchTableSource:updateFromQuery:previousRows:")]
-		void UpdateFromQuery (CBLUITableSource source, CBLLiveQuery query, NSObject [] previousRows);
+		void UpdateFromQuery (CBLUITableSource source, LiveQuery query, NSObject [] previousRows);
 
 		[Export ("couchTableSource:willUseCell:forRow:")]
-		void WillUseCell (CBLUITableSource source, UITableViewCell cell, CBLQueryRow row);
+		void WillUseCell (CBLUITableSource source, UITableViewCell cell, QueryRow row);
 
 		[Export ("couchTableSource:deleteRow:")]
-		bool DeleteRow (CBLUITableSource source, CBLQueryRow row);
+		bool DeleteRow (CBLUITableSource source, QueryRow row);
 
 		[Export ("couchTableSource:deleteFailed:")]
 		void DeleteFailed (CBLUITableSource source, NSError error);

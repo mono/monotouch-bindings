@@ -45,7 +45,7 @@ namespace CouchbaseSample
 				parent.ShowErrorAlert ("Failed to update item", error, false);
 		}
 
-		public override void WillUseCell (CBLUITableSource source, UITableViewCell cell, CBLQueryRow row)
+		public override void WillUseCell (CBLUITableSource source, UITableViewCell cell, QueryRow row)
 		{
 			if (backgroundColor == null)
 			{
