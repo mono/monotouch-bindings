@@ -899,7 +899,7 @@ namespace Google.Maps
 	[BaseType (typeof (NSObject), Name="GMSTileLayer")]
 	interface TileLayer {
 
-		[Export ("requestTileForX:y:zoom:image:receiver:")]
+		[Export ("requestTileForX:y:zoom:receiver:")]
 		void RequestTile (uint x, uint y, uint zoom, TileReceiver receiver);
 
 		[Export ("clearTileCache")]
