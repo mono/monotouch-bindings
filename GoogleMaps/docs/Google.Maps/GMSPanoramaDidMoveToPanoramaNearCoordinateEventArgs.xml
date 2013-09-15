@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="GMSPanoramaDidMoveToPanoramaNearCoordinateEventArgs" FullName="Google.Maps.GMSPanoramaDidMoveToPanoramaNearCoordinateEventArgs">
+  <TypeSignature Language="C#" Value="public class GMSPanoramaDidMoveToPanoramaNearCoordinateEventArgs : EventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GMSPanoramaDidMoveToPanoramaNearCoordinateEventArgs extends System.EventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>GoogleMaps</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.EventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GMSPanoramaDidMoveToPanoramaNearCoordinateEventArgs (Google.Maps.Panorama panorama, MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Google.Maps.Panorama panorama, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="panorama" Type="Google.Maps.Panorama" />
+        <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+      </Parameters>
+      <Docs>
+        <param name="panorama">To be added.</param>
+        <param name="coordinate">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Coordinate">
+      <MemberSignature Language="C#" Value="public MonoTouch.CoreLocation.CLLocationCoordinate2D Coordinate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D Coordinate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreLocation.CLLocationCoordinate2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Panorama">
+      <MemberSignature Language="C#" Value="public Google.Maps.Panorama Panorama { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Google.Maps.Panorama Panorama" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Google.Maps.Panorama</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

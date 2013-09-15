@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="PanoramaViewDelegate_Extensions" FullName="Google.Maps.PanoramaViewDelegate_Extensions">
+  <TypeSignature Language="C#" Value="public static class PanoramaViewDelegate_Extensions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit PanoramaViewDelegate_Extensions extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>GoogleMaps</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="DidMoveCamera">
+      <MemberSignature Language="C#" Value="public static void DidMoveCamera (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, Google.Maps.PanoramaCamera camera);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidMoveCamera(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class Google.Maps.PanoramaCamera camera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="camera" Type="Google.Maps.PanoramaCamera" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="camera">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidMoveToPanorama">
+      <MemberSignature Language="C#" Value="public static void DidMoveToPanorama (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, Google.Maps.Panorama panorama);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidMoveToPanorama(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class Google.Maps.Panorama panorama) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="panorama" Type="Google.Maps.Panorama" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="panorama">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidMoveToPanoramaNearCoordinate">
+      <MemberSignature Language="C#" Value="public static void DidMoveToPanoramaNearCoordinate (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, Google.Maps.Panorama panorama, MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidMoveToPanoramaNearCoordinate(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class Google.Maps.Panorama panorama, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="panorama" Type="Google.Maps.Panorama" />
+        <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="panorama">To be added.</param>
+        <param name="coordinate">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidTap">
+      <MemberSignature Language="C#" Value="public static void DidTap (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, System.Drawing.PointF point);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidTap(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, valuetype System.Drawing.PointF point) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="point" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="point">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnMoveNearCoordinate">
+      <MemberSignature Language="C#" Value="public static void OnMoveNearCoordinate (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, MonoTouch.Foundation.NSError error, MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnMoveNearCoordinate(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class MonoTouch.Foundation.NSError error, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+        <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="error">To be added.</param>
+        <param name="coordinate">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnMoveToPanoramaID">
+      <MemberSignature Language="C#" Value="public static void OnMoveToPanoramaID (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, MonoTouch.Foundation.NSError error, string panoramaId);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnMoveToPanoramaID(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class MonoTouch.Foundation.NSError error, string panoramaId) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+        <Parameter Name="panoramaId" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="error">To be added.</param>
+        <param name="panoramaId">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TappedMarker">
+      <MemberSignature Language="C#" Value="public static bool TappedMarker (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, Google.Maps.Marker marker);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool TappedMarker(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class Google.Maps.Marker marker) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="marker" Type="Google.Maps.Marker" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="marker">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillMoveToPanoramaId">
+      <MemberSignature Language="C#" Value="public static void WillMoveToPanoramaId (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, string panoramaID);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WillMoveToPanoramaId(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, string panoramaID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="panoramaID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="panoramaID">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

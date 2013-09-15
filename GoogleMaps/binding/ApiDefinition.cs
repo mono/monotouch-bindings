@@ -382,6 +382,9 @@ namespace Google.Maps
 	Events=new Type [] { typeof (MapViewDelegate) })]
 	interface MapView {
 
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (RectangleF frame);
+
 		[Wrap ("WeakDelegate")]
 		MapViewDelegate Delegate { get; set; }
 		
@@ -588,7 +591,7 @@ namespace Google.Maps
 
 		[Static]
 		[Export ("cameraWithHeading:pitch:zoom:FOV:")]
-		PanoramaCamera FromHeading (Orientation orientation, float pitch, float zoom, float fov);
+		PanoramaCamera FromHeading (float heading, float pitch, float zoom, float fov);
 
 		[Export ("FOV", ArgumentSemantic.Assign)]
 		float Fov { get; }
@@ -597,7 +600,7 @@ namespace Google.Maps
 		float Zoom { get; }
 
 		[Export ("orientation", ArgumentSemantic.Assign)]
-		Orientation TheOrientation { get; }
+		Orientation Orientation { get; }
 	}
 
 	[DisableDefaultCtor]
@@ -673,8 +676,11 @@ namespace Google.Maps
 		[Export ("panoramaView:didMoveToPanorama:nearCoordinate:"), EventArgs ("GMSPanoramaDidMoveToPanoramaNearCoordinate")]
 		void DidMoveToPanoramaNearCoordinate (PanoramaView view, Panorama panorama, CLLocationCoordinate2D coordinate);
 
-		[Export ("panoramaView:error:onMoveNearCoordinate:"), EventArgs ("GMSPanoramaonMoveNearCoordinate")]
-		void OnMoveNearCoordinate (PanoramaView view, NSError error, string panoramaId);
+		[Export ("panoramaView:error:onMoveNearCoordinate:"), EventArgs ("GMSPanoramaOnMoveNearCoordinate")]
+		void OnMoveNearCoordinate (PanoramaView view, NSError error, CLLocationCoordinate2D coordinate);
+
+		[Export ("panoramaView:error:onMoveToPanoramaID:"), EventArgs ("GMSPanoramaOnMoveToPanoramaID")]
+		void OnMoveToPanoramaID (PanoramaView view, NSError error, string panoramaId);
 
 		[Export ("panoramaView:didMoveCamera:"), EventArgs ("GMSPanoramaDidMoveCamera")]
 		void DidMoveCamera (PanoramaView view, PanoramaCamera camera);
@@ -691,8 +697,11 @@ namespace Google.Maps
 	Events=new Type [] { typeof (PanoramaViewDelegate) })]
 	interface PanoramaView {
 
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (RectangleF frame);
+
 		[Export ("panorama", ArgumentSemantic.Retain)][NullAllowed]
-		Panorama ThePanorama { get; set; }
+		Panorama Panorama { get; set; }
 
 		[Wrap ("WeakDelegate")]
 		PanoramaViewDelegate Delegate { get; set; }
@@ -882,6 +891,7 @@ namespace Google.Maps
 	[Protocol]
 	interface TileReceiver {
 
+		[Abstract]
 		[Export ("receiveTileWithX:y:zoom:image:")]
 		void RecieveTile (uint x, uint y, uint zoom, UIImage image);
 	}

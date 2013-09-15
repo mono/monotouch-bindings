@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="PanoramaViewDelegate" FullName="Google.Maps.PanoramaViewDelegate">
+  <TypeSignature Language="C#" Value="public class PanoramaViewDelegate : MonoTouch.Foundation.NSObject, Google.Maps.IPanoramaViewDelegate, IDisposable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PanoramaViewDelegate extends MonoTouch.Foundation.NSObject implements class Google.Maps.IPanoramaViewDelegate, class MonoTouch.ObjCRuntime.INativeObject, class System.IDisposable" />
+  <AssemblyInfo>
+    <AssemblyName>GoogleMaps</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Google.Maps.IPanoramaViewDelegate</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Protocol</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("GMSPanoramaViewDelegate", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PanoramaViewDelegate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PanoramaViewDelegate (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PanoramaViewDelegate (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PanoramaViewDelegate (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidMoveCamera">
+      <MemberSignature Language="C#" Value="public virtual void DidMoveCamera (Google.Maps.PanoramaView view, Google.Maps.PanoramaCamera camera);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidMoveCamera(class Google.Maps.PanoramaView view, class Google.Maps.PanoramaCamera camera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("panoramaView:didMoveCamera:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="camera" Type="Google.Maps.PanoramaCamera" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="camera">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidMoveToPanorama">
+      <MemberSignature Language="C#" Value="public virtual void DidMoveToPanorama (Google.Maps.PanoramaView view, Google.Maps.Panorama panorama);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidMoveToPanorama(class Google.Maps.PanoramaView view, class Google.Maps.Panorama panorama) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("panoramaView:didMoveToPanorama:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="panorama" Type="Google.Maps.Panorama" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="panorama">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidMoveToPanoramaNearCoordinate">
+      <MemberSignature Language="C#" Value="public virtual void DidMoveToPanoramaNearCoordinate (Google.Maps.PanoramaView view, Google.Maps.Panorama panorama, MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidMoveToPanoramaNearCoordinate(class Google.Maps.PanoramaView view, class Google.Maps.Panorama panorama, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("panoramaView:didMoveToPanorama:nearCoordinate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="panorama" Type="Google.Maps.Panorama" />
+        <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="panorama">To be added.</param>
+        <param name="coordinate">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidTap">
+      <MemberSignature Language="C#" Value="public virtual void DidTap (Google.Maps.PanoramaView view, System.Drawing.PointF point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidTap(class Google.Maps.PanoramaView view, valuetype System.Drawing.PointF point) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("panoramaView:didTap:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="point" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="point">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnMoveNearCoordinate">
+      <MemberSignature Language="C#" Value="public virtual void OnMoveNearCoordinate (Google.Maps.PanoramaView view, MonoTouch.Foundation.NSError error, MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnMoveNearCoordinate(class Google.Maps.PanoramaView view, class MonoTouch.Foundation.NSError error, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("panoramaView:error:onMoveNearCoordinate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+        <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="error">To be added.</param>
+        <param name="coordinate">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnMoveToPanoramaID">
+      <MemberSignature Language="C#" Value="public virtual void OnMoveToPanoramaID (Google.Maps.PanoramaView view, MonoTouch.Foundation.NSError error, string panoramaId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnMoveToPanoramaID(class Google.Maps.PanoramaView view, class MonoTouch.Foundation.NSError error, string panoramaId) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("panoramaView:error:onMoveToPanoramaID:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+        <Parameter Name="panoramaId" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="error">To be added.</param>
+        <param name="panoramaId">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TappedMarker">
+      <MemberSignature Language="C#" Value="public virtual bool TappedMarker (Google.Maps.PanoramaView view, Google.Maps.Marker marker);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool TappedMarker(class Google.Maps.PanoramaView view, class Google.Maps.Marker marker) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("panoramaView:didTapMarker:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="marker" Type="Google.Maps.Marker" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="marker">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillMoveToPanoramaId">
+      <MemberSignature Language="C#" Value="public virtual void WillMoveToPanoramaId (Google.Maps.PanoramaView view, string panoramaID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void WillMoveToPanoramaId(class Google.Maps.PanoramaView view, string panoramaID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("panoramaView:willMoveToPanoramaID:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+        <Parameter Name="panoramaID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="panoramaID">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
