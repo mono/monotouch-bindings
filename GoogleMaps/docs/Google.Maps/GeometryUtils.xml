@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="GeometryUtils" FullName="Google.Maps.GeometryUtils">
+  <TypeSignature Language="C#" Value="public class GeometryUtils : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GeometryUtils extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>GoogleMaps</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("GeometryUtils", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GeometryUtils (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GeometryUtils (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GeometryUtils (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Area">
+      <MemberSignature Language="C#" Value="public static double Area (Google.Maps.Path path);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float64 Area(class Google.Maps.Path path) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometryArea:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="Google.Maps.Path" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContainsLocation">
+      <MemberSignature Language="C#" Value="public static bool ContainsLocation (MonoTouch.CoreLocation.CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ContainsLocation(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D point, class Google.Maps.Path path, bool geodesic) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometryContainsLocation:path:geodesic:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="path" Type="Google.Maps.Path" />
+        <Parameter Name="geodesic" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <param name="path">To be added.</param>
+        <param name="geodesic">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Distance">
+      <MemberSignature Language="C#" Value="public static double Distance (MonoTouch.CoreLocation.CLLocationCoordinate2D fromCoord, MonoTouch.CoreLocation.CLLocationCoordinate2D toCoord);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float64 Distance(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D fromCoord, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D toCoord) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometryDistance:to:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fromCoord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="toCoord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+      </Parameters>
+      <Docs>
+        <param name="fromCoord">To be added.</param>
+        <param name="toCoord">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Heading">
+      <MemberSignature Language="C#" Value="public static double Heading (MonoTouch.CoreLocation.CLLocationCoordinate2D fromCoord, MonoTouch.CoreLocation.CLLocationCoordinate2D toCoord);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float64 Heading(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D fromCoord, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D toCoord) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometryHeading:to:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fromCoord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="toCoord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+      </Parameters>
+      <Docs>
+        <param name="fromCoord">To be added.</param>
+        <param name="toCoord">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Interpolate">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CoreLocation.CLLocationCoordinate2D Interpolate (MonoTouch.CoreLocation.CLLocationCoordinate2D fromCoord, MonoTouch.CoreLocation.CLLocationCoordinate2D toCoord, double fraction);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D Interpolate(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D fromCoord, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D toCoord, float64 fraction) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometryInterpolate:to:fraction:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreLocation.CLLocationCoordinate2D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fromCoord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="toCoord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="fraction" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="fromCoord">To be added.</param>
+        <param name="toCoord">To be added.</param>
+        <param name="fraction">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsLocationOnPath">
+      <MemberSignature Language="C#" Value="public static bool IsLocationOnPath (MonoTouch.CoreLocation.CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsLocationOnPath(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D point, class Google.Maps.Path path, bool geodesic) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometryIsLocationOnPath:path:geodesic:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="path" Type="Google.Maps.Path" />
+        <Parameter Name="geodesic" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <param name="path">To be added.</param>
+        <param name="geodesic">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsLocationOnPath">
+      <MemberSignature Language="C#" Value="public static bool IsLocationOnPath (MonoTouch.CoreLocation.CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic, double tolerance);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsLocationOnPath(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D point, class Google.Maps.Path path, bool geodesic, float64 tolerance) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometryIsLocationOnPath:path:geodesic:tolerance:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="path" Type="Google.Maps.Path" />
+        <Parameter Name="geodesic" Type="System.Boolean" />
+        <Parameter Name="tolerance" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <param name="path">To be added.</param>
+        <param name="geodesic">To be added.</param>
+        <param name="tolerance">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Length">
+      <MemberSignature Language="C#" Value="public static double Length (Google.Maps.Path path);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float64 Length(class Google.Maps.Path path) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometryLength:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="Google.Maps.Path" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Offset">
+      <MemberSignature Language="C#" Value="public static MonoTouch.CoreLocation.CLLocationCoordinate2D Offset (MonoTouch.CoreLocation.CLLocationCoordinate2D fromCoord, double distance, double heading);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D Offset(valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D fromCoord, float64 distance, float64 heading) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometryOffset:distance:heading:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreLocation.CLLocationCoordinate2D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fromCoord" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        <Parameter Name="distance" Type="System.Double" />
+        <Parameter Name="heading" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="fromCoord">To be added.</param>
+        <param name="distance">To be added.</param>
+        <param name="heading">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SignedArea">
+      <MemberSignature Language="C#" Value="public static double SignedArea (Google.Maps.Path path);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float64 SignedArea(class Google.Maps.Path path) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("geometrySignedArea:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="Google.Maps.Path" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

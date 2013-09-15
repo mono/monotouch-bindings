@@ -9,6 +9,9 @@
           <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleMapsExporter.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true)</AttributeName>
         </Attribute>
         <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libarclite.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV6 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true)</AttributeName>
+        </Attribute>
+        <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
         </Attribute>
       </Attributes>
@@ -27,22 +30,53 @@
       <Type Name="Constants" Kind="Class" />
       <Type Name="CoordinateBounds" Kind="Class" />
       <Type Name="Geocoder" Kind="Class" />
+      <Type Name="GeometryUtils" Kind="Class" />
       <Type Name="GMSCameraEventArgs" Kind="Class" />
       <Type Name="GMSCoordEventArgs" Kind="Class" />
       <Type Name="GMSInfoFor" Kind="Delegate" />
       <Type Name="GMSMarkerEventEventArgs" Kind="Class" />
       <Type Name="GMSOverlayEventEventArgs" Kind="Class" />
+      <Type Name="GMSPanoramaDidMoveCameraEventArgs" Kind="Class" />
+      <Type Name="GMSPanoramaDidMoveToPanoramaEventArgs" Kind="Class" />
+      <Type Name="GMSPanoramaDidMoveToPanoramaNearCoordinateEventArgs" Kind="Class" />
+      <Type Name="GMSPanoramaDidTapEventArgs" Kind="Class" />
+      <Type Name="GMSPanoramaOnMoveNearCoordinateEventArgs" Kind="Class" />
+      <Type Name="GMSPanoramaOnMoveToPanoramaIDEventArgs" Kind="Class" />
+      <Type Name="GMSPanoramaWillMoveEventArgs" Kind="Class" />
       <Type Name="GMSTappedMarker" Kind="Delegate" />
+      <Type Name="GMSTappedPanoramaMarker" Kind="Delegate" />
+      <Type Name="GMSWillMoveEventArgs" Kind="Class" />
       <Type Name="GroundOverlay" Kind="Class" />
+      <Type Name="IIndoorDisplayDelegate" Kind="Interface" />
+      <Type Name="IMapViewDelegate" Kind="Interface" />
+      <Type Name="IndoorBuilding" Kind="Class" />
+      <Type Name="IndoorDisplay" Kind="Class" />
+      <Type Name="IndoorDisplayDelegate" Kind="Class" />
+      <Type Name="IndoorDisplayDelegate_Extensions" Kind="Class" />
+      <Type Name="IndoorLevel" Kind="Class" />
+      <Type Name="IPanoramaViewDelegate" Kind="Interface" />
+      <Type Name="ITileReceiver" Kind="Interface" />
       <Type Name="MapLayer" Kind="Class" />
       <Type Name="MapServices" Kind="Class" />
       <Type Name="MapView" Kind="Class" />
       <Type Name="MapViewAnimation" Kind="Class" />
       <Type Name="MapViewDelegate" Kind="Class" />
+      <Type Name="MapViewDelegate_Extensions" Kind="Class" />
       <Type Name="MapViewType" Kind="Enumeration" />
       <Type Name="Marker" Kind="Class" />
       <Type Name="MutablePath" Kind="Class" />
+      <Type Name="Orientation" Kind="Structure" />
       <Type Name="Overlay" Kind="Class" />
+      <Type Name="Panorama" Kind="Class" />
+      <Type Name="PanoramaCallback" Kind="Delegate" />
+      <Type Name="PanoramaCamera" Kind="Class" />
+      <Type Name="PanoramaCameraUpdate" Kind="Class" />
+      <Type Name="PanoramaLayer" Kind="Class" />
+      <Type Name="PanoramaLink" Kind="Class" />
+      <Type Name="PanoramaService" Kind="Class" />
+      <Type Name="PanoramaView" Kind="Class" />
+      <Type Name="PanoramaViewDelegate" Kind="Class" />
+      <Type Name="PanoramaViewDelegate_Extensions" Kind="Class" />
       <Type Name="Path" Kind="Class" />
       <Type Name="Polygon" Kind="Class" />
       <Type Name="Polyline" Kind="Class" />
@@ -53,6 +87,7 @@
       <Type Name="SyncTileLayer" Kind="Class" />
       <Type Name="TileLayer" Kind="Class" />
       <Type Name="TileReceiver" Kind="Class" />
+      <Type Name="TileReceiver_Extensions" Kind="Class" />
       <Type Name="TileURLConstructor" Kind="Delegate" />
       <Type Name="UISettings" Kind="Class" />
       <Type Name="UrlTileLayer" Kind="Class" />
@@ -63,6 +98,52 @@
   </Types>
   <Title>GoogleMaps</Title>
   <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IIndoorDisplayDelegate" />
+      </Targets>
+      <Member MemberName="DidChangeActiveBuilding">
+        <MemberSignature Language="C#" Value="public static void DidChangeActiveBuilding (this Google.Maps.IIndoorDisplayDelegate This, Google.Maps.IndoorBuilding building);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidChangeActiveBuilding(class Google.Maps.IIndoorDisplayDelegate This, class Google.Maps.IndoorBuilding building) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IIndoorDisplayDelegate" RefType="this" />
+          <Parameter Name="building" Type="Google.Maps.IndoorBuilding" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="building">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.IndoorDisplayDelegate_Extensions" Member="M:Google.Maps.IndoorDisplayDelegate_Extensions.DidChangeActiveBuilding(Google.Maps.IIndoorDisplayDelegate,Google.Maps.IndoorBuilding)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IIndoorDisplayDelegate" />
+      </Targets>
+      <Member MemberName="DidChangeActiveLevel">
+        <MemberSignature Language="C#" Value="public static void DidChangeActiveLevel (this Google.Maps.IIndoorDisplayDelegate This, Google.Maps.IndoorBuilding building);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidChangeActiveLevel(class Google.Maps.IIndoorDisplayDelegate This, class Google.Maps.IndoorBuilding building) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IIndoorDisplayDelegate" RefType="this" />
+          <Parameter Name="building" Type="Google.Maps.IndoorBuilding" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="building">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.IndoorDisplayDelegate_Extensions" Member="M:Google.Maps.IndoorDisplayDelegate_Extensions.DidChangeActiveLevel(Google.Maps.IIndoorDisplayDelegate,Google.Maps.IndoorBuilding)" />
+      </Member>
+    </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
         <Target Type="T:Google.Maps.MapView" />
@@ -199,6 +280,437 @@
           <summary>To be added.</summary>
         </Docs>
         <Link Type="Google.Maps.MapViewAnimation" Member="M:Google.Maps.MapViewAnimation.AnimateToBearing(Google.Maps.MapView,System.Double)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IMapViewDelegate" />
+      </Targets>
+      <Member MemberName="DidChangeCameraPosition">
+        <MemberSignature Language="C#" Value="public static void DidChangeCameraPosition (this Google.Maps.IMapViewDelegate This, Google.Maps.MapView mapView, Google.Maps.CameraPosition position);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidChangeCameraPosition(class Google.Maps.IMapViewDelegate This, class Google.Maps.MapView mapView, class Google.Maps.CameraPosition position) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IMapViewDelegate" RefType="this" />
+          <Parameter Name="mapView" Type="Google.Maps.MapView" />
+          <Parameter Name="position" Type="Google.Maps.CameraPosition" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="mapView">To be added.</param>
+          <param name="position">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewDelegate_Extensions" Member="M:Google.Maps.MapViewDelegate_Extensions.DidChangeCameraPosition(Google.Maps.IMapViewDelegate,Google.Maps.MapView,Google.Maps.CameraPosition)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IMapViewDelegate" />
+      </Targets>
+      <Member MemberName="DidLongPressAtCoordinate">
+        <MemberSignature Language="C#" Value="public static void DidLongPressAtCoordinate (this Google.Maps.IMapViewDelegate This, Google.Maps.MapView mapView, MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidLongPressAtCoordinate(class Google.Maps.IMapViewDelegate This, class Google.Maps.MapView mapView, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IMapViewDelegate" RefType="this" />
+          <Parameter Name="mapView" Type="Google.Maps.MapView" />
+          <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="mapView">To be added.</param>
+          <param name="coordinate">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewDelegate_Extensions" Member="M:Google.Maps.MapViewDelegate_Extensions.DidLongPressAtCoordinate(Google.Maps.IMapViewDelegate,Google.Maps.MapView,MonoTouch.CoreLocation.CLLocationCoordinate2D)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IMapViewDelegate" />
+      </Targets>
+      <Member MemberName="DidTapAtCoordinate">
+        <MemberSignature Language="C#" Value="public static void DidTapAtCoordinate (this Google.Maps.IMapViewDelegate This, Google.Maps.MapView mapView, MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidTapAtCoordinate(class Google.Maps.IMapViewDelegate This, class Google.Maps.MapView mapView, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IMapViewDelegate" RefType="this" />
+          <Parameter Name="mapView" Type="Google.Maps.MapView" />
+          <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="mapView">To be added.</param>
+          <param name="coordinate">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewDelegate_Extensions" Member="M:Google.Maps.MapViewDelegate_Extensions.DidTapAtCoordinate(Google.Maps.IMapViewDelegate,Google.Maps.MapView,MonoTouch.CoreLocation.CLLocationCoordinate2D)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IMapViewDelegate" />
+      </Targets>
+      <Member MemberName="DidTapInfoWindowOfMarker">
+        <MemberSignature Language="C#" Value="public static void DidTapInfoWindowOfMarker (this Google.Maps.IMapViewDelegate This, Google.Maps.MapView mapView, Google.Maps.Marker marker);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidTapInfoWindowOfMarker(class Google.Maps.IMapViewDelegate This, class Google.Maps.MapView mapView, class Google.Maps.Marker marker) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IMapViewDelegate" RefType="this" />
+          <Parameter Name="mapView" Type="Google.Maps.MapView" />
+          <Parameter Name="marker" Type="Google.Maps.Marker" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="mapView">To be added.</param>
+          <param name="marker">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewDelegate_Extensions" Member="M:Google.Maps.MapViewDelegate_Extensions.DidTapInfoWindowOfMarker(Google.Maps.IMapViewDelegate,Google.Maps.MapView,Google.Maps.Marker)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IMapViewDelegate" />
+      </Targets>
+      <Member MemberName="DidTapOverlay">
+        <MemberSignature Language="C#" Value="public static void DidTapOverlay (this Google.Maps.IMapViewDelegate This, Google.Maps.MapView mapView, Google.Maps.Overlay overlay);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidTapOverlay(class Google.Maps.IMapViewDelegate This, class Google.Maps.MapView mapView, class Google.Maps.Overlay overlay) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IMapViewDelegate" RefType="this" />
+          <Parameter Name="mapView" Type="Google.Maps.MapView" />
+          <Parameter Name="overlay" Type="Google.Maps.Overlay" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="mapView">To be added.</param>
+          <param name="overlay">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewDelegate_Extensions" Member="M:Google.Maps.MapViewDelegate_Extensions.DidTapOverlay(Google.Maps.IMapViewDelegate,Google.Maps.MapView,Google.Maps.Overlay)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IMapViewDelegate" />
+      </Targets>
+      <Member MemberName="IdleAtCameraPosition">
+        <MemberSignature Language="C#" Value="public static void IdleAtCameraPosition (this Google.Maps.IMapViewDelegate This, Google.Maps.MapView mapView, Google.Maps.CameraPosition position);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void IdleAtCameraPosition(class Google.Maps.IMapViewDelegate This, class Google.Maps.MapView mapView, class Google.Maps.CameraPosition position) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IMapViewDelegate" RefType="this" />
+          <Parameter Name="mapView" Type="Google.Maps.MapView" />
+          <Parameter Name="position" Type="Google.Maps.CameraPosition" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="mapView">To be added.</param>
+          <param name="position">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewDelegate_Extensions" Member="M:Google.Maps.MapViewDelegate_Extensions.IdleAtCameraPosition(Google.Maps.IMapViewDelegate,Google.Maps.MapView,Google.Maps.CameraPosition)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IMapViewDelegate" />
+      </Targets>
+      <Member MemberName="InfoFor">
+        <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIView InfoFor (this Google.Maps.IMapViewDelegate This, Google.Maps.MapView mapView, Google.Maps.Marker marker);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.UIKit.UIView InfoFor(class Google.Maps.IMapViewDelegate This, class Google.Maps.MapView mapView, class Google.Maps.Marker marker) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>MonoTouch.UIKit.UIView</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IMapViewDelegate" RefType="this" />
+          <Parameter Name="mapView" Type="Google.Maps.MapView" />
+          <Parameter Name="marker" Type="Google.Maps.Marker" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="mapView">To be added.</param>
+          <param name="marker">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewDelegate_Extensions" Member="M:Google.Maps.MapViewDelegate_Extensions.InfoFor(Google.Maps.IMapViewDelegate,Google.Maps.MapView,Google.Maps.Marker)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IMapViewDelegate" />
+      </Targets>
+      <Member MemberName="TappedMarker">
+        <MemberSignature Language="C#" Value="public static bool TappedMarker (this Google.Maps.IMapViewDelegate This, Google.Maps.MapView mapView, Google.Maps.Marker marker);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool TappedMarker(class Google.Maps.IMapViewDelegate This, class Google.Maps.MapView mapView, class Google.Maps.Marker marker) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IMapViewDelegate" RefType="this" />
+          <Parameter Name="mapView" Type="Google.Maps.MapView" />
+          <Parameter Name="marker" Type="Google.Maps.Marker" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="mapView">To be added.</param>
+          <param name="marker">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewDelegate_Extensions" Member="M:Google.Maps.MapViewDelegate_Extensions.TappedMarker(Google.Maps.IMapViewDelegate,Google.Maps.MapView,Google.Maps.Marker)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IMapViewDelegate" />
+      </Targets>
+      <Member MemberName="WillMove">
+        <MemberSignature Language="C#" Value="public static void WillMove (this Google.Maps.IMapViewDelegate This, Google.Maps.MapView mapView, bool gesture);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WillMove(class Google.Maps.IMapViewDelegate This, class Google.Maps.MapView mapView, bool gesture) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IMapViewDelegate" RefType="this" />
+          <Parameter Name="mapView" Type="Google.Maps.MapView" />
+          <Parameter Name="gesture" Type="System.Boolean" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="mapView">To be added.</param>
+          <param name="gesture">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.MapViewDelegate_Extensions" Member="M:Google.Maps.MapViewDelegate_Extensions.WillMove(Google.Maps.IMapViewDelegate,Google.Maps.MapView,System.Boolean)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IPanoramaViewDelegate" />
+      </Targets>
+      <Member MemberName="DidMoveCamera">
+        <MemberSignature Language="C#" Value="public static void DidMoveCamera (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, Google.Maps.PanoramaCamera camera);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidMoveCamera(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class Google.Maps.PanoramaCamera camera) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+          <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+          <Parameter Name="camera" Type="Google.Maps.PanoramaCamera" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="view">To be added.</param>
+          <param name="camera">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.PanoramaViewDelegate_Extensions" Member="M:Google.Maps.PanoramaViewDelegate_Extensions.DidMoveCamera(Google.Maps.IPanoramaViewDelegate,Google.Maps.PanoramaView,Google.Maps.PanoramaCamera)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IPanoramaViewDelegate" />
+      </Targets>
+      <Member MemberName="DidMoveToPanorama">
+        <MemberSignature Language="C#" Value="public static void DidMoveToPanorama (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, Google.Maps.Panorama panorama);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidMoveToPanorama(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class Google.Maps.Panorama panorama) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+          <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+          <Parameter Name="panorama" Type="Google.Maps.Panorama" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="view">To be added.</param>
+          <param name="panorama">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.PanoramaViewDelegate_Extensions" Member="M:Google.Maps.PanoramaViewDelegate_Extensions.DidMoveToPanorama(Google.Maps.IPanoramaViewDelegate,Google.Maps.PanoramaView,Google.Maps.Panorama)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IPanoramaViewDelegate" />
+      </Targets>
+      <Member MemberName="DidMoveToPanoramaNearCoordinate">
+        <MemberSignature Language="C#" Value="public static void DidMoveToPanoramaNearCoordinate (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, Google.Maps.Panorama panorama, MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidMoveToPanoramaNearCoordinate(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class Google.Maps.Panorama panorama, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+          <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+          <Parameter Name="panorama" Type="Google.Maps.Panorama" />
+          <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="view">To be added.</param>
+          <param name="panorama">To be added.</param>
+          <param name="coordinate">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.PanoramaViewDelegate_Extensions" Member="M:Google.Maps.PanoramaViewDelegate_Extensions.DidMoveToPanoramaNearCoordinate(Google.Maps.IPanoramaViewDelegate,Google.Maps.PanoramaView,Google.Maps.Panorama,MonoTouch.CoreLocation.CLLocationCoordinate2D)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IPanoramaViewDelegate" />
+      </Targets>
+      <Member MemberName="DidTap">
+        <MemberSignature Language="C#" Value="public static void DidTap (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, System.Drawing.PointF point);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidTap(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, valuetype System.Drawing.PointF point) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+          <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+          <Parameter Name="point" Type="System.Drawing.PointF" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="view">To be added.</param>
+          <param name="point">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.PanoramaViewDelegate_Extensions" Member="M:Google.Maps.PanoramaViewDelegate_Extensions.DidTap(Google.Maps.IPanoramaViewDelegate,Google.Maps.PanoramaView,System.Drawing.PointF)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IPanoramaViewDelegate" />
+      </Targets>
+      <Member MemberName="OnMoveNearCoordinate">
+        <MemberSignature Language="C#" Value="public static void OnMoveNearCoordinate (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, MonoTouch.Foundation.NSError error, MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnMoveNearCoordinate(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class MonoTouch.Foundation.NSError error, valuetype MonoTouch.CoreLocation.CLLocationCoordinate2D coordinate) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+          <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+          <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+          <Parameter Name="coordinate" Type="MonoTouch.CoreLocation.CLLocationCoordinate2D" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="view">To be added.</param>
+          <param name="error">To be added.</param>
+          <param name="coordinate">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.PanoramaViewDelegate_Extensions" Member="M:Google.Maps.PanoramaViewDelegate_Extensions.OnMoveNearCoordinate(Google.Maps.IPanoramaViewDelegate,Google.Maps.PanoramaView,MonoTouch.Foundation.NSError,MonoTouch.CoreLocation.CLLocationCoordinate2D)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IPanoramaViewDelegate" />
+      </Targets>
+      <Member MemberName="OnMoveToPanoramaID">
+        <MemberSignature Language="C#" Value="public static void OnMoveToPanoramaID (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, MonoTouch.Foundation.NSError error, string panoramaId);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnMoveToPanoramaID(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class MonoTouch.Foundation.NSError error, string panoramaId) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+          <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+          <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+          <Parameter Name="panoramaId" Type="System.String" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="view">To be added.</param>
+          <param name="error">To be added.</param>
+          <param name="panoramaId">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.PanoramaViewDelegate_Extensions" Member="M:Google.Maps.PanoramaViewDelegate_Extensions.OnMoveToPanoramaID(Google.Maps.IPanoramaViewDelegate,Google.Maps.PanoramaView,MonoTouch.Foundation.NSError,System.String)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IPanoramaViewDelegate" />
+      </Targets>
+      <Member MemberName="TappedMarker">
+        <MemberSignature Language="C#" Value="public static bool TappedMarker (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, Google.Maps.Marker marker);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool TappedMarker(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, class Google.Maps.Marker marker) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+          <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+          <Parameter Name="marker" Type="Google.Maps.Marker" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="view">To be added.</param>
+          <param name="marker">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.PanoramaViewDelegate_Extensions" Member="M:Google.Maps.PanoramaViewDelegate_Extensions.TappedMarker(Google.Maps.IPanoramaViewDelegate,Google.Maps.PanoramaView,Google.Maps.Marker)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Google.Maps.IPanoramaViewDelegate" />
+      </Targets>
+      <Member MemberName="WillMoveToPanoramaId">
+        <MemberSignature Language="C#" Value="public static void WillMoveToPanoramaId (this Google.Maps.IPanoramaViewDelegate This, Google.Maps.PanoramaView view, string panoramaID);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WillMoveToPanoramaId(class Google.Maps.IPanoramaViewDelegate This, class Google.Maps.PanoramaView view, string panoramaID) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="Google.Maps.IPanoramaViewDelegate" RefType="this" />
+          <Parameter Name="view" Type="Google.Maps.PanoramaView" />
+          <Parameter Name="panoramaID" Type="System.String" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="view">To be added.</param>
+          <param name="panoramaID">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Google.Maps.PanoramaViewDelegate_Extensions" Member="M:Google.Maps.PanoramaViewDelegate_Extensions.WillMoveToPanoramaId(Google.Maps.IPanoramaViewDelegate,Google.Maps.PanoramaView,System.String)" />
       </Member>
     </ExtensionMethod>
   </ExtensionMethods>

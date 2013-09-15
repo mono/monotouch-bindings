@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="MapView" FullName="Google.Maps.MapView">
   <TypeSignature Language="C#" Value="public class MapView : MonoTouch.UIKit.UIView" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit MapView extends MonoTouch.UIKit.UIView" />
@@ -86,6 +87,27 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public MapView (System.Drawing.RectangleF frame);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Drawing.RectangleF frame) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithFrame:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="frame" Type="System.Drawing.RectangleF" />
+      </Parameters>
+      <Docs>
+        <param name="frame">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public MapView (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -103,6 +125,30 @@
       <Docs>
         <param name="handle">To be added.</param>
         <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AccessibilityElementsHidden">
+      <MemberSignature Language="C#" Value="public virtual bool AccessibilityElementsHidden { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AccessibilityElementsHidden" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("accessibilityElementsHidden", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAccessibilityElementsHidden:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -157,6 +203,21 @@
     <Member MemberName="CameraPositionChanged">
       <MemberSignature Language="C#" Value="public event EventHandler&lt;Google.Maps.GMSCameraEventArgs&gt; CameraPositionChanged;" />
       <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Google.Maps.GMSCameraEventArgs&gt; CameraPositionChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;Google.Maps.GMSCameraEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CameraPositionIdle">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;Google.Maps.GMSCameraEventArgs&gt; CameraPositionIdle;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Google.Maps.GMSCameraEventArgs&gt; CameraPositionIdle" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -292,6 +353,51 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="IndoorDisplay">
+      <MemberSignature Language="C#" Value="public virtual Google.Maps.IndoorDisplay IndoorDisplay { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Google.Maps.IndoorDisplay IndoorDisplay" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("indoorDisplay", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Google.Maps.IndoorDisplay</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IndoorEnabled">
+      <MemberSignature Language="C#" Value="public virtual bool IndoorEnabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IndoorEnabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isIndoorEnabled", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setIndoorEnabled:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="InfoFor">
       <MemberSignature Language="C#" Value="public Google.Maps.GMSInfoFor InfoFor { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Google.Maps.GMSInfoFor InfoFor" />
@@ -317,7 +423,7 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("layer")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("layer", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -699,6 +805,21 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillMove">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;Google.Maps.GMSWillMoveEventArgs&gt; WillMove;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Google.Maps.GMSWillMoveEventArgs&gt; WillMove" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;Google.Maps.GMSWillMoveEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

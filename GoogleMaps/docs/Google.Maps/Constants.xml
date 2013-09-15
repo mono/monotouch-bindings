@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="Constants" FullName="Google.Maps.Constants">
   <TypeSignature Language="C#" Value="public class Constants : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Constants extends MonoTouch.Foundation.NSObject" />
@@ -122,27 +123,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="GroundOverlayDefaultZoom">
-      <MemberSignature Language="C#" Value="public static float GroundOverlayDefaultZoom { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property float32 GroundOverlayDefaultZoom" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("kGMSGroundOverlayDefaultZoomGlobal")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>System.Single</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="LayerCameraBearingKey">
       <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LayerCameraBearingKey { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LayerCameraBearingKey" />
@@ -237,6 +217,90 @@
       <Attributes>
         <Attribute>
           <AttributeName>get: MonoTouch.Foundation.Export("kGMSLayerCameraZoomLevelKeyGlobal")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LayerPanoramaFOVKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LayerPanoramaFOVKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LayerPanoramaFOVKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("kGMSLayerPanoramaFOVKeyGlobal")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LayerPanoramaHeadingKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LayerPanoramaHeadingKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LayerPanoramaHeadingKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("kGMSLayerPanoramaHeadingKeyGlobal")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LayerPanoramaPitchKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LayerPanoramaPitchKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LayerPanoramaPitchKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("kGMSLayerPanoramaPitchKeyGlobal")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LayerPanoramaZoomKey">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSString LayerPanoramaZoomKey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSString LayerPanoramaZoomKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("kGMSLayerPanoramaZoomKeyGlobal")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="UrlTileLayer" FullName="Google.Maps.UrlTileLayer">
   <TypeSignature Language="C#" Value="public class UrlTileLayer : Google.Maps.TileLayer" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit UrlTileLayer extends Google.Maps.TileLayer" />
@@ -117,7 +118,13 @@
         <ReturnType>Google.Maps.UrlTileLayer</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="constructor" Type="Google.Maps.TileURLConstructor" />
+        <Parameter Name="constructor" Type="Google.Maps.TileURLConstructor">
+          <Attributes>
+            <Attribute>
+              <AttributeName>MonoTouch.ObjCRuntime.BlockProxy(typeof(MonoTouch.ObjCRuntime.Trampolines/NIDTileURLConstructor))</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
       </Parameters>
       <Docs>
         <param name="constructor">To be added.</param>
