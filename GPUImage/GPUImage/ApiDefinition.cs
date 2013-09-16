@@ -9,6 +9,221 @@ using MonoTouch.AVFoundation;
 
 namespace GPUImage
 {
+	#region GPUImageMovie
+	[Model, BaseType (typeof (NSObject))]
+	public partial interface GPUImageMovieDelegate
+	{
+		// - (void)didCompletePlayingMovie;
+		[Export ("didCompletePlayingMovie")]
+		void DidCompletePlayingMovie();
+
+	}
+
+	[BaseType (typeof (GPUImageOutput))]
+	public partial interface GPUImageMovie
+	{
+		// @property (readwrite, retain) AVAsset *asset;
+		[Export ("asset", ArgumentSemantic.Retain)]
+		AVAsset Asset { get; set; }
+
+		// @property (readwrite, retain) AVPlayerItem *playerItem;
+		[Export ("playerItem", ArgumentSemantic.Retain)]
+		AVPlayerItem PlayerItem { get; set; }
+
+		// @property(readwrite, retain) NSURL *url;
+		[Export ("url", ArgumentSemantic.Retain)]
+		NSUrl Url { get; set; }
+
+		// @property(readwrite, nonatomic) BOOL runBenchmark;
+		[Export ("runBenchmark")]
+		bool RunBenchmark { get; set; }
+
+		// @property(readwrite, nonatomic) BOOL playAtActualSpeed;
+		[Export ("playAtActualSpeed")]
+		bool PlayAtActualSpeed { get; set; }
+
+		// @property(readwrite, nonatomic) BOOL shouldRepeat;
+		[Export ("shouldRepeat")]
+		bool ShouldRepeat { get; set; }
+
+		// @property (readwrite, nonatomic, assign) id <GPUImageMovieDelegate>delegate;
+		[Wrap ("WeakDelegate")]
+		GPUImageMovieDelegate Delegate { get; set; }
+
+		[Export ("delegate", ArgumentSemantic.Assign)]
+		NSObject WeakDelegate { get; set; }
+
+		// @property (readonly, nonatomic) AVAssetReader *assetReader;
+		[Export ("assetReader")]
+		AVAssetReader AssetReader { get; }
+
+		// @property (readonly, nonatomic) BOOL audioEncodingIsFinished;
+		[Export ("audioEncodingIsFinished")]
+		bool AudioEncodingIsFinished { get; }
+
+		// @property (readonly, nonatomic) BOOL videoEncodingIsFinished;
+		[Export ("videoEncodingIsFinished")]
+		bool VideoEncodingIsFinished { get; }
+
+		// - (id)initWithAsset:(AVAsset *)asset;
+		[Export ("initWithAsset:")]
+		IntPtr Constructor (AVAsset asset);
+
+		// - (id)initWithPlayerItem:(AVPlayerItem *)playerItem;
+		[Export ("initWithPlayerItem:")]
+		IntPtr Constructor (AVPlayerItem playerItem);
+
+		// - (id)initWithURL:(NSURL *)url;
+		[Export ("initWithURL:")]
+		IntPtr Constructor (NSUrl url);
+
+		// - (void)textureCacheSetup;
+		[Export ("textureCacheSetup")]
+		void TextureCacheSetup();
+
+		// - (void)enableSynchronizedEncodingUsingMovieWriter:(GPUImageMovieWriter *)movieWriter;
+		[Export ("enableSynchronizedEncodingUsingMovieWriter:")]
+		void EnableSynchronizedEncodingUsingMovieWriter (GPUImageMovieWriter movieWriter);
+
+		// - (BOOL)readNextVideoFrameFromOutput:(AVAssetReaderOutput *)readerVideoTrackOutput;
+		[Export ("readNextVideoFrameFromOutput:")]
+		bool ReadNextVideoFrameFromOutput (AVAssetReaderOutput readerVideoTrackOutput);
+
+		// - (BOOL)readNextAudioSampleFromOutput:(AVAssetReaderOutput *)readerAudioTrackOutput;
+		[Export ("readNextAudioSampleFromOutput:")]
+		bool ReadNextAudioSampleFromOutput (AVAssetReaderOutput readerAudioTrackOutput);
+
+		// - (void)startProcessing;
+		[Export ("startProcessing")]
+		void StartProcessing();
+
+		// - (void)endProcessing;
+		[Export ("endProcessing")]
+		void EndProcessing();
+
+		// - (void)cancelProcessing;
+		[Export ("cancelProcessing")]
+		void CancelProcessing();
+
+		// - (void)processMovieFrame:(CMSampleBufferRef)movieSampleBuffer; 
+		[Export ("processMovieFrame:")]
+		void ProcessMovieFrame (CMSampleBuffer movieSampleBuffer);
+	}
+	#endregion
+
+	#region GPUImageMovieWriter
+	[Model, BaseType (typeof (NSObject))]
+	public partial interface GPUImageMovieWriterDelegate
+	{
+		// - (void)movieRecordingCompleted;
+		[Export ("movieRecordingCompleted")]
+		void MovieRecordingCompleted();
+
+		// - (void)movieRecordingFailedWithError:(NSError*)error;
+		[Export ("movieRecordingFailedWithError:")]
+		void MovieRecordingFailedWithError (NSError error);
+
+	}
+
+	[BaseType (typeof (GPUImageInput))]
+	public partial interface GPUImageMovieWriter
+	{
+		// @property(readwrite, nonatomic) BOOL hasAudioTrack;
+		[Export ("hasAudioTrack")]
+		bool HasAudioTrack { get; set; }
+
+		// @property(readwrite, nonatomic) BOOL shouldPassthroughAudio;
+		[Export ("shouldPassthroughAudio")]
+		bool ShouldPassthroughAudio { get; set; }
+
+		// @property(readwrite, nonatomic) BOOL shouldInvalidateAudioSampleWhenDone;
+		[Export ("shouldInvalidateAudioSampleWhenDone")]
+		bool ShouldInvalidateAudioSampleWhenDone { get; set; }
+
+		// @property(nonatomic, copy) void(^completionBlock)(void);
+		// @property(nonatomic, copy) void(^failureBlock)(NSError*);
+
+		// @property(nonatomic, assign) id<GPUImageMovieWriterDelegate> delegate;
+		[Wrap ("WeakDelegate")]
+		GPUImageMovieWriterDelegate Delegate { get; set; }
+
+		[Export ("delegate", ArgumentSemantic.Retain)]
+		NSObject WeakDelegate { get; set; }
+
+		// @property(readwrite, nonatomic) BOOL encodingLiveVideo;
+		[Export ("encodingLiveVideo")]
+		bool EncodingLiveVideo { get; set; }
+
+		// @property(nonatomic, copy) BOOL(^videoInputReadyCallback)(void);
+		// @property(nonatomic, copy) BOOL(^audioInputReadyCallback)(void);
+
+		// @property(nonatomic) BOOL enabled;
+		[Export ("enabled")]
+		bool Enabled { get; set; }
+
+		// @property(nonatomic, readonly) AVAssetWriter *assetWriter;
+		[Export ("assetWriter")]
+		AVAssetWriter AssetWriter { get; }
+
+		// @property(nonatomic, readonly) CMTime duration;
+		[Export ("duration")]
+		CMTime Duration { get; }
+
+		// @property(nonatomic, assign) CGAffineTransform transform;
+		[Export ("transform", ArgumentSemantic.Assign)]
+		CGAffineTransform Transform { get; set; }
+
+		// @property(nonatomic, copy) NSArray *metaData;
+		[Export ("metaData", ArgumentSemantic.Copy)]
+		NSArray MetaData { get; set; }
+
+		// @property(nonatomic, assign, getter = isPaused) BOOL paused;
+		[Export ("paused", ArgumentSemantic.Assign)]
+		bool Paused { [Bind ("isPaused")] get; }
+
+		// - (id)initWithMovieURL:(NSURL *)newMovieURL size:(CGSize)newSize;
+		[Export ("initWithMovieURL:size:")]
+		IntPtr Constructor (NSUrl newMovieUrl, SizeF newSize);
+
+		// - (id)initWithMovieURL:(NSURL *)newMovieURL size:(CGSize)newSize fileType:(NSString *)newFileType outputSettings:(NSDictionary *)outputSettings;
+		[Export ("initWithMovieURL:size:fileType:outputSettings:")]
+		IntPtr Constructor (NSUrl newMovieUrl, SizeF newSize, NSString newFileType, NSDictionary outputSettings);
+
+		// - (void)setHasAudioTrack:(BOOL)hasAudioTrack audioSettings:(NSDictionary *)audioOutputSettings;
+		[Export ("setHasAudioTrack:audioSettings")]
+		void SetHasAudioTrack (bool hasAudioTrack, NSDictionary audioOutputSettings);
+
+		// - (void)startRecording;
+		[Export ("startRecording")]
+		void StartRecording();
+
+		// - (void)startRecordingInOrientation:(CGAffineTransform)orientationTransform;
+		[Export ("startRecordingInOrientation:")]
+		void StartRecordingInOrientation (CGAffineTransform orientationTransform);
+
+		// - (void)finishRecording;
+		[Export ("finishRecording")]
+		void FinishRecording();
+
+		// - (void)finishRecordingWithCompletionHandler:(void (^)(void))handler;
+		[Export ("finishRecordingWithCompletionHandler:")]
+		void FinishRecordingWithCompletionHandler(NSAction completionHandler);
+
+		// - (void)cancelRecording;
+		[Export ("cancelRecording")]
+		void CancelRecording();
+
+		// - (void)processAudioBuffer:(CMSampleBufferRef)audioBuffer;
+		[Export ("processAudioBuffer:")]
+		void ProcessAudioBuffer (CMSampleBuffer audioBuffer);
+
+		// - (void)enableSynchronizationCallbacks;
+		[Export ("enableSynchronizationCallbacks")]
+		void EnableSynchronizationCallbacks();
+
+	}
+	#endregion
+	
 	[BaseType(typeof(NSObject))]
 	[Model]
 	public interface GPUImageTextureDelegate
@@ -854,6 +1069,15 @@ namespace GPUImage
 			[Export("color")]
 			GPUVector3 color {get;set;}
 		}
-
+		
+		#region GPUImageBrightnessFilter
+		[BaseType(typeof(GPUImageFilter))]
+		public interface GPUImageBrightnessFilter
+		{
+			// @property(readwrite, nonatomic) CGFloat brightness; 
+			[Export("brightness")]
+			float Brightness {get;set;}
+		}
+		#endregion
 	}
 }
