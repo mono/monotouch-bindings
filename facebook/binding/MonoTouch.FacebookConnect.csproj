@@ -38,8 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Resources\FBUserSettingsViewResources.bundle\" />
-    <Folder Include="Resources\FacebookSDKResources.bundle\" />
+    <Folder Include="Resources\ImageResources\" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -62,35 +61,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\Contents\Resources\en.lproj\Localizable.strings" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\Contents\Resources\he.lproj\Localizable.strings" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\facebook-logo.png" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\facebook-logo%402x.png" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPadLandscape.jpg" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPadLandscape%402x.jpg" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPadPortrait.jpg" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPadPortrait%402x.jpg" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPhonePortrait.jpg" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\loginBackgroundIPhonePortrait%402x.jpg" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\silver-button-normal.png" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\silver-button-normal%402x.png" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\silver-button-pressed.png" />
-    <BundleResource Include="Resources\FBUserSettingsViewResources.bundle\images\silver-button-pressed%402x.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\Contents\Resources\en.lproj\Localizable.strings" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\Contents\Resources\he.lproj\Localizable.strings" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBDialog\images\close.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBDialog\images\close%402x.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBDialog\images\fbicon.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBFriendPickerView\images\default.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\bluetint.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\f_logo.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\facebook.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\login-button-small-pressed.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\login-button-small-pressed%402x.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\login-button-small.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBLoginView\images\login-button-small%402x.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBPlacePickerView\images\fb_generic_place.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBProfilePictureView\images\fb_blank_profile_portrait.png" />
-    <BundleResource Include="Resources\FacebookSDKResources.bundle\FBProfilePictureView\images\fb_blank_profile_square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ImageResources\FBDialog\FBDialogClose.png" />
+    <BundleResource Include="Resources\ImageResources\FBDialog\FBDialogClose%402x.png" />
+    <BundleResource Include="Resources\ImageResources\FBFriendPickerView\FBFriendPickerViewDefault.png" />
+    <BundleResource Include="Resources\ImageResources\FBLoginView\FBLoginViewButton.png" />
+    <BundleResource Include="Resources\ImageResources\FBLoginView\FBLoginViewButton%402x.png" />
+    <BundleResource Include="Resources\ImageResources\FBLoginView\FBLoginViewButtonPressed.png" />
+    <BundleResource Include="Resources\ImageResources\FBLoginView\FBLoginViewButtonPressed%402x.png" />
+    <BundleResource Include="Resources\ImageResources\FBPlacePickerView\FBPlacePickerViewGenericPlace.png" />
+    <BundleResource Include="Resources\ImageResources\FBProfilePictureView\FBProfilePictureViewBlankProfilePortrait.png" />
+    <BundleResource Include="Resources\ImageResources\FBProfilePictureView\FBProfilePictureViewBlankProfileSquare.png" />
   </ItemGroup>
 </Project>
