@@ -19,17 +19,27 @@ namespace SDSegmentedControlSample
 		{
 			base.LoadView ();
 
+			bool isV7 = UIDevice.CurrentDevice.CheckSystemVersion (7, 0);
+
 			View.BackgroundColor = UIColor.White;
 
-			niceSegmentedCtrl = new SDSegmentedControl (new string [] {"Google", "Bing", "Yahoo"}) {
-				Frame = new RectangleF (0, 0, 320, 44)
-			};
+			niceSegmentedCtrl = new SDSegmentedControl (new string [] { "Google", "Bing", "Yahoo" });
+
+			if (isV7)
+				niceSegmentedCtrl.Frame = new RectangleF (0, 10, 320, 44);
+			else
+				niceSegmentedCtrl.Frame = new RectangleF (0, 0, 320, 44);
+
 			niceSegmentedCtrl.SetImage (UIImage.FromBundle ("google"), 0);
 			niceSegmentedCtrl.SetImage (UIImage.FromBundle ("bicon"), 1);
 			niceSegmentedCtrl.SetImage (UIImage.FromBundle ("yahoo"), 2);
 			niceSegmentedCtrl.ValueChanged += HandleValueChanged;
 
-			browser = new UIWebView (new RectangleF (0, 45, UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height - 64));
+			if (isV7) 
+				browser = new UIWebView (new RectangleF (0, 55, UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height - 64));
+			else
+				browser = new UIWebView (new RectangleF (0, 45, UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height - 64));
+
 			browser.LoadRequest (new NSUrlRequest ( new NSUrl ("http://google.com")));
 			browser.AutosizesSubviews = true;
 
