@@ -30,14 +30,18 @@ PlayGameServices: PlayGameServices.v$(VERSIONGPG).zip
 Resources/PlayGameServices.bundle: PlayGameServices.v$(VERSIONGPG).zip PlayGameServices
 	cp -R PlayGameServices.bundle Resources/PlayGameServices.bundle
 
-Google.Plus.dll: Makefile GoogleOpenSource.linkwith.cs GooglePlus.linkwith.cs PlayGameServices.linkwith.cs ApiDefinition.cs StructsAndEnums.cs Extras.cs Resources/GooglePlus.bundle Resources/PlayGameServices.bundle
+libarclite.a:
+	curl -L https://github.com/dalexsoto/MonoTouch-PSPDFKit-bindings/raw/master/AlexTouch.PSPDFKit/libarclite.a > libarclite.a
+	curl -L https://github.com/dalexsoto/MonoTouch-PSPDFKit-bindings/raw/master/AlexTouch.PSPDFKit/libarclite.linkwith.cs > libarclite.linkwith.cs
+
+Google.Plus.dll: Makefile libarclite.a GoogleOpenSource.linkwith.cs GooglePlus.linkwith.cs PlayGameServices.linkwith.cs ApiDefinition.cs StructsAndEnums.cs Extras.cs Resources/GooglePlus.bundle Resources/PlayGameServices.bundle
 	$(MONOXBUILD) /p:Configuration=Release Google.Plus.csproj
 	cp bin/Release/Google.Plus.dll Google.Plus.dll
 
 prepare: Resources/GooglePlus.bundle Resources/PlayGameServices.bundle
 
 clean:
-	-rm -rf README list ios Resources/ PlayGameServices.framework/ google-plus-ios-sdk-$(VERSIONGP)/ bin/ obj/ *.bundle *.dll *.o *.zip *.mdb GooglePlus GoogleOpenSource PlayGameServices
+	-rm -rf README list ios Resources/ PlayGameServices.framework/ google-plus-ios-sdk-$(VERSIONGP)/ bin/ obj/ *.bundle *.dll *.o *.zip *.mdb GooglePlus GoogleOpenSource PlayGameServices libarclite.linkwith.cs libarclite.a
 
 cleanproject:
 	-rm -rf list ios bin/ obj/ *.dll
