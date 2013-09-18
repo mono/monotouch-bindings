@@ -50,6 +50,7 @@
     <ObjcBindingNativeLibrary Include="PlayGameServices" />
     <ObjcBindingNativeLibrary Include="GoogleOpenSource" />
     <ObjcBindingNativeLibrary Include="GooglePlus" />
+	<ObjcBindingNativeLibrary Include="libarclite.a" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PlayGameServices.linkwith.cs">
@@ -60,6 +61,9 @@
     </Compile>
     <Compile Include="GooglePlus.linkwith.cs">
       <DependentUpon>GooglePlus</DependentUpon>
+    </Compile>
+    <Compile Include="libarclite.linkwith.cs">
+      <DependentUpon>libarclite.a</DependentUpon>
     </Compile>
     <Compile Include="Extras.cs" />
   </ItemGroup>
