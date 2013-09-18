@@ -1112,7 +1112,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (NSObject))]
 	[Model][Abstract]
-	[PRotocol]
+	[Protocol]
 	interface CPTPlotDataSource {
 		[Export ("numberOfRecordsForPlot:")]
 		int NumberOfRecordsForPlot (CPTPlot plot);
