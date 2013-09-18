@@ -95,6 +95,7 @@ namespace PHFComposeBarView
 
 	[BaseType (typeof (NSObject), Name = "PHFComposeBarViewDelegate")]
 	[Model]
+	[Protocol]
 	interface ComposeBarViewDelegate {
 
 		[Export ("composeBarViewDidPressButton:"), EventArgs ("ComposeBarViewArgs")]
