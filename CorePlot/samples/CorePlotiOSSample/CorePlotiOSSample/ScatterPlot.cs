@@ -17,7 +17,10 @@ namespace CorePlotiOSSample
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-
+			
+			if (UIDevice.CurrentDevice.CheckSystemVersion (7, 0))
+				EdgesForExtendedLayout = UIRectEdge.None;
+			
 			// Host the graph
 			host = new CPTGraphHostingView (new RectangleF (10, 40, 300, 300)) {
 				HostedGraph = Graph
