@@ -62,6 +62,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface CPTAxisDelegate {
 		[Abstract, DelegateName ("CPTAxisPredicate"), DefaultValue (false)]
 		[Export ("axisShouldRelabel:")]
@@ -362,6 +363,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (CPTPlotDataSource))]
 	[Model]
+	[Protocol]
 	interface CPTBarPlotDataSource {
 		[Export ("barFillForBarPlot:recordIndex:")]
 		CPTFill GetBarFill (CPTBarPlot barPlot, int recordIndex);
@@ -372,6 +374,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (CPTPlotSpaceDelegate))]
 	[Model]
+	[Protocol]
 	interface CPTBarPlotDelegate {
 		[Abstract]
 		[Export ("barPlot:barWasSelectedAtRecordIndex:")]
@@ -888,6 +891,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface CPTLayoutManager {
 		[Export ("invalidateLayoutOfLayer:")]
 		void InvalidateLayoutOfLayer (CALayer layer);
@@ -1049,6 +1053,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (CPTPlotDataSource))]
 	[Model]
+	[Protocol]
 	interface CPTPieChartDataSource {
 		[Export ("sliceFillForPieChart:recordIndex:")]
 		CPTFill GetSliceFill (CPTPieChart pieChart, int recordIndex);
@@ -1065,6 +1070,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface CPTPieChartDelegate {
 		[Abstract]
 		[Export ("pieChart:sliceWasSelectedAtRecordIndex:")]
@@ -1106,6 +1112,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (NSObject))]
 	[Model][Abstract]
+	[PRotocol]
 	interface CPTPlotDataSource {
 		[Export ("numberOfRecordsForPlot:")]
 		int NumberOfRecordsForPlot (CPTPlot plot);
@@ -1246,7 +1253,7 @@ namespace CorePlot {
 		[Export ("titleForLegendEntryAtIndex:")]
 		string GetTitleForLegendEntry (int index);
 
-	        [Export ("drawSwatchForLegend:atIndex:inRect:inContext:")]
+	    [Export ("drawSwatchForLegend:atIndex:inRect:inContext:")]
 		void DrawSwatch (CPTLegend legend, int index, RectangleF rect, CGContext context);
 
 		[Export ("numberOfFields")]
@@ -1423,6 +1430,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (CALayerDelegate))]
 	[Model]
+	[Protocol]
 	interface CPTPlotSpaceDelegate {
 		[DelegateName ("CPTEventPointPredicate"), DefaultValue (false)]
 		[Export ("plotSpace:shouldHandlePointingDeviceDownEvent:atPoint:")]
@@ -1654,6 +1662,7 @@ namespace CorePlot {
 	
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface CPTTextStyleDelegate {
 		[Abstract]
 		[Export ("textStyleDidChange:")]
@@ -1854,6 +1863,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (CPTPlotDataSource))]
 	[Model]
+	[Protocol]
 	interface CPTScatterPlotDataSource {
 		[Export ("symbolsForScatterPlot:recordIndexRange:")]
 		CPTPlotSymbol [] GetSymbols (CPTScatterPlot plot, NSRange indexRange);
@@ -1865,6 +1875,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface CPTScatterPlotDelegate {
 		[Abstract]
 		[Export ("scatterPlot:plotSymbolWasSelectedAtRecordIndex:"), EventArgs ("CPTScatterSymbolSelected")]
@@ -1909,6 +1920,7 @@ namespace CorePlot {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface CPTLegendDelegate {
 		[Export ("legend:shouldDrawSwatchAtIndex:forPlot:inRect:inContext:")]
 		bool ShouldDrawSwatch (int index, CPTPlot plot, RectangleF rect, CGContext context);
