@@ -66,7 +66,7 @@ namespace GooglePlusSample
 			// This line will manually fill out the title, description, and 
 			// thumbnail of the item you're sharing.
 			var shareBuilder = Share.SharedInstance.ShareDialog;
-			shareBuilder.SetTitle (title: "I love coding on Xanarin Studio!!",
+			shareBuilder.SetTitle (title: "I love coding on Xamarin Studio!!",
 			                       description: "Xamarin Studio is the best development environment for cross-platform mobile apps. Available on Windows and Mac.",
 			                       thumbnailUrl: new NSUrl ("http://xamarin.com/images/studio/screenshot1.jpg"));
 
