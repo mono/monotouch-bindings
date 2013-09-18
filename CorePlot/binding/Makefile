@@ -41,7 +41,8 @@ Mono.CoreplotMacOS.dll: Makefile coreplot.cs enums.cs extras.cs
 
 CorePlotiOS.dll: Makefile ios/coreplot.cs ios/enums.cs ios/extras.cs AssemblyInfo.cs libCorePlot-CocoaTouch.a
 	@mkdir -p ios
-	$(BTOUCH) --ns CorePlot -o $@ -d=MONOTOUCH ios/coreplot.cs -s ios/enums.cs -x ios/extras.cs -x AssemblyInfo.cs --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
+	$(BTOUCH) -unsafe -o $@ -d=MONOTOUCH ios/coreplot.cs -s ios/enums.cs -x ios/extras.cs -x AssemblyInfo.cs --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a --baselib=/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll
+#	$(BTOUCH) --ns CorePlot -o $@ -d=MONOTOUCH ios/coreplot.cs -s ios/enums.cs -x ios/extras.cs -x AssemblyInfo.cs --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
 
 ios/coreplot.cs: coreplot.cs
 	@mkdir -p ios
