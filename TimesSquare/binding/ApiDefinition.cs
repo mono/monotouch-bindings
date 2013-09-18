@@ -10,22 +10,23 @@ namespace TimesSquare.iOS
 	[BaseType (typeof (UITableViewCell))]
 	interface TSQCalendarCell {
 
-		[Export ("firstOfMonth")]
+		[Export ("firstOfMonth", ArgumentSemantic.Retain)]
 		NSDate FirstOfMonth { get; set; }
 
 		[Export ("daysInWeek")]
-		uint DaysInWeek { get; set; }
+		uint DaysInWeek { get; }
 
-		[Export ("calendar")]
+		[Export ("calendar", ArgumentSemantic.Retain)]
 		NSCalendar Calendar { get; set; }
 
 		[Export ("calendarView")]
 		TSQCalendarView CalendarView { get; set; }
 
+		[Static]
 		[Export ("cellHeight")]
 		float CellHeight { get; }
 
-		[Export ("textColor")]
+		[Export ("textColor", ArgumentSemantic.Retain)]
 		UIColor TextColor { get; set; }
 
 		[Export ("shadowOffset")]
@@ -72,7 +73,7 @@ namespace TimesSquare.iOS
 		[Export ("notThisMonthBackgroundImage")]
 		UIImage NotThisMonthBackgroundImage { get; }
 
-		[Export ("beginningDate")]
+		[Export ("beginningDate", ArgumentSemantic.Retain)]
 		NSDate BeginningDate { get; set; }
 
 		[Export ("bottomRow")]
@@ -90,16 +91,16 @@ namespace TimesSquare.iOS
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (RectangleF frame);
 
-		[Export ("firstDate")]
+		[Export ("firstDate", ArgumentSemantic.Retain)]
 		NSDate FirstDate { get; set; }
 
-		[Export ("lastDate")]
+		[Export ("lastDate", ArgumentSemantic.Retain)]
 		NSDate LastDate { get; set; }
 
-		[Export ("selectedDate")]
+		[Export ("selectedDate", ArgumentSemantic.Retain)]
 		NSDate SelectedDate { get; set; }
 
-		[Export ("calendar")]
+		[Export ("calendar", ArgumentSemantic.Retain)]
 		NSCalendar Calendar { get; set; }
 
 		[Wrap ("WeakDelegate")][NullAllowed]
@@ -120,15 +121,16 @@ namespace TimesSquare.iOS
 		[Export ("contentOffset")]
 		PointF ContentOffset { get; set; }
 
-		[Export ("headerCellClass")]
+		[Export ("headerCellClass", ArgumentSemantic.Retain)]
 		Class HeaderCellClass { get; set; }
 
-		[Export ("rowCellClass")]
+		[Export ("rowCellClass", ArgumentSemantic.Retain)]
 		Class RowCellClass { get; set; }
 	}
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TSQCalendarViewDelegate {
 
 		[Export ("calendarView:shouldSelectDate:"), DelegateName ("TSQCalendarViewDelegateS"), DefaultValue (true)]
