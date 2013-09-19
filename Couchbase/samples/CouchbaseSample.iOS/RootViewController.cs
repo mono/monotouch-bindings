@@ -21,6 +21,11 @@ namespace CouchbaseSample
 		Replication pull;
 		Replication push;
 
+		uint _lastPushCompleted;
+		uint _lastPullCompleted;
+
+		Replication _leader;
+
 		UIProgressView Progress { get; set; }
  		
 		public Database Database { get; set; }
@@ -58,8 +63,35 @@ namespace CouchbaseSample
 			Datasource.TableView = TableView;
 			Datasource.TableView.Delegate = new CouchtableDelegate(this, Datasource);
 
-			if (!UIDevice.CurrentDevice.SystemVersion.StartsWith ("7,", StringComparison.Ordinal))
+			UIImage backgroundImage = null;
+			switch(Convert.ToInt32(UIScreen.MainScreen.PreferredMode.Size.Height))
+			{
+			case 480:
+				backgroundImage = UIImage.FromBundle ("Default");
+				break;
+			case 960:
+				backgroundImage = UIImage.FromBundle ("Default@2x");
+				break;
+			case 1136:
+				backgroundImage = UIImage.FromBundle ("Default-568h@2x");
+				break;
+			}
+
+			var background = new UIImageView (UIImage.FromImage(backgroundImage.CGImage, UIScreen.MainScreen.Scale, UIImageOrientation.Up)) { ContentMode = UIViewContentMode.ScaleAspectFill, ContentScaleFactor = UIScreen.MainScreen.Scale };
+			background.AutosizesSubviews = true;
+			background.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
+			var newLocation = background.Frame.Location;
+			newLocation.Y = -65f;
+			background.Frame = new System.Drawing.RectangleF (newLocation, background.Frame.Size);
+
+			// Handle iOS 7 specific code.
+			if (AppDelegate.CurrentSystemVersion < AppDelegate.iOS7) {
+				TableView.BackgroundColor = UIColor.Clear;
+				TableView.BackgroundView = null;
 				NavigationController.NavigationBar.TintColor = UIColor.FromRGB (0.564f, 0.0f, 0.015f);
+			}
+
+			View.InsertSubviewBelow (background, View.Subviews[0]);
 		}
 
 		public override void ViewWillAppear(bool animated)
@@ -217,7 +249,7 @@ namespace CouchbaseSample
 		{
 			var navController = ParentViewController as UINavigationController;
 			var controller = new ConfigViewController();
-			if(AppDelegate.CurrentSystemVersion >= new Version(7, 0))
+			if(AppDelegate.CurrentSystemVersion >= AppDelegate.iOS7)
 			{
 				controller.EdgesForExtendedLayout = UIRectEdge.None;
 			}
@@ -260,44 +292,76 @@ namespace CouchbaseSample
 
 		void ReplicationProgress(NSNotification notification)
 		{
-			Debug.WriteLine ("Push Mode: {0}, Pull Mode: {1}", push.Mode, pull.Mode);
+			var active = notification.Object as Replication;
+			Debug.WriteLine (String.Format("Push: {0}, Pull: {1}", push.Mode, pull.Mode));
 
-			if (pull.Mode == ReplicationMode.Active || push.Mode == ReplicationMode.Active)
+			uint lastTotal = 0;
+
+			if (_leader == null) {
+				if (active.Pull && (pull.Mode == ReplicationMode.Active && push.Mode != ReplicationMode.Active))
+				{
+					_leader = pull;
+				} else if (!active.Pull && (push.Mode == ReplicationMode.Active && pull.Mode != ReplicationMode.Active))	{
+					_leader = push;
+				} else {
+					_leader = null;
+				}
+			} 
+			if (active == pull)
+				lastTotal = _lastPullCompleted;
+			else
+				lastTotal = _lastPushCompleted;
+
+
+			Debug.WriteLine (String.Format("Sync: {2} Progress: {0}/{1};", active.Completed - lastTotal, active.Total - lastTotal, active == push ? "Push" : "Pull"));
+
+			var progress = (float)(active.Completed - lastTotal) / (float)(Math.Max(active.Total - lastTotal, 1));
+
+			if (AppDelegate.CurrentSystemVersion < AppDelegate.iOS7)
 			{
-				Debug.Write (String.Format("Sync: Push Progress: {0}/{1};\t", push.Completed, push.Total));
-				Debug.Write (String.Format("Pull Progress: {0}/{1}", pull.Completed, pull.Total));
-
-				var progress = (float)(push.Completed + pull.Completed) / (float)(Math.Max(push.Total + pull.Total, 1));
-				if (AppDelegate.CurrentSystemVersion < new Version(7, 0))
-				{
-					ShowSyncStatusLegacy ();
-				}
-				else
-				{
-					ShowSyncStatus ();
-				}
-
-				Debug.WriteLine ("({0})", progress);
-
-				Progress.Hidden = false;
-				Progress.Progress = progress;
-			} else {
-				if (!(pull.Mode == ReplicationMode.Idle && push.Mode == ReplicationMode.Idle))
-					return;
-				Progress.Hidden = false;
-				Progress.SetProgress (1f, true);
-				var t = new System.Timers.Timer (300);
-				t.Elapsed += (sender, e) => { 
-					InvokeOnMainThread(()=>{
-						t.Dispose();
-						Progress.Hidden = true;
-						Progress.SetProgress(0f, false);
-						Debug.WriteLine("Sync Session Finished.");
-					});
-				};
-				t.Start ();
+				ShowSyncStatusLegacy ();
 			}
-		}
+			else
+			{
+				ShowSyncStatus ();
+			}
+
+			Debug.WriteLine (String.Format("({0})", progress));
+
+			Progress.Hidden = false;
+
+			if (progress < Progress.Progress)
+				Progress.SetProgress (progress, false);
+			else
+				Progress.Progress = progress;
+
+			if (!(pull.Mode != ReplicationMode.Active && push.Mode != ReplicationMode.Active))
+				return;
+			if (active == null)
+				return;
+			var initiatorName = _leader.Pull ? "Pull" : "Push";
+
+			_lastPushCompleted = push.Completed;
+			_lastPullCompleted = pull.Completed;
+
+			if (Progress == null)
+				return;
+			Progress.Hidden = false;
+			Progress.SetProgress (1f, true);
+
+			var t = new System.Timers.Timer (300);
+			t.Elapsed += (sender, e) => { 
+				InvokeOnMainThread(()=>{
+					t.Dispose();
+					Progress.Hidden = true;
+					Progress.SetProgress(0f, false);
+					Debug.WriteLine(String.Format("{0} Sync Session Finished.", initiatorName));
+					ShowSyncButton();
+				});
+			};
+			t.Start ();
+
+				}
 
 		void ShowSyncStatus ()
 		{
