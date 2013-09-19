@@ -12,8 +12,8 @@ namespace CouchbaseSample
 
 		static readonly NSString[] learnMoreUrls = new NSString[] {
 			(NSString)@"http://www.couchbase.com/products-and-services/couchbase-single-server",
-			(NSString)@"http://couchdb.apache.org/",
-			(NSString)@"http://www.iriscouch.com/"
+			(NSString)@"http://www.iriscouch.com/",
+			(NSString)@"http://www.couchbasecloud.com/"
 		};
 
 		public ConfigViewController ()
