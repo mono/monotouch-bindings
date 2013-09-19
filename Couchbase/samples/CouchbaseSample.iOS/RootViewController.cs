@@ -29,7 +29,7 @@ namespace CouchbaseSample
 
 		public RootViewController () : base ("RootViewController", null)
 		{
-			Title = NSBundle.MainBundle.LocalizedString ("Grocery", "Grocery");
+			Title = NSBundle.MainBundle.LocalizedString ("Grocery Sync", "Grocery Sync");
 		}
 
 		public ConfigViewController DetailViewController { get;	set; }
