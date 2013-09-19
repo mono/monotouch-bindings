@@ -29,7 +29,7 @@ namespace CouchbaseSample
 
 		public RootViewController () : base ("RootViewController", null)
 		{
-			Title = NSBundle.MainBundle.LocalizedString ("Grocery Sync", "Grocery Sync");
+			Title = NSBundle.MainBundle.LocalizedString ("Grocery", "Grocery");
 		}
 
 		public ConfigViewController DetailViewController { get;	set; }
@@ -38,8 +38,8 @@ namespace CouchbaseSample
 		{
 			base.ViewDidLoad ();
 
-			var deleteButton = new UIBarButtonItem ("Clean", UIBarButtonItemStyle.Plain, DeleteCheckedItems);
-			NavigationItem.RightBarButtonItem = deleteButton;
+			var addButton = new UIBarButtonItem ("Clean", UIBarButtonItemStyle.Plain, DeleteCheckedItems);
+			NavigationItem.RightBarButtonItem = addButton;
 
 			ShowSyncButton ();
 
@@ -58,7 +58,8 @@ namespace CouchbaseSample
 			Datasource.TableView = TableView;
 			Datasource.TableView.Delegate = new CouchtableDelegate(this, Datasource);
 
-			NavigationController.NavigationBar.TintColor = new UIColor (0.564f, 0.0f, 0.015f, 0f);
+			if (!UIDevice.CurrentDevice.SystemVersion.StartsWith ("7,", StringComparison.Ordinal))
+				NavigationController.NavigationBar.TintColor = UIColor.FromRGB (0.564f, 0.0f, 0.015f);
 		}
 
 		public override void ViewWillAppear(bool animated)
@@ -155,7 +156,11 @@ namespace CouchbaseSample
 			NSError error;
 			var result = doc.PutProperties (vals, out error);
 			if (result == null)
-				throw new ApplicationException ("failed to save a new document");
+				throw new ApplicationException ("failed to save a new document" + error.Description);
+
+			var docContent = (NSDictionary)doc.Properties.MutableCopy ();
+			var wasChecked = true;
+			docContent.SetValueForKey (NSNumber.FromBoolean(!wasChecked), (NSString)"check");
 
 			EntryField.Text = null;
 		}
@@ -180,11 +185,56 @@ namespace CouchbaseSample
 				if (e.ButtonIndex == 0) return;
 
 				NSError error;
-				Datasource.DeleteDocuments(CheckedDocuments.ToArray(), out error);
+				var success = Datasource.DeleteDocuments(CheckedDocuments.ToArray(), out error);
+				if (!success)
+					ShowErrorAlert(error.Description);
 			};
 			alert.Show ();
 		}
 
+		#endregion
+
+		#region Error Handling
+
+		public void ShowErrorAlert (string errorMessage, NSError error = null, Boolean fatal = false)
+		{
+			if (error != null)
+				errorMessage = String.Format ("{0}\r\n{1}", errorMessage, error.LocalizedDescription);
+
+			var alert = new UIAlertView (fatal ? @"Fatal Error" : @"Error",
+			                             errorMessage,
+			                             null,
+			                             fatal ? null : "Dismiss"
+			                             );
+			alert.Show ();
+		}
+
+		#endregion
+
+		#region Sync
+
+		void ConfigureSync(object sender, EventArgs args)
+		{
+			var navController = ParentViewController as UINavigationController;
+			var controller = new ConfigViewController();
+			if(AppDelegate.CurrentSystemVersion >= new Version(7, 0))
+			{
+				controller.EdgesForExtendedLayout = UIRectEdge.None;
+			}
+			navController.PushViewController (controller, true);
+		}
+
+		void ShowSyncButton()
+		{
+			if (!showingSyncButton)
+			{
+				showingSyncButton = true;
+				var button = new UIBarButtonItem ("Configure", UIBarButtonItemStyle.Plain, ConfigureSync);
+				NavigationItem.LeftBarButtonItem = button;
+			}
+		}
+
+		
 		void UpdateSyncUrl()
 		{
 			if (Database == null) return;
@@ -210,20 +260,66 @@ namespace CouchbaseSample
 
 		void ReplicationProgress(NSNotification notification)
 		{
-			if (pull.Mode == ReplicationMode.Active || push.Mode == ReplicationMode.Active) {
-				var completed = pull.Completed + push.Completed;
-				var total = pull.Total + push.Total;
-				Debug.WriteLine ("Sync Progress: {0}/{1}", completed, total);
-				ShowSyncStatus ();
-				Progress.Progress = total == 0 
-					? 1f
-					: (float)completed / (float)Math.Max(total, 1u);
+			Debug.WriteLine ("Push Mode: {0}, Pull Mode: {1}", push.Mode, pull.Mode);
+
+			if (pull.Mode == ReplicationMode.Active || push.Mode == ReplicationMode.Active)
+			{
+				Debug.Write (String.Format("Sync: Push Progress: {0}/{1};\t", push.Completed, push.Total));
+				Debug.Write (String.Format("Pull Progress: {0}/{1}", pull.Completed, pull.Total));
+
+				var progress = (float)(push.Completed + pull.Completed) / (float)(Math.Max(push.Total + pull.Total, 1));
+				if (AppDelegate.CurrentSystemVersion < new Version(7, 0))
+				{
+					ShowSyncStatusLegacy ();
+				}
+				else
+				{
+					ShowSyncStatus ();
+				}
+
+				Debug.WriteLine ("({0})", progress);
+
+				Progress.Hidden = false;
+				Progress.Progress = progress;
 			} else {
-				ShowSyncButton ();
+				if (!(pull.Mode == ReplicationMode.Idle && push.Mode == ReplicationMode.Idle))
+					return;
+				Progress.Hidden = false;
+				Progress.SetProgress (1f, true);
+				var t = new System.Timers.Timer (300);
+				t.Elapsed += (sender, e) => { 
+					InvokeOnMainThread(()=>{
+						t.Dispose();
+						Progress.Hidden = true;
+						Progress.SetProgress(0f, false);
+						Debug.WriteLine("Sync Session Finished.");
+					});
+				};
+				t.Start ();
 			}
 		}
 
 		void ShowSyncStatus ()
+		{
+			if (showingSyncButton) {
+				showingSyncButton = false;
+				if (Progress == null) {
+					Progress = new UIProgressView (UIProgressViewStyle.Bar);
+					Progress.TintColor = UIColor.FromRGB (75f/255f, 131f/255f, 229f/255f);
+					var frame = Progress.Frame;
+					var size = new System.Drawing.SizeF (View.Frame.Size.Width, frame.Height);
+					frame.Size = size;
+					Progress.Frame = frame;
+					Progress.SetProgress(0f, false);
+				}
+				var progressItem = new UIBarButtonItem (Progress);
+				progressItem.Enabled = false;
+
+				View.InsertSubviewAbove (Progress, View.Subviews [0]);
+			}
+		}
+
+		void ShowSyncStatusLegacy ()
 		{
 			if (showingSyncButton) {
 				showingSyncButton = false;
@@ -242,7 +338,7 @@ namespace CouchbaseSample
 
 		void ForgetSync()
 		{
-		    var nctr = NSNotificationCenter.DefaultCenter;
+			var nctr = NSNotificationCenter.DefaultCenter;
 
 			if (pull != null)
 			{
@@ -256,45 +352,6 @@ namespace CouchbaseSample
 				push = null;
 			}
 		}
-
-		#endregion
-
-		#region Error Handling
-
-		public void ShowErrorAlert (string errorMessage, NSError error, Boolean fatal = false)
-		{
-			if (error != null)
-				errorMessage = String.Format ("{0}\r\n{1}", errorMessage, error.LocalizedDescription);
-
-			var alert = new UIAlertView (fatal ? @"Fatal Error" : @"Error",
-			                             errorMessage,
-			                             null,
-			                             fatal ? null : "Dismiss"
-			                             );
-			alert.Show ();
-		}
-
-		#endregion
-
-		#region Sync
-
-		void ConfigureSync(object sender, EventArgs args)
-		{
-			var navController = ParentViewController as UINavigationController;
-			var controller = new ConfigViewController ();
-			navController.PushViewController (controller, true);
-		}
-
-		void ShowSyncButton()
-		{
-			if (!showingSyncButton)
-			{
-				showingSyncButton = true;
-				var button = new UIBarButtonItem ("Configure", UIBarButtonItemStyle.Plain, ConfigureSync);
-				NavigationItem.LeftBarButtonItem = button;
-			}
-		}
-
 		#endregion
 	}
 }
