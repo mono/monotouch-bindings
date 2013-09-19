@@ -13,6 +13,13 @@ namespace CouchbaseSample
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
+		static AppDelegate()
+		{
+			CurrentSystemVersion = new Version (UIDevice.CurrentDevice.SystemVersion);
+		}
+
+		public static readonly Version CurrentSystemVersion;
+
 		// class-level declarations
 		UINavigationController navigationController;
 		UIWindow window;
@@ -28,11 +35,17 @@ namespace CouchbaseSample
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 
-			var controller = new RootViewController ();
-			navigationController = new UINavigationController (controller);
-			window.RootViewController = navigationController;
+			var controller = new RootViewController();
 
-			// make the window visible
+			if (CurrentSystemVersion >= new Version(7, 0))
+			{
+				window.TintColor = UIColor.FromRGB(0.564f, 0.0f, 0.015f);
+				controller.EdgesForExtendedLayout = UIRectEdge.None;
+			}
+
+			navigationController = new UINavigationController (controller);
+
+			window.RootViewController = navigationController;
 			window.MakeKeyAndVisible ();
 
 			return true;
