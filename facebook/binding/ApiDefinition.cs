@@ -20,7 +20,7 @@ namespace MonoTouch.FacebookConnect
 {
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
-	interface FBAccessTokenData 
+	interface FBAccessTokenData
 	{
 		[Static, Export ("createTokenFromFacebookURL:appID:urlSchemeSuffix:")]
 		FBAccessTokenData CreateToken (NSUrl url, string appId, string urlSchemeSuffix);
@@ -30,7 +30,10 @@ namespace MonoTouch.FacebookConnect
 		
 		[Static, Export ("createTokenFromString:permissions:expirationDate:loginType:refreshDate:")]
 		FBAccessTokenData CreateToken (string accessToken, [NullAllowed] string [] permissions, [NullAllowed] NSDate expirationDate, FBSessionLoginType loginType, [NullAllowed] NSDate refreshDate);
-		
+
+		[Static, Export ("createTokenFromString:permissions:expirationDate:loginType:refreshDate:permissionsRefreshDate:")]
+		FBAccessTokenData CreateToken (string accessToken, [NullAllowed] string [] permissions, [NullAllowed] NSDate expirationDate, FBSessionLoginType loginType, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate permissionsRefreshDate);
+
 		[Export ("dictionary")]
 		NSMutableDictionary Dictionary { get; }
 		
@@ -51,9 +54,13 @@ namespace MonoTouch.FacebookConnect
 		
 		[Export ("refreshDate", ArgumentSemantic.Copy)]
 		NSDate RefreshDate { get; }
+
+		[Export ("permissionsRefreshDate", ArgumentSemantic.Copy)]
+		NSDate PermissionsRefreshDate { get; }
 	}
 
 	delegate void FBAppCallHandler (FBAppCall call);
+	delegate void FBAppLinkFallbackHandler (NSError error);
 
 	[BaseType (typeof (NSObject))]
 	interface FBAppCall 
@@ -72,6 +79,10 @@ namespace MonoTouch.FacebookConnect
 
 		[Export ("accessTokenData")]
 		FBAccessTokenData AccessTokenData { get; }
+
+		[Static]
+		[Export ("appCallFromURL:")]
+		FBAppCall GetAppCallFromUrl (NSUrl url);
 
 		[Export ("isEqualToAppCall:")]
 		bool IsEqualToAppCall (FBAppCall appCall);
@@ -93,6 +104,156 @@ namespace MonoTouch.FacebookConnect
 
 		[Static, Export ("handleDidBecomeActiveWithSession:")]
 		void HandleDidBecomeActive ([NullAllowed] FBSession session);
+
+		[Static, Export ("openDeferredAppLink:")]
+		void OpenDeferredAppLink ([NullAllowed] FBAppLinkFallbackHandler fallbackHandler);
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject))]
+	interface FBAppEvents 
+	{
+		[Field ("FBAppEventsLoggingResultNotification", "__Internal")]
+		[Notification]
+		NSString LoggingResultNotification { get; }
+
+		// Predefined event names for logging events common to many apps.
+		// Logging occurs through the `LogEvent` family of methods on `FBAppEvents`.
+
+		[Field ("FBAppEventNameActivatedApp", "__Internal")]
+		NSString ActivatedAppEvent { get; }
+
+		[Field ("FBAppEventNameCompletedRegistration", "__Internal")]
+		NSString CompletedRegistrationEvent { get; }
+
+		[Field ("FBAppEventNameViewedContent", "__Internal")]
+		NSString ViewedContentEvent { get; }
+
+		[Field ("FBAppEventNameSearched", "__Internal")]
+		NSString SearchedEvent { get; }
+
+		[Field ("FBAppEventNameRated", "__Internal")]
+		NSString NameRatedEvent { get; }
+
+		[Field ("FBAppEventNameCompletedTutorial", "__Internal")]
+		NSString CompletedTutorialEvent { get; }
+
+		[Field ("FBAppEventNameAddedToCart", "__Internal")]
+		NSString AddedToCartEvent { get; }
+
+		[Field ("FBAppEventNameAddedToWishlist", "__Internal")]
+		NSString AddedToWishlistEvent { get; }
+
+		[Field ("FBAppEventNameInitiatedCheckout", "__Internal")]
+		NSString InitiatedCheckoutEvent { get; }
+
+		[Field ("FBAppEventNameAddedPaymentInfo", "__Internal")]
+		NSString AddedPaymentInfoEvent { get; }
+
+		[Field ("FBAppEventNamePurchased", "__Internal")]
+		NSString PurchasedEvent { get; }
+
+		[Field ("FBAppEventNameAchievedLevel", "__Internal")]
+		NSString AchievedLevelEvent { get; }
+
+		[Field ("FBAppEventNameUnlockedAchievement", "__Internal")]
+		NSString UnlockedAchievementEvent { get; }
+
+		[Field ("FBAppEventNameSpentCredits", "__Internal")]
+		NSString SpentCreditsEvent { get; }
+
+		// Predefined parameters keys for common additional information
+		// to accompany events logged through the `LogEvent` family of methods on `FBAppEvents`
+
+		[Field ("FBAppEventParameterNameCurrency", "__Internal")]
+		NSString CurrencyParamKey { get; }
+
+		[Field ("FBAppEventParameterNameRegistrationMethod", "__Internal")]
+		NSString RegistrationMethodParamKey { get; }
+
+		[Field ("FBAppEventParameterNameContentType", "__Internal")]
+		NSString ContentTypeParamKey { get; }
+
+		[Field ("FBAppEventParameterNameContentID", "__Internal")]
+		NSString ContentIDParamKey { get; }
+
+		[Field ("FBAppEventParameterNameSearchString", "__Internal")]
+		NSString SearchStringParamKey { get; }
+
+		[Field ("FBAppEventParameterNameSuccess", "__Internal")]
+		NSString SuccessParamKey { get; }
+
+		[Field ("FBAppEventParameterNameMaxRatingValue", "__Internal")]
+		NSString MaxRatingValueParamKey { get; }
+
+		[Field ("FBAppEventParameterNamePaymentInfoAvailable", "__Internal")]
+		NSString PaymentInfoAvailableParamKey { get; }
+
+		[Field ("FBAppEventParameterNameNumItems", "__Internal")]
+		NSString NumItemsParamKey { get; }
+
+		[Field ("FBAppEventParameterNameLevel", "__Internal")]
+		NSString LevelParamKey { get; }
+
+		[Field ("FBAppEventParameterNameDescription", "__Internal")]
+		NSString DescriptionParamKey { get; }
+
+		[Field ("FBAppEventParameterValueYes", "__Internal")]
+		NSString YesValueParamKey { get; }
+
+		[Field ("FBAppEventParameterValueNo", "__Internal")]
+		NSString NoValueParamKey { get; }
+
+		// Class Implementation
+		// TODO: Enhance the usage of this class by C#'ifiying it.
+
+		[Static]
+		[Export ("logEvent:")]
+		void LogEvent (NSString eventName);
+
+		[Static]
+		[Export ("logEvent:valueToSum:")]
+		void LogEvent (NSString eventName, double valueToSum);
+
+		[Static]
+		[Export ("logEvent:parameters:")]
+		void LogEvent (NSString eventName, NSDictionary parameters);
+
+		[Static]
+		[Export ("logEvent:valueToSum:parameters:")]
+		void LogEvent (NSString eventName, double valueToSum, NSDictionary parameters);
+
+		[Static]
+		[Export ("logEvent:valueToSum:parameters:session:")]
+		void LogEvent (NSString eventName, double valueToSum, NSDictionary parameters, FBSession session);
+
+		[Static]
+		[Export ("logPurchase:currency:")]
+		void LogPurchase (double purchaseAmount, string currency);
+
+		[Static]
+		[Export ("logPurchase:currency:parameters:")]
+		void LogPurchase (double purchaseAmount, string currency, NSDictionary parameters);
+
+		[Static]
+		[Export ("logPurchase:currency:parameters:session:")]
+		void LogPurchase (double purchaseAmount, string currency, NSDictionary parameters, FBSession session);
+
+		[Static]
+		[Export ("limitEventUsage")]
+		bool LimitEventUsage { get; set; }
+
+		[Static]
+		[Export ("activateApp")]
+		void ActivateApp ();
+
+		[Static]
+		[Export ("flushBehavior")]
+		FBAppEventsFlushBehavior FlushBehavior { get; set; }
+
+		[Static]
+		[Export ("flush")]
+		void Flush ();
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -112,6 +273,12 @@ namespace MonoTouch.FacebookConnect
 
 		[Export ("originalQueryParameters")]
 		NSDictionary OriginalQueryParameters { get; }
+
+		[Export ("originalURL")]
+		NSUrl OriginalURL { get; }
+
+		[Export ("arguments")]
+		NSDictionary Arguments { get; }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -232,6 +399,9 @@ namespace MonoTouch.FacebookConnect
 		
 		[Field ("FBErrorLoginFailedReasonUserCancelledSystemValue", "__Internal")]
 		NSString LoginFailedReasonUserCancelledSystemValue { get; }
+
+		[Field ("FBErrorLoginFailedReasonOtherError", "__Internal")]
+		NSString LoginFailedReasonOtherError { get; }
 		
 		[Field ("FBErrorLoginFailedReasonSystemDisallowedWithoutErrorValue", "__Internal")]
 		NSString LoginFailedReasonSystemDisallowedWithoutErrorValue { get; }
@@ -272,8 +442,8 @@ namespace MonoTouch.FacebookConnect
 		[Field ("FBErrorDialogInvalidOpenGraphActionParameters", "__Internal")]
 		NSString DialogInvalidOpenGraphActionParameters { get; }
 
-		[Field ("FBErrorInsightsReasonKey", "__Internal")]
-		NSString InsightsReasonKey { get; }
+		[Field ("FBErrorAppEventsReasonKey", "__Internal")]
+		NSString AppEventsReasonKey { get; }
 		
 		[Field ("FBInvalidOperationException", "__Internal")]
 		NSString InvalidOperationException { get; }
@@ -591,21 +761,26 @@ namespace MonoTouch.FacebookConnect
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
+	[Obsolete ("Use the FBAppEvents class instead")]
 	interface FBInsights
 	{
 		[Notification]
 		[Field ("FBInsightsLoggingResultNotification", "__Internal")]
 		NSString FBInsightsLoggingResultNotification { get; }
-		
+
+		[Obsolete ("use FBSettings.AppVersion instead")]
 		[Static, Export ("appVersion")]
 		string AppVersion { get; set; }
-		
+
+		[Obsolete ("use FBAppEvents.LogPurchase instead")]
 		[Static, Export ("logPurchase:currency:")]
 		void LogPurchase (double purchaseAmount, string currency);
-		
+
+		[Obsolete ("use FBAppEvents.LogPurchase instead")]
 		[Static, Export ("logPurchase:currency:parameters:")]
 		void LogPurchase (double purchaseAmount, string currency, NSDictionary parameters);
-		
+
+		[Obsolete ("use FBAppEvents.LogPurchase instead")]
 		[Static, Export ("logPurchase:currency:parameters:session:")]
 		void LogPurchase (double purchaseAmount, string currency, NSDictionary parameters, FBSession session);
 		
@@ -614,10 +789,12 @@ namespace MonoTouch.FacebookConnect
 		
 		[Static, Export ("logConversionPixel:valueOfPixel:session:")]
 		void LogConversionPixel (string pixelId, double aValue, FBSession session);
-		
+
+		[Obsolete ("use FBAppEvents.FlushBehavior instead")]
 		[Static, Export ("flushBehavior")]
 		FBInsightsFlushBehavior FlushBehavior { get; set; }
-		
+
+		[Obsolete ("use FBAppEvents.Flush instead")]
 		[Static, Export ("flush")]
 		void Flush ();
 	}
@@ -1099,7 +1276,7 @@ namespace MonoTouch.FacebookConnect
 	delegate void FBRequestHandler (FBRequestConnection connection, NSObject result, NSError error);
 	
 	[BaseType (typeof (NSObject))]
-	interface FBRequestConnection 
+	interface FBRequestConnection
 	{
 		[Field ("FBNonJSONResponseProperty", "__Internal")]
 		NSString NonJSONResponseProperty { get; }
@@ -1107,17 +1284,23 @@ namespace MonoTouch.FacebookConnect
 		[Export("initWithTimeout:")]
 		IntPtr Constructor (double timeout);
 		
-		[Export ("urlRequest")]
+		[Export ("urlRequest", ArgumentSemantic.Retain)]
 		NSMutableUrlRequest UrlRequest { get; set; }
 		
-		[Export ("urlResponse")]
+		[Export ("urlResponse", ArgumentSemantic.Retain)]
 		NSHttpUrlResponse UrlResponse { get; }
+
+		[Export ("errorBehavior", ArgumentSemantic.Assign)]
+		FBRequestConnectionErrorBehavior ErrorBehavior { get; set; }
 		
 		[Export("addRequest:completionHandler:")]
 		void AddRequest (FBRequest request, FBRequestHandler handler);
 		
 		[Export("addRequest:completionHandler:batchEntryName:")]
 		void AddRequest (FBRequest request, FBRequestHandler handler, string batchEntryName);
+
+		[Export("addRequest:completionHandler:batchParameters:")]
+		void AddRequest (FBRequest request, FBRequestHandler handler, [NullAllowed] NSDictionary batchParameters);
 		
 		[Export("start")]
 		void Start ();
@@ -1127,11 +1310,11 @@ namespace MonoTouch.FacebookConnect
 		
 		[Static]
 		[Export ("startForMeWithCompletionHandler:")]
-		FBRequestConnection StartForMeWithCompletionHandler (FBRequestHandler handler);
+		FBRequestConnection StartForMe (FBRequestHandler handler);
 		
 		[Static]
 		[Export ("startForMyFriendsWithCompletionHandler:")]
-		FBRequestConnection StartForMyFriendsWithCompletionHandler (FBRequestHandler handler);
+		FBRequestConnection StartForMyFriends (FBRequestHandler handler);
 		
 		[Static]
 		[Export ("startForUploadPhoto:completionHandler:")]
@@ -1375,6 +1558,9 @@ namespace MonoTouch.FacebookConnect
 		
 		[Field ("FBTokenInformationPermissionsKey", "__Internal")]
 		NSString TokenInformationPermissionsKey { get; }
+
+		[Field ("FBTokenInformationPermissionsRefreshDateKey", "__Internal")]
+		NSString TokenInformationPermissionsRefreshDateKey { get; }
 	}
 
 	delegate void FBInstallResponseDataHandler (FBGraphObject response, NSError error);
@@ -1398,28 +1584,42 @@ namespace MonoTouch.FacebookConnect
 		[Field ("FBLoggingBehaviorPerformanceCharacteristics", "__Internal")]
 		NSString LoggingBehaviorPerformanceCharacteristics { get; }
 
-		[Field ("FBLoggingBehaviorInsights", "__Internal")]
-		NSString LoggingBehaviorInsights { get; }
+		[Field ("FBLoggingBehaviorAppEvents", "__Internal")]
+		NSString LoggingBehaviorAppEvents { get; }
+
+		[Field ("FBLoggingBehaviorInformational", "__Internal")]
+		NSString LoggingBehaviorInformational { get; }
 
 		[Field ("FBLoggingBehaviorDeveloperErrors", "__Internal")]
 		NSString LoggingBehaviorDeveloperErrors { get; }
 
 		[Static]
+		[Export ("sdkVersion")]
+		string SdkVersion { get; }
+
+		[Static]
 		[Export ("loggingBehavior")]
 		NSSet LoggingBehavior { get; set; }
-		
+
+		[Obsolete]
 		[Static]
 		[Export ("shouldAutoPublishInstall")]
 		bool ShouldAutoPublishInstall { get; set; }
-		
+
+		[Obsolete ("use FBAppEvents.ActivateApp instead")]
 		[Static]
 		[Export ("publishInstall:")]
 		void PublishInstall ([NullAllowed] string appID);
 
+		[Obsolete]
 		[Static]
 		[Export ("publishInstall:withHandler:")]
 		void PublishInstall ([NullAllowed] string appID, [NullAllowed] FBInstallResponseDataHandler handler);
 	
+		[Static]
+		[Export ("appVersion")]
+		string AppVersion { get; }
+
 		[Static]
 		[Export ("clientToken")]
 		string ClientToken { get; set; }
@@ -1435,6 +1635,14 @@ namespace MonoTouch.FacebookConnect
 		[Static]
 		[Export ("defaultUrlSchemeSuffix")]
 		string DefaultUrlSchemeSuffix { get; set; }
+
+		[Static]
+		[Export ("resourceBundleName")]
+		string ResourceBundleName { get; set; }
+
+		[Static]
+		[Export ("facebookDomainPart")]
+		string FacebookDomainPart { get; set; }
 
 		[Static]
 		[Export ("enableBetaFeatures:")]
@@ -1498,6 +1706,9 @@ namespace MonoTouch.FacebookConnect
 		
 		[Export ("testAppSecret", ArgumentSemantic.Copy)]
 		string TestAppSecret { get; set; }
+
+		[Export ("disableReauthorize", ArgumentSemantic.Assign)]
+		bool DisableReauthorize { get; set; }
 		
 		[Static]
 		[Export ("sessionWithSharedUserWithPermissions:")]
