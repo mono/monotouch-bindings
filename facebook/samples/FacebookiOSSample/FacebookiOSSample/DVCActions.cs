@@ -24,9 +24,15 @@ namespace FacebookiOSSample
 			this.user = facebookUser;
 
 			pictureView = new FBProfilePictureView () {
-				Frame = new RectangleF (110, 0, 80, 80),
 				ProfileID = user.Id
 			};
+
+			if (UIDevice.CurrentDevice.CheckSystemVersion (7,0)) {
+				pictureView.Frame = new RectangleF (120, 0, 80, 80);
+			}
+			else {
+				pictureView.Frame = new RectangleF (110, 0, 80, 80);
+			}
 
 			Root = new RootElement ("Menu") {
 				new Section (){

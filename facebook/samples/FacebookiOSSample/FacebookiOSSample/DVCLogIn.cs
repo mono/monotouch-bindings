@@ -22,15 +22,20 @@ namespace FacebookiOSSample
 
 		public DVCLogIn () : base (UITableViewStyle.Grouped, null, true)
 		{
-			loginView = new FBLoginView (ExtendedPermissions) {
-				Frame = new RectangleF (74, 0, 151, 43)
-			};
+			loginView = new FBLoginView (ExtendedPermissions);
+
+			if (UIDevice.CurrentDevice.CheckSystemVersion (7, 0)) {
+				loginView.Frame = new RectangleF (51, 0, 218, 46);
+			} else {
+				loginView.Frame = new RectangleF (40, 0, 218, 46);
+			}
+
 			loginView.FetchedUserInfo += (sender, e) => {
 				if (Root.Count < 3) {
 					user = e.User;
 					pictureView.ProfileID = user.Id;
 
-					Root.Add ( new Section ("Hello " + user.Name) {
+					Root.Add (new Section ("Hello " + user.Name) {
 						new StringElement ("Actions Menu", () => {
 							var dvc = new DVCActions (user);
 							NavigationController.PushViewController (dvc, true);
@@ -43,8 +48,8 @@ namespace FacebookiOSSample
 			loginView.ShowingLoggedOutUser += (sender, e) => {
 				pictureView.ProfileID = null;
 				if (Root.Count >= 3) {
-					InvokeOnMainThread (()=> {
-						var section = Root[2];
+					InvokeOnMainThread (() => {
+						var section = Root [2];
 						section.Remove (0);
 						Root.Remove (section);
 						ReloadData ();
@@ -52,9 +57,14 @@ namespace FacebookiOSSample
 				}
 			};
 
-			pictureView = new FBProfilePictureView () {
-				Frame = new RectangleF (40, 0, 220, 220)
-			};
+			pictureView = new FBProfilePictureView () ;
+
+			if (UIDevice.CurrentDevice.CheckSystemVersion (7,0)) {
+				pictureView.Frame = new RectangleF (50, 0, 220, 220);
+			}
+			else {
+				pictureView.Frame = new RectangleF (40, 0, 220, 220);
+			}
 
 			Root = new RootElement ("Facebook Sample") {
 				new Section () {
