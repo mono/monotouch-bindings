@@ -76,7 +76,7 @@ namespace MonoTouch.FacebookConnect
 		}
 
 		public FBGraphPlace Location { 
-			get { return GetLocation () != null ? new FBGraphPlace (GetLocation ()) : null; } 
+			get { return GetLocation () != IntPtr.Zero ? new FBGraphPlace (GetLocation ()) : null; } 
 			set { SetLocation (value.Handle); } 
 		}
 	}
@@ -99,7 +99,7 @@ namespace MonoTouch.FacebookConnect
 		}
 
 		public FBGraphLocation Location { 
-			get { return GetLocation () != null ? new FBGraphLocation (GetLocation ()) : null; } 
+			get { return GetLocation () != IntPtr.Zero ? new FBGraphLocation (GetLocation ()) : null; } 
 			set { SetLocation (value.Handle); } 
 		}
 	}
@@ -185,7 +185,7 @@ namespace MonoTouch.FacebookConnect
 		}
 
 		public FBGraphPlace Place { 
-			get { return GetPlace () != null ? new FBGraphPlace (GetPlace ()) : null; } 
+			get { return GetPlace () != IntPtr.Zero ? new FBGraphPlace (GetPlace ()) : null; } 
 			set { SetPlace (value.Handle); }
 		}
 
@@ -199,7 +199,7 @@ namespace MonoTouch.FacebookConnect
 		}
 
 		public FBGraphUser From { 
-			get { return GetFrom () != null ? new FBGraphUser (GetFrom ()) : null; } 
+			get { return GetFrom () != IntPtr.Zero ? new FBGraphUser (GetFrom ()) : null; } 
 			set { SetFrom (value.Handle); } 
 		}
 
