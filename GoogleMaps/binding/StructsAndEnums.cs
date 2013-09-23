@@ -21,6 +21,12 @@ namespace Google.Maps
 		None	
 	} 
 
+	public enum MarkerAnimation
+	{
+		None = 0,
+		Pop
+	}
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct VisibleRegion {
 

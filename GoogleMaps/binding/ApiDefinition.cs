@@ -60,6 +60,15 @@ namespace Google.Maps
 
 		[Static, Export ("kGMSLayerPanoramaZoomKeyGlobal")]
 		NSString LayerPanoramaZoomKey { get; }
+
+		[Static, Export ("kGMSMarkerLayerLatitudeGlobal")]
+		NSString MarkerLayerLatitude { get; }
+
+		[Static, Export ("kGMSMarkerLayerLongitudeGlobal")]
+		NSString MarkerLayerLongitude { get; }
+
+		[Static, Export ("kGMSMarkerLayerRotationGlobal")]
+		NSString MarkerLayerRotation { get; }
 	}
 
 	[DisableDefaultCtor]
@@ -374,7 +383,16 @@ namespace Google.Maps
 		void DidTapOverlay (MapView mapView, Overlay overlay);
 
 		[Export ("mapView:markerInfoWindow:"), DelegateName ("GMSInfoFor"), DefaultValue(null)]
-		UIView InfoFor (MapView mapView, Marker marker);
+		UIView MarkerInfoWindow (MapView mapView, Marker marker);
+
+		[Export ("mapView:didBeginDraggingMarker:"), EventArgs ("GMSMarkerEvent"), EventName ("SartedDraggingMarker")]
+		void DidBeginDraggingMarker (MapView mapView, Marker marker);
+
+		[Export ("mapView:didEndDraggingMarker:"), EventArgs ("GMSMarkerEvent"), EventName ("EndedDraggingMarker")]
+		void DidEndDraggingMarker (MapView mapView, Marker marker);
+
+		[Export ("mapView:didDragMarker:"), EventArgs ("GMSMarkerEvent"), EventName ("DraggingMarker")]
+		void DidDragMarker (MapView mapView, Marker marker);
 	}
 
 	[BaseType (typeof (UIView), Name="GMSMapView",
@@ -424,6 +442,9 @@ namespace Google.Maps
 		[Export ("settings")]
 		UISettings Settings { get; }
 
+		[Export ("padding", ArgumentSemantic.Assign)]
+		UIEdgeInsets Padding { get; set; }
+
 		[Export ("accessibilityElementsHidden", ArgumentSemantic.Assign)] [New]
 		bool AccessibilityElementsHidden { get; set; }
 
@@ -442,6 +463,9 @@ namespace Google.Maps
 
 		[Export ("clear")]
 		void Clear ();
+
+		[Export ("cameraForBounds:insets:")]
+		CameraPosition CameraForBounds (CoordinateBounds bounds, UIEdgeInsets insets);
 
 		[Export ("moveCamera:")]
 		void MoveCamera (CameraUpdate update);
@@ -499,11 +523,23 @@ namespace Google.Maps
 		[Export ("infoWindowAnchor", ArgumentSemantic.Assign)]
 		PointF InfoWindowAnchor { get; set; }
 
-		[Export ("animated", ArgumentSemantic.Assign)]
-		bool Animated { [Bind ("isAnimated")] get; set; }
+		[Export ("appearAnimation", ArgumentSemantic.Assign)]
+		MarkerAnimation AppearAnimation { get; set; }
+
+		[Export ("draggable", ArgumentSemantic.Assign)]
+		bool Draggable { [Bind ("isDraggable")] get; set; }
+
+		[Export ("flat", ArgumentSemantic.Assign)]
+		bool Flat { [Bind ("isFlat")] get; set; }
+
+		[Export ("rotation", ArgumentSemantic.Assign)]
+		double Rotation { get; set; }
 		
 		[Export ("userData")]
 		NSObject UserData { get; set; }
+
+		[Export ("layer", ArgumentSemantic.Retain)]
+		MarkerLayer Layer { get; }
 
 		[Export ("panoramaView")]
 		PanoramaView PanoramaView { get; set; }
@@ -513,6 +549,20 @@ namespace Google.Maps
 
 		[Static, Export ("markerImageWithColor:")]
 		UIImage MarkerImage (UIColor color);
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (CALayer), Name="GMSMarkerLayer")]
+	interface MarkerLayer {
+
+		[Export ("latitude", ArgumentSemantic.Assign)]
+		double Latitude { get; set; }
+
+		[Export ("longitude", ArgumentSemantic.Assign)]
+		double Longitude { get; set; }
+
+		[Export ("rotation", ArgumentSemantic.Assign)]
+		double Rotation { get; set; }
 	}
 
 	[BaseType (typeof (Path), Name="GMSMutablePath")]
@@ -658,6 +708,9 @@ namespace Google.Maps
 		[Export ("requestPanoramaNearCoordinate:callback:")]
 		void RequestPanorama (CLLocationCoordinate2D coordinate, PanoramaCallback callback);
 
+		[Export ("requestPanoramaNearCoordinate:radius:callback:")]
+		void RequestPanorama (CLLocationCoordinate2D coordinate, uint radius, PanoramaCallback callback);
+
 		[Export ("requestPanoramaWithID:callback:")]
 		void RequestPanorama (string panoramaID, PanoramaCallback callback);
 	}
@@ -742,6 +795,9 @@ namespace Google.Maps
 		[Export ("moveNearCoordinate:")]
 		void MoveNearCoordinate (CLLocationCoordinate2D coordinate);
 
+		[Export ("moveNearCoordinate:radius:")]
+		void MoveNearCoordinate (CLLocationCoordinate2D coordinate, uint radius);
+
 		[Export ("moveToPanoramaID:")]
 		void MoveToPanoramaId (string panoramaId);
 
@@ -754,6 +810,10 @@ namespace Google.Maps
 		[Static]
 		[Export ("panoramaWithFrame:nearCoordinate:coordinate:")]
 		PanoramaView FromFrame (RectangleF frame, CLLocationCoordinate2D coordinate);
+
+		[Static]
+		[Export ("panoramaWithFrame:nearCoordinate:coordinate:radius:")]
+		PanoramaView FromFrame (RectangleF frame, CLLocationCoordinate2D coordinate, uint radius);
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSPath")]
