@@ -33,7 +33,7 @@ namespace GoogleMapsAdvSample
 							Position = e.Coordinate,
 							Title = response.FirstResult.AddressLine1,
 							Snippet = response.FirstResult.AddressLine2,
-							Animated = true,
+							AppearAnimation = MarkerAnimation.Pop,
 							Map = mapView
 						};
 					} else {

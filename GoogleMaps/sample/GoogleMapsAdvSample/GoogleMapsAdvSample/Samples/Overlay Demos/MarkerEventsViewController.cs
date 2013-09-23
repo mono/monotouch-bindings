@@ -35,7 +35,7 @@ namespace GoogleMapsAdvSample
 				Map = mapView
 			};
 
-			mapView.InfoFor = (aMapView, aMarker) => {
+			mapView.MarkerInfoWindow = (aMapView, aMarker) => {
 				if (aMarker == melbourneMarker)
 					return new UIImageView (UIImage.FromBundle ("Icon"));
 				return null;

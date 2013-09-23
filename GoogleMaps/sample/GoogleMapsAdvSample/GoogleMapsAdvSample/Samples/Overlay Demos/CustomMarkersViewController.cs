@@ -86,7 +86,7 @@ namespace GoogleMapsAdvSample
 			var position = new CLLocationCoordinate2D (latitude, longitude);
 			var marker = Marker.FromPosition (position);
 			marker.Title = string.Format ("Marker {0}", ++markerCount);
-			marker.Animated = true;
+			marker.AppearAnimation = MarkerAnimation.Pop;
 			marker.Icon = Marker.MarkerImage (color);
 			marker.Map = mapView;
 		}
