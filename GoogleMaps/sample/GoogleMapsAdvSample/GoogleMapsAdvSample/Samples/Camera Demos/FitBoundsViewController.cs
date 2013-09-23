@@ -50,7 +50,7 @@ namespace GoogleMapsAdvSample
 			var marker = new Marker () {
 				Title = string.Format ("Marker at: {0}, {1}", e.Coordinate.Latitude, e.Coordinate.Longitude),
 				Position = e.Coordinate,
-				Animated = true,
+				AppearAnimation = MarkerAnimation.Pop,
 				Map = mapView
 			};
 			
