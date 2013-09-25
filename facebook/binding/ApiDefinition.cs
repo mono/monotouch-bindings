@@ -1618,7 +1618,7 @@ namespace MonoTouch.FacebookConnect
 	
 		[Static]
 		[Export ("appVersion")]
-		string AppVersion { get; }
+		string AppVersion { get; set; }
 
 		[Static]
 		[Export ("clientToken")]
