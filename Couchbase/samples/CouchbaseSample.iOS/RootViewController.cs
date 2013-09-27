@@ -369,7 +369,7 @@ namespace CouchbaseSample
 				showingSyncButton = false;
 				if (Progress == null) {
 					Progress = new UIProgressView (UIProgressViewStyle.Bar);
-					Progress.TintColor = UIColor.FromRGB (75f/255f, 131f/255f, 229f/255f);
+					Progress.TintColor = UIColor.White;
 					var frame = Progress.Frame;
 					var size = new System.Drawing.SizeF (View.Frame.Size.Width, frame.Height);
 					frame.Size = size;
