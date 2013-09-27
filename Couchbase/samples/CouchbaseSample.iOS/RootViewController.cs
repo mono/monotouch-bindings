@@ -119,10 +119,10 @@ namespace CouchbaseSample
 			var view = Database.ViewNamed (DefaultViewName);
 
 			NSObject key = new NSString("created_at");
-			var mapBlock = new MapBlock ((doc, aview) => {
+			var mapBlock = new MapBlock ((doc, emit) => {
 				NSObject date  = doc.ObjectForKey (key);
 				if (date  != null) {
-					aview.Emit (date, doc);
+					emit (date, doc);
 				}
 			});
 
