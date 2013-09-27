@@ -10,7 +10,7 @@ namespace Couchbase {
 	public delegate void MapEmitBlock(NSObject key, NSObject value);
 	public delegate bool FilterBlock(Revision revision, NSDictionary options);
 	public delegate bool ValidationBlock(Revision newRevision, ValidationContext context);
-	public delegate void MapBlock(NSDictionary doc, View view);
+	public delegate void MapBlock(NSDictionary doc, [BlockCallback] MapEmitBlock emit);
 	public delegate NSObject ReduceBlock(NSArray keys, NSArray values, bool rereduce);
 	public delegate bool ChangeEnumeratorBlock(String key, NSObject oldValue, NSObject newValue);
 
@@ -60,16 +60,6 @@ namespace Couchbase {
 
 	[BaseType (typeof (NSObject), Name = "CBLView")]
 	public partial interface View {
-
-		// NOTE.ZJG: Added a part of a custom-build of libCouchbaselite.
-		// This works around bugzilla #4781.
-		[Export("emit:value:")]
-		void Emit (NSObject key, NSObject value);
-
-		// NOTE.ZJG: Never called, and doesn't exist on objc side, 
-		// but ensures MapEmitBlock is emitted by the generator.
-		[Export("foo")]
-		void Foo (MapEmitBlock emit);
 
 		[Export ("database")]
 		Database Database { get; }
