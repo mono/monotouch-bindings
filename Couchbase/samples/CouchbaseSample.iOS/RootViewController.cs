@@ -15,6 +15,7 @@ namespace CouchbaseSample
 		private  const string DefaultViewName = "byDate";
 		private  const string DocumentDisplayPropertyName = "text";
 		internal const string CheckboxPropertyName = "check";
+		internal static readonly NSString CreationDatePropertyName = (NSString)"check";
 
 		Boolean showingSyncButton;
 
@@ -118,9 +119,8 @@ namespace CouchbaseSample
 		{
 			var view = Database.ViewNamed (DefaultViewName);
 
-			NSObject key = new NSString("created_at");
 			var mapBlock = new MapBlock ((doc, emit) => {
-				NSObject date  = doc.ObjectForKey (key);
+				NSObject date  = doc.ObjectForKey (CreationDatePropertyName);
 				if (date  != null) {
 					emit (date, doc);
 				}
@@ -131,11 +131,11 @@ namespace CouchbaseSample
 			var validationBlock = new ValidationBlock ((revision, context)=>{
 				if (revision.IsDeleted) return true;
 
-				NSObject date = revision.Properties.ObjectForKey(key);
+				NSObject date = revision.Properties.ObjectForKey(CreationDatePropertyName);
 				return (date != null);
 			});
 
-			Database.DefineValidation ((NSString)key, validationBlock);
+			Database.DefineValidation (CreationDatePropertyName, validationBlock);
 
 		}
 
