@@ -7,7 +7,7 @@ using MonoTouch.UIKit;
 
 namespace Couchbase {
 
-	public delegate void MapEmitBlock(NSObject key, NSObject value);
+  public delegate void MapEmitBlock(NSObject key, [NullAllowed] NSObject value);
 	public delegate bool FilterBlock(Revision revision, NSDictionary options);
 	public delegate bool ValidationBlock(Revision newRevision, ValidationContext context);
 	public delegate void MapBlock(NSDictionary doc, [BlockCallback] MapEmitBlock emit);
@@ -95,7 +95,7 @@ namespace Couchbase {
 		Query Query { get; }
 
 		[Static, Export ("totalValues:")]
-		NSNumber TotalValues (NSObject [] values);
+		NSNumber TotalValues (NSNumber [] values);
 
 		[Static, Export ("compiler")]
 		ViewCompiler Compiler { get; set; }
@@ -187,7 +187,7 @@ namespace Couchbase {
 		bool InTransaction (Action<bool> bloc);
 
 		[Export ("allReplications")]
-		NSObject [] AllReplications { get; }
+		Replication [] AllReplications { get; }
 
 		[Export ("pushToURL:")]
 		Replication PushToURL (NSUrl url);
@@ -196,7 +196,7 @@ namespace Couchbase {
 		Replication PullFromURL (NSUrl url);
 
 		[Export ("replicateWithURL:exclusively:")]
-		NSObject [] ReplicateWithURL ([NullAllowed] NSUrl otherDbURL, bool exclusively);
+		Replication [] ReplicateWithURL ([NullAllowed] NSUrl otherDbURL, bool exclusively);
 
 		[Notification, Field ("kCBLDatabaseChangeNotification", "__Internal")]
 		NSString DatabaseChangeNotification { get; }
@@ -258,13 +258,13 @@ namespace Couchbase {
 		Revision RevisionWithID (string revisionID);
 
 		[Export ("getRevisionHistory:")]
-		NSObject [] GetRevisionHistory (out NSError outError);
+    Revision [] GetRevisionHistory (out NSError outError);
 
 		[Export ("getConflictingRevisions:")]
-		NSObject [] GetConflictingRevisions (out NSError outError);
+    Revision [] GetConflictingRevisions (out NSError outError);
 
 		[Export ("getLeafRevisions:")]
-		NSObject [] GetLeafRevisions (out NSError outError);
+    Revision [] GetLeafRevisions (out NSError outError);
 
 		[Export ("newRevision")]
 		NewRevision NewRevision { get; }
@@ -329,7 +329,7 @@ namespace Couchbase {
 		Database CreateDatabaseNamed (string name, out NSError outError);
 
 		[Export ("allDatabaseNames")]
-		NSObject [] AllDatabaseNames { get; }
+		NSString [] AllDatabaseNames { get; }
 
 		[Export ("replaceDatabaseNamed:withDatabaseFile:withAttachments:error:")]
 		bool ReplaceDatabaseNamed (string databaseName, string databasePath, string attachmentsPath, out NSError outError);
@@ -428,7 +428,7 @@ namespace Couchbase {
 		bool SetValue (NSObject value, string property);
 
 		[Export ("attachmentNames")]
-		NSObject [] AttachmentNames { get; }
+		NSString [] AttachmentNames { get; }
 
 		[Export ("attachmentNamed:")]
 		Attachment AttachmentNamed (string name);
@@ -676,7 +676,7 @@ namespace Couchbase {
 		NSDictionary Query_params { get; set; }
 
 		[Export ("doc_ids", ArgumentSemantic.Copy)]
-		NSObject [] Doc_ids { get; set; }
+		NSObject [] DocIds { get; set; }
 
 		[Export ("headers", ArgumentSemantic.Copy)]
 		NSDictionary Headers { get; set; }
@@ -761,13 +761,13 @@ namespace Couchbase {
 		NSObject ObjectForKeyedSubscript (string key);
 
 		[Export ("attachmentNames")]
-		NSObject [] AttachmentNames { get; }
+		String [] AttachmentNames { get; }
 
 		[Export ("attachmentNamed:")]
 		Attachment AttachmentNamed (string name);
 
 		[Export ("attachments")]
-		NSObject [] Attachments { get; }
+		Attachment [] Attachments { get; }
 	}
 
 	[BaseType (typeof (RevisionBase), Name = "CBLRevision")]
@@ -786,7 +786,7 @@ namespace Couchbase {
 		Revision DeleteDocument (out NSError outError);
 
 		[Export ("getRevisionHistory:")]
-		NSObject [] GetRevisionHistory (out NSError outError);
+		Revision [] GetRevisionHistory (out NSError outError);
 	}
 
 	[BaseType (typeof (RevisionBase), Name = "CBLNewRevision")]
@@ -858,10 +858,10 @@ namespace Couchbase {
 		Document DocumentAtIndexPath (NSIndexPath path);
 
 		[Export ("deleteDocumentsAtIndexes:error:")]
-		bool DeleteDocumentsAtIndexes (NSObject [] indexPaths, out NSError outError);
+    bool DeleteDocumentsAtIndexes (NSIndexPath [] indexPaths, out NSError outError);
 
 		[Export ("deleteDocuments:error:")]
-		bool DeleteDocuments (NSObject [] documents, out NSError outError);
+		bool DeleteDocuments (Document [] documents, out NSError outError);
 	}
 
 	[Model, BaseType(typeof(UICollectionViewDelegate))]
@@ -874,7 +874,7 @@ namespace Couchbase {
 		void WillUpdateFromQuery (CBLUICollectionSource source, LiveQuery query);
 
 		[Export ("couchCollectionSource:updateFromQuery:previousRows:")]
-		void UpdateFromQuery (CBLUICollectionSource source, LiveQuery query, NSObject [] previousRows);
+		void UpdateFromQuery (CBLUICollectionSource source, LiveQuery query, QueryRow [] previousRows);
 
 		[Export ("couchCollectionSource:willUseCell:forRow:")]
 		void WillUseCell (CBLUICollectionSource source, UICollectionViewCell cell, QueryRow row);
@@ -893,7 +893,7 @@ namespace Couchbase {
 		void ReloadFromQuery ();
 
 		[Export ("rows")]
-		NSObject [] Rows { get; }
+		QueryRow [] Rows { get; }
 
 		[Export ("rowAtIndex:")]
 		QueryRow RowAtIndex (uint index);
@@ -914,10 +914,10 @@ namespace Couchbase {
 		bool DeletionAllowed { get; set; }
 
 		[Export ("deleteDocumentsAtIndexes:error:")]
-		bool DeleteDocumentsAtIndexes (NSObject [] indexPaths, out NSError outError);
+    bool DeleteDocumentsAtIndexes (NSIndexPath [] indexPaths, out NSError outError);
 
 		[Export ("deleteDocuments:error:")]
-		bool DeleteDocuments (NSObject [] documents, out NSError outError);
+		bool DeleteDocuments (Document [] documents, out NSError outError);
 	}
 
 	[Model, BaseType(typeof (UITableViewDelegate))]
@@ -930,7 +930,7 @@ namespace Couchbase {
 		void WillUpdateFromQuery (CBLUITableSource source, LiveQuery query);
 
 		[Export ("couchTableSource:updateFromQuery:previousRows:")]
-		void UpdateFromQuery (CBLUITableSource source, LiveQuery query, NSObject [] previousRows);
+		void UpdateFromQuery (CBLUITableSource source, LiveQuery query, QueryRow [] previousRows);
 
 		[Export ("couchTableSource:willUseCell:forRow:")]
 		void WillUseCell (CBLUITableSource source, UITableViewCell cell, QueryRow row);
