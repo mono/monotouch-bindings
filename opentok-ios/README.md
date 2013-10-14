@@ -7,3 +7,5 @@ to your project.   Then select the file, and set Build Action to be
 
 The above is necessary, because OpenTok does not allow redistribution of their
 binaries.
+
+Once you have your resulting dll library, you can add that to a project.
