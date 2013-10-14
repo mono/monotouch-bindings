@@ -8,18 +8,6 @@ using MonoTouch.AVFoundation;
 
 namespace opentok
 {
-	// The first step to creating a binding is to add your native library ("libNativeLibrary.a")
-	// to the project by right-clicking (or Control-clicking) the folder containing this source
-	// file and clicking "Add files..." and then simply select the native library (or libraries)
-	// that you want to bind.
-	//
-	// When you do that, you'll notice that MonoDevelop generates a code-behind file for each
-	// native library which will contain a [LinkWith] attribute. MonoDevelop auto-detects the
-	// architectures that the native library supports and fills in that information for you,
-	// however, it cannot auto-detect any Frameworks or other system libraries that the
-	// native library may depend on, so you'll need to fill in that information yourself.
-	//
-
 	[BaseType (typeof (NSError))]
 	interface OTError {
 	}
@@ -78,6 +66,9 @@ namespace opentok
 		
 		[Export ("publisherDidStopStreaming:")]
 		void DidStopStreaming (OTPublisher publisher);
+
+		[Export ("publisher:didChangeCameraPosition:")]
+		void DidChangeCameraPosition (OTPublisher publisher, AVCaptureDevicePosition cameraPosition);
 	}
 	
 	[BaseType (typeof (NSObject))]
@@ -109,9 +100,6 @@ namespace opentok
 		[Export ("initWithSessionId:delegate:")]
 		IntPtr Constructor (string sessionId, OTSessionDelegate sessionDelegate);
 
-		[Export ("initWithSessionId:delegate:environment:")]
-		IntPtr Constructor (string sessionId, OTSessionDelegate sessionDelegate, OTSessionEnvironment environment);
-
 		[Export ("connectWithApiKey:token:")]
 		void Connect (string apiKey, string token);
 
@@ -123,30 +111,42 @@ namespace opentok
 
 		[Export ("unpublish:")]
 		void Unpublish (OTPublisher publisher);
+
+		[Export ("signalWithType:data:completionHandler:")]
+		void SendSignal (string signalType, NSObject dataToSend, Action<NSError> completionHandler);
+
+		[Export ("signalWithType:data:connections:completionHandler:")]
+		void SendSignal (string signalType, NSObject dataToSend, OTConnection [] connections, Action<NSError> completionHandler);
+
+		[Export ("receiveSignalType:withHandler:")]
+		void SetReceiveHandler (string signalType, Action<NSString,NSObject,OTConnection> handler);
 	}
 
 	[BaseType (typeof (NSObject))]
 	[Model]
 	interface OTSessionDelegate {
-		[Abstract]
 		[Export ("sessionDidConnect:")]
 		void DidConnect (OTSession session);
 
-		[Abstract]
 		[Export ("sessionDidDisconnect:")]
 		void DidDisconnect (OTSession session);
 
-		[Abstract]
 		[Export ("session:didFailWithError:")]
 		void DidFailWithError (OTSession session, OTError error);
 
-		[Abstract]
 		[Export ("session:didReceiveStream:")]
 		void DidReceiveStream (OTSession session, OTStream stream);
 
-		[Abstract]
 		[Export ("session:didDropStream:")]
 		void DidDropStream (OTSession session, OTStream stream);
+
+		[Export ("session:didCreateConnection:")]
+		void DidCreateConnection (OTSession session, OTConnection connection);
+
+		[Export ("session:didDropConnection:")]
+		void DidDropConnection (OTSession session, OTConnection connection);
+
+		
 	}
 	
 	[BaseType (typeof (NSObject))]
@@ -174,6 +174,9 @@ namespace opentok
 
 		[Export ("hasVideo")]
 		bool HasVideo { get;  }
+
+		[Export ("videoDimensions")]
+		SizeF VideoDimensions { get; }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -185,7 +188,7 @@ namespace opentok
 		OTStream Stream { get;  }
 
 		[Export ("view")]
-		UIView View { get;  }
+		OTVideoView View { get;  }
 
 		[Export ("delegate"), NullAllowed]
 		NSObject WeakDelegate { get; set; }
@@ -214,13 +217,32 @@ namespace opentok
 		[Export ("subscriberDidConnectToStream:")]
 		void DidConnectToStream (OTSubscriber subscriber);
 
-		[Abstract]
 		[Export ("subscriber:didFailWithError:")]
 		void DidFailWithError (OTSubscriber subscriber, OTError error);
 
-		[Abstract]
 		[Export ("subscriberVideoDataReceived:")]
 		void VideoDataReceived (OTSubscriber subscriber);
+
+		[Export ("stream:didChangeVideoDimensions:")]
+		void DidChangeVideoDimensions (OTStream stream, SizeF dimensions);
+
+		[Export ("subscriberVideoDisabled:")]
+		void SubscriberVideoDisabled (OTSubscriber subscriber);
+	}
+
+	[BaseType (typeof (UIView))]
+	interface OTVideoView {
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (RectangleF frame);
+
+		[Export ("toolbarView")]
+		UIView ToolbarView { get; }
+
+		[Export ("videoView")]
+		UIView VideoView { get; }
+
+		[Export ("getImageWithBlock:")]
+		void GetSnapshot (Action<UIImage> snapshotHanlder);
 	}
 }
 
