@@ -953,14 +953,16 @@ namespace Google.Maps
 
 		[Abstract]
 		[Export ("receiveTileWithX:y:zoom:image:")]
-		void RecieveTile (uint x, uint y, uint zoom, UIImage image);
+		void ReceiveTile (uint x, uint y, uint zoom, [NullAllowed] UIImage image);
 	}
+
+	interface ITileReceiver {}
 
 	[BaseType (typeof (NSObject), Name="GMSTileLayer")]
 	interface TileLayer {
 
 		[Export ("requestTileForX:y:zoom:receiver:")]
-		void RequestTile (uint x, uint y, uint zoom, TileReceiver receiver);
+		void RequestTile (uint x, uint y, uint zoom, ITileReceiver receiver);
 
 		[Export ("clearTileCache")]
 		void ClearTileCache ();
