@@ -21,13 +21,13 @@ GoogleAnalyticsiOS.zip:
 #	clang -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -fobjc-abi-version=2 -fobjc-legacy-dispatch -c -arch i386 stub.m -o i386.o 
 
 
-libGoogleAnalytics.a: GoogleAnalyticsiOS.zip
-	unzip -p $< 'GoogleAnalyticsiOS_2.0beta*/Library/libGoogleAnalytics.a' > $@
+libGoogleAnalyticsServices.a: GoogleAnalyticsiOS.zip
+	unzip -p $< 'GoogleAnalyticsServicesiOS_3*/libGoogleAnalyticsServices.a' > $@
 
-GoogleAnalytics.dll: Makefile AssemblyInfo.cs googleanalytics.cs enums.cs extras.cs libGoogleAnalytics.a
+GoogleAnalytics.dll: Makefile AssemblyInfo.cs googleanalytics.cs enums.cs extras.cs libGoogleAnalyticsServices.a
 	-mkdir -p ios
 	$(BTOUCH) --out=$@ -e googleanalytics.cs enums.cs --sourceonly=list --tmpdir=ios
-	$(SMCS) $(BUILD_FLAGS) -out:$@ @list enums.cs extras.cs AssemblyInfo.cs -r:monotouch.dll -res:libGoogleAnalytics.a,libGoogleAnalytics.a
+	$(SMCS) $(BUILD_FLAGS) -out:$@ @list enums.cs extras.cs AssemblyInfo.cs -r:monotouch.dll -res:libGoogleAnalyticsServices.a,libGoogleAnalyticsServices.a
 
 clean:
 	-rm -rf list ios *.a *.dll *.o
