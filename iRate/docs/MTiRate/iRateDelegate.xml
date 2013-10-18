@@ -1,6 +1,6 @@
 <Type Name="iRateDelegate" FullName="MTiRate.iRateDelegate">
-  <TypeSignature Language="C#" Value="public class iRateDelegate : MonoTouch.Foundation.NSObject" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit iRateDelegate extends MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="C#" Value="public class iRateDelegate : MonoTouch.Foundation.NSObject, IDisposable, MTiRate.IiRateDelegate" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit iRateDelegate extends MonoTouch.Foundation.NSObject implements class MonoTouch.ObjCRuntime.INativeObject, class MTiRate.IiRateDelegate, class System.IDisposable" />
   <AssemblyInfo>
     <AssemblyName>MTiRate</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -8,10 +8,20 @@
   <Base>
     <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
   </Base>
-  <Interfaces />
+  <Interfaces>
+    <Interface>
+      <InterfaceName>MTiRate.IiRateDelegate</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
   <Attributes>
     <Attribute>
       <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Protocol</AttributeName>
     </Attribute>
     <Attribute>
       <AttributeName>MonoTouch.Foundation.Register("iRateDelegate", true)</AttributeName>
@@ -134,8 +144,8 @@
       </Docs>
     </Member>
     <Member MemberName="DidDetectAppUpdate">
-      <MemberSignature Language="C#" Value="public virtual void DidDetectAppUpdate (bool fakeArg);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidDetectAppUpdate(bool fakeArg) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void DidDetectAppUpdate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidDetectAppUpdate() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -148,18 +158,15 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="fakeArg" Type="System.Boolean" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="fakeArg">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="DidDismissStoreKitModal">
-      <MemberSignature Language="C#" Value="public virtual void DidDismissStoreKitModal (bool fakeArg);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidDismissStoreKitModal(bool fakeArg) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void DidDismissStoreKitModal ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidDismissStoreKitModal() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -172,18 +179,15 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="fakeArg" Type="System.Boolean" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="fakeArg">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="DidPresentStoreKitModal">
-      <MemberSignature Language="C#" Value="public virtual void DidPresentStoreKitModal (bool fakeArg);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidPresentStoreKitModal(bool fakeArg) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void DidPresentStoreKitModal ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidPresentStoreKitModal() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -196,18 +200,36 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="fakeArg" Type="System.Boolean" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="fakeArg">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidPromptForRating">
+      <MemberSignature Language="C#" Value="public virtual void DidPromptForRating ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidPromptForRating() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("iRateDidPromptForRating")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ShouldOpenAppStore">
-      <MemberSignature Language="C#" Value="public virtual bool ShouldOpenAppStore (bool fakeArg);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool ShouldOpenAppStore(bool fakeArg) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual bool ShouldOpenAppStore ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool ShouldOpenAppStore() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -220,19 +242,16 @@
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="fakeArg" Type="System.Boolean" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="fakeArg">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ShouldPromptForRating">
-      <MemberSignature Language="C#" Value="public virtual bool ShouldPromptForRating (bool fakeArg);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool ShouldPromptForRating(bool fakeArg) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual bool ShouldPromptForRating ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool ShouldPromptForRating() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -245,19 +264,16 @@
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="fakeArg" Type="System.Boolean" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="fakeArg">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="UserDidAttemptToRateApp">
-      <MemberSignature Language="C#" Value="public virtual void UserDidAttemptToRateApp (bool fakeArg);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UserDidAttemptToRateApp(bool fakeArg) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void UserDidAttemptToRateApp ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UserDidAttemptToRateApp() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -270,18 +286,15 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="fakeArg" Type="System.Boolean" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="fakeArg">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="UserDidDeclineToRateApp">
-      <MemberSignature Language="C#" Value="public virtual void UserDidDeclineToRateApp (bool fakeArg);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UserDidDeclineToRateApp(bool fakeArg) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void UserDidDeclineToRateApp ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UserDidDeclineToRateApp() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -294,18 +307,15 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="fakeArg" Type="System.Boolean" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="fakeArg">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="UserDidRequestReminderToRateApp">
-      <MemberSignature Language="C#" Value="public virtual void UserDidRequestReminderToRateApp (bool fakeArg);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UserDidRequestReminderToRateApp(bool fakeArg) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void UserDidRequestReminderToRateApp ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UserDidRequestReminderToRateApp() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -318,11 +328,8 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="fakeArg" Type="System.Boolean" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="fakeArg">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
