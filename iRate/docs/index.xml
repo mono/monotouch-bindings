@@ -18,12 +18,228 @@
       <Type Name="Messaging" Kind="Class" />
     </Namespace>
     <Namespace Name="MTiRate">
+      <Type Name="IiRateDelegate" Kind="Interface" />
       <Type Name="iRate" Kind="Class" />
       <Type Name="iRateDelegate" Kind="Class" />
+      <Type Name="iRateDelegate_Extensions" Kind="Class" />
       <Type Name="iRateDelegateShouldOpenAppStore" Kind="Delegate" />
       <Type Name="iRateDelegateShouldPromptForRating" Kind="Delegate" />
       <Type Name="iRateErrorCode" Kind="Enumeration" />
     </Namespace>
   </Types>
   <Title>MTiRate</Title>
+  <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="CouldNotConnectToAppStore">
+        <MemberSignature Language="C#" Value="public static void CouldNotConnectToAppStore (this MTiRate.IiRateDelegate This, MonoTouch.Foundation.NSError error);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CouldNotConnectToAppStore(class MTiRate.IiRateDelegate This, class MonoTouch.Foundation.NSError error) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+          <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="error">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.CouldNotConnectToAppStore(MTiRate.IiRateDelegate,MonoTouch.Foundation.NSError)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="DidDetectAppUpdate">
+        <MemberSignature Language="C#" Value="public static void DidDetectAppUpdate (this MTiRate.IiRateDelegate This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidDetectAppUpdate(class MTiRate.IiRateDelegate This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.DidDetectAppUpdate(MTiRate.IiRateDelegate)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="DidDismissStoreKitModal">
+        <MemberSignature Language="C#" Value="public static void DidDismissStoreKitModal (this MTiRate.IiRateDelegate This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidDismissStoreKitModal(class MTiRate.IiRateDelegate This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.DidDismissStoreKitModal(MTiRate.IiRateDelegate)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="DidPresentStoreKitModal">
+        <MemberSignature Language="C#" Value="public static void DidPresentStoreKitModal (this MTiRate.IiRateDelegate This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidPresentStoreKitModal(class MTiRate.IiRateDelegate This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.DidPresentStoreKitModal(MTiRate.IiRateDelegate)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="DidPromptForRating">
+        <MemberSignature Language="C#" Value="public static void DidPromptForRating (this MTiRate.IiRateDelegate This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidPromptForRating(class MTiRate.IiRateDelegate This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.DidPromptForRating(MTiRate.IiRateDelegate)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="ShouldOpenAppStore">
+        <MemberSignature Language="C#" Value="public static bool ShouldOpenAppStore (this MTiRate.IiRateDelegate This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldOpenAppStore(class MTiRate.IiRateDelegate This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.ShouldOpenAppStore(MTiRate.IiRateDelegate)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="ShouldPromptForRating">
+        <MemberSignature Language="C#" Value="public static bool ShouldPromptForRating (this MTiRate.IiRateDelegate This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldPromptForRating(class MTiRate.IiRateDelegate This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.ShouldPromptForRating(MTiRate.IiRateDelegate)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="UserDidAttemptToRateApp">
+        <MemberSignature Language="C#" Value="public static void UserDidAttemptToRateApp (this MTiRate.IiRateDelegate This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void UserDidAttemptToRateApp(class MTiRate.IiRateDelegate This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.UserDidAttemptToRateApp(MTiRate.IiRateDelegate)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="UserDidDeclineToRateApp">
+        <MemberSignature Language="C#" Value="public static void UserDidDeclineToRateApp (this MTiRate.IiRateDelegate This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void UserDidDeclineToRateApp(class MTiRate.IiRateDelegate This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.UserDidDeclineToRateApp(MTiRate.IiRateDelegate)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MTiRate.IiRateDelegate" />
+      </Targets>
+      <Member MemberName="UserDidRequestReminderToRateApp">
+        <MemberSignature Language="C#" Value="public static void UserDidRequestReminderToRateApp (this MTiRate.IiRateDelegate This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void UserDidRequestReminderToRateApp(class MTiRate.IiRateDelegate This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MTiRate.IiRateDelegate" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MTiRate.iRateDelegate_Extensions" Member="M:MTiRate.iRateDelegate_Extensions.UserDidRequestReminderToRateApp(MTiRate.IiRateDelegate)" />
+      </Member>
+    </ExtensionMethod>
+  </ExtensionMethods>
 </Overview>

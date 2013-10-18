@@ -1,5 +1,5 @@
 <Type Name="iRateDelegateShouldOpenAppStore" FullName="MTiRate.iRateDelegateShouldOpenAppStore">
-  <TypeSignature Language="C#" Value="public delegate bool iRateDelegateShouldOpenAppStore(bool fakeArg);" />
+  <TypeSignature Language="C#" Value="public delegate bool iRateDelegateShouldOpenAppStore();" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed iRateDelegateShouldOpenAppStore extends System.MulticastDelegate" />
   <AssemblyInfo>
     <AssemblyName>MTiRate</AssemblyName>
@@ -9,13 +9,11 @@
     <BaseTypeName>System.Delegate</BaseTypeName>
   </Base>
   <Parameters>
-    <Parameter Name="fakeArg" Type="System.Boolean" />
   </Parameters>
   <ReturnValue>
     <ReturnType>System.Boolean</ReturnType>
   </ReturnValue>
   <Docs>
-    <param name="fakeArg">To be added.</param>
     <summary>To be added.</summary>
     <returns>To be added.</returns>
     <remarks>To be added.</remarks>
