@@ -10,7 +10,7 @@ all: MTiRate.dll
 
 external/iRate : clean
 	git clone git@github.com:nicklockwood/iRate.git external/iRate
-	
+	git --git-dir=external/iRate/.git  checkout d20486c9a2f7b
 
 libiRateLib-i386.a: external/iRate
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
