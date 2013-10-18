@@ -8,8 +8,7 @@ using MonoTouch.UIKit;
 namespace MTiRate
 {
 	[BaseType (typeof (NSObject),
-	Delegates=new string [] {"WeakDelegate"}/*,
-	Events=new Type [] { typeof (iRateDelegate) }*/)]   
+	Delegates=new string [] {"WeakDelegate"})]   
 	interface iRate 
 	{
  		[Static]
