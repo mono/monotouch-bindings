@@ -9,11 +9,11 @@ using System.Linq;
 
 namespace CouchbaseSample
 {
-  public class CouchtableDelegate : CBLUITableDelegate
+  public class CouchtableDelegate : ICBLUITableDelegate
   {
     static UIColor backgroundColor;
     RootViewController parent;
-    CBLUITableSource dataSource;
+    ICBLUITableSource dataSource;
 
     public CouchtableDelegate (RootViewController controller, CBLUITableSource source)
     {
