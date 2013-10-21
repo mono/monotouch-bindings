@@ -1,3 +1,11 @@
+//
+// extras.cs: Extensions to the generated classes in coreplot
+//
+// Author:
+//   Miguel de Icaza
+//   Alex Soto
+//
+
 using System;
 using MonoTouch.Foundation;
 using MonoTouch.CoreGraphics;
