@@ -268,13 +268,13 @@ namespace CorePlot
 		CPTAnnotation [] Annotations { get; }
 
 		[Export ("addAnnotation:")] [PostGet ("Annotations")]
-		void AddAnnotation (CPTAnnotation annotation);
+		void Add (CPTAnnotation annotation);
 
 		[Export ("removeAnnotation:")] [PostGet ("Annotations")]
-		void RemoveAnnotation (CPTAnnotation annotation);
+		void Remove (CPTAnnotation annotation);
 
 		[Export ("removeAllAnnotations")]
-		void RemoveAllAnnotations ();
+		void RemoveAll ();
 	}
 
 	interface ICPTAxisDelegate { }
@@ -555,7 +555,7 @@ namespace CorePlot
 		CPTLayer ContentLayer { get; set; }
 
 		[Export ("offset", ArgumentSemantic.Assign)]
-		float Offset { get; }
+		float Offset { get; set; }
 
 		[Export ("rotation", ArgumentSemantic.Assign)]
 		float Rotation { get; set; }
@@ -691,7 +691,7 @@ namespace CorePlot
 
 		[Static]
 		[Export ("tubularBarPlotWithColor:horizontalBars:")]
-		CPTBarPlot TubularBarPlot (CPTColor color, bool horizontal);
+		CPTBarPlot CreateTubularBarPlot (CPTColor color, bool horizontal);
 
 		[Export ("plotRangeEnclosingBars")]
 		CPTPlotRange PlotRangeEnclosingBars ();
@@ -2634,26 +2634,26 @@ namespace CorePlot
 	interface CPTTextStyle 
 	{
 		[Export ("fontName", ArgumentSemantic.Copy)]
-		string FontName { get; }
+		string FontName { get; set; }
 
 		[Export ("fontSize", ArgumentSemantic.Assign)]
-		float FontSize { get; }
+		float FontSize { get; set; }
 
 		[Export ("color", ArgumentSemantic.Copy)]
-		CPTColor Color { get; }
+		CPTColor Color { get; set; }
 
 #if MONOTOUCH
 		[Export ("textAlignment", ArgumentSemantic.Assign)]
-		UITextAlignment TextAlignment { get; }
+		UITextAlignment TextAlignment { get; set; }
 
 		[Export ("lineBreakMode", ArgumentSemantic.Assign)]
-		UILineBreakMode LineBreakMode { get; }
+		UILineBreakMode LineBreakMode { get; set; }
 #else
 		[Export ("textAlignment", ArgumentSemantic.Assign)]
-		NSTextAlignment TextAlignment { get; }
+		NSTextAlignment TextAlignment { get; set; }
 
 		[Export ("lineBreakMode", ArgumentSemantic.Assign)]
-		NSLineBreakMode LineBreakMode { get; }
+		NSLineBreakMode LineBreakMode { get; set; }
 #endif
 		[Static]
 		[Export ("textStyle")]
