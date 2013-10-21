@@ -29,7 +29,7 @@ namespace CorePlotiOSSample
 		
 		void SetupGraph ()
 		{
-			var theme = CPTTheme.ThemeNamed ("Plain Black");
+			var theme = CPTTheme.ThemeNamed (CPTTheme.PlainBlackTheme);
 			
 			graph = new CPTXYGraph (new RectangleF (0, 0, 300, 300), CPTScaleType.Linear, CPTScaleType.Linear){
 				PaddingLeft = 0,
@@ -52,7 +52,6 @@ namespace CorePlotiOSSample
 		{
 			var plotspace = graph.DefaultPlotSpace;
 			plotspace.AllowsUserInteraction = true;
-			plotspace.Delegate = new MyBarDelegate ();
 
 			var axisSet = (CPTXYAxisSet)graph.AxisSet;
 			
@@ -100,13 +99,6 @@ namespace CorePlotiOSSample
 		}
 	}
 	
-	public class MyBarDelegate : CPTBarPlotDelegate {
-		public override void BarSelected (CPTBarPlot plot, int recordIndex)
-		{
-			Console.WriteLine ("Selected at {0}", recordIndex);
-		}
-	}
-
 	public class BarSourceData : CPTBarPlotDataSource {
 		static CPTMutableTextStyle whiteText;
 		List<PointF> data;
@@ -136,24 +128,24 @@ namespace CorePlotiOSSample
 			return data.Count;
 		}
 		
-		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, int index)
+		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, uint index)
 		{
 			if (forFieldEnum == CPTPlotField.BarLocation)
-				return data [index].X;
-			return data [index].Y;
+				return data [(int)index].X;
+			return data [(int)index].Y;
 		}
 		
-		public override CPTLayer DataLabelForPlot (CPTPlot plot, int recordIndex)
+		public override CPTLayer DataLabelForPlot (CPTPlot plot, uint recordIndex)
 		{
 			string text = "Bar" + recordIndex;
 			return new CPTTextLayer (text, whiteText);
 		}
 		
-		public override CPTFill GetBarFill (CPTBarPlot barPlot, int recordIndex)
+		public override CPTFill GetBarFill (CPTBarPlot barPlot, uint recordIndex)
 		{
-			if (Math.Abs (data [recordIndex].Y - minVal) < float.Epsilon)
+			if (Math.Abs (data [(int)recordIndex].Y - minVal) < float.Epsilon)
 				return new CPTFill (CPTColor.RedColor);
-			if (Math.Abs (data [recordIndex].Y - maxVal) < float.Epsilon)
+			if (Math.Abs (data [(int)recordIndex].Y - maxVal) < float.Epsilon)
 				return new CPTFill (CPTColor.GreenColor);
 			
 			return null;

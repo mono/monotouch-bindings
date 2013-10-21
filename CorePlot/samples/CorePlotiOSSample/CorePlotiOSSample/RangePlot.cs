@@ -30,7 +30,7 @@ namespace CorePlotiOSSample
 
 		void SetupGraph ()
 		{
-			var theme = CPTTheme.ThemeNamed ("Plain Black");
+			var theme = CPTTheme.ThemeNamed (CPTTheme.PlainBlackTheme);
 
 			graph = new CPTXYGraph {
 				PaddingLeft = 10,
@@ -53,7 +53,7 @@ namespace CorePlotiOSSample
 			var transparentGreen = CPTColor.GreenColor;
 			areaFill = new CPTFill (transparentGreen.ColorWithAlphaComponent(0.2f));
 
-			graph.DefaultPlotSpace.ShouldHandlePointingDeviceUpEvent = delegate {
+			graph.DefaultPlotSpace.ShouldHandlePointingDeviceUp = delegate {
 				var rangePlot = (CPTRangePlot) graph.PlotWithIdentifier((NSString)"Date Plot");
 				// TODO: instead of areaFillDefault -> null (see code below in comment
 				rangePlot.AreaFill = (rangePlot.AreaFill == areaFill ? areaFillDefault : areaFill);
@@ -73,17 +73,11 @@ namespace CorePlotiOSSample
 			var plotSpace = (CPTXYPlotSpace) graph.DefaultPlotSpace;
 			decimal xLow = oneDay * 0.5m;
 
-			var plotRangeX = new CPTPlotRange {
-				Location = (NSDecimal)xLow,
-				Length = (NSDecimal)(oneDay * 5m)
-			};
+			var plotRangeX = new CPTPlotRange ((NSDecimal)xLow, (NSDecimal)(oneDay * 5m));
 
 			plotSpace.XRange = plotRangeX;
 
-			var plotRangeY = new CPTPlotRange {
-				Location = (NSDecimal) 1,
-				Length = (NSDecimal) 3
-			};
+			var plotRangeY = new CPTPlotRange ((NSDecimal) 1, (NSDecimal) 3);
 
 
 			plotSpace.YRange = plotRangeY;
@@ -129,7 +123,7 @@ namespace CorePlotiOSSample
 		}
 	}
 
-	public class RangeSource: CPTPlotDataSource
+	public class RangeSource : CPTRangePlotDataSource
 	{
 		Dictionary<int, Dictionary<int, float>> data;
 
@@ -164,10 +158,10 @@ namespace CorePlotiOSSample
 			return data.Count;
 		}
 
-		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, int index)
+		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, uint index)
 		{
 			int fieldNum = (int)forFieldEnum;
-			Dictionary<int, float> dataVal = data[index];
+			Dictionary<int, float> dataVal = data[(int)index];
 			Console.WriteLine (string.Format ("{0} {1}", fieldNum, dataVal [fieldNum]));
 			return dataVal[fieldNum];
 		}
