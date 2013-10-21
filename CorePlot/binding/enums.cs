@@ -1,3 +1,11 @@
+//
+// enums.cs: definitions for CorePlot binding
+//
+// Authors:
+//   Miguel de Icaza
+//   Alex Soto
+//
+
 using System;
 using System.Runtime.InteropServices;
 
