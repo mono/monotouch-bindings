@@ -907,12 +907,16 @@ namespace CorePlot
 		[Export ("dataRange", ArgumentSemantic.Retain)]
 		CPTPlotRange DataRange { get; }
 
+#if MONOTOUCH 
 		[Static]
 		[Export ("dataSourceForPlot:withFunction:")]
 		CPTFunctionDataSource FromPlot (CPTPlot plot, [CCallback] CPTDataSourceFunction handler);
 
 		[Export ("initForPlot:withFunction:")]
 		IntPtr Constructor (CPTPlot plot, [CCallback] CPTDataSourceFunction handler);
+#else
+		// TODO: [CCallback] is not implemented yet on Mac, remove compiler if when it is available
+#endif
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -1583,12 +1587,17 @@ namespace CorePlot
 #if MONOTOUCH
 		[Export ("textAlignment", ArgumentSemantic.Assign)]  [New]
 		UITextAlignment TextAlignment { get; set; }
+
+		[Export ("lineBreakMode", ArgumentSemantic.Assign)]  [New]
+		UILineBreakMode LineBreakMode { get; set; }
 #else
 		[Export ("textAlignment", ArgumentSemantic.Assign)]  [New]
 		NSTextAlignment TextAlignment { get; set; }
-#endif
+
 		[Export ("lineBreakMode", ArgumentSemantic.Assign)]  [New]
-		UILineBreakMode LineBreakMode { get; set; }
+		NSLineBreakMode LineBreakMode { get; set; }
+#endif
+
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -2636,14 +2645,16 @@ namespace CorePlot
 #if MONOTOUCH
 		[Export ("textAlignment", ArgumentSemantic.Assign)]
 		UITextAlignment TextAlignment { get; }
-#else
-		[Export ("textAlignment", ArgumentSemantic.Assign)]
-		NSTextAlignment TextAlignment { get; }
-#endif
 
 		[Export ("lineBreakMode", ArgumentSemantic.Assign)]
 		UILineBreakMode LineBreakMode { get; }
+#else
+		[Export ("textAlignment", ArgumentSemantic.Assign)]
+		NSTextAlignment TextAlignment { get; }
 
+		[Export ("lineBreakMode", ArgumentSemantic.Assign)]
+		NSLineBreakMode LineBreakMode { get; }
+#endif
 		[Static]
 		[Export ("textStyle")]
 		CPTTextStyle CreateTextStyle ();
