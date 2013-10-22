@@ -8,7 +8,8 @@ using MonoTouch.UIKit;
 namespace MTiRate
 {
 	[BaseType (typeof (NSObject),
-	Delegates=new string [] {"WeakDelegate"})]   
+	Delegates=new string [] {"Delegate"},
+	Events=new Type [] { typeof (iRateDelegate) })]   
 	interface iRate 
 	{
  		[Static]
@@ -114,11 +115,8 @@ namespace MTiRate
 		[Export ("ratedAnyVersion")]
 		bool RatedAnyVersion { get; }
 		
-		[Wrap ("WeakDelegate")]
-		iRateDelegate Delegate { get; set; }
-		
 		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
-		NSObject WeakDelegate { get; set; }
+		IiRateDelegate Delegate { get; set; }
 
 		[Export ("shouldPromptForRating")]
 		bool ShouldPromptForRatingM ();
@@ -136,40 +134,42 @@ namespace MTiRate
 		void LogEvent (bool deferPrompt);
 
 	}
+
+	interface IiRateDelegate {}
 	
 	[BaseType (typeof (NSObject))]
 	[Model][Protocol]
 	interface iRateDelegate 
 	{
-		[Export ("iRateCouldNotConnectToAppStore:"), EventArgs("iRateDelegateError")]
-		void CouldNotConnectToAppStore (NSError error);
+		[Export ("iRateCouldNotConnectToAppStore:withError:"), EventArgs("iRateDelegateError")]
+		void CouldNotConnectToAppStore (iRate sender, NSError error);
 
-		[Export ("iRateDidDetectAppUpdate"), EventArgs("iRateDelegateArgs")]
-		void DidDetectAppUpdate ();
+		[Export ("iRateDidDetectAppUpdate:"), EventArgs("iRateDelegateArgs")]
+		void DidDetectAppUpdate (iRate sender);
 
-		[Export ("iRateShouldPromptForRating"), DelegateName("iRateDelegateShouldPromptForRating"), DefaultValue(true)]
-		bool ShouldPromptForRating ();
+		[Export ("iRateShouldPromptForRating:"), DelegateName("iRateDelegateShouldPromptForRating"), DefaultValue(true)]
+		bool ShouldPromptForRating (iRate sender);
 
-		[Export ("iRateDidPromptForRating"), DelegateName("iRateDelegateShouldPromptForRating"), DefaultValue(true)]
-		void DidPromptForRating ();
+		[Export ("iRateDidPromptForRating:"), DelegateName("iRateDelegateShouldPromptForRating"), DefaultValue(true)]
+		void DidPromptForRating (iRate sender);
 
-		[Export ("iRateUserDidAttemptToRateApp"), EventArgs("iRateDelegateArgs")]
-		void UserDidAttemptToRateApp ();
+		[Export ("iRateUserDidAttemptToRateApp:"), EventArgs("iRateDelegateArgs")]
+		void UserDidAttemptToRateApp (iRate sender);
 
-		[Export ("iRateUserDidDeclineToRateApp"), EventArgs("iRateDelegateArgs")]
-		void UserDidDeclineToRateApp ();
+		[Export ("iRateUserDidDeclineToRateApp:"), EventArgs("iRateDelegateArgs")]
+		void UserDidDeclineToRateApp (iRate sender);
 		
-		[Export ("iRateUserDidRequestReminderToRateApp"), EventArgs("iRateDelegateArgs")]
-		void UserDidRequestReminderToRateApp();
+		[Export ("iRateUserDidRequestReminderToRateApp:"), EventArgs("iRateDelegateArgs")]
+		void UserDidRequestReminderToRateApp(iRate sender);
 
-		[Export ("iRateShouldOpenAppStore"), DelegateName("iRateDelegateShouldOpenAppStore"), DefaultValue(true)]
-		bool ShouldOpenAppStore ();
+		[Export ("iRateShouldOpenAppStore:"), DelegateName("iRateDelegateShouldOpenAppStore"), DefaultValue(true)]
+		bool ShouldOpenAppStore (iRate sender);
 
-		[Export ("iRateDidPresentStoreKitModal"), EventArgs("iRateDelegateArgs")]
-		void DidPresentStoreKitModal();
+		[Export ("iRateDidPresentStoreKitModal:"), EventArgs("iRateDelegateArgs")]
+		void DidPresentStoreKitModal(iRate sender);
 
-		[Export ("iRateDidDismissStoreKitModal"), EventArgs("iRateDelegateArgs")]
-		void DidDismissStoreKitModal();
+		[Export ("iRateDidDismissStoreKitModal:"), EventArgs("iRateDelegateArgs")]
+		void DidDismissStoreKitModal(iRate sender);
 	}
 }
 
