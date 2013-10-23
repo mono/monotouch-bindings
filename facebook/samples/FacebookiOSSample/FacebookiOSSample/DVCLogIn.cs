@@ -14,7 +14,7 @@ namespace FacebookiOSSample
 	{
 		FBLoginView loginView;
 		FBProfilePictureView pictureView;
-		FBGraphUser user;
+		IFBGraphUser user;
 
 		// For extensive list of available extended permissions refer to 
 		// https://developers.facebook.com/docs/reference/api/permissions/
@@ -33,9 +33,9 @@ namespace FacebookiOSSample
 			loginView.FetchedUserInfo += (sender, e) => {
 				if (Root.Count < 3) {
 					user = e.User;
-					pictureView.ProfileID = user.Id;
+					pictureView.ProfileID = user.GetId ();
 
-					Root.Add (new Section ("Hello " + user.Name) {
+					Root.Add (new Section ("Hello " + user.GetName()) {
 						new StringElement ("Actions Menu", () => {
 							var dvc = new DVCActions (user);
 							NavigationController.PushViewController (dvc, true);

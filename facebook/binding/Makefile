@@ -8,7 +8,7 @@ MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
 # 	If you updated the binding to a newer Facebook version don't forget to change
 #	the Git TAG of newer the version you are binding against
-FBVERSIONTAG=sdk-version-3.8.0
+FBVERSIONTAG=sdk-version-3.9.0
 
 all: MonoTouch.FacebookConnect.dll
 
@@ -33,12 +33,6 @@ libFacebookSDK.a: libFacebook-i386.a libFacebook-armv7.a libFacebook-armv7s.a
 libarclite.a:
 	curl -L https://github.com/dalexsoto/MonoTouch-PSPDFKit-bindings/raw/master/AlexTouch.PSPDFKit/libarclite.a > libarclite.a
 	curl -L https://github.com/dalexsoto/MonoTouch-PSPDFKit-bindings/raw/master/AlexTouch.PSPDFKit/libarclite.linkwith.cs > libarclite.linkwith.cs
-
-# Not needed anymore (v3.8.0)
-#Resources: libFacebookSDK.a
-#	mkdir Resources
-#	cp -R facebook-ios-sdk/src/FacebookSDKResources.bundle Resources/FacebookSDKResources.bundle
-#	cp -R facebook-ios-sdk/src/FBUserSettingsViewResources.bundle Resources/FBUserSettingsViewResources.bundle
 
 MonoTouch.FacebookConnect.dll: libFacebookSDK.a libarclite.a
 	-mkdir -p ios
