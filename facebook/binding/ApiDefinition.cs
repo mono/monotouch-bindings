@@ -239,6 +239,7 @@ namespace MonoTouch.FacebookConnect
 		[Export ("logPurchase:currency:parameters:session:")]
 		void LogPurchase (double purchaseAmount, string currency, NSDictionary parameters, FBSession session);
 
+		[Obsolete ("use FBSettings.LimitEventAndDataUsage instead")]
 		[Static]
 		[Export ("limitEventUsage")]
 		bool LimitEventUsage { get; set; }
@@ -329,10 +330,10 @@ namespace MonoTouch.FacebookConnect
 		FBAppCall PresentShareDialog (FBOpenGraphActionShareDialogParams aParams, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
 		[Static, Export ("presentShareDialogWithOpenGraphAction:actionType:previewPropertyName:handler:")]
-		FBAppCall PresentShareDialog (FBOpenGraphAction action, [NullAllowed] string actionType, string previewPropertyName, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+		FBAppCall PresentShareDialog (IFBOpenGraphAction action, [NullAllowed] string actionType, string previewPropertyName, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
 		[Static, Export ("presentShareDialogWithOpenGraphAction:actionType:previewPropertyName:clientState:handler:")]
-		FBAppCall PresentShareDialog (FBOpenGraphAction action, [NullAllowed] string actionType, string previewPropertyName, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+		FBAppCall PresentShareDialog (IFBOpenGraphAction action, [NullAllowed] string actionType, string previewPropertyName, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -516,9 +517,12 @@ namespace MonoTouch.FacebookConnect
 		
 		[Export("userID", ArgumentSemantic.Copy)]
 		string UserID { get; set; }
-		
-		[Export("selection")] [Internal]
-		IntPtr Selection_ { get; }
+
+		[Export("selection")]
+		IFBGraphUser [] Selection { get; }
+
+//		[Export("selection")] [Internal]
+//		IntPtr Selection_ { get; }
 		
 		[Export("sortOrdering")]
 		FBFriendSortOrdering SortOrdering { get; set; }
@@ -552,10 +556,13 @@ namespace MonoTouch.FacebookConnect
 		[Wrap ("WeakDelegate")] [New]
 		FBFriendPickerDelegate Delegate { get; set; }
 	}
-	
-	[BaseType (typeof (FBViewControllerDelegate))]
+
+	interface IFBFriendPickerDelegate { }
+
+	[BaseType (typeof (NSObject))]
 	[Model]
-	interface FBFriendPickerDelegate 
+	[Protocol]
+	interface FBFriendPickerDelegate : FBViewControllerDelegate
 	{
 		[Export("friendPickerViewControllerDataDidChange:"), EventArgs("FBFriendPickerChange")]
 		void DataDidChange (FBFriendPickerViewController friendPicker);
@@ -564,199 +571,199 @@ namespace MonoTouch.FacebookConnect
 		void SelectionDidChange (FBFriendPickerViewController friendPicker);
 		
 		[Export("friendPickerViewController:shouldIncludeUser:"), DelegateName("FBFriendPickerCondition"), DefaultValue("true")]
-		bool ShouldIncludeUser (FBFriendPickerViewController friendPicker, FBGraphUser user);
+		bool ShouldIncludeUser (FBFriendPickerViewController friendPicker, IFBGraphUser user);
 		
 		[Export("friendPickerViewController:handleError:"), EventArgs("FBFriendPickerError")]
 		void HandleError (FBFriendPickerViewController friendPicker, NSError error);
 	}
 	
-	[BaseType (typeof (FBGraphObject))]
-	interface FBGraphLocation
+	[BaseType (typeof (NSObject))]
+	[Protocol]
+	interface FBGraphLocation : FBGraphObjectProtocol
 	{
-		[Bind ("street")] [Internal]
+		[Bind ("street")]
 		string GetStreet ();
 
-		[Bind ("setStreet:")] [Internal]
+		[Bind ("setStreet:")]
 		void SetStreet (string street);
 
-		[Bind ("city")] [Internal]
+		[Bind ("city")]
 		string GetCity ();
 
-		[Bind ("setCity:")] [Internal]
+		[Bind ("setCity:")]
 		void SetCity (string city);
 
-		[Bind ("state")] [Internal]
+		[Bind ("state")]
 		string GetState ();
 
-		[Bind ("setState:")] [Internal]
+		[Bind ("setState:")]
 		void SetState (string state);
 
-		[Bind ("country")] [Internal]
+		[Bind ("country")]
 		string GetCountry ();
 
-		[Bind ("setCountry:")] [Internal]
+		[Bind ("setCountry:")]
 		void SetCountry (string country);
 
-		[Bind ("zip")] [Internal]
+		[Bind ("zip")]
 		string GetZip ();
 
-		[Bind ("setZip:")] [Internal]
+		[Bind ("setZip:")]
 		void SetZip (string zip);
 
-		[Bind ("latitude")] [Internal]
+		[Bind ("latitude")]
 		NSNumber GetLatitude ();
 
-		[Bind ("setLatitude:")] [Internal]
+		[Bind ("setLatitude:")]
 		void SetLatitude (NSNumber latitude);
 
-		[Bind ("longitude")] [Internal]
+		[Bind ("longitude")]
 		NSNumber GetLongitude ();
 
-		[Bind ("setLongitude:")] [Internal]
+		[Bind ("setLongitude:")]
 		void SetLongitude (NSNumber longitude);
 	}
-	
+
+	interface IFBGraphObjectProtocol { }
+
+	[BaseType (typeof (NSObject), Name = "FBGraphObject")]
+	[Protocol]
+	interface FBGraphObjectProtocol
+	{
+		[Bind ("count")]
+		uint GetCount ();
+
+		[Bind ("objectForKey:")]
+		NSObject ObjectForKey (string aKey);
+
+		[Bind ("keyEnumerator")]
+		NSEnumerator GetKeyEnumerator ();
+
+		[Bind ("removeObjectForKey:")]
+		NSObject RemoveObjectForKey (string aKey);
+
+		[Bind ("setObject:forKey:")]
+		void SetObject (NSObject anObject, string aKey);
+	}
+
 	[BaseType (typeof (NSObject))]
-	interface FBGraphObject
+	interface FBGraphObject : FBGraphObjectProtocol
 	{
 		[Static]
 		[Export("graphObject")]
-		FBGraphObject GraphObject ();
+		IFBGraphObjectProtocol GraphObject ();
 		
 		[Static]
 		[Export("graphObjectWrappingDictionary:")]
-		FBGraphObject GraphObject (NSDictionary jsonDictionary);
+		IFBGraphObjectProtocol GraphObject (NSDictionary jsonDictionary);
 
 		[Static]
 		[Export("openGraphActionForPost")]
-		FBOpenGraphAction OpenGraphAction { get; }
+		IFBOpenGraphAction OpenGraphAction { get; }
 
 		[Static]
 		[Export("openGraphObjectForPost")]
-		FBOpenGraphObject OpenGraphObject { get; }
+		IFBOpenGraphObject OpenGraphObject { get; }
 
 		[Static]
 		[Export("openGraphObjectForPostWithType:title:image:url:description:")]
-		FBOpenGraphObject OpenGraphObjectForPost (string aType, string title, NSObject image, NSObject url, string description);
+		IFBOpenGraphObject OpenGraphObjectForPost (string aType, string title, NSObject image, NSObject url, string description);
 		
 		[Static]
 		[Export("isGraphObjectID:sameAs:")]
-		bool IsGraphObjectIDEqual (FBGraphObject anObject, FBGraphObject anotherObject);
-
-		// FBGraphObject Model Properties and Methods
-
-		[Export("count")]
-		uint Count { get; }
-
-		[Export("objectForKey:")]
-		NSObject ObjectForKey (string aKey);
-
-		[Export("keyEnumerator")]
-		NSEnumerator KeyEnumerator { get; }
-
-		[Export("removeObjectForKey:")]
-		NSObject RemoveObjectForKey (string aKey);
-
-		[Export("setObject:forKey:")]
-		void SetObject (NSObject anObject, string aKey);
+		bool IsGraphObjectIDEqual (IFBGraphObjectProtocol anObject, IFBGraphObjectProtocol anotherObject);
 	}
-	
-	[BaseType (typeof (FBGraphObject))]
-	interface FBGraphPlace
+
+	interface IFBGraphPlace { }
+
+	[BaseType (typeof (NSObject))]
+	[Protocol]
+	interface FBGraphPlace : FBGraphObjectProtocol
 	{
-		[Bind ("id")] [Internal]
+		[Bind ("id")]
 		string GetId ();
 
-		[Bind ("setId:")] [Internal]
+		[Bind ("setId:")]
 		void SetId (string id);
 
-		[Bind ("name")] [Internal]
+		[Bind ("name")]
 		string GetName ();
 
-		[Bind ("setName:")] [Internal]
+		[Bind ("setName:")]
 		void SetName (string name);
 
-		[Bind ("category")] [Internal]
+		[Bind ("category")]
 		string GetCategory ();
 
-		[Bind ("setCategory:")] [Internal]
+		[Bind ("setCategory:")]
 		void SetCategory (string category);
 
-		[Bind ("location")] [Internal]
-		IntPtr GetLocation ();
+		[Bind ("location")]
+		IFBGraphPlace GetLocation ();
 
-		[Bind ("setLocation")] [Internal]
-		void SetLocation (IntPtr location);
-
-//		[Bind ("location")] [Internal]
-//		FBGraphLocation GetLocation ();
-//
-//		[Bind ("setLocation")] [Internal]
-//		void SetLocation (FBGraphLocation location);
+		[Bind ("setLocation")]
+		void SetLocation (IFBGraphPlace location);
 	}
-	
-	[BaseType (typeof (FBGraphObject))]
-	interface FBGraphUser
+
+	interface IFBGraphUser { }
+
+	[BaseType (typeof (NSObject))]
+	[Protocol]
+	interface FBGraphUser : FBGraphObjectProtocol
 	{
-		[Bind ("id")] [Internal]
+		[Bind ("id")]
 		string GetId ();
 
-		[Bind ("setId:")] [Internal]
+		[Bind ("setId:")]
 		void SetId (string id);
 
-		[Bind ("name")] [Internal]
+		[Bind ("name")]
 		string GetName ();
 
-		[Bind ("setName:")] [Internal]
+		[Bind ("setName:")]
 		void SetName (string name);
 
-		[Bind ("first_name")] [Internal]
+		[Bind ("first_name")]
 		string GetFirstName ();
 
-		[Bind ("setFirst_name:")] [Internal]
+		[Bind ("setFirst_name:")]
 		void SetFirstName (string firstName);
 
-		[Bind ("middle_name")] [Internal]
+		[Bind ("middle_name")]
 		string GetMiddleName ();
 
-		[Bind ("setMiddle_name:")] [Internal]
+		[Bind ("setMiddle_name:")]
 		void SetMiddleName (string middleName);
 
-		[Bind ("last_name")] [Internal]
+		[Bind ("last_name")]
 		string GetLastName ();
 
-		[Bind ("setLast_name:")] [Internal]
+		[Bind ("setLast_name:")]
 		void SetLastName (string middleName);
 
-		[Bind ("link")] [Internal]
+		[Bind ("link")]
 		string GetLink ();
 
-		[Bind ("setLink:")] [Internal]
+		[Bind ("setLink:")]
 		void SetLink (string link);
 
-		[Bind ("username")] [Internal]
+		[Bind ("username")]
 		string GetUsername ();
 
-		[Bind ("setUsername:")] [Internal]
+		[Bind ("setUsername:")]
 		void SetUsername (string username);
 
-		[Bind ("birthday")] [Internal]
+		[Bind ("birthday")]
 		string GetBirthday ();
 
-		[Bind ("setBirthday")] [Internal]
+		[Bind ("setBirthday")]
 		void SetBirthday (string birthday);
 
-		[Bind ("location")] [Internal]
-		IntPtr GetLocation ();
+		[Bind ("location")]
+		IFBGraphPlace GetLocation ();
 
-		[Bind ("setLocation")] [Internal]
-		void SetLocation (IntPtr location);
-
-//		[Bind ("location")] [Internal]
-//		FBGraphPlace GetLocation ();
-//
-//		[Bind ("setLocation")] [Internal]
-//		void SetLocation (FBGraphPlace location);
+		[Bind ("setLocation")]
+		void SetLocation (IFBGraphPlace location);
 	}
 
 	[DisableDefaultCtor]
@@ -825,16 +832,19 @@ namespace MonoTouch.FacebookConnect
 		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
 		NSObject WeakDelegate { get; set; }
 	}
-	
+
+	interface IFBLoginViewDelegate { }
+
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface FBLoginViewDelegate 
 	{
 		[Export("loginViewShowingLoggedInUser:"), EventArgs ("FBLoginViewLogged")]
 		void ShowingLoggedInUser (FBLoginView loginView);
 		
 		[Export("loginViewFetchedUserInfo:user:"), EventArgs ("FBLoginViewUserInfo")]
-		void FetchedUserInfo (FBLoginView loginView, FBGraphUser user);
+		void FetchedUserInfo (FBLoginView loginView, IFBGraphUser user);
 		
 		[Export("loginViewShowingLoggedOutUser:"), EventArgs ("FBLoginViewLogged")]
 		void ShowingLoggedOutUser (FBLoginView loginView);
@@ -865,110 +875,101 @@ namespace MonoTouch.FacebookConnect
 		[Export("canPresentShareDialogWithSession:")]
 		bool CanPresentShareDialogWithSession (FBSession session);
 	}
-	
-	[BaseType (typeof (FBGraphObject))]
-	interface FBOpenGraphAction
+
+	interface IFBOpenGraphAction { }
+
+	[BaseType (typeof (NSObject))]
+	[Protocol]
+	interface FBOpenGraphAction : FBGraphObjectProtocol
 	{
-		[Bind ("id")] [Internal]
+		[Bind ("id")]
 		string GetId ();
 
-		[Bind ("setId:")] [Internal]
+		[Bind ("setId:")]
 		void SetId (string id);
 
-		[Bind ("start_time")] [Internal]
+		[Bind ("start_time")]
 		string GetStartTime ();
 
-		[Bind ("setStart_time:")] [Internal]
+		[Bind ("setStart_time:")]
 		void SetStartTime (string startTime);
 
-		[Bind ("end_time")] [Internal]
+		[Bind ("end_time")]
 		string GetEndTime ();
 
-		[Bind ("setEnd_time:")] [Internal]
+		[Bind ("setEnd_time:")]
 		void SetEndTime (string endTime);
 
-		[Bind ("publish_time")] [Internal]
+		[Bind ("publish_time")]
 		string GetPublishTime ();
 
-		[Bind ("setPublish_time:")] [Internal]
+		[Bind ("setPublish_time:")]
 		void SetPublishTime (string publishTime);
 
-		[Bind ("created_time")] [Internal]
+		[Bind ("created_time")]
 		string GetCreatedTime ();
 
-		[Bind ("setCreated_time:")] [Internal]
+		[Bind ("setCreated_time:")]
 		void SetCreatedTime (string createdTime);
 
-		[Bind ("expires_time")] [Internal]
+		[Bind ("expires_time")]
 		string GetExpiresTime ();
 
-		[Bind ("setExpires_time:")] [Internal]
+		[Bind ("setExpires_time:")]
 		void SetExpiresTime (string expiresTime);
 
-		[Bind ("ref")] [Internal]
+		[Bind ("ref")]
 		string GetRef ();
 
-		[Bind ("setRef:")] [Internal]
+		[Bind ("setRef:")]
 		void SetRef (string aRef);
 
-		[Bind ("message")] [Internal]
+		[Bind ("message")]
 		string GetMessage ();
 
-		[Bind ("setMessage:")] [Internal]
+		[Bind ("setMessage:")]
 		void SetMessage (string message);
 
-		[Bind ("place")] [Internal]
-		IntPtr GetPlace ();
+		[Bind ("place")]
+		IFBGraphPlace GetPlace ();
 
-		[Bind ("setPlace:")] [Internal]
-		void SetPlace (IntPtr place);
+		[Bind ("setPlace:")]
+		void SetPlace (IFBGraphPlace place);
 
-//		[Bind ("place")] [Internal]
-//		FBGraphPlace GetPlace ();
-//
-//		[Bind ("setPlace:")] [Internal]
-//		void SetPlace (FBGraphPlace place);
-
-		[Bind ("tags")] [Internal]
+		[Bind ("tags")]
 		NSObject [] GetTags ();
 
-		[Bind ("setTags:")] [Internal]
+		[Bind ("setTags:")]
 		void SetTags (NSObject [] tags);
 
-		[Bind ("image")] [Internal]
+		[Bind ("image")]
 		NSObject GetImage ();
 
-		[Bind ("setImage:")] [Internal]
+		[Bind ("setImage:")]
 		void SetImage (NSObject image);
 
-		[Bind ("from")] [Internal]
-		IntPtr GetFrom ();
+		[Bind ("from")]
+		IFBGraphUser GetFrom ();
 
-		[Bind ("setFrom:")] [Internal]
-		void SetFrom (IntPtr fromUser);
+		[Bind ("setFrom:")]
+		void SetFrom (IFBGraphUser fromUser);
 
-//		[Bind ("from")] [Internal]
-//		FBGraphUser GetFrom ();
-//
-//		[Bind ("setFrom:")] [Internal]
-//		void SetFrom (FBGraphUser fromUser);
-
-		[Bind ("likes")] [Internal]
+		[Bind ("likes")]
 		NSObject [] GetLikes ();
 
-		[Bind ("setLikes:")] [Internal]
+		[Bind ("setLikes:")]
 		void SetLikes (NSObject [] likes);
 
-		[Bind ("application")] [Internal]
-		FBGraphObject GetApplication ();
+		[Bind ("application")]
+		IFBGraphObjectProtocol GetApplication ();
 
-		[Bind ("setApplication:")] [Internal]
-		void SetApplication (FBGraphObject application);
+		[Bind ("setApplication:")]
+		void SetApplication (IFBGraphObjectProtocol application);
 
-		[Bind ("comments")] [Internal]
+		[Bind ("comments")]
 		NSObject [] GetComments ();
 
-		[Bind ("setComments:")] [Internal]
+		[Bind ("setComments:")]
 		void SetComments (NSObject [] comments);
 	}
 
@@ -979,7 +980,7 @@ namespace MonoTouch.FacebookConnect
 		NSString FBPostObject { get; }
 
 		[Export("action")]
-		FBOpenGraphAction Action { get; set; }
+		IFBOpenGraphAction Action { get; set; }
 
 		[Export("previewPropertyName", ArgumentSemantic.Copy)]
 		string PreviewPropertyName { get; set; }
@@ -988,49 +989,52 @@ namespace MonoTouch.FacebookConnect
 		string ActionType { get; set; }
 	}
 
-	[BaseType (typeof (FBGraphObject))]
-	interface FBOpenGraphObject 
+	interface IFBOpenGraphObject { }
+
+	[BaseType (typeof (NSObject))]
+	[Protocol]
+	interface FBOpenGraphObject : FBGraphObjectProtocol
 	{	
-		[Bind ("id")] [Internal]
+		[Bind ("id")]
 		string GetId ();
 
-		[Bind ("setId:")] [Internal]
+		[Bind ("setId:")]
 		void SetId (string id);
 
-		[Bind ("type")] [Internal]
+		[Bind ("type")]
 		string GetAType ();
 
-		[Bind ("setType:")] [Internal]
+		[Bind ("setType:")]
 		void SetAType (string aType);
 
-		[Bind ("title")] [Internal]
+		[Bind ("title")]
 		string GetTitle ();
 
-		[Bind ("setTitle:")] [Internal]
+		[Bind ("setTitle:")]
 		void SetTitle (string title);
 
-		[Bind ("image")] [Internal]
+		[Bind ("image")]
 		NSObject GetImage ();
 
-		[Bind ("setImage:")] [Internal]
+		[Bind ("setImage:")]
 		void SetImage (NSObject image);
 
-		[Bind ("url")] [Internal]
+		[Bind ("url")]
 		NSObject GetUrl ();
 
-		[Bind ("setUrl:")] [Internal]
+		[Bind ("setUrl:")]
 		void SetUrl (NSObject url);
 
-		[Bind ("description")] [Internal]
+		[Bind ("description")]
 		NSObject GetDescription ();
 
-		[Bind ("setDescription:")] [Internal]
+		[Bind ("setDescription:")]
 		void SetDescription (NSObject description);
 
-		[Bind ("data")] [Internal]
+		[Bind ("data")]
 		FBGraphObject GetData ();
 
-		[Bind ("setData:")] [Internal]
+		[Bind ("setData:")]
 		void SetData (FBGraphObject data);
 	}
 	
@@ -1065,12 +1069,15 @@ namespace MonoTouch.FacebookConnect
 		
 		[Export("session")]
 		FBSession Session { get; set; }
-		
-		[Export("selection")] [Internal]
-		IntPtr Selection_ { get; }
-		
+
+		[Export("selection")]
+		IFBGraphPlace Selection { get; }
+
 		[Export("clearSelection")]
 		void ClearSelection ();
+
+//		[Export("selection")] [Internal]
+//		IntPtr Selection_ { get; }
 		
 		[Export("initWithNibName:bundle:")]
 		IntPtr Constructor ([NullAllowed] string nibName, [NullAllowed] NSBundle nibBundle);
@@ -1091,10 +1098,13 @@ namespace MonoTouch.FacebookConnect
 		[Wrap ("WeakDelegate")] [New]
 		FBPlacePickerDelegate Delegate { get; set; }
 	}
-	
-	[BaseType (typeof (FBViewControllerDelegate))]
+
+	interface IFBPlacePickerDelegate { }
+
+	[BaseType (typeof (NSObject))]
 	[Model]
-	interface FBPlacePickerDelegate 
+	[Protocol]
+	interface FBPlacePickerDelegate : FBViewControllerDelegate
 	{
 		[Export("placePickerViewControllerDataDidChange:"), EventArgs("FBPlacePickerChange")]
 		void DataDidChange (FBPlacePickerViewController placePicker);
@@ -1103,7 +1113,7 @@ namespace MonoTouch.FacebookConnect
 		void SelectionDidChange (FBPlacePickerViewController placePicker);
 		
 		[Export("placePickerViewController:shouldIncludePlace:"), DelegateName("FBPlacePickerCondition"), DefaultValue("true")]
-		bool ShouldIncludeUser (FBPlacePickerViewController placePicker, FBGraphPlace place);
+		bool ShouldIncludeUser (FBPlacePickerViewController placePicker, IFBGraphPlace place);
 		
 		[Export("placePickerViewController:handleError:"), EventArgs("FBPlacePickerError")]
 		void HandleError (FBPlacePickerViewController placePicker, NSError error);
@@ -1135,10 +1145,10 @@ namespace MonoTouch.FacebookConnect
 		IntPtr Constructor ([NullAllowed] FBSession session, string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string HTTPMethod);
 		
 		[Export("initForPostWithSession:graphPath:graphObject:")]
-		IntPtr Constructor ([NullAllowed] FBSession session, string graphPath, FBGraphObject graphObject);
+		IntPtr Constructor ([NullAllowed] FBSession session, string graphPath, IFBGraphObjectProtocol graphObject);
 		
 		[Export("initWithSession:restMethod:parameters:HTTPMethod:")]
-		IntPtr Constructor ([NullAllowed] FBSession session, string restMethod, [NullAllowed] NSDictionary parameters, [NullAllowed] string HTTPMethod, bool fakearg);
+		IntPtr Constructor ([NullAllowed] FBSession session, NSString restMethod, [NullAllowed] NSDictionary parameters, [NullAllowed] string HTTPMethod);
 		
 		[Export ("parameters")]
 		NSMutableDictionary Parameters { get; }
@@ -1156,7 +1166,7 @@ namespace MonoTouch.FacebookConnect
 		string HTTPMethod { get; set; }
 		
 		[Export ("graphObject")]
-		FBGraphObject GraphObject { get; set; }
+		IFBGraphObjectProtocol GraphObject { get; set; }
 		
 		[Export ("startWithCompletionHandler:")]
 		FBRequestConnection Start (FBRequestHandler handler);
@@ -1199,7 +1209,7 @@ namespace MonoTouch.FacebookConnect
 		
 		[Static]
 		[Export ("requestForPostWithGraphPath:graphObject:")]
-		FBRequest RequestForPostWithGraphPath (string graphPath, FBGraphObject graphObject);
+		FBRequest RequestForPostWithGraphPath (string graphPath, IFBGraphObjectProtocol graphObject);
 		
 		[Static]
 		[Export ("requestWithGraphPath:parameters:HTTPMethod:")]
@@ -1207,7 +1217,7 @@ namespace MonoTouch.FacebookConnect
 
 		[Static]
 		[Export ("requestForPostOpenGraphObject:")]
-		FBRequest RequestForPostOpenGraphObject (FBOpenGraphObject aObject);
+		FBRequest RequestForPostOpenGraphObject (IFBOpenGraphObject aObject);
 
 		[Static]
 		[Export ("requestForPostOpenGraphObjectWithType:title:image:url:description:objectProperties:")]
@@ -1215,7 +1225,7 @@ namespace MonoTouch.FacebookConnect
 
 		[Static]
 		[Export ("requestForUpdateOpenGraphObject:")]
-		FBRequest RequestForUpdateOpenGraphObject (FBOpenGraphObject aObject);
+		FBRequest RequestForUpdateOpenGraphObject (IFBOpenGraphObject aObject);
 
 		[Static]
 		[Export ("requestForUpdateOpenGraphObjectWithId:title:image:url:description:objectProperties:")]
@@ -1346,7 +1356,7 @@ namespace MonoTouch.FacebookConnect
 		
 		[Static]
 		[Export ("startForPostWithGraphPath:graphObject:completionHandler:")]
-		FBRequestConnection StartForPostWithGraphPath (string graphPath, FBGraphObject graphObject, FBRequestHandler handler);
+		FBRequestConnection StartForPostWithGraphPath (string graphPath, IFBGraphObjectProtocol graphObject, FBRequestHandler handler);
 		
 		[Static]
 		[Export ("startWithGraphPath:parameters:HTTPMethod:completionHandler:")]
@@ -1354,7 +1364,7 @@ namespace MonoTouch.FacebookConnect
 
 		[Static]
 		[Export ("startForPostOpenGraphObject:completionHandler:")]
-		FBRequestConnection StartForPostOpenGraphObject (FBOpenGraphObject aObject, FBRequestHandler handler);
+		FBRequestConnection StartForPostOpenGraphObject (IFBOpenGraphObject aObject, FBRequestHandler handler);
 
 		[Static]
 		[Export ("startForPostOpenGraphObjectWithType:title:image:url:description:objectProperties:completionHandler:")]
@@ -1362,7 +1372,7 @@ namespace MonoTouch.FacebookConnect
 		
 		[Static]
 		[Export ("startForUpdateOpenGraphObject:completionHandler:")]
-		FBRequest StartForUpdateOpenGraphObject (FBOpenGraphObject aObject, FBRequestHandler handler);
+		FBRequest StartForUpdateOpenGraphObject (IFBOpenGraphObject aObject, FBRequestHandler handler);
 		
 		[Static]
 		[Export ("startForUpdateOpenGraphObjectWithId:title:image:url:description:objectProperties:completionHandler:")]
@@ -1468,6 +1478,9 @@ namespace MonoTouch.FacebookConnect
 		
 		[Export ("handleDidBecomeActive")]
 		void HandleDidBecomeActive ();
+
+		[Export ("setStateChangeHandler:")]
+		void SetStateChangeHandler (FBSessionStateHandler stateChangeHandler);
 		
 		[Static]
 		[Export ("openActiveSessionWithAllowLoginUI:")]
@@ -1563,7 +1576,7 @@ namespace MonoTouch.FacebookConnect
 		NSString TokenInformationPermissionsRefreshDateKey { get; }
 	}
 
-	delegate void FBInstallResponseDataHandler (FBGraphObject response, NSError error);
+	delegate void FBInstallResponseDataHandler (IFBGraphObjectProtocol response, NSError error);
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
@@ -1659,6 +1672,10 @@ namespace MonoTouch.FacebookConnect
 		[Static]
 		[Export ("isBetaFeatureEnabled:")]
 		bool IsBetaFeatureEnabled (FBBetaFeatures betaFeature);
+
+		[Static]
+		[Export ("limitEventAndDataUsage")]
+		bool LimitEventAndDataUsage { get; set; }
 	}
 
 	[BaseType (typeof (FBDialogsParams))]
@@ -1722,10 +1739,13 @@ namespace MonoTouch.FacebookConnect
 		[Export ("sessionWithPrivateUserWithPermissions:")]
 		FBTestSession SessionWithPrivateUserWithPermissions ([NullAllowed] string [] permissions);
 	}
-	
-	[BaseType (typeof (FBViewControllerDelegate))]
+
+	interface IFBUserSettingsDelegate { }
+
+	[BaseType (typeof (NSObject))]
 	[Model]
-	interface FBUserSettingsDelegate 
+	[Protocol]
+	interface FBUserSettingsDelegate : FBViewControllerDelegate
 	{
 		[Export("loginViewControllerWillLogUserOut:")]
 		void WillLogUserOut (NSObject sender);
@@ -1757,9 +1777,12 @@ namespace MonoTouch.FacebookConnect
 	}
 	
 	delegate void FBModalCompletionHandler (FBViewController sender, bool donePressed);
-	
+
+	interface IFBViewControllerDelegate { }
+
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface FBViewControllerDelegate 
 	{
 		[Export("facebookViewControllerCancelWasPressed:"), EventArgs("FBViewControllerButton")]
@@ -1812,8 +1835,11 @@ namespace MonoTouch.FacebookConnect
 		void PresentFeedDialogModally ([NullAllowed] FBSession session, [NullAllowed] NSDictionary parameters, [NullAllowed] FBWebDialogHandler handler);
 	}
 
+	interface IFBWebDialogsDelegate { }
+
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface FBWebDialogsDelegate {
 
 		[Export ("webDialogsWillPresentDialog:parameters:session:")]
@@ -1894,9 +1920,12 @@ namespace MonoTouch.FacebookConnect
 		[Export ("isSessionValid")]
 		bool IsSessionValid { get; }
 	}
-	
+
+	interface IFBSessionDelegate { }
+
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface FBSessionDelegate {
 		[Export ("fbDidLogin")]
 		void DidLogin ();
@@ -1914,8 +1943,11 @@ namespace MonoTouch.FacebookConnect
 		void SessionInvalidated ();
 	}
 
+	interface IFBRequestDelegate { }
+
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface FBRequestDelegate {
 		[Export ("requestLoading:")]
 		void RequestLoading (FBRequest request);
@@ -1978,8 +2010,11 @@ namespace MonoTouch.FacebookConnect
 		void DialogDidCancel (NSUrl url);
 	}
 
+	interface IFBDialogDelegate { }
+
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface FBDialogDelegate {
 		[Export ("dialogDidComplete:")]
 		void Completed (FBDialog dialog);
