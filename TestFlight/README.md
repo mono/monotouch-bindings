@@ -5,7 +5,7 @@ This is a MonoTouch binding for the TestFlight SDK which can be found at
 
      https://testflightapp.com/sdk/
 
-The current version of this binding is for TestFlight SDK 2.0.0 released on 19 August 2013
+The current version of this binding is for TestFlight SDK 2.0.2 released on 30 August 2013
 
 Building
 ========
