@@ -10,7 +10,8 @@ namespace GoogleAdMobAds
 	#region CustomLib
 	// This is a custom class created by me and is not part of Google Admob lib
 	// But it is necesary for this binding to work
-	[BaseType (typeof (NSObject), Name="libAdmobExporter")]
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="AdmobExporter")]
 	interface GADAdSizeCons
 	{
 		[Static, Export ("kGADAdSizeBannerGlobal")]
@@ -424,9 +425,8 @@ namespace GoogleAdMobAds
 	
 	#region Mediation
 	
-	[BaseType (typeof (NSObject),
-	Delegates= new string [] {"WeakDelegate" },
-	Events=new Type [] { typeof (GADCustomEventBannerDelegate) } )]
+	[BaseType (typeof (NSObject))]
+	[Protocol]
 	interface GADCustomEventBanner 
 	{
 		[Export ("requestBannerAd:parameter:label:request:")]
@@ -444,28 +444,28 @@ namespace GoogleAdMobAds
 	[Protocol]
 	interface GADCustomEventBannerDelegate 
 	{
-		[Export ("customEventBanner:didReceiveAd:"), EventArgs("GADCustomEventBannerView")]
+		[Export ("customEventBanner:didReceiveAd:")]
 		void DidReceiveAd (GADCustomEventBanner customEvent, UIView view);
 		
-		[Export ("customEventBanner:didFailAd:"), EventArgs("GADCustomEventBannerDidReceiveAd")]
+		[Export ("customEventBanner:didFailAd:")]
 		void DidFailAd (GADCustomEventBanner customEvent, NSError error);
 		
-		[Export ("customEventBanner:clickDidOccurInAd:"), EventArgs("GADCustomEventBannerView")]
+		[Export ("customEventBanner:clickDidOccurInAd:")]
 		void DidClickInAd (GADCustomEventBanner customEvent, UIView view);
 		
 		[Export ("viewControllerForPresentingModalView")]
 		UIViewController ViewControllerForPresentingModalView { get; }
 		
-		[Export ("customEventBannerWillPresentModal:"), EventArgs("GADCustomEventModal")]
+		[Export ("customEventBannerWillPresentModal:")]
 		void WillPresentModal (GADCustomEventBanner customEvent);
 		
-		[Export ("customEventBannerWillDismissModal:"), EventArgs("GADCustomEventModal")]
+		[Export ("customEventBannerWillDismissModal:")]
 		void WillDismissModal (GADCustomEventBanner customEvent);
 		
-		[Export ("customEventBannerDidDismissModal:"), EventArgs("GADCustomEventModal")]
+		[Export ("customEventBannerDidDismissModal:")]
 		void DidDismissModal (GADCustomEventBanner customEvent);
 		
-		[Export ("customEventBannerWillLeaveApplication:"), EventArgs("GADCustomEventModal")]
+		[Export ("customEventBannerWillLeaveApplication:")]
 		void WillLeaveApplication (GADCustomEventBanner customEvent);
 	}
 	
@@ -485,9 +485,8 @@ namespace GoogleAdMobAds
 		NSDictionary AllExtras { get; }
 	}
 	
-	[BaseType (typeof (NSObject),
-	Delegates= new string [] {"WeakDelegate" },
-	Events=new Type [] { typeof (GADCustomEventInterstitialDelegate) } )]
+	[BaseType (typeof (NSObject))]
+	[Protocol]
 	interface GADCustomEventInterstitial 
 	{
 		[Export ("requestInterstitialAdWithParameter:label:request:")]
@@ -508,22 +507,22 @@ namespace GoogleAdMobAds
 	[Protocol]
 	interface GADCustomEventInterstitialDelegate 
 	{
-		[Export ("customEventInterstitial:didReceiveAd:"), EventArgs("GADCustomEventInterstitialAd")]
+		[Export ("customEventInterstitial:didReceiveAd:")]
 		void DidReceiveAd (GADCustomEventInterstitial customEvent, NSObject ad);
 		
-		[Export ("customEventInterstitial:didFailAd:"), EventArgs("GADCustomEventInterstitialError")]
+		[Export ("customEventInterstitial:didFailAd:")]
 		void DidFailAd (GADCustomEventInterstitial customEvent, NSError error);
 		
-		[Export ("customEventInterstitialWillPresent:"), EventArgs("GADCustomEventInterstitialCustom")]
+		[Export ("customEventInterstitialWillPresent:")]
 		void WillPresent (GADCustomEventInterstitial customEvent);
 		
-		[Export ("customEventInterstitialWillDismiss:"), EventArgs("GADCustomEventInterstitialCustom")]
+		[Export ("customEventInterstitialWillDismiss:")]
 		void WillDismiss (GADCustomEventInterstitial customEvent);
 		
-		[Export ("customEventInterstitialDidDismiss:"), EventArgs("GADCustomEventInterstitialCustom")]
+		[Export ("customEventInterstitialDidDismiss:")]
 		void DidDismiss (GADCustomEventInterstitial customEvent);
 		
-		[Export ("customEventInterstitialWillLeaveApplication:"), EventArgs("GADCustomEventInterstitialCustom")]
+		[Export ("customEventInterstitialWillLeaveApplication:")]
 		void WillLeaveApplication (GADCustomEventInterstitial customEvent);
 	}
 	
