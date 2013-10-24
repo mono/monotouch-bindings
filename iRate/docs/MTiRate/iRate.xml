@@ -291,14 +291,14 @@
       </Docs>
     </Member>
     <Member MemberName="CouldNotConnectToAppStore">
-      <MemberSignature Language="C#" Value="public event EventHandler CouldNotConnectToAppStore;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler CouldNotConnectToAppStore" />
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;MTiRate.iRateDelegateErrorEventArgs&gt; CouldNotConnectToAppStore;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class MTiRate.iRateDelegateErrorEventArgs&gt; CouldNotConnectToAppStore" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.EventHandler</ReturnType>
+        <ReturnType>System.EventHandler&lt;MTiRate.iRateDelegateErrorEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -375,14 +375,22 @@
       </Docs>
     </Member>
     <Member MemberName="Delegate">
-      <MemberSignature Language="C#" Value="public MTiRate.iRateDelegate Delegate { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MTiRate.iRateDelegate Delegate" />
+      <MemberSignature Language="C#" Value="public virtual MTiRate.IiRateDelegate Delegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MTiRate.IiRateDelegate Delegate" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("delegate", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDelegate:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
-        <ReturnType>MTiRate.iRateDelegate</ReturnType>
+        <ReturnType>MTiRate.IiRateDelegate</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -983,6 +991,38 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ShouldOpenAppStore">
+      <MemberSignature Language="C#" Value="public MTiRate.iRateDelegateShouldOpenAppStore ShouldOpenAppStore { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MTiRate.iRateDelegateShouldOpenAppStore ShouldOpenAppStore" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MTiRate.iRateDelegateShouldOpenAppStore</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldPromptForRating">
+      <MemberSignature Language="C#" Value="public MTiRate.iRateDelegateShouldPromptForRating ShouldPromptForRating { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MTiRate.iRateDelegateShouldPromptForRating ShouldPromptForRating" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MTiRate.iRateDelegateShouldPromptForRating</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ShouldPromptForRatingM">
       <MemberSignature Language="C#" Value="public virtual bool ShouldPromptForRatingM ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool ShouldPromptForRatingM() cil managed" />
@@ -1184,30 +1224,6 @@
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="WeakDelegate">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject WeakDelegate { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject WeakDelegate" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("delegate", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setDelegate:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
