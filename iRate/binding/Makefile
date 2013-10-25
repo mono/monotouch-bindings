@@ -34,4 +34,4 @@ MTiRate.dll: Makefile AssemblyInfo.cs ApiDefinition.cs StructsAndEnums.cs libiRa
 
 
 clean:
-	-rm -rf list ios *.dll *.zip *.mdb *.a external/iRate*
+	-rm -rf list ios *.dll *.zip *.mdb *.a external/iRate
