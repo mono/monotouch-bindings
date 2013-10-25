@@ -12,7 +12,7 @@ external/iRate : clean
 	#git clone https://github.com/nicklockwood/iRate.git external/iRate
 	#git --git-dir=external/iRate/.git  checkout d20486c9a2f7b
 	git clone https://github.com/bholmes/iRate.git external/iRate
-	git --git-dir=external/iRate/.git  checkout 54fe84306ea64908b
+	#git --git-dir=external/iRate/.git  checkout 54fe84306ea64908b
 
 libiRateLib-i386.a: external/iRate
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
@@ -34,4 +34,4 @@ MTiRate.dll: Makefile AssemblyInfo.cs ApiDefinition.cs StructsAndEnums.cs libiRa
 
 
 clean:
-	-rm -rf list ios *.dll *.zip *.mdb *.a external/iRate
+	-rm -rf list ios *.dll *.zip *.mdb *.a external/iRate*
