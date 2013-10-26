@@ -8,63 +8,6 @@ using MonoTouch.CoreFoundation;
 
 namespace MBProgressHUD
 {
-	// The first step to creating a binding is to add your native library ("libNativeLibrary.a")
-	// to the project by right-clicking (or Control-clicking) the folder containing this source
-	// file and clicking "Add files..." and then simply select the native library (or libraries)
-	// that you want to bind.
-	//
-	// When you do that, you'll notice that MonoDevelop generates a code-behind file for each
-	// native library which will contain a [LinkWith] attribute. MonoDevelop auto-detects the
-	// architectures that the native library supports and fills in that information for you,
-	// however, it cannot auto-detect any Frameworks or other system libraries that the
-	// native library may depend on, so you'll need to fill in that information yourself.
-	//
-	// Once you've done that, you're ready to move on to binding the API...
-	//
-	//
-	// Here is where you'd define your API definition for the native Objective-C library.
-	//
-	// For example, to bind the following Objective-C class:
-	//
-	//     @interface Widget : NSObject {
-	//     }
-	//
-	// The C# binding would look like this:
-	//
-	//     [BaseType (typeof (NSObject))]
-	//     interface Widget {
-	//     }
-	//
-	// To bind Objective-C properties, such as:
-	//
-	//     @property (nonatomic, readwrite, assign) CGPoint center;
-	//
-	// You would add a property definition in the C# interface like so:
-	//
-	//     [Export ("center")]
-	//     PointF Center { get; set; }
-	//
-	// To bind an Objective-C method, such as:
-	//
-	//     -(void) doSomething:(NSObject *)object atIndex:(NSInteger)index;
-	//
-	// You would add a method definition to the C# interface like so:
-	//
-	//     [Export ("doSomething:atIndex:")]
-	//     void DoSomething (NSObject object, int index);
-	//
-	// Objective-C "constructors" such as:
-	//
-	//     -(id)initWithElmo:(ElmoMuppet *)elmo;
-	//
-	// Can be bound as:
-	//
-	//     [Export ("initWithElmo:")]
-	//     IntPtr Constructor (ElmoMuppet elmo);
-	//
-	// For more information, see http://docs.xamarin.com/ios/advanced_topics/binding_objective-c_types
-	//
-
 	// typedef void (^MBProgressHUDCompletionBlock)();
 	delegate void MBProgressHUDCompletionHandler();
 	delegate void NSDispatchHandlerT();
@@ -75,7 +18,7 @@ namespace MBProgressHUD
 	Events=new Type [] { typeof (MBProgressHUDDelegate) })]
 	interface MTMBProgressHUD {
 	
-		// + (MBProgressHUD *)showHUDAddedTo:(UIView *)view animated:(BOOL)animated;
+		// + (MB_INSTANCETYPE)showHUDAddedTo:(UIView *)view animated:(BOOL)animated;
 		[Static]
 		[Export ("showHUDAddedTo:animated:")]
 		MTMBProgressHUD ShowHUD (UIView view, bool animated);
@@ -90,7 +33,7 @@ namespace MBProgressHUD
 		[Export ("hideAllHUDsForView:animated:")]
 		uint HideAllHUDs (UIView view, bool animated);
 
-		// + (MBProgressHUD *)HUDForView:(UIView *)view;
+		// + (MB_INSTANCETYPE)HUDForView:(UIView *)view;
 		[Static]
 		[Export ("HUDForView:")]
 		MTMBProgressHUD HUDForView (UIView view);
@@ -153,7 +96,7 @@ namespace MBProgressHUD
 		MBProgressHUDAnimation AnimationType { get; set; }
 
 		// @property (MB_STRONG) UIView *customView;
-		[Export ("customView")]
+		[Export ("customView", ArgumentSemantic.Retain)]
 		UIView CustomView { get; set; }
 
 		// @property (MB_WEAK) id<MBProgressHUDDelegate> delegate;
@@ -176,7 +119,7 @@ namespace MBProgressHUD
 		float Opacity { get; set; }
 
 		// @property (MB_STRONG) UIColor *color;
-		[Export ("color")]
+		[Export ("color", ArgumentSemantic.Retain)]
 		UIColor Color { get; set; }
 
 		// @property (assign) float xOffset;
@@ -190,6 +133,10 @@ namespace MBProgressHUD
 		// @property (assign) float margin;
 		[Export ("margin", ArgumentSemantic.Assign)]
 		float Margin { get; set; }
+
+		// @property (assign) float cornerRadius;
+		[Export ("cornerRadius", ArgumentSemantic.Assign)]
+		float CornerRadius { get; set; }
 
 		// @property (assign) BOOL dimBackground;
 		[Export ("dimBackground", ArgumentSemantic.Assign)]
@@ -212,12 +159,20 @@ namespace MBProgressHUD
 		bool RemoveFromSuperViewOnHide { get; set; }
 
 		// @property (MB_STRONG) UIFont* labelFont;
-		[Export ("labelFont")]
+		[Export ("labelFont", ArgumentSemantic.Retain)]
 		UIFont LabelFont { get; set; }
 
+		// @property (MB_STRONG) UIColor* labelColor;
+		[Export ("labelColor", ArgumentSemantic.Retain)]
+		UIColor LabelColor { get; set; }
+
 		// @property (MB_STRONG) UIFont* detailsLabelFont;
-		[Export ("detailsLabelFont")]
+		[Export ("detailsLabelFont", ArgumentSemantic.Retain)]
 		UIFont DetailsLabelFont { get; set; }
+
+		// @property (MB_STRONG) UIColor* detailsLabelColor;
+		[Export ("detailsLabelColor", ArgumentSemantic.Retain)]
+		UIColor DetailsLabelColor { get; set; }
 
 		// @property (assign) float progress;
 		[Export ("progress", ArgumentSemantic.Assign)]
@@ -235,6 +190,7 @@ namespace MBProgressHUD
 	// @protocol MBProgressHUDDelegate <NSObject>
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface MBProgressHUDDelegate {
 
 		//- (void)hudWasHidden:(MBProgressHUD *)hud;
@@ -252,16 +208,36 @@ namespace MBProgressHUD
 		float Progress { get; set; }
 
 		// @property (nonatomic, MB_STRONG) UIColor *progressTintColor;
-		[Export ("progressTintColor")]
+		[Export ("progressTintColor", ArgumentSemantic.Retain)]
 		UIColor ProgressTintColor { get; set; }
 
 		// @property (nonatomic, MB_STRONG) UIColor *backgroundTintColor;
-		[Export ("backgroundTintColor")]
+		[Export ("backgroundTintColor", ArgumentSemantic.Retain)]
 		UIColor BackgroundTintColor { get; set; }
 
 		// @property (nonatomic, assign, getter = isAnnular) BOOL annular;
 		[Export ("annular", ArgumentSemantic.Assign)]
-		bool Annular { get; set; }
+		bool Annular { [Bind ("isAnnular")] get; set; }
+	}
+
+	// @interface MBBarProgressView : UIView
+	[BaseType (typeof (UIView))]
+	interface MBBarProgressView {
+
+		// @property (nonatomic, assign) float progress;
+		[Export ("progress", ArgumentSemantic.Assign)]
+		float Progress { get; set; }
+
+		// @property (nonatomic, MB_STRONG) UIColor *lineColor;
+		[Export ("lineColor", ArgumentSemantic.Retain)]
+		UIColor LineColor { get; set; }
+
+		// @property (nonatomic, MB_STRONG) UIColor *progressRemainingColor;
+		[Export ("progressRemainingColor", ArgumentSemantic.Retain)]
+		UIColor ProgressRemainingColor { get; set; }
+
+		// @property (nonatomic, MB_STRONG) UIColor *progressColor;
+		[Export ("progressColor", ArgumentSemantic.Retain)]
+		UIColor ProgressColor { get; set; }
 	}
 }
-
