@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using DropboxChooser;
 using MonoTouch.Dialog;
+
+using Dropins.Chooser.iOS;
 
 namespace DBChooserApp
 {
@@ -57,7 +58,7 @@ namespace DBChooserApp
 
 		void ChooseFile (DBChooserLinkType type)
 		{
-			DBChooser.DefaultChooser.OpenChooserForLinkType (type, navigation, DBChooserComplete);
+			DBChooser.DefaultChooser.OpenChooser (type, navigation, DBChooserComplete);
 		}
 
 		void DBChooserComplete (DBChooserResult[] results)
@@ -71,7 +72,7 @@ namespace DBChooserApp
 				var values = new Element[] { 
 					new StringElement("Name",result.Name),
 					new StringElement("Size in bytes: ",result.Size.ToString()),
-					new ImageStringElement("Icon", UIImage.LoadFromData(NSData.FromUrl(result.IconURL)))
+					new ImageStringElement("Icon", UIImage.LoadFromData(NSData.FromUrl(result.IconUrl)))
 				};
 
 
@@ -108,7 +109,7 @@ namespace DBChooserApp
 
 		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
-			return DBChooser.DefaultChooser.HandleOpenURL (url);
+			return DBChooser.DefaultChooser.HandleOpenUrl (url);
 		}
 	}
 }
