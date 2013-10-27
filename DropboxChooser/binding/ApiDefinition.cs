@@ -4,11 +4,31 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace DropboxChooser
+namespace Dropins.Chooser.iOS
 {
-	
+	delegate void DBChooserCompletionHandler (DBChooserResult [] results);
+
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
-	public partial interface DBChooserResult {
+	interface DBChooser {
+
+		[Static]
+		[Export ("defaultChooser")]
+		DBChooser DefaultChooser { get; }
+
+		[Export ("initWithAppKey:")]
+		IntPtr Constructor (string appKey);
+
+		[Export ("openChooserForLinkType:fromViewController:completion:")]
+		void OpenChooser (DBChooserLinkType linkType, UIViewController topViewController, DBChooserCompletionHandler handler);
+
+		[Export ("handleOpenURL:")]
+		bool HandleOpenUrl (NSUrl url);
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject))]
+	interface DBChooserResult {
 
 		[Export ("link")]
 		NSUrl Link { get; }
@@ -20,32 +40,9 @@ namespace DropboxChooser
 		long Size { get; }
 
 		[Export ("iconURL")]
-		NSUrl IconURL { get; }
+		NSUrl IconUrl { get; }
 
 		[Export ("thumbnails")]
 		NSDictionary Thumbnails { get; }
 	}
-
-
-
-	[BaseType (typeof (NSObject))]
-	public partial interface DBChooser {
-
-		[Static, Export ("defaultChooser")]
-		DBChooser DefaultChooser { get; }
-
-		[Export ("initWithAppKey:")]
-		IntPtr Constructor (string appKey);
-
-		[Export ("openChooserForLinkType:fromViewController:completion:")]
-		void OpenChooserForLinkType (DBChooserLinkType linkType, UIViewController topViewController, DBChooserCompletionBlock blk);
-
-		[Export ("handleOpenURL:")]
-		bool HandleOpenURL (NSUrl url);
-	}
-
-	[Preserve]
-	public delegate void DBChooserCompletionBlock(DBChooserResult[] results);
-
 }
-

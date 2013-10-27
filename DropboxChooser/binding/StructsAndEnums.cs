@@ -1,10 +1,13 @@
 using System;
 
-namespace DropboxChooser
+namespace Dropins.Chooser.iOS
 {
-	public enum DBChooserLinkType {
+	public enum DBChooserLinkType
+	{
 		Preview,
 		Direct
 	}
+
+
 }
 

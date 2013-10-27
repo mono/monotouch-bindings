@@ -1,16 +1,15 @@
 ##Dropbox Chooser for Xamarin.iOS
 
 
-Xamarin.iOS bindings for Dropbox Chooser API `version 1.0`
+Xamarin.iOS bindings for Dropbox Chooser API `version 1.1`
 https://www.dropbox.com/developers/dropins
 
 
 ###Setup instructions
 
 
-1. Run `make` command inside `bindings` directory
-2. Open `bindings` directory, extract dropbox-ios-chooser-sdk-1.0.zip and add `DBChooser.bundle` to your project under `Resources` directory.
-3. Reference `DropboxChooser.iOS.dll` in your project.
+1. Run `make` command inside `bindings` or `root` directory.
+3. Reference `Dropins.Chooser.iOS.dll` in your project.
 
 ###Creating a URL scheme
 
