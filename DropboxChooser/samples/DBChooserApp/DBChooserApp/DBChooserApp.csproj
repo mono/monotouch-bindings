@@ -44,8 +44,10 @@
     <MtouchDebug>true</MtouchDebug>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <IpaPackageName />
-    <MtouchI18n />
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
     <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -57,7 +59,8 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <ConsolePause>false</ConsolePause>
     <MtouchDebug>true</MtouchDebug>
-    <MtouchI18n />
+    <MtouchI18n>
+    </MtouchI18n>
     <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
@@ -86,14 +89,13 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="DropboxChooser.iOS">
-      <HintPath>..\..\bindings\DropboxChooser.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="Dropins.Chooser.iOS">
+      <HintPath>..\..\..\binding\Dropins.Chooser.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Resources\DBChooser.bundle\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -104,59 +106,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <BundleResource Include="Resources\DBChooser.bundle\app-icon.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\app-icon%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_back.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_back%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_back_button_landscape.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_back_button_landscape%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_back_button_landscape_pressed.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_back_button_landscape_pressed%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_back_pressed.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_back_pressed%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_button.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_button%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_button_landscape.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_button_landscape%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_button_landscape_pressed.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_button_landscape_pressed%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_button_pressed.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_button_pressed%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_large_button.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_large_button%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_large_button_pressed.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\blue_large_button_pressed%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\header.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\header%402x.png" />
-    <BundleResource Include="Resources\DBChooser.bundle\de.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\de.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\en.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\en.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\es-ES.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\es-ES.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\es.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\es.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\fr.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\fr.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\id.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\id.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\it.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\it.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\ja.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\ja.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\ko.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\ko.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\ms.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\ms.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\pl.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\pl.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\pt.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\pt.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\ru.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\ru.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\zh-Hans.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\zh-Hans.lproj\DBChooser.strings.orig" />
-    <BundleResource Include="Resources\DBChooser.bundle\zh-Hant.lproj\DBChooser.strings" />
-    <BundleResource Include="Resources\DBChooser.bundle\zh-Hant.lproj\DBChooser.strings.orig" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
   </ItemGroup>
 </Project>
