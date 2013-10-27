@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="DBChooser" FullName="Dropins.Chooser.iOS.DBChooser">
+  <TypeSignature Language="C#" Value="public class DBChooser : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DBChooser extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Dropins.Chooser.iOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("DBChooser", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>The <see cref="T:Dropins.Chooser.iOS.DBChooser" /> object is responsible for opening the Chooser interface on the Dropbox app and handling the results returned from the app. </para>
+    </summary>
+    <remarks>
+      <para>The <see cref="T:Dropins.Chooser.iOS.DBChooser" /> object is responsible for opening the Chooser interface on the Dropbox app and handling the results returned from the app. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DBChooser (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DBChooser (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DBChooser (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DBChooser (string appKey);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string appKey) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAppKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="appKey" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="appKey">To be added.</param>
+        <summary>
+          <para>Initializes an instance of <see cref="T:Dropins.Chooser.iOS.DBChooser" /> with the given app key. Make sure to use the same <see cref="T:Dropins.Chooser.iOS.DBChooser" /> instance to invoke <computeroutput>openChooserForLinkType:</computeroutput> and <computeroutput>handleOpenURL:</computeroutput>. </para>
+        </summary>
+        <remarks>
+          <para>Initializes an instance of <see cref="T:Dropins.Chooser.iOS.DBChooser" /> with the given app key. Make sure to use the same <see cref="T:Dropins.Chooser.iOS.DBChooser" /> instance to invoke <computeroutput>openChooserForLinkType:</computeroutput> and <computeroutput>handleOpenURL:</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultChooser">
+      <MemberSignature Language="C#" Value="public static Dropins.Chooser.iOS.DBChooser DefaultChooser { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Dropins.Chooser.iOS.DBChooser DefaultChooser" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultChooser")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Dropins.Chooser.iOS.DBChooser</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Returns a <see cref="T:Dropins.Chooser.iOS.DBChooser" /> object with your app's app key. Remember to add a URL scheme db-APP_KEY:// to the app's Info.plist file. You can register your app or find your key at the <ulink url="https://www.dropbox.com/developers/apps">apps</ulink> page. NOTE that this class parses your app key from the app's Info.plist's list of URL schemes. If you have multiple app keys prefixed by "db-", you should initialize your own instance of <see cref="T:Dropins.Chooser.iOS.DBChooser" /> with <computeroutput>initWithAppKey:</computeroutput>. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Returns a <see cref="T:Dropins.Chooser.iOS.DBChooser" /> object with your app's app key. Remember to add a URL scheme db-APP_KEY:// to the app's Info.plist file. You can register your app or find your key at the <ulink url="https://www.dropbox.com/developers/apps">apps</ulink> page. NOTE that this class parses your app key from the app's Info.plist's list of URL schemes. If you have multiple app keys prefixed by "db-", you should initialize your own instance of <see cref="T:Dropins.Chooser.iOS.DBChooser" /> with <computeroutput>initWithAppKey:</computeroutput>. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HandleOpenUrl">
+      <MemberSignature Language="C#" Value="public virtual bool HandleOpenUrl (MonoTouch.Foundation.NSUrl url);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool HandleOpenUrl(class MonoTouch.Foundation.NSUrl url) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("handleOpenURL:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="url" Type="MonoTouch.Foundation.NSUrl" />
+      </Parameters>
+      <Docs>
+        <param name="url">To be added.</param>
+        <summary>
+          <para>You must call this method in your app delegate's <computeroutput>-application:openURL:sourceApplication:annotation:</computeroutput> method in order to handle responses from the Dropbox app. <para>YES if the URL is returned from the Dropbox app due to the Chooser flow. </para></para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>You must call this method in your app delegate's <computeroutput>-application:openURL:sourceApplication:annotation:</computeroutput> method in order to handle responses from the Dropbox app. <para>YES if the URL is returned from the Dropbox app due to the Chooser flow. </para></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenChooser">
+      <MemberSignature Language="C#" Value="public virtual void OpenChooser (Dropins.Chooser.iOS.DBChooserLinkType linkType, MonoTouch.UIKit.UIViewController topViewController, Dropins.Chooser.iOS.DBChooserCompletionHandler handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OpenChooser(valuetype Dropins.Chooser.iOS.DBChooserLinkType linkType, class MonoTouch.UIKit.UIViewController topViewController, class Dropins.Chooser.iOS.DBChooserCompletionHandler handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("openChooserForLinkType:fromViewController:completion:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="linkType" Type="Dropins.Chooser.iOS.DBChooserLinkType" />
+        <Parameter Name="topViewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="handler" Type="Dropins.Chooser.iOS.DBChooserCompletionHandler">
+          <Attributes>
+            <Attribute>
+              <AttributeName>MonoTouch.ObjCRuntime.BlockProxy(typeof(MonoTouch.ObjCRuntime.Trampolines/NIDDBChooserCompletionHandler))</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="linkType">the linkType specifies the type of link to be returned from the Chooser. </param>
+        <param name="topViewController">the topmost view controller in your controller hierarchy. </param>
+        <param name="handler">this is the handler that will be invoked when we returned from the Chooser. </param>
+        <summary>
+          <para>This method opens the Chooser interface. </para>
+        </summary>
+        <remarks>
+          <para>This method opens the Chooser interface. </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
