@@ -25,6 +25,7 @@ namespace Tapit
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TapItBannerAdViewDelegate {
 		[Export ("tapitBannerAdViewWillLoadAd:")]
 		void WillLoadAd (TapItBannerAdView bannerView);
@@ -45,6 +46,7 @@ namespace Tapit
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TapItInterstitialAdDelegate {
 		[Abstract]
 		[Export ("tapitInterstitialAd:didFailWithError:"),EventArgs ("TapitError")]

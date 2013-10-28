@@ -85,6 +85,7 @@ namespace Tapku
 
     /*[BaseType (typeof ())]
     [Model]
+	[Protocol]
     interface TapDetectingViewDelegate {
         [Abstract]
         [Export ("tapDetectingView:gotSingleTapAtPoint:")]
@@ -199,6 +200,7 @@ namespace Tapku
 
     [BaseType (typeof (NSObject))]
     [Model]
+	[Protocol]
     interface TKCalendarDayTimelineViewDelegate {
         [Abstract]
         [Export ("calendarDayTimelineView:eventsForDate:")]
@@ -271,6 +273,7 @@ namespace Tapku
 
     /*[BaseType (typeof ())]
     [Model]
+	[Protocol]
     interface TKCalendarMonthViewDelegate {
         [Export ("calendarMonthView:didSelectDate:")]
         void CalendarMonthViewdidSelectDate (TKCalendarMonthView monthView, NSDate date);
@@ -288,6 +291,7 @@ namespace Tapku
 
     /*[BaseType (typeof ())]
     [Model]
+	[Protocol]
     interface TKCalendarMonthViewDataSource {
     }*/
 
@@ -362,6 +366,7 @@ namespace Tapku
 
     [BaseType (typeof (UIScrollViewDelegate))]
     [Model]
+	[Protocol]
     interface TKCoverflowViewDelegate {
         [Abstract]
 		[EventArgs("CoverWasBroughtToFront")]
@@ -377,6 +382,7 @@ namespace Tapku
 
     [BaseType (typeof (NSObject))]
     [Model]
+	[Protocol]
     interface TKCoverflowViewSource {
         [Abstract]
         [Export ("coverflowView:coverAtIndex:"), DelegateName ("TKCoverflowCoverFlowAtIndex"), DefaultValue (null)]
@@ -386,6 +392,7 @@ namespace Tapku
 
     [BaseType (typeof (NSObject))]
     [Model]
+	[Protocol]
     interface TKCoverflowViewDataSource {
         [Abstract]
         [Export ("coverflowView:coverAtIndex:")]
@@ -526,6 +533,7 @@ namespace Tapku
 
     [BaseType (typeof (NSObject))]
     [Model]
+	[Protocol]
     interface TKMapViewDelegate {
 
         [Export ("didPlacePinAtCoordinate:")]
@@ -676,6 +684,7 @@ namespace Tapku
 
     [BaseType(typeof(NSObject))]
     [Model]
+	[Protocol]
     interface TKHTTPRequestProgressDelegate {
         [Export("request:didReceiveTotalBytes:ofExpectedBytes:")]
         void ReceivedBytes(TKHTTPRequest request, int received, int totalExpected);

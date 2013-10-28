@@ -55,6 +55,7 @@ namespace opentok
 	}
 	
 	[Model]
+	[Protocol]
 	[BaseType (typeof (NSObject))]
 	interface OTPublisherDelegate {
 		[Export ("publisher:didFailWithError:")]
@@ -124,6 +125,7 @@ namespace opentok
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface OTSessionDelegate {
 		[Export ("sessionDidConnect:")]
 		void DidConnect (OTSession session);
@@ -212,6 +214,7 @@ namespace opentok
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface OTSubscriberDelegate {
 		[Abstract]
 		[Export ("subscriberDidConnectToStream:")]

@@ -1,6 +1,7 @@
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface UARegistrationObserver {
 		[Export ("registerDeviceTokenSucceeded")]
 		void RegisterDeviceTokenSucceeded ();

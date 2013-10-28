@@ -73,6 +73,7 @@ namespace RedLaser
 	*/
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface BarcodePickerControllerDelegate {
 		// - (void) barcodePickerController:(BarcodePickerController*)picker returnResults:(NSSet *)results;
 		[Export ("barcodePickerController:returnResults:")]

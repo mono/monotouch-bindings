@@ -7,6 +7,7 @@ namespace FlurryAppCircle
 {
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface FlurryAdDelegate {
 
 		[Abstract]

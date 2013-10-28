@@ -8,14 +8,14 @@ using MonoTouch.UIKit;
 namespace MTiRate
 {
 	[BaseType (typeof (NSObject),
-	Delegates=new string [] {"Delegate"},
+	           Delegates=new string [] {"Delegate"},
 	Events=new Type [] { typeof (iRateDelegate) })]   
 	interface iRate 
 	{
- 		[Static]
+		[Static]
 		[Export ("sharedInstance")]
 		iRate SharedInstance { get; }
-	
+
 		[Export ("appStoreID", ArgumentSemantic.Assign)]
 		uint AppStoreID { get; set; }
 
@@ -36,31 +36,31 @@ namespace MTiRate
 
 		[Export ("usesUntilPrompt", ArgumentSemantic.Assign)]
 		uint UsesUntilPrompt { get; set; }
-		
+
 		[Export ("eventsUntilPrompt", ArgumentSemantic.Assign)]
 		uint EventsUntilPrompt { get; set; }
-		
+
 		[Export ("daysUntilPrompt", ArgumentSemantic.Assign)]
 		float DaysUntilPrompt { get; set; }
 
 		[Export ("usesPerWeekForPrompt", ArgumentSemantic.Assign)]
 		float UsesPerWeekForPrompt { get; set; }
-		
+
 		[Export ("remindPeriod", ArgumentSemantic.Assign)]
 		float RemindPeriod { get; set; }
 
 		[Export ("messageTitle", ArgumentSemantic.Copy)]
 		string MessageTitle { get; set; }
-		
+
 		[Export ("message", ArgumentSemantic.Copy)]
 		string Message { get; set; }
-		
+
 		[Export ("cancelButtonLabel", ArgumentSemantic.Copy)]
 		string CancelButtonLabel { get; set; }
-		
+
 		[Export ("remindButtonLabel", ArgumentSemantic.Copy)]
 		string RemindButtonLabel { get; set; }
-		
+
 		[Export ("rateButtonLabel", ArgumentSemantic.Copy)]
 		string RateButtonLabel { get; set; }
 
@@ -78,34 +78,34 @@ namespace MTiRate
 
 		[Export ("promptAtLaunch", ArgumentSemantic.Assign)]
 		bool PromptAtLaunch { get; set; }
-		
+
 		[Export ("verboseLogging", ArgumentSemantic.Assign)]
 		bool VerboseLogging { get; set; }
 
 		[Export ("previewMode", ArgumentSemantic.Assign)]
 		bool PreviewMode { get; set; }
-	
+
 		[Export ("ratingsURL")]
 		NSUrl RatingsURL { get; set; }
-		
+
 		[Export ("firstUsed")]
 		NSDate FirstUsed { get; set; }
-		
+
 		[Export ("lastReminded")]
 		NSDate LastReminded { get; set; }
-		
+
 		[Export ("usesCount", ArgumentSemantic.Assign)]
 		uint UsesCount { get; set; }
-		
+
 		[Export ("eventCount", ArgumentSemantic.Assign)]
 		uint EventCount { get; set; }
 
 		[Export ("usesPerWeek")]
 		float UsesPerWeek { get; }
-		
+
 		[Export ("declinedThisVersion", ArgumentSemantic.Assign)]
 		bool DeclinedThisVersion { get; set; }
-	
+
 		[Export ("declinedAnyVersion")]
 		bool DeclinedAnyVersion { get; }
 
@@ -114,7 +114,7 @@ namespace MTiRate
 
 		[Export ("ratedAnyVersion")]
 		bool RatedAnyVersion { get; }
-		
+
 		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
 		IiRateDelegate Delegate { get; set; }
 
@@ -136,7 +136,7 @@ namespace MTiRate
 	}
 
 	interface IiRateDelegate {}
-	
+
 	[BaseType (typeof (NSObject))]
 	[Model][Protocol]
 	interface iRateDelegate 
@@ -158,7 +158,7 @@ namespace MTiRate
 
 		[Export ("iRateUserDidDeclineToRateApp:"), EventArgs("iRateDelegateArgs")]
 		void UserDidDeclineToRateApp (iRate sender);
-		
+
 		[Export ("iRateUserDidRequestReminderToRateApp:"), EventArgs("iRateDelegateArgs")]
 		void UserDidRequestReminderToRateApp(iRate sender);
 

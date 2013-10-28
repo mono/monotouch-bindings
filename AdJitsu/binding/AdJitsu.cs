@@ -39,6 +39,7 @@ namespace AdJitsu {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface AdJitsuViewDelegate {
 		[Export ("adJitsuView:didFinishLoadingSceneAtURL:"), EventArgs ("AdJitsuUrl")]
 		void FinishedLoadingScene (AdJitsuView view, NSUrl atUrl);
