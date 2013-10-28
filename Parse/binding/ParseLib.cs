@@ -1032,6 +1032,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PFSignUpViewControllerDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseSignUpViewControllerDelegate
 	{
 		[Export ("signUpViewController:shouldBeginSignUp:"), DefaultValue (true), DelegateName ("PF_VCDict")]
@@ -1075,6 +1076,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_EGORefreshTableHeaderDelegate")]
 	[Model]
+	[Protocol]
 	interface Parse_EGORefreshTableHeaderDelegate
 	{
 		[Abstract]
@@ -1152,6 +1154,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PFLogInViewControllerDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseLogInViewControllerDelegate
 	{
 		[Export ("logInViewController:shouldBeginLogInWithUsername:password:"),DefaultValue(true), DelegateName ("PFShouldLogin")]
@@ -1331,6 +1334,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_MBProgressHUDDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseMBProgressHUDDelegate
 	{
 		[Abstract]
@@ -1534,6 +1538,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PFFBDialogDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseFBDialogDelegate
 	{
 		[Abstract]
@@ -1640,6 +1645,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_FBRequestDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseFBRequestDelegate
 	{
 		[Abstract]
@@ -1756,6 +1762,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_FBSessionDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseFBSessionDelegate
 	{
 		[Abstract]
@@ -1790,6 +1797,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_FBLoginDialogDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseFBLoginDialogDelegate
 	{
 		[Abstract]

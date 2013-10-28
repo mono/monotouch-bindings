@@ -45,6 +45,7 @@ namespace Three20
 
 	[BaseType (typeof (UIActionSheetDelegate))]
 	[Model]
+	[Protocol]
 	interface TTActionSheetControllerDelegate
 	{
 		[Export ("actionSheetController:didDismissWithButtonIndex:URL:")]
@@ -116,6 +117,7 @@ namespace Three20
 
 	[BaseType (typeof (UIAlertViewDelegate))]
 	[Model]
+	[Protocol]
 	interface TTAlertViewControllerDelegate
 	{
 		[Export ("alertViewController:didDismissWithButtonIndex:URL:")]
@@ -376,6 +378,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTImageViewDelegate
 	{
 		[Export ("imageView:didLoadImage:")]
@@ -494,6 +497,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTLauncherViewDelegate
 	{
 		[Export ("launcherView:didAddItem:")]
@@ -621,6 +625,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTModelDelegate
 	{
 	}
@@ -759,6 +764,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTNavigatorDelegate
 	{
 		[Export ("navigator:shouldOpenURL:")]
@@ -783,6 +789,7 @@ namespace Three20
 
 	[BaseType (typeof (TTModel))]
 	[Model]
+	[Protocol]
 	interface TTPhotoSource
 	{
 		[Export ("title", ArgumentSemantic.Copy)]
@@ -797,6 +804,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTPhoto
 	{
 		[Export ("photoSource", ArgumentSemantic.Assign)]
@@ -892,6 +900,7 @@ namespace Three20
 
 	[BaseType (typeof (TTSearchTextFieldDelegate))]
 	[Model]
+	[Protocol]
 	interface TTPickerTextFieldDelegate
 	{
 		[Export ("textField:didAddCellAtIndex:")]
@@ -967,6 +976,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTPostControllerDelegate
 	{
 		[Export ("postController:willPostText:")]
@@ -1040,6 +1050,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTScrollViewDelegate
 	{
 		[Export ("scrollView:didMoveToPageAtIndex:")]
@@ -1090,6 +1101,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTScrollViewDataSource
 	{
 		[Export ("numberOfPagesInScrollView:")]
@@ -1232,6 +1244,7 @@ namespace Three20
 
 	[BaseType (typeof (UITextFieldDelegate))]
 	[Model]
+	[Protocol]
 	interface TTSearchTextFieldDelegate
 	{
 		[Export ("textField:didSelectObject:")]
@@ -1589,6 +1602,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTStyleDelegate
 	{
 		[Export ("textForLayerWithStyle:")]
@@ -1936,6 +1950,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTStyledTextDelegate
 	{
 		[Export ("styledTextNeedsDisplay:")]
@@ -2086,6 +2101,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTTabDelegate
 	{
 		[Export ("tabBar:tabSelected:")]
@@ -2356,6 +2372,7 @@ namespace Three20
 
 	[BaseType (typeof (UITableViewDelegate))]
 	[Model]
+	[Protocol]
 	interface TTTableViewDelegate
 	{
 		[Export ("tableView:touchesBegan:withEvent:")]
@@ -2456,6 +2473,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTTextBarDelegate
 	{
 		[Export ("textBarDidBeginEditing:")]
@@ -2514,6 +2532,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTTextEditorDelegate
 	{
 		[Export ("textEditorShouldBeginEditing:")]
@@ -2597,6 +2616,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTThumbsViewControllerDelegate
 	{
 	}
@@ -2771,6 +2791,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTURLObject
 	{
 		[Export ("URLValue")]
@@ -2921,6 +2942,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTURLRequestDelegate
 	{
 		[Export ("requestDidStartLoad:")]
@@ -2985,6 +3007,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTURLResponse
 	{
 	}
@@ -3055,6 +3078,7 @@ namespace Three20
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TTWebControllerDelegate
 	{
 	}

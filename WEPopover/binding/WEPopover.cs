@@ -60,6 +60,7 @@ namespace WEPopover
 	
 	[BaseType(typeof(NSObject))]
 	[Model]
+	[Protocol]
 	interface WEPopoverControllerDelegate
 	{
 		[Export("popoverControllerDidDismissPopover:")]
@@ -85,6 +86,7 @@ namespace WEPopover
 	}
 	
 	[Model]
+	[Protocol]
 	[BaseType(typeof(NSObject))]
 	interface WETouchableViewDelegate
 	{
@@ -95,6 +97,7 @@ namespace WEPopover
 	}
 	
 	[Model]
+	[Protocol]
 	[BaseType(typeof(NSObject))]
 	interface WEPopoverParentView
 	{

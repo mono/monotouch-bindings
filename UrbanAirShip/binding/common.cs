@@ -151,6 +151,7 @@ namespace UrbanAirship
 
 	[BaseType (typeof(NSObject))]
 	[Model]
+	[Protocol]
 	interface UAPushNotificationDelegate
 	{
 		[Export ("displayNotificationAlert:")]
@@ -331,6 +332,7 @@ namespace UrbanAirship
 
 	[BaseType (typeof(NSObject))]
 	[Model]
+	[Protocol]
 	interface UAZipDownloadContentProtocol
 	{
 		[Export ("decompressDidSucceed:")]
@@ -354,6 +356,7 @@ namespace UrbanAirship
 	
 	[BaseType (typeof(NSObject))]
 	[Model]
+	[Protocol]
 	interface UADownloadManagerDelegate
 	{
 		[Export ("requestDidSucceed:")]
@@ -529,6 +532,7 @@ namespace UrbanAirship
 
 	[BaseType (typeof(NSObject))]
 	[Model]
+	[Protocol]
 	interface UAHTTPConnectionDelegate
 	{
 		[Abstract]

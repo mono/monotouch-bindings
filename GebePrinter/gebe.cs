@@ -58,6 +58,7 @@ namespace MonoTouch.GebePrinter {
 	}
 
 	[Model]
+	[Protocol]
 	[BaseType (typeof (NSObject))]
 	interface GBPrinterManagerDelegate {
 		[Abstract]
@@ -172,6 +173,7 @@ namespace MonoTouch.GebePrinter {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface GBPrinterDeviceDelegate {
 		[Abstract]
 		[Export ("printerFinishedPrinting")]

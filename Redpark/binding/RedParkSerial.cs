@@ -104,6 +104,7 @@ namespace Redpark
 	}
 	
 	[Model]
+	[Protocol]
 	[BaseType(typeof(NSObject))]
 	public interface RscMgrDelegate
 	{

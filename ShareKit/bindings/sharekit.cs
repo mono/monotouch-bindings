@@ -244,6 +244,7 @@ namespace MonoTouch.ShareKit {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface ShkSharerDelegate {
 		[Abstract]
 		[Export ("sharerStartedSending:")]

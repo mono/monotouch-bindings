@@ -355,6 +355,7 @@ namespace Datatrans {
     //@protocol DTAliasControllerDelegate <NSObject>
     [BaseType(typeof(NSObject), Name = "DTAliasControllerDelegate")]
     [Model]
+	[Protocol]
     interface DtAliasControllerDelegate {
 
         //- (void)aliasRequest:(DTAliasRequest *)aliasRequest didFinishWithAlias:(DTCreditCard *)creditCardAlias;
@@ -453,6 +454,7 @@ namespace Datatrans {
 
     //@protocol DTPaymentControllerDelegate <NSObject>
     [Model]
+	[Protocol]
     [BaseType(typeof(NSObject), Name = "DTPaymentControllerDelegate")]
     interface DtPaymentControllerDelegate {
 
