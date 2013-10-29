@@ -148,6 +148,7 @@ namespace CouchbaseSample
 
     void InitializeCouchbaseSummaryView ()
     {
+
       var view = Database.ViewNamed ("Done");
 
       var mapBlock = new MapBlock ((doc, emit) => {
@@ -171,6 +172,7 @@ namespace CouchbaseSample
       });
 
       view.SetMapBlock (mapBlock, reduceBlock, "1.1");
+
     }
 
     void InitializeDatasource ()
