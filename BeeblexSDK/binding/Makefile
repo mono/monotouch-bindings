@@ -30,6 +30,5 @@ BeeblexSDK.dll: ApiDefinition.cs Extensions.cs AssemblyInfo.cs lib$(TARGET).a
 	$(SMCS) -noconfig -o- -out:$@ -res:libBeeblex-SDK.a AssemblyInfo.cs Extensions.cs @ios/sources.list -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll
 
 clean: 
-	-rm -f *.a *.dll $(PROJECT_ROOT) $(PROJECT_TGZ) ios
-
+	-rm -rf *.a *.dll $(PROJECT_ROOT) $(PROJECT_TGZ) ios/
 .PHONY: clean
