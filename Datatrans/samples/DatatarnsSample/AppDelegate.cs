@@ -18,7 +18,7 @@ namespace DatatransSample
 		UINavigationController nav;
 		DialogViewController dvc;
 		UIWindow window;
-		DtPaymentController dtpc;
+		DTPaymentController dtpc;
 		UserPaymentContoller cpc;
 		RootElement rootNode;
 		//
@@ -40,7 +40,7 @@ namespace DatatransSample
 					
 					new RootElement ("DtPaymentMethod", new RadioGroup (0)){
 						new Section (){
-							from n in DtPaymentController.AllAvailablePaymentMethods()
+							from n in DTPaymentController.AllAvailablePaymentMethods
 							select (Element) new CheckboxElement (n, true)
 						}
 					},
@@ -116,8 +116,8 @@ namespace DatatransSample
 			var options = RootAt(rootNode, 0, 2);
 			
 			
-			int amount = 0;
-			int.TryParse(StringAt(request, 0, 0), out amount);
+			uint amount = 0;
+			uint.TryParse(StringAt(request, 0, 0), out amount);
 			var currency = StringAt(request, 0, 1);
 			var price = StringAt(request, 0, 2);
 			var merchantid = StringAt(request, 0, 3);
@@ -130,10 +130,10 @@ namespace DatatransSample
 			var showBack = BoolAt(options, 0,2);
 			var testing = BoolAt(options, 0,3);
 			
-			DtPaymentReturnsCreditCard dprcc= DtPaymentReturnsCreditCard.Never;
-			Enum.TryParse<DtPaymentReturnsCreditCard>(rcc.Caption, out dprcc);
+			DTPaymentReturnsCreditCard dprcc= DTPaymentReturnsCreditCard.Never;
+			Enum.TryParse<DTPaymentReturnsCreditCard>(rcc.Caption, out dprcc);
 			
-			var paymentRequest = new DtPaymentRequest() {
+			var paymentRequest = new DTPaymentRequest() {
 				AmountInSmallestCurrencyUnit = amount,
 				CurrencyCode = currency,
 				LocalizedPriceDescription = price,
@@ -146,7 +146,7 @@ namespace DatatransSample
 				
 			};
 			
-			var po = new DtPaymentOptions() {
+			var po = new DTPaymentOptions() {
 				HideToolbarSecurityInfo = hideToolbar,
 				ReturnsCreditCard = dprcc,
 				ShowBackButtonOnFirstScreen = showBack,
@@ -166,12 +166,12 @@ namespace DatatransSample
 			Debug(pma);
 			
 			cpc = new UserPaymentContoller(nav);
-			dtpc = DtPaymentController.FromDelegate(cpc, paymentRequest, pma);
+			dtpc = DTPaymentController.PaymentControllerWithDelegate (cpc, paymentRequest, pma);
 			dtpc.PaymentOptions = po;
-			dtpc.PresentIn(nav, true);	
+			dtpc.PresentInNavigationController (nav, true);	
 		}
 		
-		void Debug(DtPaymentRequest pr) {
+		void Debug(DTPaymentRequest pr) {
 		
 			
 			Console.WriteLine();
@@ -187,7 +187,7 @@ namespace DatatransSample
 		}
 		
 		
-		void Debug(DtPaymentOptions po) {
+		void Debug(DTPaymentOptions po) {
 		
 			
 			Console.WriteLine();
@@ -217,7 +217,7 @@ namespace DatatransSample
 		void DtPayementControllerStatic() {
 			
 			
-			var paymentRequest = new DtPaymentRequest() {
+			var paymentRequest = new DTPaymentRequest() {
 				AmountInSmallestCurrencyUnit = 100,
 				CurrencyCode = @"CHF",
 				LocalizedPriceDescription = @"CHF 1.-",
@@ -230,24 +230,25 @@ namespace DatatransSample
 				
 			};
 			
-			var po = new DtPaymentOptions() {
+			var po = new DTPaymentOptions() {
 				HideToolbarSecurityInfo = true,
-				ReturnsCreditCard = DtPaymentReturnsCreditCard.Never,
+				ReturnsCreditCard = DTPaymentReturnsCreditCard.Never,
 				ShowBackButtonOnFirstScreen = false,
 				Testing = true  // to be removed
 			};
 			
 			var payementMethod = new [] { 
-				DtPaymentMethod.Visa,
-				DtPaymentMethod.MasterCard, 
-				DtPaymentMethod.PostFinanceCard, 
-				DtPaymentMethod.PostFinanceEFinance };
+				(string) DTPaymentOptions.Visa,
+				(string) DTPaymentOptions.MasterCard, 
+				(string) DTPaymentOptions.PostFinanceCard, 
+				(string) DTPaymentOptions.PostFinanceEFinance 
+			};
 			
 			
 			cpc = new UserPaymentContoller(nav);
-			dtpc = DtPaymentController.FromDelegate(cpc, paymentRequest, payementMethod);
+			dtpc = DTPaymentController.PaymentControllerWithDelegate (cpc, paymentRequest, payementMethod);
 			dtpc.PaymentOptions = po;
-			dtpc.PresentIn(nav, true);	
+			dtpc.PresentInNavigationController (nav, true);	
 		}
 	}
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC5DF595-1005-4E61-8B30-3373F0F3C9A9}</ProjectGuid>
+    <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Datatrans</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Datatrans</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\dtipl-resources.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libdtipl.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="libdtipl.linkwith.cs">
+      <DependentUpon>libdtipl.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dtipl-resources.bundle\AMXcvv.gif" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\American_Express.pdf" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\DTCreditCardInputViewController.nib" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\DTPaymentAuthorizationViewController.nib" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\Diners_Club_Logo.pdf" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\ECAcvv.gif" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\MasterCard_Logo_SecureCode.pdf" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\PayPal_Logo.pdf" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\VIScvv.gif" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\Visa_Logo_VBV.pdf" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\pf_card.png" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\pf_card%402x.png" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\pf_efinance.png" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\pf_efinance%402x.png" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\Dutch.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\English.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\French.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\German.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\dtipl-resources.bundle\Italian.lproj\Localizable.strings" />
+  </ItemGroup>
+</Project>
