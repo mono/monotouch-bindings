@@ -48,7 +48,9 @@ namespace Couchbase {
 		Revision UpdateBody (NSData body, string contentType, out NSError outError);
 	}
 
-	[BaseType (typeof (NSObject), Name = "CBLViewCompiler")]
+    //public interface IViewCompiler { }
+
+	[Protocol, BaseType (typeof (NSObject), Name = "CBLViewCompiler")]
 	public partial interface ViewCompiler {
 
 		[Export ("compileMapFunction:language:")]
@@ -101,7 +103,9 @@ namespace Couchbase {
 		ViewCompiler Compiler { get; set; }
 	}
 
-	[BaseType (typeof (NSObject), Name = "CBLFilterCompiler")]
+    //public interface IFilterCompiler { }
+
+	[Protocol, BaseType (typeof (NSObject), Name = "CBLFilterCompiler")]
 	public partial interface FilterCompiler {
 
 		[Export ("compileFilterFunction:language:")]
@@ -258,13 +262,13 @@ namespace Couchbase {
 		Revision RevisionWithID (string revisionID);
 
 		[Export ("getRevisionHistory:")]
-    Revision [] GetRevisionHistory (out NSError outError);
+        Revision [] GetRevisionHistory (out NSError outError);
 
 		[Export ("getConflictingRevisions:")]
-    Revision [] GetConflictingRevisions (out NSError outError);
+        Revision [] GetConflictingRevisions (out NSError outError);
 
 		[Export ("getLeafRevisions:")]
-    Revision [] GetLeafRevisions (out NSError outError);
+        Revision [] GetLeafRevisions (out NSError outError);
 
 		[Export ("newRevision")]
 		NewRevision NewRevision { get; }
@@ -288,7 +292,9 @@ namespace Couchbase {
 		NSObject ModelObject { get; set; }
 	}
 
-	[BaseType (typeof (NSObject), Name = "CBLDocumentModel")]
+    //public interface IDocumentModel {}
+
+	[Protocol, BaseType (typeof (NSObject), Name = "CBLDocumentModel")]
 	public partial interface DocumentModel {
 
 		[Export ("tdDocumentChanged:")]
@@ -420,12 +426,6 @@ namespace Couchbase {
 
 		[Export ("markExternallyChanged")]
 		void MarkExternallyChanged ();
-
-		[Export ("getValueOfProperty:")]
-		NSObject GetValueOfProperty (string property);
-
-		[Export ("setValue:ofProperty:")]
-		bool SetValue (NSObject value, string property);
 
 		[Export ("attachmentNames")]
 		NSString [] AttachmentNames { get; }
@@ -575,9 +575,6 @@ namespace Couchbase {
 
 		[Export ("stop")]
 		void Stop ();
-
-		[Export ("rows", ArgumentSemantic.Retain)]
-		QueryEnumerator Rows { get; }
 	}
 
 	[BaseType (typeof (NSEnumerator), Name = "CBLQueryEnumerator")]
@@ -729,7 +726,7 @@ namespace Couchbase {
 		[Export ("total")]
 		uint Total { get; }
 
-		[Notification, Field ("kCBLReplicationChangeNotification", "__Internal")]
+        [Notification, Field ("kCBLReplicationChangeNotification", "__Internal")]
 		NSString ReplicationChangeNotification { get; }
 	}
 
@@ -792,15 +789,6 @@ namespace Couchbase {
 	[BaseType (typeof (RevisionBase), Name = "CBLNewRevision")]
 	public partial interface NewRevision {
 
-		[Export ("isDeleted")]
-		bool IsDeleted { get; set; }
-
-		[Export ("properties", ArgumentSemantic.Copy)]
-		NSMutableDictionary Properties { get; set; }
-
-		[Export ("userProperties", ArgumentSemantic.Copy)]
-		NSDictionary UserProperties { get; }
-
 		[Export ("setObject:forKeyedSubscript:")]
 		void SetObject (NSObject value, string key);
 
@@ -820,6 +808,8 @@ namespace Couchbase {
 		void RemoveAttachmentNamed (string name);
 	}
 
+  //public interface IUIDataSourceModelAssociation { }
+
 	[Protocol, BaseType (typeof (NSObject))]
 	public partial interface UIDataSourceModelAssociation
 	{
@@ -830,7 +820,9 @@ namespace Couchbase {
 		string ModelIdForElementInView(NSIndexPath id, UIView view);
 	}
 
-	[BaseType (typeof (NSObject))]
+    //public interface ICBLUICollectionSource {}
+
+	[Protocol, BaseType (typeof (NSObject))]
 	public partial interface CBLUICollectionSource : UIDataSourceModelAssociation {
 
 		[Export ("collectionView", ArgumentSemantic.Retain)]
@@ -858,7 +850,7 @@ namespace Couchbase {
 		Document DocumentAtIndexPath (NSIndexPath path);
 
 		[Export ("deleteDocumentsAtIndexes:error:")]
-    bool DeleteDocumentsAtIndexes (NSIndexPath [] indexPaths, out NSError outError);
+        bool DeleteDocumentsAtIndexes (NSIndexPath [] indexPaths, out NSError outError);
 
 		[Export ("deleteDocuments:error:")]
 		bool DeleteDocuments (Document [] documents, out NSError outError);
@@ -879,6 +871,8 @@ namespace Couchbase {
 		[Export ("couchCollectionSource:willUseCell:forRow:")]
 		void WillUseCell (CBLUICollectionSource source, UICollectionViewCell cell, QueryRow row);
 	}
+
+    //public partial interface ICBLUITableSource {}
 
 	[BaseType (typeof (NSObject))]
 	public partial interface CBLUITableSource : UIDataSourceModelAssociation {
@@ -920,7 +914,9 @@ namespace Couchbase {
 		bool DeleteDocuments (Document [] documents, out NSError outError);
 	}
 
-	[Model, BaseType(typeof (UITableViewDelegate))]
+  public interface ICBLUITableDelegate : IUITableViewDelegate {}
+
+	[Protocol, Model, BaseType(typeof (UITableViewDelegate))]
 	public partial interface CBLUITableDelegate {
 
 		[Export ("couchTableSource:cellForRowAtIndexPath:")]
