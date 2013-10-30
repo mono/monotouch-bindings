@@ -31,6 +31,6 @@ Datatrans.dll: Makefile Datatrans.cs enums.cs AssemblyInfo.cs libdtipl.a
 
 
 clean: 
-	-rm -f *.dll iPhone_Library.zip libdtipl.a 
+	-rm -rf *.dll iPhone_Library.zip libdtipl.a dtipl-resources.bundle DTiPLv1.7/
 	-rm -rf ios
 
