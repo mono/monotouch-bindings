@@ -7,8 +7,7 @@ all: GoogleAdMobAds.dll
 
 googleadmobadssdkios.zip:
 	curl -O http://dl.google.com/googleadmobadssdk/googleadmobadssdkios.zip > $@
-	unzip $@
-	rm -rf __MACOSX
+	unzip googleadmobadssdkios.zip GoogleAdMobAdsSdkiOS-$(VERSION)/libGoogleAdMobAds.a
 
 libGoogleAdMobAds.a: googleadmobadssdkios.zip
 	cp GoogleAdMobAdsSdkiOS-$(VERSION)/libGoogleAdMobAds.a libGoogleAdMobAds.a
@@ -21,3 +20,4 @@ prepare: libGoogleAdMobAds.a
 
 clean:
 	-rm -rf list ios Resources/ GoogleAdMobAdsSdkiOS-$(VERSION)/ bin/ obj/ *.dll *.zip *.mdb *.sln libGoogleAdMobAds.a 
+	
