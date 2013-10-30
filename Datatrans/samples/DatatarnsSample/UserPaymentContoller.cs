@@ -4,7 +4,7 @@ using Datatrans;
 
 namespace DatatransSample
 {
-	public class UserPaymentContoller : DtPaymentControllerDelegate
+	public class UserPaymentContoller : DTPaymentControllerDelegate
 	{
 		private readonly UINavigationController _rootNavigation;
 		internal UINavigationController RootNavigation {
@@ -16,22 +16,23 @@ namespace DatatransSample
 		}
 		
 		#region implemented abstract members of Datatrans.DtPaymentControllerDelegate
-		public override void DidSucceed (DtPaymentController controller, DtPaymentRequest request)
+
+		public override void PaymentRequestDidSucceed (DTPaymentController controller, DTPaymentRequest request)
 		{
 			Console.WriteLine("DidSucceed:");
 			RootNavigation.PopToRootViewController(true);
 			
 		}
 
-		public override void DidFail (DtPaymentController controller, MonoTouch.Foundation.NSError error)
+		public override void DidFailWithError (DTPaymentController controller, MonoTouch.Foundation.NSError error)
 		{
 			Console.WriteLine("DidFail:");
 			RootNavigation.PopToRootViewController(true);
 		}
 
 		#endregion
-				
-		public override void DidCancel (DtPaymentController controller, DtPaymentCancellationType cancellationType)
+
+		public override void DidCancelWithType (DTPaymentController controller, DTPaymentCancellationType cancellationType)
 		{
 			RootNavigation.PopToRootViewController(true);
 		}
