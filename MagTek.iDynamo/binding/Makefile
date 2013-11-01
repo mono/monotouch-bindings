@@ -8,10 +8,10 @@ $(ZIP_VERSION).zip:
 	curl http://www.magtek.com/support/software/downloads/sw/$@ > $@
 
 libMTSCRA.a: $(ZIP_VERSION).zip
-	unzip -p $< 'Lib/Release-iphoneos/libMTSCRA.a' > $@ || rm -f $@
+	unzip -p $< '$(ZIP_VERSION)/Lib/Release-iphoneos/libMTSCRA.a' > $@ || rm -f $@
 
 MagTek.iDynamo.dll: Makefile MagTek.iDynamo.cs enums.cs AssemblyInfo.cs libMTSCRA.a
 	$(BTOUCH) -out:$@ MagTek.iDynamo.cs -s:enums.cs -x:AssemblyInfo.cs --link-with=libMTSCRA.a,libMTSCRA.a
 
 clean:
-	-rm -f *.a *.dll
+	-rm -rf *.a *.dll *.zip
