@@ -1,5 +1,5 @@
 ENABLE_CHIPMUNK_INTEGRATION=1
-VERSION=2.1-rc0a
+VERSION=2.1
 
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
@@ -48,7 +48,8 @@ $(PROJECT_TGZ):
 
 $(PROJECT_ROOT)/patched_for_chipmunk: $(PROJECT_TGZ) ../../chipmunk/binding/chipmunk-diff
 	rm -rf $(PROJECT_ROOT)
-	tar xfz $<
+	mkdir -p $(PROJECT_ROOT)
+	tar xfz $< -C $(PROJECT_ROOT) --strip-component 1
 	patch -d $(PROJECT_ROOT)/external/Chipmunk -p1 < ../../chipmunk/binding/chipmunk-diff
 	touch $(PROJECT_ROOT)/patched_for_chipmunk
 
