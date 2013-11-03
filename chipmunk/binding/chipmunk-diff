@@ -1,7 +1,7 @@
 diff -ruN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmunk_bind.h
 --- ./include/chipmunk/chipmunk_bind.h	1970-01-01 01:00:00.000000000 +0100
-+++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-03-18 13:03:43.000000000 +0100
-@@ -0,0 +1,156 @@
++++ ../Chipmunk/include/chipmunk/chipmunk_bind.h	2013-11-03 13:55:06.000000000 +0100
+@@ -0,0 +1,158 @@
 +//
 +//  chipmunk_bind.h
 +//
@@ -151,16 +151,18 @@ diff -ruN ./include/chipmunk/chipmunk_bind.h ../Chipmunk/include/chipmunk/chipmu
 +//cpArbiter
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpArbiter, Elasticity);
 +MAKE_PROPERTY_FOR_BINDING(cpFloat, cpArbiter, Friction);
-+MAKE_PROPERTY_FOR_BINDING(cpVect, cpArbiter, SurfaceVelocity);
 +MAKE_PROPERTY_FOR_BINDING(cpDataPointer, cpArbiter, UserData);
++
++cpVect __cpArbiterGetsurfaceVelocity (cpArbiter *arb) { return cpArbiterGetSurfaceVelocity (arb); }
++void __cpArbiterSetSurfaceValocity (cpArbiter *arb, cpVect vr) {cpArbiterSetSurfaceVelocity (arb, vr); }
 +
 +void __cpArbiterGetShapes(const cpArbiter *arb, cpShape **a, cpShape **b) { cpArbiterGetShapes (arb, a, b); }
 +void __cpArbiterGetBodies(const cpArbiter *arb, cpBody **a, cpBody **b) { cpArbiterGetBodies (arb, a, b); }
 +
 +#endif
 diff -ruN ./src/chipmunk.c ../Chipmunk/src/chipmunk.c
---- ./src/chipmunk.c	2012-05-25 15:20:06.000000000 +0200
-+++ ../Chipmunk/src/chipmunk.c	2013-03-18 13:00:58.000000000 +0100
+--- ./src/chipmunk.c	2013-06-05 18:03:38.000000000 +0200
++++ ../Chipmunk/src/chipmunk.c	2013-11-03 13:53:27.000000000 +0100
 @@ -320,3 +320,5 @@
  #endif
  
