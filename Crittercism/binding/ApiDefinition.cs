@@ -1,7 +1,7 @@
 using System;
 using MonoTouch.Foundation;
 
-namespace MonoTouch.Crittercism
+namespace CrittercismIos
 {
 	[BaseType (typeof (NSObject))]
 	public partial interface CRFilter {
@@ -10,10 +10,10 @@ namespace MonoTouch.Crittercism
 		bool OnlyScrubQuery { get; }
 
 		[Static, Export ("filterWithString:")]
-		CRFilter FilterWithString (string matchToken);
+		CRFilter FromFilter (string matchToken);
 
 		[Static, Export ("queryOnlyFilterWithString:")]
-		CRFilter QueryOnlyFilterWithString (string matchToken);
+		CRFilter FromQueryOnlyFilter (string matchToken);
 
 		[Export ("initWithString:")]
 		IntPtr Constructor (string matchToken);
@@ -25,26 +25,26 @@ namespace MonoTouch.Crittercism
 		bool DoesMatch (string url);
 
 		[Export ("applyToURL:")]
-		string ApplyToURL (string url);
+		string ApplyToUrl (string url);
 	}
 
 	[BaseType (typeof (NSObject))]
 	public partial interface Crittercism {
 
 		[Static, Export ("enableWithAppID:")]
-		void EnableWithAppID (string appId);
+		void EnableWithAppId (string appId);
 
 		[Static, Export ("enableWithAppID:andDelegate:")]
-		void EnableWithAppID (string appId, CrittercismDelegate critterDelegate);
+		void EnableWithAppId (string appId, CrittercismDelegate critterDelegate);
 
 		[Static, Export ("enableWithAppID:andDelegate:andURLFilters:")]
-		void EnableWithAppID (string appId, CrittercismDelegate critterDelegate, CRFilter[] filters);
+		void EnableWithAppId (string appId, CrittercismDelegate critterDelegate, CRFilter[] filters);
 
 		[Static, Export ("enableWithAppID:andURLFilters:")]
-		void EnableWithAppID (string appId, CRFilter[] filters);
+		void EnableWithAppId (string appId, CRFilter[] filters);
 
 		[Static, Export ("enableWithAppID:andDelegate:andURLFilters:disableInstrumentation:")]
-		void EnableWithAppID (string appId, CrittercismDelegate critterDelegate, CRFilter[] filters, bool disableInstrumentation);
+		void EnableWithAppId (string appId, CrittercismDelegate critterDelegate, CRFilter[] filters, bool disableInstrumentation);
 
 		[Static, Export ("addFilter:")]
 		void AddFilter (CRFilter filter);
@@ -65,7 +65,7 @@ namespace MonoTouch.Crittercism
 		uint MaxOfflineCrashReports { get; set; }
 
 		[Static, Export ("userUUID")]
-		string UserUUID { [Bind ("getUserUUID")] get; }
+		string UserUuid { [Bind ("getUserUUID")] get; }
 
 		[Static, Export ("username")]
 		string Username { set; }
@@ -80,7 +80,7 @@ namespace MonoTouch.Crittercism
 		bool DidCrashOnLastLoad { get; }
 	}
 
-	[Model, BaseType (typeof (NSObject))]
+	[Protocol, Model, BaseType (typeof (NSObject))]
 	public partial interface CrittercismDelegate {
 
 		[Export ("crittercismDidCrashOnLastLoad")]
