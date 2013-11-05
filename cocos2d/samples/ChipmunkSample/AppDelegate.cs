@@ -45,10 +45,10 @@ namespace CC2DSharp
 			CCTexture2D.DefaultAlphaPixelFormat = CCTexture2DPixelFormat.Rgba8888;
 
 			var fileUtils = CCFileUtils.SharedFileUtils;
-			fileUtils.EnableFallbackSuffixes=false;
-			fileUtils.IPhoneRetinaDisplaySuffix="-hd";
-			fileUtils.IPadSuffix="-ipad";
-			fileUtils.IPhoneRetinaDisplaySuffix="-ipadhd";
+			fileUtils.SetEnableFallbackSuffixes (false);
+			fileUtils.SetIPhoneRetinaDisplaySuffix ("-hd");
+			fileUtils.SetIPadSuffix ("-ipad");
+			fileUtils.SetIPhoneRetinaDisplaySuffix ("-ipadhd");
 
 			CCTexture2D.PVRImageHavePremultipliedAlpha = true;
 
