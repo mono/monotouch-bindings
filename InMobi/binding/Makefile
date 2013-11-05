@@ -1,9 +1,18 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-VERSION=1.0
-all: InMobi.dll
+MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
+VERSION=4.0.3
+all: InMobiSdk.dll
 
-InMobi.dll: Makefile AssemblyInfo.cs inmobi.cs enums.cs libInMobi_iOS.a
-	$(BTOUCH) -e inmobi.cs AssemblyInfo.cs enums.cs --out=$@ --link-with=libInMobi_iOS.a,libInMobi_iOS.a
+InMobi_iOS_SDK.zip:
+	curl -O https://dl.inmobi.com/SDK/InMobi_iOS_SDK.zip > $@
+	unzip InMobi_iOS_SDK.zip InMobi-iOS-SDK-$(VERSION)/Libs/libInMobi-$(VERSION).a
+
+libInMobi.a: InMobi_iOS_SDK.zip
+	cp InMobi-iOS-SDK-$(VERSION)/Libs/libInMobi-$(VERSION).a libInMobi.a
+
+InMobiSdk.dll: Makefile libInMobi.a
+	$(MONOXBUILD) /p:Configuration=Release InMobiSdk.csproj
+	cp bin/Release/InMobiSdk.dll InMobiSdk.dll
 
 clean:
-	-rm -f *.a *.dll
+	-rm -rf *.a  bin/ obj/ *.dll *.zip *.mdb *.sln InMobi-iOS-SDK-$(VERSION)/

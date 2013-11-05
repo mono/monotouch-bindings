@@ -975,6 +975,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface CCDirectorDelegate {
 		//[Export ("updateProjection")]
 		//void UpdateProjection ();
@@ -1194,12 +1195,14 @@ namespace MonoTouch.Cocos2D {
 
 #if !MONOMAC
 	[Model]
+	[Protocol]
 	interface CCAccelerometerDelegate {
 		[Export ("accelerometer:didAccelerate:")]
 		void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration);
 	}
 
 	[Model]
+	[Protocol]
 	interface CCTargetedTouchDelegate {
 		[Export ("ccTouchBegan:withEvent:")]
 		bool OnTouchBegan(UITouch touch, UIEvent ev);
@@ -1215,6 +1218,7 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[Model]
+	[Protocol]
 	interface CCStandardTouchDelegate {
 		[Export ("ccTouchesBegan:withEvent:")]
 		void OnTouchesBegan(NSSet touches, UIEvent ev);
@@ -1230,6 +1234,7 @@ namespace MonoTouch.Cocos2D {
 	}
 #else
 	[Model]
+	[Protocol]
 	interface CCKeyboardEventDelegate {
 		[Export ("ccKeyUp:")]
 		bool OnKeyUp(NSEvent ev);
@@ -1242,6 +1247,7 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[Model]
+	[Protocol]
 	interface CCMouseEventDelegate {
 		[Export ("ccMouseDown:")]
 		bool OnMouseDown (NSEvent ev);

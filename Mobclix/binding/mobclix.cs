@@ -43,6 +43,7 @@ namespace Mobclix
 	
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface MCBrowserViewControllerDelegate 
 	{
 		[Export ("browserViewControllerFinishedPreloading:")]
@@ -156,6 +157,7 @@ namespace Mobclix
 	
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface MobclixAdViewDelegate 
 	{
 		[Export ("adViewDidFinishLoad:")]
@@ -220,6 +222,7 @@ namespace Mobclix
 	
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface MobclixFullScreenAdDelegate 
 	{
 		[Export ("fullScreenAdViewControllerDidFinishLoad:")]

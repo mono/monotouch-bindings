@@ -59,6 +59,7 @@ namespace MillennialMedia
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface MMAdDelegate {
 		[Export ("requestData")]
 		NSDictionary RequestData ();

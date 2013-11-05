@@ -156,6 +156,7 @@ namespace iCarouselSDK
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface iCarouselDataSource {
 
 		[Export ("numberOfItemsInCarousel:")] [Abstract]
@@ -173,6 +174,7 @@ namespace iCarouselSDK
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface iCarouselDelegate {
 
 		[Export ("carouselWillBeginScrollingAnimation:")]

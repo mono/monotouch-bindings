@@ -1032,6 +1032,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PFSignUpViewControllerDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseSignUpViewControllerDelegate
 	{
 		[Export ("signUpViewController:shouldBeginSignUp:"), DefaultValue (true), DelegateName ("PF_VCDict")]
@@ -1049,6 +1050,7 @@ namespace ParseTouch
 	}
 	
 	[BaseType (typeof(UIView))]
+	[Protocol]
 	//, Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PF_EGORefreshTableHeaderDelegate)})]
 	interface ParseRefreshTableHeaderView
 	{
@@ -1075,6 +1077,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_EGORefreshTableHeaderDelegate")]
 	[Model]
+	[Protocol]
 	interface Parse_EGORefreshTableHeaderDelegate
 	{
 		[Abstract]
@@ -1152,6 +1155,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PFLogInViewControllerDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseLogInViewControllerDelegate
 	{
 		[Export ("logInViewController:shouldBeginLogInWithUsername:password:"),DefaultValue(true), DelegateName ("PFShouldLogin")]
@@ -1230,9 +1234,6 @@ namespace ParseTouch
 
 		[Export ("loadNextPage")]
 		void LoadNextPage ();
-
-		[Export ("loadObjects:clear:")]
-		void LoadObjectsclear (int page, bool clear);
 
 		[Export ("tableView:cellForRowAtIndexPath:object:")]
 		UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath, ParseObject obj);
@@ -1331,6 +1332,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_MBProgressHUDDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseMBProgressHUDDelegate
 	{
 		[Abstract]
@@ -1359,7 +1361,7 @@ namespace ParseTouch
 		[Export ("initWithImage:")]
 		IntPtr Constructor (UIImage image);
 
-		[Export ("initWithImage:highlightedImage")]
+		[Export ("initWithImage:highlightedImage:")]
 		IntPtr Constructor (UIImage image, UIImage highlightedImage);
 
 		[Export ("loadInBackground")]
@@ -1534,6 +1536,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PFFBDialogDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseFBDialogDelegate
 	{
 		[Abstract]
@@ -1640,6 +1643,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_FBRequestDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseFBRequestDelegate
 	{
 		[Abstract]
@@ -1756,6 +1760,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_FBSessionDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseFBSessionDelegate
 	{
 		[Abstract]
@@ -1790,6 +1795,7 @@ namespace ParseTouch
 
 	[BaseType (typeof(NSObject), Name="PF_FBLoginDialogDelegate")]
 	[Model]
+	[Protocol]
 	interface ParseFBLoginDialogDelegate
 	{
 		[Abstract]
@@ -1901,7 +1907,7 @@ namespace ParseTouch
 		[Export ("screenName")]
 		string ScreenName { get; set; }
 
-		[Export ("authorizeWithSuccess:failure:error:cancel:")]
+		[Export ("authorizeWithSuccess:failure:cancel:")]
 		void AuthorizeAsync (Action success, ParseErrorResult error, Action failed);
 
 		[Export ("signRequest:")]

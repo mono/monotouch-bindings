@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9C25AAA-FC32-4123-A3CC-97D7BE1AB916}</ProjectGuid>
+    <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Dropins.Chooser.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Dropins.Chooser.iOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\DBChooser.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="DBChooser.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBChooser.linkwith.cs">
+      <DependentUpon>DBChooser.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DBChooser.bundle\app-icon.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\app-icon%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_back.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_back%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_back_button_landscape.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_back_button_landscape%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_back_button_landscape_pressed.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_back_button_landscape_pressed%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_back_pressed.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_back_pressed%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_button.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_button%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_button_landscape.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_button_landscape%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_button_landscape_pressed.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_button_landscape_pressed%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_button_pressed.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_button_pressed%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_large_button.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_large_button%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_large_button_pressed.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\blue_large_button_pressed%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\header.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\header%402x.png" />
+    <BundleResource Include="Resources\DBChooser.bundle\de.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\en.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\es-ES.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\es.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\fr.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\id.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\it.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\ja.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\ko.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\ms.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\pl.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\pt.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\ru.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\zh-Hans.lproj\DBChooser.strings" />
+    <BundleResource Include="Resources\DBChooser.bundle\zh-Hant.lproj\DBChooser.strings" />
+  </ItemGroup>
+</Project>

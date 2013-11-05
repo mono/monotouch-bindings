@@ -43,8 +43,9 @@ THE SOFTWARE.
 
 Authors
 =======
-Miguel de Icaza
-Geoff Norton
-Chris Hardy (chrisntr)
-Chris Branson
-Jeffrey Stedfast
+* Miguel de Icaza
+* Geoff Norton
+* Chris Hardy (chrisntr)
+* Chris Branson
+* Jeffrey Stedfast
+* Alex Soto (dalexsoto)

@@ -1,11 +1,13 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
+MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
+VERSION=0.8
 
 all: MBProgressHUD.dll
 
-MBProgressHUD.dll: Makefile AssemblyInfo.cs ApiDefinition.cs StructsAndEnums.cs libMBProgressHUD.a
-	-mkdir -p ios
-	$(BTOUCH) -unsafe -d:DEBUG ApiDefinition.cs -s:StructsAndEnums.cs -tmpdir:ios -sourceonly:ios/sources.list
-	$(SMCS) -noconfig -debug+ -debug:full -optimize- -out:MBProgressHUD.dll -resource:libMBProgressHUD.a AssemblyInfo.cs StructsAndEnums.cs @ios/sources.list -target:library -unsafe+  -define:DEBUG -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll
+MBProgressHUD.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libMBProgressHUD.a
+	$(MONOXBUILD) /p:Configuration=Release MBProgressHUD.csproj
+	cp bin/Release/MBProgressHUD.dll MBProgressHUD.dll
+
 clean:
-	-rm -rf list ios *.dll *.zip *.mdb
+	-rm -rf list ios *.dll *.zip *.mdb *.sln bin/ obj/

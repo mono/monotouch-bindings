@@ -68,6 +68,7 @@ namespace MTZipArchive
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface ZipArchiveDelegate 
 	{
 		[Export("ErrorMessage:"), EventArgs("ZipArchiveDel"), EventName("OnError")]

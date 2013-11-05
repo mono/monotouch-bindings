@@ -91,6 +91,7 @@ namespace Kiip
 	
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface KPManagerDelegate {
 		[Export ("willPresentNotification:"),EventArgs ("KiipString")]
 		void WillPresentNotification (string rid);

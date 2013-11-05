@@ -684,6 +684,7 @@ namespace RouteMe
 	#region Tile Cache
 	
 	[Model]
+	[Protocol]
 	// RMTileCache has multiple base types defined, 'NSObject' and 'NSObject'
 	[BaseType (typeof (NSObject))]
 	interface RMTileCache {

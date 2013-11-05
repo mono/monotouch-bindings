@@ -41,7 +41,7 @@ namespace GoogleAdmobSample
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 
-			var root = new RootElement("GoogleAdmbSample") {
+			var root = new RootElement("GoogleAdmobSample") {
 				new Section ("Insert Ad") {
 					new StringElement ("on TableView", AddToTableView),
 					new StringElement ("on Window", AddToWindow)

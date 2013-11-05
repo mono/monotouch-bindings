@@ -16,6 +16,7 @@ namespace MonoTouch.PayPal {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface DeviceReferenceTokenDelegate {
 		[Abstract]
 		[Export ("receivedDeviceReferenceToken:")]
