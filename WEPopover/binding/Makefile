@@ -1,9 +1,11 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
 all: WEPopover.dll
 
-WEPopover.dll: Makefile AssemblyInfo.cs WEPopover.cs libWEPopoverUniversal.a
-	$(BTOUCH)  WEPopover.cs AssemblyInfo.cs --out=$@ --link-with=libWEPopoverUniversal.a,libWEPopoverUniversal.a -x=Extras.cs
-
+WEPopover.dll: Makefile libWEPopoverUniversal.a
+	$(MONOXBUILD) /p:Configuration=Release WEPopover.csproj
+	cp bin/Release/WEPopover.dll WEPopover.dll
+	
 clean:
-	-rm -f *.a *.dll
+	-rm -rf *.dll bin/ obj/
