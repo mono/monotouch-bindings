@@ -81,7 +81,7 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
     <Reference Include="RouteMe">
-      <HintPath>..\binding\bin\Debug\RouteMe.dll</HintPath>
+      <HintPath>..\..\binding\RouteMe.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -99,10 +99,4 @@
     <InterfaceDefinition Include="SampleViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\binding\RouteMe.Touch.csproj">
-      <Project>{327C5BD5-2BCE-4245-A626-6FCAE214F704}</Project>
-      <Name>RouteMe.Touch</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
