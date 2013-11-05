@@ -7,7 +7,7 @@ MONOMAC_DLL=$(MONOMAC)/src/MonoMac.dll
 BMAC=mono --debug $(MONOMAC)/src/bmac.exe
 XAM_BMAC=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/bin/bmac
 XAMMAC_DLL=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/lib/mono/XamMac.dll
-VERSION=0.9
+VERSION=1.4
 
 PROJECT_ROOT=CorePlot_$(VERSION)/Source/framework
 PROJECT=$(PROJECT_ROOT)/CorePlot-CocoaTouch.xcodeproj
