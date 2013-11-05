@@ -14,7 +14,15 @@ RedLaserDevSDK-$(VERSION).zip:
 libRedLaserSDK.a: RedLaserDevSDK-$(VERSION).zip
 	unzip -p $< 'RedLaserDevSDK-$(VERSION)$(BUILDVER)/RedLaser SDK Files/$@' > $@
 
-RedLaser.dll: Makefile AssemblyInfo.cs redlaser.cs enums.cs extra.cs libRedLaserSDK.a
+#This target is used by the CI Please do not remove it
+CheckCI:
+	@if test -f ../../../monotouch-bindings-externals/RedLaser/libRedLaserSDK.a; then \
+		cp ../../../monotouch-bindings-externals/RedLaser/libRedLaserSDK.a .; \
+	else \
+		make libRedLaserSDK.a; \
+	fi
+
+RedLaser.dll: Makefile AssemblyInfo.cs redlaser.cs enums.cs extra.cs CheckCI
 	$(BTOUCH) -unsafe --out=$@ redlaser.cs -s:enums.cs -x:AssemblyInfo.cs -x:extra.cs --link-with=libRedLaserSDK.a,libRedLaserSDK.a
 
 clean:
