@@ -45,8 +45,8 @@ namespace PhysicsSystem
 
 			space.Add (motorwheel.Body);
 			space.Add (new CircleShape (motorwheel.Body, UIDevice.CurrentDevice.IsIPad() ? 20 : 10, PointF.Empty) {Group = 1});
-			space.Add (new PivotJoint (space.StaticBody, motorwheel.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (160,460) : new PointF (80, 230)));
-			space.Add (new SimpleMotor (space.StaticBody, motorwheel.Body, 10f));
+			space.Add ((Constraint)new PivotJoint (space.StaticBody, motorwheel.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (160,460) : new PointF (80, 230)));
+			space.Add ((Constraint)new SimpleMotor (space.StaticBody, motorwheel.Body, 10f));
 			
 			//wheel
 			var wheel = new CCPhysicsSprite ("wheel.png") {
@@ -56,8 +56,8 @@ namespace PhysicsSystem
 			space.Add (wheel.Body);
 			space.Add (new CircleShape (wheel.Body, UIDevice.CurrentDevice.IsIPad() ? 140 : 70, PointF.Empty){Group = 1});
 			Add (wheel);
-			space.Add (new PivotJoint (space.StaticBody, wheel.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (160, 300) : new PointF (80, 150)));
-			space.Add (new GearJoint (motorwheel.Body, wheel.Body, 0f, -7f));
+			space.Add ((Constraint)new PivotJoint (space.StaticBody, wheel.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (160, 300) : new PointF (80, 150)));
+			space.Add ((Constraint)new GearJoint (motorwheel.Body, wheel.Body, 0f, -7f));
 
 			//cylinder. no physics body. only a shape
 			Add (new CCSprite ("cylinder.png") {
@@ -100,10 +100,10 @@ namespace PhysicsSystem
 			space.Add (conrod.Body);
 			space.Add (new PolygonShape (conrod.Body, UIDevice.CurrentDevice.IsIPad() ? 320 : 160, UIDevice.CurrentDevice.IsIPad() ? 40 : 20) {Group = 1});
 			Add (conrod);
-			space.Add (new PivotJoint (wheel.Body, conrod.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (40, 300) : new PointF (20, 150)));
+			space.Add ((Constraint)new PivotJoint (wheel.Body, conrod.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (40, 300) : new PointF (20, 150)));
 
-			space.Add (new PivotJoint (conrod.Body, piston.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (340, 300) : new PointF (170, 150)));
-			space.Add (new GrooveJoint (space.StaticBody, 
+			space.Add ((Constraint)new PivotJoint (conrod.Body, piston.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (340, 300) : new PointF (170, 150)));
+			space.Add ((Constraint)new GrooveJoint (space.StaticBody, 
 			                            piston.Body, 
 			                            UIDevice.CurrentDevice.IsIPad() ? new PointF (0, 300) : new PointF (0, 150), 
 			                            UIDevice.CurrentDevice.IsIPad() ? new PointF (1024, 300) : new PointF (480, 150),
@@ -118,7 +118,7 @@ namespace PhysicsSystem
 			Schedule (Update);
 		}
 
-		void Update (float dt)
+		new void Update (float dt)
 		{
 			space.Step (dt);
 		}
