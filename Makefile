@@ -25,6 +25,7 @@ ATMHud\
 BeeblexSDK\
 BPStatusBar\
 chipmunk\
+cocos2d\
 cocosDenshion\
 CorePlot\
 Couchbase\
