@@ -3,10 +3,10 @@
 
 # Add path to sln in PROJECTS var.
 MDTOOL=/Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool
-PROJECTS=
+PROJECTS=XamOpenTokTest/XamOpenTokTest.sln
 
 all:
-	#for i in $(PROJECTS); do ($(MDTOOL) build -c:"Release|iPhone" $$i); done
+	for i in $(PROJECTS); do ($(MDTOOL) build -c:"Release|iPhone" $$i); done
 	
 clean:
-	#for i in $(PROJECTS); do ($(MDTOOL) build -c:"Release|iPhone" -t:Clean $$i); done
+	for i in $(PROJECTS); do ($(MDTOOL) build -c:"Release|iPhone" -t:Clean $$i); done
