@@ -1,3 +1,3 @@
-ASSEMBLY=opentok.dll
+ASSEMBLY=OpenTok.dll
 include ../Rules.make
 

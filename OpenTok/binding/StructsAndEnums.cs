@@ -1,46 +1,44 @@
 using System;
 
-namespace opentok
+namespace OpenTok
 {
-
-	public enum OTSessionErrorCode {
+	public enum OTSessionErrorCode  {
 		AuthorizationFailure,
 		InvalidSessionId,
 		ConnectionFailed,
 		NoMessagingServer,
-		SDKUpdateRequired,
+		DKUpdateRequired,
 		ConnectionRefused,
-		SessionStateFailed,
-		P2SessionUnsupported,
+		StateFailed,
+		P2PSessionUnsupported,
 		UnknownServerError,
-		P2SessionRequired,
-		P2SessionMaxParticipants,
-		SessionConnectionTimeout,
-		SessionCompatibilityMismatch,
-		SessionSignalConnection
+		P2PSessionRequired,
+		P2PSessionMaxParticipants,
+		ConnectionTimeout,
+		CompatibilityMismatch,
+		SignalConnection
 	}
-	
-	public enum OTPublisherErrorCode {
-	    NoMediaPublished,
-	    UserDeniedCameraAccess,
-	    SessionDisconnected
-	} 
-	
-	public enum OTSubscriberErrorCode {
-	    FailedToConnect,
-	    ConnectionTimedOut,
-	    NoStreamMedia,
-	    InitializationFailure,
-	    InvalidStreamType,
-	    SelfSubcribeFailure
-	} 
 
-	public enum OTSessionEnvironment {
-		Production, Staging, 
+	public enum OTPublisherErrorCode {
+		NoMediaPublished,
+		UserDeniedCameraAccess,
+		SessionDisconnected
 	}
-	
+
+	public enum OTSubscriberErrorCode {
+		FailedToConnect,
+		ConnectionTimedOut,
+		NoStreamMedia,
+		InitializationFailure,
+		InvalidStreamType,
+		elfSubscribeFailure
+	}
+
 	public enum OTSessionConnectionStatus {
-		Connected, Connecting, Disconnected, Failed
+		Connected,
+		Connecting,
+		Disconnected,
+		Failed
 	}
 }
 
