@@ -1,108 +1,141 @@
 using System;
 using System.Drawing;
-
 using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.AVFoundation;
 
-namespace opentok
+namespace OpenTok
 {
-	[BaseType (typeof (NSError))]
-	interface OTError {
-	}
-	
+
 	[BaseType (typeof (NSObject))]
-	interface OTConnection {
+	public partial interface OTConnection {
+
 		[Export ("connectionId")]
 		string ConnectionId { get; }
-		
+
 		[Export ("creationTime")]
 		NSDate CreationTime { get; }
+
+		[Export ("data")]
+		string Data { get; }
 	}
-	
-	[BaseType (typeof (NSObject))]
-	interface OTPublisher {
+
+	[BaseType (typeof (NSError))]
+	public partial interface OTError {
+
+	}
+
+	public interface IOTPublisherDelegate { }
+
+	[Protocol, Model, BaseType (typeof (NSObject))]
+	public partial interface OTPublisherDelegate {
+
+		[Export ("publisher:didFailWithError:"), EventArgs ("OTPublisherDelegateError")]
+		void DidFail (OTPublisher publisher, OTError error);
+
+		[Export ("publisherDidStartStreaming:"), EventArgs ("OTPublisherDelegatePublisher")]
+		void DidStartStreaming (OTPublisher publisher);
+
+		[Export ("publisherDidStopStreaming:"), EventArgs ("OTPublisherDelegatePublisher")]
+		void DidStopStreaming (OTPublisher publisher);
+
+		[Export ("publisher:didChangeCameraPosition:"), EventArgs ("OTPublisherDelegatePosition")]
+		void DidChangeCameraPosition (OTPublisher publisher, AVCaptureDevicePosition position);
+	}
+
+	[BaseType (typeof (NSObject),
+	Delegates=new string [] {"Delegate"},
+	Events=new Type [] { typeof (OTPublisherDelegate) })]
+	public partial interface OTPublisher {
+
 		[Export ("initWithDelegate:")]
-		IntPtr Constructor (OTPublisherDelegate pubDelegate);
-		
+		IntPtr Constructor ([NullAllowed] IOTPublisherDelegate publisherDelegate);
+
 		[Export ("initWithDelegate:name:")]
-		IntPtr Constructor (OTPublisherDelegate pubDelegate, string name);
-		
-		[Export ("delegate"), NullAllowed]
-		NSObject WeakDelegate { get; set; }
-		
-		[Wrap ("WeakDelegate")]
-		OTPublisherDelegate Delegate { get; set; }
-		
+		IntPtr Constructor ([NullAllowed] IOTPublisherDelegate publisherDelegate, string name);
+
+		[Export ("delegate", ArgumentSemantic.Assign)] [NullAllowed]
+		IOTPublisherDelegate Delegate { get; set; }
+
 		[Export ("session")]
 		OTSession Session { get; }
-		
+
 		[Export ("view")]
-		UIView View { get; }
-		
-		[Export("name")]
+		OTVideoView View { get; }
+
+		[Export ("name", ArgumentSemantic.Copy)]
 		string Name { get; set; }
-		
+
 		[Export ("publishAudio")]
 		bool PublishAudio { get; set; }
-		
+
 		[Export ("publishVideo")]
 		bool PublishVideo { get; set; }
-		
+
 		[Export ("cameraPosition")]
 		AVCaptureDevicePosition CameraPosition { get; set; }
 	}
-	
-	[Model]
-	[Protocol]
-	[BaseType (typeof (NSObject))]
-	interface OTPublisherDelegate {
-		[Export ("publisher:didFailWithError:")]
-		[Abstract]
-		void DidFail (OTPublisher publisher, OTError error);
-		
-		[Export ("publisherDidStartStreaming:")]
-		void DidStartStreaming (OTPublisher publisher);
-		
-		[Export ("publisherDidStopStreaming:")]
-		void DidStopStreaming (OTPublisher publisher);
 
-		[Export ("publisher:didChangeCameraPosition:")]
-		void DidChangeCameraPosition (OTPublisher publisher, AVCaptureDevicePosition cameraPosition);
+	public interface IOTSessionDelegate { }
+
+	[Protocol, Model, BaseType (typeof (NSObject))]
+	public partial interface OTSessionDelegate {
+
+		[Export ("sessionDidConnect:"), EventArgs ("OTSessionDelegateSession")]
+		void DidConnect (OTSession session);
+
+		[Export ("sessionDidDisconnect:"), EventArgs ("OTSessionDelegateSession")]
+		void DidDisconnect (OTSession session);
+
+		[Export ("session:didFailWithError:"), EventArgs ("OTSessionDelegateError")]
+		void DidFail (OTSession session, OTError error);
+
+		[Export ("session:didReceiveStream:"), EventArgs ("OTSessionDelegateStream")]
+		void DidReceiveStream (OTSession session, OTStream stream);
+
+		[Export ("session:didDropStream:"), EventArgs ("OTSessionDelegateStream")]
+		void DidDropStream (OTSession session, OTStream stream);
+
+		[Export ("session:didCreateConnection:"), EventArgs ("OTSessionDelegateConnection")]
+		void DidCreateConnection (OTSession session, OTConnection connection);
+
+		[Export ("session:didDropConnection:"), EventArgs ("OTSessionDelegateConnection")]
+		void DidDropConnection (OTSession session, OTConnection connection);
 	}
-	
-	[BaseType (typeof (NSObject))]
-	interface OTSession {
-		[Export ("sessionConnectionStatus")]
-		OTSessionConnectionStatus SessionConnectionStatus { get;  }
 
-		[Export ("sessionId")]
-		string SessionId { get;  }
+	public delegate void OTSessionCompletionHandler (NSError error);
+	public delegate void OTSessionRecieveCompletionHandler (string type, NSObject data, OTConnection fromConnection);
+
+
+	[BaseType (typeof (NSObject),
+	Delegates=new string [] {"Delegate"},
+	Events=new Type [] { typeof (OTSessionDelegate) })]
+	public partial interface OTSession {
+
+		[Export ("sessionConnectionStatus")]
+		OTSessionConnectionStatus SessionConnectionStatus { get; }
+
+		[Export ("sessionId", ArgumentSemantic.Copy)]
+		string SessionId { get; set; }
 
 		[Export ("connectionCount")]
-		int ConnectionCount { get;  }
+		int ConnectionCount { get; }
 
 		[Export ("streams")]
-		NSDictionary Streams { get;  }
+		NSDictionary Streams { get; }
 
 		[Export ("connection")]
-		OTConnection Connection { get;  }
+		OTConnection Connection { get; }
 
-		[Export ("delegate"), NullAllowed]
-		NSObject WeakDelegate { get; set;  }
-		
-		[Wrap ("WeakDelegate")]
-		OTSessionDelegate Delegate { get; set;  }
-
-		[Export ("environment")]
-		OTSessionEnvironment Environment { get; set;  }
+		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
+		IOTSessionDelegate Delegate { get; set; }
 
 		[Export ("initWithSessionId:delegate:")]
-		IntPtr Constructor (string sessionId, OTSessionDelegate sessionDelegate);
+		IntPtr Constructor (string sessionId, [NullAllowed] IOTSessionDelegate SessionDelegate);
 
 		[Export ("connectWithApiKey:token:")]
-		void Connect (string apiKey, string token);
+		void ConnectWithApiKey (string apiKey, string token);
 
 		[Export ("disconnect")]
 		void Disconnect ();
@@ -114,138 +147,110 @@ namespace opentok
 		void Unpublish (OTPublisher publisher);
 
 		[Export ("signalWithType:data:completionHandler:")]
-		void SendSignal (string signalType, NSObject dataToSend, Action<NSError> completionHandler);
+		void SignalWithType (string type, [NullAllowed] NSObject data, [NullAllowed] OTSessionCompletionHandler handler);
 
 		[Export ("signalWithType:data:connections:completionHandler:")]
-		void SendSignal (string signalType, NSObject dataToSend, OTConnection [] connections, Action<NSError> completionHandler);
+		void SignalWithType (string type, [NullAllowed] NSObject data, [NullAllowed] OTConnection [] connections, [NullAllowed] OTSessionCompletionHandler handler);
 
 		[Export ("receiveSignalType:withHandler:")]
-		void SetReceiveHandler (string signalType, Action<NSString,NSObject,OTConnection> handler);
+		bool ReceiveSignalType (string type, [NullAllowed] OTSessionRecieveCompletionHandler handler);
 	}
 
 	[BaseType (typeof (NSObject))]
-	[Model]
-	[Protocol]
-	interface OTSessionDelegate {
-		[Export ("sessionDidConnect:")]
-		void DidConnect (OTSession session);
+	public partial interface OTStream {
 
-		[Export ("sessionDidDisconnect:")]
-		void DidDisconnect (OTSession session);
-
-		[Export ("session:didFailWithError:")]
-		void DidFailWithError (OTSession session, OTError error);
-
-		[Export ("session:didReceiveStream:")]
-		void DidReceiveStream (OTSession session, OTStream stream);
-
-		[Export ("session:didDropStream:")]
-		void DidDropStream (OTSession session, OTStream stream);
-
-		[Export ("session:didCreateConnection:")]
-		void DidCreateConnection (OTSession session, OTConnection connection);
-
-		[Export ("session:didDropConnection:")]
-		void DidDropConnection (OTSession session, OTConnection connection);
-
-		
-	}
-	
-	[BaseType (typeof (NSObject))]
-	interface OTStream {
-		[Export ("connection")]
-		OTConnection Connection { get;  }
+		[Export ("connection", ArgumentSemantic.Retain)]
+		OTConnection Connection { get; }
 
 		[Export ("session")]
-		OTSession Session { get;  }
+		OTSession Session { get; }
 
-		[Export ("streamId")]
-		string StreamId { get;  }
+		[Export ("streamId", ArgumentSemantic.Retain)]
+		string StreamId { get; }
 
 		[Export ("type")]
-		string Type { get;  }
+		string Type { get; }
 
-		[Export ("creationTime")]
-		NSDate CreationTime { get;  }
+		[Export ("creationTime", ArgumentSemantic.Retain)]
+		NSDate CreationTime { get; }
 
 		[Export ("name")]
-		string Name { get;  }
+		string Name { get; }
 
 		[Export ("hasAudio")]
-		bool HasAudio { get;  }
+		bool HasAudio { get; }
 
 		[Export ("hasVideo")]
-		bool HasVideo { get;  }
+		bool HasVideo { get; }
 
 		[Export ("videoDimensions")]
 		SizeF VideoDimensions { get; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	interface OTSubscriber {
+	public interface IOTSubscriberDelegate {  }
+
+	[Protocol, Model, BaseType (typeof (NSObject))]
+	public partial interface OTSubscriberDelegate {
+
+		[Export ("subscriberDidConnectToStream:"), EventArgs ("OTSubscriberDelegateSubscriber")]
+		void DidConnectToStream (OTSubscriber subscriber);
+
+		[Export ("subscriber:didFailWithError:"), EventArgs ("OTSubscriberDelegateError")]
+		void DidFail (OTSubscriber subscriber, OTError error);
+
+		[Export ("subscriberVideoDataReceived:"), EventArgs ("OTSubscriberDelegateSubscriber")]
+		void VideoDataReceived (OTSubscriber subscriber);
+
+		[Export ("stream:didChangeVideoDimensions:"), EventArgs ("OTSubscriberDelegateDimensions")]
+		void DidChangeVideoDimensions (OTStream stream, SizeF dimensions);
+
+		[Export ("subscriberVideoDisabled:"), EventArgs ("OTSubscriberDelegateSubscriber")]
+		void VideoDisabled (OTSubscriber subscriber);
+	}
+
+	[BaseType (typeof (NSObject),
+	Delegates=new string [] {"Delegate"},
+	Events=new Type [] { typeof (OTSubscriberDelegate) })]
+	public partial interface OTSubscriber {
+
 		[Export ("session")]
-		OTSession Session { get;  }
+		OTSession Session { get; }
 
 		[Export ("stream")]
-		OTStream Stream { get;  }
+		OTStream Stream { get; }
 
 		[Export ("view")]
-		OTVideoView View { get;  }
+		OTVideoView View { get; }
 
-		[Export ("delegate"), NullAllowed]
-		NSObject WeakDelegate { get; set; }
-		
-		[Wrap ("WeakDelegate")]
-		OTSubscriberDelegate Delegate { get; set;  }
+		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
+		IOTSubscriberDelegate Delegate { get; set; }
 
 		[Export ("subscribeToAudio")]
-		bool SubscribeToAudio { get; set;  }
+		bool SubscribeToAudio { get; set; }
 
 		[Export ("subscribeToVideo")]
-		bool SubscribeToVideo { get; set;  }
+		bool SubscribeToVideo { get; set; }
 
 		[Export ("initWithStream:delegate:")]
-		IntPtr Constructor (OTStream stream, OTSubscriberDelegate del);
+		IntPtr Constructor (OTStream stream, [NullAllowed] IOTSubscriberDelegate subscriberDelegate);
 
 		[Export ("close")]
 		void Close ();
-
 	}
 
-	[BaseType (typeof (NSObject))]
-	[Model]
-	[Protocol]
-	interface OTSubscriberDelegate {
-		[Abstract]
-		[Export ("subscriberDidConnectToStream:")]
-		void DidConnectToStream (OTSubscriber subscriber);
-
-		[Export ("subscriber:didFailWithError:")]
-		void DidFailWithError (OTSubscriber subscriber, OTError error);
-
-		[Export ("subscriberVideoDataReceived:")]
-		void VideoDataReceived (OTSubscriber subscriber);
-
-		[Export ("stream:didChangeVideoDimensions:")]
-		void DidChangeVideoDimensions (OTStream stream, SizeF dimensions);
-
-		[Export ("subscriberVideoDisabled:")]
-		void SubscriberVideoDisabled (OTSubscriber subscriber);
-	}
+	public delegate void OTVideoViewGetImageHandler (UIImage snapshot);
 
 	[BaseType (typeof (UIView))]
-	interface OTVideoView {
-		[Export ("initWithFrame:")]
-		IntPtr Constructor (RectangleF frame);
+	public partial interface OTVideoView {
 
-		[Export ("toolbarView")]
+		[Export ("toolbarView", ArgumentSemantic.Retain)]
 		UIView ToolbarView { get; }
 
 		[Export ("videoView")]
 		UIView VideoView { get; }
 
 		[Export ("getImageWithBlock:")]
-		void GetSnapshot (Action<UIImage> snapshotHanlder);
+		void GetImageWithBlock (OTVideoViewGetImageHandler handler);
 	}
 }
 

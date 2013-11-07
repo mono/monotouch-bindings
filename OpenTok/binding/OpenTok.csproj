@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1D84800-9EFC-400F-B71C-0C54408C942E}</ProjectGuid>
+    <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OpenTok</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>OpenTok</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\opentok.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Opentok.linkwith.cs">
+      <DependentUpon>Opentok</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\opentok.bundle\ar.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\de.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\es.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\fr.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\images\audio-only_mic.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\audio-only_silhouette.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\audio-only_speaker.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\bar-bg.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\bar-bg%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\bug.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\bug%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\button-bg_down.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\button-bg_down%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\button-bg_up.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\button-bg_up%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\cam-switch-icon.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\cam-switch-icon%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\mic-icon.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\mic-icon%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\mic-icon_muted.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\mic-icon_muted%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\speaker-icon.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\speaker-icon%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\speaker-icon_muted.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\speaker-icon_muted%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\tb-text.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\tb-text%402x.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\tokbox.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\video-mute.png" />
+    <BundleResource Include="Resources\opentok.bundle\images\video-mute_no_mic.png" />
+    <BundleResource Include="Resources\opentok.bundle\it.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\ja.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\ko.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\pt.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\pt_BR.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\ru.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\zh-Hans.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\opentok.bundle\zh-Hant.lproj\Localizable.strings" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="Opentok" />
+  </ItemGroup>
+</Project>
