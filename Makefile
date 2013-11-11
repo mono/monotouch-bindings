@@ -29,6 +29,7 @@ cocos2d\
 cocosDenshion\
 CorePlot\
 Couchbase\
+Crittercism\
 Datatrans\
 DropboxChooser\
 DropBoxSync\
