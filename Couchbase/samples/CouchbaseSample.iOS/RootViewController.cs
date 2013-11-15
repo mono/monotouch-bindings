@@ -327,8 +327,8 @@ namespace CouchbaseSample
 
       var repls = Database.ReplicateWithURL (newRemoteUrl, true);
       if (repls != null) {
-        pull = repls [0] as Replication;
-        push = repls [1] as Replication;
+        pull = repls [0];
+        push = repls [1];
         pull.Continuous = push.Continuous = true;
         pull.Persistent = push.Persistent = true;
         var nctr = NSNotificationCenter.DefaultCenter;
@@ -353,11 +353,11 @@ namespace CouchbaseSample
           _leader = null;
         }
       } 
-      if (active == pull)
+      if (active == pull) {
         lastTotal = _lastPullCompleted;
-      else
+      } else {
         lastTotal = _lastPushCompleted;
-
+      }
 
       Debug.WriteLine (String.Format ("Sync: {2} Progress: {0}/{1};", active.Completed - lastTotal, active.Total - lastTotal, active == push ? "Push" : "Pull"));
 
@@ -371,12 +371,18 @@ namespace CouchbaseSample
 
       Debug.WriteLine (String.Format ("({0})", progress));
 
-      Progress.Hidden = false;
+      if (active == pull) {
+        if (AppDelegate.CurrentSystemVersion >= AppDelegate.iOS7) Progress.TintColor = UIColor.White;
+      } else {
+        if (AppDelegate.CurrentSystemVersion >= AppDelegate.iOS7) Progress.TintColor = UIColor.LightGray;
+      }
 
+      Progress.Hidden = false;
+      
       if (progress < Progress.Progress)
         Progress.SetProgress (progress, false);
       else
-        Progress.Progress = progress;
+        Progress.SetProgress (progress, false);
 
       if (!(pull.Mode != ReplicationMode.Active && push.Mode != ReplicationMode.Active))
         return;
@@ -390,7 +396,7 @@ namespace CouchbaseSample
       if (Progress == null)
         return;
       Progress.Hidden = false;
-      Progress.SetProgress (1f, true);
+      Progress.SetProgress (1f, false);
 
       var t = new System.Timers.Timer (300);
       t.Elapsed += (sender, e) => { 
@@ -412,9 +418,8 @@ namespace CouchbaseSample
         showingSyncButton = false;
         if (Progress == null) {
           Progress = new UIProgressView (UIProgressViewStyle.Bar);
-          Progress.TintColor = UIColor.White;
           var frame = Progress.Frame;
-          var size = new System.Drawing.SizeF (View.Frame.Size.Width, frame.Height);
+          var size = new SizeF (View.Frame.Size.Width, frame.Height);
           frame.Size = size;
           Progress.Frame = frame;
           Progress.SetProgress (0f, false);
@@ -433,7 +438,7 @@ namespace CouchbaseSample
         if (Progress == null) {
           Progress = new UIProgressView (UIProgressViewStyle.Bar);
           var frame = Progress.Frame;
-          var size = new System.Drawing.SizeF (View.Frame.Size.Width / 4f, frame.Height);
+          var size = new SizeF (View.Frame.Size.Width / 4f, frame.Height);
           frame.Size = size;
           Progress.Frame = frame;
         }

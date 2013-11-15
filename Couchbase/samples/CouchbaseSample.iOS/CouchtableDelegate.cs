@@ -57,7 +57,7 @@ namespace CouchbaseSample
         var image = UIImage.FromBundle ("item_background");
         backgroundColor = UIColor.FromPatternImage (image);
       }
-
+      
       cell.BackgroundColor = backgroundColor;
       cell.SelectionStyle = UITableViewCellSelectionStyle.Gray;
 
