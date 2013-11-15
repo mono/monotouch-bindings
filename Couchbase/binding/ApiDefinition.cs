@@ -670,7 +670,7 @@ namespace Couchbase {
 		string Filter { get; set; }
 
 		[Export ("query_params", ArgumentSemantic.Copy)]
-		NSDictionary Query_params { get; set; }
+        NSDictionary QueryParams { get; set; }
 
 		[Export ("doc_ids", ArgumentSemantic.Copy)]
 		NSObject [] DocIds { get; set; }
