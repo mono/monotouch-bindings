@@ -1,7 +1,7 @@
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
-VERSION=6.1.4
+VERSION=6.1.5
 PROJECT_ROOT=Chipmunk-$(VERSION)
 PROJECT_TGZ=$(PROJECT_ROOT).tgz
 PROJECT=$(PROJECT_ROOT)/xcode/Chipmunk6.xcodeproj

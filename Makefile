@@ -1,7 +1,3 @@
-IOS=AdJitsu ATMHud facebook FlurryAnalytics FlurryAppCircle  GebePrinter GoogleAdMobAds  MGSplitViewController Parse PayPal RedLaser Tapku TestFlight Three20 UrbanAirship
-OSX=
-DUAL=CorePlot
-
 all: ios
 
 ios:
@@ -19,3 +15,65 @@ build-specific:
 
 clean:
 	for i in $(IOS) $(OSX) $(DUAL); do (cd $$i; make clean); done
+
+OSX=
+DUAL=
+
+IOS=\
+AmazonLogin\
+ATMHud\
+BeeblexSDK\
+BPStatusBar\
+chipmunk\
+cocos2d\
+cocosDenshion\
+CorePlot\
+Couchbase\
+Crittercism\
+Datatrans\
+DropboxChooser\
+DropBoxSync\
+facebook\
+flite\
+FlurryAnalytics\
+FlurryAppCircle\
+GCDiscreetNotification\
+GoogleAdMobAds\
+GoogleAnalytics\
+GoogleMaps\
+GooglePlusAndPlayGameServices\
+iCarousel\
+InMobi\
+iRate\
+KGStatusBar\
+Kiip\
+LAAnimatedGrid\
+LineaPRO\
+MagTek.iDynamo\
+MBAlertView\
+MBProgressHUD\
+MGSplitViewController\
+MMSDK\
+Mobclix\
+MTIKS\
+OpenTok\
+Parse\
+PaypalMEC\
+PayPalMobileExpressCheckout\
+PayPalMobilePayment\
+PHFComposeBarView\
+RedLaser\
+Redpark\
+Route-Me\
+SDSegmentedControl\
+SDWebImage\
+ShareKit\
+SMCalloutView\
+SparkInspector\
+TapJoyConnect\
+TestFlight\
+TimesSquare\
+TSMiniWebBrowser\
+UrbanAirShip\
+WEPopover\
+ZipArchive

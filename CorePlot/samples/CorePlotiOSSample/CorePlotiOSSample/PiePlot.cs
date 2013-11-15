@@ -35,7 +35,7 @@ namespace CorePlotiOSSample
 				Stocks         => Stocks theme.
 			*/
 
-			var theme = CPTTheme.ThemeNamed ("Dark Gradients");
+			var theme = CPTTheme.ThemeNamed (CPTTheme.DarkGradientTheme);
 
 			graph = new CPTXYGraph {
 				PaddingLeft = 0,
@@ -104,22 +104,22 @@ namespace CorePlotiOSSample
 			return data.Count;
 		}
 
-		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, int index)
+		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, uint index)
 		{
 			if (forFieldEnum == CPTPlotField.PieChartWidth)
-				return data [index];
+				return data [(int)index];
 			return index;
 		}
 
-		public override CPTLayer DataLabelForPlot (CPTPlot plot, int recordIndex)
+		public override CPTLayer DataLabelForPlot (CPTPlot plot, uint recordIndex)
 		{
 			string text = "Pie" + recordIndex;
 			return new CPTTextLayer (text, whiteText);
 		}
 
-		public override CPTFill GetSliceFill (CPTPieChart pieChart, int recordIndex)
+		public override CPTFill GetSliceFill (CPTPieChart pieChart, uint recordIndex)
 		{
-			return new CPTFill (colors[recordIndex]);
+			return new CPTFill (colors[(int)recordIndex]);
 		}
 	}
 }

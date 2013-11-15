@@ -42,7 +42,7 @@ namespace CorePlotiOSSample
 		
 		void SetupGraph ()
 		{
-			var theme = CPTTheme.ThemeNamed ("Plain Black");
+			var theme = CPTTheme.ThemeNamed (CPTTheme.PlainBlackTheme);
 			
 			graph = new CPTXYGraph (new RectangleF (0, 0, 300, 300), CPTScaleType.Linear, CPTScaleType.Linear){
 				PaddingLeft = 10,
@@ -150,14 +150,14 @@ namespace CorePlotiOSSample
 			return Data.Count;
 		}
 		
-		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, int index)
+		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, uint index)
 		{
 			if (forFieldEnum == CPTPlotField.ScatterPlotFieldX)
-				return Data [index].X;
-			return Data [index].Y;
+				return Data [(int)index].X;
+			return Data [(int)index].Y;
 		}
 		
-		public override CPTPlotSymbol GetSymbol (CPTScatterPlot plot, int recordIndex)
+		public override CPTPlotSymbol GetSymbol (CPTScatterPlot plot, uint recordIndex)
 		{
 			return CPTPlotSymbol.DiamondPlotSymbol;	
 		}
@@ -176,7 +176,7 @@ namespace CorePlotiOSSample
 			return 5;
 		}
 		
-		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, int index)
+		public override NSNumber NumberForPlot (CPTPlot plot, CPTPlotField forFieldEnum, uint index)
 		{
 			var space = graph.DefaultPlotSpace as CPTXYPlotSpace;
 			
@@ -213,43 +213,5 @@ namespace CorePlotiOSSample
 			return NSNumber.FromDouble (2);
 		}
 	}
-
-#if false			
- 
-    // Set plot delegate, to know when symbols have been touched
-        // We will display an annotation when a symbol is touched
-    dataSourceLinePlot.delegate = self; 
-    dataSourceLinePlot.plotSymbolMarginForHitDetection = 5.0;
-    
-    // Create a plot for the selection marker
-        CPScatterPlot *selectionPlot = [[[CPScatterPlot alloc] init] autorelease];
-    selectionPlot.identifier = SELECTION_PLOT;
-        selectionPlot.cachePrecision = CPPlotCachePrecisionDouble;
-    
-    lineStyle = [[dataSourceLinePlot.dataLineStyle mutableCopy] autorelease];
-        lineStyle.lineWidth = 3.0;
-    lineStyle.lineColor = [CPColor redColor];
-    selectionPlot.dataLineStyle = lineStyle;
-    
-    selectionPlot.dataSource = self;
-    [graph addPlot:selectionPlot];
-    
-    // Auto scale the plot space to fit the plot data
-    // Compress ranges so we can scroll
-    CPXYPlotSpace *plotSpace = (CPXYPlotSpace *)graph.defaultPlotSpace;
-    [plotSpace scaleToFitPlots:[NSArray arrayWithObject:dataSourceLinePlot]];
-    CPPlotRange *xRange = plotSpace.xRange;
-    [xRange expandRangeByFactor:CPDecimalFromDouble(0.75)];
-    plotSpace.xRange = xRange;
-    CPPlotRange *yRange = plotSpace.yRange;
-    [yRange expandRangeByFactor:CPDecimalFromDouble(0.75)];
-    plotSpace.yRange = yRange;
-    
-    CPPlotRange *globalXRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromDouble(-1.0) length:CPDecimalFromDouble(10.0)];
-    plotSpace.globalXRange = globalXRange;
-    CPPlotRange *globalYRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromDouble(-5.0) length:CPDecimalFromDouble(10.0)];
-    plotSpace.globalYRange = globalYRange;
-		}
-#endif
 }
 

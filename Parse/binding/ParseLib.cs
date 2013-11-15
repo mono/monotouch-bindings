@@ -1050,6 +1050,7 @@ namespace ParseTouch
 	}
 	
 	[BaseType (typeof(UIView))]
+	[Protocol]
 	//, Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof (PF_EGORefreshTableHeaderDelegate)})]
 	interface ParseRefreshTableHeaderView
 	{
@@ -1234,9 +1235,6 @@ namespace ParseTouch
 		[Export ("loadNextPage")]
 		void LoadNextPage ();
 
-		[Export ("loadObjects:clear:")]
-		void LoadObjectsclear (int page, bool clear);
-
 		[Export ("tableView:cellForRowAtIndexPath:object:")]
 		UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath, ParseObject obj);
 
@@ -1363,7 +1361,7 @@ namespace ParseTouch
 		[Export ("initWithImage:")]
 		IntPtr Constructor (UIImage image);
 
-		[Export ("initWithImage:highlightedImage")]
+		[Export ("initWithImage:highlightedImage:")]
 		IntPtr Constructor (UIImage image, UIImage highlightedImage);
 
 		[Export ("loadInBackground")]
@@ -1909,7 +1907,7 @@ namespace ParseTouch
 		[Export ("screenName")]
 		string ScreenName { get; set; }
 
-		[Export ("authorizeWithSuccess:failure:error:cancel:")]
+		[Export ("authorizeWithSuccess:failure:cancel:")]
 		void AuthorizeAsync (Action success, ParseErrorResult error, Action failed);
 
 		[Export ("signRequest:")]
