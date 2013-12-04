@@ -1,0 +1,37 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="Estimote.iOS" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libEstimoteSDK7.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.Versioning.TargetFramework("MonoTouch,Version=v1.0", FrameworkDisplayName="")</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="Estimote.iOS">
+      <Type Name="ESTBeacon" Kind="Class" />
+      <Type Name="ESTBeaconDelegate" Kind="Class" />
+      <Type Name="ESTBeaconFirmwareState" Kind="Enumeration" />
+      <Type Name="ESTBeaconManager" Kind="Class" />
+      <Type Name="ESTBeaconManagerDelegate" Kind="Class" />
+      <Type Name="ESTBeaconPower" Kind="Enumeration" />
+      <Type Name="ESTBeaconRegion" Kind="Class" />
+      <Type Name="ESTCompletionBlock" Kind="Delegate" />
+      <Type Name="ESTStringCompletionBlock" Kind="Delegate" />
+      <Type Name="ESTUnsignedCompletionBlock" Kind="Delegate" />
+    </Namespace>
+  </Types>
+  <Title>Estimote.iOS</Title>
+</Overview>
