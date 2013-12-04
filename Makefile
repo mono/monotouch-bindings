@@ -33,6 +33,7 @@ Crittercism\
 Datatrans\
 DropboxChooser\
 DropBoxSync\
+Estimote\
 facebook\
 flite\
 FlurryAnalytics\
