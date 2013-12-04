@@ -16,7 +16,7 @@ namespace Estimote.iOS
 	/// ESTBeaconDelegate defines beacon connection delegate methods. Connection is an asynchronous operation 
 	/// so you need to be prepared that eg. beaconDidDisconnectWith: method can be invoked without previous action.
 	/// </summary>
-	[Model, BaseType (typeof (NSObject))]
+	[Model, Protocol, BaseType (typeof (NSObject))]
 	public partial interface ESTBeaconDelegate {
 
 		/// <summary>
@@ -25,14 +25,14 @@ namespace Estimote.iOS
 		/// <param name="beacon">Reference to beacon object</param>
 		/// <param name="error">Information about reason of error</param>
 		[Export ("beaconConnectionDidFail:withError:")]
-		void BeaconConnectionDidFail (ESTBeacon beacon, NSError error);
+		void ConnectionDidFail (ESTBeacon beacon, NSError error);
 
 		/// <summary>
 		/// Delegate method that indicates success in beacon connection.
 		/// </summary>
 		/// <param name="beacon">Reference to beacon object</param>
 		[Export ("beaconConnectionDidSucceeded:")]
-		void BeaconConnectionDidSucceeded(ESTBeacon beacon);
+		void ConnectionDidSucceed(ESTBeacon beacon);
 
 		/// <summary>
 		/// Delegate method that beacon did disconnect with device.
@@ -40,7 +40,7 @@ namespace Estimote.iOS
 		/// <param name="beacon">Reference to beacon object</param>
 		/// <param name="error">Information about reason of error</param>
 		[Export ("beaconDidDisconnect:withError:")]
-		void BeaconDidDisconnect (ESTBeacon beacon, NSError error);
+		void DidDisconnect (ESTBeacon beacon, NSError error);
 	}
 
 	public delegate void ESTCompletionBlock(NSError error);
@@ -126,49 +126,49 @@ namespace Estimote.iOS
 		/// </summary>
 		/// <param name="completion">Block with major value as param</param>
 		[Export ("readBeaconMajorWithCompletion:")]
-		void ReadBeaconMajorWithCompletion (ESTUnsignedCompletionBlock completion);
+		void ReadBeaconMajor (ESTUnsignedCompletionBlock completion);
 
 		/// <summary>
 		/// Read minor of connected beacon (Previous connection required)
 		/// </summary>
 		/// <param name="completion">Block with minor value as param</param>
 		[Export ("readBeaconMinorWithCompletion:")]
-		void ReadBeaconMinorWithCompletion (ESTUnsignedCompletionBlock completion);
+		void ReadBeaconMinor (ESTUnsignedCompletionBlock completion);
 
 		/// <summary>
 		/// Read frequency of connected beacon (Previous connection required)
 		/// </summary>
 		/// <param name="completion">Block with frequency value as param</param>
 		[Export ("readBeaconFrequencyWithCompletion:")]
-		void ReadBeaconFrequencyWithCompletion (ESTUnsignedCompletionBlock completion);
+		void ReadBeaconFrequency (ESTUnsignedCompletionBlock completion);
 
 		/// <summary>
 		/// Read power of connected beacon (Previous connection required)
 		/// </summary>
 		/// <param name="completion">Block with power value as param</param>
 		[Export ("readBeaconPowerWithCompletion:")]
-		void ReadBeaconPowerWithCompletion (ESTUnsignedCompletionBlock completion);
+		void ReadBeaconPower (ESTUnsignedCompletionBlock completion);
 
 		/// <summary>
 		///  Read battery level of connected beacon (Previous connection required)
 		/// </summary>
 		/// <param name="completion">Block with battery level value as param</param>
 		[Export ("readBeaconBatteryWithCompletion:")]
-		void ReadBeaconBatteryWithCompletion (ESTUnsignedCompletionBlock completion);
+		void ReadBeaconBattery (ESTUnsignedCompletionBlock completion);
 
 		/// <summary>
 		/// Read firmware version of connected beacon (Previous connection required)
 		/// </summary>
 		/// <param name="completion">Block with firmware version value as param</param>
 		[Export ("readBeaconFirmwareVersionWithCompletion:")]
-		void ReadBeaconFirmwareVersionWithCompletion (ESTStringCompletionBlock completion);
+		void ReadBeaconFirmwareVersion (ESTStringCompletionBlock completion);
 
 		/// <summary>
 		/// Read hardware version of connected beacon (Previous connection required)
 		/// </summary>
 		/// <param name="completion">Block with hardware version value as param</param>
 		[Export ("readBeaconHardwareVersionWithCompletion:")]
-		void ReadBeaconHardwareVersionWithCompletion (ESTStringCompletionBlock completion);
+		void ReadBeaconHardwareVersion (ESTStringCompletionBlock completion);
 
 		/// <summary>
 		/// Writes major param to bluetooth connected beacon.
@@ -210,7 +210,7 @@ namespace Estimote.iOS
 		/// <param name="progress">Block handling operation progress</param>
 		/// <param name="completion">Block handling operation completion</param>
 		[Export ("updateBeaconFirmwareWithProgress:andCompletion:")]
-		void UpdateBeaconFirmwareWithProgress (ESTStringCompletionBlock progress, ESTCompletionBlock completion);
+		void UpdateBeaconFirmware (ESTStringCompletionBlock progress, ESTCompletionBlock completion);
 	}
 
 	/// <summary>
@@ -255,7 +255,7 @@ namespace Estimote.iOS
 	/// <summary>
 	/// The ESTBeaconManagerDelegate protocol defines the delegate methods to respond to related events.
 	/// </summary>
-	[Model, BaseType (typeof (NSObject))]
+	[Model, Protocol, BaseType (typeof (NSObject))]
 	public partial interface ESTBeaconManagerDelegate {
 
 		/// <summary>
@@ -276,7 +276,7 @@ namespace Estimote.iOS
 		/// <param name="region">Estimote beacon region</param>
 		/// <param name="error">Object containing error info</param>
 		[Export ("beaconManager:rangingBeaconsDidFailForRegion:withError:")]
-		void RangingBeaconsDidFailForRegion (ESTBeaconManager manager, ESTBeaconRegion region, NSError error);
+		void RangingBeaconsDidFail (ESTBeaconManager manager, ESTBeaconRegion region, NSError error);
 
 		/// <summary>
 		/// Delegate method invoked when monitoring fails for particular region. Related NSError object passed.
@@ -285,7 +285,7 @@ namespace Estimote.iOS
 		/// <param name="region">Estimote beacon region</param>
 		/// <param name="error">Object containing error info</param>
 		[Export ("beaconManager:monitoringDidFailForRegion:withError:")]
-		void MonitoringDidFailForRegion (ESTBeaconManager manager, ESTBeaconRegion region, NSError error);
+		void MonitoringDidFail (ESTBeaconManager manager, ESTBeaconRegion region, NSError error);
 
 		/// <summary>
 		/// Method triggered when iOS device enters estimote beacon region during monitoring.
@@ -324,7 +324,7 @@ namespace Estimote.iOS
 		/// <param name="manager">Estimote beacon manager</param>
 		/// <param name="error">Info about any error</param>
 		[Export ("beaconManagerDidStartAdvertising:error:")]
-		void BeaconManagerDidStartAdvertising (ESTBeaconManager manager, NSError error);
+		void DidStartAdvertising (ESTBeaconManager manager, NSError error);
 
 		/// <summary>
 		/// Delegate method invoked to handle discovered ESTBeacon objects using CoreBluetooth framework
@@ -337,12 +337,12 @@ namespace Estimote.iOS
 		void DidDiscoverBeacons (ESTBeaconManager manager, NSArray [] beacons, ESTBeaconRegion region);
 
 		/// <summary>
-		/// Delegate method invoked when CoreBluetooth based discovery process fails.
+		/// Delegate method invoked when CoreBluetooth based discovery process fails in region
 		/// </summary>
 		/// <param name="manager">Estimote beacon manager</param>
-		/// <param name="region">Estimote beacon region</param>
+		/// <param name="region">Estimote beacon region where discovery failed</param>
 		[Export ("beaconManager:didFailDiscoveryInRegion:")]
-		void DidFailDiscoveryInRegion (ESTBeaconManager manager, ESTBeaconRegion region);
+		void DidFailDiscovery (ESTBeaconManager manager, ESTBeaconRegion region);
 	}
 
 	/// <summary>
@@ -375,7 +375,7 @@ namespace Estimote.iOS
 		/// </summary>
 		/// <param name="region">Estimote beacon region</param>
 		[Export ("startRangingBeaconsInRegion:")]
-		void StartRangingBeaconsInRegion (ESTBeaconRegion region);
+		void StartRangingBeacons (ESTBeaconRegion region);
 
 		/// <summary>
 		/// Start monitoring for particular region.
@@ -386,28 +386,28 @@ namespace Estimote.iOS
 		/// </summary>
 		/// <param name="region">Estimote beacon region</param>
 		[Export ("startMonitoringForRegion:")]
-		void StartMonitoringForRegion (ESTBeaconRegion region);
+		void StartMonitoring (ESTBeaconRegion region);
 
 		/// <summary>
 		/// Stops ranging Estimote beacons.
 		/// </summary>
 		/// <param name="region">Estimote beacon region</param>
 		[Export ("stopRangingBeaconsInRegion:")]
-		void StopRangingBeaconsInRegion (ESTBeaconRegion region);
+		void StopRangingBeacons (ESTBeaconRegion region);
 
 		/// <summary>
 		/// Unsubscribe application from iOS monitoring of Estimote beacon region.
 		/// </summary>
 		/// <param name="region">Estimote beacon region</param>
 		[Export ("stopMonitoringForRegion:")]
-		void StopMonitoringForRegion (ESTBeaconRegion region);
+		void StopMonitoring (ESTBeaconRegion region);
 
 		/// <summary>
 		/// Allows to validate current state for particular region.
 		/// </summary>
 		/// <param name="region">Estimote beacon region</param>
 		[Export ("requestStateForRegion:")]
-		void RequestStateForRegion (ESTBeaconRegion region);
+		void RequestState (ESTBeaconRegion region);
 
 		/// <summary>
 		/// Allows to turn iPhone device into virtual estimote beacon.
@@ -416,7 +416,7 @@ namespace Estimote.iOS
 		/// <param name="minor">Minor beacon value</param>
 		/// <param name="identifier">Unique identifier for your region</param>
 		[Export ("startAdvertisingWithMajor:withMinor:withIdentifier:")]
-		void StartAdvertisingWithMajor (ushort major, ushort minor, string identifier);
+		void StartAdvertising (ushort major, ushort minor, string identifier);
 
 		/// <summary>
 		/// Stop advertising the iPhone device as virtual estimote beacon.
@@ -431,7 +431,7 @@ namespace Estimote.iOS
 		/// </summary>
 		/// <param name="region">estimote beacon region</param>
 		[Export ("startEstimoteBeaconsDiscoveryForRegion:")]
-		void StartEstimoteBeaconsDiscoveryForRegion (ESTBeaconRegion region);
+		void StartEstimoteBeaconsDiscovery (ESTBeaconRegion region);
 
 		/// <summary>
 		/// Stops CoreBluetooth based beacon discovery process.

@@ -108,7 +108,7 @@ namespace EstimoteSample.iOS
 
 			// start looking for estimote beacons in region
 			// when beacon ranged beaconManager:didRangeBeacons:inRegion: invoked
-			estBeaconManager.StartRangingBeaconsInRegion(region);
+			estBeaconManager.StartRangingBeacons(region);
 		}
 	}
 }

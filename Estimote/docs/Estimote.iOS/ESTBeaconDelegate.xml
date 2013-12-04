@@ -1,6 +1,6 @@
 <Type Name="ESTBeaconDelegate" FullName="Estimote.iOS.ESTBeaconDelegate">
-  <TypeSignature Language="C#" Value="public class ESTBeaconDelegate : MonoTouch.Foundation.NSObject" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ESTBeaconDelegate extends MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="C#" Value="public class ESTBeaconDelegate : MonoTouch.Foundation.NSObject, Estimote.iOS.IESTBeaconDelegate, IDisposable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ESTBeaconDelegate extends MonoTouch.Foundation.NSObject implements class Estimote.iOS.IESTBeaconDelegate, class MonoTouch.ObjCRuntime.INativeObject, class System.IDisposable" />
   <AssemblyInfo>
     <AssemblyName>Estimote.iOS</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -8,10 +8,20 @@
   <Base>
     <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
   </Base>
-  <Interfaces />
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Estimote.iOS.IESTBeaconDelegate</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
   <Attributes>
     <Attribute>
       <AttributeName>MonoTouch.Foundation.Model</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Protocol</AttributeName>
     </Attribute>
     <Attribute>
       <AttributeName>MonoTouch.Foundation.Register("ESTBeaconDelegate", true)</AttributeName>
@@ -109,9 +119,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BeaconConnectionDidFail">
-      <MemberSignature Language="C#" Value="public virtual void BeaconConnectionDidFail (Estimote.iOS.ESTBeacon beacon, MonoTouch.Foundation.NSError error);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeaconConnectionDidFail(class Estimote.iOS.ESTBeacon beacon, class MonoTouch.Foundation.NSError error) cil managed" />
+    <Member MemberName="ConnectionDidFail">
+      <MemberSignature Language="C#" Value="public virtual void ConnectionDidFail (Estimote.iOS.ESTBeacon beacon, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ConnectionDidFail(class Estimote.iOS.ESTBeacon beacon, class MonoTouch.Foundation.NSError error) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -135,9 +145,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BeaconConnectionDidSucceeded">
-      <MemberSignature Language="C#" Value="public virtual void BeaconConnectionDidSucceeded (Estimote.iOS.ESTBeacon beacon);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeaconConnectionDidSucceeded(class Estimote.iOS.ESTBeacon beacon) cil managed" />
+    <Member MemberName="ConnectionDidSucceed">
+      <MemberSignature Language="C#" Value="public virtual void ConnectionDidSucceed (Estimote.iOS.ESTBeacon beacon);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ConnectionDidSucceed(class Estimote.iOS.ESTBeacon beacon) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -159,9 +169,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BeaconDidDisconnect">
-      <MemberSignature Language="C#" Value="public virtual void BeaconDidDisconnect (Estimote.iOS.ESTBeacon beacon, MonoTouch.Foundation.NSError error);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeaconDidDisconnect(class Estimote.iOS.ESTBeacon beacon, class MonoTouch.Foundation.NSError error) cil managed" />
+    <Member MemberName="DidDisconnect">
+      <MemberSignature Language="C#" Value="public virtual void DidDisconnect (Estimote.iOS.ESTBeacon beacon, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidDisconnect(class Estimote.iOS.ESTBeacon beacon, class MonoTouch.Foundation.NSError error) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
