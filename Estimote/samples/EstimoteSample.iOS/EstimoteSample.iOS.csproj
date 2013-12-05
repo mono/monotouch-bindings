@@ -94,6 +94,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="Estimote.iOS">
+      <HintPath>..\..\binding\Estimote.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -114,10 +117,4 @@
     <InterfaceDefinition Include="ProximityDemoViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\..\binding\Estimote.iOS.csproj">
-      <Project>{96D4FC7B-3452-43B1-87B5-775AB94BF6BB}</Project>
-      <Name>Estimote.iOS</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
