@@ -41,10 +41,10 @@ namespace GoogleAnalytics.iOS
 		GAI SharedInstance { get; }
 
 		[Export ("trackerWithName:trackingId:")]
-		IGAITracker Tracker (string name, string trackingId);
+		IGAITracker GetTracker (string name, string trackingId);
 
 		[Export ("trackerWithTrackingId:")]
-		IGAITracker Tracker (string trackingId);
+		IGAITracker GetTracker (string trackingId);
 
 		[Export ("removeTrackerByName:")]
 		void RemoveTracker (string name);
@@ -57,10 +57,10 @@ namespace GoogleAnalytics.iOS
 	interface GAIDictionaryBuilder
 	{
 		[Export ("set:forKey:")]
-		GAIDictionaryBuilder Set (string value, string key);
+		GAIDictionaryBuilder Set ([NullAllowed] string value, [NullAllowed] string key);
 
 		[Export ("setAll:")]
-		GAIDictionaryBuilder SetAll (NSDictionary parameters);
+		GAIDictionaryBuilder SetAll ([NullAllowed] NSDictionary parameters);
 
 		[Export ("get:")]
 		string Get ([NullAllowed] string paramName);
