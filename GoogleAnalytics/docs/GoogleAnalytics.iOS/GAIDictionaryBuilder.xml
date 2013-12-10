@@ -1,0 +1,462 @@
+<Type Name="GAIDictionaryBuilder" FullName="GoogleAnalytics.iOS.GAIDictionaryBuilder">
+  <TypeSignature Language="C#" Value="public class GAIDictionaryBuilder : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GAIDictionaryBuilder extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>GoogleAnalytics.iOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("GAIDictionaryBuilder", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GAIDictionaryBuilder ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GAIDictionaryBuilder (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GAIDictionaryBuilder (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GAIDictionaryBuilder (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Build">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSMutableDictionary Build ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSMutableDictionary Build() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("build")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSMutableDictionary</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateAppView">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.GAIDictionaryBuilder CreateAppView ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.GAIDictionaryBuilder CreateAppView() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createAppView")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateEvent">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.GAIDictionaryBuilder CreateEvent (string category, string action, string label, MonoTouch.Foundation.NSNumber number);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.GAIDictionaryBuilder CreateEvent(string category, string action, string label, class MonoTouch.Foundation.NSNumber number) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createEventWithCategory:action:label:value:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="category" Type="System.String" />
+        <Parameter Name="action" Type="System.String" />
+        <Parameter Name="label" Type="System.String" />
+        <Parameter Name="number" Type="MonoTouch.Foundation.NSNumber" />
+      </Parameters>
+      <Docs>
+        <param name="category">To be added.</param>
+        <param name="action">To be added.</param>
+        <param name="label">To be added.</param>
+        <param name="number">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateException">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.GAIDictionaryBuilder CreateException (string description, MonoTouch.Foundation.NSNumber fatal);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.GAIDictionaryBuilder CreateException(string description, class MonoTouch.Foundation.NSNumber fatal) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createExceptionWithDescription:withFatal:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="description" Type="System.String" />
+        <Parameter Name="fatal" Type="MonoTouch.Foundation.NSNumber" />
+      </Parameters>
+      <Docs>
+        <param name="description">To be added.</param>
+        <param name="fatal">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateItem">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.GAIDictionaryBuilder CreateItem (string transactionId, string name, string sku, string category, MonoTouch.Foundation.NSNumber price, MonoTouch.Foundation.NSNumber quantity, string currencyCode);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.GAIDictionaryBuilder CreateItem(string transactionId, string name, string sku, string category, class MonoTouch.Foundation.NSNumber price, class MonoTouch.Foundation.NSNumber quantity, string currencyCode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createItemWithTransactionId:name:sku:category:price:quantity:currencyCode:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="transactionId" Type="System.String" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sku" Type="System.String" />
+        <Parameter Name="category" Type="System.String" />
+        <Parameter Name="price" Type="MonoTouch.Foundation.NSNumber" />
+        <Parameter Name="quantity" Type="MonoTouch.Foundation.NSNumber" />
+        <Parameter Name="currencyCode" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="transactionId">To be added.</param>
+        <param name="name">To be added.</param>
+        <param name="sku">To be added.</param>
+        <param name="category">To be added.</param>
+        <param name="price">To be added.</param>
+        <param name="quantity">To be added.</param>
+        <param name="currencyCode">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateSocial">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.GAIDictionaryBuilder CreateSocial (string network, string action, string target);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.GAIDictionaryBuilder CreateSocial(string network, string action, string target) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createSocialWithNetwork:action:target:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="network" Type="System.String" />
+        <Parameter Name="action" Type="System.String" />
+        <Parameter Name="target" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="network">To be added.</param>
+        <param name="action">To be added.</param>
+        <param name="target">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateTiming">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.GAIDictionaryBuilder CreateTiming (string category, MonoTouch.Foundation.NSNumber intervalMillis, string name, string label);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.GAIDictionaryBuilder CreateTiming(string category, class MonoTouch.Foundation.NSNumber intervalMillis, string name, string label) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createTimingWithCategory:interval:name:label:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="category" Type="System.String" />
+        <Parameter Name="intervalMillis" Type="MonoTouch.Foundation.NSNumber" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="label" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="category">To be added.</param>
+        <param name="intervalMillis">To be added.</param>
+        <param name="name">To be added.</param>
+        <param name="label">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateTransaction">
+      <MemberSignature Language="C#" Value="public static GoogleAnalytics.iOS.GAIDictionaryBuilder CreateTransaction (string transactionId, string affiliation, MonoTouch.Foundation.NSNumber revenue, MonoTouch.Foundation.NSNumber tax, MonoTouch.Foundation.NSNumber shipping, string currencyCode);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class GoogleAnalytics.iOS.GAIDictionaryBuilder CreateTransaction(string transactionId, string affiliation, class MonoTouch.Foundation.NSNumber revenue, class MonoTouch.Foundation.NSNumber tax, class MonoTouch.Foundation.NSNumber shipping, string currencyCode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createTransactionWithId:affiliation:revenue:tax:shipping:currencyCode:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="transactionId" Type="System.String" />
+        <Parameter Name="affiliation" Type="System.String" />
+        <Parameter Name="revenue" Type="MonoTouch.Foundation.NSNumber" />
+        <Parameter Name="tax" Type="MonoTouch.Foundation.NSNumber" />
+        <Parameter Name="shipping" Type="MonoTouch.Foundation.NSNumber" />
+        <Parameter Name="currencyCode" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="transactionId">To be added.</param>
+        <param name="affiliation">To be added.</param>
+        <param name="revenue">To be added.</param>
+        <param name="tax">To be added.</param>
+        <param name="shipping">To be added.</param>
+        <param name="currencyCode">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Get">
+      <MemberSignature Language="C#" Value="public virtual string Get (string paramName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance string Get(string paramName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("get:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="paramName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="paramName">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Set">
+      <MemberSignature Language="C#" Value="public virtual GoogleAnalytics.iOS.GAIDictionaryBuilder Set (string value, string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class GoogleAnalytics.iOS.GAIDictionaryBuilder Set(string value, string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("set:forKey:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAll">
+      <MemberSignature Language="C#" Value="public virtual GoogleAnalytics.iOS.GAIDictionaryBuilder SetAll (MonoTouch.Foundation.NSDictionary parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class GoogleAnalytics.iOS.GAIDictionaryBuilder SetAll(class MonoTouch.Foundation.NSDictionary parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setAll:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="parameters">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetCampaignParameters">
+      <MemberSignature Language="C#" Value="public virtual GoogleAnalytics.iOS.GAIDictionaryBuilder SetCampaignParameters (string urlString);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class GoogleAnalytics.iOS.GAIDictionaryBuilder SetCampaignParameters(string urlString) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setCampaignParametersFromUrl:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAnalytics.iOS.GAIDictionaryBuilder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="urlString" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="urlString">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
