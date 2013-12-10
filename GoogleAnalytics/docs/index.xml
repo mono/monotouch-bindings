@@ -1,0 +1,137 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="GoogleAnalytics.iOS" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAnalyticsServices.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="CoreData SystemConfiguration AdSupport", LinkerFlags="-lz -lsqlite3.0 -ObjC -fobjc-arc", SmartLink=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libGoogleAnalyticsExporter.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, SmartLink=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.Versioning.TargetFramework("MonoTouch,Version=v1.0", FrameworkDisplayName="")</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="ApiDefinition">
+      <Type Name="Messaging" Kind="Class" />
+    </Namespace>
+    <Namespace Name="GoogleAnalytics.iOS">
+      <Type Name="GAI" Kind="Class" />
+      <Type Name="GAIConstants" Kind="Class" />
+      <Type Name="GAIDictionaryBuilder" Kind="Class" />
+      <Type Name="GAIErrorCode" Kind="Enumeration" />
+      <Type Name="GAIFields" Kind="Class" />
+      <Type Name="GAILogger" Kind="Class" />
+      <Type Name="GAILogger_Extensions" Kind="Class" />
+      <Type Name="GAILogLevel" Kind="Enumeration" />
+      <Type Name="GAITrackedViewController" Kind="Class" />
+      <Type Name="GAITracker" Kind="Class" />
+      <Type Name="GAITracker_Extensions" Kind="Class" />
+      <Type Name="IGAILogger" Kind="Interface" />
+      <Type Name="IGAITracker" Kind="Interface" />
+    </Namespace>
+  </Types>
+  <Title>GoogleAnalytics.iOS</Title>
+  <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.IGAITracker" />
+      </Targets>
+      <Member MemberName="Get">
+        <MemberSignature Language="C#" Value="public static string Get (this GoogleAnalytics.iOS.IGAITracker This, string parameterName);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Get(class GoogleAnalytics.iOS.IGAITracker This, string parameterName) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.String</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.IGAITracker" RefType="this" />
+          <Parameter Name="parameterName" Type="System.String" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="parameterName">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.GAITracker_Extensions" Member="M:GoogleAnalytics.iOS.GAITracker_Extensions.Get(GoogleAnalytics.iOS.IGAITracker,System.String)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.IGAITracker" />
+      </Targets>
+      <Member MemberName="GetName">
+        <MemberSignature Language="C#" Value="public static string GetName (this GoogleAnalytics.iOS.IGAITracker This);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig string GetName(class GoogleAnalytics.iOS.IGAITracker This) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.String</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.IGAITracker" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.GAITracker_Extensions" Member="M:GoogleAnalytics.iOS.GAITracker_Extensions.GetName(GoogleAnalytics.iOS.IGAITracker)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.IGAITracker" />
+      </Targets>
+      <Member MemberName="Send">
+        <MemberSignature Language="C#" Value="public static void Send (this GoogleAnalytics.iOS.IGAITracker This, MonoTouch.Foundation.NSDictionary parameters);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Send(class GoogleAnalytics.iOS.IGAITracker This, class MonoTouch.Foundation.NSDictionary parameters) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.IGAITracker" RefType="this" />
+          <Parameter Name="parameters" Type="MonoTouch.Foundation.NSDictionary" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="parameters">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.GAITracker_Extensions" Member="M:GoogleAnalytics.iOS.GAITracker_Extensions.Send(GoogleAnalytics.iOS.IGAITracker,MonoTouch.Foundation.NSDictionary)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:GoogleAnalytics.iOS.IGAITracker" />
+      </Targets>
+      <Member MemberName="Set">
+        <MemberSignature Language="C#" Value="public static void Set (this GoogleAnalytics.iOS.IGAITracker This, string parameterName, string value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Set(class GoogleAnalytics.iOS.IGAITracker This, string parameterName, string value) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="GoogleAnalytics.iOS.IGAITracker" RefType="this" />
+          <Parameter Name="parameterName" Type="System.String" />
+          <Parameter Name="value" Type="System.String" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="parameterName">To be added.</param>
+          <param name="value">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="GoogleAnalytics.iOS.GAITracker_Extensions" Member="M:GoogleAnalytics.iOS.GAITracker_Extensions.Set(GoogleAnalytics.iOS.IGAITracker,System.String,System.String)" />
+      </Member>
+    </ExtensionMethod>
+  </ExtensionMethods>
+</Overview>
