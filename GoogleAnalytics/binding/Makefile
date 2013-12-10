@@ -17,4 +17,4 @@ GoogleAnalytics.iOS.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libGoogleA
 	cp bin/Release/GoogleAnalytics.iOS.dll GoogleAnalytics.iOS.dll
 
 clean:
-	-rm -rf list ios *.a *.dll *.o *.zip bin/ obj/
+	-rm -rf list ios libGoogleAnalyticsServices.a *.dll *.o *.zip bin/ obj/

@@ -48,10 +48,14 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libGoogleAnalyticsServices.a" />
+    <ObjcBindingNativeLibrary Include="libGoogleAnalyticsExporter.a" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="libGoogleAnalyticsServices.linkwith.cs">
       <DependentUpon>libGoogleAnalyticsServices.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGoogleAnalyticsExporter.linkwith.cs">
+      <DependentUpon>libGoogleAnalyticsExporter.a</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

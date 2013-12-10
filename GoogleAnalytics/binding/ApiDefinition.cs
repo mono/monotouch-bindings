@@ -6,6 +6,260 @@ using MonoTouch.UIKit;
 
 namespace GoogleAnalytics.iOS
 {
+	// Custom Class to export all the constants inside Google Analytics SDK
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "GoogleAnalyticsExporter")]
+	interface GAIConstants
+	{
+		[Static]
+		[Export ("kGAIHitTypeGlobal")]
+		NSString HitType { get; }
+
+		[Static]
+		[Export ("kGAITrackingIdGlobal")]
+		NSString TrackingId { get; }
+
+		[Static]
+		[Export ("kGAIClientIdGlobal")]
+		NSString ClientId { get; }
+
+		[Static]
+		[Export ("kGAIAnonymizeIpGlobal")]
+		NSString AnonymizeIp { get; }
+
+		[Static]
+		[Export ("kGAISessionControlGlobal")]
+		NSString SessionControl { get; }
+
+		[Static]
+		[Export ("kGAIScreenResolutionGlobal")]
+		NSString ScreenResolution { get; }
+
+		[Static]
+		[Export ("kGAIViewportSizeGlobal")]
+		NSString ViewportSize { get; }
+
+		[Static]
+		[Export ("kGAIEncodingGlobal")]
+		NSString Encoding { get; }
+
+		[Static]
+		[Export ("kGAIScreenColorsGlobal")]
+		NSString ScreenColors { get; }
+
+		[Static]
+		[Export ("kGAILanguageGlobal")]
+		NSString Language { get; }
+
+		[Static]
+		[Export ("kGAIJavaEnabledGlobal")]
+		NSString JavaEnabled { get; }
+
+		[Static]
+		[Export ("kGAIFlashVersionGlobal")]
+		NSString FlashVersion { get; }
+
+		[Static]
+		[Export ("kGAINonInteractionGlobal")]
+		NSString NonInteraction { get; }
+
+		[Static]
+		[Export ("kGAIReferrerGlobal")]
+		NSString Referrer { get; }
+
+		[Static]
+		[Export ("kGAILocationGlobal")]
+		NSString Location { get; }
+
+		[Static]
+		[Export ("kGAIHostnameGlobal")]
+		NSString Hostname { get; }
+
+		[Static]
+		[Export ("kGAIPageGlobal")]
+		NSString Page { get; }
+
+		[Static]
+		[Export ("kGAIDescriptionGlobal")] [New]
+		NSString Description { get; }
+
+		[Static]
+		[Export ("kGAIScreenNameGlobal")]
+		NSString ScreenName { get; }
+
+		[Static]
+		[Export ("kGAITitleGlobal")]
+		NSString Title { get; }
+
+		[Static]
+		[Export ("kGAIAppNameGlobal")]
+		NSString AppName { get; }
+
+		[Static]
+		[Export ("kGAIAppVersionGlobal")]
+		NSString AppVersion { get; }
+
+		[Static]
+		[Export ("kGAIAppIdGlobal")]
+		NSString AppId { get; }
+
+		[Static]
+		[Export ("kGAIAppInstallerIdGlobal")]
+		NSString AppInstallerId { get; }
+
+		[Static]
+		[Export ("kGAIEventCategoryGlobal")]
+		NSString EventCategory { get; }
+
+		[Static]
+		[Export ("kGAIEventActionGlobal")]
+		NSString EventAction { get; }
+
+		[Static]
+		[Export ("kGAIEventLabelGlobal")]
+		NSString EventLabel { get; }
+
+		[Static]
+		[Export ("kGAIEventValueGlobal")]
+		NSString EventValue { get; }
+
+		[Static]
+		[Export ("kGAISocialNetworkGlobal")]
+		NSString SocialNetwork { get; }
+
+		[Static]
+		[Export ("kGAISocialActionGlobal")]
+		NSString SocialAction { get; }
+
+		[Static]
+		[Export ("kGAISocialTargetGlobal")]
+		NSString SocialTarget { get; }
+
+		[Static]
+		[Export ("kGAITransactionIdGlobal")]
+		NSString TransactionId { get; }
+
+		[Static]
+		[Export ("kGAITransactionAffiliationGlobal")]
+		NSString TransactionAffiliation { get; }
+
+		[Static]
+		[Export ("kGAITransactionRevenueGlobal")]
+		NSString TransactionRevenue { get; }
+
+		[Static]
+		[Export ("kGAITransactionShippingGlobal")]
+		NSString TransactionShipping { get; }
+
+		[Static]
+		[Export ("kGAITransactionTaxGlobal")]
+		NSString TransactionTax { get; }
+
+		[Static]
+		[Export ("kGAICurrencyCodeGlobal")]
+		NSString CurrencyCode { get; }
+
+		[Static]
+		[Export ("kGAIItemPriceGlobal")]
+		NSString ItemPrice { get; }
+
+		[Static]
+		[Export ("kGAIItemQuantityGlobal")]
+		NSString ItemQuantity { get; }
+
+		[Static]
+		[Export ("kGAIItemSkuGlobal")]
+		NSString ItemSku { get; }
+
+		[Static]
+		[Export ("kGAIItemNameGlobal")]
+		NSString ItemName { get; }
+
+		[Static]
+		[Export ("kGAIItemCategoryGlobal")]
+		NSString ItemCategory { get; }
+
+		[Static]
+		[Export ("kGAICampaignSourceGlobal")]
+		NSString CampaignSource { get; }
+
+		[Static]
+		[Export ("kGAICampaignMediumGlobal")]
+		NSString CampaignMedium { get; }
+
+		[Static]
+		[Export ("kGAICampaignNameGlobal")]
+		NSString CampaignName { get; }
+
+		[Static]
+		[Export ("kGAICampaignKeywordGlobal")]
+		NSString CampaignKeyword { get; }
+
+		[Static]
+		[Export ("kGAICampaignContentGlobal")]
+		NSString CampaignContent { get; }
+
+		[Static]
+		[Export ("kGAICampaignIdGlobal")]
+		NSString CampaignId { get; }
+
+		[Static]
+		[Export ("kGAITimingCategoryGlobal")]
+		NSString TimingCategory { get; }
+
+		[Static]
+		[Export ("kGAITimingVarGlobal")]
+		NSString TimingVar { get; }
+
+		[Static]
+		[Export ("kGAITimingValueGlobal")]
+		NSString TimingValue { get; }
+
+		[Static]
+		[Export ("kGAITimingLabelGlobal")]
+		NSString TimingLabel { get; }
+
+		[Static]
+		[Export ("kGAIExDescriptionGlobal")]
+		NSString ExDescription { get; }
+
+		[Static]
+		[Export ("kGAIExFatalGlobal")]
+		NSString ExFatal { get; }
+
+		[Static]
+		[Export ("kGAISampleRateGlobal")]
+		NSString SampleRate { get; }
+
+		[Static]
+		[Export ("kGAIAppViewGlobal")]
+		NSString AppView { get; }
+
+		[Static]
+		[Export ("kGAIEventGlobal")]
+		NSString Event { get; }
+
+		[Static]
+		[Export ("kGAISocialGlobal")]
+		NSString Social { get; }
+
+		[Static]
+		[Export ("kGAITransactionGlobal")]
+		NSString Transaction { get; }
+
+		[Static]
+		[Export ("kGAIItemGlobal")]
+		NSString Item { get; }
+
+		[Static]
+		[Export ("kGAIExceptionGlobal")]
+		NSString Exception { get; }
+
+		[Static]
+		[Export ("kGAITimingGlobal")]
+		NSString Timing { get; }
+	}
+
 	[BaseType (typeof (NSObject))]
 	interface GAI
 	{
@@ -114,135 +368,6 @@ namespace GoogleAnalytics.iOS
 		[Static]
 		[Export ("customMetricForIndex:")]
 		string CustomMetric (uint index);
-
-		[Field ("GAITitle", "__Internal")]
-		NSString Title { get; }
-
-		[Field ("GAIAppName", "__Internal")]
-		NSString AppName { get; }
-
-		[Field ("GAIAppVersion", "__Internal")]
-		NSString AppVersion { get; }
-
-		[Field ("GAIAppId", "__Internal")]
-		NSString AppId { get; }
-
-		[Field ("GAIAppInstallerId", "__Internal")]
-		NSString AppInstallerId { get; }
-
-		[Field ("GAIEventCategory", "__Internal")]
-		NSString EventCategory { get; }
-
-		[Field ("GAIEventAction", "__Internal")]
-		NSString EventAction { get; }
-
-		[Field ("GAIEventLabel", "__Internal")]
-		NSString EventLabel { get; }
-
-		[Field ("GAIEventValue", "__Internal")]
-		NSString EventValue { get; }
-
-		[Field ("GAISocialNetwork", "__Internal")]
-		NSString SocialNetwork { get; }
-
-		[Field ("GAISocialAction", "__Internal")]
-		NSString SocialAction { get; }
-
-		[Field ("GAISocialTarget", "__Internal")]
-		NSString SocialTarget { get; }
-
-		[Field ("GAITransactionId", "__Internal")]
-		NSString TransactionId { get; }
-
-		[Field ("GAITransactionAffiliation", "__Internal")]
-		NSString TransactionAffiliation { get; }
-
-		[Field ("GAITransactionRevenue", "__Internal")]
-		NSString TransactionRevenue { get; }
-
-		[Field ("GAITransactionShipping", "__Internal")]
-		NSString TransactionShipping { get; }
-
-		[Field ("GAITransactionTax", "__Internal")]
-		NSString TransactionTax { get; }
-
-		[Field ("GAICurrencyCode", "__Internal")]
-		NSString CurrencyCode { get; }
-
-		[Field ("GAIItemPrice", "__Internal")]
-		NSString ItemPrice { get; }
-
-		[Field ("GAIItemQuantity", "__Internal")]
-		NSString ItemQuantity { get; }
-
-		[Field ("GAIItemSku", "__Internal")]
-		NSString ItemSku { get; }
-
-		[Field ("GAIItemName", "__Internal")]
-		NSString ItemName { get; }
-
-		[Field ("GAIItemCategory", "__Internal")]
-		NSString ItemCategory { get; }
-
-		[Field ("GAICampaignSource", "__Internal")]
-		NSString CampaignSource { get; }
-
-		[Field ("GAICampaignMedium", "__Internal")]
-		NSString CampaignMedium { get; }
-
-		[Field ("GAICampaignName", "__Internal")]
-		NSString CampaignName { get; }
-
-		[Field ("GAICampaignKeyword", "__Internal")]
-		NSString CampaignKeyword { get; }
-
-		[Field ("GAICampaignContent", "__Internal")]
-		NSString CampaignContent { get; }
-
-		[Field ("GAICampaignId", "__Internal")]
-		NSString CampaignId { get; }
-
-		[Field ("GAITimingCategory", "__Internal")]
-		NSString TimingCategory { get; }
-
-		[Field ("GAITimingVar", "__Internal")]
-		NSString TimingVar { get; }
-
-		[Field ("GAITimingValue", "__Internal")]
-		NSString TimingValue { get; }
-
-		[Field ("GAITimingLabel", "__Internal")]
-		NSString TimingLabel { get; }
-
-		[Field ("GAIExDescription", "__Internal")]
-		NSString ExDescription { get; }
-
-		[Field ("GAIExFatal", "__Internal")]
-		NSString ExFatal { get; }
-
-		[Field ("GAISampleRate", "__Internal")]
-		NSString SampleRate { get; }
-
-		[Field ("GAIAppView", "__Internal")]
-		NSString AppView { get; }
-
-		[Field ("GAIEvent", "__Internal")]
-		NSString Event { get; }
-
-		[Field ("GAISocial", "__Internal")]
-		NSString Social { get; }
-
-		[Field ("GAITransaction", "__Internal")]
-		NSString Transaction { get; }
-
-		[Field ("GAIItem", "__Internal")]
-		NSString Item { get; }
-
-		[Field ("GAIException", "__Internal")]
-		NSString Exception { get; }
-
-		[Field ("GAITiming", "__Internal")]
-		NSString Timing { get; }
 	}
 
 	interface IGAILogger { }
