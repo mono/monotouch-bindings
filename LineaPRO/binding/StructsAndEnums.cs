@@ -131,7 +131,8 @@ namespace LineaProSdk
 
 	public enum MsModes {
 		ProcessedCardData = 0,
-		RawCardData
+		RawCardData = 1,
+		Track2Data = 3
 	}
 
 	public enum BtModes {
@@ -160,7 +161,11 @@ namespace LineaProSdk
 		Iso15693,
 		MifareDesfire,
 		Iso14443b,
-		Felica
+		Felica,
+		StSri,
+		Payment,
+		Picopass15693,
+		Picopass14443B
 	}
 
 	public enum FelicaSmarttagBateryStatuses {
