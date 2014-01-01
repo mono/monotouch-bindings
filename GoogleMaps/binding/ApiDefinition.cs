@@ -271,11 +271,11 @@ namespace Google.Maps
 		[Export ("bounds")]
 		CoordinateBounds Bounds { get; set; }
 
-		[Static, Export ("groundOverlayWithPosition:icon:")]
-		GroundOverlay GetGroundOverlay (CLLocationCoordinate2D position, UIImage icon);
+		[Static, Export ("groundOverlayWithBounds:icon:")]
+		GroundOverlay GetGroundOverlay (CoordinateBounds bounds, UIImage icon);
 
 		[Static, Export ("groundOverlayWithPosition:icon:zoomLevel:")]
-		GroundOverlay GetGroundOverlay (CoordinateBounds bounds, UIImage icon, float zoomLevel);
+		GroundOverlay GetGroundOverlay (CLLocationCoordinate2D position, UIImage icon, float zoomLevel);
 	}
 
 	[DisableDefaultCtor]
@@ -302,7 +302,7 @@ namespace Google.Maps
 		void DidChangeActiveBuilding (IndoorBuilding building);
 
 		[Export ("didChangeActiveLevel:"), EventArgs ("GMSIndoorDisplayDidChangeActiveLevel"), EventName ("ActiveLevelChanged")]
-		void DidChangeActiveLevel (IndoorBuilding building);
+		void DidChangeActiveLevel (IndoorLevel level);
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSIndoorDisplay",
@@ -430,6 +430,12 @@ namespace Google.Maps
 		[Export ("mapType", ArgumentSemantic.Assign)]
 		MapViewType MapType { get; set; }
 
+		[Export ("minZoom", ArgumentSemantic.Assign)]
+		float MinZoom { get; }
+
+		[Export ("maxZoom", ArgumentSemantic.Assign)]
+		float MaxZoom { get; }		
+
 		[Export ("buildingsEnabled", ArgumentSemantic.Assign)]
 		bool BuildingsEnabled {[Bind ("isBuildingsEnabled")] get; set; }
 
@@ -463,6 +469,9 @@ namespace Google.Maps
 
 		[Export ("clear")]
 		void Clear ();
+
+		[Export ("setMinZoom:maxZoom:")]
+		void SetMinMaxZoom (float minZoom, float maxZoom);	
 
 		[Export ("cameraForBounds:insets:")]
 		CameraPosition CameraForBounds (CoordinateBounds bounds, UIEdgeInsets insets);
@@ -534,7 +543,10 @@ namespace Google.Maps
 
 		[Export ("rotation", ArgumentSemantic.Assign)]
 		double Rotation { get; set; }
-		
+
+		[Export ("opacity", ArgumentSemantic.Assign)]
+		float MarkerOpacity { get; set; }
+
 		[Export ("userData")]
 		NSObject UserData { get; set; }
 
@@ -563,6 +575,9 @@ namespace Google.Maps
 
 		[Export ("rotation", ArgumentSemantic.Assign)]
 		double Rotation { get; set; }
+
+		[Export ("opacity")]
+		float MarkerOpacity{ get; set; }
 	}
 
 	[BaseType (typeof (Path), Name="GMSMutablePath")]
@@ -618,7 +633,7 @@ namespace Google.Maps
 		string PanoramaID { get; }
 
 		[Export ("links")]
-		PanoramaLink Links { get; }
+		PanoramaLink [] Links { get; }
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSPanoramaCamera")]
@@ -633,7 +648,7 @@ namespace Google.Maps
 
 		[Static]
 		[Export ("cameraWithHeading:pitch:zoom:")]
-		PanoramaCamera FromHeading (Orientation orientation, float pitch, float zoom);
+		PanoramaCamera FromHeading (float heading, float pitch, float zoom);
 
 		[Static]
 		[Export ("cameraWithOrientation:zoom:FOV:")]
@@ -808,11 +823,11 @@ namespace Google.Maps
 		Orientation OrientationForPoint (PointF point);
 
 		[Static]
-		[Export ("panoramaWithFrame:nearCoordinate:coordinate:")]
+		[Export ("panoramaWithFrame:nearCoordinate:")]
 		PanoramaView FromFrame (RectangleF frame, CLLocationCoordinate2D coordinate);
 
 		[Static]
-		[Export ("panoramaWithFrame:nearCoordinate:coordinate:radius:")]
+		[Export ("panoramaWithFrame:nearCoordinate:radius:")]
 		PanoramaView FromFrame (RectangleF frame, CLLocationCoordinate2D coordinate, uint radius);
 	}
 
@@ -836,6 +851,9 @@ namespace Google.Maps
 
 		[Export ("encodedPath")]
 		string EncodedPath { get; }
+
+		[Export ("pathOffsetByLatitude:longitude:")]
+		Path PathOffsetByLatLon (double deltaLat, double deltaLon);
 	}
 
 	[BaseType (typeof (Overlay), Name="GMSPolygon")]
@@ -975,6 +993,9 @@ namespace Google.Maps
 
 		[Export ("tileSize", ArgumentSemantic.Assign)]
 		int TileSize { get; set; }
+
+		[Export ("opacity", ArgumentSemantic.Assign)]
+		float TileOpacity { get; set; }
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSUISettings")]
