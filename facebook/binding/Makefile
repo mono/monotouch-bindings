@@ -13,7 +13,7 @@ FBVERSIONTAG=sdk-version-3.9.0
 all: MonoTouch.FacebookConnect.dll
 
 facebook-ios-sdk:
-	git clone git@github.com:facebook/facebook-ios-sdk.git && cd facebook-ios-sdk && git checkout tags/$(FBVERSIONTAG)
+	git clone https://github.com/facebook/facebook-ios-sdk.git && cd facebook-ios-sdk && git checkout tags/$(FBVERSIONTAG)
 
 libFacebook-i386.a: facebook-ios-sdk
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
