@@ -40,7 +40,8 @@ namespace MonoTouch.FacebookConnect
 		AppActivatedWhilePendingAppCall,
 		UntrustedURL,
 		MalformedURL,
-		SessionReconnectInProgess
+		SessionReconnectInProgess,
+		OperationDisallowedForRestrictedTreament
 	}
 
 	public enum FBNativeApplicationErrorCode
@@ -156,6 +157,12 @@ namespace MonoTouch.FacebookConnect
 	{
 		Completed,
 		NotCompleted
+	}
+
+	public enum FBRestrictedTreatment : uint
+	{
+		No,
+		Yes
 	}
 
 	#region Old Facebook Api
