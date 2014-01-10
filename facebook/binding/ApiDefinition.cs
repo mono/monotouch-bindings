@@ -270,7 +270,13 @@ namespace MonoTouch.FacebookConnect
 		string [] ActionIDs { get; }
 
 		[Export ("ref")]
-		string [] Ref { get; }
+		string Ref { get; }
+
+		[Export ("userAgent")]
+		string UserAgent { get; }
+
+		[Export ("refererData")]
+		NSDictionary RefererData { get; }
 
 		[Export ("originalQueryParameters")]
 		NSDictionary OriginalQueryParameters { get; }
@@ -625,8 +631,7 @@ namespace MonoTouch.FacebookConnect
 	}
 
 	interface IFBGraphObjectProtocol { }
-
-	[BaseType (typeof (NSObject), Name = "FBGraphObject")]
+	
 	[Protocol]
 	interface FBGraphObjectProtocol
 	{
@@ -819,6 +824,9 @@ namespace MonoTouch.FacebookConnect
 
 		[Export("defaultAudience", ArgumentSemantic.Assign)]
 		FBSessionDefaultAudience DefaultAudience { get; set; }
+
+		[Export("loginBehavior", ArgumentSemantic.Assign)]
+		FBSessionLoginBehavior LoginBehavior { get; set; }
 
 		[Export("initWithReadPermissions:"),PostGet("ReadPermissions")]
 		IntPtr Constructor (string [] readPermissions);
