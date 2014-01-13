@@ -126,7 +126,7 @@ namespace Google.Maps
 		CameraPosition FromCamera (double latitude, double longitude, float zoom, double bearing, double viewingAngle);
 
 		[Static, Export ("zoomAtCoordinate:forMeters:perPoints:")]
-		float ZoomAtCoordinate (CLLocationCoordinate2D coord, float meters, float points);
+		float ZoomAtCoordinate (CLLocationCoordinate2D coord, double meters, float points);
 
 		[Export ("target")]
 		CLLocationCoordinate2D Target { [Bind ("targetAsCoordinate")] get; }
@@ -189,7 +189,7 @@ namespace Google.Maps
 		CLLocationCoordinate2D Position { get; set; }
 
 		[Export ("radius", ArgumentSemantic.Assign)]
-		float Radius { get; set; }
+		double Radius { get; set; }
 
 		[Export ("strokeWidth", ArgumentSemantic.Assign)]
 		float StrokeWidth { get; set; }
@@ -201,7 +201,7 @@ namespace Google.Maps
 		UIColor FillColor { get; set; }
 
 		[Static, Export ("circleWithPosition:radius:")]
-		Circle FromPosition (CLLocationCoordinate2D position, float radius);
+		Circle FromPosition (CLLocationCoordinate2D position, double radius);
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSCoordinateBounds")]
@@ -334,7 +334,7 @@ namespace Google.Maps
 	}
 
 
-	[BaseType (typeof (CALayer), Name="GMSMapLayer")]
+	[BaseType (typeof (GMSCALayer), Name="GMSMapLayer")]
 	interface MapLayer {
 		
 		[Export ("cameraLatitude", ArgumentSemantic.Assign)]
@@ -434,7 +434,7 @@ namespace Google.Maps
 		float MinZoom { get; }
 
 		[Export ("maxZoom", ArgumentSemantic.Assign)]
-		float MaxZoom { get; }		
+		float MaxZoom { get; }
 
 		[Export ("buildingsEnabled", ArgumentSemantic.Assign)]
 		bool BuildingsEnabled {[Bind ("isBuildingsEnabled")] get; set; }
@@ -461,17 +461,17 @@ namespace Google.Maps
 		[Export ("mapWithFrame:camera:")]
 		MapView FromCamera (RectangleF frame, CameraPosition camera);
 		
-		[Export ("startRendering")]
+		[Export ("startRendering")] [Obsolete ("Available but deprecated")]
 		void StartRendering ();
 		
-		[Export ("stopRendering")]
+		[Export ("stopRendering")] [Obsolete ("Available but deprecated")]
 		void StopRendering ();
 
 		[Export ("clear")]
 		void Clear ();
 
 		[Export ("setMinZoom:maxZoom:")]
-		void SetMinMaxZoom (float minZoom, float maxZoom);	
+		void SetMinMaxZoom (float minZoom, float maxZoom);
 
 		[Export ("cameraForBounds:insets:")]
 		CameraPosition CameraForBounds (CoordinateBounds bounds, UIEdgeInsets insets);
@@ -545,8 +545,8 @@ namespace Google.Maps
 		double Rotation { get; set; }
 
 		[Export ("opacity", ArgumentSemantic.Assign)]
-		float MarkerOpacity { get; set; }
-
+		float Opacity { get; set; }
+		
 		[Export ("userData")]
 		NSObject UserData { get; set; }
 
@@ -576,8 +576,8 @@ namespace Google.Maps
 		[Export ("rotation", ArgumentSemantic.Assign)]
 		double Rotation { get; set; }
 
-		[Export ("opacity")]
-		float MarkerOpacity{ get; set; }
+		[Export ("opacity", ArgumentSemantic.Assign)] [New]
+		float Opacity { get; set; }
 	}
 
 	[BaseType (typeof (Path), Name="GMSMutablePath")]
@@ -640,7 +640,7 @@ namespace Google.Maps
 	interface PanoramaCamera {
 
 		[Export ("initWithOrientation:zoom:FOV:")]
-		IntPtr Constructor (Orientation orientation, float zoom, float fov);
+		IntPtr Constructor (Orientation orientation, float zoom, double fov);
 
 		[Static]
 		[Export ("cameraWithOrientation:zoom:")]
@@ -648,18 +648,18 @@ namespace Google.Maps
 
 		[Static]
 		[Export ("cameraWithHeading:pitch:zoom:")]
-		PanoramaCamera FromHeading (float heading, float pitch, float zoom);
+		PanoramaCamera FromHeading (double heading, double pitch, float zoom);
 
 		[Static]
 		[Export ("cameraWithOrientation:zoom:FOV:")]
-		PanoramaCamera FromOrientation (Orientation orientation, float zoom, float fov);
+		PanoramaCamera FromOrientation (Orientation orientation, float zoom, double fov);
 
 		[Static]
 		[Export ("cameraWithHeading:pitch:zoom:FOV:")]
-		PanoramaCamera FromHeading (float heading, float pitch, float zoom, float fov);
+		PanoramaCamera FromHeading (double heading, double pitch, float zoom, double fov);
 
 		[Export ("FOV", ArgumentSemantic.Assign)]
-		float Fov { get; }
+		double Fov { get; }
 
 		[Export ("zoom", ArgumentSemantic.Assign)]
 		float Zoom { get; }
@@ -694,16 +694,16 @@ namespace Google.Maps
 	interface PanoramaLayer {
 
 		[Export ("cameraHeading", ArgumentSemantic.Assign)]
-		float CameraHeading { get; set; }
+		double CameraHeading { get; set; }
 
 		[Export ("cameraPitch", ArgumentSemantic.Assign)]
-		float CameraPitch { get; set; }
+		double CameraPitch { get; set; }
 
 		[Export ("cameraZoom", ArgumentSemantic.Assign)]
 		float CameraZoom { get; set; }
 
 		[Export ("cameraFOV", ArgumentSemantic.Assign)]
-		float CameraFOV { get; set; }
+		double CameraFOV { get; set; }
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSPanoramaLink")]
@@ -853,7 +853,7 @@ namespace Google.Maps
 		string EncodedPath { get; }
 
 		[Export ("pathOffsetByLatitude:longitude:")]
-		Path PathOffsetByLatLon (double deltaLat, double deltaLon);
+		Path PathOffsetByLatitude (double deltaLatitude, double deltaLongitude);
 	}
 
 	[BaseType (typeof (Overlay), Name="GMSPolygon")]
@@ -907,7 +907,7 @@ namespace Google.Maps
 		CLLocationCoordinate2D CoordinateForPoint (PointF point);
 		
 		[Export ("pointsForMeters:atCoordinate:")]
-		float PointsForMeters (float meters, CLLocationCoordinate2D coordinate);
+		float PointsForMeters (double meters, CLLocationCoordinate2D coordinate);
 
 		[Export ("containsCoordinate:")]
 		bool ContainsCoordinate (CLLocationCoordinate2D coordinate);
@@ -995,7 +995,7 @@ namespace Google.Maps
 		int TileSize { get; set; }
 
 		[Export ("opacity", ArgumentSemantic.Assign)]
-		float TileOpacity { get; set; }
+		float Opacity { get; set; }
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSUISettings")]
@@ -1040,6 +1040,12 @@ namespace Google.Maps
 
 		[Export ("userAgent", ArgumentSemantic.Copy)] [NullAllowed]
 		string UserAgent { get; set; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (CALayer))]
+	interface GMSCALayer {
+
 	}
 }
 

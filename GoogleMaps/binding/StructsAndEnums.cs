@@ -27,6 +27,12 @@ namespace Google.Maps
 		Pop
 	}
 
+	public enum GeocoderErrorCode
+	{
+		InvalidCoordinate = 1,
+		ErrorInternal
+	}
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct VisibleRegion {
 
