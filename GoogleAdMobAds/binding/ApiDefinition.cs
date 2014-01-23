@@ -52,7 +52,7 @@ namespace GoogleAdMobAds
 	[BaseType (typeof (NSObject))]
 	interface GADAdMobExtras : GADAdNetworkExtras
 	{
-		[Export ("additionalParameters", ArgumentSemantic.Retain)]
+		[Export ("additionalParameters", ArgumentSemantic.Copy)]
 		NSDictionary AdditionalParameters { get; set; }
 	}
 	
@@ -81,7 +81,7 @@ namespace GoogleAdMobAds
 		[Export ("rootViewController", ArgumentSemantic.Assign)]
 		UIViewController RootViewController {get; set; }
 		
-		[Export ("adSize")]
+		[Export ("adSize", ArgumentSemantic.Assign)]
 		GADAdSize AdSize { get; set; }
 		
 		[Wrap ("WeakDelegate")][NullAllowed]
@@ -98,6 +98,9 @@ namespace GoogleAdMobAds
 		
 		[Export ("mediatedAdView")]
 		UIView MediatedAdView { get; }
+
+		[Export ("adNetworkClassName")]
+		string AdNetworkClassName { get; }
 	}
 	
 	[BaseType (typeof (NSObject))]
@@ -144,11 +147,14 @@ namespace GoogleAdMobAds
 		[Export ("loadAndDisplayRequest:usingWindow:initialImage:")]
 		void LoadAndDisplayRequest (GADRequest request, UIWindow window, UIImage image);
 		
-		[Export ("isReady")]
+		[Export ("isReady", ArgumentSemantic.Assign)]
 		bool IsReady { get; }
 		
-		[Export ("hasBeenUsed")]
+		[Export ("hasBeenUsed", ArgumentSemantic.Assign)]
 		bool HasBeenUsed { get; }
+
+		[Export ("adNetworkClassName")]
+		string AdNetworkClassName { get; }
 		
 		[Export ("presentFromRootViewController:")]
 		void PresentFromRootViewController(UIViewController rootViewController);
@@ -195,13 +201,13 @@ namespace GoogleAdMobAds
 		[Export ("removeAdNetworkExtrasFor:")]
 		void RemoveAdNetworkExtrasFor (Class clazz);
 		
-		[Export ("mediationExtras", ArgumentSemantic.Retain)]
+		[Export ("mediationExtras", ArgumentSemantic.Copy)]
 		NSDictionary MediationExtras { get; set; }
 		
 		[Static, Export ("sdkVersion")]
 		string SdkVersion { get; }
 		
-		[Export ("testDevices", ArgumentSemantic.Retain)]
+		[Export ("testDevices", ArgumentSemantic.Copy)]
 		string [] TestDevices { get; set; }
 		
 		[Export ("gender", ArgumentSemantic.Assign)]
@@ -229,10 +235,10 @@ namespace GoogleAdMobAds
 		void AddKeyword (string keyword);
 		
 		#region "Deprecated GAdRequest Methods"		
-		[Export ("additionalParameters", ArgumentSemantic.Retain), Obsolete ("Please use void RegisterAdNetworkExtras(GADAdNetworkExtras extras) instead")]
+		[Export ("additionalParameters", ArgumentSemantic.Copy), Obsolete ("Please use void RegisterAdNetworkExtras(GADAdNetworkExtras extras) instead")]
 		NSDictionary AdditionalParameters { get; set; }
 		
-		[Export ("testing"), Obsolete ("Please set TestDevices instead.")]
+		[Export ("testing", ArgumentSemantic.Assign), Obsolete ("Please set TestDevices instead.")]
 		bool Testing { [Bind("isTesting")] get; set; }
 		#endregion
 		
@@ -273,22 +279,22 @@ namespace GoogleAdMobAds
 		[Export ("fontFamily", ArgumentSemantic.Copy)]
 		string FontFamily { get; set; }
 		
-		[Export ("headerTextSize")]
+		[Export ("headerTextSize", ArgumentSemantic.Assign)]
 		int HeaderTextSize { get; set; }
 		
 		[Export ("borderColor", ArgumentSemantic.Retain)]
 		UIColor BorderColor { get; set; }
 		
-		[Export ("borderType")]
+		[Export ("borderType", ArgumentSemantic.Assign)]
 		GADSearchBorderType BorderType { get; set; }
 		
-		[Export ("borderThickness")]
+		[Export ("borderThickness", ArgumentSemantic.Assign)]
 		int BorderThickness { get; set; }
 		
 		[Export ("customChannels", ArgumentSemantic.Copy)]
 		string CustomChannels { get; set; }
 
-		[Export ("callButtonColor")]
+		[Export ("callButtonColor", ArgumentSemantic.Assign)]
 		GADSearchCallButtonColor CallButtonColor { get; set; }
 		
 		[Export ("request")]
@@ -341,7 +347,7 @@ namespace GoogleAdMobAds
 		[Export ("validAdSizes", ArgumentSemantic.Retain)]
 		NSArray ValidAdSizes { get; set; }
 
-		[Export ("enableManualImpressions")]
+		[Export ("enableManualImpressions", ArgumentSemantic.Assign)]
 		bool EnableManualImpressions { get; set; }
 
 		[Export ("recordImpression")]
