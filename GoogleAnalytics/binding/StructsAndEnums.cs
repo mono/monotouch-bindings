@@ -17,5 +17,43 @@ namespace GoogleAnalytics.iOS
 		Info = 3,
 		Verbose = 4
 	}
+
+	public enum TAGContainerCallbackRefreshType
+	{
+		Saved,
+		Network
+	}
+
+	public enum TAGContainerCallbackRefreshFailure
+	{
+		NoSavedContainer,
+		IoError,
+		NoNetwork,
+		NetworkError,
+		ServerError,
+		UnknownError
+	}
+
+	public enum TAGOpenType
+	{
+		PreferNonDefault,
+		PreferFresh
+	}
+
+	public enum TAGLoggerLogLevelType
+	{
+		Verbose,
+		Debug,
+		Info,
+		Warning,
+		Error,
+		None
+	}
+
+	public enum TAGRefreshMode
+	{
+		Standard,
+		DefaultContainer
+	}
 }
 

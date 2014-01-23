@@ -232,6 +232,14 @@ namespace GoogleAnalytics.iOS
 		NSString SampleRate { get; }
 
 		[Static]
+		[Export ("kGAIIdfaGlobal")]
+		NSString Idfa { get; }
+
+		[Static]
+		[Export ("kGAIAdTargetingEnabledGlobal")]
+		NSString AdTargetingEnabled { get; }
+
+		[Static]
 		[Export ("kGAIAppViewGlobal")]
 		NSString AppView { get; }
 
@@ -425,6 +433,201 @@ namespace GoogleAnalytics.iOS
 
 		[Export ("send:")]
 		void Send ([NullAllowed] NSDictionary parameters);
+	}
+
+	interface ITAGFunctionCallTagHandler { }
+
+	[Protocol]
+	[BaseType (typeof (NSObject))]
+	interface TAGFunctionCallTagHandler
+	{
+		[Export ("execute:parameters:")]
+		void Execute (string tagName, [NullAllowed] NSDictionary parameters);
+	}
+
+	interface ITAGFunctionCallMacroHandler { }
+
+	[Protocol]
+	[BaseType (typeof (NSObject))]
+	interface TAGFunctionCallMacroHandler
+	{
+		[Export ("valueForMacro:parameters:")]
+		NSObject ValueForMacro (string macroName, [NullAllowed] NSDictionary parameters);
+	}
+
+	interface ITAGContainerCallback { }
+
+	[Protocol]
+	[Model]
+	[BaseType (typeof (NSObject))]
+	interface TAGContainerCallback
+	{
+		[Export ("containerRefreshBegin:refreshType:")]
+		void RefreshBegin (TAGContainer container, TAGContainerCallbackRefreshType refreshType);
+
+		[Export ("containerRefreshSuccess:refreshType:")]
+		void RefreshSuccess (TAGContainer container, TAGContainerCallbackRefreshType refreshType);
+
+		[Export ("containerRefreshFailure:failure:refreshType:")]
+		void RefreshFailure (TAGContainer container, TAGContainerCallbackRefreshFailure failure, TAGContainerCallbackRefreshType refreshType);
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject))]
+	interface TAGContainer
+	{
+		[Export ("containerId", ArgumentSemantic.Copy)]
+		string ContainerId { get; }
+
+		[Export ("lastRefreshTime", ArgumentSemantic.Assign)]
+		double LastRefreshTime { get; }
+
+		[Export ("booleanForKey:")]
+		bool BooleanForKey (string key);
+
+		[Export ("doubleForKey:")]
+		double DoubleForKey (string key);
+
+		[Export ("int64ForKey:")]
+		long Int64ForKey (string key);
+
+		[Export ("stringForKey:")]
+		string StringForKey (string key);
+
+		[Export ("refresh")]
+		void Refresh ();
+
+		[Export ("close")]
+		void Close ();
+
+		[Export ("isDefault")]
+		bool IsDefault { get; }
+
+		[Export ("registerFunctionCallMacroHandler:forMacro:")]
+		void RegisterFunctionCallMacroHandler ([NullAllowed] ITAGFunctionCallMacroHandler handler, string macroName);
+
+		[Export ("functionCallMacroHandlerForMacro:")]
+		ITAGFunctionCallMacroHandler FunctionCallMacroHandlerForMacro (string functionCallMacroName);
+
+		[Export ("registerFunctionCallTagHandler:forTag:")]
+		void RegisterFunctionCallTagHandler ([NullAllowed] ITAGFunctionCallTagHandler handler, string tagName);
+
+		[Export ("functionCallTagHandlerForTag:")]
+		ITAGFunctionCallTagHandler FunctionCallTagHandlerForTag (string functionCallTagName);
+	}
+
+	interface ITAGContainerFuture { }
+
+	[Protocol]
+	[BaseType (typeof (NSObject))]
+	interface TAGContainerFuture
+	{
+		[Export ("get")]
+		TAGContainer Get ();
+
+		[Export ("isDone")]
+		bool IsDone ();
+	}
+
+	interface ITAGContainerOpenerNotifier { }
+
+	[Protocol]
+	[BaseType (typeof (NSObject))]
+	interface TAGContainerOpenerNotifier
+	{
+		[Export ("containerAvailable:")]
+		void ContainerAvailable (TAGContainer container);
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject))]
+	interface TAGContainerOpener
+	{
+		[Static]
+		[Export ("openContainerWithId:tagManager:openType:timeout:")]
+		ITAGContainerFuture OpenContainer (string containerId, TAGManager tagManager, TAGOpenType openType, double timeout);
+
+		[Static]
+		[Export ("openContainerWithId:tagManager:openType:timeout:notifier:")]
+		ITAGContainerFuture OpenContainer (string containerId, TAGManager tagManager, TAGOpenType openType, double timeout, [NullAllowed] ITAGContainerOpenerNotifier notifier);
+
+		[Static]
+		[Export ("defaultTimeout")]
+		double DefaultTimeout { get; }
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface TAGDataLayer
+	{
+		[Export ("dataLayer", ArgumentSemantic.Copy)]
+		NSDictionary DataLayer { get; }
+
+		[Export ("pushValue:forKey:")]
+		void PushValue (NSObject val, string key);
+
+		[Export ("push:")]
+		void Push (NSDictionary update);
+
+		[Export ("get:")]
+		NSObject Get (string key);
+	}
+
+	interface ITAGLogger { }
+
+	[Protocol]
+	[Model]
+	[BaseType (typeof (NSObject))]
+	interface TAGLogger
+	{
+		[Abstract]
+		[Export ("error:")]
+		void Error (string message);
+
+		[Abstract]
+		[Export ("warning:")]
+		void Warning (string message);
+
+		[Abstract]
+		[Export ("info:")]
+		void Info (string message);
+
+		[Abstract]
+		[Export ("debug:")]
+		void Debug (string message);
+
+		[Abstract]
+		[Export ("verbose:")]
+		void Verbose (string message);
+
+		[Abstract]
+		[Export ("logLevel")]
+		TAGLoggerLogLevelType LogLevel { get; set; }
+	}
+
+	[BaseType (typeof (NSObject))]
+	interface TAGManager
+	{
+		[Export ("logger", ArgumentSemantic.Retain)] [NullAllowed]
+		ITAGLogger Logger { get; set; }
+
+		[Export ("refreshMode", ArgumentSemantic.Assign)]
+		TAGRefreshMode RefreshMode { get; set; }
+
+		[Export ("dataLayer", ArgumentSemantic.Retain)]
+		TAGDataLayer DataLayer { get; }
+
+		[Export ("openContainerById:callback:")]
+		TAGContainer OpenContainer (string containerId, ITAGContainerCallback callback);
+
+		[Export ("getContainerById:")]
+		TAGContainer GetContainer (string containerId);
+
+		[Export ("previewWithUrl:")]
+		bool Preview (NSUrl url);
+
+		[Static]
+		[Export ("instance")]
+		TAGManager GetInstance { get; }
 	}
 }
 
