@@ -431,18 +431,6 @@ namespace MonoTouch.FacebookConnect
 		[Field ("FBErrorReauthorizeFailedReasonWrongUser", "__Internal")]
 		NSString ReauthorizeFailedReasonWrongUser { get; }
 
-		[Field ("FBErrorNativeDialogReasonKey", "__Internal")]
-		NSString NativeDialogReasonKey { get; }
-
-		[Field ("FBErrorNativeDialogNotSupported", "__Internal")]
-		NSString NativeDialogNotSupported { get; }
-
-		[Field ("FBErrorNativeDialogInvalidForSession", "__Internal")]
-		NSString NativeDialogInvalidForSession { get; }
-
-		[Field ("FBErrorNativeDialogCantBeDisplayed", "__Internal")]
-		NSString NativeDialogCantBeDisplayed { get; }
-
 		[Field ("FBErrorDialogInvalidOpenGraphObject", "__Internal")]
 		NSString DialogInvalidOpenGraphObject { get; }
 
