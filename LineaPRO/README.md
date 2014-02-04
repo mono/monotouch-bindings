@@ -1,7 +1,7 @@
 Linea PRO SDK for Xamarin.iOS
 =============================
 
-This Xamarin.iOS project binds `DTDevices-iOS_2013-02-28_v1` library AKA (Version 1.77).
+This Xamarin.iOS project binds `DTDevices-iOS_2013-10-29_v1` library AKA (Version 1.82).
 
 ## Prerequisites
 
@@ -11,8 +11,8 @@ Steps to obtain and include `libdtdev.a`:
 
 1. Go to [http://ipcprint.com/developer/](http://ipcprint.com/developer/).
 2. Register an Account or log in using your credentials.
-3. Download and unzip **DTDevices-iOS_2013-02-28_v1.77_XCode46.zip**
-4. Copy `DTDevices-iOS_2013-02-28_v1.77_XCode46/Library/libdtdev.a` inside `binding` folder.
+3. Download and unzip **DTDevices-iOS_2013-10-29_v1.82_XCode5.zip**
+4. Copy `DTDevices-iOS_2013-10-29_v1.82_XCode5/Library/libdtdev.a` inside `binding` folder.
 
 ## Building LineaProSdk.dll
 

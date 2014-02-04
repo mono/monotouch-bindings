@@ -12,10 +12,10 @@ namespace LineaProSdk
 		[Export ("type")]
 		int Type { get; set; }
 
-		[Export ("typeStr", ArgumentSemantic.Assign)]
+		[Export ("typeStr", ArgumentSemantic.Copy)]
 		string TypeStr { get; set; }
 
-		[Export ("UID", ArgumentSemantic.Assign)]
+		[Export ("UID", ArgumentSemantic.Copy)]
 		NSData UID { get; set; }
 
 		[Export ("ATQA")]
@@ -38,6 +38,17 @@ namespace LineaProSdk
 	}
 
 	[BaseType (typeof (NSObject))]
+	interface DTEMVConfigurationInfo {
+
+		[Export ("version", ArgumentSemantic.Assign)]
+		int Version { get; set; }
+
+		[Export ("size", ArgumentSemantic.Assign)]
+		int Size { get; set; }
+
+	}
+
+	[BaseType (typeof (NSObject))]
 	[Protocol]
 	[Model]
 	interface LineaDelegate {
@@ -56,6 +67,12 @@ namespace LineaProSdk
 
 		[Export ("barcodeData:isotype:")]
 		void BarcodeData (string barcode, string isotype);
+
+		[Export ("barcodeNSData:type:")]
+		void BarcodeData (NSData barcode, int type);
+
+		[Export ("barcodeNSData:isotype:")]
+		void BarcodeData (NSData barcode, string isotype);
 
 		[Export ("magneticCardData:track2:track3:")]
 		void MagneticCardData (string track1, string track2, string track3);
@@ -84,6 +101,18 @@ namespace LineaProSdk
 		[Export ("bluetoothDeviceDiscovered:name:")]
 		void BluetoothDeviceDiscovered (string btAddress, string btName);
 
+		[Export ("bluetoothDeviceConnected:")]
+		void BluetoothDeviceConnected (string btAddress);
+
+		[Export ("bluetoothDeviceDisconnected:")]
+		void BluetoothDeviceDisconnected (string btAddress);
+
+		[Export ("bluetoothDeviceRequestedConnection:name:")]
+		bool BluetoothDeviceRequestedConnection (string btAddress, string name);
+
+		[Export ("bluetoothDevicePINCodeRequired:name:")]
+		string BluetoothDevicePINCodeRequired (string btAddress, string name);
+
 		[Export ("magneticJISCardData:")]
 		void MagneticJISCardData (string data);
 
@@ -92,6 +121,18 @@ namespace LineaProSdk
 
 		[Export ("rfCardRemoved:")]
 		void RfCardRemoved (int cardIndex);
+
+		[Export ("emv2OnTransactionStarted")]
+		void Emv2OnTransactionStarted ();
+
+		[Export ("emv2OnApplicationSelection:")]
+		void Emv2OnApplicationSelection (string [] applications);
+
+		[Export ("emv2OnOnlineProcessing:")]
+		void Emv2OnOnlineProcessing (NSData data);
+
+		[Export ("emv2OnTransactionFinished:")]
+		void Emv2OnTransactionFinished (NSData data);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -119,6 +160,9 @@ namespace LineaProSdk
 		[Export ("getBatteryCapacity:voltage:error:")]
 		bool GetBatteryCapacity (out int capacity, out float voltage, out NSError error);
 
+		[Export ("setAutoOffWhenIdle:whenDisconnected:error:")]
+		bool SetAutoOffWhenIdle (double timeIdle, double timeDisconnected, out NSError error);
+
 		[Export("playSound:beepData:length:error:")] [Internal]
 		bool PlaySound_ (int volume, IntPtr data, int length, out NSError error);
 
@@ -139,6 +183,15 @@ namespace LineaProSdk
 
 		[Export ("setSyncButtonMode:error:")]
 		bool SetSyncButtonMode (int mode, out NSError error);
+
+		[Export ("getPassThroughSync:error:")]
+		bool GetPassThroughSync (out bool enabled, out NSError error);
+
+		[Export ("setPassThroughSync:error:")]
+		bool SetPassThroughSync (bool enabled, out NSError error);
+
+		[Export ("setUSBChargeCurrent:error:")]
+		bool SetUSBChargeCurrent (int current, out NSError error);
 
 		[Export ("msEnable:")]
 		bool MsEnable (out NSError error);
@@ -236,6 +289,12 @@ namespace LineaProSdk
 		[Export ("barcodeIntermecSetInitData:error:")]
 		bool BarcodeIntermecSetInitData (NSData data, out NSError error);
 
+		[Export ("barcodeNewlandQuery:error:")]
+		NSData BarcodeNewlandQuery (NSData command, out NSError error);
+
+		[Export ("barcodeNewlandSetInitString:error:")]
+		bool BarcodeNewlandSetInitString (string data, out NSError error);
+
 		[Export ("cryptoRawGenerateRandomData:")]
 		NSData CryptoRawGenerateRandomData (out NSError error);
 
@@ -278,9 +337,6 @@ namespace LineaProSdk
 		[Export ("btReadLine:error:")]
 		string BtReadLine (double timeout, out NSError error);
 
-		[Export ("btGetLocalName:")]
-		string BtGetLocalName (out NSError error);
-
 		[Export ("btDiscoverDevices:maxTime:codTypes:error:")]
 		string [] BtDiscoverDevices (int maxDevices, double maxTime, int codTypes, out NSError error);
 
@@ -322,6 +378,9 @@ namespace LineaProSdk
 
 		[Export ("btSetDataNotificationMaxTime:maxLength:sequenceData:error:")]
 		bool BtSetDataNotificationMaxTime (double maxTime, int maxLength, NSData sequenceData, out NSError error);
+
+		[Export ("btListenForDevices:discoverable:localName:cod:error:")]
+		bool BtListenForDevices (bool enabled, bool discoverable, string localName, uint cod, out NSError error);
 
 		[Export ("btInputStream", ArgumentSemantic.Assign)]
 		NSInputStream BtInputStream { get; }
@@ -378,7 +437,7 @@ namespace LineaProSdk
 		NSObject [] EmsrGetSupportedEncryptions (out NSError error);
 
 		[Export ("emsrSetEncryption:params:error:")]
-		bool EmsrSetEncryption (int encryption, NSData parameters, out NSError error);
+		bool EmsrSetEncryption (int encryption, NSDictionary parameters, out NSError error);
 
 		[Export ("emsrConfigMaskedDataShowExpiration:unmaskedDigitsAtStart:unmaskedDigitsAtEnd:error:")]
 		bool EmsrConfigMaskedDataShowExpiration (bool showExpiration, int unmaskedDigitsAtStart, int unmaskedDigitsAtEnd, out NSError error);
@@ -437,11 +496,26 @@ namespace LineaProSdk
 		[Export ("iso15693LockDSFID:error:")]
 		bool Iso15693LockDSFID (int cardIndex, out NSError error);
 
-		[Export ("felicaRead:startBlock:length:error:")]
-		NSData FelicaRead (int cardIndex, int startBlock, int length, out NSError error);
+		[Export ("iso14GetATS:error:")]
+		NSData Iso14GetATS (int cardIndex, out NSError error);
 
-		[Export ("felicaWrite:startBlock:data:error:")]
-		int FelicaWrite (int cardIndex, int startBlock, NSData data, out NSError error);
+		[Export ("iso14APDU:cla:ins:p1:p2:data:apduResult:error:")]
+		NSData Iso14APDU (int cardIndex, byte cla, byte ins, byte p1, byte p2, NSData data, out ushort apduResult, out NSError error);
+
+		[Export ("felicaSetPollingParamsRequestCode:systemCode:error:")]
+		bool FelicaSetPollingParamsRequestCode (int requestCode, int systemCode, out NSError error);
+
+		[Export ("felicaSetPollingParamsRequestCode:error:")]
+		bool FelicaSetPollingParamsRequestCode (int cardIndex, out NSError error);
+
+		[Export ("felicaSendCommand:command:data:error:")]
+		NSData FelicaSendCommand (int cardIndex, int command, NSData data, out NSError error);
+
+		[Export ("felicaRead:serviceCode:startBlock:length:error:")]
+		NSData FelicaRead (int cardIndex, int serviceCode, int startBlock, int length, out NSError error);
+
+		[Export ("felicaWrite:serviceCode:startBlock:data:error:")]
+		int FelicaWrite (int cardIndex, int serviceCode, int startBlock, NSData data, out NSError error);
 
 		[Export ("felicaSmartTagGetBatteryStatus:status:error:")]
 		bool FelicaSmartTagGetBatteryStatus (int cardIndex, out int status, out NSError error);
@@ -467,6 +541,33 @@ namespace LineaProSdk
 		[Export ("felicaSmartTagWaitCompletion:error:")]
 		bool FelicaSmartTagWaitCompletion (int cardIndex, out NSError error);
 
+		[Export ("stSRIRead:address:length:error:")]
+		NSData StSRIRead (int cardIndex, int address, int length, out NSError error);
+
+		[Export ("stSRIWrite:address:data:error:")]
+		int StSRIWrite (int cardIndex, int address, NSData data, out NSError error);
+
+		[Export ("emv2LoadConfigurationData:version:error:")]
+		bool Emv2LoadConfigurationData (NSData data, int version, out NSError error);
+
+		[Export ("emv2GetConfigurationInfo:")]
+		DTEMVConfigurationInfo Emv2GetConfigurationInfo (out NSError error);
+
+		[Export ("emv2SetTransactionType:amount:currencyCode:error:")]
+		bool Emv2SetTransactionType (int type, int amount, int currencyCode, out NSError error);
+
+		[Export ("emv2StartTransactionWithFlags:initData:error:")]
+		bool Emv2StartTransactionWithFlags (int flags, NSData initData, out NSError error);
+
+		[Export ("emv2SelectApplication:error:")]
+		bool Emv2SelectApplication (int application, out NSError error);
+
+		[Export ("emv2SetOnlineResult:error:")]
+		bool Emv2SetOnlineResult (NSData result, out NSError error);
+
+		[Export ("emv2CancelTransaction:")]
+		bool Emv2CancelTransaction (out NSError error);
+
 		[Wrap ("WeakDelegate")][NullAllowed]
 		LineaDelegate Delegate { get; set; }
 
@@ -479,20 +580,20 @@ namespace LineaProSdk
 		[Export ("connstate")]
 		int Connstate { get; }
 
-		[Export ("deviceName", ArgumentSemantic.Assign)]
-		string DeviceName { get; }
+		[Export ("deviceName", ArgumentSemantic.Copy)]
+		string DeviceName { get; set; }
 
-		[Export ("deviceModel", ArgumentSemantic.Assign)]
-		string DeviceModel { get; }
+		[Export ("deviceModel", ArgumentSemantic.Copy)]
+		string DeviceModel { get; set; }
 
-		[Export ("firmwareRevision", ArgumentSemantic.Assign)]
-		string FirmwareRevision { get; }
+		[Export ("firmwareRevision", ArgumentSemantic.Copy)]
+		string FirmwareRevision { get; set; }
 
-		[Export ("hardwareRevision", ArgumentSemantic.Assign)]
-		string HardwareRevision { get; }
+		[Export ("hardwareRevision", ArgumentSemantic.Copy)]
+		string HardwareRevision { get; set; }
 
-		[Export ("serialNumber", ArgumentSemantic.Assign)]
-		string SerialNumber { get; }
+		[Export ("serialNumber", ArgumentSemantic.Copy)]
+		string SerialNumber { get; set; }
 
 		[Export ("sdkVersion")]
 		int SdkVersion { get; }

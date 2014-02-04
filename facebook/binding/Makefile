@@ -8,7 +8,7 @@ MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
 # 	If you updated the binding to a newer Facebook version don't forget to change
 #	the Git TAG of newer the version you are binding against
-FBVERSIONTAG=sdk-version-3.9.0
+FBVERSIONTAG=sdk-version-3.11.1
 
 all: MonoTouch.FacebookConnect.dll
 

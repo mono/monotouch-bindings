@@ -2,7 +2,7 @@
 #### Author: Alex Soto alex.soto@xamarin.com
 
 MDTOOL=/Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool
-PROJECTS=GoogleAnalyticsSample/GoogleAnalyticsSample.sln
+PROJECTS=CuteAnimalsiOS/CuteAnimalsiOS.sln
 
 all:
 	for i in $(PROJECTS); do ($(MDTOOL) build -c:"Release|iPhone" $$i); done

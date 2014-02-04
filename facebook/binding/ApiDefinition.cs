@@ -270,7 +270,13 @@ namespace MonoTouch.FacebookConnect
 		string [] ActionIDs { get; }
 
 		[Export ("ref")]
-		string [] Ref { get; }
+		string Ref { get; }
+
+		[Export ("userAgent")]
+		string UserAgent { get; }
+
+		[Export ("refererData")]
+		NSDictionary RefererData { get; }
 
 		[Export ("originalQueryParameters")]
 		NSDictionary OriginalQueryParameters { get; }
@@ -424,18 +430,6 @@ namespace MonoTouch.FacebookConnect
 
 		[Field ("FBErrorReauthorizeFailedReasonWrongUser", "__Internal")]
 		NSString ReauthorizeFailedReasonWrongUser { get; }
-
-		[Field ("FBErrorNativeDialogReasonKey", "__Internal")]
-		NSString NativeDialogReasonKey { get; }
-
-		[Field ("FBErrorNativeDialogNotSupported", "__Internal")]
-		NSString NativeDialogNotSupported { get; }
-
-		[Field ("FBErrorNativeDialogInvalidForSession", "__Internal")]
-		NSString NativeDialogInvalidForSession { get; }
-
-		[Field ("FBErrorNativeDialogCantBeDisplayed", "__Internal")]
-		NSString NativeDialogCantBeDisplayed { get; }
 
 		[Field ("FBErrorDialogInvalidOpenGraphObject", "__Internal")]
 		NSString DialogInvalidOpenGraphObject { get; }
@@ -625,8 +619,7 @@ namespace MonoTouch.FacebookConnect
 	}
 
 	interface IFBGraphObjectProtocol { }
-
-	[BaseType (typeof (NSObject), Name = "FBGraphObject")]
+	
 	[Protocol]
 	interface FBGraphObjectProtocol
 	{
@@ -819,6 +812,9 @@ namespace MonoTouch.FacebookConnect
 
 		[Export("defaultAudience", ArgumentSemantic.Assign)]
 		FBSessionDefaultAudience DefaultAudience { get; set; }
+
+		[Export("loginBehavior", ArgumentSemantic.Assign)]
+		FBSessionLoginBehavior LoginBehavior { get; set; }
 
 		[Export("initWithReadPermissions:"),PostGet("ReadPermissions")]
 		IntPtr Constructor (string [] readPermissions);

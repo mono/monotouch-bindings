@@ -1,0 +1,235 @@
+<Type Name="ESTBeaconManagerDelegate_Extensions" FullName="Estimote.iOS.ESTBeaconManagerDelegate_Extensions">
+  <TypeSignature Language="C#" Value="public static class ESTBeaconManagerDelegate_Extensions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit ESTBeaconManagerDelegate_Extensions extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Estimote.iOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="DidDetermineState">
+      <MemberSignature Language="C#" Value="public static void DidDetermineState (this Estimote.iOS.IESTBeaconManagerDelegate This, Estimote.iOS.ESTBeaconManager manager, MonoTouch.CoreLocation.CLRegionState state, Estimote.iOS.ESTBeaconRegion region);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidDetermineState(class Estimote.iOS.IESTBeaconManagerDelegate This, class Estimote.iOS.ESTBeaconManager manager, valuetype MonoTouch.CoreLocation.CLRegionState state, class Estimote.iOS.ESTBeaconRegion region) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Estimote.iOS.IESTBeaconManagerDelegate" RefType="this" />
+        <Parameter Name="manager" Type="Estimote.iOS.ESTBeaconManager" />
+        <Parameter Name="state" Type="MonoTouch.CoreLocation.CLRegionState" />
+        <Parameter Name="region" Type="Estimote.iOS.ESTBeaconRegion" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="manager">To be added.</param>
+        <param name="state">To be added.</param>
+        <param name="region">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidDiscoverBeacons">
+      <MemberSignature Language="C#" Value="public static void DidDiscoverBeacons (this Estimote.iOS.IESTBeaconManagerDelegate This, Estimote.iOS.ESTBeaconManager manager, MonoTouch.Foundation.NSArray[] beacons, Estimote.iOS.ESTBeaconRegion region);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidDiscoverBeacons(class Estimote.iOS.IESTBeaconManagerDelegate This, class Estimote.iOS.ESTBeaconManager manager, class MonoTouch.Foundation.NSArray[] beacons, class Estimote.iOS.ESTBeaconRegion region) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Estimote.iOS.IESTBeaconManagerDelegate" RefType="this" />
+        <Parameter Name="manager" Type="Estimote.iOS.ESTBeaconManager" />
+        <Parameter Name="beacons" Type="MonoTouch.Foundation.NSArray[]" />
+        <Parameter Name="region" Type="Estimote.iOS.ESTBeaconRegion" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="manager">To be added.</param>
+        <param name="beacons">To be added.</param>
+        <param name="region">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidEnterRegion">
+      <MemberSignature Language="C#" Value="public static void DidEnterRegion (this Estimote.iOS.IESTBeaconManagerDelegate This, Estimote.iOS.ESTBeaconManager manager, Estimote.iOS.ESTBeaconRegion region);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidEnterRegion(class Estimote.iOS.IESTBeaconManagerDelegate This, class Estimote.iOS.ESTBeaconManager manager, class Estimote.iOS.ESTBeaconRegion region) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Estimote.iOS.IESTBeaconManagerDelegate" RefType="this" />
+        <Parameter Name="manager" Type="Estimote.iOS.ESTBeaconManager" />
+        <Parameter Name="region" Type="Estimote.iOS.ESTBeaconRegion" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="manager">To be added.</param>
+        <param name="region">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidExitRegion">
+      <MemberSignature Language="C#" Value="public static void DidExitRegion (this Estimote.iOS.IESTBeaconManagerDelegate This, Estimote.iOS.ESTBeaconManager manager, Estimote.iOS.ESTBeaconRegion region);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidExitRegion(class Estimote.iOS.IESTBeaconManagerDelegate This, class Estimote.iOS.ESTBeaconManager manager, class Estimote.iOS.ESTBeaconRegion region) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Estimote.iOS.IESTBeaconManagerDelegate" RefType="this" />
+        <Parameter Name="manager" Type="Estimote.iOS.ESTBeaconManager" />
+        <Parameter Name="region" Type="Estimote.iOS.ESTBeaconRegion" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="manager">To be added.</param>
+        <param name="region">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidFailDiscovery">
+      <MemberSignature Language="C#" Value="public static void DidFailDiscovery (this Estimote.iOS.IESTBeaconManagerDelegate This, Estimote.iOS.ESTBeaconManager manager, Estimote.iOS.ESTBeaconRegion region);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidFailDiscovery(class Estimote.iOS.IESTBeaconManagerDelegate This, class Estimote.iOS.ESTBeaconManager manager, class Estimote.iOS.ESTBeaconRegion region) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Estimote.iOS.IESTBeaconManagerDelegate" RefType="this" />
+        <Parameter Name="manager" Type="Estimote.iOS.ESTBeaconManager" />
+        <Parameter Name="region" Type="Estimote.iOS.ESTBeaconRegion" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="manager">To be added.</param>
+        <param name="region">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidRangeBeacons">
+      <MemberSignature Language="C#" Value="public static void DidRangeBeacons (this Estimote.iOS.IESTBeaconManagerDelegate This, Estimote.iOS.ESTBeaconManager manager, MonoTouch.Foundation.NSArray[] beacons, Estimote.iOS.ESTBeaconRegion region);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidRangeBeacons(class Estimote.iOS.IESTBeaconManagerDelegate This, class Estimote.iOS.ESTBeaconManager manager, class MonoTouch.Foundation.NSArray[] beacons, class Estimote.iOS.ESTBeaconRegion region) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Estimote.iOS.IESTBeaconManagerDelegate" RefType="this" />
+        <Parameter Name="manager" Type="Estimote.iOS.ESTBeaconManager" />
+        <Parameter Name="beacons" Type="MonoTouch.Foundation.NSArray[]" />
+        <Parameter Name="region" Type="Estimote.iOS.ESTBeaconRegion" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="manager">To be added.</param>
+        <param name="beacons">To be added.</param>
+        <param name="region">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidStartAdvertising">
+      <MemberSignature Language="C#" Value="public static void DidStartAdvertising (this Estimote.iOS.IESTBeaconManagerDelegate This, Estimote.iOS.ESTBeaconManager manager, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidStartAdvertising(class Estimote.iOS.IESTBeaconManagerDelegate This, class Estimote.iOS.ESTBeaconManager manager, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Estimote.iOS.IESTBeaconManagerDelegate" RefType="this" />
+        <Parameter Name="manager" Type="Estimote.iOS.ESTBeaconManager" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="manager">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MonitoringDidFail">
+      <MemberSignature Language="C#" Value="public static void MonitoringDidFail (this Estimote.iOS.IESTBeaconManagerDelegate This, Estimote.iOS.ESTBeaconManager manager, Estimote.iOS.ESTBeaconRegion region, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void MonitoringDidFail(class Estimote.iOS.IESTBeaconManagerDelegate This, class Estimote.iOS.ESTBeaconManager manager, class Estimote.iOS.ESTBeaconRegion region, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Estimote.iOS.IESTBeaconManagerDelegate" RefType="this" />
+        <Parameter Name="manager" Type="Estimote.iOS.ESTBeaconManager" />
+        <Parameter Name="region" Type="Estimote.iOS.ESTBeaconRegion" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="manager">To be added.</param>
+        <param name="region">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RangingBeaconsDidFail">
+      <MemberSignature Language="C#" Value="public static void RangingBeaconsDidFail (this Estimote.iOS.IESTBeaconManagerDelegate This, Estimote.iOS.ESTBeaconManager manager, Estimote.iOS.ESTBeaconRegion region, MonoTouch.Foundation.NSError error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RangingBeaconsDidFail(class Estimote.iOS.IESTBeaconManagerDelegate This, class Estimote.iOS.ESTBeaconManager manager, class Estimote.iOS.ESTBeaconRegion region, class MonoTouch.Foundation.NSError error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="This" Type="Estimote.iOS.IESTBeaconManagerDelegate" RefType="this" />
+        <Parameter Name="manager" Type="Estimote.iOS.ESTBeaconManager" />
+        <Parameter Name="region" Type="Estimote.iOS.ESTBeaconRegion" />
+        <Parameter Name="error" Type="MonoTouch.Foundation.NSError" />
+      </Parameters>
+      <Docs>
+        <param name="This">To be added.</param>
+        <param name="manager">To be added.</param>
+        <param name="region">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
