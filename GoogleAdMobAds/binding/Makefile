@@ -1,7 +1,7 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-VERSION=6.7.0
+VERSION=6.8.0
 
 all: GoogleAdMobAds.dll
 
