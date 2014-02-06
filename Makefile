@@ -41,6 +41,7 @@ FlurryAppCircle\
 GCDiscreetNotification\
 GoogleAdMobAds\
 GoogleAnalytics\
+GoogleCast\
 GoogleMaps\
 GooglePlusAndPlayGameServices\
 iCarousel\
