@@ -6,11 +6,11 @@ MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
 all: GoogleAnalytics.iOS.dll
 
-GoogleAnalyticsServicesiOS_3.03.zip:
-	curl -O http://dl.google.com/googleanalyticsservices/GoogleAnalyticsServicesiOS_3.03.zip
+GoogleAnalyticsServicesiOS_3.03c.zip:
+	curl -O http://dl.google.com/googleanalyticsservices/GoogleAnalyticsServicesiOS_3.03c.zip
 
-libGoogleAnalyticsServices.a: GoogleAnalyticsServicesiOS_3.03.zip
-	unzip -p $< 'GoogleAnalyticsServicesiOS_3.03/libGoogleAnalyticsServices.a' > $@
+libGoogleAnalyticsServices.a: GoogleAnalyticsServicesiOS_3.03c.zip
+	unzip -p $< 'GoogleAnalyticsServicesiOS_3.03c/libGoogleAnalyticsServices.a' > $@
 
 GoogleAnalytics.iOS.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libGoogleAnalyticsServices.a
 	$(MONOXBUILD) /p:Configuration=Release GoogleAnalytics.iOS.csproj
