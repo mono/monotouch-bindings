@@ -6,10 +6,14 @@ BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
+# 	If you updated the binding to a newer SDWebImage version don't forget to change
+#	the Git TAG of newer the version you are binding against
+SDVERSIONTAG=3.4
+
 all: SDWebImage.dll
 
 SDWebImage: clean
-	git clone --recursive git@github.com:rs/SDWebImage.git
+	git clone --recursive git@github.com:rs/SDWebImage.git && cd SDWebImage && git checkout tags/$(SDVERSIONTAG)
 	curl -L https://github.com/dalexsoto/MonoTouch-PSPDFKit-bindings/raw/master/AlexTouch.PSPDFKit/libarclite.a > libarclite.a
 	curl -L https://github.com/dalexsoto/MonoTouch-PSPDFKit-bindings/raw/master/AlexTouch.PSPDFKit/libarclite.linkwith.cs > libarclite.linkwith.cs
 
