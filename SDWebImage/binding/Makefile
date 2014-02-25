@@ -8,7 +8,7 @@ MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
 # 	If you updated the binding to a newer SDWebImage version don't forget to change
 #	the Git TAG of newer the version you are binding against
-SDVERSIONTAG=3.4
+SDVERSIONTAG=3.5
 
 all: SDWebImage.dll
 
