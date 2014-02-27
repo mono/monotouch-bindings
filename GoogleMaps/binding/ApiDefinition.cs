@@ -69,12 +69,36 @@ namespace Google.Maps
 
 		[Static, Export ("kGMSMarkerLayerRotationGlobal")]
 		NSString MarkerLayerRotation { get; }
+
+		[Static, Export ("kGMSEarthRadiusGlobal")]
+		double EarthRadius { get; }
+
+		[Static, Export ("kGMSAccessibilityCompassGlobal")]
+		NSString AccessibilityCompass { get; }
+
+		[Static, Export ("kGMSAccessibilityMyLocationGlobal")]
+		NSString AccessibilityMyLocation { get; }
+
+		[Static, Export ("kGMSEquatorProjectedMeterGlobal")]
+		double EquatorProjectedMeter { get; }
 	}
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
 	interface GeometryUtils
 	{
+		[Static, Export ("projectWithCoordinate:")]
+		MapPoint Project (CLLocationCoordinate2D coordinate);
+
+		[Static, Export ("unprojectWithMapPoint:")]
+		CLLocationCoordinate2D Unproject (MapPoint point);
+
+		[Static, Export ("mapPointInterpolateWithMapPoint:andMapPoint:andT:")]
+		MapPoint MapPointInterpolate (MapPoint a, MapPoint b, double t);
+
+		[Static, Export ("mapPointDistanceFromPoint:andMapPoint:")]
+		double MapPointDistance (MapPoint a, MapPoint b);
+
 		[Static, Export ("geometryContainsLocation:path:geodesic:")]
 		bool ContainsLocation (CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic);
 
@@ -104,11 +128,63 @@ namespace Google.Maps
 
 		[Static, Export ("geometryInterpolate:to:fraction:")]
 		CLLocationCoordinate2D Interpolate (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord, double fraction);
+
+		[Static, Export ("styleSpansFrom:andStyles:andLengths:andLenghtKind:")]
+		StyleSpan[] StyleSpans (Path path, StrokeStyle[] styles, NSNumber[] lengths, LengthKind lengthKind);
+
+		[Static, Export ("styleSpansFrom:andStyles:andLengths:andLenghtKind:andLengthOffset:")]
+		StyleSpan[] StyleSpans (Path path, StrokeStyle[] styles, NSNumber[] lengths, LengthKind lengthKind, double lengthOffset);
 	}
 	#endregion
 
+	[BaseType (typeof (NSObject), Name="GMSAddress")]
+	interface Address : INSCopying {
+
+		[Export ("coordinate")]
+		CLLocationCoordinate2D Coordinate { get; }
+
+		[Export ("thoroughfare", ArgumentSemantic.Copy)]
+		string Thoroughfare { get; }
+
+		[Export ("locality", ArgumentSemantic.Copy)]
+		string Locality { get; }
+
+		[Export ("subLocality", ArgumentSemantic.Copy)]
+		string SubLocality { get; }
+
+		[Export ("administrativeArea", ArgumentSemantic.Copy)]
+		string AdministrativeArea { get; }
+
+		[Export ("postalCode", ArgumentSemantic.Copy)]
+		string PostalCode { get; }
+
+		[Export ("country", ArgumentSemantic.Copy)]
+		string Country { get; }
+
+		[Export ("lines", ArgumentSemantic.Copy)]
+		string [] Lines { get; }
+
+		[Export ("addressLine1")] [Obsolete]
+		string AddressLine1 { get; }
+
+		[Export ("addressLine2")] [Obsolete]
+		string AddressLine2 { get; }
+	}
+
 	[BaseType (typeof (NSObject), Name="GMSCameraPosition")]
-	interface CameraPosition {
+	interface CameraPosition : INSCopying, INSMutableCopying {
+
+		[Export ("target")]
+		CLLocationCoordinate2D Target { get; }
+
+		[Export ("zoom")]
+		float Zoom { get; }
+
+		[Export ("bearing")]
+		double Bearing { get; }
+
+		[Export ("viewingAngle")]
+		double ViewingAngle { get; }
 
 		[Export ("initWithTarget:zoom:bearing:viewingAngle:")]
 		IntPtr Constructor (CLLocationCoordinate2D target, float zoom, double bearing, double viewingAngle);
@@ -127,18 +203,23 @@ namespace Google.Maps
 
 		[Static, Export ("zoomAtCoordinate:forMeters:perPoints:")]
 		float ZoomAtCoordinate (CLLocationCoordinate2D coord, double meters, float points);
+	}
 
-		[Export ("target")]
-		CLLocationCoordinate2D Target { [Bind ("targetAsCoordinate")] get; }
+	[BaseType (typeof (CameraPosition), Name="GMSMutableCameraPosition")]
+	interface MutableCameraPosition {
 
-		[Export ("zoom")]
-		float Zoom { get; }
+		[Export ("target", ArgumentSemantic.Assign)] [New]
+		CLLocationCoordinate2D Target { get; set; }
 
-		[Export ("bearing")]
-		double Bearing { get; }
+		[Export ("zoom", ArgumentSemantic.Assign)] [New]
+		float Zoom { get; set; }
 
-		[Export ("viewingAngle")]
-		double ViewingAngle { get; }
+		[Export ("bearing", ArgumentSemantic.Assign)] [New]
+		double Bearing { get; set; }
+
+		[Export ("viewingAngle", ArgumentSemantic.Assign)] [New]
+		double ViewingAngle { get; set; }
+
 	}
 
 	[DisableDefaultCtor]
@@ -393,6 +474,9 @@ namespace Google.Maps
 
 		[Export ("mapView:didDragMarker:"), EventArgs ("GMSMarkerEvent"), EventName ("DraggingMarker")]
 		void DidDragMarker (MapView mapView, Marker marker);
+
+		[Export ("didTapMyLocationButtonForMapView:"), DelegateName ("GMSDidTapMyLocation"), DefaultValue(false)]
+		bool DidTapMyLocationButton (MapView mapView);
 	}
 
 	[BaseType (typeof (UIView), Name="GMSMapView",
@@ -409,7 +493,7 @@ namespace Google.Maps
 		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
 		NSObject WeakDelegate { get; set; }
 
-		[Export ("camera")]
+		[Export ("camera", ArgumentSemantic.Copy)]
 		CameraPosition Camera { get; set; }
 
 		[Export ("projection")]
@@ -478,17 +562,6 @@ namespace Google.Maps
 
 		[Export ("moveCamera:")]
 		void MoveCamera (CameraUpdate update);
-
-		// MapView + Overlays 
-
-		[Export ("markers"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
-		Marker [] Markers { get; }
-		
-		[Export ("groundOverlays"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
-		GroundOverlay [] GroundOverlays { get; }
-		
-		[Export ("polylines"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
-		Polyline [] Polylines { get; }
 	}
 
 	[BaseType (typeof (MapView))]
@@ -832,7 +905,7 @@ namespace Google.Maps
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSPath")]
-	interface Path {
+	interface Path : INSCopying, INSMutableCopying {
 		
 		[Static, Export ("path")]
 		Path GetPath { get; }
@@ -854,6 +927,14 @@ namespace Google.Maps
 
 		[Export ("pathOffsetByLatitude:longitude:")]
 		Path PathOffsetByLatitude (double deltaLatitude, double deltaLongitude);
+
+		// GMSPath (GMSPathLength) Category
+
+		[Export ("segmentsForLength:kind:")]
+		double SegmentsForLength (double length, LengthKind kind);
+
+		[Export ("lengthOfKind:")]
+		double LengthOfKind (LengthKind kind);
 	}
 
 	[BaseType (typeof (Overlay), Name="GMSPolygon")]
@@ -878,6 +959,40 @@ namespace Google.Maps
 		Polygon FromPath (Google.Maps.Path path);
 	}
 
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSStrokeStyle")]
+	interface StrokeStyle {
+
+		[Static, Export ("solidColor:")]
+		StrokeStyle GetSolidColor (UIColor color);
+
+		[Static, Export ("gradientFromColor:toColor:")]
+		StrokeStyle GetGradient (UIColor fromColor, UIColor toColor);
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSStyleSpan")]
+	interface StyleSpan {
+
+		[Static, Export ("spanWithColor:")]
+		StyleSpan FromSolidColor (UIColor color);
+
+		[Static, Export ("spanWithColor:segments:")]
+		StyleSpan FromSolidColor (UIColor color, double segments);
+
+		[Static, Export ("spanWithStyle:")]
+		StyleSpan FromStyle (StrokeStyle style);
+
+		[Static, Export ("spanWithStyle:segments:")]
+		StyleSpan FromStyle (StrokeStyle style, double segments);
+
+		[Export ("style")]
+		StrokeStyle Style { get; }
+
+		[Export ("segments")]
+		double Segments { get; }
+	}
+
 	[BaseType (typeof (Overlay), Name="GMSPolyline")]
 	interface Polyline {
 
@@ -895,6 +1010,9 @@ namespace Google.Maps
 
 		[Static, Export ("polylineWithPath:")]
 		Polyline FromPath (Google.Maps.Path path);
+
+		[Export ("spans", ArgumentSemantic.Copy)] [NullAllowed]
+		StyleSpan [] Spans { get; set; }
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSProjection")]
@@ -916,24 +1034,14 @@ namespace Google.Maps
 		VisibleRegion VisibleRegion { get; }	
 	}
 
-	[BaseType (typeof (NSObject), Name="GMSReverseGeocodeResult")]
-	interface ReverseGeocodeResult {
-
-		[Export ("addressLine1")]
-		string AddressLine1 { get; }
-		
-		[Export ("addressLine2")]
-		string AddressLine2 { get; }	
-	}
-
 	[BaseType (typeof (NSObject), Name="GMSReverseGeocodeResponse")]
-	interface ReverseGeocodeResponse {
+	interface ReverseGeocodeResponse : INSCopying {
 
 		[Export ("firstResult")]
-		ReverseGeocodeResult FirstResult { get; }
+		Address FirstResult { get; }
 		
 		[Export ("results")]
-		ReverseGeocodeResult [] Results { get; }
+		Address [] Results { get; }
 	}
 
 	[DisableDefaultCtor]
@@ -996,6 +1104,9 @@ namespace Google.Maps
 
 		[Export ("opacity", ArgumentSemantic.Assign)]
 		float Opacity { get; set; }
+
+		[Export ("fadeIn", ArgumentSemantic.Assign)]
+		bool FadeIn { get; set; }
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSUISettings")]

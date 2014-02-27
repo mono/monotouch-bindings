@@ -33,6 +33,13 @@ namespace Google.Maps
 		ErrorInternal
 	}
 
+	public enum LengthKind
+	{
+		Geodesic,
+		Rhumb,
+		Projected
+	}
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct VisibleRegion {
 
@@ -62,6 +69,18 @@ namespace Google.Maps
 		{
 			Heading = heading;
 			Pitch = pitch;
+		}
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct MapPoint {
+		public double X;
+		public double Y;
+
+		public MapPoint (float x, float y)
+		{
+			X = x;
+			Y = y;
 		}
 	}
 }

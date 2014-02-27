@@ -52,15 +52,13 @@
       <Link>GoogleMaps</Link>
     </ObjcBindingNativeLibrary>
     <ObjcBindingNativeLibrary Include="libGoogleMapsExporter.a" />
-    <ObjcBindingNativeLibrary Include="libarclite.a" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoogleMaps.linkwith.cs" />
+    <Compile Include="GoogleMaps.linkwith.cs">
+      <DependentUpon>GoogleMaps</DependentUpon>
+    </Compile>
     <Compile Include="libGoogleMapsExporter.linkwith.cs">
       <DependentUpon>libGoogleMapsExporter.a</DependentUpon>
-    </Compile>
-    <Compile Include="libarclite.linkwith.cs">
-      <DependentUpon>libarclite.a</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -86,15 +84,6 @@
     <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\compass_pin.png" />
     <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\compass_pin%402x.png" />
     <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\dav_one_way_16_256.png" />
-    <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_1-1.png" />
-    <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_128-1.png" />
-    <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_16-1.png" />
-    <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_2-1.png" />
-    <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_256-1.png" />
-    <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_32-1.png" />
-    <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_4-1.png" />
-    <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_64-1.png" />
-    <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_8-1.png" />
     <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture.png" />
     <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_1-1.png" />
     <BundleResource Include="Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_128-32.png" />
