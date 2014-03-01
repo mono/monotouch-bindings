@@ -73,6 +73,7 @@ ShareKit\
 SMCalloutView\
 SparkInspector\
 TapJoyConnect\
+Taplytics\
 TestFlight\
 TimesSquare\
 TSMiniWebBrowser\
