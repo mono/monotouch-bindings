@@ -3,7 +3,7 @@
 
 ## Add Sample projects here
 MDTOOL=/Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool
-PROJECTS=
+PROJECTS=TaplyticsSample/TaplyticsSample.sln
 
 all:
 	for i in $(PROJECTS); do ($(MDTOOL) build -c:"Release|iPhone" $$i); done
