@@ -1,7 +1,7 @@
 facebook
 ========
 
-These are bindings to the native Facebook SDK for iOS, currently we bind version 3.11.1.
+These are bindings to the native Facebook SDK for iOS, currently we bind version 3.12.0.
 
 Using
 =====
@@ -45,5 +45,5 @@ THE SOFTWARE.
 Authors
 =======
 
-Miguel de Icaza
-Alex Soto
+* Miguel de Icaza
+* Alex Soto
