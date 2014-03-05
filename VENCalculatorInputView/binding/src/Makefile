@@ -5,11 +5,11 @@ VERSION=0.8
 
 all: VENCalculatorInputViewBinding.dll
 
-libVENCalculatorInputViewSDK.a:
-	cd ../lib && make
+libVENCalculatorInputViewSDK.a: 
+	cd ../libVENCalculatorInputView && make
 VENCalculatorInputViewBinding.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libVENCalculatorInputViewSDK.a
 	$(MONOXBUILD) /p:Configuration=Release VENCalculatorInputViewBinding.csproj
 	cp bin/Release/VENCalculatorInputViewBinding.dll VENCalculatorInputViewBinding.dll
 
 clean:
-	-rm -rf list ios *.dll *.zip *.mdb *.sln bin/ obj/  && cd ../lib && make clean
+	-rm -rf list ios *.dll *.zip *.mdb *.sln bin/ obj/  && cd ../libVENCalculatorInputView && make clean
