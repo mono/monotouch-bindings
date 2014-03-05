@@ -52,17 +52,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\VENCalculatorInputView.nib" />
-    <BundleResource Include="..\lib\VENCalculatorInputView\VENCalculatorIconBackspace.png">
-      <Link>Resources\VENCalculatorIconBackspace.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\lib\VENCalculatorInputView\VENCalculatorIconBackspace%402x.png">
-      <Link>Resources\VENCalculatorIconBackspace%402x.png</Link>
-    </BundleResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\lib\libVENCalculatorInputViewSDK.a">
+    <ObjcBindingNativeLibrary Include="..\libVENCalculatorInputView\libVENCalculatorInputViewSDK.a">
       <Link>libVENCalculatorInputViewSDK.a</Link>
     </ObjcBindingNativeLibrary>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\libVENCalculatorInputView\VENCalculatorIconBackspace.png">
+      <Link>Resources\VENCalculatorIconBackspace.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\libVENCalculatorInputView\VENCalculatorIconBackspace%402x.png">
+      <Link>Resources\VENCalculatorIconBackspace%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\libVENCalculatorInputView\VENCalculatorInputView.nib">
+      <Link>Resources\VENCalculatorInputView.nib</Link>
+    </BundleResource>
   </ItemGroup>
 </Project>
