@@ -1,5 +1,2 @@
-all:
-	cd binding/src && make
-	
-clean:
-	cd binding/src && make clean
+ASSEMBLY=VENCalculatorInputViewBinding.dll
+include ../Rules.make

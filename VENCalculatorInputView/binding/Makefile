@@ -1,5 +1,7 @@
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
-#BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+SMCS=/Developer/MonoTouch/usr/bin/smcs
+MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 PROJECT_ROOT=VENCalculatorInputView
 OUTPUTPATH=.
 PROJECT=$(PROJECT_ROOT)/VENCalculatorInputView.xcodeproj
@@ -7,7 +9,7 @@ TARGET=VENCalculatorInputView
 
 VERSIONTAG=v1.1.1
 
-all: libVENCalculatorInputViewSDK.a mopup
+all: VENCalculatorInputViewBinding.dll
 
 libVENCalculatorInputView-sdk:
 	git clone https://github.com/venmo/VENCalculatorInputView.git && cd VENCalculatorInputView && git checkout tags/$(VERSIONTAG)
@@ -34,8 +36,9 @@ libVENCalculatorInputView-arm64.a: libVENCalculatorInputView-resources
 libVENCalculatorInputViewSDK.a: libVENCalculatorInputView-i386.a libVENCalculatorInputView-armv7.a libVENCalculatorInputView-armv7s.a libVENCalculatorInputView-arm64.a
 	lipo -create -output $@ $^
 
-mopup:
-	rm -rf VENCalculatorInputView && rm libVENCalculatorInputView-arm64.a && rm libVENCalculatorInputView-armv7.a && rm libVENCalculatorInputView-armv7s.a && rm libVENCalculatorInputView-i386.a && rm VENCalculatorInputView.xib
+VENCalculatorInputViewBinding.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libVENCalculatorInputViewSDK.a
+	$(MONOXBUILD) /p:Configuration=Release VENCalculatorInputViewBinding.csproj
+	cp bin/Release/VENCalculatorInputViewBinding.dll VENCalculatorInputViewBinding.dll
 
 clean:
-	-rm -f *.a *.dll *.png *.nib && rm -rf VENCalculatorInputView
+	-rm -rf list ios *.dll *.zip *.mdb *.sln *.a *.dll *.png *.nib *.xib bin/ obj/ && rm -rf VENCalculatorInputView
