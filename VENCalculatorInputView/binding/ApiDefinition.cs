@@ -7,7 +7,7 @@ using MonoTouch.UIKit;
 namespace VENCalculatorInputViewBinding
 {
 
-	[Model, BaseType (typeof (NSObject))]
+	[Protocol, Model, BaseType (typeof (NSObject))]
 	public partial interface VENCalculatorInputViewDelegate {
 
 		[Export ("calculatorInputView:didTapKey:")]
