@@ -61,19 +61,6 @@ namespace MonoTouch.TestFlight {
 		[Static, Export ("submitFeedback:")]
 		void SubmitFeedback (string feedback);
 
-		/// <summary>
-		/// Sets the device identifier.
-		/// DO NOT CALL THIS IN A APPSTORE APP!!!
-		/// Your app won't be processed if you do!
-		/// 
-		/// If you want to use this during testing, you have to call it before TakeOff / ThreadSafeTakeOff
-		/// </summary>
-		/// <param name="deviceIdentifer"> Only use this with the Apple device UDID. DO NOT use Open ID or your own identifier</param>
-		[Obsolete("You cannot use this anymore with Xamarin")]
-		[Static, Export ("setDeviceIdentifier:")]
-		void SetDeviceIdentifier (string deviceIdentifer);
-
-
 	}
 
 	[Static]
