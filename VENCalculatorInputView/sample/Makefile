@@ -1,0 +1,8 @@
+MDTOOL=/Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool
+PROJECTS=VENCalculatorInputViewSample/VENCalculatorInputViewSample.sln
+
+all:
+	for i in $(PROJECTS); do ($(MDTOOL) build -c:"Release|iPhone" $$i); done
+
+clean:
+	for i in $(PROJECTS); do ($(MDTOOL) build -c:"Release|iPhone" -t:Clean $$i); done
