@@ -47,24 +47,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="libVENCalculatorInputViewSDK.linkwith.cs">
-      <DependentUpon>libVENCalculatorInputViewSDK.a</DependentUpon>
-    </Compile>
+    <ObjcBindingNativeLibrary Include="libVENCalculatorInputViewSDK.a" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\libVENCalculatorInputView\libVENCalculatorInputViewSDK.a">
-      <Link>libVENCalculatorInputViewSDK.a</Link>
-    </ObjcBindingNativeLibrary>
+    <Compile Include="libVENCalculatorInputViewSDK.linkwith.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="..\libVENCalculatorInputView\VENCalculatorIconBackspace.png">
-      <Link>Resources\VENCalculatorIconBackspace.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\libVENCalculatorInputView\VENCalculatorIconBackspace%402x.png">
-      <Link>Resources\VENCalculatorIconBackspace%402x.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\libVENCalculatorInputView\VENCalculatorInputView.nib">
-      <Link>Resources\VENCalculatorInputView.nib</Link>
-    </BundleResource>
+    <BundleResource Include="VENCalculatorIconBackspace.png" />
+    <BundleResource Include="VENCalculatorIconBackspace%402x.png" />
+    <BundleResource Include="VENCalculatorInputView.nib" />
   </ItemGroup>
 </Project>
