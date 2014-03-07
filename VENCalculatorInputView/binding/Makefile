@@ -17,28 +17,30 @@ libVENCalculatorInputView-sdk:
 libVENCalculatorInputView-resources: libVENCalculatorInputView-sdk
 	cp ${PROJECT_ROOT}/VENCalculatorInputView/Images/VENCalculatorIconBackspace.png ${OUTPUTPATH}/VENCalculatorIconBackspace.png && cp ${PROJECT_ROOT}/VENCalculatorInputView/Images/VENCalculatorIconBackspace@2x.png ${OUTPUTPATH}/VENCalculatorIconBackspace@2x.png && cp ${PROJECT_ROOT}/VENCalculatorInputView/VENCalculatorInputView.xib ${OUTPUTPATH}/VENCalculatorInputView.xib && ibtool --output-format human-readable-text --compile VENCalculatorInputView.nib VENCalculatorInputView.xib
  
-libVENCalculatorInputView-i386.a: libVENCalculatorInputView-resources
+libVENCalculatorInputView-i386.a:
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphonesimulator/lib$(TARGET).a $@
 
-libVENCalculatorInputView-armv7.a: libVENCalculatorInputView-resources
+libVENCalculatorInputView-armv7.a:
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7 -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
 
-libVENCalculatorInputView-armv7s.a: libVENCalculatorInputView-resources
+libVENCalculatorInputView-armv7s.a:
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7s -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
 
-libVENCalculatorInputView-arm64.a: libVENCalculatorInputView-resources
+libVENCalculatorInputView-arm64.a:
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch arm64 -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
 
 libVENCalculatorInputViewSDK.a: libVENCalculatorInputView-i386.a libVENCalculatorInputView-armv7.a libVENCalculatorInputView-armv7s.a libVENCalculatorInputView-arm64.a
 	lipo -create -output $@ $^
 
-VENCalculatorInputViewBinding.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libVENCalculatorInputViewSDK.a
+VENCalculatorInputViewBinding.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libVENCalculatorInputView-resources libVENCalculatorInputViewSDK.a
 	$(MONOXBUILD) /p:Configuration=Release VENCalculatorInputViewBinding.csproj
 	cp bin/Release/VENCalculatorInputViewBinding.dll VENCalculatorInputViewBinding.dll
+
+prepare: libVENCalculatorInputView-resources libVENCalculatorInputViewSDK.a
 
 clean:
 	-rm -rf list ios *.dll *.zip *.mdb *.sln *.a *.dll *.png *.nib *.xib bin/ obj/ && rm -rf VENCalculatorInputView
