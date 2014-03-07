@@ -78,5 +78,6 @@ TestFlight\
 TimesSquare\
 TSMiniWebBrowser\
 UrbanAirShip\
+VENCalculatorInputView\
 WEPopover\
 ZipArchive
