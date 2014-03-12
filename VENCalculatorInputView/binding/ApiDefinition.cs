@@ -6,9 +6,12 @@ using MonoTouch.UIKit;
 
 namespace VENCalculatorInputViewBinding
 {
+	interface IVENCalculatorInputViewDelegate { }
 
-	[Protocol, Model, BaseType (typeof (NSObject))]
-	public partial interface VENCalculatorInputViewDelegate {
+	[Protocol]
+	[Model]
+	[BaseType (typeof (NSObject))]
+	interface VENCalculatorInputViewDelegate {
 
 		[Export ("calculatorInputView:didTapKey:")]
 		void DidTapKey (VENCalculatorInputView inputView, string key);
@@ -18,15 +21,11 @@ namespace VENCalculatorInputViewBinding
 	}
 
 	[BaseType (typeof (UIView))]
-	public partial interface VENCalculatorInputView 
+	interface VENCalculatorInputView 
 	{
 
 		[Export ("delegate", ArgumentSemantic.Assign)]
-		VENCalculatorInputViewDelegate Delegate { get; set; }
-
-		[Export ("delegate", ArgumentSemantic.Assign)]
-		[NullAllowed]
-		 NSObject WeakDelegate { get; set; }
+		IVENCalculatorInputViewDelegate Delegate { get; set; }
 
 		[Export ("numberButtonCollection", ArgumentSemantic.Retain)]
 		NSArray NumberButtons { get; set; }
@@ -57,14 +56,14 @@ namespace VENCalculatorInputViewBinding
 	}
 
 	[BaseType (typeof (NSObject))]
-	public partial interface VENMoneyCalculator {
+	interface VENMoneyCalculator {
 
 		[Static, Export ("evaluateExpression:")]
 		string EvaluateExpression (string expression);
 	}
 		
 	[BaseType (typeof (UITextField))]
-	public partial interface VENCalculatorInputTextField : VENCalculatorInputViewDelegate
+	interface VENCalculatorInputTextField : VENCalculatorInputViewDelegate
 	{
 		[Export ("inputView")]
 		VENCalculatorInputView CalculatorInputView { get;}
