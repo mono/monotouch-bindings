@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace VENCalculatorInputViewSample
 {
-	public partial class VENCalculatorInputViewSampleViewController : UIViewController
+	public partial class VENCalculatorInputViewSampleViewController : UIViewController, IVENCalculatorInputViewDelegate
 	{
 
 		/// <summary>
@@ -40,7 +40,7 @@ namespace VENCalculatorInputViewSample
 			: base ("VENCalculatorInputViewSampleViewController_iPhone", null)
 		{
 
-
+			this.Title = "VENCalculatorInputView";
 
 		}
 		#endregion
@@ -56,11 +56,12 @@ namespace VENCalculatorInputViewSample
 			//add a toolbar to the top of the keyboard
 			calcField.InputAccessoryView = CalcAccessoryView;
 
+
 			/*
 			 * 
 			 * Set the delegate to intercept the taps on the keybaord
 			 * 
-				calcField.CalculatorInputView.WeakDelegate = this;
+				calcField.CalculatorInputView.Delegate = this;
 			*
 			*
 			*/
@@ -72,13 +73,12 @@ namespace VENCalculatorInputViewSample
 		#endregion
 
 		#region Weak Delegate Functions
-		[Export ("calculatorInputView:didTapKey:")]
+
 		public void DidTapKey (VENCalculatorInputView inputView, string key)
 		{
 			Debug.WriteLine (key);
 		}
-
-		[Export ("calculatorInputViewDidTapBackspace:")]
+			
 		public void DidTapBackspace (VENCalculatorInputView calculatorInputView)
 		{
 			Debug.WriteLine (calculatorInputView.ToString());
