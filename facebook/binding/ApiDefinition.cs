@@ -316,10 +316,17 @@ namespace MonoTouch.FacebookConnect
 
 		[Static, Export ("canPresentShareDialogWithParams:")]
 		bool CanPresentShareDialog (FBShareDialogParams aParams);
+		
+		[Static, Export ("canPresentShareDialogWithPhotos")]
+		bool CanPresentShareDialog ();
 
 		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithParams:clientState:handler:")]
 		FBAppCall PresentShareDialog (FBShareDialogParams aParams, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
+		[Static, Export ("presentShareDialogWithPhotoParams:clientState:handler:")]
+		FBAppCall PresentShareDialog ([NullAllowed] FBShareDialogPhotoParams aParams, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
 		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithLink:handler:")]
@@ -333,6 +340,14 @@ namespace MonoTouch.FacebookConnect
 		[Static, Export ("presentShareDialogWithLink:name:caption:description:picture:clientState:handler:")]
 		FBAppCall PresentShareDialog ([NullAllowed] NSUrl link, [NullAllowed] string name, [NullAllowed] string caption, [NullAllowed] string description, [NullAllowed] NSUrl picture, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
+		[Static, Export ("presentShareDialogWithPhotos:handler:")]
+		FBAppCall PresentShareDialog ([NullAllowed] UIImage [] photos, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+		
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
+		[Static, Export ("presentShareDialogWithPhotos:clientState:handler:")]
+		FBAppCall PresentShareDialog ([NullAllowed] UIImage [] photos, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+		
 		[Static, Export ("canPresentShareDialogWithOpenGraphActionParams:")]
 		bool CanPresentShareDialog (FBOpenGraphActionShareDialogParams aParams);
 
@@ -369,6 +384,22 @@ namespace MonoTouch.FacebookConnect
 	interface FBDialogsParams 
 	{
 
+	}
+	
+	[BaseType (typeof (FBDialogsParams))]
+	interface FBShareDialogPhotoParams 
+	{
+		[Export ("friends", ArgumentSemantic.Copy)]
+		IFBGraphUser [] Friends { get; set; }
+		
+		[Export ("place", ArgumentSemantic.Copy)]
+		IFBGraphPlace Place { get; set; }
+		
+		[Export ("dataFailuresFatal", ArgumentSemantic.Assign)]
+		bool DataFailuresFatal { get; set; }
+		
+		[Export ("photos", ArgumentSemantic.Copy)]
+		UIImage [] Photos { get; set; }
 	}
 
 	[BaseType (typeof (NSError))]
@@ -443,6 +474,9 @@ namespace MonoTouch.FacebookConnect
 
 		[Field ("FBErrorDialogInvalidOpenGraphActionParameters", "__Internal")]
 		NSString DialogInvalidOpenGraphActionParameters { get; }
+		
+		[Field ("FBErrorDialogInvalidShareParameters", "__Internal")]
+		NSString DialogInvalidShareParameters { get; }
 
 		[Field ("FBErrorAppEventsReasonKey", "__Internal")]
 		NSString AppEventsReasonKey { get; }
