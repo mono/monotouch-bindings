@@ -680,7 +680,7 @@ namespace Google.Maps
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name="GMSOverlay")]
-	interface Overlay {
+	interface Overlay : INSCopying {
 
 		[Export ("title", ArgumentSemantic.Copy)]
 		string Title { get; set; }
