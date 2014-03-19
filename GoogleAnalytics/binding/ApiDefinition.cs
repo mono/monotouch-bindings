@@ -266,20 +266,23 @@ namespace GoogleAnalytics.iOS
 		[Static]
 		[Export ("kGAITimingGlobal")]
 		NSString Timing { get; }
+
+		[Static]
+		[Export ("kGAIProductGlobal")]
+		NSString Product { get; }
+
+		[Static]
+		[Export ("kGAIVersionGlobal")]
+		NSString Version { get; }
+
+		[Static]
+		[Export ("kGAIErrorDomainGlobal")]
+		NSString ErrorDomain { get; }
 	}
 
 	[BaseType (typeof (NSObject))]
 	interface GAI
 	{
-		[Field ("GAIProduct", "__Internal")]
-		NSString Product { get; }
-
-		[Field ("GAIVersion", "__Internal")]
-		NSString Version { get; }
-
-		[Field ("GAIErrorDomain", "__Internal")]
-		NSString GAIErrorDomain { get; }
-
 		[Export ("defaultTracker", ArgumentSemantic.Assign)] [NullAllowed]
 		IGAITracker DefaultTracker { get; set; }
 
