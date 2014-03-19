@@ -42,7 +42,7 @@ namespace SDWebImageSample
 			}
 		}
 
-		void ProgressHandler (uint receivedSize, long expectedSize)
+		void ProgressHandler (int receivedSize, int expectedSize)
 		{
 			if (activityIndicator == null) {
 				InvokeOnMainThread (() => {

@@ -1,4 +1,6 @@
 using System;
 using MonoTouch.ObjCRuntime;
+using MonoTouch.Foundation;
 
-[assembly: LinkWith ("libSDWebImage.a", LinkTarget.ArmV7 | LinkTarget.ArmV7s | LinkTarget.Simulator, ForceLoad = true, Frameworks = "CoreGraphics ImageIO")]
+[assembly: LinkerSafe]
+[assembly: LinkWith ("libSDWebImage.a", LinkTarget.ArmV7 | LinkTarget.ArmV7s | LinkTarget.Simulator, SmartLink = true, ForceLoad = true, LinkerFlags = "-ObjC -fobjc-arc", Frameworks = "CoreGraphics ImageIO")]
