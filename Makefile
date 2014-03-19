@@ -35,7 +35,6 @@ DropboxChooser\
 DropBoxSync\
 Estimote\
 facebook\
-flite\
 FlurryAnalytics\
 FlurryAppCircle\
 GCDiscreetNotification\
