@@ -32,7 +32,7 @@ namespace SDWebImageSimpleSample
 			);	
 		}
 
-		void ProgressHandler (uint receivedSize, long expectedSize)
+		void ProgressHandler (int receivedSize, int expectedSize)
 		{
 			if (expectedSize > 0) {
 				InvokeOnMainThread (()=> {

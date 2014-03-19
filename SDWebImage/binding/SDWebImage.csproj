@@ -48,15 +48,10 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libSDWebImage.a" />
-    <ObjcBindingNativeLibrary Include="libarclite.a" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="libSDWebImage.linkwith.cs">
       <DependentUpon>libSDWebImage.a</DependentUpon>
     </Compile>
-    <Compile Include="libarclite.linkwith.cs">
-      <DependentUpon>libarclite.a</DependentUpon>
-    </Compile>
-    <Compile Include="Extras.cs" />
   </ItemGroup>
 </Project>
