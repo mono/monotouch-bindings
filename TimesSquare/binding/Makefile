@@ -25,13 +25,10 @@ libTimesSquare-armv7s.a: objc-TimesSquare-master
 libTimesSquare.a: libTimesSquare-i386.a libTimesSquare-armv7.a libTimesSquare-armv7s.a
 	lipo -create -output $@ $^
 
-libarclite.a:
-	curl -L https://github.com/dalexsoto/MonoTouch-PSPDFKit-bindings/raw/master/AlexTouch.PSPDFKit/libarclite.a > libarclite.a
-
-TimesSquare.iOS.dll: ApiDefinition.cs StructsAndEnums.cs Makefile AssemblyInfo.cs libTimesSquare.a libarclite.a
+TimesSquare.iOS.dll: ApiDefinition.cs StructsAndEnums.cs Makefile AssemblyInfo.cs libTimesSquare.a
 	-mkdir -p ios
 	$(BTOUCH) -unsafe -d:DEBUG ApiDefinition.cs -s:StructsAndEnums.cs -tmpdir:ios -sourceonly:ios/sources.list
-	$(SMCS) -noconfig -debug+ -debug:full -optimize- -out:TimesSquare.iOS.dll -resource:libTimesSquare.a -resource:libarclite.a AssemblyInfo.cs StructsAndEnums.cs @ios/sources.list -target:library -unsafe+  -define:DEBUG -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll
+	$(SMCS) -noconfig -debug+ -debug:full -optimize- -out:TimesSquare.iOS.dll -resource:libTimesSquare.a AssemblyInfo.cs StructsAndEnums.cs @ios/sources.list -target:library -unsafe+  -define:DEBUG -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll
 
 clean:
 	-rm -rf list ios objc-TimesSquare *.a *dll *.mdb
