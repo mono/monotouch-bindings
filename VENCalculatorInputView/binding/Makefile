@@ -3,7 +3,6 @@ BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 PROJECT_ROOT=VENCalculatorInputView
-OUTPUTPATH=.
 PROJECT=$(PROJECT_ROOT)/VENCalculatorInputView.xcodeproj
 TARGET=VENCalculatorInputView
 
@@ -15,7 +14,9 @@ libVENCalculatorInputView-sdk:
 	git clone https://github.com/venmo/VENCalculatorInputView.git && cd VENCalculatorInputView && git checkout tags/$(VERSIONTAG)
 
 libVENCalculatorInputView-resources: libVENCalculatorInputView-sdk
-	cp ${PROJECT_ROOT}/VENCalculatorInputView/Images/VENCalculatorIconBackspace.png ${OUTPUTPATH}/VENCalculatorIconBackspace.png && cp ${PROJECT_ROOT}/VENCalculatorInputView/Images/VENCalculatorIconBackspace@2x.png ${OUTPUTPATH}/VENCalculatorIconBackspace@2x.png && cp ${PROJECT_ROOT}/VENCalculatorInputView/VENCalculatorInputView.xib ${OUTPUTPATH}/VENCalculatorInputView.xib && ibtool --output-format human-readable-text --compile VENCalculatorInputView.nib VENCalculatorInputView.xib
+	mkdir Resources
+	cp ${PROJECT_ROOT}/VENCalculatorInputView/Images/* Resources/
+	ibtool --output-format human-readable-text --compile Resources/VENCalculatorInputView.nib ${PROJECT_ROOT}/VENCalculatorInputView/VENCalculatorInputView.xib
  
 libVENCalculatorInputView-i386.a:
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
@@ -43,4 +44,4 @@ VENCalculatorInputViewBinding.dll: Makefile ApiDefinition.cs StructsAndEnums.cs 
 prepare: libVENCalculatorInputView-resources libVENCalculatorInputViewSDK.a
 
 clean:
-	-rm -rf list ios *.dll *.zip *.mdb *.sln *.a *.dll *.png *.nib *.xib bin/ obj/ && rm -rf VENCalculatorInputView
+	rm -rf list ios *.dll *.zip *.mdb *.sln *.a *.dll *.png *.nib *.xib bin/ obj/ VENCalculatorInputView/ Resources/
