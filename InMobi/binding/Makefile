@@ -1,6 +1,6 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-VERSION=4.0.3
+VERSION=4.1.0
 all: InMobiSdk.dll
 
 InMobi_iOS_SDK.zip:
