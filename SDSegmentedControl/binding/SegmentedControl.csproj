@@ -48,15 +48,11 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libSDSegmentedControl.a" />
-    <ObjcBindingNativeLibrary Include="libarclite.a" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="libSDSegmentedControl.linkwith.cs">
       <DependentUpon>libSDSegmentedControl.a</DependentUpon>
     </Compile>
     <Compile Include="Extensions.cs" />
-    <Compile Include="libarclite.linkwith.cs">
-      <DependentUpon>libarclite.a</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>
