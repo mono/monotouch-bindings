@@ -3,7 +3,7 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-using PinterestSDK;
+using Pinterest.Pinit;
 
 namespace PinterestSample
 {
@@ -53,7 +53,7 @@ namespace PinterestSample
 			View.AddSubview (sampleImageView);
 
 			// Setup PinIt Button
-			pinItButton = Pinterest.GetPinItButton ();
+			pinItButton = PinItButton.GetPinItButton ();
 			pinItButton.Frame = new RectangleF (124, 281, 72, 32);
 
 			// Add button handler
