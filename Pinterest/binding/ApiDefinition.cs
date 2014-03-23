@@ -4,7 +4,7 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace Pinterest.Pinit
+namespace PinterestSDK.Pinit
 {
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
