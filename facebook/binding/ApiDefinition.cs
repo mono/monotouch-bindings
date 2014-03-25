@@ -613,6 +613,8 @@ namespace MonoTouch.FacebookConnect
 		void HandleError (FBFriendPickerViewController friendPicker, NSError error);
 	}
 
+	interface IFBGraphLocation { }
+
 	[BaseType (typeof (NSObject))]
 	[Protocol]
 	interface FBGraphLocation : FBGraphObjectProtocol
@@ -734,10 +736,10 @@ namespace MonoTouch.FacebookConnect
 		void SetCategory (string category);
 
 		[Bind ("location")]
-		IFBGraphPlace GetLocation ();
+		IFBGraphLocation GetLocation ();
 
 		[Bind ("setLocation")]
-		void SetLocation (IFBGraphPlace location);
+		void SetLocation (IFBGraphLocation location);
 	}
 
 	interface IFBGraphUser { }
