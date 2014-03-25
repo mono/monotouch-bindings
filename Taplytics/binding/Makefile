@@ -2,7 +2,7 @@ MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
 # 	If you updated the binding to a newer Taplytics version don't forget to change
 #	the Git TAG of newer the version you are binding against
-TPVERSIONTAG=1.2.30
+TPVERSIONTAG=1.2.42
 
 all: TaplyticsSDK.dll
 

@@ -18,6 +18,12 @@ namespace TaplyticsSDK
 
 		[Export ("taplyticsExperimentChanged:variationName:")]
 		void ExperimentChanged (string experimentName, [NullAllowed] string variationName);
+
+		[Export ("taplyticsDeviceInfo:")]
+		void DeviceInfo (NSDictionary deviceInfo);
+
+		[Export ("taplyticsLastApps:")]
+		void LastApps (NSObject[] lastApps);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -30,6 +36,11 @@ namespace TaplyticsSDK
 		[Static]
 		[Export ("startTaplyticsAPIKey:options:")]
 		void StartTaplytics (string apiKey, [NullAllowed] NSDictionary options);
+
+		[Since (7,0)]
+		[Static]
+		[Export ("performBackgroundFetch:")]
+		void PerformBackgroundFetch (TLBackgroundFetchHandler completionHandler);
 
 		[Static]
 		[Export ("setTaplyticsDelegate:")]
@@ -46,11 +57,6 @@ namespace TaplyticsSDK
 		[Static]
 		[Export ("goalAchieved:value:")]
 		void GoalAchieved (string goalName, NSNumber value);
-
-		[Since (7,0)]
-		[Static]
-		[Export ("performBackgroundFetch:")]
-		void PerformBackgroundFetch (TLBackgroundFetchHandler completionHandler);
 	}
 }
 
