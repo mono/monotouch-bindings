@@ -1380,19 +1380,19 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initWithString:fontName:fontSize:")]
 		IntPtr Constructor (string label, string fontName, float fontSize);
 
-		[Export ("initWithString:fontName:fontSize:dimensions:halignment:")]
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment);
 
-		[Export ("initWithString:fontName:fontSize:dimensions:halignment:lineBreakMode:")]
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:lineBreakMode:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, UILineBreakMode lineBreakMode);
 
-		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:")]
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment);
 
-		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:lineBreakMode:")]
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:lineBreakMode:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
 	}
