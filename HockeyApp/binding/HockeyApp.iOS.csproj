@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64574EFC-9C95-4764-ABAC-6A9A721CB366}</ProjectGuid>
+    <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HockeyApp.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>HockeyApp.iOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="HockeySDKResources.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="HockeySDK.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HockeySDK.linkwith.cs">
+      <DependentUpon>HockeySDK.a</DependentUpon>
+    </Compile>
+    <Compile Include="Additions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="HockeySDKResources.bundle\IconGradient.png" />
+    <BundleResource Include="HockeySDKResources.bundle\IconGradient%402x.png" />
+    <BundleResource Include="HockeySDKResources.bundle\Info.plist" />
+    <BundleResource Include="HockeySDKResources.bundle\authorize_denied.png" />
+    <BundleResource Include="HockeySDKResources.bundle\authorize_denied%402x.png" />
+    <BundleResource Include="HockeySDKResources.bundle\bg.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonHighlight.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonHighlight%402x.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonRoundedDelete.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonRoundedDelete%402x.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonRoundedDeleteHighlighted.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonRoundedDeleteHighlighted%402x.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonRoundedRegular.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonRoundedRegular%402x.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonRoundedRegularHighlighted.png" />
+    <BundleResource Include="HockeySDKResources.bundle\buttonRoundedRegularHighlighted%402x.png" />
+    <BundleResource Include="HockeySDKResources.bundle\feedbackActivity%402x~ipad.png" />
+    <BundleResource Include="HockeySDKResources.bundle\feedbackActivity~ipad.png" />
+    <BundleResource Include="HockeySDKResources.bundle\feedbackActiviy.png" />
+    <BundleResource Include="HockeySDKResources.bundle\feedbackActiviy%402x.png" />
+    <BundleResource Include="HockeySDKResources.bundle\de.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\en.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\es.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\fr.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\hr.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\hu.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\it.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\ja.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\nl.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\pt-PT.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\pt.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\ro.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\ru.lproj\HockeySDK.strings" />
+    <BundleResource Include="HockeySDKResources.bundle\zh-Hans.lproj\HockeySDK.strings" />
+  </ItemGroup>
+</Project>
