@@ -17,6 +17,7 @@ namespace GoogleCast
 		DuplicateRequest = 93,
 		MediaLoadFailed = 94,
 		InvalidMediaPlayerState = 95,
+		InvalidApplicationSessionId = 96,
 		Unknown = 99
 	}
 
@@ -61,12 +62,6 @@ namespace GoogleCast
 		Cancelled = 2,
 		Interrupted = 3,
 		Error = 4
-	}
-
-	public enum GCKAppAvailability
-	{
-		Unavailable,
-		Available
 	}
 
 	public enum GCKSenderApplicationInfoPlatform
