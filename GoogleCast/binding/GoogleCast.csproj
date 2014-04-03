@@ -50,8 +50,12 @@
     <Compile Include="GoogleCast.linkwith.cs">
       <DependentUpon>GoogleCast</DependentUpon>
     </Compile>
+    <Compile Include="libGoogleCastExporter.linkwith.cs">
+      <DependentUpon>libGoogleCastExporter.a</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="GoogleCast" />
+    <ObjcBindingNativeLibrary Include="libGoogleCastExporter.a" />
   </ItemGroup>
 </Project>

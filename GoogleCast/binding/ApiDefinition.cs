@@ -202,28 +202,28 @@ namespace GoogleCast
 		[Export ("deviceManagerDidConnect:")]
 		void DidConnect (GCKDeviceManager deviceManager);
 
-		[Export ("deviceManagerDidConnect:didFailToConnectWithError:")]
+		[Export ("deviceManager:didFailToConnectWithError:")]
 		void DidFailToConnect (GCKDeviceManager deviceManager, NSError error);
 
-		[Export ("deviceManagerDidConnect:didDisconnectWithError:")]
+		[Export ("deviceManager:didDisconnectWithError:")]
 		void DidDisconnect (GCKDeviceManager deviceManager, NSError error);
 
-		[Export ("deviceManagerDidConnect:didConnectToCastApplication:sessionID:launchedApplication:")]
+		[Export ("deviceManager:didConnectToCastApplication:sessionID:launchedApplication:")]
 		void DidConnectToCastApplication (GCKDeviceManager deviceManager, GCKApplicationMetadata applicationMetadata, string sessionId, bool launchedApplication);
 
-		[Export ("deviceManagerDidConnect:didFailToConnectToApplicationWithError:")]
+		[Export ("deviceManager:didFailToConnectToApplicationWithError:")]
 		void DidFailToConnectToApplication (GCKDeviceManager deviceManager, NSError error);
 
-		[Export ("deviceManagerDidConnect:didDisconnectFromApplicationWithError:")]
+		[Export ("deviceManager:didDisconnectFromApplicationWithError:")]
 		void DidDisconnectFromApplication (GCKDeviceManager deviceManager, NSError error);
 
-		[Export ("deviceManagerDidConnect:didFailToStopApplicationWithError:")]
+		[Export ("deviceManager:didFailToStopApplicationWithError:")]
 		void DidFailToStopApplication (GCKDeviceManager deviceManager, NSError error);
 
-		[Export ("deviceManagerDidConnect:didReceiveStatusForApplication:")]
+		[Export ("deviceManager:didReceiveStatusForApplication:")]
 		void DidReceiveStatus (GCKDeviceManager deviceManager, GCKApplicationMetadata applicationMetadata);
 
-		[Export ("deviceManagerDidConnect:volumeDidChangeToLevel:isMuted:")]
+		[Export ("deviceManager:volumeDidChangeToLevel:isMuted:")]
 		void VolumeDidChange (GCKDeviceManager deviceManager, float volumeLevel, bool isMuted);
 	}
 
@@ -301,7 +301,7 @@ namespace GoogleCast
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface GCKImage {
+	interface GCKImage : INSCopying, INSCoding {
 
 		[Export ("URL", ArgumentSemantic.Retain)]
 		NSUrl Url { get; }
@@ -425,6 +425,9 @@ namespace GoogleCast
 		[Export ("mediaControlChannelDidUpdateMetadata:")]
 		void DidUpdateMetadata (GCKMediaControlChannel mediaControlChannel);
 
+		[Export ("mediaControlChannel:requestDidCompleteWithID:")]
+		void RequestDidComplete (GCKMediaControlChannel mediaControlChannel, int requestId);
+
 		[Export ("mediaControlChannel:requestDidFailWithID:error:")]
 		void RequestDidFail (GCKMediaControlChannel mediaControlChannel, int requestId, NSError error);
 	}
@@ -457,68 +460,89 @@ namespace GoogleCast
 		NSObject JsonObject ();
 	}
 
-	[Static]
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GoogleCastExporter")]
 	interface GCKMetadataKey {
 
-		[Field ("kGCKMetadataKeyCreationDate", "__Internal")]
-		NSString CreationDate { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyCreationDateGlobal")]
+		NSString KMetadataKeyCreationDate { get; }
 
-		[Field ("kGCKMetadataKeyReleaseDate", "__Internal")]
-		NSString ReleaseDate { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyReleaseDateGlobal")]
+		NSString KMetadataKeyReleaseDate { get; }
 
-		[Field ("kGCKMetadataKeyBroadcastDate", "__Internal")]
-		NSString BroadcastDate { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyBroadcastDateGlobal")]
+		NSString KMetadataKeyBroadcastDate { get; }
 
-		[Field ("kGCKMetadataKeyTitle", "__Internal")]
-		NSString Title { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyTitleGlobal")]
+		NSString KMetadataKeyTitle { get; }
 
-		[Field ("kGCKMetadataKeySubtitle", "__Internal")]
-		NSString Subtitle { get; }
+		[Static]
+		[Export ("kGCKMetadataKeySubtitleGlobal")]
+		NSString KMetadataKeySubtitle { get; }
 
-		[Field ("kGCKMetadataKeyArtist", "__Internal")]
-		NSString Artist { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyArtistGlobal")]
+		NSString KMetadataKeyArtist { get; }
 
-		[Field ("kGCKMetadataKeyAlbumArtist", "__Internal")]
-		NSString AlbumArtist { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyAlbumArtistGlobal")]
+		NSString KMetadataKeyAlbumArtist { get; }
 
-		[Field ("kGCKMetadataKeyAlbumTitle", "__Internal")]
-		NSString AlbumTitle { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyAlbumTitleGlobal")]
+		NSString KMetadataKeyAlbumTitle { get; }
 
-		[Field ("kGCKMetadataKeyComposer", "__Internal")]
-		NSString Composer { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyComposerGlobal")]
+		NSString KMetadataKeyComposer { get; }
 
-		[Field ("kGCKMetadataKeyDiscNumber", "__Internal")]
-		NSString DiscNumber { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyDiscNumberGlobal")]
+		NSString KMetadataKeyDiscNumber { get; }
 
-		[Field ("kGCKMetadataKeyTrackNumber", "__Internal")]
-		NSString TrackNumber { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyTrackNumberGlobal")]
+		NSString KMetadataKeyTrackNumber { get; }
 
-		[Field ("kGCKMetadataKeySeasonNumber", "__Internal")]
-		NSString SeasonNumber { get; }
+		[Static]
+		[Export ("kGCKMetadataKeySeasonNumberGlobal")]
+		NSString KMetadataKeySeasonNumber { get; }
 
-		[Field ("kGCKMetadataKeyEpisodeNumber", "__Internal")]
-		NSString EpisodeNumber { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyEpisodeNumberGlobal")]
+		NSString KMetadataKeyEpisodeNumber { get; }
 
-		[Field ("kGCKMetadataKeySeriesTitle", "__Internal")]
-		NSString SeriesTitle { get; }
+		[Static]
+		[Export ("kGCKMetadataKeySeriesTitleGlobal")]
+		NSString KMetadataKeySeriesTitle { get; }
 
-		[Field ("kGCKMetadataKeyStudio", "__Internal")]
-		NSString Studio { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyStudioGlobal")]
+		NSString KMetadataKeyStudio { get; }
 
-		[Field ("kGCKMetadataKeyWidth", "__Internal")]
-		NSString Width { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyWidthGlobal")]
+		NSString KMetadataKeyWidth { get; }
 
-		[Field ("kGCKMetadataKeyHeight", "__Internal")]
-		NSString Height { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyHeightGlobal")]
+		NSString KMetadataKeyHeight { get; }
 
-		[Field ("kGCKMetadataKeyLocationName", "__Internal")]
-		NSString LocationName { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyLocationNameGlobal")]
+		NSString KMetadataKeyLocationName { get; }
 
-		[Field ("kGCKMetadataKeyLocationLatitude", "__Internal")]
-		NSString LocationLatitude { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyLocationLatitudeGlobal")]
+		NSString KMetadataKeyLocationLatitude { get; }
 
-		[Field ("kGCKMetadataKeyLocationLongitude", "__Internal")]
-		NSString LocationLongitude { get; }
+		[Static]
+		[Export ("kGCKMetadataKeyLocationLongitudeGlobal")]
+		NSString KMetadataKeyLocationLongitude { get; }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -544,6 +568,9 @@ namespace GoogleCast
 
 		[Export ("allKeys")]
 		string [] AllKeys ();
+
+		[Export ("objectForKey:")]
+		NSObject ObjectForKey (string key);
 
 		[Export ("setString:forKey:")]
 		void SetString (string value, string Key);
@@ -579,25 +606,32 @@ namespace GoogleCast
 		string DateAsStringForKey (string key);
 	}
 
-	[Static]
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GoogleCastMediaCommandExporter")]
 	interface GCKMediaCommand {
 
-		[Field ("kGCKMediaCommandPause", "__Internal")]
+		[Static]
+		[Export ("kGCKMediaCommandPauseGlobal")]
 		int Pause { get; }
 
-		[Field ("kGCKMediaCommandSeek", "__Internal")]
+		[Static]
+		[Export ("kGCKMediaCommandSeekGlobal")]
 		int Seek { get; }
 
-		[Field ("kGCKMediaCommandSetVolume", "__Internal")]
+		[Static]
+		[Export ("kGCKMediaCommandSetVolumeGlobal")]
 		int SetVolume { get; }
 
-		[Field ("kGCKMediaCommandToggleMute", "__Internal")]
+		[Static]
+		[Export ("kGCKMediaCommandToggleMuteGlobal")]
 		int ToggleMute { get; }
 
-		[Field ("kGCKMediaCommandSkipForward", "__Internal")]
+		[Static]
+		[Export ("kGCKMediaCommandSkipForwardGlobal")]
 		int SkipForward { get; }
 
-		[Field ("kGCKMediaCommandSkipBackward", "__Internal")]
+		[Static]
+		[Export ("kGCKMediaCommandSkipBackwardGlobal")]
 		int SkipBackward { get; }
 	}
 
@@ -636,67 +670,6 @@ namespace GoogleCast
 
 		[Export ("isMediaCommandSupported:")]
 		bool IsMediaCommandSupported (int command);
-	}
-
-	[DisableDefaultCtor]
-	[BaseType (typeof (GCKCastChannel))]
-	interface GCKReceiverControlChannel {
-
-		[Export ("delegate", ArgumentSemantic.Assign)] [NullAllowed]
-		IGCKReceiverControlChannelDelegate Delegate { get; set; }
-
-		[Export ("initWithReceiverDestinationID:")]
-		IntPtr Constructor (string receiverDestinationId);
-
-		[Export ("isLaunchingApplication")]
-		bool IsLaunchingApplication ();
-
-		[Export ("launchApplication:")]
-		int LaunchApplication (string applicationId);
-
-		[Export ("stopApplication")]
-		int StopApplication ();
-
-		[Export ("stopApplicationWithSessionID:")]
-		int StopApplication (string sessionId);
-
-		[Export ("requestDeviceStatus")]
-		int RequestDeviceStatus ();
-
-		[Export ("requestAvailabilityForAppIDs:")]
-		int RequestAvailability (string [] appIds);
-
-		[Export ("setVolume:")]
-		int SetVolume (float volume);
-
-		[Export ("setMuted:")]
-		int SetMuted (bool muted);
-	}
-
-	interface IGCKReceiverControlChannelDelegate { }
-
-	[Protocol]
-	[Model]
-	[BaseType (typeof (NSObject))]
-	interface GCKReceiverControlChannelDelegate {
-
-		[Export ("receiverControlChannel:didLaunchCastApplication:")]
-		void DidLaunchCastApplication (GCKReceiverControlChannel receiverControlChannel, GCKApplicationMetadata applicationMetadata);
-
-		[Export ("receiverControlChannel:didFailToLaunchCastApplicationWithError:")]
-		void DidFailToLaunchCastApplication (GCKReceiverControlChannel receiverControlChannel, NSError error);
-
-		[Export ("receiverControlChannel:requestDidFailWithID:error:")]
-		void RequestDidFail (GCKReceiverControlChannel receiverControlChannel, int requestId, NSError error);
-
-		[Export ("receiverControlChannel:didReceiveStatusForApplication:")]
-		void DidReceiveStatusForApplication (GCKReceiverControlChannel receiverControlChannel, GCKApplicationMetadata applicationMetadata);
-
-		[Export ("receiverControlChannel:volumeDidChangeToLevel:isMuted:")]
-		void VolumeDidChange (GCKReceiverControlChannel receiverControlChannel, float volumeLevel, bool isMuted);
-
-		[Export ("receiverControlChannel:didReceiveAppAvailability:")]
-		void DidReceiveAppAvailability (GCKReceiverControlChannel receiverControlChannel, NSDictionary appAvailability);
 	}
 
 	[BaseType (typeof (NSObject))]
