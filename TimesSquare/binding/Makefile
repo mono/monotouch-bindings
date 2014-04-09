@@ -4,6 +4,7 @@ PROJECT=$(PROJECT_ROOT)/TimesSquare.xcodeproj
 TARGET=TimesSquare
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
+MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
 all: TimesSquare.iOS.dll
 
@@ -22,13 +23,17 @@ libTimesSquare-armv7s.a: objc-TimesSquare-master
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7s -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphoneos/libTimesSquare.a $@
 
-libTimesSquare.a: libTimesSquare-i386.a libTimesSquare-armv7.a libTimesSquare-armv7s.a
+libTimesSquare-arm64.a: objc-TimesSquare-master
+	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch arm64 -configuration Release clean build
+	-mv $(PROJECT_ROOT)/build/Release-iphoneos/libTimesSquare.a $@
+
+libTimesSquare.a: libTimesSquare-i386.a libTimesSquare-armv7.a libTimesSquare-armv7s.a libTimesSquare-arm64.a
 	lipo -create -output $@ $^
 
-TimesSquare.iOS.dll: ApiDefinition.cs StructsAndEnums.cs Makefile AssemblyInfo.cs libTimesSquare.a
+TimesSquare.iOS.dll: ApiDefinition.cs StructsAndEnums.cs Makefile libTimesSquare.a
 	-mkdir -p ios
-	$(BTOUCH) -unsafe -d:DEBUG ApiDefinition.cs -s:StructsAndEnums.cs -tmpdir:ios -sourceonly:ios/sources.list
-	$(SMCS) -noconfig -debug+ -debug:full -optimize- -out:TimesSquare.iOS.dll -resource:libTimesSquare.a AssemblyInfo.cs StructsAndEnums.cs @ios/sources.list -target:library -unsafe+  -define:DEBUG -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll
+	$(MONOXBUILD) /p:Configuration=Release TimesSquare.iOS.csproj
+	cp bin/Release/TimesSquare.iOS.dll TimesSquare.iOS.dll
 
 clean:
 	-rm -rf list ios objc-TimesSquare *.a *dll *.mdb
