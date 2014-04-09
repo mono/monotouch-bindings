@@ -43,9 +43,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchProfiling>True</MtouchProfiling>
     <ConsolePause>False</ConsolePause>
     <MtouchDebug>True</MtouchDebug>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -97,22 +100,21 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Content Include="Default-568h%402x.png" />
-    <Content Include="Default.png" />
-    <Content Include="Default%402x.png" />
-    <Content Include="images\CalendarPreviousMonth.png" />
-    <Content Include="images\CalendarPreviousMonth%402x.png" />
-    <Content Include="images\CalendarRow.png" />
-    <Content Include="images\CalendarRow%402x.png" />
-    <Content Include="images\CalendarRowBottom.png" />
-    <Content Include="images\CalendarRowBottom%402x.png" />
-    <Content Include="images\CalendarSelectedDate.png" />
-    <Content Include="images\CalendarSelectedDate%402x.png" />
-    <Content Include="images\CalendarTodaysDate.png" />
-    <Content Include="images\CalendarTodaysDate%402x.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\" />
-    <Folder Include="Resources\" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\images\CalendarPreviousMonth.png" />
+    <BundleResource Include="Resources\images\CalendarPreviousMonth%402x.png" />
+    <BundleResource Include="Resources\images\CalendarRow.png" />
+    <BundleResource Include="Resources\images\CalendarRow%402x.png" />
+    <BundleResource Include="Resources\images\CalendarRowBottom.png" />
+    <BundleResource Include="Resources\images\CalendarRowBottom%402x.png" />
+    <BundleResource Include="Resources\images\CalendarSelectedDate.png" />
+    <BundleResource Include="Resources\images\CalendarSelectedDate%402x.png" />
+    <BundleResource Include="Resources\images\CalendarTodaysDate.png" />
+    <BundleResource Include="Resources\images\CalendarTodaysDate%402x.png" />
   </ItemGroup>
 </Project>
