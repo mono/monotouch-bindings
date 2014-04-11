@@ -1635,36 +1635,43 @@ namespace MonoTouch.FacebookConnect
 		NSString TokenInformationPermissionsRefreshDateKey { get; }
 	}
 
+	[Static]
+	interface FBLoggingBehavior
+	{
+		[Field ("FBLoggingBehaviorFBRequests", "__Internal")]
+		NSString FBRequests { get; }
+
+		[Field ("FBLoggingBehaviorFBURLConnections", "__Internal")]
+		NSString FBURLConnections { get; }
+
+		[Field ("FBLoggingBehaviorAccessTokens", "__Internal")]
+		NSString AccessTokens { get; }
+
+		[Field ("FBLoggingBehaviorSessionStateTransitions", "__Internal")]
+		NSString SessionStateTransitions { get; }
+
+		[Field ("FBLoggingBehaviorPerformanceCharacteristics", "__Internal")]
+		NSString PerformanceCharacteristics { get; }
+
+		[Field ("FBLoggingBehaviorAppEvents", "__Internal")]
+		NSString AppEvents { get; }
+
+		[Field ("FBLoggingBehaviorInformational", "__Internal")]
+		NSString Informational { get; }
+		
+		[Field ("FBLoggingBehaviorCacheErrors", "__Internal")]
+		NSString CacheErrors { get; }
+
+		[Field ("FBLoggingBehaviorDeveloperErrors", "__Internal")]
+		NSString DeveloperErrors { get; }
+	}
+	
 	delegate void FBInstallResponseDataHandler (IFBGraphObjectProtocol response, NSError error);
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
 	interface FBSettings 
 	{
-		[Field ("FBLoggingBehaviorFBRequests", "__Internal")]
-		NSString LoggingBehaviorFBRequests { get; }
-
-		[Field ("FBLoggingBehaviorFBURLConnections", "__Internal")]
-		NSString LoggingBehaviorFBURLConnections { get; }
-
-		[Field ("FBLoggingBehaviorAccessTokens", "__Internal")]
-		NSString LoggingBehaviorAccessTokens { get; }
-
-		[Field ("FBLoggingBehaviorSessionStateTransitions", "__Internal")]
-		NSString LoggingBehaviorSessionStateTransitions { get; }
-
-		[Field ("FBLoggingBehaviorPerformanceCharacteristics", "__Internal")]
-		NSString LoggingBehaviorPerformanceCharacteristics { get; }
-
-		[Field ("FBLoggingBehaviorAppEvents", "__Internal")]
-		NSString LoggingBehaviorAppEvents { get; }
-
-		[Field ("FBLoggingBehaviorInformational", "__Internal")]
-		NSString LoggingBehaviorInformational { get; }
-
-		[Field ("FBLoggingBehaviorDeveloperErrors", "__Internal")]
-		NSString LoggingBehaviorDeveloperErrors { get; }
-
 		[Static]
 		[Export ("sdkVersion")]
 		string SdkVersion { get; }
