@@ -9,7 +9,7 @@ LoginWithAmazonSDKForiOS._TTH_.zip:
 	curl -L "https://images-na.ssl-images-amazon.com/images/G/01/lwa/sdk/LoginWithAmazonSDKForiOS._TTH_.zip" > $@
 
 login-with-amazon-sdk.a: LoginWithAmazonSDKForiOS._TTH_.zip
-	unzip -p $< 'LoginWithAmazonSDKForiOS/Build-universal/login-with-amazon-sdk.a' > $@
+	unzip -p $< 'LoginWithAmazon/LoginWithAmazon.framework/Versions/A/LoginWithAmazon' > $@
 
 Amazon.Login.dll: Makefile login-with-amazon-sdk.linkwith.cs Extras.cs ApiDefinition.cs StructsAndEnums.cs login-with-amazon-sdk.a
 	$(MONOXBUILD) /p:Configuration=Release Amazon.Login.csproj
