@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using MonoTouch.Foundation;
 
 namespace HockeyApp
 {
@@ -35,6 +36,29 @@ namespace HockeyApp
 
 			Marshal.FreeHGlobal (sigbus);
 			Marshal.FreeHGlobal (sigsegv);
+		}
+
+		public static void ThrowExceptionAsNative(Exception exception)
+		{
+			ConvertToNsExceptionAndAbort (exception);
+		}
+
+		public static void ThrowExceptionAsNative(object exception)
+		{
+			ConvertToNsExceptionAndAbort (exception);
+		}
+
+		[DllImport(MonoTouch.Constants.FoundationLibrary, EntryPoint = "NSGetUncaughtExceptionHandler")]
+		private static extern IntPtr NSGetUncaughtExceptionHandler();
+
+		private delegate void ReporterDelegate(IntPtr ex);
+
+		private static void ConvertToNsExceptionAndAbort(object e)
+		{
+			var nse = new NSException(".NET Exception", e.ToString(), null);
+			var uncaught = NSGetUncaughtExceptionHandler();
+			var dele = (ReporterDelegate)Marshal.GetDelegateForFunctionPointer(uncaught, typeof(ReporterDelegate));
+			dele(nse.Handle);
 		}
 	}
 }
