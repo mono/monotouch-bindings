@@ -4,6 +4,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using HockeyApp;
+using System.Threading.Tasks;
 
 namespace HockeyAppSampleiOS
 {
@@ -13,23 +14,15 @@ namespace HockeyAppSampleiOS
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		const string HOCKEYAPP_APPID = "c504052380d242a3c72b2878de7dd472";
+		const string HOCKEYAPP_APPID = "YOUR-HOCKEYAPP-APP-ID";
 
 		UINavigationController navController;
 		HomeViewController homeViewController;
-		// class-level declarations
 		UIWindow window;
-		//
-		// This method is invoked when the application has loaded and is ready to run. In this
-		// method you should instantiate the window, load the UI into it and then make the window
-		// visible.
-		//
-		// You have 17 seconds to return from this method, or iOS will terminate your application.
-		//
+
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-
-			HockeyApp.Setup.EnableCustomCrashReporting (() => {
+			Setup.EnableCustomCrashReporting (() => {
 
 				//Get the shared instance
 				var manager = BITHockeyManager.SharedHockeyManager;
@@ -42,6 +35,14 @@ namespace HockeyAppSampleiOS
 
 				//Authenticate (there are other authentication options)
 				manager.Authenticator.AuthenticateInstallation ();
+
+				//Rethrow any unhandled .NET exceptions as native iOS 
+				// exceptions so the stack traces appear nicely in HockeyApp
+				AppDomain.CurrentDomain.UnhandledException += (sender, e) => 
+					Setup.ThrowExceptionAsNative(e.ExceptionObject);
+
+				TaskScheduler.UnobservedTaskException += (sender, e) => 
+					Setup.ThrowExceptionAsNative(e.Exception);
 			});
 
 			// create a new window instance based on the screen size
@@ -49,7 +50,6 @@ namespace HockeyAppSampleiOS
 
 			homeViewController = new HomeViewController ();
 			navController = new UINavigationController (homeViewController);
-			// If you have defined a root view controller, set it here:
 			window.RootViewController = navController;
 			
 			// make the window visible
