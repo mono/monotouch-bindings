@@ -16,7 +16,7 @@ libVENCalculatorInputView-sdk:
 libVENCalculatorInputView-resources: libVENCalculatorInputView-sdk
 	mkdir Resources
 	cp ${PROJECT_ROOT}/VENCalculatorInputView/Images/* Resources/
-	ibtool --output-format human-readable-text --compile Resources/VENCalculatorInputView.nib ${PROJECT_ROOT}/VENCalculatorInputView/VENCalculatorInputView.xib
+	ibtool --output-format human-readable-text --compile Resources/VENCalculatorInputView.nib VENCalculatorInputView/VENCalculatorInputView/VENCalculatorInputView.xib
  
 libVENCalculatorInputView-i386.a:
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
