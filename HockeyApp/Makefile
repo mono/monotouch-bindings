@@ -1,3 +1,3 @@
-ASSEMBLY=HockeyApp.iOS.dll
+ASSEMBLY=Card.IO.iOS.dll
 include ../Rules.make
 
