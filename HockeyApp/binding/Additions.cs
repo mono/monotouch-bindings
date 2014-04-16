@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using MonoTouch.Foundation;
+using MonoTouch.ObjCRuntime;
 
 namespace HockeyApp
 {
@@ -49,16 +50,32 @@ namespace HockeyApp
 		}
 
 		[DllImport(MonoTouch.Constants.FoundationLibrary, EntryPoint = "NSGetUncaughtExceptionHandler")]
-		private static extern IntPtr NSGetUncaughtExceptionHandler();
+		static extern IntPtr NSGetUncaughtExceptionHandler();
 
 		private delegate void ReporterDelegate(IntPtr ex);
 
-		private static void ConvertToNsExceptionAndAbort(object e)
-		{
-			var nse = new NSException(".NET Exception", e.ToString(), null);
-			var uncaught = NSGetUncaughtExceptionHandler();
-			var dele = (ReporterDelegate)Marshal.GetDelegateForFunctionPointer(uncaught, typeof(ReporterDelegate));
-			dele(nse.Handle);
+//		static void ConvertToNsExceptionAndAbort(object e)
+//		{
+//			var nse = new NSException(".NET Exception", e.ToString(), null);
+//			var uncaught = NSGetUncaughtExceptionHandler();
+//			var dele = (ReporterDelegate)Marshal.GetDelegateForFunctionPointer(uncaught, typeof(ReporterDelegate));
+//			dele(nse.Handle);
+//		}
+
+		static void ConvertToNsExceptionAndAbort(object e)
+		{	
+			var name = "Managed Xamarin.iOS .NET Exception";
+			var msg = e.ToString();
+
+			var ex = e as Exception;
+			if(ex != null) 
+				name = string.Format("{0}: {1}", ex.GetType().FullName, ex.Message);
+
+			name = name.Replace("%", "%%"); 
+			msg = msg.Replace("%", "%%");
+			var nse = new NSException(name, msg, null);
+			var sel = new Selector("raise");
+			Messaging.void_objc_msgSend(nse.Handle, sel.Handle);
 		}
 	}
 }

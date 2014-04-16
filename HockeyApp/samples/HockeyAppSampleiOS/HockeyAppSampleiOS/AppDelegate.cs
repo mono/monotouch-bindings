@@ -14,7 +14,7 @@ namespace HockeyAppSampleiOS
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		const string HOCKEYAPP_APPID = "YOUR-HOCKEYAPP-APP-ID";
+		const string HOCKEYAPP_APPID = "YOUR-HOCKEYAPP-APPID";
 
 		UINavigationController navController;
 		HomeViewController homeViewController;

@@ -18,7 +18,7 @@ namespace HockeyAppSampleiOS
 			var hockey = BITHockeyManager.SharedHockeyManager;
 
 			Root = new RootElement ("HockeyApp Sample") {
-				new Section() {
+				new Section {
 					new StringElement("Check for Updates", () => {
 						hockey.UpdateManager.CheckForUpdate();
 					}),
@@ -29,8 +29,22 @@ namespace HockeyAppSampleiOS
 						hockey.FeedbackManager.ShowFeedbackComposeView();
 					}),
 					new StringElement("Crashed Last Run:", hockey.CrashManager.DidCrashInLastSession.ToString())
+				},
+				new Section {
+					new StringElement("Throw Managed .NET Exception", () => {
+
+						throw new HockeyAppSampleException("You intentionally caused a crash!");
+
+					})
 				}
 			};
+		}
+	}
+
+	public class HockeyAppSampleException : System.Exception
+	{
+		public HockeyAppSampleException(string msg) : base(msg)
+		{
 		}
 	}
 }
