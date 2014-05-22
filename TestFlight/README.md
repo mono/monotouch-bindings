@@ -5,7 +5,7 @@ This is a MonoTouch binding for the TestFlight SDK which can be found at
 
      https://testflightapp.com/sdk/
 
-The current version of this binding is for TestFlight SDK 3.0.0 released on 19 Feb 2014
+The current version of this binding is for TestFlight SDK 3.0.2 released on 14 April 2014
 
 Building
 ========
@@ -40,4 +40,4 @@ Future versions
 ===============
 
 If the bindings aren't updated to the latest version, you could try to edit the makefile yourself.
-But that way it isn't tested and you could be having unexpected crashes off your app.		
+But that way it isn't tested and you could be having unexpected crashes off your app.
