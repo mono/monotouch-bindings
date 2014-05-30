@@ -1,4 +1,5 @@
 # Lookback binding for Xamarin.iOS
+_version 0.6.3 (May 13, 2014)_
 
 ## Instructions to integrate Lookback into your iOS project:
 

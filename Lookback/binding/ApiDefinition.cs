@@ -106,19 +106,25 @@ namespace LookbackSDK
 		bool  LookbackShouldBeConcealedInRecordings { get; set; }
 	}
 
+	/// <summary>
+	/// Class with helpers for starting and stopping recording.
+	/// </summary>
+	[BaseType (typeof (UIViewController))]
+	interface LookbackRecordingViewController {
+		/// <summary>
+		/// Creates a window on top of the app and displays this view controller.
+		/// </summary>
+		/// <value> Whether to present the vc with an animation. </value>
+		[Static]
+		[Export ("presentOntoScreenAnimated:")]
+		LookbackRecordingViewController PresentOntoScreenAnimated (bool animated);
 
-//	[BaseType (typeof(UITableViewController), Name="LookbackSettingsViewController", Delegates=new string [] { "WeakDelegate" }, Events=new Type [] {typeof(LookbackSettingsViewController)})]
-//	interface LookbackSettingsViewController
-//	{
-//		[Export ("delegate"), NullAllowed]
-//		NSObject WeakDelegate { get; set; }
-//
-//		[Wrap ("WeakDelegate")]
-//		LookbackSettingsViewController Delegate { get; set; }
-//
-//		[Export ("showsRecordButton")]
-//		bool ShowsRecordButton { get; set; }
-//	}
-
+		/// <summary>
+		/// Destroys the overlay window and removes the receives from the screen.
+		/// </summary>
+		/// <value> Whether to do so in an animated fashion. </value>
+		[Export ("dismissAnimated:")]
+		void DismissAnimated (bool animated);
+	}
 }
 

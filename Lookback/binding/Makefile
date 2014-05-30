@@ -2,7 +2,7 @@ MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
 # 	If you update the binding to a newer Lookback version don't forget to change
 #	the Git TAG of newer the version you are binding against
-VERSION=0.6.2
+VERSION=0.6.3
 
 all: init LookbackHD.dll LookbackSafe.dll wrapup
 
