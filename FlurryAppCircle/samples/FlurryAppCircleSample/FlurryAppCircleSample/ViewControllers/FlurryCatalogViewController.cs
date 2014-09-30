@@ -16,7 +16,7 @@ using System;
 using MonoTouch.Dialog;
 
 using AppCircle = FlurryAppCircle.FlurryAppCircle;
-using Analytics = FlurryAnalytics.FlurryAnalytics;
+using Analytics = FlurryAnalytics.Flurry;
 
 namespace FlurryAppCircleSample
 {
