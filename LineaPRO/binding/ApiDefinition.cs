@@ -56,10 +56,10 @@ namespace LineaProSdk
 		[Export ("connectionState:")]
 		void ConnectionState (ConnStates state);
 
-		[Export ("buttonPressed:")]
+		[Export ("lineaButtonPressed:")]
 		void ButtonPressed (int which);
 
-		[Export ("buttonReleased:")]
+		[Export ("lineaButtonReleased:")]
 		void ButtonReleased (int which);
 
 		[Export ("barcodeData:type:")]
