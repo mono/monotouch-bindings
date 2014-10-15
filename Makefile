@@ -36,7 +36,6 @@ DropBoxSync\
 Estimote\
 facebook\
 FlurryAnalytics\
-FlurryAppCircle\
 GCDiscreetNotification\
 GoogleAdMobAds\
 GoogleAnalytics\
