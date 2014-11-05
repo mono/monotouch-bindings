@@ -1,7 +1,7 @@
 Linea PRO SDK for Xamarin.iOS
 =============================
 
-This Xamarin.iOS project binds `DTDevices-iOS_2013-10-29_v1` library AKA (Version 1.82).
+This Xamarin.iOS project binds `DTDevices-iOS_2014-09-18_v1.93_Universal_XCode6` library AKA (Version 1.93).
 
 ## Prerequisites
 
@@ -11,8 +11,8 @@ Steps to obtain and include `libdtdev.a`:
 
 1. Go to [http://ipcprint.com/developer/](http://ipcprint.com/developer/).
 2. Register an Account or log in using your credentials.
-3. Download and unzip **DTDevices-iOS_2013-10-29_v1.82_XCode5.zip**
-4. Copy `DTDevices-iOS_2013-10-29_v1.82_XCode5/Library/libdtdev.a` inside `binding` folder.
+3. Download and unzip **DTDevices-iOS_2014-09-18_v1.93_Universal_XCode6.zip**
+4. Copy `DTDevices-iOS_2014-09-18_v1.93_Universal_XCode6/Library/libdtdev.a` inside `binding` folder.
 
 ## Building LineaProSdk.dll
 
@@ -35,7 +35,7 @@ In order to build `LineaProSdk.dll` you have two options:
 
 Once you have your freshly baked `LineaProSdk.dll` you can run the included sample in your device and start developing awesome apps!
 
-__Just one note:__ Whenever you create a new Xamarin.iOS project that will be using Linea PRO SDK don't forget to add the following keys inside your __info.plist__ file:
+__Just two notes:__ Whenever you create a new Xamarin.iOS project that will be using Linea PRO SDK don't forget to add the following keys inside your __info.plist__ file:
 
 ```xml
 	<key>UISupportedExternalAccessoryProtocols</key>
@@ -44,6 +44,9 @@ __Just one note:__ Whenever you create a new Xamarin.iOS project that will be us
 		<string>com.datecs.linea.pro.bar</string>
 	</array>
 ```
+
+Secondly, you may need to add `-gcc_flags "-dead_strip"` to the __Additional mtouch arguments:__ of your application to eliminate duplicate definition errors during build.
+
 
 ## License
 

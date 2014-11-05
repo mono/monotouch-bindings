@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace LineaProSdk
 {
-	public partial class Linea
+	public partial class DTDevices
 	{
 		public bool PlaySound (int volume, int[] tones, out NSError error)
 		{
