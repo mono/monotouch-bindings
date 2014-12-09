@@ -5,40 +5,40 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F798D57B-891C-49B5-BA8A-B98C45BF608E}</ProjectGuid>
-    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{5E2306AE-4447-46E0-A928-F63D38E00B53}</ProjectGuid>
+    <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>PHFComposeBarView</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>PHFComposeBarView</AssemblyName>
-    <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;__UNIFIED__;</DefineConstants>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>bin\unified\AnyCPU\Debug</OutputPath>
-    <BaseIntermediateOutputPath>obj\unified\</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>obj\unified\AnyCPU\Debug</IntermediateOutputPath>
+    <OutputPath>bin\classic\AnyCPU\Debug</OutputPath>
+    <BaseIntermediateOutputPath>obj\classic\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>obj\classic\AnyCPU\Debug</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
-    <DefineConstants>__UNIFIED__;</DefineConstants>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ConsolePause>false</ConsolePause>
-    <OutputPath>bin\unified\AnyCPU\Release</OutputPath>
-    <BaseIntermediateOutputPath>obj\unified\</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>obj\unified\AnyCPU\Release</IntermediateOutputPath>
+    <OutputPath>bin\classic\AnyCPU\Release</OutputPath>
+    <BaseIntermediateOutputPath>obj\classic\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>obj\classic\AnyCPU\Release</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Xamarin.iOS" />
+    <Reference Include="monotouch" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -49,9 +49,6 @@
   <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
-  <!--
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
--->
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libPHFComposeBarView.a" />

@@ -8,6 +8,9 @@
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
         </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.Versioning.TargetFramework("MonoTouch,Version=v1.0", FrameworkDisplayName="")</AttributeName>
+        </Attribute>
       </Attributes>
     </Assembly>
   </Assemblies>
@@ -21,13 +24,286 @@
       <Type Name="ComposeBarView" Kind="Class" />
       <Type Name="ComposeBarView+Notifications" Kind="Class" />
       <Type Name="ComposeBarViewDelegate" Kind="Class" />
+      <Type Name="ComposeBarViewDelegate_Extensions" Kind="Class" />
       <Type Name="ComposeBarViewDidChangeFrameEventArgs" Kind="Class" />
       <Type Name="ComposeBarViewFrameAnimationArgsEventArgs" Kind="Class" />
       <Type Name="ComposeBarViewFrameArgsEventArgs" Kind="Class" />
       <Type Name="ComposeBarViewTextViewChange" Kind="Delegate" />
       <Type Name="ComposeBarViewTextViewCondition" Kind="Delegate" />
       <Type Name="ComposeBarViewViewWillChangeFrameEventArgs" Kind="Class" />
+      <Type Name="IComposeBarViewDelegate" Kind="Interface" />
     </Namespace>
   </Types>
   <Title>PHFComposeBarView</Title>
+  <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="Changed">
+        <MemberSignature Language="C#" Value="public static void Changed (this PHFComposeBarView.IComposeBarViewDelegate This, MonoTouch.UIKit.UITextView textView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Changed(class PHFComposeBarView.IComposeBarViewDelegate This, class MonoTouch.UIKit.UITextView textView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="textView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.Changed(PHFComposeBarView.IComposeBarViewDelegate,MonoTouch.UIKit.UITextView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="DidChangeFrameSize">
+        <MemberSignature Language="C#" Value="public static void DidChangeFrameSize (this PHFComposeBarView.IComposeBarViewDelegate This, PHFComposeBarView.ComposeBarView composeBarView, System.Drawing.RectangleF startFrame, System.Drawing.RectangleF endFrame);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidChangeFrameSize(class PHFComposeBarView.IComposeBarViewDelegate This, class PHFComposeBarView.ComposeBarView composeBarView, valuetype System.Drawing.RectangleF startFrame, valuetype System.Drawing.RectangleF endFrame) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="composeBarView" Type="PHFComposeBarView.ComposeBarView" />
+          <Parameter Name="startFrame" Type="System.Drawing.RectangleF" />
+          <Parameter Name="endFrame" Type="System.Drawing.RectangleF" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="composeBarView">To be added.</param>
+          <param name="startFrame">To be added.</param>
+          <param name="endFrame">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.DidChangeFrameSize(PHFComposeBarView.IComposeBarViewDelegate,PHFComposeBarView.ComposeBarView,System.Drawing.RectangleF,System.Drawing.RectangleF)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="DidPressButton">
+        <MemberSignature Language="C#" Value="public static void DidPressButton (this PHFComposeBarView.IComposeBarViewDelegate This, PHFComposeBarView.ComposeBarView composeBarView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidPressButton(class PHFComposeBarView.IComposeBarViewDelegate This, class PHFComposeBarView.ComposeBarView composeBarView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="composeBarView" Type="PHFComposeBarView.ComposeBarView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="composeBarView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.DidPressButton(PHFComposeBarView.IComposeBarViewDelegate,PHFComposeBarView.ComposeBarView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="DidPressUtilityButton">
+        <MemberSignature Language="C#" Value="public static void DidPressUtilityButton (this PHFComposeBarView.IComposeBarViewDelegate This, PHFComposeBarView.ComposeBarView composeBarView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidPressUtilityButton(class PHFComposeBarView.IComposeBarViewDelegate This, class PHFComposeBarView.ComposeBarView composeBarView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="composeBarView" Type="PHFComposeBarView.ComposeBarView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="composeBarView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.DidPressUtilityButton(PHFComposeBarView.IComposeBarViewDelegate,PHFComposeBarView.ComposeBarView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="EditingEnded">
+        <MemberSignature Language="C#" Value="public static void EditingEnded (this PHFComposeBarView.IComposeBarViewDelegate This, MonoTouch.UIKit.UITextView textView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void EditingEnded(class PHFComposeBarView.IComposeBarViewDelegate This, class MonoTouch.UIKit.UITextView textView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="textView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.EditingEnded(PHFComposeBarView.IComposeBarViewDelegate,MonoTouch.UIKit.UITextView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="EditingStarted">
+        <MemberSignature Language="C#" Value="public static void EditingStarted (this PHFComposeBarView.IComposeBarViewDelegate This, MonoTouch.UIKit.UITextView textView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void EditingStarted(class PHFComposeBarView.IComposeBarViewDelegate This, class MonoTouch.UIKit.UITextView textView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="textView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.EditingStarted(PHFComposeBarView.IComposeBarViewDelegate,MonoTouch.UIKit.UITextView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="SelectionChanged">
+        <MemberSignature Language="C#" Value="public static void SelectionChanged (this PHFComposeBarView.IComposeBarViewDelegate This, MonoTouch.UIKit.UITextView textView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SelectionChanged(class PHFComposeBarView.IComposeBarViewDelegate This, class MonoTouch.UIKit.UITextView textView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="textView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.SelectionChanged(PHFComposeBarView.IComposeBarViewDelegate,MonoTouch.UIKit.UITextView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="ShouldBeginEditing">
+        <MemberSignature Language="C#" Value="public static bool ShouldBeginEditing (this PHFComposeBarView.IComposeBarViewDelegate This, MonoTouch.UIKit.UITextView textView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldBeginEditing(class PHFComposeBarView.IComposeBarViewDelegate This, class MonoTouch.UIKit.UITextView textView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="textView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.ShouldBeginEditing(PHFComposeBarView.IComposeBarViewDelegate,MonoTouch.UIKit.UITextView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="ShouldChangeText">
+        <MemberSignature Language="C#" Value="public static bool ShouldChangeText (this PHFComposeBarView.IComposeBarViewDelegate This, MonoTouch.UIKit.UITextView textView, MonoTouch.Foundation.NSRange range, string text);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldChangeText(class PHFComposeBarView.IComposeBarViewDelegate This, class MonoTouch.UIKit.UITextView textView, valuetype MonoTouch.Foundation.NSRange range, string text) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+          <Parameter Name="range" Type="MonoTouch.Foundation.NSRange" />
+          <Parameter Name="text" Type="System.String" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="textView">To be added.</param>
+          <param name="range">To be added.</param>
+          <param name="text">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.ShouldChangeText(PHFComposeBarView.IComposeBarViewDelegate,MonoTouch.UIKit.UITextView,MonoTouch.Foundation.NSRange,System.String)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="ShouldEndEditing">
+        <MemberSignature Language="C#" Value="public static bool ShouldEndEditing (this PHFComposeBarView.IComposeBarViewDelegate This, MonoTouch.UIKit.UITextView textView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldEndEditing(class PHFComposeBarView.IComposeBarViewDelegate This, class MonoTouch.UIKit.UITextView textView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="textView" Type="MonoTouch.UIKit.UITextView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="textView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.ShouldEndEditing(PHFComposeBarView.IComposeBarViewDelegate,MonoTouch.UIKit.UITextView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:PHFComposeBarView.IComposeBarViewDelegate" />
+      </Targets>
+      <Member MemberName="WillChangeFrameSize">
+        <MemberSignature Language="C#" Value="public static void WillChangeFrameSize (this PHFComposeBarView.IComposeBarViewDelegate This, PHFComposeBarView.ComposeBarView composeBarView, System.Drawing.RectangleF startFrame, System.Drawing.RectangleF endFrame, double duration, MonoTouch.UIKit.UIViewAnimationCurve animationCurve);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WillChangeFrameSize(class PHFComposeBarView.IComposeBarViewDelegate This, class PHFComposeBarView.ComposeBarView composeBarView, valuetype System.Drawing.RectangleF startFrame, valuetype System.Drawing.RectangleF endFrame, float64 duration, valuetype MonoTouch.UIKit.UIViewAnimationCurve animationCurve) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="PHFComposeBarView.IComposeBarViewDelegate" RefType="this" />
+          <Parameter Name="composeBarView" Type="PHFComposeBarView.ComposeBarView" />
+          <Parameter Name="startFrame" Type="System.Drawing.RectangleF" />
+          <Parameter Name="endFrame" Type="System.Drawing.RectangleF" />
+          <Parameter Name="duration" Type="System.Double" />
+          <Parameter Name="animationCurve" Type="MonoTouch.UIKit.UIViewAnimationCurve" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="composeBarView">To be added.</param>
+          <param name="startFrame">To be added.</param>
+          <param name="endFrame">To be added.</param>
+          <param name="duration">To be added.</param>
+          <param name="animationCurve">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="PHFComposeBarView.ComposeBarViewDelegate_Extensions" Member="M:PHFComposeBarView.ComposeBarViewDelegate_Extensions.WillChangeFrameSize(PHFComposeBarView.IComposeBarViewDelegate,PHFComposeBarView.ComposeBarView,System.Drawing.RectangleF,System.Drawing.RectangleF,System.Double,MonoTouch.UIKit.UIViewAnimationCurve)" />
+      </Member>
+    </ExtensionMethod>
+  </ExtensionMethods>
 </Overview>

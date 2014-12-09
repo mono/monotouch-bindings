@@ -1,8 +1,18 @@
 using System;
-using System.Drawing;
+
+
+#if __UNIFIED__
+using ObjCRuntime;
+using Foundation;
+using UIKit;
+using CoreGraphics;
+using RectangleF=CoreGraphics.CGRect;
+#else
 using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using System.Drawing;
+#endif
 
 namespace PHFComposeBarView
 {
@@ -48,8 +58,11 @@ namespace PHFComposeBarView
 		NSString WillChangeFrameNotification { get; }
 
 		[Export ("initWithFrame:")]
+		#if __UNIFIED__
+		IntPtr Constructor (CGRect frame);
+		#else
 		IntPtr Constructor (RectangleF frame);
-
+		#endif
 		[Export ("autoAdjustTopOffset", ArgumentSemantic.Assign)]
 		bool AutoAdjustTopOffset { get; set; }
 

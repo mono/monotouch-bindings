@@ -136,10 +136,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("autoAdjustTopOffset", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("autoAdjustTopOffset", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setAutoAdjustTopOffset:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAutoAdjustTopOffset:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -253,6 +253,11 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Field("PHFComposeBarViewDidChangeFrameNotification", "__Internal")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
       </ReturnValue>
@@ -335,10 +340,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("isEnabled", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("isEnabled", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setEnabled:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setEnabled:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -372,6 +377,11 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Field("PHFComposeBarViewInitialHeight", "__Internal")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
@@ -390,10 +400,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("maxCharCount", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("maxCharCount", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setMaxCharCount:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setMaxCharCount:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -414,10 +424,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("maxHeight", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("maxHeight", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setMaxHeight:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setMaxHeight:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -438,10 +448,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("maxLinesCount", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("maxLinesCount", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setMaxLinesCount:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setMaxLinesCount:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -654,10 +664,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("delegate", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("delegate", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setDelegate:", MonoTouch.ObjCRuntime.ArgumentSemantic.Assign)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDelegate:", MonoTouch.ObjCRuntime.ArgumentSemantic.UnsafeUnretained)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -676,6 +686,11 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Field("PHFComposeBarViewWillChangeFrameNotification", "__Internal")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>MonoTouch.Foundation.NSString</ReturnType>
       </ReturnValue>

@@ -1,10 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if __UNIFIED__
+using Foundation;
+using UIKit;
+using RectangleF=CoreGraphics.CGRect;
+using PointF=CoreGraphics.CGPoint;
+#else
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using System.Drawing;
-
+using CGRect = global::System.Drawing.RectangleF;
+using CGPoint = global::System.Drawing.PointF;
+using CGSize = global::System.Drawing.SizeF;
+using nfloat = global::System.Single;
+using nint = global::System.Int32;
+using nuint = global::System.UInt32;
+#endif
 using PHFComposeBarView;
 
 namespace PHFComposeBarViewSample
@@ -44,7 +56,11 @@ namespace PHFComposeBarViewSample
 			};
 
 			// Creating ComposeBarView and initializing its properties
+			#if __UNIFIED__
+			composeBarView = new ComposeBarView (new RectangleF (0, View.Bounds.Height - ComposeBarView.InitialHeight, View.Bounds.Width, (nfloat)ComposeBarView.InitialHeight)) {
+			#else
 			composeBarView = new ComposeBarView (new RectangleF (0, View.Bounds.Height - ComposeBarView.InitialHeight, View.Bounds.Width, ComposeBarView.InitialHeight)) {
+			#endif
 				MaxCharCount = 160,
 				MaxLinesCount = 5,
 				Placeholder = "Type something...",
@@ -88,7 +104,11 @@ namespace PHFComposeBarViewSample
 
 			// Let's scroll text to bottom
 			var offsetY = Math.Max (0, textView.ContentSize.Height - textView.Bounds.Height);
+			#if __UNIFIED__
+			var newTextViewContentOffset = new PointF (0, (nfloat) offsetY);
+			#else
 			var newTextViewContentOffset = new PointF (0, offsetY);
+			#endif
 			textView.SetContentOffset (newTextViewContentOffset, true);
 		}
 
@@ -110,7 +130,11 @@ namespace PHFComposeBarViewSample
 			var newContainerFrame = container.Frame;
 			newContainerFrame = new RectangleF (container.Frame.X, container.Frame.Y, container.Frame.Width, container.Frame.Height + sizeChange);
 			var offsetY = Math.Max (0.0f, textView.ContentSize.Height - textView.Frame.Size.Height - sizeChange);
+			#if __UNIFIED__
+			var newTextViewContentOffset = new PointF (0, (nfloat) offsetY);
+			#else
 			var newTextViewContentOffset = new PointF (0, offsetY);
+			#endif
 			UIView.Animate (duration, 0, UIViewAnimationOptions.BeginFromCurrentState, () => container.Frame = newContainerFrame, null);
 			textView.SetContentOffset (newTextViewContentOffset, true);
 		}
