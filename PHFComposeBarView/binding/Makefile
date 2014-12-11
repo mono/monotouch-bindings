@@ -11,6 +11,7 @@ PHFComposeBarView.dll: Makefile libPHFComposeBarView.linkwith.cs ApiDefinition.c
 	$(MONOXBUILD) /p:Configuration=Release PHFComposeBarView-Classic.csproj
 	cp bin/unified/AnyCPU/Release/PHFComposeBarView.dll PHFComposeBarView.dll
 	cp bin/unified/AnyCPU/Release/PHFComposeBarView.dll PHFComposeBarView-Classic.dll
+	rm -fr ../lib/
 	mkdir ../lib/
 	mkdir ../lib/ios
 	mkdir ../lib/ios-unified
