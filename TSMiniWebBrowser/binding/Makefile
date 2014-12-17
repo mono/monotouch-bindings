@@ -7,6 +7,7 @@ all: TSMiniWebBrowser.dll TSMiniWebBrowser-Classic.dll
 TSMiniWebBrowser.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libTSMiniWebBrowser.a
 	$(MONOXBUILD) /p:Configuration=Release TSMiniWebBrowser-Classic.csproj
 	$(MONOXBUILD) /p:Configuration=Release TSMiniWebBrowser.csproj
+	rm -fr ../lib/
 	mkdir ../lib
 	mkdir ../lib/ios
 	mkdir ../lib/ios-unified
