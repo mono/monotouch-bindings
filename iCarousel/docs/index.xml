@@ -8,6 +8,9 @@
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
         </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.Versioning.TargetFramework("MonoTouch,Version=v1.0", FrameworkDisplayName="")</AttributeName>
+        </Attribute>
       </Attributes>
     </Assembly>
   </Assemblies>
@@ -20,10 +23,379 @@
     <Namespace Name="iCarouselSDK">
       <Type Name="iCarousel" Kind="Class" />
       <Type Name="iCarouselDataSource" Kind="Class" />
+      <Type Name="iCarouselDataSource_Extensions" Kind="Class" />
       <Type Name="iCarouselDelegate" Kind="Class" />
+      <Type Name="iCarouselDelegate_Extensions" Kind="Class" />
       <Type Name="iCarouselOption" Kind="Enumeration" />
       <Type Name="iCarouselType" Kind="Enumeration" />
+      <Type Name="IiCarouselDataSource" Kind="Interface" />
+      <Type Name="IiCarouselDelegate" Kind="Interface" />
     </Namespace>
   </Types>
   <Title>iCarouselSDK</Title>
+  <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDataSource" />
+      </Targets>
+      <Member MemberName="NumberOfPlaceholders">
+        <MemberSignature Language="C#" Value="public static uint NumberOfPlaceholders (this iCarouselSDK.IiCarouselDataSource This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 NumberOfPlaceholders(class iCarouselSDK.IiCarouselDataSource This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.UInt32</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDataSource" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDataSource_Extensions" Member="M:iCarouselSDK.iCarouselDataSource_Extensions.NumberOfPlaceholders(iCarouselSDK.IiCarouselDataSource,iCarouselSDK.iCarousel)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDataSource" />
+      </Targets>
+      <Member MemberName="PlaceholderViewAtIndex">
+        <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIView PlaceholderViewAtIndex (this iCarouselSDK.IiCarouselDataSource This, iCarouselSDK.iCarousel carousel, uint index, MonoTouch.UIKit.UIView reusingView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.UIKit.UIView PlaceholderViewAtIndex(class iCarouselSDK.IiCarouselDataSource This, class iCarouselSDK.iCarousel carousel, unsigned int32 index, class MonoTouch.UIKit.UIView reusingView) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>MonoTouch.UIKit.UIView</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDataSource" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+          <Parameter Name="index" Type="System.UInt32" />
+          <Parameter Name="reusingView" Type="MonoTouch.UIKit.UIView" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <param name="index">To be added.</param>
+          <param name="reusingView">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDataSource_Extensions" Member="M:iCarouselSDK.iCarouselDataSource_Extensions.PlaceholderViewAtIndex(iCarouselSDK.IiCarouselDataSource,iCarouselSDK.iCarousel,System.UInt32,MonoTouch.UIKit.UIView)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="CurrentItemIndexDidChange">
+        <MemberSignature Language="C#" Value="public static void CurrentItemIndexDidChange (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CurrentItemIndexDidChange(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.CurrentItemIndexDidChange(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="DidEndDecelerating">
+        <MemberSignature Language="C#" Value="public static void DidEndDecelerating (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidEndDecelerating(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.DidEndDecelerating(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="DidEndDragging">
+        <MemberSignature Language="C#" Value="public static void DidEndDragging (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, bool willDecelerate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidEndDragging(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, bool willDecelerate) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+          <Parameter Name="willDecelerate" Type="System.Boolean" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <param name="willDecelerate">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.DidEndDragging(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.Boolean)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="DidEndScrollingAnimation">
+        <MemberSignature Language="C#" Value="public static void DidEndScrollingAnimation (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidEndScrollingAnimation(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.DidEndScrollingAnimation(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="DidScroll">
+        <MemberSignature Language="C#" Value="public static void DidScroll (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidScroll(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.DidScroll(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="DidSelectItem">
+        <MemberSignature Language="C#" Value="public static void DidSelectItem (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, int index);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidSelectItem(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, int32 index) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+          <Parameter Name="index" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <param name="index">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.DidSelectItem(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="ItemTransform">
+        <MemberSignature Language="C#" Value="public static MonoTouch.CoreAnimation.CATransform3D ItemTransform (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, float offset, MonoTouch.CoreAnimation.CATransform3D baseTransform);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype MonoTouch.CoreAnimation.CATransform3D ItemTransform(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, float32 offset, valuetype MonoTouch.CoreAnimation.CATransform3D baseTransform) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>MonoTouch.CoreAnimation.CATransform3D</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+          <Parameter Name="offset" Type="System.Single" />
+          <Parameter Name="baseTransform" Type="MonoTouch.CoreAnimation.CATransform3D" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <param name="offset">To be added.</param>
+          <param name="baseTransform">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ItemTransform(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.Single,MonoTouch.CoreAnimation.CATransform3D)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="ItemWidth">
+        <MemberSignature Language="C#" Value="public static float ItemWidth (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 ItemWidth(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Single</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ItemWidth(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="ShouldSelectItem">
+        <MemberSignature Language="C#" Value="public static bool ShouldSelectItem (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, int index);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldSelectItem(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, int32 index) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+          <Parameter Name="index" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <param name="index">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ShouldSelectItem(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="ValueForOption">
+        <MemberSignature Language="C#" Value="public static float ValueForOption (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, iCarouselSDK.iCarouselOption option, float aValue);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 ValueForOption(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, valuetype iCarouselSDK.iCarouselOption option, float32 aValue) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Single</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+          <Parameter Name="option" Type="iCarouselSDK.iCarouselOption" />
+          <Parameter Name="aValue" Type="System.Single" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <param name="option">To be added.</param>
+          <param name="aValue">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ValueForOption(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,iCarouselSDK.iCarouselOption,System.Single)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="WillBeginDecelerating">
+        <MemberSignature Language="C#" Value="public static void WillBeginDecelerating (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WillBeginDecelerating(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.WillBeginDecelerating(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="WillBeginDragging">
+        <MemberSignature Language="C#" Value="public static void WillBeginDragging (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WillBeginDragging(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.WillBeginDragging(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
+      </Targets>
+      <Member MemberName="WillBeginScrollingAnimation">
+        <MemberSignature Language="C#" Value="public static void WillBeginScrollingAnimation (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WillBeginScrollingAnimation(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
+          <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="carousel">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.WillBeginScrollingAnimation(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel)" />
+      </Member>
+    </ExtensionMethod>
+  </ExtensionMethods>
 </Overview>
