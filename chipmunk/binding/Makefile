@@ -1,7 +1,7 @@
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
-VERSION=6.1.5
+VERSION=6.2.1
 PROJECT_ROOT=Chipmunk-$(VERSION)
 PROJECT_TGZ=$(PROJECT_ROOT).tgz
 PROJECT=$(PROJECT_ROOT)/xcode/Chipmunk6.xcodeproj
@@ -27,7 +27,7 @@ CS_SRC=					\
 	src/Constraint.cs
 
 Chipmunk.dll: $(CS_SRC) libChipmunk-iPhone.a
-	$(SMCS) -noconfig -o- -out:$@ -res:libChipmunk-iPhone.a $(CS_SRC) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll  
+	$(SMCS) -noconfig -o- -out:$@ -res:libChipmunk-iPhone.a $(CS_SRC) -target:library -unsafe -reference:/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll -reference:/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll -reference:/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll  
 
 # build libChipmunk-iPhone.a
 ###########################
@@ -38,6 +38,7 @@ $(PROJECT_TGZ):
 $(PROJECT): $(PROJECT_TGZ) chipmunk-diff
 	rm -rf $(PROJECT_ROOT)
 	tar xfz $<
+	patch -d $(PROJECT_ROOT)/src/  < Chipmunk-6.2.1.patch
 	patch -d $(PROJECT_ROOT) -p1 < chipmunk-diff
 
 lib$(TARGET)-i386.a: $(PROJECT)

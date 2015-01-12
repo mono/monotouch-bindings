@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCRipple3D" FullName="MonoTouch.Cocos2D.CCRipple3D">
   <TypeSignature Language="C#" Value="public class CCRipple3D : MonoTouch.Cocos2D.CCGrid3DAction" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCRipple3D extends MonoTouch.Cocos2D.CCGrid3DAction" />
@@ -96,9 +95,6 @@
       <MemberSignature Language="C#" Value="public CCRipple3D (System.Drawing.PointF position, float radius, int waves, float amplitude, System.Drawing.Point gridSize, float duration);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Drawing.PointF position, float32 radius, int32 waves, float32 amplitude, valuetype System.Drawing.Point gridSize, float32 duration) cil managed" />
       <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("initWithPosition:radius:waves:amplitude:grid:duration:")</AttributeName>
@@ -125,6 +121,37 @@
         <remarks>
           <para>initializes the action with a position in points, radius, number of waves, amplitude, a grid size and duration </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCRipple3D (System.Drawing.PointF position, float radius, int waves, float amplitude, System.Drawing.SizeF gridSize, float duration);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Drawing.PointF position, float32 radius, int32 waves, float32 amplitude, valuetype System.Drawing.SizeF gridSize, float32 duration) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithPosition:radius:waves:amplitude:grid:duration:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="position" Type="System.Drawing.PointF" />
+        <Parameter Name="radius" Type="System.Single" />
+        <Parameter Name="waves" Type="System.Int32" />
+        <Parameter Name="amplitude" Type="System.Single" />
+        <Parameter Name="gridSize" Type="System.Drawing.SizeF" />
+        <Parameter Name="duration" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="radius">To be added.</param>
+        <param name="waves">To be added.</param>
+        <param name="amplitude">To be added.</param>
+        <param name="gridSize">To be added.</param>
+        <param name="duration">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Amplitude">

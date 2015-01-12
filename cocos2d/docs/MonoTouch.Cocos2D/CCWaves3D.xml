@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCWaves3D" FullName="MonoTouch.Cocos2D.CCWaves3D">
   <TypeSignature Language="C#" Value="public class CCWaves3D : MonoTouch.Cocos2D.CCGrid3DAction" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCWaves3D extends MonoTouch.Cocos2D.CCGrid3DAction" />
@@ -93,8 +92,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CCWaves3D (int waves, float amplitude, System.Drawing.Size gridSize, float duration);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 waves, float32 amplitude, valuetype System.Drawing.Size gridSize, float32 duration) cil managed" />
+      <MemberSignature Language="C#" Value="public CCWaves3D (int waves, float amplitude, System.Drawing.SizeF gridSize, float duration);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 waves, float32 amplitude, valuetype System.Drawing.SizeF gridSize, float32 duration) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -107,7 +106,7 @@
       <Parameters>
         <Parameter Name="waves" Type="System.Int32" />
         <Parameter Name="amplitude" Type="System.Single" />
-        <Parameter Name="gridSize" Type="System.Drawing.Size" />
+        <Parameter Name="gridSize" Type="System.Drawing.SizeF" />
         <Parameter Name="duration" Type="System.Single" />
       </Parameters>
       <Docs>

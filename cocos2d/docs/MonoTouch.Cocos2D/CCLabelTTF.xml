@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCLabelTTF" FullName="MonoTouch.Cocos2D.CCLabelTTF">
   <TypeSignature Language="C#" Value="public class CCLabelTTF : MonoTouch.Cocos2D.CCSprite" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCLabelTTF extends MonoTouch.Cocos2D.CCSprite" />
@@ -143,15 +142,15 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CCLabelTTF (string text, System.Drawing.SizeF dimensions, MonoTouch.UIKit.UITextAlignment alignment, string fontName, float fontSize);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string text, valuetype System.Drawing.SizeF dimensions, valuetype MonoTouch.UIKit.UITextAlignment alignment, string fontName, float32 fontSize) cil managed" />
+      <MemberSignature Language="C#" Value="public CCLabelTTF (string label, System.Drawing.SizeF dimensions, MonoTouch.UIKit.UITextAlignment alignment, string fontName, float fontSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string label, valuetype System.Drawing.SizeF dimensions, valuetype MonoTouch.UIKit.UITextAlignment alignment, string fontName, float32 fontSize) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("initWithString:dimensions:alignment:fontName:fontSize:")</AttributeName>
+          <AttributeName>System.Obsolete("Obsolete since 2.1, Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment) instead.")</AttributeName>
         </Attribute>
       </Attributes>
       <Parameters>
@@ -162,7 +161,7 @@
         <Parameter Name="fontSize" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="text">To be added.</param>
+        <param name="label">To be added.</param>
         <param name="dimensions">To be added.</param>
         <param name="alignment">To be added.</param>
         <param name="fontName">To be added.</param>
@@ -172,15 +171,44 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CCLabelTTF (string str, System.Drawing.SizeF dimensions, MonoTouch.UIKit.UITextAlignment alignment, MonoTouch.UIKit.UILineBreakMode lineBreakMode, string fontName, float fontSize);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string str, valuetype System.Drawing.SizeF dimensions, valuetype MonoTouch.UIKit.UITextAlignment alignment, valuetype MonoTouch.UIKit.UILineBreakMode lineBreakMode, string fontName, float32 fontSize) cil managed" />
+      <MemberSignature Language="C#" Value="public CCLabelTTF (string label, string fontName, float fontSize, System.Drawing.SizeF dimensions, MonoTouch.UIKit.UITextAlignment halignment);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string label, string fontName, float32 fontSize, valuetype System.Drawing.SizeF dimensions, valuetype MonoTouch.UIKit.UITextAlignment halignment) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("initWithString:dimensions:alignment:lineBreakMode:fontName:fontSize:")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("initWithString:fontName:fontSize:dimensions:hAlignment:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="label" Type="System.String" />
+        <Parameter Name="fontName" Type="System.String" />
+        <Parameter Name="fontSize" Type="System.Single" />
+        <Parameter Name="dimensions" Type="System.Drawing.SizeF" />
+        <Parameter Name="halignment" Type="MonoTouch.UIKit.UITextAlignment" />
+      </Parameters>
+      <Docs>
+        <param name="label">To be added.</param>
+        <param name="fontName">To be added.</param>
+        <param name="fontSize">To be added.</param>
+        <param name="dimensions">To be added.</param>
+        <param name="halignment">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCLabelTTF (string label, System.Drawing.SizeF dimensions, MonoTouch.UIKit.UITextAlignment alignment, MonoTouch.UIKit.UILineBreakMode lineBreakMode, string fontName, float fontSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string label, valuetype System.Drawing.SizeF dimensions, valuetype MonoTouch.UIKit.UITextAlignment alignment, valuetype MonoTouch.UIKit.UILineBreakMode lineBreakMode, string fontName, float32 fontSize) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Obsolete since 2.1. Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode) instead.")</AttributeName>
         </Attribute>
       </Attributes>
       <Parameters>
@@ -192,12 +220,107 @@
         <Parameter Name="fontSize" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="str">To be added.</param>
+        <param name="label">To be added.</param>
         <param name="dimensions">To be added.</param>
         <param name="alignment">To be added.</param>
         <param name="lineBreakMode">To be added.</param>
         <param name="fontName">To be added.</param>
         <param name="fontSize">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCLabelTTF (string label, string fontName, float fontSize, System.Drawing.SizeF dimensions, MonoTouch.UIKit.UITextAlignment halignment, MonoTouch.Cocos2D.CCVerticalTextAlignment vertAlignment);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string label, string fontName, float32 fontSize, valuetype System.Drawing.SizeF dimensions, valuetype MonoTouch.UIKit.UITextAlignment halignment, valuetype MonoTouch.Cocos2D.CCVerticalTextAlignment vertAlignment) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="label" Type="System.String" />
+        <Parameter Name="fontName" Type="System.String" />
+        <Parameter Name="fontSize" Type="System.Single" />
+        <Parameter Name="dimensions" Type="System.Drawing.SizeF" />
+        <Parameter Name="halignment" Type="MonoTouch.UIKit.UITextAlignment" />
+        <Parameter Name="vertAlignment" Type="MonoTouch.Cocos2D.CCVerticalTextAlignment" />
+      </Parameters>
+      <Docs>
+        <param name="label">To be added.</param>
+        <param name="fontName">To be added.</param>
+        <param name="fontSize">To be added.</param>
+        <param name="dimensions">To be added.</param>
+        <param name="halignment">To be added.</param>
+        <param name="vertAlignment">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCLabelTTF (string label, string fontName, float fontSize, System.Drawing.SizeF dimensions, MonoTouch.UIKit.UITextAlignment halignment, MonoTouch.UIKit.UILineBreakMode lineBreakMode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string label, string fontName, float32 fontSize, valuetype System.Drawing.SizeF dimensions, valuetype MonoTouch.UIKit.UITextAlignment halignment, valuetype MonoTouch.UIKit.UILineBreakMode lineBreakMode) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithString:fontName:fontSize:dimensions:hAlignment:lineBreakMode:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="label" Type="System.String" />
+        <Parameter Name="fontName" Type="System.String" />
+        <Parameter Name="fontSize" Type="System.Single" />
+        <Parameter Name="dimensions" Type="System.Drawing.SizeF" />
+        <Parameter Name="halignment" Type="MonoTouch.UIKit.UITextAlignment" />
+        <Parameter Name="lineBreakMode" Type="MonoTouch.UIKit.UILineBreakMode" />
+      </Parameters>
+      <Docs>
+        <param name="label">To be added.</param>
+        <param name="fontName">To be added.</param>
+        <param name="fontSize">To be added.</param>
+        <param name="dimensions">To be added.</param>
+        <param name="halignment">To be added.</param>
+        <param name="lineBreakMode">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCLabelTTF (string label, string fontName, float fontSize, System.Drawing.SizeF dimensions, MonoTouch.UIKit.UITextAlignment halignment, MonoTouch.Cocos2D.CCVerticalTextAlignment vertAlignment, MonoTouch.UIKit.UILineBreakMode lineBreakMode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string label, string fontName, float32 fontSize, valuetype System.Drawing.SizeF dimensions, valuetype MonoTouch.UIKit.UITextAlignment halignment, valuetype MonoTouch.Cocos2D.CCVerticalTextAlignment vertAlignment, valuetype MonoTouch.UIKit.UILineBreakMode lineBreakMode) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:lineBreakMode:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="label" Type="System.String" />
+        <Parameter Name="fontName" Type="System.String" />
+        <Parameter Name="fontSize" Type="System.Single" />
+        <Parameter Name="dimensions" Type="System.Drawing.SizeF" />
+        <Parameter Name="halignment" Type="MonoTouch.UIKit.UITextAlignment" />
+        <Parameter Name="vertAlignment" Type="MonoTouch.Cocos2D.CCVerticalTextAlignment" />
+        <Parameter Name="lineBreakMode" Type="MonoTouch.UIKit.UILineBreakMode" />
+      </Parameters>
+      <Docs>
+        <param name="label">To be added.</param>
+        <param name="fontName">To be added.</param>
+        <param name="fontSize">To be added.</param>
+        <param name="dimensions">To be added.</param>
+        <param name="halignment">To be added.</param>
+        <param name="vertAlignment">To be added.</param>
+        <param name="lineBreakMode">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -246,9 +369,6 @@
       <MemberSignature Language="C#" Value="public virtual void SetString (string value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetString(string value) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("setString:")</AttributeName>

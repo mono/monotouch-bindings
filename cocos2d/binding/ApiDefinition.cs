@@ -4,8 +4,9 @@
 // Authors:
 //   Miguel de Icaza
 //   Stephane Delcroix
+//   Paola Villarreal
 //
-// Copyright 2011, 2012, 2013 Xamarin, Inc.
+// Copyright 2011, 2012, 2013, 2014, 2015 Xamarin, Inc.
 // Copyright 2012, 2013 S. Delcroix
 //
 // Missing:
@@ -22,11 +23,10 @@
 //
 
 using System;
-using System.Drawing;
-using MonoTouch.Foundation;
-using MonoTouch.ObjCRuntime;
-using MonoTouch.CoreGraphics;
-using MonoTouch.UIKit;
+using Foundation;
+using ObjCRuntime;
+using CoreGraphics;
+using UIKit;
 #if MONOMAC
 using UITextAlignment = MonoMac.AppKit.NSTextAlignment;
 using UILineBreakMode = MonoMac.AppKit.NSLineBreakMode;
@@ -154,7 +154,7 @@ namespace MonoTouch.Cocos2D {
 		float ScaleY { get; set; }
 
 		[Export ("position")]
-		PointF Position { get; set; }
+		CGPoint Position { get; set; }
 
 		[Export ("children")]
 		CCNode [] Children { get;  }
@@ -193,16 +193,16 @@ namespace MonoTouch.Cocos2D {
 		void RemoveAllChildren ();
 		
 		[Export ("anchorPoint")]
-		PointF AnchorPoint { get; set; }
+		CGPoint AnchorPoint { get; set; }
 
 		[Export ("anchorPointInPoints")]
-		PointF AnchorPointInPoints { get;  }
+		CGPoint AnchorPointInPoints { get;  }
 
 		[Export ("isRunning")]
 		bool IsRunning { get; }
 
 		[Export ("contentSize")]
-		SizeF ContentSize { get; set; }
+		CGSize ContentSize { get; set; }
 
 		[Export ("tag")]
 		int Tag { get; set; }
@@ -239,7 +239,7 @@ namespace MonoTouch.Cocos2D {
 		//CCGridBase Grid { get; set;  }
 		//
 		//[Export ("contentSizeInPixels")]
-		//SizeF ContentSizeInPixels { get; set;  }
+		//CGSize ContentSizeInPixels { get; set;  }
 		//
 		//[Export ("parent")]
 		//CCNode Parent { get; set;  }
@@ -278,7 +278,7 @@ namespace MonoTouch.Cocos2D {
 		void TransformAncestors ();
 
 		[Export ("boundingBox")]
-		RectangleF BoundingBox { get; }
+		CGRect BoundingBox { get; }
 
 		[Export ("scheduleUpdate")]
 		void ScheduleUpdate ();
@@ -323,23 +323,23 @@ namespace MonoTouch.Cocos2D {
 		CGAffineTransform WorldToNodeTransform { get; }
 
 		[Export ("convertToNodeSpace:")]
-		PointF ConvertToNodeSpace (PointF worldPoint);
+		CGPoint ConvertToNodeSpace (CGPoint worldPoint);
 
 		[Export ("convertToWorldSpace:")]
-		PointF ConvertToWorldSpace (PointF nodePoint);
+		CGPoint ConvertToWorldSpace (CGPoint nodePoint);
 
 		[Export ("convertToNodeSpaceAR:")]
-		PointF ConvertToNodeSpaceAnchorRelative (PointF worldPoint);
+		CGPoint ConvertToNodeSpaceAnchorRelative (CGPoint worldPoint);
 
 		[Export ("convertToWorldSpaceAR:")]
-		PointF ConvertToWorldSpaceAnchorRelative (PointF nodePoint);
+		CGPoint ConvertToWorldSpaceAnchorRelative (CGPoint nodePoint);
 
 #if !MONOMAC
 		[Export ("convertTouchToNodeSpace:")]
-		PointF ConvertTouchToNodeSpace (UITouch touch);
+		CGPoint ConvertTouchToNodeSpace (UITouch touch);
 
 		[Export ("convertTouchToNodeSpaceAR:")]
-		PointF ConvertTouchToNodeSpaceAnchorRelative (UITouch touch);
+		CGPoint ConvertTouchToNodeSpaceAnchorRelative (UITouch touch);
 #endif
 	}
 
@@ -387,13 +387,13 @@ namespace MonoTouch.Cocos2D {
 		[Static]
 		[Obsolete ("Use the constructor")]
 		[Export ("actionWithTarget:worldBoundary:")]
-		CCFollow FromAction (CCNode followedNode, RectangleF worldBoundary);
+		CCFollow FromAction (CCNode followedNode, CGRect worldBoundary);
 
 		[Export ("initWithTarget:")]
 		IntPtr Constructor (CCNode followedNode);
 
 		[Export ("initWithTarget:worldBoundary:")]
-		IntPtr Constructor (CCNode followedNode, RectangleF worldBoundary);
+		IntPtr Constructor (CCNode followedNode, CGRect worldBoundary);
 	}
 
 	[BaseType (typeof (CCFiniteTimeAction))]
@@ -485,10 +485,10 @@ namespace MonoTouch.Cocos2D {
 	interface CCMoveTo {
 		[Static]
 		[Export ("actionWithDuration:position:")]
-		CCMoveTo Create (float duration, PointF position);
+		CCMoveTo Create (float duration, CGPoint position);
 
 		[Export ("initWithDuration:position:")]
-		IntPtr Constructor (float duration, PointF position);
+		IntPtr Constructor (float duration, CGPoint position);
 	}
 
 	[BaseType (typeof (CCMoveTo))]
@@ -497,10 +497,10 @@ namespace MonoTouch.Cocos2D {
 		[Obsolete ("Use the constructor")]
 		[Static]
 		[Export ("actionWithDuration:position:")]
-		CCMoveBy Create (float duration, PointF deltaPosition);
+		CCMoveBy Create (float duration, CGPoint deltaPosition);
 
 		[Export ("initWithDuration:position:")]
-		IntPtr Constructor (float duration, PointF deltaPosition);
+		IntPtr Constructor (float duration, CGPoint deltaPosition);
 	}
 
 	[BaseType (typeof (CCActionInterval))]
@@ -532,10 +532,10 @@ namespace MonoTouch.Cocos2D {
 	interface CCJumpBy {
 		[Static]
 		[Export ("actionWithDuration:position:height:jumps:")]
-		NSObject ActionWithDurationtbezierc (float duration, PointF position, float height, int jumps);
+		NSObject ActionWithDurationtbezierc (float duration, CGPoint position, float height, int jumps);
 
 		[Export ("initWithDuration:position:height:jumps:")]
-		IntPtr Constructor (float duration, PointF position, float height, int jumps);
+		IntPtr Constructor (float duration, CGPoint position, float height, int jumps);
 	}
 
 	[BaseType (typeof (CCActionInterval))]
@@ -787,29 +787,29 @@ namespace MonoTouch.Cocos2D {
 		void AddSpriteFrame (string spriteFilename);
 
 		[Export ("addSpriteFrameWithTexture:rect:")]
-		void AddSpriteFrame (CCTexture2D texture, RectangleF rect);
+		void AddSpriteFrame (CCTexture2D texture, CGRect rect);
 
 	}
 
 	[BaseType (typeof (NSObject))]
 	interface CCSpriteFrame {
 		[Export ("rect")]
-		RectangleF Rect { get; set; }
+		CGRect Rect { get; set; }
 
 		[Export ("rectInPixels")]
-		RectangleF RectInPixels { get; set; }
+		CGRect RectInPixels { get; set; }
 
 		[Export ("rotated")]
 		bool Rotated { get; set; }	
 
 		[Export ("offsetInPixels")]
-		PointF OffsetInPixels { get; set;  }
+		CGPoint OffsetInPixels { get; set;  }
 
 		[Export ("originalSize")]
-		SizeF OriginalSize { get; set;  }
+		CGSize OriginalSize { get; set;  }
 
 		[Export ("originalSizeInPixels")]
-		SizeF OriginalSizeInPixels { get; set;  }
+		CGSize OriginalSizeInPixels { get; set;  }
 
 		[Export ("texture")]
 		CCTexture2D Texture { get; set;  }
@@ -818,16 +818,16 @@ namespace MonoTouch.Cocos2D {
 		string TextureFilename { get;  }
 
 		[Export ("initWithTexture:rect:")]
-		IntPtr Constructor (CCTexture2D texture, RectangleF rect);
+		IntPtr Constructor (CCTexture2D texture, CGRect rect);
 
 		[Export ("initWithTextureFilename:rect:")]
-		IntPtr Constructor (string filename, RectangleF rect);
+		IntPtr Constructor (string filename, CGRect rect);
 
 		[Export ("initWithTexture:rectInPixels:rotated:offset:originalSize:")]
-		IntPtr Constructor (CCTexture2D texture, RectangleF rect, bool rotated, PointF offset, SizeF originalSize);
+		IntPtr Constructor (CCTexture2D texture, CGRect rect, bool rotated, CGPoint offset, CGSize originalSize);
 
 		[Export ("initWithTextureFilename:rectInPixels:rotated:offset:originalSize:")]
-		IntPtr Constructor (string filename, RectangleF rect, bool rotated, PointF offset, SizeF originalSize);
+		IntPtr Constructor (string filename, CGRect rect, bool rotated, CGPoint offset, CGSize originalSize);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -853,7 +853,7 @@ namespace MonoTouch.Cocos2D {
 		uint Name { get;  }
 
 		[Export ("contentSizeInPixels")]
-		SizeF ContentSizeInPixels { get;  }
+		CGSize ContentSizeInPixels { get;  }
 
 		[Export ("maxS")]
 		float MaxS { get; set;  }
@@ -868,7 +868,7 @@ namespace MonoTouch.Cocos2D {
 		CCGLProgram ShaderProgram { get; set;  }
 
 		[Export ("initWithData:pixelFormat:pixelsWide:pixelsHigh:contentSize:")]
-		IntPtr Constructor (IntPtr data, CCTexture2DPixelFormat pixelFormat, int width, int height, SizeF size);
+		IntPtr Constructor (IntPtr data, CCTexture2DPixelFormat pixelFormat, int width, int height, CGSize size);
 
 		[Export ("releaseData:")]
 		void ReleaseData (IntPtr data);
@@ -882,13 +882,13 @@ namespace MonoTouch.Cocos2D {
 #endif
 
 		[Export ("contentSize")]
-		SizeF ContentSize ();
+		CGSize ContentSize ();
 
 		[Export ("drawAtPoint:")]
-		void DrawAtRect (PointF rect);
+		void DrawAtRect (CGPoint rect);
 		
 		[Export ("drawInRect:")]
-		void DrawInRect (RectangleF rect);
+		void DrawInRect (CGRect rect);
 
 #if MONOMAC
 		[Export ("initWithCGImage:")]
@@ -900,11 +900,11 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:lineBreakMode:")]
 		[PrologueSnippet ("if ((int)alignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"alignment\");")]
-		IntPtr Constructor (string text, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
+		IntPtr Constructor (string text, string fontName, float fontSize, CGSize dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
 
 		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:")]
 		[PrologueSnippet ("if ((int)alignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"alignment\");")]
-		IntPtr Constructor (string text, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment);
+		IntPtr Constructor (string text, string fontName, float fontSize, CGSize dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment);
 
 		[Export ("initWithString:fontName:fontSize:")]
 		IntPtr Constructor (string text, string fontName, float fontSize);
@@ -918,16 +918,16 @@ namespace MonoTouch.Cocos2D {
 	interface CCGLView {
 		[Static]
 		[Export ("viewWithFrame:")]
-		CCGLView View (RectangleF frame);
+		CCGLView View (CGRect frame);
 
 		[Export ("initWithFrame:")]
-		CCGLView Constructor (RectangleF frame);
+		CCGLView Constructor (CGRect frame);
 
 		[Export ("initWithFrame:pixelFormat:")]
-		CCGLView Constuctor (RectangleF frame, string format);
+		CCGLView Constuctor (CGRect frame, string format);
 
 		[Export ("initWithFrame:pixelFormat:depthFormat:preserveBackBuffer:sharegroup:multiSampling:numberOfSamples:")]
-		CCGLView Constructor (RectangleF frame, string format, uint depth, bool retained, MonoTouch.OpenGLES.EAGLSharegroup sharegroup, bool sampling, uint nSamples);
+		CCGLView Constructor (CGRect frame, string format, uint depth, bool retained, OpenGLES.EAGLSharegroup sharegroup, bool sampling, uint nSamples);
 
 		[Export ("pixelFormat")]
 		string PixelFormat { get; }
@@ -936,10 +936,10 @@ namespace MonoTouch.Cocos2D {
 		uint DepthFormat { get; }
 
 		[Export ("surfaceSize")]
-		SizeF SurfaceSize { get; }
+		CGSize SurfaceSize { get; }
 		
 		[Export ("context")]
-		MonoTouch.OpenGLES.EAGLContext Context { get; }
+		OpenGLES.EAGLContext Context { get; }
 
 		[Export ("multiSampling")]
 		bool MultiSampling { get; set; }
@@ -953,11 +953,11 @@ namespace MonoTouch.Cocos2D {
 		[Export ("unlockOpenGLContext")]
 		void UnlockOpenGLContext ();
 
-		[Export ("convertPointFromViewToSurface:")]
-		PointF ConvertPointFromViewToSurface(PointF point);
+		[Export ("convertCGPointromViewToSurface:")]
+		CGPoint ConvertCGPointromViewToSurface(CGPoint point);
 			
 		[Export ("convertRectFromViewToSurface:")]
-		RectangleF ConvertRectFromViewToSurface (RectangleF rect);
+		CGRect ConvertRectFromViewToSurface (CGRect rect);
 	}
 #endif
 
@@ -1028,10 +1028,10 @@ namespace MonoTouch.Cocos2D {
 		void PopToRootScene ();
 
 		[Export ("winSize")]
-		SizeF WinSize { get; }
+		CGSize WinSize { get; }
 
 		[Export ("winSizeInPixels")]
-		SizeF WinSizeInPixels { get; }
+		CGSize WinSizeInPixels { get; }
 
 		[Export ("nextDeltaTimeZero")]
 		bool NextDeltaTimeZero { get; set; }
@@ -1052,10 +1052,10 @@ namespace MonoTouch.Cocos2D {
 		CCScheduler Scheduler { get; set; }
 	
 		[Export("convertToGL:")]
-		PointF ConvertToGL (PointF point);
+		CGPoint ConvertToGL (CGPoint point);
 
 		[Export("convertToUI:")]
-		PointF ConvertToUI (PointF point);
+		CGPoint ConvertToUI (CGPoint point);
 
 		[Export("delegate")]
 		[Internal]
@@ -1083,7 +1083,7 @@ namespace MonoTouch.Cocos2D {
 		CCActionManager ActionManager { get; set;  }
 
 		[Export ("reshapeProjection:")]
-		void ReshapeProjection (SizeF newWindowSize);
+		void ReshapeProjection (CGSize newWindowSize);
 
 		[Export ("getZEye")]
 		float ZEye { get; }
@@ -1174,14 +1174,14 @@ namespace MonoTouch.Cocos2D {
 		int ResizeMode { get; set; }
 
 		[Export ("originalWinSize")]
-		SizeF OriginalWinSize { get; set; }
+		CGSize OriginalWinSize { get; set; }
 
 		//TODO change this to IsFullScreen property setter
 		[Export ("setFullScreen:")]
 		void SetFullScreen (bool value);
 
 		[Export ("convertToLogicalCoordinates:")]
-		PointF ConvertToLogicalCoordinates (PointF coordinates);
+		CGPoint ConvertToLogicalCoordinates (CGPoint coordinates);
 	}
 
 	[BaseType (typeof (CCDirectorMac))]
@@ -1382,19 +1382,19 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
-		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment);
+		IntPtr Constructor (string label, string fontName, float fontSize, CGSize dimensions, UITextAlignment halignment);
 
 		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:lineBreakMode:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
-		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, UILineBreakMode lineBreakMode);
+		IntPtr Constructor (string label, string fontName, float fontSize, CGSize dimensions, UITextAlignment halignment, UILineBreakMode lineBreakMode);
 
 		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
-		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment);
+		IntPtr Constructor (string label, string fontName, float fontSize, CGSize dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment);
 
 		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:lineBreakMode:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
-		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
+		IntPtr Constructor (string label, string fontName, float fontSize, CGSize dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
 	}
 	
 	[BaseType (typeof(CCSpriteBatchNode))]
@@ -1422,7 +1422,7 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithString:fntFile:width:alignment:imageOffset:")]
 		[PrologueSnippet ("if ((int)alignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"alignment\");")]
-		IntPtr Constructor (string label, string fontFile, float width, UITextAlignment alignment, PointF offset);
+		IntPtr Constructor (string label, string fontFile, float width, UITextAlignment alignment, CGPoint offset);
 
 		[Export ("createFontChars")]
 		void CreateFontChars ();
@@ -1441,7 +1441,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, SizeF gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, CGSize gridSize, float duration);
 	}
 
 	interface CCBlendProtocol {
@@ -1580,10 +1580,10 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (CCTexture2D texture);
 
 		[Export ("initWithTexture:rect:rotated:")]
-		IntPtr Constructor (CCTexture2D texture, RectangleF rect, bool rotated);
+		IntPtr Constructor (CCTexture2D texture, CGRect rect, bool rotated);
 
 		[Export ("initWithTexture:rect:")]
-		IntPtr Constructor (CCTexture2D texture, RectangleF rect);
+		IntPtr Constructor (CCTexture2D texture, CGRect rect);
 
 		[Export ("initWithSpriteFrame:")]
 		IntPtr Constructor (CCSpriteFrame spriteFrame);
@@ -1596,13 +1596,13 @@ namespace MonoTouch.Cocos2D {
 		[Static]
 		[Export ("spriteWithFile:rect:")]
 		[Autorelease]
-		CCSprite FromSpriteFile (string filename, RectangleF rect);
+		CCSprite FromSpriteFile (string filename, CGRect rect);
 
 		[Export ("initWithFile:")]
 		IntPtr Constructor (string filename);
 
 		[Export ("initWithFile:rect:")]
-		IntPtr Constructor (string filename, RectangleF rect);
+		IntPtr Constructor (string filename, CGRect rect);
 
 		[Export ("initWithCGImage:key:")]
 		NSObject InitWithCGImagekey (CGImage image, string key);
@@ -1624,7 +1624,7 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("textureRect")]
 		// technically a read-only property - but a method with the right signature exists so we can NET-ify this
-		RectangleF TextureRect { get; set; }
+		CGRect TextureRect { get; set; }
 
 		[Export ("textureRectRotated")]
 		bool TextureRectRotated { get;  }
@@ -1643,16 +1643,16 @@ namespace MonoTouch.Cocos2D {
 		CCSpriteBatchNode BatchNode { get; set;  }
 
 		[Export ("offsetPosition")]
-		PointF OffsetPosition { get;  }
+		CGPoint OffsetPosition { get;  }
 
 		[Export ("updateTransform")]
 		void UpdateTransform ();
 
 		[Export ("setTextureRect:rotated:untrimmedSize:")]
-		void SetTextureRect (RectangleF rect, bool rotated, SizeF untrimmedSize);
+		void SetTextureRect (CGRect rect, bool rotated, CGSize untrimmedSize);
 
 		[Export ("setVertexRect:")]
-		void SetVertexRect (RectangleF rect);
+		void SetVertexRect (CGRect rect);
 
 		[Export ("isFrameDisplayed:")]
 		bool IsFrameDisplayed (CCSpriteFrame frame);
@@ -1893,7 +1893,7 @@ namespace MonoTouch.Cocos2D {
 		void SetCallback (NSCallbackWithSender callback);		
 
 		[Export ("rect")]
-		RectangleF Rect { get; }
+		CGRect Rect { get; }
 
 		[Export ("isEnabled")]
 		bool Enabled { get; set; }
@@ -2138,7 +2138,7 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCTwirl {
 		[Export ("position")]
-		PointF Position { get; set;  }
+		CGPoint Position { get; set;  }
 
 		[Export ("amplitude")]
 		float Amplitude { get; set;  }
@@ -2147,7 +2147,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithPosition:twirls:amplitude:grid:duration:")]
-		IntPtr Constructor (PointF position, int twirls, float amplitude, SizeF gridSize, float duration);
+		IntPtr Constructor (CGPoint position, int twirls, float amplitude, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCGrid3DAction))]
@@ -2160,7 +2160,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:horizontal:vertical:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, bool horizontal, bool vertical, SizeF gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, bool horizontal, bool vertical, CGSize gridSize, float duration);
 
 	}
 
@@ -2174,7 +2174,7 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithWaves:amplitude:grid:duration:")]
-		IntPtr Constructor (int waves, float amplitude, SizeF gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCActionInstant))]
@@ -2196,10 +2196,10 @@ namespace MonoTouch.Cocos2D {
 		float LensEffect { get; set;  }
 
 		[Export ("position")]
-		PointF Position { get; set;  }
+		CGPoint Position { get; set;  }
 
 		[Export ("initWithPosition:radius:grid:duration:")]
-		IntPtr Constructor (PointF position, float radius, SizeF gridSize, float duration);
+		IntPtr Constructor (CGPoint position, float radius, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCActionCamera))]
@@ -2221,16 +2221,16 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (uint capacity);
 
 		[Export ("addControlPoint:")]
-		void Add (PointF controlPoint);
+		void Add (CGPoint controlPoint);
 
 		[Export ("insertControlPoint:atIndex:")]
-		void Insert (PointF controlPoint, int index);
+		void Insert (CGPoint controlPoint, int index);
 
 		[Export ("replaceControlPoint:atIndex:")]
-		void Replace (PointF controlPoint, int ndex);
+		void Replace (CGPoint controlPoint, int ndex);
 
 		[Export ("getControlPointAtIndex:"), Internal]
-		PointF GetControlPoint (int index);
+		CGPoint GetControlPoint (int index);
 
 		[Export ("removeControlPointAtIndex:")]
 		void Remove (int index);
@@ -2282,7 +2282,7 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCRipple3D {
 		[Export ("position")]
-		PointF Position { get; set;  }
+		CGPoint Position { get; set;  }
 
 		[Export ("amplitude")]
 		float Amplitude { get; set;  }
@@ -2291,30 +2291,30 @@ namespace MonoTouch.Cocos2D {
 		float AmplitudeRate { get; set;  }
 
 		[Export ("initWithPosition:radius:waves:amplitude:grid:duration:")]
-		IntPtr Constructor (PointF position, float radius, int waves, float amplitude, SizeF gridSize, float duration);
+		IntPtr Constructor (CGPoint position, float radius, int waves, float amplitude, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCGrid3DAction))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCShaky3D {
 		[Export ("initWithRange:shakeZ:grid:duration:")]
-		IntPtr Constructor (int range, bool shakeZ, SizeF gridSize, float duration);
+		IntPtr Constructor (int range, bool shakeZ, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCGridAction))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCTiledGrid3DAction {
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (SizeF gridSize, float duration);
+		IntPtr Constructor (CGSize gridSize, float duration);
 
 		[Export ("tile:")]
-		CCQuad3 GetTile (PointF position);
+		CCQuad3 GetTile (CGPoint position);
 
 		[Export ("originalTile:")]
-		CCQuad3 GetOriginalTile (PointF pos);
+		CCQuad3 GetOriginalTile (CGPoint pos);
 
 		[Export ("setTile:coords:")]
-		void SetTile (PointF pos, CCQuad3 coords);
+		void SetTile (CGPoint pos, CCQuad3 coords);
 	}
 
 	[BaseType (typeof (CCActionEase))]
@@ -2484,10 +2484,10 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCGridAction {
 		[Export ("gridSize")]
-		SizeF GridSize { get; set; }
+		CGSize GridSize { get; set; }
 
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (SizeF gridSize, float duration);
+		IntPtr Constructor (CGSize gridSize, float duration);
 
 		[Export ("grid")]
 		CCGridBase Grid ();
@@ -2497,16 +2497,16 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCGrid3DAction {
 		[Export ("vertex:")]
-		CCVertex3F GetVertex (PointF pos);
+		CCVertex3F GetVertex (CGPoint pos);
 
 		[Export ("originalVertex:")]
-		CCVertex3F GetOriginalVertex (PointF pos);
+		CCVertex3F GetOriginalVertex (CGPoint pos);
 
 		[Export ("setVertex:vertex:")]
-		void SetVertex (PointF position, CCVertex3F vertex);
+		void SetVertex (CGPoint position, CCVertex3F vertex);
 
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (SizeF gridSize, float duration);
+		IntPtr Constructor (CGSize gridSize, float duration);
 
 	}
 
@@ -2532,13 +2532,13 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCActionInstant))]
 	interface CCPlace {
 		[Export ("initWithPosition:")]
-		IntPtr Constructor (PointF position);
+		IntPtr Constructor (CGPoint position);
 	}
 
 	[BaseType (typeof (CCActionInstant))]
 	interface CCCallBlock {
 		[Export ("initWithBlock:")]
-		IntPtr Constructor (NSAction action);
+		IntPtr Constructor (Action action);
 
 		[Export ("execute")]
 		void Execute ();
@@ -2549,7 +2549,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCPageTurn3D {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (SizeF gridSize, float duration);
+		IntPtr Constructor (CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCActionInterval))]
@@ -2575,10 +2575,10 @@ namespace MonoTouch.Cocos2D {
 		int ReuseGrid { get; set;  }
 
 		[Export ("gridSize")]
-		SizeF GridSize { get;  }
+		CGSize GridSize { get;  }
 
 		[Export ("step")]
-		PointF Step { get; set;  }
+		CGPoint Step { get; set;  }
 
 		[Export ("texture")]
 		CCTexture2D Texture { get; set;  }
@@ -2590,10 +2590,10 @@ namespace MonoTouch.Cocos2D {
 		bool IsTextureFlipped { get; set;  }
 
 		[Export ("initWithSize:texture:flippedTexture:")]
-		IntPtr Constructor (SizeF gridSize, CCTexture2D texture, bool flippedTexture);
+		IntPtr Constructor (CGSize gridSize, CCTexture2D texture, bool flippedTexture);
 
 		[Export ("initWithSize:")]
-		IntPtr Constructor (SizeF gridSize);
+		IntPtr Constructor (CGSize gridSize);
 
 		[Export ("beforeDraw")]
 		void BeforeDraw ();
@@ -2615,26 +2615,26 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCGridBase))]
 	interface CCGrid3D {
 		[Export ("vertex:")]
-		CCVertex3F GetVertex (PointF pos);
+		CCVertex3F GetVertex (CGPoint pos);
 
 		[Export ("originalVertex:")]
-		CCVertex3F GetOriginalVertex (PointF pos);
+		CCVertex3F GetOriginalVertex (CGPoint pos);
 
 		[Export ("setVertex:vertex:")]
-		void SetVertex (PointF pos, CCVertex3F vertex);
+		void SetVertex (CGPoint pos, CCVertex3F vertex);
 
 	}
 
 	[BaseType (typeof (CCGridBase))]
 	interface CCTiledGrid3D {
 		[Export ("tile:")]
-		CCQuad3 GetTile (PointF pos);
+		CCQuad3 GetTile (CGPoint pos);
 
 		[Export ("originalTile:")]
-		CCQuad3 GetOriginalTile (PointF pos);
+		CCQuad3 GetOriginalTile (CGPoint pos);
 
 		[Export ("setTile:coords:")]
-		void SetTile (PointF pos, CCQuad3 coords);
+		void SetTile (CGPoint pos, CCQuad3 coords);
 
 	}	
 
@@ -2654,21 +2654,21 @@ namespace MonoTouch.Cocos2D {
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCShakyTiles3D {
 		[Export ("initWithRange:shakeZ:grid:duration:")]
-		IntPtr Constructor (int range, bool shakeZ, SizeF gridSize, float duration);
+		IntPtr Constructor (int range, bool shakeZ, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCShatteredTiles3D {
 		[Export ("initWithRange:shatterZ:grid:duration:")]
-		IntPtr Constructor (int range, bool shatterZ, SizeF gridSize, float duration);
+		IntPtr Constructor (int range, bool shatterZ, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
 	[DisableDefaultCtor] // Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: IntervalActionInit: Init not supported. Use InitWithDuration
 	interface CCShuffleTiles {
 		[Export ("initWithSeed:grid:duration:")]
-		IntPtr Constructor (int seed, SizeF gridSize, float duration);
+		IntPtr Constructor (int seed, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -2676,7 +2676,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCFadeOutTRTiles {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (SizeF gridSize, float duration);
+		IntPtr Constructor (CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCFadeOutTRTiles))]
@@ -2684,7 +2684,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCFadeOutBLTiles {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (SizeF gridSize, float duration);
+		IntPtr Constructor (CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCFadeOutTRTiles))]
@@ -2692,7 +2692,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCFadeOutUpTiles {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (SizeF gridSize, float duration);
+		IntPtr Constructor (CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCFadeOutUpTiles))]
@@ -2700,7 +2700,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCFadeOutDownTiles {
 		// note: .ctor are not inherited so we need to duplicate the entry
 		[Export ("initWithSize:duration:")]
-		IntPtr Constructor (SizeF gridSize, float duration);
+		IntPtr Constructor (CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -2708,7 +2708,7 @@ namespace MonoTouch.Cocos2D {
 	interface CCTurnOffTiles {
 		[Export ("initWithSeed:grid:duration:")]
 		[Obsolete]
-		IntPtr Constructor (int seed, SizeF gridSize, float duration);
+		IntPtr Constructor (int seed, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -2722,7 +2722,7 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithWaves:amplitude:grid:duration:")]
 		[Obsolete]
-		IntPtr Constructor (int waves, float amplitude, SizeF gridSize, float duration);
+		IntPtr Constructor (int waves, float amplitude, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -2736,7 +2736,7 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithJumps:amplitude:grid:duration:")]
 		[Obsolete]
-		IntPtr Constructor (int jumps, float amplitude, SizeF gridSize, float duration);
+		IntPtr Constructor (int jumps, float amplitude, CGSize gridSize, float duration);
 	}
 
 	[BaseType (typeof (CCTiledGrid3DAction))]
@@ -2810,10 +2810,10 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCNode))]
 	interface CCDrawNode {
 		[Export ("drawDot:radius:color:")]
-		void DrawDot (PointF position, float radius, CCColor4F color);
+		void DrawDot (CGPoint position, float radius, CCColor4F color);
 
 		[Export ("drawSegmentFrom:to:radius:color:")]
-		void DrawSegment (PointF from, PointF to, float radius, CCColor4F color);
+		void DrawSegment (CGPoint from, CGPoint to, float radius, CCColor4F color);
 
 		//[Export ("drawPolyWithVerts:count:fillColor:borderWidth:borderColor:")]
 		//void DrawPoly (Pointf [] vertices, CCColor4F fillColor, float borderWidth, CCColor4F borderColor);
@@ -2891,7 +2891,7 @@ namespace MonoTouch.Cocos2D {
 		byte EndOpacity { get; set;  }
 
 		[Export ("vector")]
-		PointF Vector { get; set;  }
+		CGPoint Vector { get; set;  }
 
 		[Export ("compressedInterpolation")]
 		bool CompressedInterpolation { get; set;  }
@@ -2900,7 +2900,7 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (CCColor4B start, CCColor4B end);
 
 		[Export ("initWithColor:fadingTo:alongVector:")]
-		IntPtr Constructor (CCColor4B start, CCColor4B end, PointF alongVector);
+		IntPtr Constructor (CCColor4B start, CCColor4B end, CGPoint alongVector);
 
 	}
 
@@ -2929,16 +2929,16 @@ namespace MonoTouch.Cocos2D {
 	[BaseType(typeof(CCSprite))]
 	interface CCPhysicsSprite {
 		[Export ("initWithTexture:rect:rotated:")]
-		IntPtr Constructor (CCTexture2D texture, RectangleF rect, bool rotated);
+		IntPtr Constructor (CCTexture2D texture, CGRect rect, bool rotated);
 
 		[Export ("initWithTexture:rect:")]
-		IntPtr Constructor (CCTexture2D texture, RectangleF rect);
+		IntPtr Constructor (CCTexture2D texture, CGRect rect);
 
 		[Export ("initWithFile:")]
 		IntPtr Constructor (string filename);
 
 		[Export ("initWithFile:rect:")]
-		IntPtr Constructor (string filename, RectangleF rect);
+		IntPtr Constructor (string filename, CGRect rect);
 
 		[Export("ignoreBodyRotation")]
 		bool IgnoreBodyRotation { get; set; }
@@ -2949,7 +2949,7 @@ namespace MonoTouch.Cocos2D {
 
 		[Internal]
 		[Export ("position")]
-		PointF PositionInt { get; set; }
+		CGPoint PositionInt { get; set; }
 	}
 #endif
 
@@ -2998,7 +2998,7 @@ namespace MonoTouch.Cocos2D {
 		CCArray ParallaxArray { get; set;  }
 
 		[Export ("addChild:z:parallaxRatio:positionOffset:")]
-		void AddChild (CCNode node, int zOrder, PointF parallaxRatio, PointF positionOffset);
+		void AddChild (CCNode node, int zOrder, CGPoint parallaxRatio, CGPoint positionOffset);
 
 	}
 
@@ -3089,13 +3089,13 @@ namespace MonoTouch.Cocos2D {
 		void InitIndices ();
 
 		[Export ("initTexCoordsWithRect:")]
-		void InitTexCoordsWithRect (RectangleF rect);
+		void InitTexCoordsWithRect (CGRect rect);
 
 		[Export ("setDisplayFrame:")]
 		void SetDisplayFrame (CCSpriteFrame spriteFrame);
 
 		[Export ("setTexture:withRect:")]
-		void SetTexture (CCTexture2D texture, RectangleF rect);
+		void SetTexture (CCTexture2D texture, CGRect rect);
 	}
 
 	[BaseType (typeof (CCNode))]
@@ -3110,10 +3110,10 @@ namespace MonoTouch.Cocos2D {
 		float Duration { get; set;  }
 
 		[Export ("sourcePosition")]
-		PointF SourcePosition { get; set;  }
+		CGPoint SourcePosition { get; set;  }
 
 		[Export ("posVar")]
-		PointF PositionVariance { get; set;  }
+		CGPoint PositionVariance { get; set;  }
 
 		[Export ("life")]
 		float Life { get; set;  }
@@ -3128,7 +3128,7 @@ namespace MonoTouch.Cocos2D {
 		float AngleVariance { get; set;  }
 
 		[Export ("gravity")]
-		PointF Gravity { get; set;  }
+		CGPoint Gravity { get; set;  }
 
 		[Export ("speed")]
 		float Speed { get; set;  }
@@ -3254,7 +3254,7 @@ namespace MonoTouch.Cocos2D {
 		bool IsFull { get; }
 
 		[Export ("updateQuadWithParticle:newPosition:")]
-		void UpdateQuad (ref CCParticle particle, PointF pos);
+		void UpdateQuad (ref CCParticle particle, CGPoint pos);
 
 		[Export ("postStep")]
 		void PostStep ();
@@ -3313,10 +3313,10 @@ namespace MonoTouch.Cocos2D {
 		int VertexDataCount { get;  }
 
 		[Export ("midpoint")]
-		PointF Midpoint { get; set;  }
+		CGPoint Midpoint { get; set;  }
 
 		[Export ("barChangeRate")]
-		PointF BarChangeRate { get; set;  }
+		CGPoint BarChangeRate { get; set;  }
 
 		[Export ("percentage")]
 		float Percentage { get; set;  }
@@ -3591,7 +3591,7 @@ namespace MonoTouch.Cocos2D {
 		IntPtr Constructor (float duration, CCScene scene, bool backwards);
 
 		[Export ("actionWithSize:")]
-		CCActionInterval ActionWithSize (SizeF vector);
+		CCActionInterval ActionWithSize (CGSize vector);
 	}
 
 	[BaseType (typeof (CCTransitionScene))]
@@ -3616,10 +3616,10 @@ namespace MonoTouch.Cocos2D {
 		string LayerName { get; set;  }
 
 		[Export ("layerSize")]
-		SizeF LayerSize { get; set;  }
+		CGSize LayerSize { get; set;  }
 
 		[Export ("mapTileSize")]
-		SizeF MapTileSize { get; set;  }
+		CGSize MapTileSize { get; set;  }
 
 		[Export ("tiles")]
 		IntPtr TilesPtr { get; set;  }
@@ -3640,25 +3640,25 @@ namespace MonoTouch.Cocos2D {
 		void ReleaseMap ();
 
 		[Export ("tileAt:")]
-		CCSprite GetTileAt (PointF tileCoordinate);
+		CCSprite GetTileAt (CGPoint tileCoordinate);
 
 		[Export ("tileGIDAt:")]
-		uint GetTileGid (PointF tileCoordinate);
+		uint GetTileGid (CGPoint tileCoordinate);
 
 		[Export ("tileGIDAt:withFlags:")]
-		uint GetTileGid (PointF position, ref CCTMXTileFlags flags);
+		uint GetTileGid (CGPoint position, ref CCTMXTileFlags flags);
 
 		[Export ("setTileGID:at:")]
-		void SetTileGid (uint gid, PointF tileCoordinate);
+		void SetTileGid (uint gid, CGPoint tileCoordinate);
 
 		[Export ("setTileGID:at:withFlags:")]
-		void SetTileGid (uint gid, PointF at, CCTMXTileFlags flags);
+		void SetTileGid (uint gid, CGPoint at, CCTMXTileFlags flags);
 
 		[Export ("removeTileAt:")]
-		void RemoveTile (PointF tileCoordinate);
+		void RemoveTile (CGPoint tileCoordinate);
 
 		[Export ("positionAt:")]
-		PointF GetPositionAt (PointF tileCoordinate);
+		CGPoint GetPositionAt (CGPoint tileCoordinate);
 
 		[Export ("propertyNamed:")]
 		NSObject GetProperty (string propertyName);
@@ -3677,7 +3677,7 @@ namespace MonoTouch.Cocos2D {
 		string GroupName { get; set;  }
 
 		[Export ("positionOffset")]
-		PointF PositionOffset { get; set;  }
+		CGPoint PositionOffset { get; set;  }
 
 		[Export ("objects")]
 		NSMutableArray Objects { get; set;  }
@@ -3696,10 +3696,10 @@ namespace MonoTouch.Cocos2D {
 	[BaseType (typeof (CCNode))]
 	interface CCTMXTiledMap {
 		[Export ("mapSize")]
-		SizeF MapSize { get;  }
+		CGSize MapSize { get;  }
 
 		[Export ("tileSize")]
-		SizeF TileSize { get;  }
+		CGSize TileSize { get;  }
 
 		[Export ("mapOrientation")]
 		int MapOrientation { get;  }
@@ -3735,7 +3735,7 @@ namespace MonoTouch.Cocos2D {
 		string Name { get; set;  }
 
 		[Export ("layerSize")]
-		SizeF LayerSize { get; set;  }
+		CGSize LayerSize { get; set;  }
 
 		[Export ("tiles")]
 		IntPtr TilesPtr { get; set;  }
@@ -3759,7 +3759,7 @@ namespace MonoTouch.Cocos2D {
 		NSMutableDictionary Properties { get; set;  }
 
 		[Export ("offset")]
-		PointF Offset { get; set;  }
+		CGPoint Offset { get; set;  }
 
 	}
 
@@ -3772,7 +3772,7 @@ namespace MonoTouch.Cocos2D {
 		uint FirstGid { get; set;  }
 
 		[Export ("tileSize")]
-		SizeF TileSize { get; set;  }
+		CGSize TileSize { get; set;  }
 
 		[Export ("spacing")]
 		uint Spacing { get; set;  }
@@ -3784,10 +3784,10 @@ namespace MonoTouch.Cocos2D {
 		string SourceImage { get; set;  }
 
 		[Export ("imageSize")]
-		SizeF ImageSize { get; set;  }
+		CGSize ImageSize { get; set;  }
 
 		[Export ("rectForGID:")]
-		RectangleF GetRectForGid (uint gid);
+		CGRect GetRectForGid (uint gid);
 
 	}
 
@@ -3797,10 +3797,10 @@ namespace MonoTouch.Cocos2D {
 		int Orientation { get; set;  }
 
 		[Export ("mapSize")]
-		SizeF MapSize { get; set;  }
+		CGSize MapSize { get; set;  }
 
 		[Export ("tileSize")]
-		SizeF TileSize { get; set;  }
+		CGSize TileSize { get; set;  }
 
 		[Export ("layers")]
 		NSMutableArray Layers { get; set;  }

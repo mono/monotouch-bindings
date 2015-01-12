@@ -1,6 +1,6 @@
 using System;
-using MonoTouch.Foundation;
-using MonoTouch.ObjCRuntime;
+using Foundation;
+using ObjCRuntime;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;

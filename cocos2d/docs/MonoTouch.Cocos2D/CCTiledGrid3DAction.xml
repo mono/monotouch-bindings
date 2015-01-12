@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCTiledGrid3DAction" FullName="MonoTouch.Cocos2D.CCTiledGrid3DAction">
   <TypeSignature Language="C#" Value="public class CCTiledGrid3DAction : MonoTouch.Cocos2D.CCGridAction" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCTiledGrid3DAction extends MonoTouch.Cocos2D.CCGridAction" />
@@ -91,8 +90,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CCTiledGrid3DAction (System.Drawing.Size gridSize, float duration);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Drawing.Size gridSize, float32 duration) cil managed" />
+      <MemberSignature Language="C#" Value="public CCTiledGrid3DAction (System.Drawing.SizeF gridSize, float duration);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Drawing.SizeF gridSize, float32 duration) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -103,7 +102,7 @@
         </Attribute>
       </Attributes>
       <Parameters>
-        <Parameter Name="gridSize" Type="System.Drawing.Size" />
+        <Parameter Name="gridSize" Type="System.Drawing.SizeF" />
         <Parameter Name="duration" Type="System.Single" />
       </Parameters>
       <Docs>
@@ -133,9 +132,6 @@
       <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCQuad3 GetOriginalTile (System.Drawing.Point pos);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype MonoTouch.Cocos2D.CCQuad3 GetOriginalTile(valuetype System.Drawing.Point pos) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("originalTile:")</AttributeName>
@@ -158,13 +154,35 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="GetTile">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCQuad3 GetTile (System.Drawing.Point position);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype MonoTouch.Cocos2D.CCQuad3 GetTile(valuetype System.Drawing.Point position) cil managed" />
+    <Member MemberName="GetOriginalTile">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCQuad3 GetOriginalTile (System.Drawing.PointF pos);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype MonoTouch.Cocos2D.CCQuad3 GetOriginalTile(valuetype System.Drawing.PointF pos) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("originalTile:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.CCQuad3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pos" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="pos">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTile">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCQuad3 GetTile (System.Drawing.Point position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype MonoTouch.Cocos2D.CCQuad3 GetTile(valuetype System.Drawing.Point position) cil managed" />
+      <MemberType>Method</MemberType>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("tile:")</AttributeName>
@@ -187,13 +205,35 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetTile">
-      <MemberSignature Language="C#" Value="public virtual void SetTile (System.Drawing.Point pos, MonoTouch.Cocos2D.CCQuad3 coords);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetTile(valuetype System.Drawing.Point pos, valuetype MonoTouch.Cocos2D.CCQuad3 coords) cil managed" />
+    <Member MemberName="GetTile">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCQuad3 GetTile (System.Drawing.PointF position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype MonoTouch.Cocos2D.CCQuad3 GetTile(valuetype System.Drawing.PointF position) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("tile:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.CCQuad3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTile">
+      <MemberSignature Language="C#" Value="public virtual void SetTile (System.Drawing.Point pos, MonoTouch.Cocos2D.CCQuad3 coords);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetTile(valuetype System.Drawing.Point pos, valuetype MonoTouch.Cocos2D.CCQuad3 coords) cil managed" />
+      <MemberType>Method</MemberType>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("setTile:coords:")</AttributeName>
@@ -215,6 +255,32 @@
         <remarks>
           <para>sets a new tile to a certain position of the grid </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTile">
+      <MemberSignature Language="C#" Value="public virtual void SetTile (System.Drawing.PointF pos, MonoTouch.Cocos2D.CCQuad3 coords);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetTile(valuetype System.Drawing.PointF pos, valuetype MonoTouch.Cocos2D.CCQuad3 coords) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setTile:coords:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pos" Type="System.Drawing.PointF" />
+        <Parameter Name="coords" Type="MonoTouch.Cocos2D.CCQuad3" />
+      </Parameters>
+      <Docs>
+        <param name="pos">To be added.</param>
+        <param name="coords">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

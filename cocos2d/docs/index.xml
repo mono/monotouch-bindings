@@ -3,7 +3,13 @@
     <Assembly Name="Cocos2D" Version="0.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libcocos2d.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7, ForceLoad=true, Frameworks="OpenGLES CoreGraphics QuartzCore")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.LinkerSafe</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libcocos2d.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="OpenGLES CoreGraphics QuartzCore CoreText")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libChipmunk.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
@@ -17,10 +23,33 @@
     <Namespace Name="ApiDefinition">
       <Type Name="Messaging" Kind="Class" />
     </Namespace>
+    <Namespace Name="Chipmunk">
+      <Type Name="Arbiter" Kind="Class" />
+      <Type Name="Body" Kind="Class" />
+      <Type Name="ChipmunkObject" Kind="Class" />
+      <Type Name="CircleShape" Kind="Class" />
+      <Type Name="Constraint" Kind="Class" />
+      <Type Name="DampedRotarySpring" Kind="Class" />
+      <Type Name="DampedSpring" Kind="Class" />
+      <Type Name="GearJoint" Kind="Class" />
+      <Type Name="GrooveJoint" Kind="Class" />
+      <Type Name="Helper" Kind="Class" />
+      <Type Name="PinJoint" Kind="Class" />
+      <Type Name="PivotJoint" Kind="Class" />
+      <Type Name="PolygonShape" Kind="Class" />
+      <Type Name="RatchetJoint" Kind="Class" />
+      <Type Name="RotaryLimitJoint" Kind="Class" />
+      <Type Name="SegmentShape" Kind="Class" />
+      <Type Name="Shape" Kind="Class" />
+      <Type Name="SimpleMotor" Kind="Class" />
+      <Type Name="SlideJoint" Kind="Class" />
+      <Type Name="Space" Kind="Class" />
+    </Namespace>
     <Namespace Name="MonoTouch.Cocos2D">
       <Type Name="AutorotateCondition" Kind="Delegate" />
       <Type Name="CCAccelAmplitude" Kind="Class" />
       <Type Name="CCAccelDeccelAmplitude" Kind="Class" />
+      <Type Name="CCAccelerometerDelegate_Extensions" Kind="Class" />
       <Type Name="CCAction" Kind="Class" />
       <Type Name="CCActionCamera" Kind="Class" />
       <Type Name="CCActionEase" Kind="Class" />
@@ -49,6 +78,7 @@
       <Type Name="CCCardinalSplineTo" Kind="Class" />
       <Type Name="CCCatmullRomBy" Kind="Class" />
       <Type Name="CCCatmullRomTo" Kind="Class" />
+      <Type Name="CCClippingNode" Kind="Class" />
       <Type Name="CCColor3B" Kind="Structure" />
       <Type Name="CCColor4B" Kind="Structure" />
       <Type Name="CCColor4F" Kind="Structure" />
@@ -57,9 +87,11 @@
       <Type Name="CCDelayTime" Kind="Class" />
       <Type Name="CCDirector" Kind="Class" />
       <Type Name="CCDirectorDelegate" Kind="Class" />
+      <Type Name="CCDirectorDelegate_Extensions" Kind="Class" />
       <Type Name="CCDirectorDisplayLink" Kind="Class" />
       <Type Name="CCDirectorIOS" Kind="Class" />
       <Type Name="CCDirectorProjection" Kind="Enumeration" />
+      <Type Name="CCDrawNode" Kind="Class" />
       <Type Name="CCEaseBackIn" Kind="Class" />
       <Type Name="CCEaseBackInOut" Kind="Class" />
       <Type Name="CCEaseBackOut" Kind="Class" />
@@ -151,6 +183,8 @@
       <Type Name="CCParticleSystem" Kind="Class" />
       <Type Name="CCParticleSystemQuad" Kind="Class" />
       <Type Name="CCParticleUnion" Kind="Structure" />
+      <Type Name="CCPhysicsDebugNode" Kind="Class" />
+      <Type Name="CCPhysicsSprite" Kind="Class" />
       <Type Name="CCPlace" Kind="Class" />
       <Type Name="CCPointArray" Kind="Class" />
       <Type Name="CCPositionType" Kind="Enumeration" />
@@ -190,7 +224,9 @@
       <Type Name="CCSpriteBatchNode" Kind="Class" />
       <Type Name="CCSpriteFrame" Kind="Class" />
       <Type Name="CCSpriteFrameCache" Kind="Class" />
+      <Type Name="CCStandardTouchDelegate_Extensions" Kind="Class" />
       <Type Name="CCStopGrid" Kind="Class" />
+      <Type Name="CCTargetedTouchDelegate_Extensions" Kind="Class" />
       <Type Name="CCTex2F" Kind="Structure" />
       <Type Name="CCTexture2D" Kind="Class" />
       <Type Name="CCTexture2DPixelFormat" Kind="Enumeration" />
@@ -211,9 +247,10 @@
       <Type Name="CCTMXTilesetInfo" Kind="Class" />
       <Type Name="CCToggleVisibility" Kind="Class" />
       <Type Name="CCTouchDispatcher" Kind="Class" />
+      <Type Name="CCTouchesMode" Kind="Enumeration" />
       <Type Name="CCTransitionCrossFade" Kind="Class" />
       <Type Name="CCTransitionFade" Kind="Class" />
-      <Type Name="CCTransitionFlipAnguled" Kind="Class" />
+      <Type Name="CCTransitionFlipAngular" Kind="Class" />
       <Type Name="CCTransitionFlipX" Kind="Class" />
       <Type Name="CCTransitionFlipY" Kind="Class" />
       <Type Name="CCTransitionJumpZoom" Kind="Class" />
@@ -245,12 +282,268 @@
       <Type Name="CCV2F_C4B_T2F" Kind="Structure" />
       <Type Name="CCV3F_C4B_T2F" Kind="Structure" />
       <Type Name="CCV3F_C4B_T2F_Quad" Kind="Structure" />
+      <Type Name="CCVertex2F" Kind="Structure" />
+      <Type Name="CCVertex3F" Kind="Structure" />
       <Type Name="CCVerticalTextAlignment" Kind="Enumeration" />
       <Type Name="CCWaves" Kind="Class" />
       <Type Name="CCWaves3D" Kind="Class" />
       <Type Name="CCWavesTiles3D" Kind="Class" />
+      <Type Name="ICCAccelerometerDelegate" Kind="Interface" />
+      <Type Name="ICCDirectorDelegate" Kind="Interface" />
+      <Type Name="ICCStandardTouchDelegate" Kind="Interface" />
+      <Type Name="ICCTargetedTouchDelegate" Kind="Interface" />
       <Type Name="NSCallbackWithSender" Kind="Delegate" />
     </Namespace>
   </Types>
   <Title>Cocos2D</Title>
+  <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCAccelerometerDelegate" />
+      </Targets>
+      <Member MemberName="DidAccelerate">
+        <MemberSignature Language="C#" Value="public static void DidAccelerate (this MonoTouch.Cocos2D.ICCAccelerometerDelegate This, MonoTouch.UIKit.UIAccelerometer accelerometer, MonoTouch.UIKit.UIAcceleration acceleration);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidAccelerate(class MonoTouch.Cocos2D.ICCAccelerometerDelegate This, class MonoTouch.UIKit.UIAccelerometer accelerometer, class MonoTouch.UIKit.UIAcceleration acceleration) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCAccelerometerDelegate" RefType="this" />
+          <Parameter Name="accelerometer" Type="MonoTouch.UIKit.UIAccelerometer" />
+          <Parameter Name="acceleration" Type="MonoTouch.UIKit.UIAcceleration" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="accelerometer">To be added.</param>
+          <param name="acceleration">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCAccelerometerDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCAccelerometerDelegate_Extensions.DidAccelerate(MonoTouch.Cocos2D.ICCAccelerometerDelegate,MonoTouch.UIKit.UIAccelerometer,MonoTouch.UIKit.UIAcceleration)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCDirectorDelegate" />
+      </Targets>
+      <Member MemberName="ShouldAutorotateToInterfaceOrientation">
+        <MemberSignature Language="C#" Value="public static bool ShouldAutorotateToInterfaceOrientation (this MonoTouch.Cocos2D.ICCDirectorDelegate This, MonoTouch.UIKit.UIInterfaceOrientation orientation);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldAutorotateToInterfaceOrientation(class MonoTouch.Cocos2D.ICCDirectorDelegate This, valuetype MonoTouch.UIKit.UIInterfaceOrientation orientation) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCDirectorDelegate" RefType="this" />
+          <Parameter Name="orientation" Type="MonoTouch.UIKit.UIInterfaceOrientation" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="orientation">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCDirectorDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCDirectorDelegate_Extensions.ShouldAutorotateToInterfaceOrientation(MonoTouch.Cocos2D.ICCDirectorDelegate,MonoTouch.UIKit.UIInterfaceOrientation)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCStandardTouchDelegate" />
+      </Targets>
+      <Member MemberName="OnTouchesBegan">
+        <MemberSignature Language="C#" Value="public static void OnTouchesBegan (this MonoTouch.Cocos2D.ICCStandardTouchDelegate This, MonoTouch.Foundation.NSSet touches, MonoTouch.UIKit.UIEvent ev);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnTouchesBegan(class MonoTouch.Cocos2D.ICCStandardTouchDelegate This, class MonoTouch.Foundation.NSSet touches, class MonoTouch.UIKit.UIEvent ev) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCStandardTouchDelegate" RefType="this" />
+          <Parameter Name="touches" Type="MonoTouch.Foundation.NSSet" />
+          <Parameter Name="ev" Type="MonoTouch.UIKit.UIEvent" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="touches">To be added.</param>
+          <param name="ev">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCStandardTouchDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCStandardTouchDelegate_Extensions.OnTouchesBegan(MonoTouch.Cocos2D.ICCStandardTouchDelegate,MonoTouch.Foundation.NSSet,MonoTouch.UIKit.UIEvent)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCStandardTouchDelegate" />
+      </Targets>
+      <Member MemberName="OnTouchesCancelled">
+        <MemberSignature Language="C#" Value="public static void OnTouchesCancelled (this MonoTouch.Cocos2D.ICCStandardTouchDelegate This, MonoTouch.Foundation.NSSet touches, MonoTouch.UIKit.UIEvent ev);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnTouchesCancelled(class MonoTouch.Cocos2D.ICCStandardTouchDelegate This, class MonoTouch.Foundation.NSSet touches, class MonoTouch.UIKit.UIEvent ev) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCStandardTouchDelegate" RefType="this" />
+          <Parameter Name="touches" Type="MonoTouch.Foundation.NSSet" />
+          <Parameter Name="ev" Type="MonoTouch.UIKit.UIEvent" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="touches">To be added.</param>
+          <param name="ev">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCStandardTouchDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCStandardTouchDelegate_Extensions.OnTouchesCancelled(MonoTouch.Cocos2D.ICCStandardTouchDelegate,MonoTouch.Foundation.NSSet,MonoTouch.UIKit.UIEvent)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCStandardTouchDelegate" />
+      </Targets>
+      <Member MemberName="OnTouchesEnded">
+        <MemberSignature Language="C#" Value="public static void OnTouchesEnded (this MonoTouch.Cocos2D.ICCStandardTouchDelegate This, MonoTouch.Foundation.NSSet touches, MonoTouch.UIKit.UIEvent ev);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnTouchesEnded(class MonoTouch.Cocos2D.ICCStandardTouchDelegate This, class MonoTouch.Foundation.NSSet touches, class MonoTouch.UIKit.UIEvent ev) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCStandardTouchDelegate" RefType="this" />
+          <Parameter Name="touches" Type="MonoTouch.Foundation.NSSet" />
+          <Parameter Name="ev" Type="MonoTouch.UIKit.UIEvent" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="touches">To be added.</param>
+          <param name="ev">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCStandardTouchDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCStandardTouchDelegate_Extensions.OnTouchesEnded(MonoTouch.Cocos2D.ICCStandardTouchDelegate,MonoTouch.Foundation.NSSet,MonoTouch.UIKit.UIEvent)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCStandardTouchDelegate" />
+      </Targets>
+      <Member MemberName="OnTouchesMoved">
+        <MemberSignature Language="C#" Value="public static void OnTouchesMoved (this MonoTouch.Cocos2D.ICCStandardTouchDelegate This, MonoTouch.Foundation.NSSet touches, MonoTouch.UIKit.UIEvent ev);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnTouchesMoved(class MonoTouch.Cocos2D.ICCStandardTouchDelegate This, class MonoTouch.Foundation.NSSet touches, class MonoTouch.UIKit.UIEvent ev) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCStandardTouchDelegate" RefType="this" />
+          <Parameter Name="touches" Type="MonoTouch.Foundation.NSSet" />
+          <Parameter Name="ev" Type="MonoTouch.UIKit.UIEvent" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="touches">To be added.</param>
+          <param name="ev">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCStandardTouchDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCStandardTouchDelegate_Extensions.OnTouchesMoved(MonoTouch.Cocos2D.ICCStandardTouchDelegate,MonoTouch.Foundation.NSSet,MonoTouch.UIKit.UIEvent)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCTargetedTouchDelegate" />
+      </Targets>
+      <Member MemberName="OnTouchBegan">
+        <MemberSignature Language="C#" Value="public static bool OnTouchBegan (this MonoTouch.Cocos2D.ICCTargetedTouchDelegate This, MonoTouch.UIKit.UITouch touch, MonoTouch.UIKit.UIEvent ev);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool OnTouchBegan(class MonoTouch.Cocos2D.ICCTargetedTouchDelegate This, class MonoTouch.UIKit.UITouch touch, class MonoTouch.UIKit.UIEvent ev) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCTargetedTouchDelegate" RefType="this" />
+          <Parameter Name="touch" Type="MonoTouch.UIKit.UITouch" />
+          <Parameter Name="ev" Type="MonoTouch.UIKit.UIEvent" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="touch">To be added.</param>
+          <param name="ev">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCTargetedTouchDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCTargetedTouchDelegate_Extensions.OnTouchBegan(MonoTouch.Cocos2D.ICCTargetedTouchDelegate,MonoTouch.UIKit.UITouch,MonoTouch.UIKit.UIEvent)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCTargetedTouchDelegate" />
+      </Targets>
+      <Member MemberName="OnTouchCancelled">
+        <MemberSignature Language="C#" Value="public static void OnTouchCancelled (this MonoTouch.Cocos2D.ICCTargetedTouchDelegate This, MonoTouch.UIKit.UITouch touch, MonoTouch.UIKit.UIEvent ev);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnTouchCancelled(class MonoTouch.Cocos2D.ICCTargetedTouchDelegate This, class MonoTouch.UIKit.UITouch touch, class MonoTouch.UIKit.UIEvent ev) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCTargetedTouchDelegate" RefType="this" />
+          <Parameter Name="touch" Type="MonoTouch.UIKit.UITouch" />
+          <Parameter Name="ev" Type="MonoTouch.UIKit.UIEvent" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="touch">To be added.</param>
+          <param name="ev">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCTargetedTouchDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCTargetedTouchDelegate_Extensions.OnTouchCancelled(MonoTouch.Cocos2D.ICCTargetedTouchDelegate,MonoTouch.UIKit.UITouch,MonoTouch.UIKit.UIEvent)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCTargetedTouchDelegate" />
+      </Targets>
+      <Member MemberName="OnTouchEnded">
+        <MemberSignature Language="C#" Value="public static void OnTouchEnded (this MonoTouch.Cocos2D.ICCTargetedTouchDelegate This, MonoTouch.UIKit.UITouch touch, MonoTouch.UIKit.UIEvent ev);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnTouchEnded(class MonoTouch.Cocos2D.ICCTargetedTouchDelegate This, class MonoTouch.UIKit.UITouch touch, class MonoTouch.UIKit.UIEvent ev) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCTargetedTouchDelegate" RefType="this" />
+          <Parameter Name="touch" Type="MonoTouch.UIKit.UITouch" />
+          <Parameter Name="ev" Type="MonoTouch.UIKit.UIEvent" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="touch">To be added.</param>
+          <param name="ev">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCTargetedTouchDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCTargetedTouchDelegate_Extensions.OnTouchEnded(MonoTouch.Cocos2D.ICCTargetedTouchDelegate,MonoTouch.UIKit.UITouch,MonoTouch.UIKit.UIEvent)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:MonoTouch.Cocos2D.ICCTargetedTouchDelegate" />
+      </Targets>
+      <Member MemberName="OnTouchMoved">
+        <MemberSignature Language="C#" Value="public static void OnTouchMoved (this MonoTouch.Cocos2D.ICCTargetedTouchDelegate This, MonoTouch.UIKit.UITouch touch, MonoTouch.UIKit.UIEvent ev);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void OnTouchMoved(class MonoTouch.Cocos2D.ICCTargetedTouchDelegate This, class MonoTouch.UIKit.UITouch touch, class MonoTouch.UIKit.UIEvent ev) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="This" Type="MonoTouch.Cocos2D.ICCTargetedTouchDelegate" RefType="this" />
+          <Parameter Name="touch" Type="MonoTouch.UIKit.UITouch" />
+          <Parameter Name="ev" Type="MonoTouch.UIKit.UIEvent" />
+        </Parameters>
+        <Docs>
+          <param name="This">To be added.</param>
+          <param name="touch">To be added.</param>
+          <param name="ev">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="MonoTouch.Cocos2D.CCTargetedTouchDelegate_Extensions" Member="M:MonoTouch.Cocos2D.CCTargetedTouchDelegate_Extensions.OnTouchMoved(MonoTouch.Cocos2D.ICCTargetedTouchDelegate,MonoTouch.UIKit.UITouch,MonoTouch.UIKit.UIEvent)" />
+      </Member>
+    </ExtensionMethod>
+  </ExtensionMethods>
 </Overview>

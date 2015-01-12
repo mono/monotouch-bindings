@@ -8,11 +8,11 @@
 //
 
 using System;
-using System.Drawing;
 using System.Runtime.InteropServices;
-using MonoTouch.Foundation;
-using MonoTouch.ObjCRuntime;
-using MonoTouch.UIKit;
+using Foundation;
+using ObjCRuntime;
+using CoreGraphics;
+using UIKit;
 #if MONOMAC
 using UITextAlignment = MonoMac.AppKit.NSTextAlignment;
 using UILineBreakMode = MonoMac.AppKit.NSLineBreakMode;
@@ -26,9 +26,9 @@ namespace MonoTouch.Cocos2D {
 
 		public static Selector Selector = new Selector ("apply");
 
-		NSAction action;
+		Action action;
 
-		public NSActionDispatcher (NSAction action)
+		public NSActionDispatcher (Action action)
 		{
 			this.action = action;
 		}
@@ -154,7 +154,7 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	public partial class CCCallFunc {
-		public CCCallFunc (NSAction callback) : this (new NSActionDispatcher(callback), NSActionDispatcher.Selector)
+		public CCCallFunc (Action callback) : this (new NSActionDispatcher(callback), NSActionDispatcher.Selector)
 		{
 		}
 	}
@@ -177,7 +177,7 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	public partial class CCPointArray {
-		public PointF this [int index] {
+		public CGPoint this [int index] {
 			get {
 				return GetControlPoint (index);
 			}
@@ -189,7 +189,7 @@ namespace MonoTouch.Cocos2D {
 
 	public partial class CCCardianSpline {
 		[DllImport ("__Internal", EntryPoint="ccCardinalSplineAt")]
-		public extern static PointF GetPosition (PointF p0, PointF p1, PointF p2, PointF p3, float tension, float time);
+		public extern static CGPoint GetPosition (CGPoint p0, CGPoint p1, CGPoint p2, CGPoint p3, float tension, float time);
 	}
 
 	public partial class CCDirector {
@@ -209,26 +209,26 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	public partial class CCTimer {
-		public CCTimer (NSAction target) : this (new NSActionDispatcher (target), NSActionDispatcher.Selector)
+		public CCTimer (Action target) : this (new NSActionDispatcher (target), NSActionDispatcher.Selector)
 		{
 		}
 	}
 
 	public partial class CCTexture2D {
 		[Obsolete ("Obsolete since 2.1. Use CCTexture2D (string text, string fontName, float fontSize, UITextAlignment alignmenr, CCVerticalTextAlignment vertAlignmenr) instead.")]
-		public CCTexture2D (string text, SizeF dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, string fontName, float fontSize) : this (text, fontName, fontSize, dimensions, alignment, vertAlignment)
+		public CCTexture2D (string text, CGSize dimensions, UITextAlignment alignment, CCVerticalTextAlignment vertAlignment, string fontName, float fontSize) : this (text, fontName, fontSize, dimensions, alignment, vertAlignment)
 		{
 		}
 	}
 
 	public partial class CCLabelTTF {
-		[Obsolete ("Obsolete since 2.1. Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode) instead.")]
-		public CCLabelTTF (string label, SizeF dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment, lineBreakMode)
+		[Obsolete ("Obsolete since 2.1. Use CCLabelTTF (string label, string fontName, float fontSize, CGSize dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode) instead.")]
+		public CCLabelTTF (string label, CGSize dimensions, UITextAlignment alignment, UILineBreakMode lineBreakMode, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment, lineBreakMode)
 		{
 		}
 
-		[Obsolete ("Obsolete since 2.1, Use CCLabelTTF (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment alignment) instead.")]
-		public CCLabelTTF (string label, SizeF dimensions, UITextAlignment alignment, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment)
+		[Obsolete ("Obsolete since 2.1, Use CCLabelTTF (string label, string fontName, float fontSize, CGSize dimensions, UITextAlignment alignment) instead.")]
+		public CCLabelTTF (string label, CGSize dimensions, UITextAlignment alignment, string fontName, float fontSize) : this (label, fontName, fontSize, dimensions, alignment)
 		{
 		}
 	}
@@ -239,7 +239,7 @@ namespace MonoTouch.Cocos2D {
 			set { BodyPtr = value.Handle.Handle; }
 		} 
 
-		public PointF Position {
+		public CGPoint Position {
 			get {
 				if (BodyPtr == IntPtr.Zero)
 					throw new InvalidOperationException ("You can't get the Position if the Body isn't set");

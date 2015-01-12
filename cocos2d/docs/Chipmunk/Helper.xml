@@ -1,0 +1,195 @@
+<Type Name="Helper" FullName="Chipmunk.Helper">
+  <TypeSignature Language="C#" Value="public static class Helper" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit Helper extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Cocos2D</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AreaForCircle">
+      <MemberSignature Language="C#" Value="public static float AreaForCircle (float r1, float r2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;__Internal&quot; as &quot;cpAreaForCircle&quot; winapi)float32 AreaForCircle(float32 r1, float32 r2) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="r1" Type="System.Single" />
+        <Parameter Name="r2" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="r1">To be added.</param>
+        <param name="r2">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AreaForPolygon">
+      <MemberSignature Language="C#" Value="public static float AreaForPolygon (System.Drawing.PointF[] vertices);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 AreaForPolygon(valuetype System.Drawing.PointF[] vertices) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vertices" Type="System.Drawing.PointF[]" />
+      </Parameters>
+      <Docs>
+        <param name="vertices">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AreaForSegment">
+      <MemberSignature Language="C#" Value="public static float AreaForSegment (System.Drawing.PointF a, System.Drawing.PointF b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;__Internal&quot; as &quot;cpAreaForSegment&quot; winapi)float32 AreaForSegment(valuetype System.Drawing.PointF a, valuetype System.Drawing.PointF b) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="System.Drawing.PointF" />
+        <Parameter Name="b" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="a">To be added.</param>
+        <param name="b">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CentroidForPolygon">
+      <MemberSignature Language="C#" Value="public static System.Drawing.PointF CentroidForPolygon (System.Drawing.PointF[] vertices);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype System.Drawing.PointF CentroidForPolygon(valuetype System.Drawing.PointF[] vertices) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Drawing.PointF</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vertices" Type="System.Drawing.PointF[]" />
+      </Parameters>
+      <Docs>
+        <param name="vertices">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MomentForCircle">
+      <MemberSignature Language="C#" Value="public static float MomentForCircle (float m, float r1, float r2, System.Drawing.PointF offset);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;__Internal&quot; as &quot;cpMomentForCircle&quot; winapi)float32 MomentForCircle(float32 m, float32 r1, float32 r2, valuetype System.Drawing.PointF offset) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="m" Type="System.Single" />
+        <Parameter Name="r1" Type="System.Single" />
+        <Parameter Name="r2" Type="System.Single" />
+        <Parameter Name="offset" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="m">To be added.</param>
+        <param name="r1">To be added.</param>
+        <param name="r2">To be added.</param>
+        <param name="offset">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MomentForPolygon">
+      <MemberSignature Language="C#" Value="public static float MomentForPolygon (float m, System.Drawing.PointF[] vertices, System.Drawing.PointF offset);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 MomentForPolygon(float32 m, valuetype System.Drawing.PointF[] vertices, valuetype System.Drawing.PointF offset) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="m" Type="System.Single" />
+        <Parameter Name="vertices" Type="System.Drawing.PointF[]" />
+        <Parameter Name="offset" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="m">To be added.</param>
+        <param name="vertices">To be added.</param>
+        <param name="offset">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MomentForSegment">
+      <MemberSignature Language="C#" Value="public static float MomentForSegment (float m, System.Drawing.PointF a, System.Drawing.PointF b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig pinvokeimpl (&quot;__Internal&quot; as &quot;cpMomentForSegment&quot; winapi)float32 MomentForSegment(float32 m, valuetype System.Drawing.PointF a, valuetype System.Drawing.PointF b) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="m" Type="System.Single" />
+        <Parameter Name="a" Type="System.Drawing.PointF" />
+        <Parameter Name="b" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="m">To be added.</param>
+        <param name="a">To be added.</param>
+        <param name="b">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RecenterPolygon">
+      <MemberSignature Language="C#" Value="public static void RecenterPolygon (System.Drawing.PointF[] vertices);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RecenterPolygon(valuetype System.Drawing.PointF[] vertices) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vertices" Type="System.Drawing.PointF[]" />
+      </Parameters>
+      <Docs>
+        <param name="vertices">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

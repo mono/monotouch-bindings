@@ -1,13 +1,16 @@
 ENABLE_CHIPMUNK_INTEGRATION=1
-VERSION=2.1
+VERSION=2.2
 
 XBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
-BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+BTOUCH=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/bin/btouch-native
 XAM_BMAC=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/bin/bmac
 XAMMAC_DLL=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/lib/mono/XamMac.dll
-SMCS=/Developer/MonoTouch/usr/bin/smcs
+SMCS=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/bin/smcs
 PROJECT_ROOT=cocos2d-iphone-$(VERSION)
-PROJECT_TGZ=$(PROJECT_ROOT).tar.gz
+PROJECT_TGZ=v$(VERSION)-release.tar.gz
+CHIPMUNK_DIR_LOCAL=$(PROJECT_ROOT)/external/Chipmunk/
+CHIPMUNK_TGZ_LOCAL=$(CHIPMUNK_DIR_LOCAL)/Chipmunk.tgz
+CHIPMUNK_TGZ=../../chipmunk/binding/Chipmunk-6.2.1.tgz
 PROJECT=$(PROJECT_ROOT)/cocos2d-ios.xcodeproj
 PROJECTOSX=$(PROJECT_ROOT)/cocos2d-osx.xcodeproj
 CONFIGURATION=Release
@@ -44,13 +47,16 @@ debug: CONFIGURATION = Debug
 debug: all
 
 $(PROJECT_TGZ):
-	curl http://cocos2d-iphone.googlecode.com/files/$(PROJECT_TGZ) -o $(PROJECT_TGZ) 
+	curl https://codeload.github.com/cocos2d/cocos2d-iphone-classic/tar.gz/v$(VERSION)-release -o $(PROJECT_TGZ)
 
 $(PROJECT_ROOT)/patched_for_chipmunk: $(PROJECT_TGZ) ../../chipmunk/binding/chipmunk-diff
 	rm -rf $(PROJECT_ROOT)
 	mkdir -p $(PROJECT_ROOT)
 	tar xfz $< -C $(PROJECT_ROOT) --strip-component 1
-	patch -d $(PROJECT_ROOT)/external/Chipmunk -p1 < ../../chipmunk/binding/chipmunk-diff
+	cp -R $(CHIPMUNK_TGZ) $(CHIPMUNK_TGZ_LOCAL)
+	tar xfz $(CHIPMUNK_TGZ_LOCAL) --strip-component 1 -C $(CHIPMUNK_DIR_LOCAL)
+	patch -d $(CHIPMUNK_DIR_LOCAL)/src/  < Chipmunk-6.2.1.patch
+	patch -d $(CHIPMUNK_DIR_LOCAL) -p1 < ../../chipmunk/binding/chipmunk-diff
 	touch $(PROJECT_ROOT)/patched_for_chipmunk
 
 $(PROJECT_ROOT)/patched_for_dylib: $(PROJECT)
@@ -101,7 +107,7 @@ libChipmunk-armv7s.a: $(PROJECT)
 Cocos2D.dll: ApiDefinition.cs StructsAndEnums.cs Extra.cs $(CHIPMUNK_CS) AssemblyInfo.cs libcocos2d.a $(CHIPMUNK_LIB)
 	-mkdir -p ios
 	$(BTOUCH) -unsafe ApiDefinition.cs -s StructsAndEnums.cs --tmpdir=ios --sourceonly ios/sources.list $(CHIPMUNK_DEFINE) 
-	$(SMCS) -noconfig -o- -out:$@ -res:libcocos2d.a $(CHIPMUNK_RES) AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list $(CHIPMUNK_CS) -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll $(CHIPMUNK_DEFINE)
+	$(SMCS) -noconfig -o- -out:$@ -res:libcocos2d.a $(CHIPMUNK_RES) AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list $(CHIPMUNK_CS) -target:library -unsafe -reference:/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll -reference:/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll -reference:/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll -d:XAMCORE_2_0 $(CHIPMUNK_DEFINE)
 	cp $@ ../template/Cocos2D/
 
 Cocos2DMacOS.dll: mac/ApiDefinition.cs mac/StructsAndEnums.cs mac/Extra.cs cocos2d.dylib

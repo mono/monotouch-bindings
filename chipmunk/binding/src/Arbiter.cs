@@ -7,11 +7,11 @@
 // Copyright © 2013 Stephane Delcroix. All Rights Reserved.
 
 using System;
-using System.Drawing;
 using System.Runtime.InteropServices;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
+using CoreGraphics;
 
 namespace Chipmunk
 {
@@ -43,16 +43,18 @@ namespace Chipmunk
 	    set { __cpArbiterSetFriction (Handle.Handle, value); }
 	}	
 
+/*
 	[DllImport ("__Internal")]
-	extern static PointF __cpArbiterGetSurfaceVelocity (IntPtr arbiter);
+	extern static CGPoint __cpArbiterGetSurfaceVelocity (IntPtr arbiter);
 
 	[DllImport ("__Internal")]
-	extern static void __cpArbiterSetSurfaceVelocity (IntPtr arbiter, PointF value);
+	extern static void __cpArbiterSetSurfaceVelocity (IntPtr arbiter, CGPoint value);
 
-	public PointF SurfaceVelocity {
+	public CGPoint SurfaceVelocity {
 	    get { return __cpArbiterGetSurfaceVelocity (Handle.Handle); }
 	    set { __cpArbiterSetSurfaceVelocity (Handle.Handle, value); }
 	}
+*/
 
 	[DllImport ("__Internal")]
 	extern static int cpArbiterGetCount (IntPtr arbiter);
@@ -62,17 +64,17 @@ namespace Chipmunk
 	}
 	
 	[DllImport ("__Internal")]
-	extern static PointF cpArbiterGetNormal (IntPtr arbiter, int i);
+	extern static CGPoint cpArbiterGetNormal (IntPtr arbiter, int i);
 
-	public PointF GetNormal (int i)
+	public CGPoint GetNormal (int i)
 	{
 	    return cpArbiterGetNormal (Handle.Handle, i);
 	}
 
 	[DllImport ("__Internal")]
-	extern static PointF cpArbiterGetPoint (IntPtr arbiter, int i);
+	extern static CGPoint cpArbiterGetPoint (IntPtr arbiter, int i);
 
-	public PointF GetPoint (int i)
+	public CGPoint GetPoint (int i)
 	{
 	    return cpArbiterGetPoint (Handle.Handle, i);
 	}
@@ -117,16 +119,16 @@ namespace Chipmunk
 	//TODO contact point set
 	
 	[DllImport ("__Internal")]
-	extern static PointF cpArbiterTotalImpulseWithFriction (IntPtr arbiter);
+	extern static CGPoint cpArbiterTotalImpulseWithFriction (IntPtr arbiter);
 
-	public PointF TotalImpulseWithFriction {
+	public CGPoint TotalImpulseWithFriction {
 	    get { return cpArbiterTotalImpulseWithFriction (Handle.Handle); }
 	}
 
 	[DllImport ("__Internal")]
-	extern static PointF cpArbiterTotalImpulse (IntPtr arbiter);
+	extern static CGPoint cpArbiterTotalImpulse (IntPtr arbiter);
 
-	public PointF TotalImpulse {
+	public CGPoint TotalImpulse {
 	    get { return cpArbiterTotalImpulse (Handle.Handle); }
 	}
 

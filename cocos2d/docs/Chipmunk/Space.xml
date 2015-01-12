@@ -1,0 +1,721 @@
+<Type Name="Space" FullName="Chipmunk.Space">
+  <TypeSignature Language="C#" Value="public sealed class Space : Chipmunk.ChipmunkObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed beforefieldinit Space extends Chipmunk.ChipmunkObject" />
+  <AssemblyInfo>
+    <AssemblyName>Cocos2D</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Chipmunk.ChipmunkObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Space ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Space (IntPtr space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int space) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="space" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="space">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public Chipmunk.Body Add (Chipmunk.Body body);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Chipmunk.Body Add(class Chipmunk.Body body) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Chipmunk.Body</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="body" Type="Chipmunk.Body" />
+      </Parameters>
+      <Docs>
+        <param name="body">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public Chipmunk.Constraint Add (Chipmunk.Constraint constraint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Chipmunk.Constraint Add(class Chipmunk.Constraint constraint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Chipmunk.Constraint</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="constraint" Type="Chipmunk.Constraint" />
+      </Parameters>
+      <Docs>
+        <param name="constraint">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T Add&lt;T&gt; (T shape) where T : Chipmunk.Shape;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T Add&lt;(class Chipmunk.Shape) T&gt;(!!T shape) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Chipmunk.Shape</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="shape" Type="T" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="shape">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddCollisionHandler">
+      <MemberSignature Language="C#" Value="public void AddCollisionHandler (uint collisionTypeA, uint collisionTypeB, Func&lt;Chipmunk.Arbiter,bool&gt; beginFunc, Func&lt;Chipmunk.Arbiter,bool&gt; preSolveFunc, Action&lt;Chipmunk.Arbiter&gt; postSolveFunc, Action&lt;Chipmunk.Arbiter&gt; separateFunc);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCollisionHandler(unsigned int32 collisionTypeA, unsigned int32 collisionTypeB, class System.Func`2&lt;class Chipmunk.Arbiter, bool&gt; beginFunc, class System.Func`2&lt;class Chipmunk.Arbiter, bool&gt; preSolveFunc, class System.Action`1&lt;class Chipmunk.Arbiter&gt; postSolveFunc, class System.Action`1&lt;class Chipmunk.Arbiter&gt; separateFunc) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="collisionTypeA" Type="System.UInt32" />
+        <Parameter Name="collisionTypeB" Type="System.UInt32" />
+        <Parameter Name="beginFunc" Type="System.Func&lt;Chipmunk.Arbiter,System.Boolean&gt;" />
+        <Parameter Name="preSolveFunc" Type="System.Func&lt;Chipmunk.Arbiter,System.Boolean&gt;" />
+        <Parameter Name="postSolveFunc" Type="System.Action&lt;Chipmunk.Arbiter&gt;" />
+        <Parameter Name="separateFunc" Type="System.Action&lt;Chipmunk.Arbiter&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="collisionTypeA">To be added.</param>
+        <param name="collisionTypeB">To be added.</param>
+        <param name="beginFunc">To be added.</param>
+        <param name="preSolveFunc">To be added.</param>
+        <param name="postSolveFunc">To be added.</param>
+        <param name="separateFunc">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddPostStepCallback">
+      <MemberSignature Language="C#" Value="public void AddPostStepCallback (Action&lt;Chipmunk.Body&gt; action, Chipmunk.Body obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddPostStepCallback(class System.Action`1&lt;class Chipmunk.Body&gt; action, class Chipmunk.Body obj) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="System.Action&lt;Chipmunk.Body&gt;" />
+        <Parameter Name="obj" Type="Chipmunk.Body" />
+      </Parameters>
+      <Docs>
+        <param name="action">To be added.</param>
+        <param name="obj">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddPostStepCallback">
+      <MemberSignature Language="C#" Value="public void AddPostStepCallback (Action&lt;Chipmunk.Constraint&gt; action, Chipmunk.Constraint obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddPostStepCallback(class System.Action`1&lt;class Chipmunk.Constraint&gt; action, class Chipmunk.Constraint obj) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="System.Action&lt;Chipmunk.Constraint&gt;" />
+        <Parameter Name="obj" Type="Chipmunk.Constraint" />
+      </Parameters>
+      <Docs>
+        <param name="action">To be added.</param>
+        <param name="obj">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddPostStepCallback">
+      <MemberSignature Language="C#" Value="public void AddPostStepCallback (Action&lt;Chipmunk.Shape&gt; action, Chipmunk.Shape obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddPostStepCallback(class System.Action`1&lt;class Chipmunk.Shape&gt; action, class Chipmunk.Shape obj) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="System.Action&lt;Chipmunk.Shape&gt;" />
+        <Parameter Name="obj" Type="Chipmunk.Shape" />
+      </Parameters>
+      <Docs>
+        <param name="action">To be added.</param>
+        <param name="obj">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddStaticShape&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T AddStaticShape&lt;T&gt; (T shape) where T : Chipmunk.Shape;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T AddStaticShape&lt;(class Chipmunk.Shape) T&gt;(!!T shape) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Attach the shape to the static body instead")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Chipmunk.Shape</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="shape" Type="T" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="shape">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CollisionBias">
+      <MemberSignature Language="C#" Value="public float CollisionBias { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 CollisionBias" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CollisionPersistence">
+      <MemberSignature Language="C#" Value="public uint CollisionPersistence { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 CollisionPersistence" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CollisionSlop">
+      <MemberSignature Language="C#" Value="public float CollisionSlop { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 CollisionSlop" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Contains">
+      <MemberSignature Language="C#" Value="public bool Contains (Chipmunk.Body body);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Contains(class Chipmunk.Body body) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="body" Type="Chipmunk.Body" />
+      </Parameters>
+      <Docs>
+        <param name="body">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Contains">
+      <MemberSignature Language="C#" Value="public bool Contains (Chipmunk.Constraint constraint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Contains(class Chipmunk.Constraint constraint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="constraint" Type="Chipmunk.Constraint" />
+      </Parameters>
+      <Docs>
+        <param name="constraint">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Contains">
+      <MemberSignature Language="C#" Value="public bool Contains (Chipmunk.Shape shape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Contains(class Chipmunk.Shape shape) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="shape" Type="Chipmunk.Shape" />
+      </Parameters>
+      <Docs>
+        <param name="shape">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CurrentTimeStep">
+      <MemberSignature Language="C#" Value="public float CurrentTimeStep { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 CurrentTimeStep" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Damping">
+      <MemberSignature Language="C#" Value="public float Damping { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Damping" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EachBody">
+      <MemberSignature Language="C#" Value="public void EachBody (Action&lt;Chipmunk.Body&gt; action);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void EachBody(class System.Action`1&lt;class Chipmunk.Body&gt; action) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="System.Action&lt;Chipmunk.Body&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="action">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EachConstraint">
+      <MemberSignature Language="C#" Value="public void EachConstraint (Action&lt;Chipmunk.Constraint&gt; action);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void EachConstraint(class System.Action`1&lt;class Chipmunk.Constraint&gt; action) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="System.Action&lt;Chipmunk.Constraint&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="action">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EachShape">
+      <MemberSignature Language="C#" Value="public void EachShape (Action&lt;Chipmunk.Shape&gt; action);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void EachShape(class System.Action`1&lt;class Chipmunk.Shape&gt; action) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="System.Action&lt;Chipmunk.Shape&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="action">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Free">
+      <MemberSignature Language="C#" Value="protected override void Free ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Free() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Gravity">
+      <MemberSignature Language="C#" Value="public System.Drawing.PointF Gravity { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Drawing.PointF Gravity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Drawing.PointF</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IdleSpeedThreshold">
+      <MemberSignature Language="C#" Value="public float IdleSpeedThreshold { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 IdleSpeedThreshold" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsLocked">
+      <MemberSignature Language="C#" Value="public bool IsLocked { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsLocked" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Iterations">
+      <MemberSignature Language="C#" Value="public int Iterations { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Iterations" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReindexShape">
+      <MemberSignature Language="C#" Value="public void ReindexShape (Chipmunk.Shape shape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReindexShape(class Chipmunk.Shape shape) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="shape" Type="Chipmunk.Shape" />
+      </Parameters>
+      <Docs>
+        <param name="shape">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReindexShapesForBody">
+      <MemberSignature Language="C#" Value="public void ReindexShapesForBody (Chipmunk.Body body);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReindexShapesForBody(class Chipmunk.Body body) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="body" Type="Chipmunk.Body" />
+      </Parameters>
+      <Docs>
+        <param name="body">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReindexStaticShapes">
+      <MemberSignature Language="C#" Value="public void ReindexStaticShapes ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReindexStaticShapes() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public void Remove (Chipmunk.Body body);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Remove(class Chipmunk.Body body) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="body" Type="Chipmunk.Body" />
+      </Parameters>
+      <Docs>
+        <param name="body">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public void Remove (Chipmunk.Constraint constraint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Remove(class Chipmunk.Constraint constraint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="constraint" Type="Chipmunk.Constraint" />
+      </Parameters>
+      <Docs>
+        <param name="constraint">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public void Remove (Chipmunk.Shape shape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Remove(class Chipmunk.Shape shape) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="shape" Type="Chipmunk.Shape" />
+      </Parameters>
+      <Docs>
+        <param name="shape">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveCollisionHandler">
+      <MemberSignature Language="C#" Value="public void RemoveCollisionHandler (uint collisionTypeA, uint collisionTypeB);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveCollisionHandler(unsigned int32 collisionTypeA, unsigned int32 collisionTypeB) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="collisionTypeA" Type="System.UInt32" />
+        <Parameter Name="collisionTypeB" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="collisionTypeA">To be added.</param>
+        <param name="collisionTypeB">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SleepTimeThreshold">
+      <MemberSignature Language="C#" Value="public float SleepTimeThreshold { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 SleepTimeThreshold" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StaticBody">
+      <MemberSignature Language="C#" Value="public Chipmunk.Body StaticBody { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Chipmunk.Body StaticBody" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Chipmunk.Body</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Step">
+      <MemberSignature Language="C#" Value="public void Step (float dt);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Step(float32 dt) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dt" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="dt">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UseSpatialHash">
+      <MemberSignature Language="C#" Value="public void UseSpatialHash (float dim, int count);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UseSpatialHash(float32 dim, int32 count) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dim" Type="System.Single" />
+        <Parameter Name="count" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="dim">To be added.</param>
+        <param name="count">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

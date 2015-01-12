@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCLayer" FullName="MonoTouch.Cocos2D.CCLayer">
-  <TypeSignature Language="C#" Value="public class CCLayer : MonoTouch.Cocos2D.CCNode" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCLayer extends MonoTouch.Cocos2D.CCNode" />
+  <TypeSignature Language="C#" Value="public class CCLayer : MonoTouch.Cocos2D.CCNode, IDisposable, MonoTouch.Cocos2D.ICCAccelerometerDelegate, MonoTouch.Cocos2D.ICCStandardTouchDelegate, MonoTouch.Cocos2D.ICCTargetedTouchDelegate" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCLayer extends MonoTouch.Cocos2D.CCNode implements class MonoTouch.Cocos2D.ICCAccelerometerDelegate, class MonoTouch.Cocos2D.ICCStandardTouchDelegate, class MonoTouch.Cocos2D.ICCTargetedTouchDelegate, class MonoTouch.ObjCRuntime.INativeObject, class System.IDisposable" />
   <AssemblyInfo>
     <AssemblyName>Cocos2D</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -9,7 +8,20 @@
   <Base>
     <BaseTypeName>MonoTouch.Cocos2D.CCNode</BaseTypeName>
   </Base>
-  <Interfaces />
+  <Interfaces>
+    <Interface>
+      <InterfaceName>MonoTouch.Cocos2D.ICCAccelerometerDelegate</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>MonoTouch.Cocos2D.ICCStandardTouchDelegate</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>MonoTouch.Cocos2D.ICCTargetedTouchDelegate</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
   <Attributes>
     <Attribute>
       <AttributeName>MonoTouch.Foundation.Register("CCLayer", true)</AttributeName>
@@ -107,6 +119,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AccelerometerEnabled">
+      <MemberSignature Language="C#" Value="public virtual bool AccelerometerEnabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AccelerometerEnabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isAccelerometerEnabled")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAccelerometerEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ClassHandle">
       <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
@@ -123,51 +159,29 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsAccelerometerEnabled">
-      <MemberSignature Language="C#" Value="public virtual bool IsAccelerometerEnabled { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool IsAccelerometerEnabled" />
-      <MemberType>Property</MemberType>
+    <Member MemberName="DidAccelerate">
+      <MemberSignature Language="C#" Value="public virtual void DidAccelerate (MonoTouch.UIKit.UIAccelerometer accelerometer, MonoTouch.UIKit.UIAcceleration acceleration);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DidAccelerate(class MonoTouch.UIKit.UIAccelerometer accelerometer, class MonoTouch.UIKit.UIAcceleration acceleration) cil managed" />
+      <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("isAccelerometerEnabled")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setIsAccelerometerEnabled:")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("accelerometer:didAccelerate:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>System.Void</ReturnType>
       </ReturnValue>
+      <Parameters>
+        <Parameter Name="accelerometer" Type="MonoTouch.UIKit.UIAccelerometer" />
+        <Parameter Name="acceleration" Type="MonoTouch.UIKit.UIAcceleration" />
+      </Parameters>
       <Docs>
+        <param name="accelerometer">To be added.</param>
+        <param name="acceleration">To be added.</param>
         <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsTouchEnabled">
-      <MemberSignature Language="C#" Value="public virtual bool IsTouchEnabled { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool IsTouchEnabled" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("isTouchEnabled")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setIsTouchEnabled:")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -380,24 +394,99 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="RegisterWithTouchDispatcher">
-      <MemberSignature Language="C#" Value="public virtual void RegisterWithTouchDispatcher ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RegisterWithTouchDispatcher() cil managed" />
+    <Member MemberName="SetAccelerometerInterval">
+      <MemberSignature Language="C#" Value="public virtual void SetAccelerometerInterval (float interval);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetAccelerometerInterval(float32 interval) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("registerWithTouchDispatcher")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("setAccelerometerInterval:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="interval" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="interval">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TouchEnabled">
+      <MemberSignature Language="C#" Value="public virtual bool TouchEnabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool TouchEnabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isTouchEnabled")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setTouchEnabled:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TouchMode">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCTouchesMode TouchMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.Cocos2D.CCTouchesMode TouchMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("touchMode")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setTouchMode:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.CCTouchesMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TouchPriority">
+      <MemberSignature Language="C#" Value="public virtual int TouchPriority { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 TouchPriority" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("touchPriority")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setTouchPriority:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

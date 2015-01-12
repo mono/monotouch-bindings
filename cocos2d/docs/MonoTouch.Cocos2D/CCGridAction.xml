@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCGridAction" FullName="MonoTouch.Cocos2D.CCGridAction">
   <TypeSignature Language="C#" Value="public class CCGridAction : MonoTouch.Cocos2D.CCActionInterval" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCGridAction extends MonoTouch.Cocos2D.CCActionInterval" />
@@ -94,9 +93,6 @@
       <MemberSignature Language="C#" Value="public CCGridAction (System.Drawing.Size gridSize, float duration);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Drawing.Size gridSize, float32 duration) cil managed" />
       <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("initWithSize:duration:")</AttributeName>
@@ -115,6 +111,29 @@
         <remarks>
           <para>initializes the action with size and duration </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCGridAction (System.Drawing.SizeF gridSize, float duration);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Drawing.SizeF gridSize, float32 duration) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithSize:duration:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="gridSize" Type="System.Drawing.SizeF" />
+        <Parameter Name="duration" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="gridSize">To be added.</param>
+        <param name="duration">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">
@@ -160,8 +179,8 @@
       </Docs>
     </Member>
     <Member MemberName="GridSize">
-      <MemberSignature Language="C#" Value="public virtual System.Drawing.Point GridSize { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Drawing.Point GridSize" />
+      <MemberSignature Language="C#" Value="public virtual System.Drawing.SizeF GridSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Drawing.SizeF GridSize" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -175,7 +194,7 @@
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>System.Drawing.Point</ReturnType>
+        <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

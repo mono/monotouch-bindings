@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCSpriteBatchNode" FullName="MonoTouch.Cocos2D.CCSpriteBatchNode">
   <TypeSignature Language="C#" Value="public class CCSpriteBatchNode : MonoTouch.Cocos2D.CCNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCSpriteBatchNode extends MonoTouch.Cocos2D.CCNode" />
@@ -206,29 +205,32 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="AddQuadFromSprite">
-      <MemberSignature Language="C#" Value="public virtual void AddQuadFromSprite (MonoTouch.Cocos2D.CCSprite sprite, uint quadIndex);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddQuadFromSprite(class MonoTouch.Cocos2D.CCSprite sprite, unsigned int32 quadIndex) cil managed" />
+    <Member MemberName="AddWithoutQuad">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCSpriteBatchNode AddWithoutQuad (MonoTouch.Cocos2D.CCSprite sprite, uint z, int tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Cocos2D.CCSpriteBatchNode AddWithoutQuad(class MonoTouch.Cocos2D.CCSprite sprite, unsigned int32 z, int32 tag) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("addQuadFromSprite:quadIndex:")</AttributeName>
+          <AttributeName>MonoTouch.Foundation.Export("addSpriteWithoutQuad:z:tag:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>MonoTouch.Cocos2D.CCSpriteBatchNode</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="sprite" Type="MonoTouch.Cocos2D.CCSprite" />
-        <Parameter Name="quadIndex" Type="System.UInt32" />
+        <Parameter Name="z" Type="System.UInt32" />
+        <Parameter Name="tag" Type="System.Int32" />
       </Parameters>
       <Docs>
         <param name="sprite">To be added.</param>
-        <param name="quadIndex">To be added.</param>
+        <param name="z">To be added.</param>
+        <param name="tag">To be added.</param>
         <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -418,6 +420,32 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="InsertQuad">
+      <MemberSignature Language="C#" Value="public virtual void InsertQuad (MonoTouch.Cocos2D.CCSprite sprite, uint quadIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void InsertQuad(class MonoTouch.Cocos2D.CCSprite sprite, unsigned int32 quadIndex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("insertQuadFromSprite:quadIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sprite" Type="MonoTouch.Cocos2D.CCSprite" />
+        <Parameter Name="quadIndex" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="sprite">To be added.</param>
+        <param name="quadIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RebuildIndexInOrder">
       <MemberSignature Language="C#" Value="public virtual uint RebuildIndexInOrder (MonoTouch.Cocos2D.CCSprite parent, int altalIndex);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance unsigned int32 RebuildIndexInOrder(class MonoTouch.Cocos2D.CCSprite parent, int32 altalIndex) cil managed" />
@@ -603,6 +631,32 @@
         <remarks>
           <para>returns the TextureAtlas that is used </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateQuad">
+      <MemberSignature Language="C#" Value="public virtual void UpdateQuad (MonoTouch.Cocos2D.CCSprite sprite, uint quadIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UpdateQuad(class MonoTouch.Cocos2D.CCSprite sprite, unsigned int32 quadIndex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("updateQuadFromSprite:quadIndex:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sprite" Type="MonoTouch.Cocos2D.CCSprite" />
+        <Parameter Name="quadIndex" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="sprite">To be added.</param>
+        <param name="quadIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

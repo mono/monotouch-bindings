@@ -1,6 +1,6 @@
 using System;
-using MonoTouch.Foundation;
-using MonoTouch.ObjCRuntime;
+using Foundation;
+using ObjCRuntime;
 
 [assembly: LinkerSafe]
 [assembly: LinkWith ("libcocos2d.a",LinkTarget.Simulator | LinkTarget.ArmV7 | LinkTarget.ArmV7s, ForceLoad = true, Frameworks = "OpenGLES CoreGraphics QuartzCore CoreText")]

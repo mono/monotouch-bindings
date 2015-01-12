@@ -12,8 +12,9 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
+using ObjCRuntime;
 
 namespace Chipmunk
 {
@@ -281,7 +282,7 @@ namespace Chipmunk
 		//iterators
 		delegate void BodyIteratorFunc (IntPtr body, IntPtr data);
 
-		[MonoTouch.MonoPInvokeCallback (typeof (BodyIteratorFunc))] 
+		[MonoPInvokeCallback (typeof (BodyIteratorFunc))] 
 		static void BodyIterator (IntPtr body, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);
@@ -302,7 +303,7 @@ namespace Chipmunk
 		
 		delegate void ShapeIteratorFunc (IntPtr shape, IntPtr data);
 
-		[MonoTouch.MonoPInvokeCallback (typeof (ShapeIteratorFunc))] 
+		[MonoPInvokeCallback (typeof (ShapeIteratorFunc))] 
 		static void ShapeIterator (IntPtr shape, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);
@@ -323,7 +324,7 @@ namespace Chipmunk
 
 		delegate void ConstraintIteratorFunc (IntPtr constraint, IntPtr data);
 
-		[MonoTouch.MonoPInvokeCallback (typeof (ConstraintIteratorFunc))] 
+		[MonoPInvokeCallback (typeof (ConstraintIteratorFunc))] 
 		static void ConstraintIterator (IntPtr constraint, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);
@@ -354,7 +355,7 @@ namespace Chipmunk
 		//Post step
 		delegate void PostStepFunc (IntPtr space, IntPtr obj, IntPtr data);
 
-		[MonoTouch.MonoPInvokeCallback (typeof (PostStepFunc))]
+		[MonoPInvokeCallback (typeof (PostStepFunc))]
 		static void PostStepForBody (IntPtr space, IntPtr obj, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);
@@ -363,7 +364,7 @@ namespace Chipmunk
 		    action (obj == IntPtr.Zero ? null :  Body.FromIntPtr (obj));
 		}
 
-		[MonoTouch.MonoPInvokeCallback (typeof (PostStepFunc))]
+		[MonoPInvokeCallback (typeof (PostStepFunc))]
 		static void PostStepForShape (IntPtr space, IntPtr obj, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);
@@ -372,7 +373,7 @@ namespace Chipmunk
 		    action (obj == IntPtr.Zero ? null :  Shape.FromIntPtr (obj));
 		}
 
-		[MonoTouch.MonoPInvokeCallback (typeof (PostStepFunc))]
+		[MonoPInvokeCallback (typeof (PostStepFunc))]
 		static void PostStepForConstraint (IntPtr space, IntPtr obj, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);
@@ -417,7 +418,7 @@ namespace Chipmunk
 		delegate void PostSolveFunc (IntPtr arbiter, IntPtr space, IntPtr data);
 		delegate void SeparateFunc (IntPtr arbiter, IntPtr space, IntPtr data);
 
-		[MonoTouch.MonoPInvokeCallback (typeof (BeginFunc))]
+		[MonoPInvokeCallback (typeof (BeginFunc))]
 		static bool CollisionBegin (IntPtr arb, IntPtr space, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);
@@ -433,7 +434,7 @@ namespace Chipmunk
 		    return func (arbiter);
 		}
 		
-		[MonoTouch.MonoPInvokeCallback (typeof (PreSolveFunc))]
+		[MonoPInvokeCallback (typeof (PreSolveFunc))]
 		static bool CollisionPreSolve (IntPtr arb, IntPtr space, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);
@@ -449,7 +450,7 @@ namespace Chipmunk
 		    return func (arbiter);
 		}
 
-		[MonoTouch.MonoPInvokeCallback (typeof (PostSolveFunc))]
+		[MonoPInvokeCallback (typeof (PostSolveFunc))]
 		static void CollisionPostSolve (IntPtr arb, IntPtr space, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);
@@ -465,7 +466,7 @@ namespace Chipmunk
 		    func (arbiter);
 		}
 
-		[MonoTouch.MonoPInvokeCallback (typeof (SeparateFunc))]
+		[MonoPInvokeCallback (typeof (SeparateFunc))]
 		static void CollisionSeparate (IntPtr arb, IntPtr space, IntPtr data)
 		{
 		    var handle = GCHandle.FromIntPtr (data);

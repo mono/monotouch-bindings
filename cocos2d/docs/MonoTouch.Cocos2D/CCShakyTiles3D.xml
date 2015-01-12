@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCShakyTiles3D" FullName="MonoTouch.Cocos2D.CCShakyTiles3D">
   <TypeSignature Language="C#" Value="public class CCShakyTiles3D : MonoTouch.Cocos2D.CCTiledGrid3DAction" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCShakyTiles3D extends MonoTouch.Cocos2D.CCTiledGrid3DAction" />
@@ -96,9 +95,6 @@
       <MemberSignature Language="C#" Value="public CCShakyTiles3D (int range, bool shakeZ, System.Drawing.Size gridSize, float duration);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 range, bool shakeZ, valuetype System.Drawing.Size gridSize, float32 duration) cil managed" />
       <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("initWithRange:shakeZ:grid:duration:")</AttributeName>
@@ -121,6 +117,33 @@
         <remarks>
           <para>initializes the action with a range, whether or not to shake Z vertices, a grid size, and duration </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCShakyTiles3D (int range, bool shakeZ, System.Drawing.SizeF gridSize, float duration);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 range, bool shakeZ, valuetype System.Drawing.SizeF gridSize, float32 duration) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithRange:shakeZ:grid:duration:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="range" Type="System.Int32" />
+        <Parameter Name="shakeZ" Type="System.Boolean" />
+        <Parameter Name="gridSize" Type="System.Drawing.SizeF" />
+        <Parameter Name="duration" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="range">To be added.</param>
+        <param name="shakeZ">To be added.</param>
+        <param name="gridSize">To be added.</param>
+        <param name="duration">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">

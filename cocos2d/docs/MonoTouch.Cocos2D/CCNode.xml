@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCNode" FullName="MonoTouch.Cocos2D.CCNode">
   <TypeSignature Language="C#" Value="public class CCNode : MonoTouch.Foundation.NSObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCNode extends MonoTouch.Foundation.NSObject" />
@@ -706,9 +705,6 @@
       <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGAffineTransform NodeToParentTransform ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype MonoTouch.CoreGraphics.CGAffineTransform NodeToParentTransform() cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("nodeToParentTransform")</AttributeName>
@@ -726,6 +722,27 @@
         <remarks>
           <para>Returns the matrix that transform the node's (local) space coordinates into the parent's space coordinates. The matrix is in Pixels. <simplesect kind="since"><para>v0.7.1 </para></simplesect></para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NodeToParentTransform">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.CoreGraphics.CGAffineTransform NodeToParentTransform { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.CoreGraphics.CGAffineTransform NodeToParentTransform" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("nodeToParentTransform")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.CoreGraphics.CGAffineTransform</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="NodeToWorldTransform">
@@ -925,6 +942,30 @@
       </Docs>
     </Member>
     <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public virtual void Remove (int tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Remove(int32 tag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeChildByTag:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tag" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="tag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
       <MemberSignature Language="C#" Value="public virtual void Remove (MonoTouch.Cocos2D.CCNode child, bool cleanup);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Remove(class MonoTouch.Cocos2D.CCNode child, bool cleanup) cil managed" />
       <MemberType>Method</MemberType>
@@ -984,6 +1025,27 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="RemoveAllChildren">
+      <MemberSignature Language="C#" Value="public virtual void RemoveAllChildren ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveAllChildren() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeAllChildren")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RemoveAllChildrenWithCleanup">
       <MemberSignature Language="C#" Value="public virtual void RemoveAllChildrenWithCleanup (bool cleanup);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveAllChildrenWithCleanup(bool cleanup) cil managed" />
@@ -1012,13 +1074,79 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="RemoveFromParentAndCleanup">
-      <MemberSignature Language="C#" Value="public virtual void RemoveFromParentAndCleanup (bool cleanup);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveFromParentAndCleanup(bool cleanup) cil managed" />
+    <Member MemberName="RemoveChild">
+      <MemberSignature Language="C#" Value="public virtual void RemoveChild (MonoTouch.Cocos2D.CCNode child);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveChild(class MonoTouch.Cocos2D.CCNode child) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeChild:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="child" Type="MonoTouch.Cocos2D.CCNode" />
+      </Parameters>
+      <Docs>
+        <param name="child">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveFromParent">
+      <MemberSignature Language="C#" Value="public virtual void RemoveFromParent ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveFromParent() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeFromParent")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveFromParent">
+      <MemberSignature Language="C#" Value="public virtual void RemoveFromParent (bool cleanup);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveFromParent(bool cleanup) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeFromParentAndCleanup:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cleanup" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="cleanup">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveFromParentAndCleanup">
+      <MemberSignature Language="C#" Value="public virtual void RemoveFromParentAndCleanup (bool cleanup);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveFromParentAndCleanup(bool cleanup) cil managed" />
+      <MemberType>Method</MemberType>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("removeFromParentAndCleanup:")</AttributeName>
@@ -1137,6 +1265,54 @@
         <remarks>
           <para>The rotation (angle) of the node in degrees. 0 is the default rotation angle. Positive values rotate node CW. </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RotationX">
+      <MemberSignature Language="C#" Value="public virtual float RotationX { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 RotationX" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("rotationX")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setRotationX:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RotationY">
+      <MemberSignature Language="C#" Value="public virtual float RotationY { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 RotationY" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("rotationY")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setRotationY:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="RunAction">
@@ -1709,6 +1885,30 @@
       </ReturnValue>
       <Parameters />
       <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public virtual void Update (float delta);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Update(float32 delta) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("update:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="delta" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="delta">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>

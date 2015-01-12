@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="CCLabelAtlas" FullName="MonoTouch.Cocos2D.CCLabelAtlas">
   <TypeSignature Language="C#" Value="public class CCLabelAtlas : MonoTouch.Cocos2D.CCAtlasNode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCLabelAtlas extends MonoTouch.Cocos2D.CCAtlasNode" />
@@ -127,9 +126,6 @@
       <MemberSignature Language="C#" Value="public CCLabelAtlas (string text, string atlasCharmapFile, uint elementWidth, uint elementHeight, char startingCharInAtlas);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string text, string atlasCharmapFile, unsigned int32 elementWidth, unsigned int32 elementHeight, char startingCharInAtlas) cil managed" />
       <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <Attributes>
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("initWithString:charMapFile:itemWidth:itemHeight:startCharMap:")</AttributeName>
@@ -154,6 +150,35 @@
         <remarks>
           <para>initializes the <see cref="T:MonoTouch.Cocos2D.CCLabelAtlas" /> with a string, a char map file(the atlas), the width and height in points of each element and the starting char of the atlas </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCLabelAtlas (string text, string atlasCharmapFile, uint elementWidth, uint elementHeight, uint startingCharInAtlas);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string text, string atlasCharmapFile, unsigned int32 elementWidth, unsigned int32 elementHeight, unsigned int32 startingCharInAtlas) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithString:charMapFile:itemWidth:itemHeight:startCharMap:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="text" Type="System.String" />
+        <Parameter Name="atlasCharmapFile" Type="System.String" />
+        <Parameter Name="elementWidth" Type="System.UInt32" />
+        <Parameter Name="elementHeight" Type="System.UInt32" />
+        <Parameter Name="startingCharInAtlas" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="text">To be added.</param>
+        <param name="atlasCharmapFile">To be added.</param>
+        <param name="elementWidth">To be added.</param>
+        <param name="elementHeight">To be added.</param>
+        <param name="startingCharInAtlas">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ClassHandle">

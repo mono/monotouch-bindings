@@ -12,8 +12,8 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 
 namespace Chipmunk
 {
