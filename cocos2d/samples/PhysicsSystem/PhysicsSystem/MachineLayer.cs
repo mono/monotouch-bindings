@@ -1,9 +1,10 @@
 using System;
-using System.Drawing;
+using CoreGraphics;
 
 using MonoTouch.Cocos2D;
-using MonoTouch.UIKit;
+using UIKit;
 using Chipmunk;
+using System.Drawing;
 
 namespace PhysicsSystem
 {
@@ -27,19 +28,19 @@ namespace PhysicsSystem
 			};
 
 			Add ( new CCSprite ("bg.jpg") {
-				Position = UIDevice.CurrentDevice.IsIPad() ? new PointF(512, 384) : new PointF(240, 160),
+				Position = UIDevice.CurrentDevice.IsIPad() ? new CGPoint(512, 384) : new CGPoint(240, 160),
 			});
 
 			//motorblock, no body, no shape
 			var motorblock = new CCSprite ("motor_block.png") {
-				Position = UIDevice.CurrentDevice.IsIPad() ? new PointF (160, 460) : new PointF (80, 230),
+				Position = UIDevice.CurrentDevice.IsIPad() ? new CGPoint (160, 460) : new CGPoint (80, 230),
 			};
 			Add (motorblock);
 
 			//motorwheel
 			var motorwheel = new CCPhysicsSprite ("motor_wheel.png") {
 				Body = new Body (1, Helper.MomentForCircle (1, 20, 20, PointF.Empty)),
-				Position = UIDevice.CurrentDevice.IsIPad() ? new PointF (160, 460) : new PointF (80, 230),
+				Position = UIDevice.CurrentDevice.IsIPad() ? new CGPoint (160, 460) : new CGPoint (80, 230),
 			};
 			Add (motorwheel);
 
@@ -51,7 +52,7 @@ namespace PhysicsSystem
 			//wheel
 			var wheel = new CCPhysicsSprite ("wheel.png") {
 				Body = new Body (25, Helper.MomentForCircle (25, 140, 140, PointF.Empty)),
-				Position = UIDevice.CurrentDevice.IsIPad() ? new PointF (160, 300) : new PointF (80, 150),
+				Position = UIDevice.CurrentDevice.IsIPad() ? new CGPoint (160, 300) : new CGPoint (80, 150),
 			};
 			space.Add (wheel.Body);
 			space.Add (new CircleShape (wheel.Body, UIDevice.CurrentDevice.IsIPad() ? 140 : 70, PointF.Empty){Group = 1});
@@ -61,7 +62,7 @@ namespace PhysicsSystem
 
 			//cylinder. no physics body. only a shape
 			Add (new CCSprite ("cylinder.png") {
-				Position = UIDevice.CurrentDevice.IsIPad() ? new PointF (570, 300) : new PointF (285, 150),
+				Position = UIDevice.CurrentDevice.IsIPad() ? new CGPoint (570, 300) : new CGPoint (285, 150),
 			});
 
 			//space.Add (new PolygonShape (space.StaticBody, new [] {
@@ -81,7 +82,7 @@ namespace PhysicsSystem
 			//piston
 			var piston = new CCPhysicsSprite ("piston.png") {
 				Body = new Body (8, float.PositiveInfinity), //never rotates
-				Position = UIDevice.CurrentDevice.IsIPad() ? new PointF (370, 300) : new PointF (185, 150),
+				Position = UIDevice.CurrentDevice.IsIPad() ? new CGPoint (370, 300) : new CGPoint (185, 150),
 			};
 			space.Add (piston.Body);
 			space.Add (new PolygonShape (piston.Body, UIDevice.CurrentDevice.IsIPad() ? 100 : 50, UIDevice.CurrentDevice.IsIPad() ? 200 : 50) {Group = 1});
@@ -95,7 +96,7 @@ namespace PhysicsSystem
 					new PointF (160, 20),
 					new PointF (160, -20),
 				}, PointF.Empty)),
-				Position = UIDevice.CurrentDevice.IsIPad() ? new PointF (190, 300) : new PointF (95, 150)
+				Position = UIDevice.CurrentDevice.IsIPad() ? new CGPoint (190, 300) : new CGPoint (95, 150)
 			};
 			space.Add (conrod.Body);
 			space.Add (new PolygonShape (conrod.Body, UIDevice.CurrentDevice.IsIPad() ? 320 : 160, UIDevice.CurrentDevice.IsIPad() ? 40 : 20) {Group = 1});
@@ -105,9 +106,9 @@ namespace PhysicsSystem
 			space.Add ((Constraint)new PivotJoint (conrod.Body, piston.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (340, 300) : new PointF (170, 150)));
 			space.Add ((Constraint)new GrooveJoint (space.StaticBody, 
 			                            piston.Body, 
-			                            UIDevice.CurrentDevice.IsIPad() ? new PointF (0, 300) : new PointF (0, 150), 
-			                            UIDevice.CurrentDevice.IsIPad() ? new PointF (1024, 300) : new PointF (480, 150),
-			                            UIDevice.CurrentDevice.IsIPad() ? new PointF (0, 0): new PointF (0, 0)));
+										UIDevice.CurrentDevice.IsIPad() ? new PointF (0, 300) : new PointF (0, 150), 
+										UIDevice.CurrentDevice.IsIPad() ? new PointF (1024, 300) : new PointF (480, 150),
+										UIDevice.CurrentDevice.IsIPad() ? new PointF (0, 0): new PointF (0, 0)));
 
 		}
 
