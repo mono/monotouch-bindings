@@ -14,9 +14,11 @@ namespace PhysicsSystem
 	{
 		// class-level declarations
 		UIWindow window;
+
 		public UINavigationController NavController { get ; private set; }
+
 		CCDirectorIOS director;
-		
+
 		/// This method is invoked when the application has loaded and is ready to run. In this 
 		// method you should instantiate the window, load the UI into it and then make the window
 		// visible.
@@ -25,14 +27,14 @@ namespace PhysicsSystem
 		{
 			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			var glView = CCGLView.View(window.Bounds);
+			var glView = CCGLView.View (window.Bounds);
 			
 			director = (CCDirectorIOS)CCDirector.SharedDirector;
 			director.WantsFullScreenLayout = true;
 			UIApplication.SharedApplication.SetStatusBarHidden (true, false);
 			director.DisplayStats = true;
 			
-			director.AnimationInterval = 1.0/60;
+			director.AnimationInterval = 1.0 / 60;
 			
 			director.View = glView;
 			
@@ -54,7 +56,7 @@ namespace PhysicsSystem
 			director.Push (MachineLayer.Scene);
 			
 			// Create a Navigation Controller with the Director
-			NavController = new UINavigationController(director) {NavigationBarHidden=true};
+			NavController = new UINavigationController (director) { NavigationBarHidden = true };
 			
 			// set the Navigation Controller as the root view controller
 			window.RootViewController = NavController;
@@ -62,32 +64,32 @@ namespace PhysicsSystem
 			
 			return true;
 		}
-		
+
 		public override void DidEnterBackground (UIApplication application)
 		{
 			if (NavController.VisibleViewController == director)
 				director.StopAnimation ();
 		}
-		
+
 		public override void WillEnterForeground (UIApplication application)
 		{
 			if (NavController.VisibleViewController == director)
 				director.StartAnimation ();
 		}
-		
+
 		public override void WillTerminate (UIApplication application)
 		{
-			CCDirector.SharedDirector.End();
+			CCDirector.SharedDirector.End ();
 		}
-		
+
 		public override void ReceiveMemoryWarning (UIApplication application)
 		{
 			CCDirector.SharedDirector.PurgeCachedData ();
 		}
-		
+
 		public override void ApplicationSignificantTimeChange (UIApplication application)
 		{
-			CCDirector.SharedDirector.NextDeltaTimeZero=true;
+			CCDirector.SharedDirector.NextDeltaTimeZero = true;
 		}
 	}
 }
