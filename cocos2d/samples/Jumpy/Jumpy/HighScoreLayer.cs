@@ -21,48 +21,41 @@
 //		OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Drawing;
+using CoreGraphics;
 using MonoTouch.Cocos2D;
 
 namespace Jumpy
 {
 	public class HighScoreLayer:MainLayer
 	{
-
-		int currentScore;
-
-		public static CCScene Scene (int score) {
+		public static CCScene Scene (int score)
+		{
 			var scene = new CCScene (); 
 			var layer = new HighScoreLayer (score);
-			scene.Add(layer);
+			scene.Add (layer);
 			return scene;
 		}
 
 		public override void OnEnter ()
 		{
 			base.OnEnter ();
-			Schedule(Step);
+			Schedule (Step);
 		}
 
-		public HighScoreLayer (int score): base()
+		public HighScoreLayer (int score) : base ()
 		{
-			currentScore = score;
-
-
 			var batchnode = GetChild ((int)Tags.SpriteManager) as CCSpriteBatchNode;
-			var title = new CCSprite(batchnode.Texture,new RectangleF(608,192,225,57)) {Position=new PointF(160,240)};
+			var title = new CCSprite (batchnode.Texture, new CGRect (608, 192, 225, 57)) { Position = new CGPoint (160, 240) };
 			batchnode.Add (title);
 
-
-
-			var button1 = new CCMenuItemImage("Images/playAgainButton.png", "Images/playAgainButton.png", (sender)=>{
-				CCDirector.SharedDirector.ReplaceScene(new CCTransitionFade(.5f, GameLayer.Scene, CCColor3B.White));
+			var button1 = new CCMenuItemImage ("Images/playAgainButton.png", "Images/playAgainButton.png", (sender) => {
+				CCDirector.SharedDirector.ReplaceScene (new CCTransitionFade (.5f, GameLayer.Scene, CCColor3B.White));
 			});
-			var button2 = new CCMenuItemImage("Images/changePlayerButton.png", "Images/changePlayerButton.png", (sender)=>{
+			var button2 = new CCMenuItemImage ("Images/changePlayerButton.png", "Images/changePlayerButton.png", (sender) => {
 
 			});
-			var menu = new CCMenu(new CCMenuItem[] {button1,button2}) {Position=new PointF(160,58)};
-			menu.AlignItemsVertically(9);
+			var menu = new CCMenu (new CCMenuItem[] { button1, button2 }) { Position = new CGPoint (160, 58) };
+			menu.AlignItemsVertically (9);
 
 			Add (menu);
 			

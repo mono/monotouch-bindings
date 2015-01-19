@@ -21,7 +21,7 @@
 //		OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Drawing;
+using CoreGraphics;
 using MonoTouch.Cocos2D;
 
 namespace Jumpy
@@ -32,7 +32,8 @@ namespace Jumpy
 		protected int currentCloudTag;
 		protected int numClouds = 12;
 
-		protected enum Tags : int {
+		protected enum Tags : int
+		{
 			SpriteManager = 0,
 			Bird,
 			ScoreLabel,
@@ -44,106 +45,105 @@ namespace Jumpy
 
 		public MainLayer ()
 		{
-			rnd = new Random();
-			var batchnode = new CCSpriteBatchNode("Images/sprites.png",10);
+			rnd = new Random ();
+			var batchnode = new CCSpriteBatchNode ("Images/sprites.png", 10);
 			Add (batchnode, -1, (int)Tags.SpriteManager);
 
-			var background = new CCSprite(batchnode.Texture, new RectangleF(0,0,320,480)) {Position = new PointF (160,240)};
+			var background = new CCSprite (batchnode.Texture, new CGRect (0, 0, 320, 480)) { Position = new CGPoint (160, 240) };
 			batchnode.Add (background);
 		}
 
 		public override void OnEnter ()
 		{
 			base.OnEnter ();
-		
 			InitClouds ();
-
-
 		}
 
-		void InitClouds () {
+		void InitClouds ()
+		{
 
 			currentCloudTag = (int)Tags.CloudsStart;
-			while (currentCloudTag < (int)Tags.CloudsStart + numClouds)
-			{
+			while (currentCloudTag < (int)Tags.CloudsStart + numClouds) {
 				InitCloud ();
 				currentCloudTag++;
 			}
 
 			ResetClouds ();
 		}
-			
 
-		 void InitCloud () {
+
+		void InitCloud ()
+		{
 			
-			RectangleF rect;
-			switch(rnd.Next()%3) {
+			CGRect rect;
+			switch (rnd.Next () % 3) {
 			case 0: 
-				rect = new RectangleF(336,16,256,108); 
+				rect = new CGRect (336, 16, 256, 108);
 				break;
 			case 1: 
-				rect = new RectangleF(336,128,257,110); 
+				rect = new CGRect (336, 128, 257, 110);
 				break;
 			default:
-				rect = new RectangleF(336,240,252,119); 
+				rect = new CGRect (336, 240, 252, 119);
 				break;
 			}	
 
 			var batchNode = GetChild ((int)Tags.SpriteManager) as CCSpriteBatchNode;
-			var cloud = new CCSprite(batchNode.Texture, rect);
-			batchNode.Add(cloud,3,currentCloudTag);
+			var cloud = new CCSprite (batchNode.Texture, rect);
+			batchNode.Add (cloud, 3, currentCloudTag);
 
 			cloud.Opacity = 128;
 		}
 
-		protected void ResetClouds () {
-			//	NSLog(@"resetClouds");
-			
+		protected void ResetClouds ()
+		{
 			currentCloudTag = (int)Tags.CloudsStart;
 			
-			while(currentCloudTag < (int)Tags.CloudsStart + numClouds) {
+			while (currentCloudTag < (int)Tags.CloudsStart + numClouds) {
 				ResetCloud ();
 				
-				var batchNode = GetChild((int)Tags.SpriteManager) as CCSpriteBatchNode;
-				var cloud = batchNode.GetChild(currentCloudTag) as CCSprite;
-				cloud.Position = new PointF(cloud.Position.X, cloud.Position.Y-480);
+				var batchNode = GetChild ((int)Tags.SpriteManager) as CCSpriteBatchNode;
+				var cloud = batchNode.GetChild (currentCloudTag) as CCSprite;
+				cloud.Position = new CGPoint (cloud.Position.X, cloud.Position.Y - 480);
 
 				currentCloudTag++;
 			}
 		}
-		
-		protected void ResetCloud () {
-			
-			var batchNode = GetChild((int)Tags.SpriteManager) as CCSpriteBatchNode;
-			var cloud = batchNode.GetChild(currentCloudTag) as CCSprite;
 
-			float distance = rnd.Next()%20 + 5;
+		protected void ResetCloud ()
+		{
+			
+			var batchNode = GetChild ((int)Tags.SpriteManager) as CCSpriteBatchNode;
+			var cloud = batchNode.GetChild (currentCloudTag) as CCSprite;
+
+			float distance = rnd.Next () % 20 + 5;
 			
 			float scale = 5.0f / distance;
 			cloud.Scale = scale;
-			if(rnd.Next()%2==1) cloud.ScaleX = -cloud.ScaleX;
+			if (rnd.Next () % 2 == 1)
+				cloud.ScaleX = -cloud.ScaleX;
 			
 			var size = cloud.ContentSize;
-			float scaled_width = size.Width * scale;
-			float x = rnd.Next()%(320+(int)scaled_width) - scaled_width/2;
-			float y = rnd.Next()%(480-(int)scaled_width) + scaled_width/2 + 480;
+			nfloat scaled_width = size.Width * scale;
+			nfloat x = rnd.Next () % (320 + (int)scaled_width) - scaled_width / 2;
+			nfloat y = rnd.Next () % (480 - (int)scaled_width) + scaled_width / 2 + 480;
 			
-			cloud.Position = new PointF(x,y);
+			cloud.Position = new CGPoint (x, y);
 		}
 
-		protected virtual void Step(float dt) {
-			//	NSLog(@"Main::step");
-
-			for(var t = (int)Tags.CloudsStart; t < (int)Tags.CloudsStart + numClouds; t++) {
-				var batchNode = GetChild((int)Tags.SpriteManager) as CCSpriteBatchNode;
-				var cloud = batchNode.GetChild(t) as CCSprite;
+		protected virtual void Step (float dt)
+		{
+			for (var t = (int)Tags.CloudsStart; t < (int)Tags.CloudsStart + numClouds; t++) {
+				var batchNode = GetChild ((int)Tags.SpriteManager) as CCSpriteBatchNode;
+				var cloud = batchNode.GetChild (t) as CCSprite;
 				
 				var pos = cloud.Position;
 				var size = cloud.ContentSize;
 				pos.X += 0.1f * cloud.ScaleY;
-				if(pos.X > 320 + size.Width/2) {
-					pos.X = -size.Width/2;
-				}
+
+				if (pos.X > 320 + size.Width / 2)
+					pos.X = -size.Width / 2;
+
 				cloud.Position = pos;
 			}
 		}
