@@ -106,7 +106,7 @@ namespace PhysicsSystem
 			space.Add ((Constraint)new PivotJoint (conrod.Body, piston.Body, UIDevice.CurrentDevice.IsIPad() ? new PointF (340, 300) : new PointF (170, 150)));
 			space.Add ((Constraint)new GrooveJoint (space.StaticBody, 
 			                            piston.Body, 
-										UIDevice.CurrentDevice.IsIPad() ? new PointF (0, 300) : new PointF (0, 150), 
+										UIDevice.CurrentDevice.IsIPad() ? new PointF (0, 300) : new PointF (0, 150),
 										UIDevice.CurrentDevice.IsIPad() ? new PointF (1024, 300) : new PointF (480, 150),
 										UIDevice.CurrentDevice.IsIPad() ? new PointF (0, 0): new PointF (0, 0)));
 
