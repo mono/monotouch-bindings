@@ -1,8 +1,8 @@
 using System;
 using MonoTouch.Cocos2D;
-using MonoTouch.UIKit;
-using MonoTouch.ObjCRuntime;
-using MonoTouch.Foundation;
+using UIKit;
+using ObjCRuntime;
+using Foundation;
 
 namespace CC2DSharp
 {
@@ -10,9 +10,9 @@ namespace CC2DSharp
 	{
 		public static CCScene Scene {
 			get {
-				var scene = new CCScene();
-				var layer = new IntroLayer();
-				scene.Add(layer);
+				var scene = new CCScene ();
+				var layer = new IntroLayer ();
+				scene.Add (layer);
 				return scene;
 			}
 		}
@@ -30,12 +30,12 @@ namespace CC2DSharp
 			if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone) {
 				background = new CCSprite ("Default.png");
 				background.Rotation = 90;
-			} else 
+			} else
 				background = new CCSprite ("Default-Landscape~ipad.png");
-			background.Position = new System.Drawing.PointF(size.Width/2, size.Height/2);
+			background.Position = new CoreGraphics.CGPoint (size.Width / 2, size.Height / 2);
 			Add (background);
 
-			ScheduleOnce ((timer)=>{
+			ScheduleOnce ((timer) => {
 				CCDirector.SharedDirector.ReplaceScene (new CCTransitionTurnOffTiles (1f, HelloWorldLayer.Scene));
 			}, 1f);
 		}
