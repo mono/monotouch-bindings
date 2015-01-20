@@ -1,5 +1,5 @@
 using System;
-using MonoTouch.Foundation;
+using Foundation;
 using System.Runtime.InteropServices;
 
 namespace LineaProSdk

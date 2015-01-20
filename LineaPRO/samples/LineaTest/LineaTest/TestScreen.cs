@@ -1,7 +1,7 @@
 using System;
-using System.Drawing;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using CoreGraphics;
+using Foundation;
+using UIKit;
 using LineaProSdk;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -36,7 +36,7 @@ namespace LineaTest
 		{
 			View.BackgroundColor = DisconnectedColor;
 
-			ConnectionLabel = new UILabel (new RectangleF(10,10,View.Frame.Width-20,40));
+			ConnectionLabel = new UILabel (new CGRect(10,10,View.Frame.Width-20,40));
 			ConnectionLabel.BackgroundColor = UIColor.Clear;
 			ConnectionLabel.TextAlignment = UITextAlignment.Center;
 			ConnectionLabel.AdjustsFontSizeToFitWidth = true;
@@ -45,7 +45,7 @@ namespace LineaTest
 			ConnectionLabel.TextColor = UIColor.FromRGB (245, 245, 245);
 			View.Add (ConnectionLabel);
 
-			ScanTypeLabel = new UILabel (new RectangleF(10,70,View.Frame.Width-20,40));
+			ScanTypeLabel = new UILabel (new CGRect(10,70,View.Frame.Width-20,40));
 			ScanTypeLabel.BackgroundColor = UIColor.Clear;
 			ScanTypeLabel.TextAlignment = UITextAlignment.Center;
 			ScanTypeLabel.AdjustsFontSizeToFitWidth = true;
@@ -54,7 +54,7 @@ namespace LineaTest
 			ScanTypeLabel.TextColor = UIColor.FromRGB (245, 245, 245);
 			View.Add (ScanTypeLabel);
 
-			ScanDataLabel = new UILabel (new RectangleF(10,130,View.Frame.Width-20,40));
+			ScanDataLabel = new UILabel (new CGRect(10,130,View.Frame.Width-20,40));
 			ScanDataLabel.BackgroundColor = UIColor.Clear;
 			ScanDataLabel.TextAlignment = UITextAlignment.Center;
 			ScanDataLabel.AdjustsFontSizeToFitWidth = true;
