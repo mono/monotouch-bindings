@@ -72,6 +72,7 @@ SMCalloutView\
 SparkInspector\
 TapJoyConnect\
 Taplytics\
+TestFairy\
 TestFlight\
 TimesSquare\
 TSMiniWebBrowser\

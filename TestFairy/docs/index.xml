@@ -1,0 +1,25 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="TestFairy.iOS" Version="0.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>ObjCRuntime.LinkWith("libTestFairy.a", ObjCRuntime.LinkTarget.Simulator | ObjCRuntime.LinkTarget.ArmV7 | ObjCRuntime.LinkTarget.ArmV7s | ObjCRuntime.LinkTarget.Arm64 | ObjCRuntime.LinkTarget.Simulator64, ForceLoad=true, Frameworks="OpenGLES CoreMedia CoreMotion SystemConfiguration AVFoundation CoreGraphics", IsCxx=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="TestFairyLib">
+      <Type Name="TestFairy" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>TestFairy.iOS</Title>
+</Overview>
