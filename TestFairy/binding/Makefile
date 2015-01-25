@@ -14,9 +14,9 @@ libTestFairy.a:
 		rm -f .sdk.zip; \
 	fi
 
-TestFairy.iOS.dll: Makefile libTestFairy.linkwith.cs ApiDefinition.cs StructsAndEnums.cs TestFairy.iOS.csproj libTestFairy.a
+TestFairy.iOS.dll: Makefile libTestFairy.linkwith.cs ApiDefinition.cs StructsAndEnums.cs AssemblyInfo.cs TestFairy.iOS.csproj libTestFairy.a
 	$(MONOXBUILD) /p:Configuration=Release TestFairy.iOS.csproj
 	cp bin/Release/TestFairy.iOS.dll TestFairy.iOS.dll
 
 clean:
-	-rm -rf list ios bin/ obj/ *.sln *.userprefs *.dll *.o *.a *.zip *.mdb Resources/
+	-rm -rf list ios *.sln *.userprefs *.dll *.o *.a *.zip *.mdb Resources/ lib/ bin/ obj/
