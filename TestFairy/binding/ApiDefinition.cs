@@ -74,6 +74,14 @@ namespace TestFairyLib
 		/// </summary>
 		[Static, Export("resume")]
 		void Resume();
+
+		/// <summary>
+		/// Returns the url of the current session while its being recorded.
+		/// Will return null if session hasn't started yet.
+		/// </summary>
+		/// <returns>The session URL.</returns>
+		[Static, Export("sessionUrl")]
+		string GetSessionUrl();
 	}
 }
 
