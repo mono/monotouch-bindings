@@ -1,3 +1,3 @@
-ASSEMBLY=TestFairy.iOS.dll
+ASSEMBLY=bin/unified/TestFairy.iOS.dll
 include ../Rules.make
 
