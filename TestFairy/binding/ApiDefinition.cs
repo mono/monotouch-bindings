@@ -1,8 +1,15 @@
 using System;
 using System.Drawing;
-using ObjCRuntime;
+
+#if __UNIFIED__
 using Foundation;
 using UIKit;
+using ObjCRuntime;
+#else
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+using MonoTouch.ObjCRuntime;
+#endif
 
 namespace TestFairyLib
 {
