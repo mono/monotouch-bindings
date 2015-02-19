@@ -19,4 +19,4 @@ bin/classic/TestFairy.iOS.dll: Makefile ApiDefinition.cs AssemblyInfo.cs libTest
 	$(BTOUCH) -x=AssemblyInfo.cs ApiDefinition.cs --link-with=libTestFairy.a,libTestFairy.a --out=$@ 
 
 clean:
-	-rm -rf list ios *.sln *.userprefs *.dll *.o *.a *.zip *.mdb Resources/ lib/ bin/ obj/
+	-rm -rf bin libTestFairy.a
