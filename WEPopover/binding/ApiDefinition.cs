@@ -1,175 +1,343 @@
 using System;
-using MonoTouch.Foundation;
-using MonoTouch.ObjCRuntime;
-using MonoTouch.UIKit;
+using Foundation;
+using ObjCRuntime;
+using UIKit;
 using System.Drawing;
+using CoreGraphics;
+
 
 namespace WEPopover
 {
-	[BaseType(typeof(NSObject))]
-	interface WEPopoverController
+	// @interface WEPopover (UIBarButtonItem)
+	[Category]
+	[BaseType (typeof(UIBarButtonItem))]
+	interface UIBarButtonItem_WEPopover
 	{
-		[Export("contentViewController")]
-		UIViewController ContentViewController { get; set; }
+		// -(CGRect)frameInView:(UIView *)v;
+		[Export ("frameInView:")]
+		CGRect FrameInView (UIView v);
 
-		[Export("view")]
-		UIView View { get; }
-
-		[Export("popoverVisible")]
-		bool IsPopoverVisible { [Bind("isPopoverVisible")] get; }
-
-		[Export("popoverArrowDirection")]
-		UIPopoverArrowDirection ArrowDirection { get; }
-
-		[NullAllowed]
-		[Export ("delegate", ArgumentSemantic.Assign)]  
-		NSObject WeakDelegate { get; set; }
-
-		[NullAllowed]
-		[Wrap ("WeakDelegate")]
-		WEPopoverControllerDelegate Delegate { get; set; }  
-
-		[Export("popoverContentSize", ArgumentSemantic.Assign)]
-		SizeF ContentSize { get; set; }
-
-		[Export("containerViewProperties")]
-		WEPopoverContainerViewProperties Properties { get; set; }
-
-		[Export("context")]
-		NSObject Context { get; set; }
-
-		[Export("passthroughViews", ArgumentSemantic.Copy)]
-		NSArray PassthroughViews { get; set; }
-
-		[Export("initWithContentViewController:")]
-		IntPtr Constructor(UIViewController contentController);
-
-		[Export("dismissPopoverAnimated:")]
-		void DismissAnimated(bool animated);
-
-		[Export("presentPopoverFromBarButtonItem:permittedArrowDirections:animated:")]
-		void PresentFromBarButtonItem(UIBarButtonItem item, UIPopoverArrowDirection direction, bool animated);
-
-		[Export("presentPopoverFromRect:inView:permittedArrowDirections:animated:")]
-		void PresentFromRect(RectangleF rect, UIView view, UIPopoverArrowDirection direction, bool animated);
-
-		[Export("repositionPopoverFromRect:inView:permittedArrowDirections:")]
-		void RepositionFromRect(RectangleF rect, UIView view, UIPopoverArrowDirection direction);
-
+		// -(UIView *)superview;
+		[Export ("superview")]
+		UIView Superview ();
 	}
 
-	[BaseType(typeof(NSObject))]
-	[Model]
-	[Protocol]
-	interface WEPopoverControllerDelegate
+	// @interface WEBlockingGestureRecognizer : UIGestureRecognizer
+	[BaseType (typeof(UIGestureRecognizer), Name = "WEBlockingGestureRecognizer")]
+	interface BlockingGestureRecognizer
 	{
-		[Export("popoverControllerDidDismissPopover:")]
-		void DidDismissPopover(WEPopoverController popover);
-
-		[Export("popoverControllerShouldDismissPopover:")]
-		bool ShouldDismissPopover(WEPopoverController popover);
 	}
 
-	[BaseType(typeof(UIView))]
-	interface WETouchableView
+	// @interface WEPopoverContainerViewProperties : NSObject
+	[BaseType (typeof(NSObject), Name = "WEPopoverContainerViewProperties")]
+	interface PopoverContainerViewProperties
 	{
-		[Export("touchForwardingDisabled", ArgumentSemantic.Assign)]
-		bool TouchForwardingDisabled { get; set; }
+		// @property (assign, nonatomic) CGFloat leftBgMargin;
+		[Export ("leftBgMargin", ArgumentSemantic.UnsafeUnretained)]
+		nfloat LeftBackgroundMargin { get; set; }
 
+		// @property (assign, nonatomic) CGFloat rightBgMargin;
+		[Export ("rightBgMargin", ArgumentSemantic.UnsafeUnretained)]
+		nfloat RightBackgroundMargin { get; set; }
 
-		[NullAllowed]
-		[Export("delegate", ArgumentSemantic.Assign)]
-		WETouchableViewDelegate Delegate { get; set; }
+		// @property (assign, nonatomic) CGFloat topBgMargin;
+		[Export ("topBgMargin", ArgumentSemantic.UnsafeUnretained)]
+		nfloat TopBackgroundMargin { get; set; }
 
-		[Export("passthroughViews", ArgumentSemantic.Copy)]
-		NSArray PassThroughViews { get; set; }
-	}
+		// @property (assign, nonatomic) CGFloat bottomBgMargin;
+		[Export ("bottomBgMargin", ArgumentSemantic.UnsafeUnretained)]
+		nfloat BottomBackgroundMargin { get; set; }
 
-	[Model]
-	[Protocol]
-	[BaseType(typeof(NSObject))]
-	interface WETouchableViewDelegate
-	{
-		[Export("viewWasTouched:")]
-		void ViewWasTouched(WETouchableView view);
+		// @property (assign, nonatomic) CGFloat leftContentMargin;
+		[Export ("leftContentMargin", ArgumentSemantic.UnsafeUnretained)]
+		nfloat LeftContentMargin { get; set; }
 
+		// @property (assign, nonatomic) CGFloat rightContentMargin;
+		[Export ("rightContentMargin", ArgumentSemantic.UnsafeUnretained)]
+		nfloat RightContentMargin { get; set; }
 
-	}
+		// @property (assign, nonatomic) CGFloat topContentMargin;
+		[Export ("topContentMargin", ArgumentSemantic.UnsafeUnretained)]
+		nfloat TopContentMargin { get; set; }
 
-	[Model]
-	[Protocol]
-	[BaseType(typeof(NSObject))]
-	interface WEPopoverParentView
-	{
-		[Export("displayAreaForPopover")]
-		RectangleF GetDisplayArea();
-	}
+		// @property (assign, nonatomic) CGFloat bottomContentMargin;
+		[Export ("bottomContentMargin", ArgumentSemantic.UnsafeUnretained)]
+		nfloat BottomContentMargin { get; set; }
 
-	[BaseType(typeof(UIView))]
-	interface WEPopoverContainerView
-	{
-		[Export("initWithSize:anchorRect:displayArea:permittedArrowDirections:properties:")]
-		IntPtr Constructor(SizeF size, RectangleF anchorRect, RectangleF displayArea, UIPopoverArrowDirection direction, WEPopoverContainerViewProperties properties);
+		// @property (assign, nonatomic) NSInteger topBgCapSize;
+		[Export ("topBgCapSize", ArgumentSemantic.UnsafeUnretained)]
+		nint TopBackgroundCapSize { get; set; }
 
-		[Export("arrowDirection")]
-		UIPopoverArrowDirection ArrowDirection { get; set; }
+		// @property (assign, nonatomic) NSInteger leftBgCapSize;
+		[Export ("leftBgCapSize", ArgumentSemantic.UnsafeUnretained)]
+		nint LeftBackgroundCapSize { get; set; }
 
-		[Export("contentView")]
-		UIView ContentView { get; set; }
+		// @property (assign, nonatomic) CGFloat arrowMargin;
+		[Export ("arrowMargin", ArgumentSemantic.UnsafeUnretained)]
+		nfloat ArrowMargin { get; set; }
 
-		[Export("updatePositionWithAnchorRect:displayArea:permittedArrowDirections:")]
-		void UpdatePosition(RectangleF anchorRect, Rectangle area, UIPopoverArrowDirection direction);	
-	}
+		// @property (nonatomic, strong) UIColor * maskBorderColor;
+		[Export ("maskBorderColor", ArgumentSemantic.Retain)]
+		UIColor MaskBorderColor { get; set; }
 
-	[BaseType(typeof(NSObject))]
-	interface WEPopoverContainerViewProperties 
-	{
-		[Export("bgImageName")]
-		string BackgroundImageName { get; set; }
+		// @property (assign, nonatomic) CGFloat maskBorderWidth;
+		[Export ("maskBorderWidth", ArgumentSemantic.UnsafeUnretained)]
+		nfloat MaskBorderWidth { get; set; }
 
-		[Export("upArrowImageName")]
+		// @property (assign, nonatomic) CGFloat maskCornerRadius;
+		[Export ("maskCornerRadius", ArgumentSemantic.UnsafeUnretained)]
+		nfloat MaskCornerRadius { get; set; }
+
+		// @property (assign, nonatomic) CGSize maskInsets;
+		[Export ("maskInsets", ArgumentSemantic.UnsafeUnretained)]
+		CGSize MaskInsets { get; set; }
+
+		// @property (nonatomic, strong) UIImage * upArrowImage;
+		[Export ("upArrowImage", ArgumentSemantic.Retain)]
+		UIImage UpArrowImage { get; set; }
+
+		// @property (nonatomic, strong) UIImage * downArrowImage;
+		[Export ("downArrowImage", ArgumentSemantic.Retain)]
+		UIImage DownArrowImage { get; set; }
+
+		// @property (nonatomic, strong) UIImage * leftArrowImage;
+		[Export ("leftArrowImage", ArgumentSemantic.Retain)]
+		UIImage LeftArrowImage { get; set; }
+
+		// @property (nonatomic, strong) UIImage * rightArrowImage;
+		[Export ("rightArrowImage", ArgumentSemantic.Retain)]
+		UIImage RightArrowImage { get; set; }
+
+		// @property (nonatomic, strong) UIImage * bgImage;
+		[Export ("bgImage", ArgumentSemantic.Retain)]
+		UIImage BackgroundImage { get; set; }
+
+		// @property (nonatomic, strong) NSString * upArrowImageName;
+		[Export ("upArrowImageName", ArgumentSemantic.Retain)]
 		string UpArrowImageName { get; set; }
 
-		[Export("downArrowImageName")]
+		// @property (nonatomic, strong) NSString * downArrowImageName;
+		[Export ("downArrowImageName", ArgumentSemantic.Retain)]
 		string DownArrowImageName { get; set; }
 
-		[Export("leftArrowImageName")]
+		// @property (nonatomic, strong) NSString * leftArrowImageName;
+		[Export ("leftArrowImageName", ArgumentSemantic.Retain)]
 		string LeftArrowImageName { get; set; }
 
-		[Export("rightArrowImageName")]
+		// @property (nonatomic, strong) NSString * rightArrowImageName;
+		[Export ("rightArrowImageName", ArgumentSemantic.Retain)]
 		string RightArrowImageName { get; set; }
 
-		[Export("leftBgMargin", ArgumentSemantic.Assign)]
-		float LeftBackgroundMargin { get; set; }
-
-		[Export("rightBgMargin", ArgumentSemantic.Assign)]
-		float RightBackgroundMargin { get; set; }
-
-		[Export("topBgMargin", ArgumentSemantic.Assign)]
-		float TopBackgroundMargin { get; set; }
-
-		[Export("bottomBgMargin", ArgumentSemantic.Assign)]
-		float BottomBackgroundMargin { get; set; }
-
-		[Export("leftContentMargin", ArgumentSemantic.Assign)]
-		float LeftContentMargin { get; set; }
-
-		[Export("rightContentMargin", ArgumentSemantic.Assign)]
-		float RightContentMargin { get; set; }
-
-		[Export("topContentMargin", ArgumentSemantic.Assign)]
-		float TopContentMargin { get; set; }
-
-		[Export("bottomContentMargin", ArgumentSemantic.Assign)]
-		float BottomContentMargin { get; set; }
-
-		[Export("topBgCapSize", ArgumentSemantic.Assign)]
-		int TopBackgroundCapSize { get; set; }
-
-		[Export("leftBgCapSize", ArgumentSemantic.Assign)]
-		int LeftBackgroundCapSize { get; set; }
-
-		[Export("arrowMargin", ArgumentSemantic.Assign)]
-		float ArrowMargin { get; set; }
+		// @property (nonatomic, strong) NSString * bgImageName;
+		[Export ("bgImageName", ArgumentSemantic.Retain)]
+		string BackgroundImageName { get; set; }
 	}
+
+	interface IPopoverContainerViewDelegate {}
+
+	// @protocol WEPopoverContainerViewDelegate <NSObject>
+	[Protocol, Model]
+	[BaseType (typeof(NSObject), Name = "WEPopoverContainerViewDelegate")]
+	interface PopoverContainerViewDelegate
+	{
+		// @required -(CGRect)popoverContainerView:(WEPopoverContainerView *)view willChangeFrame:(CGRect)newFrame;
+		[Abstract]
+		[Export ("popoverContainerView:willChangeFrame:")]
+		CGRect WillChangeFrame (PopoverContainerView view, CGRect newFrame);
+	}
+
+	// @interface WEPopoverContainerView : UIView
+	[BaseType (typeof(UIView), Name = "WEPopoverContainerView")]
+
+	interface PopoverContainerView
+	{
+		// @property (nonatomic, weak) id<WEPopoverContainerViewDelegate> delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		IPopoverContainerViewDelegate Delegate { get; set; }
+
+		// @property (readonly, nonatomic) UIPopoverArrowDirection arrowDirection;
+		[Export ("arrowDirection")]
+		UIPopoverArrowDirection ArrowDirection { get; }
+
+		// @property (nonatomic, strong) UIView * contentView;
+		[Export ("contentView", ArgumentSemantic.Retain)]
+		UIView ContentView { get; set; }
+
+		// -(id)initWithSize:(CGSize)theSize anchorRect:(CGRect)anchorRect displayArea:(CGRect)displayArea permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections properties:(WEPopoverContainerViewProperties *)properties;
+		[Export ("initWithSize:anchorRect:displayArea:permittedArrowDirections:properties:")]
+		IntPtr Constructor (CGSize theSize, CGRect anchorRect, CGRect displayArea, UIPopoverArrowDirection permittedArrowDirections, PopoverContainerViewProperties properties);
+
+		// -(void)updatePositionWithSize:(CGSize)theSize anchorRect:(CGRect)anchorRect displayArea:(CGRect)displayArea permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections;
+		[Export ("updatePositionWithSize:anchorRect:displayArea:permittedArrowDirections:")]
+		void UpdatePosition (CGSize theSize, CGRect anchorRect, CGRect displayArea, UIPopoverArrowDirection permittedArrowDirections);
+
+		// -(CGRect)calculatedFrame;
+		[Export ("calculatedFrame")]
+		CGRect CalculatedFrame { get; }
+	}
+
+	interface ITouchableViewDelegate {}
+
+	// @protocol WETouchableViewDelegate <NSObject>
+	[Protocol, Model]
+	[BaseType (typeof(NSObject), Name = "WETouchableViewDelegate")]
+	interface TouchableViewDelegate
+	{
+		// @required -(void)viewWasTouched:(WETouchableView *)view;
+		[Abstract]
+		[Export ("viewWasTouched:")]
+		void ViewWasTouched (TouchableView view);
+	}
+
+	// @interface WETouchableView : UIView
+	[BaseType (typeof(UIView), Name = "WETouchableView",
+		Delegates=new string [] { "Delegate" }, 
+		Events=new Type [] {typeof(TouchableViewDelegate)})]
+	interface TouchableView
+	{
+		// @property (assign, nonatomic) BOOL touchForwardingDisabled;
+		[Export ("touchForwardingDisabled")]
+		bool TouchForwardingDisabled { get; set; }
+
+		// @property (nonatomic, weak) id<WETouchableViewDelegate> delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		ITouchableViewDelegate Delegate { get; set; }
+
+		// @property (copy, nonatomic) NSArray * passthroughViews;
+		[Export ("passthroughViews", ArgumentSemantic.Copy)]
+		NSObject[] PassthroughViews { get; set; }
+	}
+
+	interface IPopoverControllerDelegate {}
+
+	// @protocol WEPopoverControllerDelegate <NSObject>
+	[Protocol, Model]
+	[BaseType (typeof(NSObject), Name = "WEPopoverControllerDelegate")]
+	interface PopoverControllerDelegate
+	{
+		// @optional -(void)popoverControllerDidDismissPopover:(WEPopoverController *)popoverController;
+		[Export ("popoverControllerDidDismissPopover:")]
+		void DidDismissPopover (PopoverController popoverController);
+
+		// @optional -(BOOL)popoverControllerShouldDismissPopover:(WEPopoverController *)popoverController;
+		[Export ("popoverControllerShouldDismissPopover:")]
+		bool ShouldDismissPopover (PopoverController popoverController);
+
+		// @optional -(void)popoverController:(WEPopoverController *)popoverController willRepositionPopoverToRect:(CGRect *)rect inView:(UIView **)view;
+		[Export ("popoverController:willRepositionPopoverToRect:inView:")]
+		void WillRepositionPopover (PopoverController popoverController, ref CGRect rect, ref UIView view);
+	}
+
+	// @interface WEPopoverController : NSObject
+	[BaseType (typeof(NSObject), Name = "WEPopoverController")]
+	interface PopoverController
+	{
+		// @property (nonatomic, strong) UIViewController * contentViewController;
+		[Export ("contentViewController", ArgumentSemantic.Retain)]
+		UIViewController ContentViewController { get; set; }
+
+		// @property (readonly, nonatomic, weak) UIView * presentedFromView;
+		[Export ("presentedFromView", ArgumentSemantic.Weak)]
+		UIView PresentedFromView { get; }
+
+		// @property (readonly, assign, nonatomic) CGRect presentedFromRect;
+		[Export ("presentedFromRect", ArgumentSemantic.UnsafeUnretained)]
+		CGRect PresentedFromRect { get; }
+
+		// @property (readonly, nonatomic, weak) UIView * view;
+		[Export ("view", ArgumentSemantic.Weak)]
+		UIView View { get; }
+
+		// @property (nonatomic, strong) UIColor * backgroundColor;
+		[Export ("backgroundColor", ArgumentSemantic.Retain)]
+		UIColor BackgroundColor { get; set; }
+
+		// @property (readonly, nonatomic) UIView * backgroundView;
+		[Export ("backgroundView")]
+		UIView BackgroundView { get; }
+
+		// @property (readonly, getter = isPopoverVisible, nonatomic) BOOL popoverVisible;
+		[Export ("popoverVisible")]
+		bool PopoverVisible { [Bind ("isPopoverVisible")] get; }
+
+		// @property (readonly, nonatomic) UIPopoverArrowDirection popoverArrowDirection;
+		[Export ("popoverArrowDirection")]
+		UIPopoverArrowDirection PopoverArrowDirection { get; }
+
+		// @property (nonatomic, weak) id<WEPopoverControllerDelegate> delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		IPopoverControllerDelegate Delegate { get; set; }
+
+		// @property (assign, nonatomic) CGSize popoverContentSize;
+		[Export ("popoverContentSize", ArgumentSemantic.UnsafeUnretained)]
+		CGSize ContentSize { get; set; }
+
+		// @property (nonatomic, strong) WEPopoverContainerViewProperties * containerViewProperties;
+		[Export ("containerViewProperties", ArgumentSemantic.Retain)]
+		PopoverContainerViewProperties Properties { get; set; }
+
+		// @property (nonatomic, strong) id<NSObject> context;
+		[Export ("context", ArgumentSemantic.Retain)]
+		NSObject Context { get; set; }
+
+		// @property (nonatomic, weak) UIView * parentView;
+		[Export ("parentView", ArgumentSemantic.Weak)]
+		UIView ParentView { get; set; }
+
+		// @property (copy, nonatomic) NSArray * passthroughViews;
+		[Export ("passthroughViews", ArgumentSemantic.Copy)]
+		NSObject[] PassthroughViews { get; set; }
+
+		// @property (assign, nonatomic) UIEdgeInsets popoverLayoutMargins;
+		[Export ("popoverLayoutMargins", ArgumentSemantic.UnsafeUnretained)]
+		UIEdgeInsets PopoverLayoutMargins { get; set; }
+
+		// +(WEPopoverContainerViewProperties *)defaultContainerViewProperties;
+		[Static]
+		[Export ("defaultContainerViewProperties")]
+		PopoverContainerViewProperties DefaultContainerViewProperties { get; }
+
+		// +(void)setDefaultContainerViewProperties:(WEPopoverContainerViewProperties *)properties;
+		[Static]
+		[Export ("setDefaultContainerViewProperties:")]
+		void SetDefaultContainerViewProperties (PopoverContainerViewProperties properties);
+
+		// -(id)initWithContentViewController:(UIViewController *)theContentViewController;
+		[Export ("initWithContentViewController:")]
+		IntPtr Constructor (UIViewController theContentViewController);
+
+		// -(void)dismissPopoverAnimated:(BOOL)animated;
+		[Export ("dismissPopoverAnimated:")]
+		void DismissPopover (bool animated);
+
+		// -(void)presentPopoverFromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated;
+		[Export ("presentPopoverFromBarButtonItem:permittedArrowDirections:animated:")]
+		void PresentPopover (UIBarButtonItem item, UIPopoverArrowDirection arrowDirections, bool animated);
+
+		// -(void)presentPopoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated;
+		[Export ("presentPopoverFromRect:inView:permittedArrowDirections:animated:")]
+		void PresentPopover (CGRect rect, UIView view, UIPopoverArrowDirection arrowDirections, bool animated);
+
+		// -(void)repositionPopoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections;
+		[Export ("repositionPopoverFromRect:inView:permittedArrowDirections:")]
+		void RepositionPopover (CGRect rect, UIView view, UIPopoverArrowDirection arrowDirections);
+
+		// -(void)repositionPopoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated;
+		[Export ("repositionPopoverFromRect:inView:permittedArrowDirections:animated:")]
+		void RepositionPopover (CGRect rect, UIView view, UIPopoverArrowDirection arrowDirections, bool animated);
+	}
+
+	interface IPopoverParentView {}
+
+	// @protocol WEPopoverParentView
+	[Protocol, Model]
+	[BaseType(typeof (NSObject), Name = "WEPopoverParentView")]
+	interface PopoverParentView
+	{
+		// @optional -(CGRect)displayAreaForPopover;
+		[Export ("displayAreaForPopover")]
+		CGRect DisplayAreaForPopover ();
+	}
+
+
 }
