@@ -1,17 +1,15 @@
 using System;
-using System.Drawing;
-
-using MonoTouch.ObjCRuntime;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using MonoTouch.CoreAnimation;
+using CoreAnimation;
+using CoreGraphics;
+using Foundation;
+using ObjCRuntime;
+using UIKit;
 
 namespace iCarouselSDK
 {
-
 	[BaseType (typeof (UIView))]
-	interface iCarousel {
-
+	interface iCarousel 
+	{
 		[Export ("dataSource", ArgumentSemantic.Assign)][NullAllowed]
 		NSObject WeakDataSource { get; set; }
 		
@@ -28,16 +26,16 @@ namespace iCarouselSDK
 		iCarouselType CarouselType { get; set; }
 
 		[Export ("perspective", ArgumentSemantic.Assign)]
-		float Perspective { get; set; }
+		nfloat Perspective { get; set; }
 
 		[Export ("decelerationRate", ArgumentSemantic.Assign)]
-		float DecelerationRate { get; set; }
+		nfloat DecelerationRate { get; set; }
 
 		[Export ("scrollSpeed", ArgumentSemantic.Assign)]
-		float ScrollSpeed { get; set; }
+		nfloat ScrollSpeed { get; set; }
 
 		[Export ("bounceDistance", ArgumentSemantic.Assign)]
-		float BounceDistance { get; set; }
+		nfloat BounceDistance { get; set; }
 
 		[Export ("scrollEnabled", ArgumentSemantic.Assign)]
 		bool ScrollEnabled { [Bind ("isScrollEnabled")] get; set; }
@@ -52,25 +50,25 @@ namespace iCarouselSDK
 		bool Bounces { get; set; }
 
 		[Export ("scrollOffset", ArgumentSemantic.Assign)]
-		float ScrollOffset { get; set; }
+		nfloat ScrollOffset { get; set; }
 
 		[Export ("offsetMultiplier")]
-		float OffsetMultiplier { get; }
+		nfloat OffsetMultiplier { get; }
 
 		[Export ("contentOffset", ArgumentSemantic.Assign)]
-		SizeF ContentOffset { get; set; }
+		CGSize ContentOffset { get; set; }
 
 		[Export ("viewpointOffset", ArgumentSemantic.Assign)]
-		SizeF ViewpointOffset { get; set; }
+		CGSize ViewpointOffset { get; set; }
 
 		[Export ("numberOfItems")]
-		int NumberOfItems { get; }
+		nint NumberOfItems { get; }
 
 		[Export ("numberOfPlaceholders")]
-		int NumberOfPlaceholders { get; }
+		nint NumberOfPlaceholders { get; }
 
 		[Export ("currentItemIndex", ArgumentSemantic.Assign)]
-		int CurrentItemIndex { get; set; }
+		nint CurrentItemIndex { get; set; }
 
 		[Export ("currentItemView")]
 		UIView CurrentItemView { get; }
@@ -79,16 +77,16 @@ namespace iCarouselSDK
 		NSNumber [] IndexesForVisibleItems { get; }
 
 		[Export ("numberOfVisibleItems")]
-		int NumberOfVisibleItems { get; }
+		nint NumberOfVisibleItems { get; }
 
 		[Export ("itemWidth")]
-		float ItemWidth { get; }
+		nfloat ItemWidth { get; }
 
 		[Export ("contentView")]
 		UIView ContentView { get; }
 
 		[Export ("toggle")]
-		float Toggle { get; }
+		nfloat Toggle { get; }
 
 		[Export ("stopAtItemBoundary", ArgumentSemantic.Assign)]
 		bool StopAtItemBoundary { get; set; }
@@ -112,46 +110,46 @@ namespace iCarouselSDK
 		bool Scrolling { [Bind ("isScrolling")] get; set; }
 
 		[Export ("scrollByOffset:duration:")]
-		void ScrollByOffset (float offset, double duration);
+		void ScrollByOffset (nfloat offset, double duration);
 
 		[Export ("scrollToOffset:duration:")]
-		void ScrollToOffset (float offset, double duration);
+		void ScrollToOffset (nfloat offset, double duration);
 
 		[Export ("scrollByNumberOfItems:duration:")]
-		void ScrollByNumberOfItems (int itemCount, double duration);
+		void ScrollByNumberOfItems (nint itemCount, double duration);
 
 		[Export ("scrollToItemAtIndex:duration:")]
-		void ScrollToItem (int index, double duration);
+		void ScrollToItem (nint index, double duration);
 
 		[Export ("scrollToItemAtIndex:animated:")]
-		void ScrollToItem (int index, bool animated);
+		void ScrollToItem (nint index, bool animated);
 
 		[Export ("itemViewAtIndex:")]
-		UIView GetItemView (int index);
+		UIView GetItemView (nint index);
 
 		[Export ("indexOfItemView:")]
-		int IndexOfItemView (UIView view);
+		nint IndexOfItemView (UIView view);
 
 		[Export ("indexOfItemViewOrSubview:")]
-		int IndexOfItemViewOrSubview (UIView view);
+		nint IndexOfItemViewOrSubview (UIView view);
 
 		[Export ("offsetForItemAtIndex:")]
-		float OffsetForItem (int index);
-
+		nfloat OffsetForItem (nint index);
+	
 		[Export ("removeItemAtIndex:animated:")]
-		void RemoveItem (int index, bool animated);
+		void RemoveItem (nint index, bool animated);
 
 		[Export ("insertItemAtIndex:animated:")]
-		void InsertItem (int index, bool animated);
+		void InsertItem (nint index, bool animated);
 
 		[Export ("reloadItemAtIndex:animated:")]
-		void ReloadItem (int index, bool animated);
+		void ReloadItem (nint index, bool animated);
 
 		[Export ("reloadData")]
 		void ReloadData ();
 
 		[Export ("initWithFrame:")]
-		IntPtr Constructor (RectangleF frame);
+		IntPtr Constructor (CGRect frame);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -160,16 +158,16 @@ namespace iCarouselSDK
 	interface iCarouselDataSource {
 
 		[Export ("numberOfItemsInCarousel:")] [Abstract]
-		uint NumberOfItems (iCarousel carousel);
+		nuint NumberOfItems (iCarousel carousel);
 
 		[Export ("carousel:viewForItemAtIndex:reusingView:")] [Abstract]
-		UIView ViewForItem (iCarousel carousel, uint index, UIView reusingView);
+		UIView ViewForItem (iCarousel carousel, nuint index, UIView reusingView);
 
 		[Export ("numberOfPlaceholdersInCarousel:")]
-		uint NumberOfPlaceholders (iCarousel carousel);
+		nuint NumberOfPlaceholders (iCarousel carousel);
 
 		[Export ("carousel:placeholderViewAtIndex:reusingView:")]
-		UIView PlaceholderViewAtIndex (iCarousel carousel, uint index, UIView reusingView);
+		UIView PlaceholderViewAtIndex (iCarousel carousel, nuint index, UIView reusingView);
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -202,19 +200,18 @@ namespace iCarouselSDK
 		void DidEndDecelerating (iCarousel carousel);
 
 		[Export ("carousel:shouldSelectItemAtIndex:")]
-		bool ShouldSelectItem (iCarousel carousel, int index);
+		bool ShouldSelectItem (iCarousel carousel, nint index);
 
 		[Export ("carousel:didSelectItemAtIndex:")]
-		void DidSelectItem (iCarousel carousel, int index);
+		void DidSelectItem (iCarousel carousel, nint index);
 
 		[Export ("carouselItemWidth:")]
-		float ItemWidth (iCarousel carousel);
+		nfloat ItemWidth (iCarousel carousel);
 
 		[Export ("carousel:itemTransformForOffset:baseTransform:")]
-		CATransform3D ItemTransform (iCarousel carousel, float offset, CATransform3D baseTransform);
+		CATransform3D ItemTransform (iCarousel carousel, nfloat offset, CATransform3D baseTransform);
 
 		[Export ("carousel:valueForOption:withDefault:")]
-		float ValueForOption (iCarousel carousel, iCarouselOption option, float aValue);
+		nfloat ValueForOption (iCarousel carousel, iCarouselOption option, nfloat aValue);
 	}
 }
-
