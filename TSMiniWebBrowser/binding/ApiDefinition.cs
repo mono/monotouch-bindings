@@ -1,8 +1,14 @@
 using System;
 using System.Drawing;
+#if __UNIFIED__
+using ObjCRuntime;
+using Foundation;
+using UIKit;
+#else
 using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+#endif
 
 namespace TSMiniWebBrowser
 {
