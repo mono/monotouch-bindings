@@ -1,7 +1,11 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 
+#if __UNIFIED__
 using Foundation;
+#else
+using MonoTouch.Foundation;
+#endif
 
 // This attribute allows you to mark your assemblies as “safe to link”.
 // When the attribute is present, the linker—if enabled—will process the assembly
@@ -17,7 +21,7 @@ using Foundation;
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("")]
 [assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("israelsoto")]
+[assembly: AssemblyCopyright ("")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
@@ -25,7 +29,7 @@ using Foundation;
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
-[assembly: AssemblyVersion ("1.0.*")]
+[assembly: AssemblyVersion ("1.3.*")]
 
 // The following attributes are used to specify the signing key for the assembly,
 // if desired. See the Mono documentation for more information about signing.
