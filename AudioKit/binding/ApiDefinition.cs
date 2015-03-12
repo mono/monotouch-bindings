@@ -686,7 +686,7 @@ namespace AudioKit
 		AKParameter Amplitude { get; [Bind ("setOptionalAmplitude:")] set; }
 
 		[Export ("functionTableOffset")]
-		AKConstant FunctionTableOffset { get; [Bind ("setOptionalFunctionTableOffset")] set; }
+		AKConstant FunctionTableOffset { get; [Bind ("setOptionalFunctionTableOffset:")] set; }
 
 		[Export ("sizeOfFFT")]
 		AKConstant SizeOfFFT { get; [Bind ("setOptionalSizeOfFFT:")] set; }
@@ -1237,7 +1237,7 @@ namespace AudioKit
 
 	#region Operations/Signal Generators/Envelopes
 
-	[BaseType (typeof (AKControl))]
+	[BaseType (typeof (AKControl), Name = "AKADSREnvelope")]
 	interface AKAdsrEnvelope {
 
 		[Export ("initWithAttackDuration:decayDuration:sustainLevel:releaseDuration:delay:")]
@@ -1283,7 +1283,7 @@ namespace AudioKit
 		AKConstant DurationBetweenPoints { get; [Bind ("setOptionalDurationBetweenPoints:")] set; }
 	}
 
-	[BaseType (typeof (AKControl))]
+	[BaseType (typeof (AKControl), Name = "AKLinearADSREnvelope")]
 	interface AKLinearAdsrEnvelope {
 
 		[Export ("initWithAttackDuration:decayDuration:sustainLevel:releaseDuration:delay:")]
@@ -1588,11 +1588,9 @@ namespace AudioKit
 		[Export ("functionTable")]
 		AKFunctionTable FunctionTable { get; [Bind ("setOptionalFunctionTable:")] set; }
 
-		// @property AKParameter * frequency;
 		[Export ("frequency")]
 		AKParameter Frequency { get; [Bind ("setOptionalFrequency:")] set; }
 
-		// @property AKParameter * amplitude;
 		[Export ("amplitude")]
 		AKParameter Amplitude { get; [Bind ("setOptionalAmplitude:")] set; }
 	}
@@ -2457,7 +2455,7 @@ namespace AudioKit
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof (AKStereoAudio))]
+	[BaseType (typeof (AKStereoAudio), Name = "AKMP3FileInput")]
 	interface AKMp3FileInput {
 
 		[Export ("initWithFilename:")]
@@ -2684,9 +2682,6 @@ namespace AudioKit
 
 		[Export ("gain")]
 		AKConstant Gain { get; [Bind ("setOptionalGain:")] set; }
-
-		[Export ("setOptionalGain:")]
-		void SetOptionalGain (AKConstant gain);
 	}
 
 	[DisableDefaultCtor]
@@ -3004,9 +2999,6 @@ namespace AudioKit
 
 		[Export ("cutoffFrequency")]
 		AKParameter CutoffFrequency { get; [Bind ("setOptionalCutoffFrequency:")] set; }
-
-		[Export ("setOptionalCutoffFrequency:")]
-		void SetOptionalCutoffFrequency (AKParameter cutoffFrequency);
 	}
 
 	#endregion
@@ -3597,30 +3589,30 @@ namespace AudioKit
 		IntPtr Constructor (AKParameter audioSource);
 	}
 
-	[BaseType (typeof (UIView))]
-	interface LevelMeter {
-
-		[Export ("level")]
-		nfloat Level { get; set; }
-
-		[Export ("peakLevel")]
-		nfloat PeakLevel { get; set; }
-
-		[Export ("numLights")]
-		nuint NumLights { get; set; }
-
-		[Export ("vertical")]
-		bool Vertical { [Bind ("isVertical")] get; set; }
-
-		[Export ("variableLightIntensity")]
-		bool VariableLightIntensity { get; set; }
-
-		[Export ("bgColor", ArgumentSemantic.Retain)]
-		UIColor LightsBackgroundColor { get; set; }
-
-		[Export ("borderColor", ArgumentSemantic.Retain)]
-		UIColor LightsBorderColor { get; set; }
-	}
+//	[BaseType (typeof (UIView))]
+//	interface LevelMeter {
+//
+//		[Export ("level")]
+//		nfloat Level { get; set; }
+//
+//		[Export ("peakLevel")]
+//		nfloat PeakLevel { get; set; }
+//
+//		[Export ("numLights")]
+//		nuint NumLights { get; set; }
+//
+//		[Export ("vertical")]
+//		bool Vertical { [Bind ("isVertical")] get; set; }
+//
+//		[Export ("variableLightIntensity")]
+//		bool VariableLightIntensity { get; set; }
+//
+//		[Export ("bgColor", ArgumentSemantic.Retain)]
+//		UIColor LightsBackgroundColor { get; set; }
+//
+//		[Export ("borderColor", ArgumentSemantic.Retain)]
+//		UIColor LightsBorderColor { get; set; }
+//	}
 
 	#endregion
 }
