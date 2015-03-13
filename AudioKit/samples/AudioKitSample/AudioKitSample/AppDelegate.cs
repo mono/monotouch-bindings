@@ -2,8 +2,13 @@
 using System.Linq;
 using System.Collections.Generic;
 
+#if __UNIFIED__
 using Foundation;
 using UIKit;
+#else
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+#endif
 
 namespace AudioKitSample
 {
@@ -19,7 +24,16 @@ namespace AudioKitSample
 			get;
 			set;
 		}
-		
+
+		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+		{
+			Window = new UIWindow (UIScreen.MainScreen.Bounds);
+			Window.RootViewController = new AudioKitSampleViewController ();
+			Window.MakeKeyAndVisible ();
+
+			return true;
+		}
+
 		// This method is invoked when the application is about to move from active to inactive state.
 		// OpenGL applications should use this method to pause.
 		public override void OnResignActivation (UIApplication application)

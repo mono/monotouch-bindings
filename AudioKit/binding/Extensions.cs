@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Reflection;
 
 #if __UNIFIED__
 using ObjCRuntime;
@@ -13,7 +14,7 @@ using MonoTouch.UIKit;
 
 namespace AudioKit
 {
-
+	
 	#region Libraries/iOS
 
 	public partial class AKTools
@@ -137,64 +138,6 @@ namespace AudioKit
 
 	#region Operations/Mathematical Operations
 
-//	public partial class AKMaximum
-//	{
-//		public static AKMaximum FromInputs (params AKParameter[] inputs)
-//		{
-//			if (inputs == null)
-//				throw new ArgumentNullException ("inputs");
-//
-//			var pInputsArray = Marshal.AllocHGlobal (inputs.Length * IntPtr.Size);
-//			for (int i = 1; i < inputs.Length; i++) {
-//				IntPtr inputPtr = Marshal.AllocHGlobal (Marshal.SizeOf<AKParameter> (inputs [i]));
-//				Marshal.StructureToPtr<AKParameter> (inputs [i], inputPtr, false);
-//				Marshal.WriteIntPtr (pInputsArray, (i - 1) * IntPtr.Size, inputPtr);
-//
-//				Marshal.FreeHGlobal (inputPtr);
-//			}
-//
-//			Marshal.WriteIntPtr (pInputsArray, (inputs.Length - 1) * IntPtr.Size, IntPtr.Zero);
-//			var result = new AKMaximum (inputs[0], pInputsArray);
-//			Marshal.FreeHGlobal (pInputsArray);
-//
-//			return result;
-//		}
-//
-//		public static AKMaximum FromInputs (AKParameter firstInput, AKParameter secondInput)
-//		{
-//			return new AKMaximum (firstInput, secondInput);
-//		}
-//	}
-
-//	public partial class AKMinimum
-//	{
-//		public static AKMinimum FromInputs (params AKParameter[] inputs)
-//		{
-//			if (inputs == null)
-//				throw new ArgumentNullException ("inputs");
-//
-//			var pInputsArray = Marshal.AllocHGlobal (inputs.Length * IntPtr.Size);
-//			for (int i = 1; i < inputs.Length; i++) {
-//				IntPtr inputPtr = Marshal.AllocHGlobal (Marshal.SizeOf<AKParameter> (inputs [i]));
-//				Marshal.StructureToPtr<AKParameter> (inputs [i], inputPtr, false);
-//				Marshal.WriteIntPtr (pInputsArray, (i - 1) * IntPtr.Size, inputPtr);
-//
-//				Marshal.FreeHGlobal (inputPtr);
-//			}
-//
-//			Marshal.WriteIntPtr (pInputsArray, (inputs.Length - 1) * IntPtr.Size, IntPtr.Zero);
-//			var result = new AKMinimum (inputs[0], pInputsArray);
-//			Marshal.FreeHGlobal (pInputsArray);
-//
-//			return result;
-//		}
-//
-//		public static AKMinimum FromInputs (AKParameter firstInput, AKParameter secondInput)
-//		{
-//			return new AKMinimum (firstInput, secondInput);
-//		}
-//	}
-
 	public partial class AKMultipleInputMathOperation
 	{
 		public static AKMultipleInputMathOperation GetInstance ()
@@ -228,64 +171,6 @@ namespace AudioKit
 			return new AKMultipleInputMathOperation (firstInput, secondInput);
 		}
 	}
-
-//	public partial class AKProduct
-//	{
-//		public static AKProduct FromInputs (params AKParameter[] inputs)
-//		{
-//			if (inputs == null)
-//				throw new ArgumentNullException ("inputs");
-//
-//			var pInputsArray = Marshal.AllocHGlobal (inputs.Length * IntPtr.Size);
-//			for (int i = 1; i < inputs.Length; i++) {
-//				IntPtr inputPtr = Marshal.AllocHGlobal (Marshal.SizeOf<AKParameter> (inputs [i]));
-//				Marshal.StructureToPtr<AKParameter> (inputs [i], inputPtr, false);
-//				Marshal.WriteIntPtr (pInputsArray, (i - 1) * IntPtr.Size, inputPtr);
-//
-//				Marshal.FreeHGlobal (inputPtr);
-//			}
-//
-//			Marshal.WriteIntPtr (pInputsArray, (inputs.Length - 1) * IntPtr.Size, IntPtr.Zero);
-//			var result = new AKProduct (inputs[0], pInputsArray);
-//			Marshal.FreeHGlobal (pInputsArray);
-//
-//			return result;
-//		}
-//
-//		public static AKProduct FromInputs (AKParameter firstInput, AKParameter secondInput)
-//		{
-//			return new AKProduct (firstInput, secondInput);
-//		}
-//	}
-
-//	public partial class AKSum
-//	{
-//		public static AKSum FromInputs (params AKParameter[] inputs)
-//		{
-//			if (inputs == null)
-//				throw new ArgumentNullException ("inputs");
-//
-//			var pInputsArray = Marshal.AllocHGlobal (inputs.Length * IntPtr.Size);
-//			for (int i = 1; i < inputs.Length; i++) {
-//				IntPtr inputPtr = Marshal.AllocHGlobal (Marshal.SizeOf<AKParameter> (inputs [i]));
-//				Marshal.StructureToPtr<AKParameter> (inputs [i], inputPtr, false);
-//				Marshal.WriteIntPtr (pInputsArray, (i - 1) * IntPtr.Size, inputPtr);
-//
-//				Marshal.FreeHGlobal (inputPtr);
-//			}
-//
-//			Marshal.WriteIntPtr (pInputsArray, (inputs.Length - 1) * IntPtr.Size, IntPtr.Zero);
-//			var result = new AKSum (inputs[0], pInputsArray);
-//			Marshal.FreeHGlobal (pInputsArray);
-//
-//			return result;
-//		}
-//
-//		public static AKSum FromInputs (AKParameter firstInput, AKParameter secondInput)
-//		{
-//			return new AKSum (firstInput, secondInput);
-//		}
-//	}
 
 	#endregion
 
@@ -387,54 +272,6 @@ namespace AudioKit
 		}
 	}
 
-//	public partial class AKAudio
-//	{
-//		public static AKAudio FromExpression (string expression)
-//		{
-//			if (expression == null)
-//				expression = string.Empty;
-//
-//			IntPtr pConstructor = new AKAudio ().ExpressionConstructor (expression);
-//			return pConstructor == IntPtr.Zero ? null : Runtime.GetNSObject<AKAudio> (pConstructor);
-//		}
-//	}
-//
-//	public partial class AKConstant
-//	{
-//		public static AKConstant FromExpression (string expression)
-//		{
-//			if (expression == null)
-//				expression = string.Empty;
-//
-//			IntPtr pConstructor = new AKConstant ().ExpressionConstructor (expression);
-//			return pConstructor == IntPtr.Zero ? null : Runtime.GetNSObject<AKConstant> (pConstructor);
-//		}
-//	}
-//
-//	public partial class AKControl
-//	{
-//		public static AKControl FromExpression (string expression)
-//		{
-//			if (expression == null)
-//				expression = string.Empty;
-//
-//			IntPtr pConstructor = new AKControl ().ExpressionConstructor (expression);
-//			return pConstructor == IntPtr.Zero ? null : Runtime.GetNSObject<AKControl> (pConstructor);
-//		}
-//	}
-//
-//	public partial class AKFSignal
-//	{
-//		public static AKFSignal FromExpression (string expression)
-//		{
-//			if (expression == null)
-//				expression = string.Empty;
-//
-//			IntPtr pConstructor = new AKFSignal ().ExpressionConstructor (expression);
-//			return pConstructor == IntPtr.Zero ? null : Runtime.GetNSObject<AKFSignal> (pConstructor);
-//		}
-//	}
-
 	public partial class AKParameter
 	{
 		public static AKParameter WithFormat (params string [] formats)
@@ -467,47 +304,6 @@ namespace AudioKit
 			return pConstructor == IntPtr.Zero ? null : Runtime.GetNSObject<AKParameter> (pConstructor);
 		}
 	}
-
-//	public partial class AKStereoAudio
-//	{
-//		public static AKStereoAudio FromExpression (string expression)
-//		{
-//			if (expression == null)
-//				expression = string.Empty;
-//
-//			IntPtr pConstructor = new AKStereoAudio ().ExpressionConstructor (expression);
-//			return pConstructor == IntPtr.Zero ? null : Runtime.GetNSObject<AKStereoAudio> (pConstructor);
-//		}
-//	}
-
-
-	#region Parameters/Properties
-
-//	public partial class AKInstrumentProperty
-//	{
-//		public static AKInstrumentProperty FromExpression (string expression)
-//		{
-//			if (expression == null)
-//				expression = string.Empty;
-//
-//			IntPtr pConstructor = new AKInstrumentProperty ().ExpressionConstructor (expression);
-//			return pConstructor == IntPtr.Zero ? null : Runtime.GetNSObject<AKInstrumentProperty> (pConstructor);
-//		}
-//	}
-//
-//	public partial class AKNoteProperty
-//	{
-//		public static AKNoteProperty FromExpression (string expression)
-//		{
-//			if (expression == null)
-//				expression = string.Empty;
-//
-//			IntPtr pConstructor = new AKNoteProperty ().ExpressionConstructor (expression);
-//			return pConstructor == IntPtr.Zero ? null : Runtime.GetNSObject<AKNoteProperty> (pConstructor);
-//		}
-//	}
-
-	#endregion
 
 	#endregion
 }
