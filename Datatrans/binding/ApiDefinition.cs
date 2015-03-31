@@ -1,12 +1,12 @@
 using System;
 using System.Drawing;
-using MonoTouch.ObjCRuntime;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using ObjCRuntime;
+using Foundation;
+using UIKit;
 
 namespace Datatrans
 {
-	[BaseType (typeof (NSObject))]
+	[Protocol, Model, BaseType (typeof (NSObject))]
 	public partial interface DTAliasController {
 
 		[Static, Export ("createAliasWithAliasRequest:delegate:testing:")]
@@ -36,10 +36,10 @@ namespace Datatrans
 		string Number { get; set; }
 
 		[Export ("expMonth")]
-		uint ExpMonth { get; set; }
+		nuint ExpMonth { get; set; }
 
 		[Export ("expYear")]
-		uint ExpYear { get; set; }
+		nuint ExpYear { get; set; }
 
 		[Export ("cvv", ArgumentSemantic.Copy)]
 		string Cvv { get; set; }
@@ -48,17 +48,17 @@ namespace Datatrans
 		string Holder { get; set; }
 
 		[Export ("initWithMerchantId:paymentMethod:number:expMonth:expYear:cvv:holder:")]
-		IntPtr Constructor (string merchantId, string method, string number, uint expMonth, uint expYear, string cvv, string holder);
+		IntPtr Constructor (string merchantId, string method, string number, nuint expMonth, nuint expYear, string cvv, string holder);
 	}
 
 	[BaseType (typeof (DTRecurringPaymentMethod))]
 	public partial interface DTCreditCard {
 
 		[Export ("expMonth")]
-		uint ExpMonth { get; set; }
+		nuint ExpMonth { get; set; }
 
 		[Export ("expYear")]
-		uint ExpYear { get; set; }
+		nuint ExpYear { get; set; }
 
 		[Export ("maskedCC", ArgumentSemantic.Copy)]
 		string MaskedCC { get; set; }
@@ -126,8 +126,11 @@ namespace Datatrans
 	[Protocol, Model, BaseType (typeof (NSObject))]
 	public partial interface DTPaymentControllerDelegate {
 
-		[Export ("paymentController:paymentRequestDidSucceed:")]
-		void PaymentRequestDidSucceed (DTPaymentController controller, DTPaymentRequest request);
+//		[Export ("paymentController:paymentRequestDidSucceed:")]
+//		void PaymentRequestDidSucceed (DTPaymentController controller, DTPaymentRequest request);
+//
+		[Export ("paymentControllerDidFinish:")]
+                void DidFinish (DTPaymentController controller);
 
 		[Export ("paymentController:didFailWithError:")]
 		void DidFailWithError (DTPaymentController controller, NSError error);
@@ -204,7 +207,7 @@ namespace Datatrans
 		string CurrencyCode { get; set; }
 
 		[Export ("amountInSmallestCurrencyUnit")]
-		uint AmountInSmallestCurrencyUnit { get; set; }
+		nuint AmountInSmallestCurrencyUnit { get; set; }
 
 		[Export ("signature", ArgumentSemantic.Copy)]
 		string Signature { get; set; }

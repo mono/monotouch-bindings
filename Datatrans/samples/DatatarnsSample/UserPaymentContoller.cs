@@ -1,5 +1,5 @@
 using System;
-using MonoTouch.UIKit;
+using UIKit;
 using Datatrans;
 
 namespace DatatransSample
@@ -17,14 +17,14 @@ namespace DatatransSample
 		
 		#region implemented abstract members of Datatrans.DtPaymentControllerDelegate
 
-		public override void PaymentRequestDidSucceed (DTPaymentController controller, DTPaymentRequest request)
+		public override void DidFinish (DTPaymentController controller)
 		{
 			Console.WriteLine("DidSucceed:");
 			RootNavigation.PopToRootViewController(true);
 			
 		}
 
-		public override void DidFailWithError (DTPaymentController controller, MonoTouch.Foundation.NSError error)
+		public override void DidFailWithError (DTPaymentController controller, Foundation.NSError error)
 		{
 			Console.WriteLine("DidFail:");
 			RootNavigation.PopToRootViewController(true);
