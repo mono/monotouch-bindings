@@ -1,7 +1,7 @@
 Linea PRO SDK for Xamarin.iOS
 =============================
 
-This Xamarin.iOS project binds `DTDevices-iOS_2013-10-29_v1` library AKA (Version 1.82).
+This Xamarin.iOS project binds `DTDevices-iOS_2015-02-v1` library AKA (Version 1.96).
 
 ## Prerequisites
 
