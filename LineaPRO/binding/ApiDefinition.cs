@@ -9,37 +9,6 @@ using CoreBluetooth;
 namespace LineaProSdk
 {
 	[Static]
-	interface RFCardInfoKeys 
-	{
-		[Field ("RFCardInfoType", "__Internal")]
-		NSString Type { get; }
-
-		[Field ("RFCardInfoTypeStr", "__Internal")]
-		NSString TypeStr { get; }
-
-		[Field ("RFCardInfoUID", "__Internal")]
-		NSString Uid { get; }
-
-		[Field ("RFCardInfoATQA", "__Internal")]
-		NSString Atqa { get; }
-
-		[Field ("RFCardInfoSAK", "__Internal")]
-		NSString Sak { get; }
-
-		[Field ("RFCardInfoAFI", "__Internal")]
-		NSString Afi { get; }
-
-		[Field ("RFCardInfoDSFID", "__Internal")]
-		NSString Dsfid { get; }
-
-		[Field ("RFCardInfoBlockSize", "__Internal")]
-		NSString BlockSize { get; }
-
-		[Field ("RFCardInfoNBlocks", "__Internal")]
-		NSString NBlocks { get; }
-	}
-
-	[Static]
 	interface InfoKeys 
 	{
 		[Field ("InfoDeviceName", "__Internal")]
