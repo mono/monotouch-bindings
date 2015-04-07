@@ -11,8 +11,8 @@ Steps to obtain and include `libdtdev.a`:
 
 1. Go to [http://ipcprint.com/developer/](http://ipcprint.com/developer/).
 2. Register an Account or log in using your credentials.
-3. Download and unzip **DTDevices-iOS_2013-10-29_v1.82_XCode5.zip**
-4. Copy `DTDevices-iOS_2013-10-29_v1.82_XCode5/Library/libdtdev.a` inside `binding` folder.
+3. Download and unzip **DTDevices-iOS_2015-02-v1.Universal_XCode6.zip**
+4. Copy `DTDevices-iOS_2015-02-27_v1.96_Universal_XCode6/Library/libdtdev.a` inside `binding` folder.
 
 ## Building LineaProSdk.dll
 

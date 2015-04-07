@@ -14,7 +14,7 @@ libdtdev.a:
 		open http://ipcprint.com/developer/; \
 	fi
 
-LineaProSdk.dll: Makefile libdtdev.linkwith.cs ApiDefinition.cs StructsAndEnums.cs Extas.cs LineaProSdk.csproj libdtdev.a
+LineaProSdk.dll: Makefile libdtdev.linkwith.cs ApiDefinition.cs StructsAndEnums.cs Extras.cs LineaProSdk.csproj libdtdev.a
 	$(MONOXBUILD) /p:Configuration=Release LineaProSdk.csproj
 	cp bin/Release/LineaProSdk.dll LineaProSdk.dll
 
