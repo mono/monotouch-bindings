@@ -211,9 +211,12 @@ namespace FacebookiOSSample
 
 		public void DidComplete (ISharing sharer, NSDictionary results)
 		{
-			sharedId = results ["postId"].ToString ();
-			new UIAlertView ("Success!!", "Successfully posted to Facebook!", null, "Ok", null).Show ();
-			isXamarinShared = true;
+			if (results.ContainsKey (new NSString ("postId")))
+			{
+				sharedId = results ["postId"].ToString ();
+				new UIAlertView ("Success!!", "Successfully posted to Facebook!", null, "Ok", null).Show ();
+				isXamarinShared = true;
+			}
 		}
 
 		public void DidFail (ISharing sharer, NSError error)
