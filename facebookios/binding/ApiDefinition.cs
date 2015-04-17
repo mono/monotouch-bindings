@@ -1398,7 +1398,7 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKAppGroupContent : NSObject <FBSDKCopying, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKAppGroupContent")]
-	interface AppGroupContent : CoreKit.ICopying, INSSecureCoding {
+	interface AppGroupContent : CoreKit.Copying, INSSecureCoding {
 		
 		// @property (copy, nonatomic) NSString * groupDescription;
 		[Export ("groupDescription", ArgumentSemantic.Copy)]
@@ -1487,7 +1487,7 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKAppInviteContent : NSObject <FBSDKCopying, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKAppInviteContent")]
-	interface AppInviteContent : CoreKit.ICopying, INSSecureCoding {
+	interface AppInviteContent : CoreKit.Copying, INSSecureCoding {
 
 		// -(instancetype)initWithAppLinkURL:(NSURL *)appLinkURL __attribute__((objc_designated_initializer));
 		[Export ("initWithAppLinkURL:")]
@@ -1568,7 +1568,7 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKGameRequestContent : NSObject <FBSDKCopying, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKGameRequestContent")]
-	interface GameRequestContent : CoreKit.ICopying, INSSecureCoding {
+	interface GameRequestContent : CoreKit.Copying, INSSecureCoding {
 		
 		// @property (assign, nonatomic) FBSDKGameRequestActionType actionType;
 		[Export ("actionType", ArgumentSemantic.Assign)]
@@ -1681,7 +1681,7 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKLikeButton : FBSDKButton <FBSDKLiking>
 	[BaseType (typeof (CoreKit.Button), Name = "FBSDKLikeButton")]
-	interface LikeButton : ILiking {
+	interface LikeButton : Liking {
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1693,7 +1693,7 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKLikeControl : UIControl <FBSDKLiking>
 	[BaseType (typeof (UIControl), Name = "FBSDKLikeControl")]
-	interface LikeControl : ILiking {
+	interface LikeControl : Liking {
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1749,17 +1749,17 @@ namespace Facebook.ShareKit
 	// @interface FBSDKMessageDialog : NSObject <FBSDKSharingDialog>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKMessageDialog")]
-	interface MessageDialog : ISharingDialog {
+	interface MessageDialog : SharingDialog {
 		
 		// +(instancetype)showWithContent:(id<FBSDKSharingContent>)content delegate:(id<FBSDKSharingDelegate>)delegate;
 		[Static]
 		[Export ("showWithContent:delegate:")]
-		MessageDialog Show ([NullAllowed] SharingContent content, [NullAllowed] ISharingDelegate aDelegate);
+		MessageDialog Show ([NullAllowed] ISharingContent content, [NullAllowed] ISharingDelegate aDelegate);
 	}
 
 	// @interface FBSDKSendButton : FBSDKButton <FBSDKSharingButton>
 	[BaseType (typeof (CoreKit.Button), Name = "FBSDKSendButton")]
-	interface SendButton : ISharingButton {
+	interface SendButton : SharingButton {
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1768,7 +1768,7 @@ namespace Facebook.ShareKit
 	// @interface FBSDKShareAPI : NSObject <FBSDKSharing>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareAPI")]
-	interface ShareAPI : ISharing {
+	interface ShareAPI : Sharing {
 
 		// extern NSString *const FBSDKShareErrorDomain;
 		[Field ("FBSDKShareErrorDomain", "__Internal")]
@@ -1777,7 +1777,7 @@ namespace Facebook.ShareKit
 		// +(instancetype)shareWithContent:(id<FBSDKSharingContent>)content delegate:(id<FBSDKSharingDelegate>)delegate;
 		[Static]
 		[Export ("shareWithContent:delegate:")]
-		ShareAPI From ([NullAllowed] SharingContent content, [NullAllowed] ISharingDelegate aDelegate);
+		ShareAPI Share ([NullAllowed] ISharingContent content, [NullAllowed] ISharingDelegate aDelegate);
 
 		// @property (assign, nonatomic) BOOL createObjectsWithClientToken;
 		[Export ("createObjectsWithClientToken", ArgumentSemantic.Assign)]
@@ -1785,7 +1785,7 @@ namespace Facebook.ShareKit
 
 		// -(BOOL)canShare;
 		[Export ("canShare")]
-		bool CanShare { get; }
+		bool CanShare ();
 
 		// -(BOOL)createOpenGraphObject:(FBSDKShareOpenGraphObject *)openGraphObject;
 		[Export ("createOpenGraphObject:")]
@@ -1793,12 +1793,12 @@ namespace Facebook.ShareKit
 
 		// -(BOOL)share;
 		[Export ("share")]
-		bool Share { get; }
+		bool Share ();
 	}
 
 	// @interface FBSDKShareButton : FBSDKButton <FBSDKSharingButton>
 	[BaseType (typeof (CoreKit.Button), Name = "FBSDKShareButton")]
-	interface ShareButton : ISharingButton {
+	interface ShareButton : SharingButton {
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1849,7 +1849,7 @@ namespace Facebook.ShareKit
 	// @interface FBSDKShareOpenGraphAction : FBSDKShareOpenGraphValueContainer <FBSDKCopying, NSSecureCoding>
 	[DisableDefaultCtor]
 	[BaseType (typeof (ShareOpenGraphValueContainer), Name = "FBSDKShareOpenGraphAction")]
-	interface ShareOpenGraphAction : CoreKit.ICopying, INSSecureCoding {
+	interface ShareOpenGraphAction : CoreKit.Copying, INSSecureCoding {
 
 		// +(instancetype)actionWithType:(NSString *)actionType object:(FBSDKShareOpenGraphObject *)object key:(NSString *)key;
 		[Static]
@@ -1877,7 +1877,7 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareOpenGraphContent : NSObject <FBSDKSharingContent>
 	[BaseType (typeof (NSObject), Name = "FBSDKShareOpenGraphContent")]
-	interface ShareOpenGraphContent : ISharingContent {
+	interface ShareOpenGraphContent : SharingContent {
 
 		// @property (copy, nonatomic) FBSDKShareOpenGraphAction * action;
 		[NullAllowed] 
@@ -1896,7 +1896,7 @@ namespace Facebook.ShareKit
 	// @interface FBSDKShareOpenGraphObject : FBSDKShareOpenGraphValueContainer <FBSDKCopying, NSSecureCoding>
 	[DisableDefaultCtor]
 	[BaseType (typeof  (ShareOpenGraphValueContainer), Name = "FBSDKShareOpenGraphObject")]
-	interface ShareOpenGraphObject : CoreKit.ICopying, INSSecureCoding {
+	interface ShareOpenGraphObject : CoreKit.Copying, INSSecureCoding {
 		
 		// +(instancetype)objectWithProperties:(NSDictionary *)properties;
 		[Static]
@@ -2011,14 +2011,14 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareOpenGraphValueContainer : NSObject <FBSDKShareOpenGraphValueContaining>
 	[BaseType (typeof (NSObject), Name = "FBSDKShareOpenGraphValueContainer")]
-	interface ShareOpenGraphValueContainer : IShareOpenGraphValueContaining {
+	interface ShareOpenGraphValueContainer : ShareOpenGraphValueContaining {
 		
 	}
 
 	// @interface FBSDKSharePhoto : NSObject <FBSDKCopying, NSSecureCoding>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKSharePhoto")]
-	interface SharePhoto : CoreKit.ICopying, INSSecureCoding {
+	interface SharePhoto : CoreKit.Copying, INSSecureCoding {
 		
 		// +(instancetype)photoWithImage:(UIImage *)image userGenerated:(BOOL)userGenerated;
 		[Static]
@@ -2051,7 +2051,7 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKSharePhotoContent : NSObject <FBSDKSharingContent>
 	[BaseType (typeof (NSObject), Name = "FBSDKSharePhotoContent")]
-	interface SharePhotoContent : ISharingContent {
+	interface SharePhotoContent : SharingContent {
 		
 		// @property (copy, nonatomic) NSArray * photos;
 		[NullAllowed] 
@@ -2066,7 +2066,7 @@ namespace Facebook.ShareKit
 	// @interface FBSDKShareVideo : NSObject <FBSDKCopying, NSSecureCoding>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareVideo")]
-	interface ShareVideo : CoreKit.ICopying, INSSecureCoding {
+	interface ShareVideo : CoreKit.Copying, INSSecureCoding {
 		
 		// +(instancetype)videoWithVideoURL:(NSURL *)videoURL;
 		[Static]
@@ -2085,7 +2085,7 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareVideoContent : NSObject <FBSDKSharingContent>
 	[BaseType (typeof (NSObject), Name = "FBSDKShareVideoContent")]
-	interface ShareVideoContent : ISharingContent {
+	interface ShareVideoContent : SharingContent {
 		
 		// @property (copy, nonatomic) FBSDKSharePhoto * previewPhoto;
 		[NullAllowed] 
