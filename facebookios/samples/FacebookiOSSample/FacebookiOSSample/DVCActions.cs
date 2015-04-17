@@ -44,6 +44,7 @@ namespace FacebookiOSSample
 
 		public DVCActions () : base (UITableViewStyle.Grouped, null, true)
 		{
+			
 			pictureView = new ProfilePictureView (new CGRect (120, 0, 80, 80));
 
 			// Create menu options with Monotouch.Dialog
