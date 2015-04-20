@@ -1,23 +1,23 @@
 facebook
 ========
 
-These are bindings to the native Facebook SDK for iOS, currently we bind version 3.12.0.
+These are bindings to the native Facebook SDK for iOS, currently we bind version 4.0.1.
 
 Using
 =====
 
-Copy the MonoTouch.FacebookConnect.dll project in the binding directory to your
+Copy the Facebook.dll project in the binding directory to your
 project, and add it as a reference in your project.
 
 Building
 ========
 
-Run `make' in the binding directory to build MonoTouch.FacebookConnect.dll.
+Run `make' in the binding directory to build Facebook.dll. It only creates the ios unified dll. If you want to create the classic dll, you need to modify the binding project.
 
 Sample
 ======
 
-The sample program in sample/ is a partial port of Facebook's Sample
+The sample program in sample/ is a partial port of Facebook's Samples
 program, it covers about half of the features in it.
 
 License
@@ -47,3 +47,4 @@ Authors
 
 * Miguel de Icaza
 * Alex Soto
+* Israel Soto
