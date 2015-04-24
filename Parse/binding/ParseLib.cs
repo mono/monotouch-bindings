@@ -34,6 +34,10 @@ namespace ParseTouch
 		[Static]
 		[Export ("setApplicationId:clientKey:")]
 		void SetAppId (string applicationId, string clientKey);
+		
+		[Static]
+		[Export ("enableLocalDatastore")]
+		void EnableLocalDatastore ();		
 
 		[Static]
 		[Export ("offlineMessagesEnabled:")]
