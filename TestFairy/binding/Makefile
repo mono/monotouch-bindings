@@ -1,12 +1,12 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 BTOUCHNATIVE=/Developer/MonoTouch/usr/bin/btouch-native
 
-VERSION=1.3.0
+VERSION=1.4.0
 
 all: bin/classic/TestFairy.iOS.dll bin/unified/TestFairy.iOS.dll
 
 libTestFairy.a:
-	curl -s -o .sdk.zip "http://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip"
+	curl -L -s -o .sdk.zip "http://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip"
 	unzip -q -o .sdk.zip libTestFairy.a
 	-rm -f .sdk.zip
 

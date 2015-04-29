@@ -40,6 +40,14 @@ namespace TestFairyLib
 		void PushFeedbackController();
 
 		/// <summary>
+		///  Send a feedback on behalf of the user. Call when using a in-house
+		///  feedback view controller with a custom design and feel. Feedback will
+		///  be associated with the current session.
+		/// </summary>
+		[Static, Export("sendUserFeedback:")]
+		void SendUserFeedback(string feedback);
+
+		/// <summary>
 		/// Proxy didUpdateLocations delegate values and these locations will
 		/// appear over a map in the recorded session. Useful for debugging actual
 		/// long/lat values against what the user sees on screen.
