@@ -1,22 +1,22 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-SMCS=/Developer/MonoTouch/usr/bin/smcs
-MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
+BTOUCHNATIVE=/Developer/MonoTouch/usr/bin/btouch-native
+
 VERSION=1.3.0
 
-all: TestFairy.iOS.dll
+all: bin/classic/TestFairy.iOS.dll bin/unified/TestFairy.iOS.dll
 
 libTestFairy.a:
-	@if test -f ../../../monotouch-bindings-externals/TestFairy/libTestFairy.a; then \
-		cp ../../../monotouch-bindings-externals/TestFairy/libTestFairy.a .; \
-	else \
-		curl -s -o .sdk.zip "http://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip"; \
-		unzip -q -o .sdk.zip libTestFairy.a; \
-		rm -f .sdk.zip; \
-	fi
+	curl -s -o .sdk.zip "http://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip"
+	unzip -q -o .sdk.zip libTestFairy.a
+	-rm -f .sdk.zip
 
-TestFairy.iOS.dll: Makefile libTestFairy.linkwith.cs ApiDefinition.cs StructsAndEnums.cs AssemblyInfo.cs TestFairy.iOS.csproj libTestFairy.a
-	$(MONOXBUILD) /p:Configuration=Release TestFairy.iOS.csproj
-	cp bin/Release/TestFairy.iOS.dll TestFairy.iOS.dll
+bin/unified/TestFairy.iOS.dll: Makefile ApiDefinition.cs AssemblyInfo.cs libTestFairy.a
+	-mkdir -p bin/unified
+	$(BTOUCHNATIVE) -x=AssemblyInfo.cs ApiDefinition.cs --link-with=libTestFairy.a,libTestFairy.a --out=$@ --new-style -d=__UNIFIED__
+
+bin/classic/TestFairy.iOS.dll: Makefile ApiDefinition.cs AssemblyInfo.cs libTestFairy.a
+	-mkdir -p bin/classic
+	$(BTOUCH) -x=AssemblyInfo.cs ApiDefinition.cs --link-with=libTestFairy.a,libTestFairy.a --out=$@ 
 
 clean:
 	-rm -rf list ios *.sln *.userprefs TestFairy.iOS.dll *.o libTestFairy.a *.zip *.mdb Resources/ lib/ bin/ obj/
