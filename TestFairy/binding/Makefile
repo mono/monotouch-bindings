@@ -1,7 +1,7 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-VERSION=1.2
+VERSION=1.3.0
 
 all: TestFairy.iOS.dll
 
@@ -19,4 +19,4 @@ TestFairy.iOS.dll: Makefile libTestFairy.linkwith.cs ApiDefinition.cs StructsAnd
 	cp bin/Release/TestFairy.iOS.dll TestFairy.iOS.dll
 
 clean:
-	-rm -rf list ios *.sln *.userprefs *.dll *.o *.a *.zip *.mdb Resources/ lib/ bin/ obj/
+	-rm -rf list ios *.sln *.userprefs TestFairy.iOS.dll *.o libTestFairy.a *.zip *.mdb Resources/ lib/ bin/ obj/
