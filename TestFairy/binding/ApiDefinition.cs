@@ -103,7 +103,7 @@ namespace TestFairyLib
 		/// Takes a screenshot.
 		/// </summary>
 		[Static, Export("takeScreenshot")]
-		string TakeScreenshot();
+		void TakeScreenshot();
 	}
 }
 
