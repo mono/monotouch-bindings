@@ -447,7 +447,7 @@ namespace RouteMe
 		void SetUserTrackingMode (RMUserTrackingMode mode, bool animated);		
 	}
 	
-	[Model, BaseType (typeof (NSObject))]
+	[Model, BaseType (typeof (NSObject))][Protocol]
 	interface RMMapViewDelegate {
 		
 		//- (RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation;
@@ -1200,7 +1200,7 @@ namespace RouteMe
 		void ReplaceUIImage (UIImage image, System.Drawing.PointF anchorPoint);
 	}
 
-	[BaseType (typeof (RMMapLayer))]
+	[BaseType (typeof (RMMapLayer))][Protocol]
 	interface RMPath {
 
 		// -------- PROPERTIES

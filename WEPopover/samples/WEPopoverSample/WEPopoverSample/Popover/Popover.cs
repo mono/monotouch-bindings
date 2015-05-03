@@ -14,8 +14,8 @@
 //    limitations under the License.
 using System;
 using WEPopover;
-using MonoTouch.UIKit;
-using System.Drawing;
+using UIKit;
+using CoreGraphics;
 
 namespace WEPopoverSample
 {
@@ -24,21 +24,21 @@ namespace WEPopoverSample
 		public static bool ShouldDismiss { get; set; }
 		public static bool IsInitialized { get; private set; }
 		
-		static WEPopoverController _PopoverController;
+		static PopoverController _PopoverController;
 		
 		public static UIViewController ContentViewController {
 			get { return _PopoverController.ContentViewController; }
 			set { _PopoverController.ContentViewController = value; }
 		}
 		
-		public static SizeF ContentSize {
+		public static CGSize ContentSize {
 			get { return _PopoverController.ContentSize; }
 			set { _PopoverController.ContentSize = value; }
 		}
 		
-		public static Action<WEPopoverController> PopoverClosed { get; set; }
+		public static Action<PopoverController> PopoverClosed { get; set; }
 		
-		public static WEPopoverContainerViewProperties Properties { 
+		public static PopoverContainerViewProperties Properties { 
 			get { return _PopoverController.Properties; }
 			set { _PopoverController.Properties = value; }
 		}
@@ -47,7 +47,7 @@ namespace WEPopoverSample
 		public static void Initialize()
 		{
 			if(IsInitialized == false) {
-				_PopoverController = new WEPopoverController();
+				_PopoverController = new PopoverController();
 				
 				if (_PopoverController.ContentViewController != null) {
 					_PopoverController.ContentViewController = ContentViewController;
@@ -61,32 +61,32 @@ namespace WEPopoverSample
 			}
 		}
 		
-		public static void PresentFromRect(RectangleF rect, UIView view, UIPopoverArrowDirection arrowDirection, bool animated)
+		public static void PresentFromRect(CGRect rect, UIView view, UIPopoverArrowDirection arrowDirection, bool animated)
 		{
-			_PopoverController.PresentFromRect(rect, view, arrowDirection, animated);
+			_PopoverController.PresentPopover (rect, view, arrowDirection, animated);
 		}
 		
-		class PopoverDelegate : WEPopoverControllerDelegate
+		class PopoverDelegate : PopoverControllerDelegate
 		{
-			public override bool ShouldDismissPopover(WEPopoverController popover)
+			public override bool ShouldDismissPopover(PopoverController popover)
 			{
 				return ShouldDismiss;
 			}
 			
-			public override void DidDismissPopover(WEPopoverController popover)
+			public override void DidDismissPopover(PopoverController popover)
 			{
 				PopoverClosed(popover);
 			}
 		}
 		
-		private static WEPopoverContainerViewProperties DefaultPopoverProperties()
+		private static PopoverContainerViewProperties DefaultPopoverProperties()
 		{
-			var imageSize = new SizeF(30.0f, 30.0f);
+			var imageSize = new CGSize (30.0f, 30.0f);
 			var bgMargin = 6.0f;
 			var contentMargin = 2.0f;
 			var popoverImagePath = @"Images/popover/";
 			
-			return new WEPopoverContainerViewProperties	
+			return new PopoverContainerViewProperties	
 			{
 				LeftBackgroundMargin = bgMargin,
 				RightBackgroundMargin = bgMargin,
