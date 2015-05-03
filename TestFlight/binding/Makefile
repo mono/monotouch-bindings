@@ -1,5 +1,5 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-VERSION=3.0.0
+VERSION=3.0.2
 all: TestFlight.dll
 
 TestFlightSDK$(VERSION).zip:
@@ -11,7 +11,7 @@ TestFlightSDK$(VERSION).zip:
 
 libTestFlight.a: TestFlightSDK$(VERSION).zip
 	unzip -p $^ $@ > $@
-	
+
 #Please do not remove libTestFlight.a/CITest check
 CITest:
 	@if test -f ../../../monotouch-bindings-externals/TestFlight/libTestFlight.a; then \

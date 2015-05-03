@@ -1,7 +1,7 @@
 ﻿using System;
 using MonoTouch.Foundation;
 
-namespace PinterestSDK
+namespace PinterestSDK.Pinit
 {
 	public partial class Pinterest
 	{

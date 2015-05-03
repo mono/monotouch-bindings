@@ -2,8 +2,8 @@ BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 MDTOOL=/Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool
-VERSION=3.5.4
-# HockeyApp iOS Version 3.5.4
+VERSION=3.5.7
+# HockeyApp iOS Version 3.5.7
 
 all: HockeyApp.iOS.dll
 
