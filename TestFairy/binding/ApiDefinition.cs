@@ -16,12 +16,25 @@ namespace TestFairyLib
 	[BaseType (typeof(NSObject))]
 	interface TestFairy {
 
+                [Field ("TFSessionNotificationUrlKey", "__Internal")]
+                NSString SessionStartedUrlKey { get; }
+
+                [Field ("TFSessionDidStartNotification", "__Internal")]
+                NSString SessionStartedNotification { get; }
+
 		/// <summary>
 		/// Initialize a TestFairy session.
 		/// </summary>
 		/// <param name="APIKey">Your key as given to you in your TestFairy account</param>
 		[Static, Export("begin:")]
 		void Begin(string APIKey);
+
+		/// <summary>
+		/// Return TestFairy SDK version
+		/// </summary>
+		/// <returns>SDK version string
+		[Static, Export("version")]
+		string GetVersion();
 
 		/// <summary>
 		/// Hide a specific view from appearing in the video generated.
