@@ -8,6 +8,7 @@ using Foundation;
 using UIKit;
 using CoreLocation;
 using CoreGraphics;
+
 #else
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
@@ -32,10 +33,14 @@ namespace FacebookiOSSample
 		LoginButton loginView;
 		ProfilePictureView pictureView;
 
-		// For extensive list of available extended permissions refer to 
+		// For extensive list of available extended permissions refer to
 		// https://developers.facebook.com/docs/reference/api/permissions/
-		string [] extendedPermissions = new [] { "user_about_me", "read_stream"};
-		string [] publishPermissions = new [] { "publish_stream" };
+		string[] extendedPermissions = new [] {
+			"public_profile",
+			"email",
+			"user_friends"
+		};
+		string[] publishPermissions = new [] { "" };
 
 		public DVCLogIn () : base (UITableViewStyle.Grouped, null, true)
 		{
@@ -55,12 +60,16 @@ namespace FacebookiOSSample
 				}
 			});
 
+			AccessToken.Notifications.ObserveDidChange ((sender, e) => {
+				Console.WriteLine (e.NewToken.Permissions);
+			});
+
 			// If you use Native login behavior, you will get all read and publish permisions
 			// otherwise, set the Read and Publish permissions you want to get
 			loginView = new LoginButton (new CGRect (51, 0, 218, 46)) {
 				LoginBehavior = LoginBehavior.Native,
-				// ReadPermissions = extendedPermissions,
-				// PublishPermissions = publishPermissions
+				ReadPermissions = extendedPermissions,
+//				PublishPermissions = publishPermissions
 			};
 
 			// Handle actions once the user is logged in

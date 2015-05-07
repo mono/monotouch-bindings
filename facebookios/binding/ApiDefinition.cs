@@ -8,7 +8,8 @@ using Accounts;
 
 namespace Facebook.CoreKit
 {
-	interface AccessTokenDidChangeEventArgs {
+	interface AccessTokenDidChangeEventArgs
+	{
 		[Export ("FBSDKAccessTokenChangeNewKey")]
 		AccessToken NewToken { get; }
 
@@ -20,11 +21,12 @@ namespace Facebook.CoreKit
 	}
 
 	// @interface FBSDKAccessToken : NSObject <FBSDKCopying, NSSecureCoding>
-	[BaseType (typeof (NSObject), Name = "FBSDKAccessToken")]
-	interface AccessToken : Copying, INSSecureCoding {
+	[BaseType (typeof(NSObject), Name = "FBSDKAccessToken")]
+	interface AccessToken : Copying, INSSecureCoding
+	{
 		
 		// extern NSString *const FBSDKAccessTokenDidChangeNotification;
-		[Notification (typeof (AccessTokenDidChangeEventArgs))]
+		[Notification (typeof(AccessTokenDidChangeEventArgs))]
 		[Field ("FBSDKAccessTokenDidChangeNotification", "__Internal")]
 		NSString DidChangeNotification { get; }
 
@@ -82,12 +84,18 @@ namespace Facebook.CoreKit
 		[Static]
 		[Export ("currentAccessToken")]
 		AccessToken CurrentAccessToken { get; set; }
+
+		// + (void)refreshCurrentAccessToken:(FBSDKGraphRequestHandler)completionHandler;
+		[Static]
+		[Export ("refreshCurrentAccessToken:")]
+		void RefreshCurrentAccessToken (GraphRequestHandler completionHandler);
 	}
 
 	// @interface FBSDKAppEvents : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKAppEvents")]
-	interface AppEvents {
+	[BaseType (typeof(NSObject), Name = "FBSDKAppEvents")]
+	interface AppEvents
+	{
 		
 		// extern NSString *const FBSDKAppEventsLoggingResultNotification;
 		[Notification]
@@ -268,8 +276,9 @@ namespace Facebook.CoreKit
 
 	// @interface FBSDKApplicationDelegate : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKApplicationDelegate")]
-	interface ApplicationDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKApplicationDelegate")]
+	interface ApplicationDelegate
+	{
 		
 		// +(instancetype)sharedInstance;
 		[Static]
@@ -287,12 +296,13 @@ namespace Facebook.CoreKit
 
 	// @interface FBSDKAppLinkResolver : NSObject<BFAppLinkResolving>
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkResolver")]
-	interface AppLinkResolver : AppLinkResolving {
+	[BaseType (typeof(NSObject), Name = "FBSDKAppLinkResolver")]
+	interface AppLinkResolver : AppLinkResolving
+	{
 		
 		// - (BFTask *)appLinksFromURLsInBackground:(NSArray *)urls;
 		[Export ("appLinksFromURLsInBackground:")]
-		Task AppLinksInBackground (NSUrl [] urls);
+		Task AppLinksInBackground (NSUrl[] urls);
 
 		// + (instancetype)resolver;
 		[Static]
@@ -301,12 +311,13 @@ namespace Facebook.CoreKit
 	}
 
 	// typedef void (^FBSDKDeferredAppLinkHandler)(NSURL *, NSError *);
-	delegate void DeferredAppLinkHandler (NSUrl url, NSError error);
+	delegate void DeferredAppLinkHandler (NSUrl url,NSError error);
 
 	// @interface FBSDKAppLinkUtility : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkUtility")]
-	interface AppLinkUtility {
+	[BaseType (typeof(NSObject), Name = "FBSDKAppLinkUtility")]
+	interface AppLinkUtility
+	{
 		
 		// +(void)fetchDeferredAppLink:(FBSDKDeferredAppLinkHandler)handler;
 		[Static]
@@ -316,15 +327,17 @@ namespace Facebook.CoreKit
 	}
 
 	// @interface FBSDKButton : UIButton
-	[BaseType (typeof (UIButton), Name = "FBSDKButton")]
-	interface Button {
+	[BaseType (typeof(UIButton), Name = "FBSDKButton")]
+	interface Button
+	{
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
 	}
 
 	[Static]
-	interface Errors {
+	interface Errors
+	{
 
 		// extern NSString *const FBSDKErrorDomain;
 		[Field ("FBSDKErrorDomain", "__Internal")]
@@ -378,21 +391,26 @@ namespace Facebook.CoreKit
 	// @protocol FBSDKErrorRecoveryAttempting <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKErrorRecoveryAttempting")]
-	interface ErrorRecoveryAttempting {
+	[BaseType (typeof(NSObject), Name = "FBSDKErrorRecoveryAttempting")]
+	interface ErrorRecoveryAttempting
+	{
 		// @required -(void)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex delegate:(id)delegate didRecoverSelector:(SEL)didRecoverSelector contextInfo:(void *)contextInfo;
 		[Abstract]
 		[Export ("attemptRecoveryFromError:optionIndex:delegate:didRecoverSelector:contextInfo:")]
 		unsafe void AttemptRecovery (NSError error, nuint recoveryOptionIndex, NSObject aDelegate, Selector didRecoverSelector, NSObject contextInfo);
 	}
 
-	interface ICopying { }
+	interface ICopying
+	{
+
+	}
 
 	// @protocol FBSDKCopying <NSCopying, NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKCopying")]
-	interface Copying : INSCopying {
+	[BaseType (typeof(NSObject), Name = "FBSDKCopying")]
+	interface Copying : INSCopying
+	{
 		// @required -(id)copy;
 		[New]
 		[Abstract]
@@ -400,13 +418,17 @@ namespace Facebook.CoreKit
 		NSObject Copy ();
 	}
 
-	interface IGraphErrorRecoveryProcessorDelegate { }
+	interface IGraphErrorRecoveryProcessorDelegate
+	{
+
+	}
 
 	// @protocol FBSDKGraphErrorRecoveryProcessorDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKGraphErrorRecoveryProcessorDelegate")]
-	interface GraphErrorRecoveryProcessorDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKGraphErrorRecoveryProcessorDelegate")]
+	interface GraphErrorRecoveryProcessorDelegate
+	{
 		
 		// @required -(void)processorDidAttemptRecovery:(FBSDKGraphErrorRecoveryProcessor *)processor didRecover:(BOOL)didRecover error:(NSError *)error;
 		[Abstract]
@@ -419,8 +441,9 @@ namespace Facebook.CoreKit
 	}
 
 	// @interface FBSDKGraphErrorRecoveryProcessor : NSObject
-	[BaseType (typeof (NSObject), Name = "FBSDKGraphErrorRecoveryProcessor")]
-	interface GraphErrorRecoveryProcessor {
+	[BaseType (typeof(NSObject), Name = "FBSDKGraphErrorRecoveryProcessor")]
+	interface GraphErrorRecoveryProcessor
+	{
 		
 		// @property (readonly, nonatomic, strong) id<FBSDKGraphErrorRecoveryProcessorDelegate> delegate;
 		[Export ("delegate", ArgumentSemantic.Strong)]
@@ -437,8 +460,9 @@ namespace Facebook.CoreKit
 
 	// @interface FBSDKGraphRequest : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKGraphRequest")]
-	interface GraphRequest {
+	[BaseType (typeof(NSObject), Name = "FBSDKGraphRequest")]
+	interface GraphRequest
+	{
 		
 		// -(instancetype)initWithGraphPath:(NSString *)graphPath parameters:(NSDictionary *)parameters;
 		[Export ("initWithGraphPath:parameters:")]
@@ -482,15 +506,19 @@ namespace Facebook.CoreKit
 	}
 
 	// typedef void (^FBSDKGraphRequestHandler)(FBSDKGraphRequestConnection *id, NSError *);
-	delegate void GraphRequestHandler (GraphRequestConnection connection, NSObject result, NSError error);
+	delegate void GraphRequestHandler (GraphRequestConnection connection,NSObject result,NSError error);
 
-	interface IGraphRequestConnectionDelegate { }
+	interface IGraphRequestConnectionDelegate
+	{
+
+	}
 
 	// @protocol FBSDKGraphRequestConnectionDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKGraphRequestConnectionDelegate")]
-	interface GraphRequestConnectionDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKGraphRequestConnectionDelegate")]
+	interface GraphRequestConnectionDelegate
+	{
 		
 		// @optional -(void)requestConnectionWillBeginLoading:(FBSDKGraphRequestConnection *)connection;
 		[EventArgs ("GraphRequestConnectionWillBeginLoading")]
@@ -517,11 +545,12 @@ namespace Facebook.CoreKit
 	}
 
 	// @interface FBSDKGraphRequestConnection : NSObject
-	[BaseType (typeof (NSObject), 
+	[BaseType (typeof(NSObject), 
 		Name = "FBSDKGraphRequestConnection",
 		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (GraphRequestConnectionDelegate) })]
-	interface GraphRequestConnection {
+		Events = new [] { typeof(GraphRequestConnectionDelegate) })]
+	interface GraphRequestConnection
+	{
 
 		// extern NSString *const FBSDKNonJSONResponseProperty;
 		[Field ("FBSDKNonJSONResponseProperty", "__Internal")]
@@ -571,7 +600,7 @@ namespace Facebook.CoreKit
 
 	// @interface FBSDKGraphRequestDataAttachment : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKGraphRequestDataAttachment")]
+	[BaseType (typeof(NSObject), Name = "FBSDKGraphRequestDataAttachment")]
 	interface GraphRequestDataAttachment
 	{
 		// -(instancetype)initWithData:(NSData *)data filename:(NSString *)filename contentType:(NSString *)contentType __attribute__((objc_designated_initializer));
@@ -594,8 +623,9 @@ namespace Facebook.CoreKit
 	// @protocol FBSDKMutableCopying <FBSDKCopying, NSMutableCopying>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKMutableCopying")]
-	interface MutableCopying : Copying, INSMutableCopying {
+	[BaseType (typeof(NSObject), Name = "FBSDKMutableCopying")]
+	interface MutableCopying : Copying, INSMutableCopying
+	{
 		
 		// @required -(id)mutableCopy;
 		[New]
@@ -604,7 +634,8 @@ namespace Facebook.CoreKit
 		NSObject MutableCopy ();
 	}
 
-	interface ProfileDidChangeEventArgs {
+	interface ProfileDidChangeEventArgs
+	{
 		[Export ("FBSDKProfileChangeOldKey")]
 		Profile OldProfile { get; }
 
@@ -614,11 +645,12 @@ namespace Facebook.CoreKit
 
 	// @interface FBSDKProfile : NSObject <NSCopying, NSSecureCoding>
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKProfile")]
-	interface Profile : INSCopying, INSSecureCoding {
+	[BaseType (typeof(NSObject), Name = "FBSDKProfile")]
+	interface Profile : INSCopying, INSSecureCoding
+	{
 
 		// extern NSString *const FBSDKProfileDidChangeNotification;
-		[Notification (typeof (ProfileDidChangeEventArgs))]
+		[Notification (typeof(ProfileDidChangeEventArgs))]
 		[Field ("FBSDKProfileDidChangeNotification", "__Internal")]
 		NSString DidChangeNotification { get; }
 
@@ -681,7 +713,7 @@ namespace Facebook.CoreKit
 	}
 
 	// @interface FBSDKProfilePictureView : UIView
-	[BaseType (typeof (UIView), Name = "FBSDKProfilePictureView")]
+	[BaseType (typeof(UIView), Name = "FBSDKProfilePictureView")]
 	interface ProfilePictureView
 	{
 		[Export ("initWithFrame:")]
@@ -701,7 +733,8 @@ namespace Facebook.CoreKit
 	}
 
 	[Static]
-	interface LoggingBehavior {
+	interface LoggingBehavior
+	{
 
 		// extern NSString *const FBSDKLoggingBehaviorAccessTokens;
 		[Field ("FBSDKLoggingBehaviorAccessTokens", "__Internal")]
@@ -746,8 +779,9 @@ namespace Facebook.CoreKit
 
 	// @interface FBSDKSettings : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKSettings")]
-	interface Settings {
+	[BaseType (typeof(NSObject), Name = "FBSDKSettings")]
+	interface Settings
+	{
 		
 		// +(NSString *)appID;
 		// +(void)setAppID:(NSString *)appID;
@@ -824,10 +858,42 @@ namespace Facebook.CoreKit
 		string LegacyUserDefaultTokenInformationKeyName { get; set; }
 	}
 
+	delegate void TestUsersManagerRetrieveTestAccountTokensHandler (AccessToken[] tokens,NSError error);
+	delegate void TestUsersManagerRemoveTestAccountHandler (NSError error);
+
 	// @interface FBSDKUtility : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKUtility")]
-	interface Utility {
+	[BaseType (typeof(NSObject), Name = "FBSDKTestUsersManager")]
+	interface TestUsersManager
+	{
+
+		// +(instancetype)sharedInstanceForAppID:(NSString *)appID appSecret:(NSString *)appSecret;
+		[Static]
+		[Export ("sharedInstanceForAppID:appSecret:")]
+		TestUsersManager SharedInstance (string appID, string appSecret);
+
+		// -(void)requestTestAccountTokensWithArraysOfPermissions:(NSArray *)arraysOfPermissions createIfNotFound:(BOOL)createIfNotFound completionHandler:(FBSDKTestUsersManagerRetrieveTestAccountTokensHandler)handler;
+		[Export ("requestTestAccountTokensWithArraysOfPermissions:createIfNotFound:completionHandler:")]
+		void RequestTestAccount (string[] arraysOfPermissions, bool createIfNotFound, TestUsersManagerRetrieveTestAccountTokensHandler handler);
+
+		// -(void)addTestAccountWithPermissions:(NSSet *)permissions completionHandler:(FBSDKTestUsersManagerRetrieveTestAccountTokensHandler)handler;
+		[Export ("addTestAccountWithPermissions:completionHandler:")]
+		void AddTestAccount (NSSet permissions, TestUsersManagerRetrieveTestAccountTokensHandler handler);
+
+		// -(void)removeTestAccount:(NSString *)userId completionHandler:(FBSDKTestUsersManagerRemoveTestAccountHandler)handler;
+		[Export ("removeTestAccount:completionHandler:")]
+		void RemoveTestAccount (string userId, TestUsersManagerRemoveTestAccountHandler handler);
+
+		// -(void)makeFriendsWithFirst:(FBSDKAccessToken *)first second:(FBSDKAccessToken *)second callback:(void (^)(NSError *))callback;
+		[Export ("makeFriendsWithFirst:second:callback:")]
+		void MakeFriends (AccessToken first, AccessToken second, TestUsersManagerRemoveTestAccountHandler callback);
+	}
+
+	// @interface FBSDKUtility : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FBSDKUtility")]
+	interface Utility
+	{
 		
 		// +(NSDictionary *)dictionaryWithQueryString:(NSString *)queryString;
 		[Static]
@@ -853,7 +919,7 @@ namespace Facebook.CoreKit
 	#region Facebook.Bolts
 
 	// This just binds what is needed to work
-	[BaseType (typeof (NSObject), Name = "BFTask")]
+	[BaseType (typeof(NSObject), Name = "BFTask")]
 	interface Task
 	{
 
@@ -876,11 +942,14 @@ namespace Facebook.CoreKit
 		bool IsCompleted { get; }
 	}
 
-	interface IAppLinkResolving { }
+	interface IAppLinkResolving
+	{
+
+	}
 
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "BFAppLinkResolving")]
+	[BaseType (typeof(NSObject), Name = "BFAppLinkResolving")]
 	interface AppLinkResolving
 	{
 
@@ -896,11 +965,12 @@ namespace Facebook.CoreKit
 namespace Facebook.LoginKit
 {
 	// @interface FBSDKLoginButton : FBSDKButton
-	[BaseType (typeof (CoreKit.Button),
+	[BaseType (typeof(CoreKit.Button),
 		Name = "FBSDKLoginButton",
 		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (LoginButtonDelegate) })]
-	interface LoginButton {
+		Events = new [] { typeof(LoginButtonDelegate) })]
+	interface LoginButton
+	{
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -941,13 +1011,17 @@ namespace Facebook.LoginKit
 		TooltipColorStyle TooltipColorStyle { get; set; }
 	}
 
-	interface ILoginButtonDelegate { }
+	interface ILoginButtonDelegate
+	{
+
+	}
 
 	// @protocol FBSDKLoginButtonDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKLoginButtonDelegate")]
-	interface LoginButtonDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKLoginButtonDelegate")]
+	interface LoginButtonDelegate
+	{
 		
 		// @required -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error;
 		[Abstract]
@@ -965,12 +1039,13 @@ namespace Facebook.LoginKit
 	}
 
 	// typedef void (^FBSDKLoginManagerRequestTokenHandler)(FBSDKLoginManagerLoginResult *NSError *);
-	delegate void LoginManagerRequestTokenHandler (LoginManagerLoginResult result, NSError error);
-	delegate void LoginManagerRenewSystemCredentialsHandler (ACAccountCredentialRenewResult credentials, NSError error);
+	delegate void LoginManagerRequestTokenHandler (LoginManagerLoginResult result,NSError error);
+	delegate void LoginManagerRenewSystemCredentialsHandler (ACAccountCredentialRenewResult credentials,NSError error);
 
 	// @interface FBSDKLoginManager : NSObject
-	[BaseType (typeof (NSObject), Name = "FBSDKLoginManager")]
-	interface LoginManager {
+	[BaseType (typeof(NSObject), Name = "FBSDKLoginManager")]
+	interface LoginManager
+	{
 		
 		// @property (assign, nonatomic) FBSDKDefaultAudience defaultAudience;
 		[Export ("defaultAudience", ArgumentSemantic.Assign)]
@@ -983,12 +1058,12 @@ namespace Facebook.LoginKit
 		// -(void)logInWithReadPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler;
 		[Async]
 		[Export ("logInWithReadPermissions:handler:")]
-		void LogInWithReadPermissions ([NullAllowed] string [] permissions, LoginManagerRequestTokenHandler handler);
+		void LogInWithReadPermissions ([NullAllowed] string[] permissions, LoginManagerRequestTokenHandler handler);
 
 		// -(void)logInWithPublishPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler;
 		[Async]
 		[Export ("logInWithPublishPermissions:handler:")]
-		void LogInWithPublishPermissions ([NullAllowed] string [] permissions, LoginManagerRequestTokenHandler handler);
+		void LogInWithPublishPermissions ([NullAllowed] string[] permissions, LoginManagerRequestTokenHandler handler);
 
 		// -(void)logOut;
 		[Export ("logOut")]
@@ -1002,8 +1077,9 @@ namespace Facebook.LoginKit
 	}
 
 	// @interface FBSDKLoginManagerLoginResult : NSObject
-	[BaseType (typeof (NSObject), Name = "FBSDKLoginManagerLoginResult")]
-	interface LoginManagerLoginResult {
+	[BaseType (typeof(NSObject), Name = "FBSDKLoginManagerLoginResult")]
+	interface LoginManagerLoginResult
+	{
 		
 		// @property (copy, nonatomic) FBSDKAccessToken * token;
 		[NullAllowed]
@@ -1030,11 +1106,12 @@ namespace Facebook.LoginKit
 	}
 
 	// @interface FBSDKLoginTooltipView : FBSDKTooltipView
-	[BaseType (typeof (TooltipView),
+	[BaseType (typeof(TooltipView),
 		Name = "FBSDKLoginTooltipView",
 		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (LoginTooltipViewDelegate) })]
-	interface LoginTooltipView {
+		Events = new [] { typeof(LoginTooltipViewDelegate) })]
+	interface LoginTooltipView
+	{
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1049,13 +1126,17 @@ namespace Facebook.LoginKit
 		bool ForceDisplay { get; set; }
 	}
 
-	interface ILoginTooltipViewDelegate { }
+	interface ILoginTooltipViewDelegate
+	{
+
+	}
 
 	// @protocol FBSDKLoginTooltipViewDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKLoginTooltipViewDelegate")]
-	interface LoginTooltipViewDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKLoginTooltipViewDelegate")]
+	interface LoginTooltipViewDelegate
+	{
 		
 		// @optional -(BOOL)loginTooltipView:(FBSDKLoginTooltipView *)view shouldAppear:(BOOL)appIsEligible;
 		[DelegateName ("LoginTooltipViewShouldAppear")]
@@ -1075,8 +1156,9 @@ namespace Facebook.LoginKit
 	}
 
 	// @interface FBSDKTooltipView : UIView
-	[BaseType (typeof (UIView), Name = "FBSDKTooltipView")]
-	interface TooltipView {
+	[BaseType (typeof(UIView), Name = "FBSDKTooltipView")]
+	interface TooltipView
+	{
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1119,14 +1201,16 @@ namespace Facebook.MessengerShareKit
 {
 	// @interface FBSDKMessengerBroadcastContext : FBSDKMessengerContext
 	[BaseType (typeof(MessengerContext), Name = "FBSDKMessengerBroadcastContext")]
-	interface MessengerBroadcastContext {
+	interface MessengerBroadcastContext
+	{
 		
 	}
 
 	// @interface FBSDKMessengerShareButton : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKMessengerShareButton")]
-	interface MessengerShareButton {
+	[BaseType (typeof(NSObject), Name = "FBSDKMessengerShareButton")]
+	interface MessengerShareButton
+	{
 		
 		// +(UIButton *)rectangularButtonWithStyle:(FBSDKMessengerShareButtonStyle)style;
 		[Static]
@@ -1145,14 +1229,16 @@ namespace Facebook.MessengerShareKit
 	}
 
 	// @interface FBSDKMessengerContext : NSObject <NSSecureCoding>
-	[BaseType (typeof (NSObject), Name = "FBSDKMessengerContext")]
-	interface MessengerContext : INSSecureCoding {
+	[BaseType (typeof(NSObject), Name = "FBSDKMessengerContext")]
+	interface MessengerContext : INSSecureCoding
+	{
 		
 	}
 
 	// @interface FBSDKMessengerShareOptions : NSObject
-	[BaseType (typeof (NSObject), Name = "FBSDKMessengerShareOptions")]
-	interface MessengerShareOptions {
+	[BaseType (typeof(NSObject), Name = "FBSDKMessengerShareOptions")]
+	interface MessengerShareOptions
+	{
 		
 		// @property (readwrite, copy, nonatomic) NSString * metadata;
 		[Export ("metadata", ArgumentSemantic.Copy)]
@@ -1171,8 +1257,9 @@ namespace Facebook.MessengerShareKit
 
 	// @interface FBSDKMessengerSharer : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKMessengerSharer")]
-	interface MessengerSharer {
+	[BaseType (typeof(NSObject), Name = "FBSDKMessengerSharer")]
+	interface MessengerSharer
+	{
 		
 		// +(FBSDKMessengerPlatformCapability)messengerPlatformCapabilities;
 		[Static]
@@ -1240,13 +1327,17 @@ namespace Facebook.MessengerShareKit
 		void ShareAudio ([NullAllowed] NSData audioData, [NullAllowed] MessengerShareOptions options);
 	}
 
-	interface IMessengerUrlHandlerDelegate { }
+	interface IMessengerUrlHandlerDelegate
+	{
+
+	}
 
 	// @protocol FBSDKMessengerURLHandlerDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKMessengerURLHandlerDelegate")]
-	interface MessengerUrlHandlerDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKMessengerURLHandlerDelegate")]
+	interface MessengerUrlHandlerDelegate
+	{
 		
 		// @optional -(void)messengerURLHandler:(FBSDKMessengerURLHandler *)messengerURLHandler didHandleReplyWithContext:(FBSDKMessengerURLHandlerReplyContext *)context;
 		[EventArgs ("MessengerUrlHandlerReplyHandled")]
@@ -1268,11 +1359,12 @@ namespace Facebook.MessengerShareKit
 	}
 
 	// @interface FBSDKMessengerURLHandler : NSObject
-	[BaseType (typeof (NSObject),
+	[BaseType (typeof(NSObject),
 		Name = "FBSDKMessengerURLHandler",
 		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (MessengerUrlHandlerDelegate) })]
-	interface MessengerUrlHandler {
+		Events = new [] { typeof(MessengerUrlHandlerDelegate) })]
+	interface MessengerUrlHandler
+	{
 		
 		// -(BOOL)canOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
 		[Export ("canOpenURL:sourceApplication:")]
@@ -1289,20 +1381,15 @@ namespace Facebook.MessengerShareKit
 	}
 
 	// @interface FBSDKMessengerURLHandlerCancelContext : FBSDKMessengerContext
-	[BaseType (typeof (MessengerContext), Name = "FBSDKMessengerURLHandlerCancelContext")]
-	interface MessengerUrlHandlerCancelContext {
+	[BaseType (typeof(MessengerContext), Name = "FBSDKMessengerURLHandlerCancelContext")]
+	interface MessengerUrlHandlerCancelContext
+	{
 		
 	}
 
-//	// @interface FBSDKMessengerURLHandlerCancelShareContext : FBSDKMessengerContext
-//	[BaseType (typeof (MessengerContext))]
-//	interface FBSDKMessengerURLHandlerCancelShareContext {
-//		
-//	}
-
 	// @interface FBSDKMessengerURLHandlerOpenFromComposerContext : FBSDKMessengerContext
 	[DisableDefaultCtor]
-	[BaseType (typeof (MessengerContext), Name = "FBSDKMessengerURLHandlerOpenFromComposerContext")]
+	[BaseType (typeof(MessengerContext), Name = "FBSDKMessengerURLHandlerOpenFromComposerContext")]
 	interface MessengerUrlHandlerOpenFromComposerContext
 	{
 
@@ -1316,7 +1403,7 @@ namespace Facebook.MessengerShareKit
 	}
 
 	// @interface FBSDKMessengerURLHandlerReplyContext : FBSDKMessengerContext
-	[BaseType (typeof (MessengerContext), Name = "FBSDKMessengerURLHandlerReplyContext")]
+	[BaseType (typeof(MessengerContext), Name = "FBSDKMessengerURLHandlerReplyContext")]
 	interface MessengerUrlHandlerReplyContext
 	{
 		// @property (readonly, copy, nonatomic) NSString * metadata;
@@ -1332,11 +1419,12 @@ namespace Facebook.MessengerShareKit
 namespace Facebook.ShareKit
 {
 	// @interface FBSDKAppGroupAddDialog : NSObject
-	[BaseType (typeof (NSObject), 
+	[BaseType (typeof(NSObject), 
 		Name = "FBSDKAppGroupAddDialog",
 		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (AppGroupAddDialogDelegate) })]
-	interface AppGroupAddDialog {
+		Events = new [] { typeof(AppGroupAddDialogDelegate) })]
+	interface AppGroupAddDialog
+	{
 		
 		// +(instancetype)showWithContent:(FBSDKAppGroupContent *)content delegate:(id<FBSDKAppGroupAddDialogDelegate>)delegate;
 		[Static]
@@ -1366,13 +1454,17 @@ namespace Facebook.ShareKit
 		bool Validate (out NSError error);
 	}
 
-	interface IAppGroupAddDialogDelegate { }
+	interface IAppGroupAddDialogDelegate
+	{
+
+	}
 
 	// @protocol FBSDKAppGroupAddDialogDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKAppGroupAddDialogDelegate")]
-	interface AppGroupAddDialogDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKAppGroupAddDialogDelegate")]
+	interface AppGroupAddDialogDelegate
+	{
 		
 		// @required -(void)appGroupAddDialog:(FBSDKAppGroupAddDialog *)appGroupAddDialog didCompleteWithResults:(NSDictionary *)results;
 		[Abstract]
@@ -1397,8 +1489,9 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKAppGroupContent : NSObject <FBSDKCopying, NSSecureCoding>
-	[BaseType (typeof (NSObject), Name = "FBSDKAppGroupContent")]
-	interface AppGroupContent : CoreKit.Copying, INSSecureCoding {
+	[BaseType (typeof(NSObject), Name = "FBSDKAppGroupContent")]
+	interface AppGroupContent : CoreKit.Copying, INSSecureCoding
+	{
 		
 		// @property (copy, nonatomic) NSString * groupDescription;
 		[Export ("groupDescription", ArgumentSemantic.Copy)]
@@ -1422,11 +1515,12 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKAppGroupJoinDialog : NSObject
-	[BaseType (typeof (NSObject), 
+	[BaseType (typeof(NSObject), 
 		Name = "FBSDKAppGroupJoinDialog",
 		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (AppGroupJoinDialogDelegate) })]
-	interface AppGroupJoinDialog {
+		Events = new [] { typeof(AppGroupJoinDialogDelegate) })]
+	interface AppGroupJoinDialog
+	{
 		
 		// +(instancetype)showWithGroupID:(NSString *)groupID delegate:(id<FBSDKAppGroupJoinDialogDelegate>)delegate;
 		[Static]
@@ -1455,13 +1549,17 @@ namespace Facebook.ShareKit
 		bool Validate (out NSError error);
 	}
 
-	interface IAppGroupJoinDialogDelegate { }
+	interface IAppGroupJoinDialogDelegate
+	{
+
+	}
 
 	// @protocol FBSDKAppGroupJoinDialogDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKAppGroupJoinDialogDelegate")]
-	interface AppGroupJoinDialogDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKAppGroupJoinDialogDelegate")]
+	interface AppGroupJoinDialogDelegate
+	{
 
 		// @required -(void)appGroupJoinDialog:(FBSDKAppGroupJoinDialog *)appGroupJoinDialog didCompleteWithResults:(NSDictionary *)results;
 		[Abstract]
@@ -1486,12 +1584,9 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKAppInviteContent : NSObject <FBSDKCopying, NSSecureCoding>
-	[BaseType (typeof (NSObject), Name = "FBSDKAppInviteContent")]
-	interface AppInviteContent : CoreKit.Copying, INSSecureCoding {
-
-		// -(instancetype)initWithAppLinkURL:(NSURL *)appLinkURL __attribute__((objc_designated_initializer));
-		[Export ("initWithAppLinkURL:")]
-		IntPtr Constructor ([NullAllowed] NSUrl appLinkURL);
+	[BaseType (typeof(NSObject), Name = "FBSDKAppInviteContent")]
+	interface AppInviteContent : CoreKit.Copying, INSSecureCoding
+	{
 
 		// @property (copy, nonatomic) NSURL * appLinkURL;
 		[NullAllowed]
@@ -1509,10 +1604,10 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKAppInviteDialog : NSObject
-	[BaseType (typeof (NSObject),
+	[BaseType (typeof(NSObject),
 		Name = "FBSDKAppInviteDialog",
 		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (AppInviteDialogDelegate) })]
+		Events = new [] { typeof(AppInviteDialogDelegate) })]
 	interface AppInviteDialog
 	{
 		// +(instancetype)showWithContent:(FBSDKAppInviteContent *)content delegate:(id<FBSDKAppInviteDialogDelegate>)delegate;
@@ -1543,13 +1638,17 @@ namespace Facebook.ShareKit
 		bool Validate (out NSError error);
 	}
 
-	interface IAppInviteDialogDelegate { }
+	interface IAppInviteDialogDelegate
+	{
+
+	}
 
 	// @protocol FBSDKAppInviteDialogDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKAppInviteDialogDelegate")]
-	interface AppInviteDialogDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKAppInviteDialogDelegate")]
+	interface AppInviteDialogDelegate
+	{
 
 		// @required -(void)appInviteDialog:(FBSDKAppInviteDialog *)appInviteDialog didCompleteWithResults:(NSDictionary *)results;
 		[Abstract]
@@ -1567,8 +1666,9 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKGameRequestContent : NSObject <FBSDKCopying, NSSecureCoding>
-	[BaseType (typeof (NSObject), Name = "FBSDKGameRequestContent")]
-	interface GameRequestContent : CoreKit.Copying, INSSecureCoding {
+	[BaseType (typeof(NSObject), Name = "FBSDKGameRequestContent")]
+	interface GameRequestContent : CoreKit.Copying, INSSecureCoding
+	{
 		
 		// @property (assign, nonatomic) FBSDKGameRequestActionType actionType;
 		[Export ("actionType", ArgumentSemantic.Assign)]
@@ -1610,11 +1710,12 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKGameRequestDialog : NSObject
-	[BaseType (typeof (NSObject), 
+	[BaseType (typeof(NSObject), 
 		Name = "FBSDKGameRequestDialog",
 		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (GameRequestDialogDelegate) })]
-	interface GameRequestDialog {
+		Events = new [] { typeof(GameRequestDialogDelegate) })]
+	interface GameRequestDialog
+	{
 		
 		// +(instancetype)showWithContent:(FBSDKGameRequestContent *)content delegate:(id<FBSDKGameRequestDialogDelegate>)delegate;
 		[Static]
@@ -1648,12 +1749,15 @@ namespace Facebook.ShareKit
 		bool Validate (out NSError error);
 	}
 
-	interface IGameRequestDialogDelegate { }
+	interface IGameRequestDialogDelegate
+	{
+
+	}
 
 	// @protocol FBSDKGameRequestDialogDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKGameRequestDialogDelegate")]
+	[BaseType (typeof(NSObject), Name = "FBSDKGameRequestDialogDelegate")]
 	interface GameRequestDialogDelegate
 	{
 		
@@ -1680,8 +1784,9 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKLikeButton : FBSDKButton <FBSDKLiking>
-	[BaseType (typeof (CoreKit.Button), Name = "FBSDKLikeButton")]
-	interface LikeButton : Liking {
+	[BaseType (typeof(CoreKit.Button), Name = "FBSDKLikeButton")]
+	interface LikeButton : Liking
+	{
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1692,8 +1797,9 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKLikeControl : UIControl <FBSDKLiking>
-	[BaseType (typeof (UIControl), Name = "FBSDKLikeControl")]
-	interface LikeControl : Liking {
+	[BaseType (typeof(UIControl), Name = "FBSDKLikeControl")]
+	interface LikeControl : Liking
+	{
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1723,13 +1829,17 @@ namespace Facebook.ShareKit
 		bool SoundEnabled { [Bind ("isSoundEnabled")] get; set; }
 	}
 
-	interface ILiking { }
+	interface ILiking
+	{
+
+	}
 
 	// @protocol FBSDKLiking <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKLiking")]
-	interface Liking {
+	[BaseType (typeof(NSObject), Name = "FBSDKLiking")]
+	interface Liking
+	{
 		
 		// @required @property (copy, nonatomic) NSString * objectID;
 		[Export ("objectID")]
@@ -1748,8 +1858,9 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKMessageDialog : NSObject <FBSDKSharingDialog>
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKMessageDialog")]
-	interface MessageDialog : SharingDialog {
+	[BaseType (typeof(NSObject), Name = "FBSDKMessageDialog")]
+	interface MessageDialog : SharingDialog
+	{
 		
 		// +(instancetype)showWithContent:(id<FBSDKSharingContent>)content delegate:(id<FBSDKSharingDelegate>)delegate;
 		[Static]
@@ -1758,8 +1869,9 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKSendButton : FBSDKButton <FBSDKSharingButton>
-	[BaseType (typeof (CoreKit.Button), Name = "FBSDKSendButton")]
-	interface SendButton : SharingButton {
+	[BaseType (typeof(CoreKit.Button), Name = "FBSDKSendButton")]
+	interface SendButton : SharingButton
+	{
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1767,8 +1879,9 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareAPI : NSObject <FBSDKSharing>
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKShareAPI")]
-	interface ShareAPI : Sharing {
+	[BaseType (typeof(NSObject), Name = "FBSDKShareAPI")]
+	interface ShareAPI : Sharing
+	{
 
 		// extern NSString *const FBSDKShareErrorDomain;
 		[Field ("FBSDKShareErrorDomain", "__Internal")]
@@ -1782,6 +1895,10 @@ namespace Facebook.ShareKit
 		// @property (assign, nonatomic) BOOL createObjectsWithClientToken;
 		[Export ("createObjectsWithClientToken", ArgumentSemantic.Assign)]
 		bool CreateObjectsWithClientToken { get; set; }
+
+		// @property (nonatomic, copy) NSString *message;
+		[Export ("message", ArgumentSemantic.Copy)]
+		string Message { get; set; }
 
 		// -(BOOL)canShare;
 		[Export ("canShare")]
@@ -1797,8 +1914,9 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKShareButton : FBSDKButton <FBSDKSharingButton>
-	[BaseType (typeof (CoreKit.Button), Name = "FBSDKShareButton")]
-	interface ShareButton : SharingButton {
+	[BaseType (typeof(CoreKit.Button), Name = "FBSDKShareButton")]
+	interface ShareButton : SharingButton
+	{
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -1806,8 +1924,9 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareDialog : NSObject <FBSDKSharingDialog>
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKShareDialog")]
-	interface ShareDialog : SharingDialog {
+	[BaseType (typeof(NSObject), Name = "FBSDKShareDialog")]
+	interface ShareDialog : SharingDialog
+	{
 		
 		// +(instancetype)showFromViewController:(UIViewController *)viewController withContent:(id<FBSDKSharingContent>)content delegate:(id<FBSDKSharingDelegate>)delegate;
 		[Static]
@@ -1826,7 +1945,8 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareLinkContent : NSObject <FBSDKSharingContent>
 	[BaseType (typeof(NSObject), Name = "FBSDKShareLinkContent")]
-	interface ShareLinkContent : SharingContent {
+	interface ShareLinkContent : SharingContent
+	{
 		
 		// @property (copy, nonatomic) NSString * contentDescription;
 		[Export ("contentDescription", ArgumentSemantic.Copy)]
@@ -1848,8 +1968,9 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareOpenGraphAction : FBSDKShareOpenGraphValueContainer <FBSDKCopying, NSSecureCoding>
 	[DisableDefaultCtor]
-	[BaseType (typeof (ShareOpenGraphValueContainer), Name = "FBSDKShareOpenGraphAction")]
-	interface ShareOpenGraphAction : CoreKit.Copying, INSSecureCoding {
+	[BaseType (typeof(ShareOpenGraphValueContainer), Name = "FBSDKShareOpenGraphAction")]
+	interface ShareOpenGraphAction : CoreKit.Copying, INSSecureCoding
+	{
 
 		// +(instancetype)actionWithType:(NSString *)actionType object:(FBSDKShareOpenGraphObject *)object key:(NSString *)key;
 		[Static]
@@ -1876,8 +1997,9 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKShareOpenGraphContent : NSObject <FBSDKSharingContent>
-	[BaseType (typeof (NSObject), Name = "FBSDKShareOpenGraphContent")]
-	interface ShareOpenGraphContent : SharingContent {
+	[BaseType (typeof(NSObject), Name = "FBSDKShareOpenGraphContent")]
+	interface ShareOpenGraphContent : SharingContent
+	{
 
 		// @property (copy, nonatomic) FBSDKShareOpenGraphAction * action;
 		[NullAllowed] 
@@ -1895,8 +2017,9 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareOpenGraphObject : FBSDKShareOpenGraphValueContainer <FBSDKCopying, NSSecureCoding>
 	[DisableDefaultCtor]
-	[BaseType (typeof  (ShareOpenGraphValueContainer), Name = "FBSDKShareOpenGraphObject")]
-	interface ShareOpenGraphObject : CoreKit.Copying, INSSecureCoding {
+	[BaseType (typeof(ShareOpenGraphValueContainer), Name = "FBSDKShareOpenGraphObject")]
+	interface ShareOpenGraphObject : CoreKit.Copying, INSSecureCoding
+	{
 		
 		// +(instancetype)objectWithProperties:(NSDictionary *)properties;
 		[Static]
@@ -1908,15 +2031,19 @@ namespace Facebook.ShareKit
 		bool IsEqualToShareOpenGraphObject (ShareOpenGraphObject aObject);
 	}
 
-	interface IShareOpenGraphValueContaining { }
+	interface IShareOpenGraphValueContaining
+	{
 
-	delegate void ShareOpenGraphValueContainingEnumerateHandle (string key, NSObject id, ref bool stop);
+	}
+
+	delegate void ShareOpenGraphValueContainingEnumerateHandle (string key,NSObject id,ref bool stop);
 
 	// @protocol FBSDKShareOpenGraphValueContaining <NSObject, NSSecureCoding>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKShareOpenGraphValueContaining")]
-	interface ShareOpenGraphValueContaining : INSSecureCoding {
+	[BaseType (typeof(NSObject), Name = "FBSDKShareOpenGraphValueContaining")]
+	interface ShareOpenGraphValueContaining : INSSecureCoding
+	{
 	
 		// @required -(NSArray *)arrayForKey:(NSString *)key;
 		[Abstract]
@@ -1971,7 +2098,7 @@ namespace Facebook.ShareKit
 		// @required -(void)setArray:(NSArray *)array forKey:(NSString *)key;
 		[Abstract]
 		[Export ("setArray:forKey:")]
-		void SetArray (NSObject [] array, string key);
+		void SetArray (NSObject[] array, string key);
 
 		// @required -(void)setNumber:(NSNumber *)number forKey:(NSString *)key;
 		[Abstract]
@@ -2010,15 +2137,17 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKShareOpenGraphValueContainer : NSObject <FBSDKShareOpenGraphValueContaining>
-	[BaseType (typeof (NSObject), Name = "FBSDKShareOpenGraphValueContainer")]
-	interface ShareOpenGraphValueContainer : ShareOpenGraphValueContaining {
+	[BaseType (typeof(NSObject), Name = "FBSDKShareOpenGraphValueContainer")]
+	interface ShareOpenGraphValueContainer : ShareOpenGraphValueContaining
+	{
 		
 	}
 
 	// @interface FBSDKSharePhoto : NSObject <FBSDKCopying, NSSecureCoding>
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKSharePhoto")]
-	interface SharePhoto : CoreKit.Copying, INSSecureCoding {
+	[BaseType (typeof(NSObject), Name = "FBSDKSharePhoto")]
+	interface SharePhoto : CoreKit.Copying, INSSecureCoding
+	{
 		
 		// +(instancetype)photoWithImage:(UIImage *)image userGenerated:(BOOL)userGenerated;
 		[Static]
@@ -2047,11 +2176,16 @@ namespace Facebook.ShareKit
 		// -(BOOL)isEqualToSharePhoto:(FBSDKSharePhoto *)photo;
 		[Export ("isEqualToSharePhoto:")]
 		bool IsEqualToSharePhoto (SharePhoto photo);
+
+		// @property (nonatomic, copy) NSString *caption;
+		[Export ("caption", ArgumentSemantic.Copy)]
+		string Caption { get; set; }
 	}
 
 	// @interface FBSDKSharePhotoContent : NSObject <FBSDKSharingContent>
-	[BaseType (typeof (NSObject), Name = "FBSDKSharePhotoContent")]
-	interface SharePhotoContent : SharingContent {
+	[BaseType (typeof(NSObject), Name = "FBSDKSharePhotoContent")]
+	interface SharePhotoContent : SharingContent
+	{
 		
 		// @property (copy, nonatomic) NSArray * photos;
 		[NullAllowed] 
@@ -2065,8 +2199,9 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareVideo : NSObject <FBSDKCopying, NSSecureCoding>
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBSDKShareVideo")]
-	interface ShareVideo : CoreKit.Copying, INSSecureCoding {
+	[BaseType (typeof(NSObject), Name = "FBSDKShareVideo")]
+	interface ShareVideo : CoreKit.Copying, INSSecureCoding
+	{
 		
 		// +(instancetype)videoWithVideoURL:(NSURL *)videoURL;
 		[Static]
@@ -2084,8 +2219,9 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKShareVideoContent : NSObject <FBSDKSharingContent>
-	[BaseType (typeof (NSObject), Name = "FBSDKShareVideoContent")]
-	interface ShareVideoContent : SharingContent {
+	[BaseType (typeof(NSObject), Name = "FBSDKShareVideoContent")]
+	interface ShareVideoContent : SharingContent
+	{
 		
 		// @property (copy, nonatomic) FBSDKSharePhoto * previewPhoto;
 		[NullAllowed] 
@@ -2102,13 +2238,17 @@ namespace Facebook.ShareKit
 		bool IsEqualToShareVideoContent (ShareVideoContent content);
 	}
 
-	interface ISharing { }
+	interface ISharing
+	{
+
+	}
 
 	// @protocol FBSDKSharing <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKSharing")]
-	interface Sharing {
+	[BaseType (typeof(NSObject), Name = "FBSDKSharing")]
+	interface Sharing
+	{
 		
 		// @required @property (nonatomic, weak) id<FBSDKSharingDelegate> delegate;
 		[Export ("delegate")]
@@ -2136,13 +2276,17 @@ namespace Facebook.ShareKit
 		bool ValidateWithError (out NSError errorRef);
 	}
 
-	interface ISharingDialog { }
+	interface ISharingDialog
+	{
+
+	}
 
 	// @protocol FBSDKSharingDialog <FBSDKSharing>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKSharingDialog")]
-	interface SharingDialog : Sharing {
+	[BaseType (typeof(NSObject), Name = "FBSDKSharingDialog")]
+	interface SharingDialog : Sharing
+	{
 		
 		// @required -(BOOL)canShow;
 		[Abstract]
@@ -2155,13 +2299,17 @@ namespace Facebook.ShareKit
 		bool Show ();
 	}
 
-	interface ISharingDelegate { }
+	interface ISharingDelegate
+	{
+
+	}
 
 	// @protocol FBSDKSharingDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKSharingDelegate")]
-	interface SharingDelegate {
+	[BaseType (typeof(NSObject), Name = "FBSDKSharingDelegate")]
+	interface SharingDelegate
+	{
 
 		// @required -(void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results;
 		[Abstract]
@@ -2179,13 +2327,17 @@ namespace Facebook.ShareKit
 		void DidCancel (ISharing sharer);
 	}
 
-	interface ISharingButton { }
+	interface ISharingButton
+	{
+
+	}
 
 	// @protocol FBSDKSharingButton <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKSharingButton")]
-	interface SharingButton {
+	[BaseType (typeof(NSObject), Name = "FBSDKSharingButton")]
+	interface SharingButton
+	{
 		
 		// @required @property (copy, nonatomic) id<FBSDKSharingContent> shareContent;
 		[Export ("shareContent")]
@@ -2195,13 +2347,17 @@ namespace Facebook.ShareKit
 		void SetShareContent ([NullAllowed] ISharingContent shareContent);
 	}
 
-	interface ISharingContent { }
+	interface ISharingContent
+	{
+
+	}
 
 	// @protocol FBSDKSharingContent <FBSDKCopying, NSSecureCoding>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKSharingContent")]
-	interface SharingContent : CoreKit.Copying, INSSecureCoding {
+	[BaseType (typeof(NSObject), Name = "FBSDKSharingContent")]
+	interface SharingContent : CoreKit.Copying, INSSecureCoding
+	{
 
 		// @required @property (copy, nonatomic) NSURL * contentURL;
 		[Export ("contentURL")]
@@ -2215,7 +2371,7 @@ namespace Facebook.ShareKit
 		string [] GetPeopleIds ();
 
 		[Export ("setPeopleIDs:")]
-		void SetPeopleIds ([NullAllowed] string [] peolpleId);
+		void SetPeopleIds ([NullAllowed] string[] peolpleId);
 
 		// @required @property (copy, nonatomic) NSString * placeID;
 		[Export ("placeID")]
