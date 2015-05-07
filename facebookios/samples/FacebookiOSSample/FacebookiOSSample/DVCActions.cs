@@ -204,7 +204,9 @@ namespace FacebookiOSSample
 		// Invite user's friends to use your Facebook app
 		void InviteFriends ()
 		{
-			var content = new AppInviteContent (appLinkUrl);
+			var content = new AppInviteContent {
+				AppLinkURL = appLinkUrl
+			};
 			content.PreviewImageURL = previewImageUrl;
 			AppInviteDialog.Show (content, this);
 		}
@@ -226,7 +228,7 @@ namespace FacebookiOSSample
 					}
 
 					if (result.IsCancelled) {
-						new UIAlertView ("The request was cancelled", "If you are using a Test App Id, please, make sure that your account have an Administrator role at:\thttps://developers.facebook.com/apps/appid/roles/", null, "OK", null).Show ();
+						new UIAlertView ("The request was cancelled", "If you are using a Test App Id, please, make sure that your account have an Administrator role at:\rhttps://developers.facebook.com/apps/appid/roles/", null, "OK", null).Show ();
 						return;
 					}
 
