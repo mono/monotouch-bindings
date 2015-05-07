@@ -33,14 +33,15 @@ namespace FacebookiOSSample
 		LoginButton loginView;
 		ProfilePictureView pictureView;
 
-		// For extensive list of available extended permissions refer to
+		// By default you only get the "public_profile" read permissions
+		// For extensive list of available publish and read permissions refer to
 		// https://developers.facebook.com/docs/reference/api/permissions/
-		string[] extendedPermissions = new [] {
+		string[] readPermissions = new [] {
 			"public_profile",
 			"email",
 			"user_friends"
 		};
-		string[] publishPermissions = new [] { "" };
+		string[] publishPermissions = new [] { "publish_actions" };
 
 		public DVCLogIn () : base (UITableViewStyle.Grouped, null, true)
 		{
@@ -60,15 +61,11 @@ namespace FacebookiOSSample
 				}
 			});
 
-			AccessToken.Notifications.ObserveDidChange ((sender, e) => {
-				Console.WriteLine (e.NewToken.Permissions);
-			});
-
-			// If you use Native login behavior, you will get all read and publish permisions
-			// otherwise, set the Read and Publish permissions you want to get
 			loginView = new LoginButton (new CGRect (51, 0, 218, 46)) {
 				LoginBehavior = LoginBehavior.Native,
-				ReadPermissions = extendedPermissions,
+				ReadPermissions = readPermissions,
+				// You can ask permissions to publish right now
+				// or later, to see a proper way of how to ask permissions
 //				PublishPermissions = publishPermissions
 			};
 
