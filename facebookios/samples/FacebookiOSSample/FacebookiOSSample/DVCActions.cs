@@ -9,6 +9,7 @@ using Foundation;
 using UIKit;
 using CoreLocation;
 using CoreGraphics;
+
 #else
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
@@ -36,6 +37,7 @@ namespace FacebookiOSSample
 		string helloId = null;
 		bool isXamarinShared = false;
 		string sharedId = null;
+		AccessToken currentAccessToken = AccessToken.CurrentAccessToken;
 
 		// So you can share your Facebook app, you need to create an AppLink:
 		// https://developers.facebook.com/docs/app-invites/ios#app_links
@@ -49,7 +51,7 @@ namespace FacebookiOSSample
 
 			// Create menu options with Monotouch.Dialog
 			Root = new RootElement ("Menu") {
-				new Section (){
+				new Section () {
 					new UIViewElement ("", pictureView, true) {
 						Flags = UIViewElement.CellFlags.DisableSelection | UIViewElement.CellFlags.Transparent,
 					}
@@ -102,12 +104,19 @@ namespace FacebookiOSSample
 		void DeleteSharedPost ()
 		{
 			if (!isXamarinShared) {
-				new UIAlertView ("Error", "Please Share \"Xamarin.com\" to your wall first", null, "Ok", null).Show();
+				new UIAlertView ("Error", "Please Share \"Xamarin.com\" to your wall first", null, "Ok", null).Show ();
+				return;
+			}
+
+			// Verify if you have permissions to delete things from user wall,
+			// if not, ask to user if he/she wants to let your app to delete things for them
+			if (!currentAccessToken.HasGranted ("publish_actions")) {
+				AskPermissions ("Delete Shared Post", "Would you like to let this app to delete your last shared post for you?", new [] { "publish_actions" }, PostHello);
 				return;
 			}
 
 			// Use GraphRequest to delete the last shared post
-			var request = new GraphRequest (sharedId, null, AccessToken.CurrentAccessToken.TokenString, null, "DELETE");
+			var request = new GraphRequest (sharedId, null, currentAccessToken.TokenString, null, "DELETE");
 			var requestConnection = new GraphRequestConnection ();
 
 			// Handle the result of the request
@@ -135,55 +144,47 @@ namespace FacebookiOSSample
 			}
 
 			// Verify if you have permissions to post into user wall,
-			// if not, ask to user if he/she wants to let your app post thing for them
-			if (!AccessToken.CurrentAccessToken.Permissions.Contains ("publish_actions")) {
-				var alertView = new UIAlertView ("Post Hello", "Would you like to let this app to post a \"Hello\" for you?", null, "Maybe later", new [] { "Ok" });
-				alertView.Clicked += (sender, e) => {
-					if (e.ButtonIndex == 1)
-						return;
-
-					// If they let you post thing, ask a new loggin with publish permissions
-					var login = new LoginManager ();
-					login.LogInWithPublishPermissions (new [] { "publish_actions" }, (result, error) => {
-						if (error != null) {
-							new UIAlertView ("Error...", error.Description, null, "Ok", null).Show ();
-							return;
-						}
-
-						PostHello ();
-					});
-				};
-				alertView.Show ();
-			} else {
-				// Once you have the permissions, you can publish into user wall 
-				var request = new GraphRequest ("me/feed", new NSDictionary ("message", "Hello!"), AccessToken.CurrentAccessToken.TokenString, null, "POST");
-				var requestConnection = new GraphRequestConnection ();
-
-				// Handle the result of the request
-				requestConnection.AddRequest (request, (connection, result, error) => {
-					if (error != null) {
-						new UIAlertView ("Error...", error.Description, null, "Ok", null).Show ();
-						return;
-					}
-
-					helloId = (result as NSDictionary)["id"].ToString ();
-					new UIAlertView ("Success!!", "Posted Hello in your wall, MsgId: " + helloId, null, "Ok", null).Show ();
-					isHelloPosted = true;
-				});
-				requestConnection.Start ();
+			// if not, ask to user if he/she wants to let your app post things for them
+			if (!currentAccessToken.HasGranted ("publish_actions")) {
+				AskPermissions ("Post Hello", "Would you like to let this app to post a \"Hello\" for you?", new [] { "publish_actions" }, PostHello);
+				return;
 			}
+
+			// Once you have the permissions, you can publish into user wall 
+			var request = new GraphRequest ("me/feed", new NSDictionary ("message", "Hello!"), AccessToken.CurrentAccessToken.TokenString, null, "POST");
+			var requestConnection = new GraphRequestConnection ();
+
+			// Handle the result of the request
+			requestConnection.AddRequest (request, (connection, result, error) => {
+				if (error != null) {
+					new UIAlertView ("Error...", error.Description, null, "Ok", null).Show ();
+					return;
+				}
+
+				helloId = (result as NSDictionary) ["id"].ToString ();
+				new UIAlertView ("Success!!", "Posted Hello in your wall, MsgId: " + helloId, null, "Ok", null).Show ();
+				isHelloPosted = true;
+			});
+			requestConnection.Start ();
 		}
 
 		// Delete the "Hello!" post from user wall
 		void DeleteHelloPost ()
 		{
 			if (!isHelloPosted) {
-				new UIAlertView ("Error", "Please Post \"Hello\" to your wall first", null, "Ok", null).Show();
+				new UIAlertView ("Error", "Please Post \"Hello\" to your wall first", null, "Ok", null).Show ();
+				return;
+			}
+
+			// Verify if you have permissions to delete things from user wall,
+			// if not, ask to user if he/she wants to let your app to delete things for them
+			if (!currentAccessToken.HasGranted ("publish_actions")) {
+				AskPermissions ("Delete Hello Post", "Would you like to let this app to delete your \"Hello\" post for you?", new [] { "publish_actions" }, PostHello);
 				return;
 			}
 
 			// Use GraphRequest to delete the Hello! post
-			var request = new GraphRequest (helloId, null, AccessToken.CurrentAccessToken.TokenString, null, "DELETE");
+			var request = new GraphRequest (helloId, null, currentAccessToken.TokenString, null, "DELETE");
 			var requestConnection = new GraphRequestConnection ();
 
 			// Handle the result of the request
@@ -208,12 +209,40 @@ namespace FacebookiOSSample
 			AppInviteDialog.Show (content, this);
 		}
 
+		void AskPermissions (string title, string message, string[] permissions, Action successHandler)
+		{
+			var alertView = new UIAlertView (title, message, null, "Maybe later", new [] { "Ok" });
+			alertView.Clicked += (sender, e) => {
+				if (e.ButtonIndex == 0)
+					return;
+
+				// If they let you post thing, ask a new loggin with publish permissions
+				var login = new LoginManager ();
+
+				login.LogInWithPublishPermissions (permissions, (result, error) => {
+					if (error != null) {
+						new UIAlertView ("Error...", error.Description, null, "Ok", null).Show ();
+						return;
+					}
+
+					if (result.IsCancelled) {
+						new UIAlertView ("The request was cancelled", "If you are using a Test App Id, please, make sure that your account have an Administrator role at:\thttps://developers.facebook.com/apps/appid/roles/", null, "OK", null).Show ();
+						return;
+					}
+
+					currentAccessToken = result.Token;
+					successHandler ();
+				});
+			};
+			alertView.Show ();
+		}
+
 		#region ISharingDelegate Implement
 
 		public void DidComplete (ISharing sharer, NSDictionary results)
 		{
-			if (results.ContainsKey (new NSString ("postId")))
-			{
+			Console.WriteLine (results);
+			if (results.ContainsKey (new NSString ("postId"))) {
 				sharedId = results ["postId"].ToString ();
 				new UIAlertView ("Success!!", "Successfully posted to Facebook!", null, "Ok", null).Show ();
 				isXamarinShared = true;
@@ -236,8 +265,7 @@ namespace FacebookiOSSample
 
 		public void DidComplete (AppInviteDialog appInviteDialog, NSDictionary results)
 		{
-			Console.WriteLine (results);
-			if (results["completionGesture"] != null && results["completionGesture"].ToString () != "cancel")
+			if (results ["completionGesture"] != null && results ["completionGesture"].ToString () != "cancel")
 				new UIAlertView ("Success!!", "Successfully invited to some friends to use your app!", null, "Ok", null).Show ();
 		}
 
