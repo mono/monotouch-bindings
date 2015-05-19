@@ -97,6 +97,19 @@ namespace TestFairyLib
 		/// <returns>The session URL.</returns>
 		[Static, Export("sessionUrl")]
 		string GetSessionUrl();
+
+		/// <summary>
+		/// Returns the current version of TestFairy SDK.
+		/// </summary>
+		/// <returns>TestFairy SDK version.</returns>
+		[Static, Export("version")]
+		string GetVersion();
+
+		/// <summary>
+		/// Takes a screenshot at the current time.
+		/// </summary>
+		[Static, Export("takeScreenshot")]
+		void TakeScreenshot();
 	}
 }
 
