@@ -1,7 +1,6 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 BTOUCHNATIVE=/Developer/MonoTouch/usr/bin/btouch-native
-
-VERSION=1.4.0
+VERSION=1.4.4
 
 all: bin/classic/TestFairy.iOS.dll bin/unified/TestFairy.iOS.dll
 
@@ -19,4 +18,4 @@ bin/classic/TestFairy.iOS.dll: Makefile ApiDefinition.cs AssemblyInfo.cs libTest
 	$(BTOUCH) -x=AssemblyInfo.cs ApiDefinition.cs --link-with=libTestFairy.a,libTestFairy.a --out=$@ 
 
 clean:
-	-rm -rf bin libTestFairy.a
+	-rm -rf list ios *.sln *.userprefs TestFairy.iOS.dll *.o libTestFairy.a *.zip *.mdb Resources/ lib/ bin/ obj/

@@ -13,10 +13,10 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System;
-using System.Drawing;
-using MonoTouch.UIKit;
+using UIKit;
 using WEPopover;
-using MonoTouch.Foundation;
+using Foundation;
+using CoreGraphics;
 
 namespace WEPopoverSample
 {
@@ -54,15 +54,17 @@ namespace WEPopoverSample
 			Popover.PopoverClosed += DidDismissPopover;
 			
 			var puppyView = new UIImageView(UIImage.FromFile("Images/smile.png"))  {
-				Frame = new RectangleF(0, 0, 367, 367),
+				Frame = new CGRect(0, 0, 367, 367),
 			};
 			
 			Popover.ContentViewController = new UIViewController() {
 				View = puppyView,
-				ContentSizeForViewInPopover = new SizeF(367, 367),
+				ContentSizeForViewInPopover = new CGSize(367, 367),
 			};
-			
-			
+
+			if (UIDevice.CurrentDevice.CheckSystemVersion (7, 0)) {
+				Popover.ContentViewController.PreferredContentSize = Popover.ContentViewController.ContentSizeForViewInPopover;
+			}
 		}
 		
 		public override void ViewDidLoad()
@@ -75,7 +77,7 @@ namespace WEPopoverSample
 			base.ViewWillLayoutSubviews();
 		}
 		
-		public void DidDismissPopover(WEPopoverController popover)
+		public void DidDismissPopover(PopoverController popover)
 		{
 			Console.WriteLine("Popover Did Dismiss...");
 		}
@@ -91,7 +93,7 @@ namespace WEPopoverSample
 				_Controller = controller;
 			}
 			
-			public override int RowsInSection(UITableView tableview, int section)
+			public override nint RowsInSection(UITableView tableview, nint section)
 			{
 				return 10;
 			}

@@ -16,17 +16,30 @@ namespace TestFairyLib
 	[BaseType (typeof(NSObject))]
 	interface TestFairy {
 
+                [Field ("TFSessionNotificationUrlKey", "__Internal")]
+                NSString SessionStartedUrlKey { get; }
+
+                [Field ("TFSessionDidStartNotification", "__Internal")]
+                NSString SessionStartedNotification { get; }
+
 		/// <summary>
 		/// Initialize a TestFairy session.
 		/// </summary>
-		/// <param name="APIKey"></param>
+		/// <param name="APIKey">Your key as given to you in your TestFairy account</param>
 		[Static, Export("begin:")]
 		void Begin(string APIKey);
 
 		/// <summary>
+		/// Return TestFairy SDK version
+		/// </summary>
+		/// <returns>SDK version string
+		[Static, Export("version")]
+		string GetVersion();
+
+		/// <summary>
 		/// Hide a specific view from appearing in the video generated.
 		/// </summary>
-		/// <param name="view"></param>
+		/// <param name="view">The view you wish to hide from screenshots</param>
 		[Static, Export("hideView:")]
 		void HideView(UIView view);
 
@@ -40,12 +53,13 @@ namespace TestFairyLib
 		void PushFeedbackController();
 
 		/// <summary>
-		///  Send a feedback on behalf of the user. Call when using a in-house
-		///  feedback view controller with a custom design and feel. Feedback will
-		///  be associated with the current session.
+		/// Send a feedback on behalf of the user. Call when using a in-house
+		/// feedback view controller with a custom design and feel. Feedback will
+		/// be associated with the current session.
 		/// </summary>
+		/// <param name="feedbackString">Feedback text</param>
 		[Static, Export("sendUserFeedback:")]
-		void SendUserFeedback(string feedback);
+		void SendUserFeedback(string feedbackString);
 
 		/// <summary>
 		/// Proxy didUpdateLocations delegate values and these locations will
@@ -97,13 +111,6 @@ namespace TestFairyLib
 		/// <returns>The session URL.</returns>
 		[Static, Export("sessionUrl")]
 		string GetSessionUrl();
-
-		/// <summary>
-		/// Returns the current version of TestFairy SDK.
-		/// </summary>
-		/// <returns>TestFairy SDK version.</returns>
-		[Static, Export("version")]
-		string GetVersion();
 
 		/// <summary>
 		/// Takes a screenshot at the current time.

@@ -36,6 +36,9 @@ namespace PHFComposeBarView
 
 	interface ComposeBarView {
 
+		[Export ("button", ArgumentSemantic.Retain)]
+		UIButton Button { get; }
+		
 		[Field ("PHFComposeBarViewInitialHeight", "__Internal")]
 		float InitialHeight { get; }
 
@@ -91,6 +94,12 @@ namespace PHFComposeBarView
 
 		[Export ("utilityButtonImage")] [NullAllowed]
 		UIImage UtilityButtonImage { get; set; }
+
+		[Export ("utilityButton", ArgumentSemantic.Retain)]
+		UIButton UtilityButton { get; }
+
+		[Export ("setText:animated:")]
+		void SetText (string text, bool animated);
 	}
 
 	[BaseType (typeof (NSObject), Name = "PHFComposeBarViewDelegate")]

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PinterestSDK
+namespace PinterestSDK.Pinit
 {
 }
 

@@ -22,7 +22,11 @@ libiRateLib-armv7.a: external/iRate
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7 -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
 
-libiRate.a: libiRateLib-i386.a libiRateLib-armv7.a
+libiRateLib-armv7s.a: external/iRate
+	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphoneos -arch armv7s -configuration Release clean build
+	-mv $(PROJECT_ROOT)/build/Release-iphoneos/lib$(TARGET).a $@
+
+libiRate.a: libiRateLib-i386.a libiRateLib-armv7.a libiRateLib-armv7s.a
 	lipo -create -output $@ $^	
 
 MTiRate.dll: Makefile AssemblyInfo.cs ApiDefinition.cs StructsAndEnums.cs libiRate.a
