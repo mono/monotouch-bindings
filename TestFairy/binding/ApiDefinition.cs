@@ -113,7 +113,7 @@ namespace TestFairyLib
 		string GetSessionUrl();
 
 		/// <summary>
-		/// Takes a screenshot.
+		/// Takes a screenshot at the current time.
 		/// </summary>
 		[Static, Export("takeScreenshot")]
 		void TakeScreenshot();

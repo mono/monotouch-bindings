@@ -1,7 +1,6 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 BTOUCHNATIVE=/Developer/MonoTouch/usr/bin/btouch-native
-
-VERSION=1.4.2
+VERSION=1.4.4
 
 all: bin/classic/TestFairy.iOS.dll bin/unified/TestFairy.iOS.dll
 
