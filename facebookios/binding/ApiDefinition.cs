@@ -1587,15 +1587,15 @@ namespace Facebook.ShareKit
 	[BaseType (typeof(NSObject), Name = "FBSDKAppInviteContent")]
 	interface AppInviteContent : CoreKit.Copying, INSSecureCoding
 	{
-
+		
 		// @property (copy, nonatomic) NSURL * appLinkURL;
 		[NullAllowed]
 		[Export ("appLinkURL", ArgumentSemantic.Copy)]
 		NSUrl AppLinkURL { get; set; }
 
-		// @property (copy, nonatomic) NSURL * previewImageURL;
+		// @property (nonatomic, copy) NSURL *appInvitePreviewImageURL;
 		[NullAllowed]
-		[Export ("previewImageURL", ArgumentSemantic.Copy)]
+		[Export ("appInvitePreviewImageURL", ArgumentSemantic.Copy)]
 		NSUrl PreviewImageURL { get; set; }
 
 		// -(BOOL)isEqualToAppInviteContent:(FBSDKAppInviteContent *)content;
@@ -1694,12 +1694,24 @@ namespace Facebook.ShareKit
 		[Export ("objectID", ArgumentSemantic.Copy)]
 		string ObjectID { get; set; }
 
+		// @property (nonatomic, copy) NSArray *recipients;
+		[NullAllowed] 
+		[Export ("recipients", ArgumentSemantic.Copy)]
+		string [] Recipients { get; set; }
+
+		// @property (copy, nonatomic) NSArray * recipientSuggestions;
+		[NullAllowed] 
+		[Export ("recipientSuggestions", ArgumentSemantic.Copy)]
+		string [] RecipientSuggestions { get; set; }
+
 		// @property (copy, nonatomic) NSArray * to;
+		[Obsolete ("Use Recipients property instead")]
 		[NullAllowed] 
 		[Export ("to", ArgumentSemantic.Copy)]
 		string [] To { get; set; }
 
 		// @property (copy, nonatomic) NSArray * suggestions;
+		[Obsolete ("Use RecipientSuggestions property instead")]
 		[NullAllowed] 
 		[Export ("suggestions", ArgumentSemantic.Copy)]
 		string [] Suggestions { get; set; }
@@ -1891,10 +1903,6 @@ namespace Facebook.ShareKit
 		[Static]
 		[Export ("shareWithContent:delegate:")]
 		ShareAPI Share ([NullAllowed] ISharingContent content, [NullAllowed] ISharingDelegate aDelegate);
-
-		// @property (assign, nonatomic) BOOL createObjectsWithClientToken;
-		[Export ("createObjectsWithClientToken", ArgumentSemantic.Assign)]
-		bool CreateObjectsWithClientToken { get; set; }
 
 		// @property (nonatomic, copy) NSString *message;
 		[Export ("message", ArgumentSemantic.Copy)]
