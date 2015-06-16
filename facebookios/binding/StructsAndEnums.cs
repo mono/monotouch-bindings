@@ -61,7 +61,8 @@ namespace Facebook.LoginKit
 		UserMismatch,
 		UnconfirmedUser,
 		SystemAccountAppDisabled,
-		SystemAccountUnavailable
+		SystemAccountUnavailable,
+		BadChallengeString
 	}
 
 	[Native]

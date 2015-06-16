@@ -1,16 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using UIKit;
 
-#if __UNIFIED__
-using Foundation;
-using UIKit;
-#else
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-#endif
-
-namespace FacebookiOSSample
+namespace FBExam
 {
 	public class Application
 	{
