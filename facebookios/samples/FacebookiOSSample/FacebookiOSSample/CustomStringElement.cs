@@ -3,7 +3,7 @@ using UIKit;
 using Foundation;
 using MonoTouch.Dialog;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	public class CustomStringElement : StringElement
 	{

@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	[Register ("ViewController")]
 	partial class MainViewController

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using CoreGraphics;
 using Foundation;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	public partial class MainViewController : DialogViewController
 	{

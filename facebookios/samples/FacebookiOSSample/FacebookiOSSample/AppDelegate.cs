@@ -2,7 +2,7 @@
 using UIKit;
 using Facebook.CoreKit;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.

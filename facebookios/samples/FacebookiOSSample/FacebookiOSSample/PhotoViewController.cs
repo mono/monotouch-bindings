@@ -12,7 +12,7 @@ using CoreGraphics;
 using Facebook.ShareKit;
 using Facebook.CoreKit;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	public partial class PhotoViewController : DialogViewController
 	{

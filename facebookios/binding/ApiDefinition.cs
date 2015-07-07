@@ -1908,6 +1908,10 @@ namespace Facebook.ShareKit
 		[Export ("message", ArgumentSemantic.Copy)]
 		string Message { get; set; }
 
+		// @property (nonatomic, copy) NSString *graphNode;
+		[Export ("graphNode", ArgumentSemantic.Copy)]
+		string GraphNode { get; set; }
+
 		// -(BOOL)canShare;
 		[Export ("canShare")]
 		bool CanShare ();

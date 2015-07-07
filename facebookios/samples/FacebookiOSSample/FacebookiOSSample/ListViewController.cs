@@ -10,7 +10,7 @@ using UIKit;
 
 using Facebook.CoreKit;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	public partial class ListViewController : DialogViewController
 	{
