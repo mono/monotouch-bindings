@@ -84,7 +84,7 @@ namespace FacebookiOSSample
 				new CustomCheckboxElement ("Birthday", () => CheckReadPermission ("user_birthday")),
 				new CustomCheckboxElement ("Hometown", () => CheckReadPermission ("user_hometown")),
 				new CustomCheckboxElement ("Friendlists", () => CheckReadPermission ("read_custom_friendlists")),
-				new CustomCheckboxElement ("Groups", () => CheckReadPermission ("user_groups"))
+				new CustomCheckboxElement ("Managed Groups", () => CheckReadPermission ("user_managed_groups"))
 			};
 
 			// The user image profile is set automatically once is logged in
@@ -206,8 +206,8 @@ namespace FacebookiOSSample
 					NavigationController.PushViewController (new ListViewController (FacebookListType.Friends), true);
 				}));
 
-			if (AccessToken.CurrentAccessToken.HasGranted ("user_groups"))
-				actionsSection.Add (new StringElement ("See Groups", () => {
+			if (AccessToken.CurrentAccessToken.HasGranted ("user_managed_groups"))
+				actionsSection.Add (new StringElement ("See Managed Groups", () => {
 					NavigationController.PushViewController (new ListViewController (FacebookListType.Groups), true);
 				}));
 

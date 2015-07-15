@@ -1497,10 +1497,6 @@ namespace Facebook.ShareKit
 		[Export ("groupDescription", ArgumentSemantic.Copy)]
 		string GroupDescription { get; set; }
 
-		// @property (copy, nonatomic) NSString * groupID;
-		[Export ("groupID", ArgumentSemantic.Copy)]
-		string GroupID { get; set; }
-
 		// @property (copy, nonatomic) NSString * name;
 		[Export ("name", ArgumentSemantic.Copy)]
 		string Name { get; set; }

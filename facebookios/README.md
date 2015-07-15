@@ -1,7 +1,7 @@
 facebook
 ========
 
-These are bindings to the native Facebook SDK for iOS, currently we bind version 4.3.0.
+These are bindings to the native Facebook SDK for iOS, currently we bind version 4.4.0.
 
 Using
 =====
