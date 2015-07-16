@@ -12,7 +12,7 @@ using Facebook.CoreKit;
 using Facebook.LoginKit;
 using CoreGraphics;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	public partial class ListDetailViewController : DialogViewController
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using MonoTouch.Dialog;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	public class CustomCheckboxElement : CheckboxElement
 	{

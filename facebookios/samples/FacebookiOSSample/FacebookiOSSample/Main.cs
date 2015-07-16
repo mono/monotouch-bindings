@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	public class Application
 	{

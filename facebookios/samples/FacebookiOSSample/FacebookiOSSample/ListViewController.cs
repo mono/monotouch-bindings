@@ -10,15 +10,15 @@ using UIKit;
 
 using Facebook.CoreKit;
 
-namespace FBExam
+namespace FacebookiOSSample
 {
 	public partial class ListViewController : DialogViewController
 	{
 		public ListViewController (FacebookListType type) : base (UITableViewStyle.Grouped, null, true)
 		{
-			var kindListName = type == FacebookListType.Friends ? "Friendlists" : "Groups";
+			var kindListName = type == FacebookListType.Friends ? "friendlists?fields=id,name" : "groups";
 
-			Root = new RootElement (kindListName);
+			Root = new RootElement (type == FacebookListType.Friends ? "Friendlists" : "Managed Groups");
 
 			// Depends of what you want to see, list all your groups or all your friendslist that you have
 			var request = new GraphRequest ("/" + Profile.CurrentProfile.UserID + "/" + kindListName, null, AccessToken.CurrentAccessToken.TokenString, null, "GET");

@@ -22,7 +22,8 @@ namespace Facebook.CoreKit
 		GraphRequestNonTextMimeTypeReturned,
 		GraphRequestProtocolMismatch,
 		GraphRequestGraphAPI,
-		DialogUnavailable
+		DialogUnavailable,
+		AccessTokenRequired
 	}
 
 	[Native]
