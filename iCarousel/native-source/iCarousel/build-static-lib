@@ -3,3 +3,8 @@
 xcodebuild -project "iCarousel.xcodeproj" -sdk iphonesimulator -configuration Release clean build
 xcodebuild -project "iCarousel.xcodeproj" -sdk iphoneos -configuration Release clean build
 lipo -create -output ./build/libiCarousel.a ./build/Release-iphoneos/libiCarousel.a ./build/Release-iphonesimulator/libiCarousel.a
+
+cp ./build/libiCarousel.a ../../binding
+cd ../../binding
+./configure
+make

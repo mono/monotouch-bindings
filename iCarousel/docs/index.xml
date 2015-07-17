@@ -1,15 +1,24 @@
 <Overview>
   <Assemblies>
-    <Assembly Name="iCarouselSDK" Version="0.0.0.0">
+    <Assembly Name="iCarouselSDK" Version="1.8.1.0">
       <Attributes>
         <Attribute>
-          <AttributeName>MonoTouch.ObjCRuntime.LinkWith("libiCarousel.a", MonoTouch.ObjCRuntime.LinkTarget.Simulator | MonoTouch.ObjCRuntime.LinkTarget.ArmV7 | MonoTouch.ObjCRuntime.LinkTarget.ArmV7s, ForceLoad=true, Frameworks="QuartzCore CoreGraphics")</AttributeName>
+          <AttributeName>ObjCRuntime.LinkWith("libiCarousel.a", ObjCRuntime.LinkTarget.Simulator | ObjCRuntime.LinkTarget.ArmV7 | ObjCRuntime.LinkTarget.ArmV7s | ObjCRuntime.LinkTarget.Arm64, ForceLoad=true, Frameworks="QuartzCore CoreGraphics")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCompany("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCopyright("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyDescription("Mono port of iCarousel library https://github.com/nicklockwood/iCarousel")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTitle("iCarouselSDK")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Runtime.Versioning.TargetFramework("MonoTouch,Version=v1.0", FrameworkDisplayName="")</AttributeName>
         </Attribute>
       </Attributes>
     </Assembly>
@@ -39,11 +48,11 @@
         <Target Type="T:iCarouselSDK.IiCarouselDataSource" />
       </Targets>
       <Member MemberName="NumberOfPlaceholders">
-        <MemberSignature Language="C#" Value="public static uint NumberOfPlaceholders (this iCarouselSDK.IiCarouselDataSource This, iCarouselSDK.iCarousel carousel);" />
-        <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 NumberOfPlaceholders(class iCarouselSDK.IiCarouselDataSource This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberSignature Language="C#" Value="public static nuint NumberOfPlaceholders (this iCarouselSDK.IiCarouselDataSource This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype System.nuint NumberOfPlaceholders(class iCarouselSDK.IiCarouselDataSource This, class iCarouselSDK.iCarousel carousel) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>System.UInt32</ReturnType>
+          <ReturnType>System.nuint</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="This" Type="iCarouselSDK.IiCarouselDataSource" RefType="this" />
@@ -62,17 +71,17 @@
         <Target Type="T:iCarouselSDK.IiCarouselDataSource" />
       </Targets>
       <Member MemberName="PlaceholderViewAtIndex">
-        <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIView PlaceholderViewAtIndex (this iCarouselSDK.IiCarouselDataSource This, iCarouselSDK.iCarousel carousel, uint index, MonoTouch.UIKit.UIView reusingView);" />
-        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.UIKit.UIView PlaceholderViewAtIndex(class iCarouselSDK.IiCarouselDataSource This, class iCarouselSDK.iCarousel carousel, unsigned int32 index, class MonoTouch.UIKit.UIView reusingView) cil managed" />
+        <MemberSignature Language="C#" Value="public static UIKit.UIView PlaceholderViewAtIndex (this iCarouselSDK.IiCarouselDataSource This, iCarouselSDK.iCarousel carousel, nuint index, UIKit.UIView reusingView);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class UIKit.UIView PlaceholderViewAtIndex(class iCarouselSDK.IiCarouselDataSource This, class iCarouselSDK.iCarousel carousel, valuetype System.nuint index, class UIKit.UIView reusingView) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>MonoTouch.UIKit.UIView</ReturnType>
+          <ReturnType>UIKit.UIView</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="This" Type="iCarouselSDK.IiCarouselDataSource" RefType="this" />
           <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
-          <Parameter Name="index" Type="System.UInt32" />
-          <Parameter Name="reusingView" Type="MonoTouch.UIKit.UIView" />
+          <Parameter Name="index" Type="System.nuint" />
+          <Parameter Name="reusingView" Type="UIKit.UIView" />
         </Parameters>
         <Docs>
           <param name="This">To be added.</param>
@@ -81,7 +90,7 @@
           <param name="reusingView">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="iCarouselSDK.iCarouselDataSource_Extensions" Member="M:iCarouselSDK.iCarouselDataSource_Extensions.PlaceholderViewAtIndex(iCarouselSDK.IiCarouselDataSource,iCarouselSDK.iCarousel,System.UInt32,MonoTouch.UIKit.UIView)" />
+        <Link Type="iCarouselSDK.iCarouselDataSource_Extensions" Member="M:iCarouselSDK.iCarouselDataSource_Extensions.PlaceholderViewAtIndex(iCarouselSDK.IiCarouselDataSource,iCarouselSDK.iCarousel,System.nuint,UIKit.UIView)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -206,8 +215,8 @@
         <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
       </Targets>
       <Member MemberName="DidSelectItem">
-        <MemberSignature Language="C#" Value="public static void DidSelectItem (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, int index);" />
-        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidSelectItem(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, int32 index) cil managed" />
+        <MemberSignature Language="C#" Value="public static void DidSelectItem (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, nint index);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void DidSelectItem(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, valuetype System.nint index) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -215,7 +224,7 @@
         <Parameters>
           <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
           <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
-          <Parameter Name="index" Type="System.Int32" />
+          <Parameter Name="index" Type="System.nint" />
         </Parameters>
         <Docs>
           <param name="This">To be added.</param>
@@ -223,7 +232,7 @@
           <param name="index">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.DidSelectItem(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.Int32)" />
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.DidSelectItem(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.nint)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -231,17 +240,17 @@
         <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
       </Targets>
       <Member MemberName="ItemTransform">
-        <MemberSignature Language="C#" Value="public static MonoTouch.CoreAnimation.CATransform3D ItemTransform (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, float offset, MonoTouch.CoreAnimation.CATransform3D baseTransform);" />
-        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype MonoTouch.CoreAnimation.CATransform3D ItemTransform(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, float32 offset, valuetype MonoTouch.CoreAnimation.CATransform3D baseTransform) cil managed" />
+        <MemberSignature Language="C#" Value="public static CoreAnimation.CATransform3D ItemTransform (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, nfloat offset, CoreAnimation.CATransform3D baseTransform);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype CoreAnimation.CATransform3D ItemTransform(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, valuetype System.nfloat offset, valuetype CoreAnimation.CATransform3D baseTransform) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>MonoTouch.CoreAnimation.CATransform3D</ReturnType>
+          <ReturnType>CoreAnimation.CATransform3D</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
           <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
-          <Parameter Name="offset" Type="System.Single" />
-          <Parameter Name="baseTransform" Type="MonoTouch.CoreAnimation.CATransform3D" />
+          <Parameter Name="offset" Type="System.nfloat" />
+          <Parameter Name="baseTransform" Type="CoreAnimation.CATransform3D" />
         </Parameters>
         <Docs>
           <param name="This">To be added.</param>
@@ -250,7 +259,7 @@
           <param name="baseTransform">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ItemTransform(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.Single,MonoTouch.CoreAnimation.CATransform3D)" />
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ItemTransform(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.nfloat,CoreAnimation.CATransform3D)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -258,11 +267,11 @@
         <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
       </Targets>
       <Member MemberName="ItemWidth">
-        <MemberSignature Language="C#" Value="public static float ItemWidth (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
-        <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 ItemWidth(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
+        <MemberSignature Language="C#" Value="public static nfloat ItemWidth (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype System.nfloat ItemWidth(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>System.Single</ReturnType>
+          <ReturnType>System.nfloat</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
@@ -281,8 +290,8 @@
         <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
       </Targets>
       <Member MemberName="ShouldSelectItem">
-        <MemberSignature Language="C#" Value="public static bool ShouldSelectItem (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, int index);" />
-        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldSelectItem(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, int32 index) cil managed" />
+        <MemberSignature Language="C#" Value="public static bool ShouldSelectItem (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, nint index);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldSelectItem(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, valuetype System.nint index) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -290,7 +299,7 @@
         <Parameters>
           <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
           <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
-          <Parameter Name="index" Type="System.Int32" />
+          <Parameter Name="index" Type="System.nint" />
         </Parameters>
         <Docs>
           <param name="This">To be added.</param>
@@ -298,7 +307,7 @@
           <param name="index">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ShouldSelectItem(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.Int32)" />
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ShouldSelectItem(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,System.nint)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -306,17 +315,17 @@
         <Target Type="T:iCarouselSDK.IiCarouselDelegate" />
       </Targets>
       <Member MemberName="ValueForOption">
-        <MemberSignature Language="C#" Value="public static float ValueForOption (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, iCarouselSDK.iCarouselOption option, float aValue);" />
-        <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 ValueForOption(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, valuetype iCarouselSDK.iCarouselOption option, float32 aValue) cil managed" />
+        <MemberSignature Language="C#" Value="public static nfloat ValueForOption (this iCarouselSDK.IiCarouselDelegate This, iCarouselSDK.iCarousel carousel, iCarouselSDK.iCarouselOption option, nfloat aValue);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype System.nfloat ValueForOption(class iCarouselSDK.IiCarouselDelegate This, class iCarouselSDK.iCarousel carousel, valuetype iCarouselSDK.iCarouselOption option, valuetype System.nfloat aValue) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>System.Single</ReturnType>
+          <ReturnType>System.nfloat</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="This" Type="iCarouselSDK.IiCarouselDelegate" RefType="this" />
           <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
           <Parameter Name="option" Type="iCarouselSDK.iCarouselOption" />
-          <Parameter Name="aValue" Type="System.Single" />
+          <Parameter Name="aValue" Type="System.nfloat" />
         </Parameters>
         <Docs>
           <param name="This">To be added.</param>
@@ -325,7 +334,7 @@
           <param name="aValue">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ValueForOption(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,iCarouselSDK.iCarouselOption,System.Single)" />
+        <Link Type="iCarouselSDK.iCarouselDelegate_Extensions" Member="M:iCarouselSDK.iCarouselDelegate_Extensions.ValueForOption(iCarouselSDK.IiCarouselDelegate,iCarouselSDK.iCarousel,iCarouselSDK.iCarouselOption,System.nfloat)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>

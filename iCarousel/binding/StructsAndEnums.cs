@@ -32,6 +32,8 @@ namespace iCarouselSDK
 		Spacing,
 		FadeMin,
 		FadeMax,
-		FadeRange
+		FadeRange,
+		MinOpacity,
+		MaxOpacity
 	}
 }

@@ -1,13 +1,14 @@
 <Type Name="IiCarouselDelegate" FullName="iCarouselSDK.IiCarouselDelegate">
-  <TypeSignature Language="C#" Value="public interface IiCarouselDelegate : IDisposable, MonoTouch.ObjCRuntime.INativeObject" />
-  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IiCarouselDelegate implements class MonoTouch.ObjCRuntime.INativeObject, class System.IDisposable" />
+  <TypeSignature Language="C#" Value="public interface IiCarouselDelegate : IDisposable, ObjCRuntime.INativeObject" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IiCarouselDelegate implements class ObjCRuntime.INativeObject, class System.IDisposable" />
   <AssemblyInfo>
     <AssemblyName>iCarouselSDK</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.8.1.0</AssemblyVersion>
   </AssemblyInfo>
   <Interfaces>
     <Interface>
-      <InterfaceName>MonoTouch.ObjCRuntime.INativeObject</InterfaceName>
+      <InterfaceName>ObjCRuntime.INativeObject</InterfaceName>
     </Interface>
     <Interface>
       <InterfaceName>System.IDisposable</InterfaceName>
@@ -15,7 +16,7 @@
   </Interfaces>
   <Attributes>
     <Attribute>
-      <AttributeName>MonoTouch.Foundation.Protocol(Name="iCarouselDelegate", WrapperType=typeof(iCarouselSDK.iCarouselDelegateWrapper))</AttributeName>
+      <AttributeName>Foundation.Protocol(Name="iCarouselDelegate", WrapperType=typeof(iCarouselSDK.iCarouselDelegateWrapper))</AttributeName>
     </Attribute>
   </Attributes>
   <Docs>

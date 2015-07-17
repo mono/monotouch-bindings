@@ -1,13 +1,14 @@
 <Type Name="IiCarouselDataSource" FullName="iCarouselSDK.IiCarouselDataSource">
-  <TypeSignature Language="C#" Value="public interface IiCarouselDataSource : IDisposable, MonoTouch.ObjCRuntime.INativeObject" />
-  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IiCarouselDataSource implements class MonoTouch.ObjCRuntime.INativeObject, class System.IDisposable" />
+  <TypeSignature Language="C#" Value="public interface IiCarouselDataSource : IDisposable, ObjCRuntime.INativeObject" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IiCarouselDataSource implements class ObjCRuntime.INativeObject, class System.IDisposable" />
   <AssemblyInfo>
     <AssemblyName>iCarouselSDK</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.8.1.0</AssemblyVersion>
   </AssemblyInfo>
   <Interfaces>
     <Interface>
-      <InterfaceName>MonoTouch.ObjCRuntime.INativeObject</InterfaceName>
+      <InterfaceName>ObjCRuntime.INativeObject</InterfaceName>
     </Interface>
     <Interface>
       <InterfaceName>System.IDisposable</InterfaceName>
@@ -15,7 +16,7 @@
   </Interfaces>
   <Attributes>
     <Attribute>
-      <AttributeName>MonoTouch.Foundation.Protocol(Name="iCarouselDataSource", WrapperType=typeof(iCarouselSDK.iCarouselDataSourceWrapper))</AttributeName>
+      <AttributeName>Foundation.Protocol(Name="iCarouselDataSource", WrapperType=typeof(iCarouselSDK.iCarouselDataSourceWrapper))</AttributeName>
     </Attribute>
   </Attributes>
   <Docs>
@@ -23,6 +24,34 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="NumberOfItems">
+      <MemberSignature Language="C#" Value="public nuint NumberOfItems (iCarouselSDK.iCarousel carousel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype System.nuint NumberOfItems(class iCarouselSDK.iCarousel carousel) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.8.1.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Foundation.Export("numberOfItemsInCarousel:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>Foundation.Preserve(Conditional=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.nuint</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+      </Parameters>
+      <Docs>
+        <param name="carousel">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="NumberOfItems">
       <MemberSignature Language="C#" Value="public uint NumberOfItems (iCarouselSDK.iCarousel carousel);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance unsigned int32 NumberOfItems(class iCarouselSDK.iCarousel carousel) cil managed" />
@@ -46,6 +75,38 @@
       </Parameters>
       <Docs>
         <param name="carousel">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewForItem">
+      <MemberSignature Language="C#" Value="public UIKit.UIView ViewForItem (iCarouselSDK.iCarousel carousel, nuint index, UIKit.UIView reusingView);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class UIKit.UIView ViewForItem(class iCarouselSDK.iCarousel carousel, valuetype System.nuint index, class UIKit.UIView reusingView) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.8.1.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Foundation.Export("carousel:viewForItemAtIndex:reusingView:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>Foundation.Preserve(Conditional=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>UIKit.UIView</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="carousel" Type="iCarouselSDK.iCarousel" />
+        <Parameter Name="index" Type="System.nuint" />
+        <Parameter Name="reusingView" Type="UIKit.UIView" />
+      </Parameters>
+      <Docs>
+        <param name="carousel">To be added.</param>
+        <param name="index">To be added.</param>
+        <param name="reusingView">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
