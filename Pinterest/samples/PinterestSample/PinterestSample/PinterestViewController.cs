@@ -3,7 +3,7 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-using PinterestSDK;
+using PinterestSDK.Pinit;
 
 namespace PinterestSample
 {

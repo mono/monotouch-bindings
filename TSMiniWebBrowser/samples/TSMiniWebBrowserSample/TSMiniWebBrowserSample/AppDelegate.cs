@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if __UNIFIED__
+using Foundation;
+using UIKit;
+#else
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-
+#endif
 namespace TSMiniWebBrowserSample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 

@@ -5,7 +5,8 @@ This module contains MonoMac and MonoTouch API bindings for popular
 iOS or MacOS libraries that developers can reuse on their own 
 applications.
 
-If you would like to get your binding added, contact us.
+If you would like to get your binding added, add a new [issue](https://github.com/mono/monotouch-bindings/issues)
+to the issue tracker.
 
 To build MonoTouch bindings:
 
