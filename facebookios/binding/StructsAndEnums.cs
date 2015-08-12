@@ -23,7 +23,9 @@ namespace Facebook.CoreKit
 		GraphRequestProtocolMismatch,
 		GraphRequestGraphAPI,
 		DialogUnavailable,
-		AccessTokenRequired
+		AccessTokenRequired,
+		AppVersionUnsupported,
+		BrowswerUnavailable
 	}
 
 	[Native]
@@ -118,7 +120,8 @@ namespace Facebook.MessengerShareKit
 		AnimatedGIF = 1 << 2,
 		AnimatedWebP = 1 << 3,
 		Video = 1 << 4,
-		Audio = 1 << 5
+		Audio = 1 << 5,
+		RenderAsSticker = 1 << 6
 	}
 }
 
