@@ -159,7 +159,8 @@ namespace FacebookiOSSample
 		void AddUserInfoSection (string userId)
 		{
 			// Ask for the info that the user allowed to show
-			var request = new GraphRequest ("/" + userId, null, AccessToken.CurrentAccessToken.TokenString, null, "GET");
+			var fields = "?fields=id,name,email,birthday,about,hometown";
+			var request = new GraphRequest ("/" + userId + fields, null, AccessToken.CurrentAccessToken.TokenString, null, "GET");
 			var requestConnection = new GraphRequestConnection ();
 			requestConnection.AddRequest (request, (connection, result, error) => {
 				// Handle if something went wrong with the request
