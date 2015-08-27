@@ -1249,6 +1249,10 @@ namespace Facebook.MessengerShareKit
 		[Export ("sourceURL", ArgumentSemantic.Copy)]
 		NSUrl SourceUrl { get; set; }
 
+		// @property (nonatomic, readwrite, assign) BOOL renderAsSticker;
+		[Export ("renderAsSticker")]
+		bool RenderAsSticker { get; set; }
+
 		// @property (readwrite, nonatomic, strong) FBSDKMessengerContext * contextOverride;
 		[NullAllowed]
 		[Export ("contextOverride", ArgumentSemantic.Strong)]
@@ -1262,6 +1266,7 @@ namespace Facebook.MessengerShareKit
 	{
 		
 		// +(FBSDKMessengerPlatformCapability)messengerPlatformCapabilities;
+		[Obsolete ("This is deprecated as of iOS 9. If you use this, you must configure your plist as described in https://developers.facebook.com/docs/ios/ios9")]
 		[Static]
 		[Export ("messengerPlatformCapabilities")]
 		MessengerPlatformCapability MessengerPlatformCapabilities { get; }

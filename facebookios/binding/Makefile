@@ -1,20 +1,16 @@
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-DATE=20150708
-VERSION=4.4.0
+DATE=20150813
+VERSION=4.5.1
 
 all: Facebook-Unified.dll
 
-FacebookSDKs-iOS-$(DATE).pkg:
-	curl -O https://developers.facebook.com/resources/FacebookSDKs-iOS-$(DATE).pkg > $@
-	pkgutil --expand FacebookSDKs-iOS-$(DATE).pkg FacebookSDKs-iOS-$(DATE)
-	cd FacebookSDKs-iOS-$(DATE)/FacebookSDK.pkg/ && tar xvf Payload
-
-FBSDKCoreKit.a: FacebookSDKs-iOS-$(DATE).pkg
-	cp FacebookSDKs-iOS-$(DATE)/FacebookSDK.pkg/Documents/FacebookSDK/Bolts.framework/Bolts Bolts.a
-	cp FacebookSDKs-iOS-$(DATE)/FacebookSDK.pkg/Documents/FacebookSDK/FBSDKCoreKit.framework/FBSDKCoreKit FBSDKCoreKit.a
-	cp FacebookSDKs-iOS-$(DATE)/FacebookSDK.pkg/Documents/FacebookSDK/FBSDKLoginKit.framework/FBSDKLoginKit FBSDKLoginKit.a
-	cp FacebookSDKs-iOS-$(DATE)/FacebookSDK.pkg/Documents/FacebookSDK/FBSDKMessengerShareKit.framework/FBSDKMessengerShareKit FBSDKMessengerShareKit.a
-	cp FacebookSDKs-iOS-$(DATE)/FacebookSDK.pkg/Documents/FacebookSDK/FBSDKShareKit.framework/FBSDKShareKit FBSDKShareKit.a
+FBSDKCoreKit.a:
+	curl -O https://developers.facebook.com/resources/FacebookSDKs-iOS-$(DATE).zip > FacebookSDKs-iOS-$(DATE).zip
+	unzip -p FacebookSDKs-iOS-$(DATE).zip 'Bolts.framework/Bolts' > Bolts.a
+	unzip -p FacebookSDKs-iOS-$(DATE).zip 'FBSDKCoreKit.framework/FBSDKCoreKit' > FBSDKCoreKit.a
+	unzip -p FacebookSDKs-iOS-$(DATE).zip 'FBSDKLoginKit.framework/FBSDKLoginKit' > FBSDKLoginKit.a
+	unzip -p FacebookSDKs-iOS-$(DATE).zip 'FBSDKMessengerShareKit.framework/FBSDKMessengerShareKit' > FBSDKMessengerShareKit.a
+	unzip -p FacebookSDKs-iOS-$(DATE).zip 'FBSDKShareKit.framework/FBSDKShareKit' > FBSDKShareKit.a
 
 Facebook-Unified.dll: Makefile ApiDefinition.cs StructsAndEnums.cs FBSDKCoreKit.a
 	$(MONOXBUILD) /t:Clean Facebook.csproj
