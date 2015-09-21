@@ -1,6 +1,6 @@
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-DATE=20150813
-VERSION=4.5.1
+DATE=20150910
+VERSION=4.6
 
 all: Facebook-Unified.dll
 
@@ -12,7 +12,11 @@ FBSDKCoreKit.a:
 	unzip -p FacebookSDKs-iOS-$(DATE).zip 'FBSDKMessengerShareKit.framework/FBSDKMessengerShareKit' > FBSDKMessengerShareKit.a
 	unzip -p FacebookSDKs-iOS-$(DATE).zip 'FBSDKShareKit.framework/FBSDKShareKit' > FBSDKShareKit.a
 
-Facebook-Unified.dll: Makefile ApiDefinition.cs StructsAndEnums.cs FBSDKCoreKit.a
+Resources/FacebookSDKStrings.bundle:
+	mkdir -p Resources
+	unzip FacebookSDKs-iOS-$(DATE).zip 'FacebookSDKStrings.bundle/*' -d Resources/
+
+Facebook-Unified.dll: Makefile ApiDefinition.cs StructsAndEnums.cs FBSDKCoreKit.a Resources/FacebookSDKStrings.bundle
 	$(MONOXBUILD) /t:Clean Facebook.csproj
 	$(MONOXBUILD) /p:Configuration=Release Facebook.csproj
 	mkdir -p build/unified/

@@ -965,7 +965,7 @@ namespace Facebook.CoreKit
 namespace Facebook.LoginKit
 {
 	// @interface FBSDKLoginButton : FBSDKButton
-	[BaseType (typeof(CoreKit.Button),
+	[BaseType (typeof(Facebook.CoreKit.Button),
 		Name = "FBSDKLoginButton",
 		Delegates = new [] { "Delegate" },
 		Events = new [] { typeof(LoginButtonDelegate) })]
@@ -1036,6 +1036,11 @@ namespace Facebook.LoginKit
 		[EventName ("LoggedOut")]
 		[Export ("loginButtonDidLogOut:")]
 		void DidLogOut (LoginButton loginButton);
+
+		[DelegateName ("LoginButtonWillLogin")]
+		[DefaultValue (true)]
+		[Export ("loginButtonWillLogin:")]
+		bool WillLogin (LoginButton loginButton);
 	}
 
 	// typedef void (^FBSDKLoginManagerRequestTokenHandler)(FBSDKLoginManagerLoginResult *NSError *);
@@ -1056,14 +1061,26 @@ namespace Facebook.LoginKit
 		LoginBehavior LoginBehavior { get; set; }
 
 		// -(void)logInWithReadPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler;
+		[Obsolete ("Use LogInWithReadPermissions (string[], UIViewController, LoginManagerRequestTokenHandler) method instead")]
 		[Async]
 		[Export ("logInWithReadPermissions:handler:")]
 		void LogInWithReadPermissions ([NullAllowed] string[] permissions, LoginManagerRequestTokenHandler handler);
 
 		// -(void)logInWithPublishPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler;
+		[Obsolete ("Use LogInWithPublishPermissions (string[], UIViewController, LoginManagerRequestTokenHandler) method instead")]
 		[Async]
 		[Export ("logInWithPublishPermissions:handler:")]
 		void LogInWithPublishPermissions ([NullAllowed] string[] permissions, LoginManagerRequestTokenHandler handler);
+
+		// - (void)logInWithReadPermissions:(NSArray *)permissions fromViewController:(UIViewController *)fromViewController handler:(FBSDKLoginManagerRequestTokenHandler)handler;
+		[Async]
+		[Export ("logInWithReadPermissions:fromViewController:handler:")]
+		void LogInWithReadPermissions ([NullAllowed] string[] permissions, UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
+
+		// - (void)logInWithPublishPermissions:(NSArray *)permissions fromViewController:(UIViewController *)fromViewController handler:(FBSDKLoginManagerRequestTokenHandler)handler;
+		[Async]
+		[Export ("logInWithPublishPermissions:fromViewController:handler:")]
+		void LogInWithPublishPermissions ([NullAllowed] string[] permissions, UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
 
 		// -(void)logOut;
 		[Export ("logOut")]
@@ -1612,9 +1629,20 @@ namespace Facebook.ShareKit
 	interface AppInviteDialog
 	{
 		// +(instancetype)showWithContent:(FBSDKAppInviteContent *)content delegate:(id<FBSDKAppInviteDialogDelegate>)delegate;
+		[Obsolete ("Use Show (UIViewController, AppInviteContent, IAppInviteDialogDelegate) method instead")]
 		[Static]
 		[Export ("showWithContent:delegate:")]
 		AppInviteDialog Show ([NullAllowed] AppInviteContent content, [NullAllowed] IAppInviteDialogDelegate aDelegate);
+
+		// + (instancetype)showFromViewController:(UIViewController *)viewController withContent:(FBSDKAppInviteContent *)content delegate:(id<FBSDKAppInviteDialogDelegate>)delegate;
+		[Static]
+		[Export ("showFromViewController:withContent:delegate:")]
+		AppInviteDialog Show (UIViewController fromViewController, [NullAllowed] AppInviteContent content, [NullAllowed] IAppInviteDialogDelegate aDelegate);
+
+		// @property (nonatomic, weak) UIViewController *fromViewController;
+		[NullAllowed]
+		[Export ("fromViewController", ArgumentSemantic.Weak)]
+		UIViewController FromViewController { get; set; }
 
 		// @property (nonatomic, weak) id<FBSDKAppInviteDialogDelegate> delegate;
 		[NullAllowed]
@@ -1927,7 +1955,7 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKShareButton : FBSDKButton <FBSDKSharingButton>
-	[BaseType (typeof(CoreKit.Button), Name = "FBSDKShareButton")]
+	[BaseType (typeof(Facebook.CoreKit.Button), Name = "FBSDKShareButton")]
 	interface ShareButton : SharingButton
 	{
 
