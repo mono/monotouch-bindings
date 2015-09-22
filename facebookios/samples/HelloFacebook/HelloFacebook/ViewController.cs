@@ -53,11 +53,13 @@ namespace HelloFacebook
 				if (e.Error != null) {
 					// Handle if there was an error
 					new UIAlertView ("Login", e.Error.Description, null, "Ok", null).Show ();
+					return;
 				}
 
 				if (e.Result.IsCancelled) {
 					// Handle if the user cancelled the login request
 					new UIAlertView ("Login", "The user cancelled the login", null, "Ok", null).Show ();
+					return;
 				}
 
 				// Handle your successful login
