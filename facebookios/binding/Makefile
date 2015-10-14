@@ -1,6 +1,6 @@
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-DATE=20150910
-VERSION=4.6
+DATE=20151007
+VERSION=4.7
 
 all: Facebook-Unified.dll
 

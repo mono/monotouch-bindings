@@ -21,6 +21,7 @@ namespace Facebook.CoreKit
 	}
 
 	// @interface FBSDKAccessToken : NSObject <FBSDKCopying, NSSecureCoding>
+	[DisableDefaultCtor]
 	[BaseType (typeof(NSObject), Name = "FBSDKAccessToken")]
 	interface AccessToken : Copying, INSSecureCoding
 	{
@@ -68,6 +69,7 @@ namespace Facebook.CoreKit
 		string UserID { get; }
 
 		// -(instancetype)initWithTokenString:(NSString *)tokenString permissions:(NSArray *)permissions declinedPermissions:(NSArray *)declinedPermissions appID:(NSString *)appID userID:(NSString *)userID expirationDate:(NSDate *)expirationDate refreshDate:(NSDate *)refreshDate __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
 		[Export ("initWithTokenString:permissions:declinedPermissions:appID:userID:expirationDate:refreshDate:")]
 		IntPtr Constructor (string tokenString, [NullAllowed] string[] permissions, [NullAllowed] string[] declinedPermissions, string appID, string userID, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate);
 
@@ -473,6 +475,7 @@ namespace Facebook.CoreKit
 		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string httpMethod);
 
 		// -(instancetype)initWithGraphPath:(NSString *)graphPath parameters:(NSDictionary *)parameters tokenString:(NSString *)tokenString version:(NSString *)version HTTPMethod:(NSString *)HTTPMethod __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
 		[Export ("initWithGraphPath:parameters:tokenString:version:HTTPMethod:")]
 		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string tokenString, [NullAllowed] string version, [NullAllowed] string httpMethod);
 
@@ -569,6 +572,11 @@ namespace Facebook.CoreKit
 		[Export ("URLResponse", ArgumentSemantic.Retain)]
 		NSHttpUrlResponse UrlResponse { get; }
 
+		// + (void)setDefaultConnectionTimeout:(NSTimeInterval)defaultConnectionTimeout;
+		[Static]
+		[Export ("setDefaultConnectionTimeout:")]
+		void SetDefaultConnectionTimeout (double defaultConnectionTimeout);
+
 		// -(void)addRequest:(FBSDKGraphRequest *)request completionHandler:(FBSDKGraphRequestHandler)handler;
 		[Export ("addRequest:completionHandler:")]
 		void AddRequest (GraphRequest request, [NullAllowed] GraphRequestHandler handler);
@@ -604,6 +612,7 @@ namespace Facebook.CoreKit
 	interface GraphRequestDataAttachment
 	{
 		// -(instancetype)initWithData:(NSData *)data filename:(NSString *)filename contentType:(NSString *)contentType __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
 		[Export ("initWithData:filename:contentType:")]
 		IntPtr Constructor ([NullAllowed] NSData data, string filename, string contentType);
 
@@ -661,6 +670,7 @@ namespace Facebook.CoreKit
 		NSString NewProfileKey { get; }
 
 		// -(instancetype)initWithUserID:(NSString *)userID firstName:(NSString *)firstName middleName:(NSString *)middleName lastName:(NSString *)lastName name:(NSString *)name linkURL:(NSURL *)linkURL refreshDate:(NSDate *)refreshDate __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
 		[Export ("initWithUserID:firstName:middleName:lastName:name:linkURL:refreshDate:")]
 		IntPtr Constructor (string userID, string firstName, string middleName, string lastName, string name, [NullAllowed] NSUrl linkUrl, [NullAllowed] NSDate refreshDate);
 
@@ -703,7 +713,12 @@ namespace Facebook.CoreKit
 		[Export ("enableUpdatesOnAccessTokenChange:")]
 		void EnableUpdatesOnAccessTokenChange (bool enable);
 
+		// - (NSURL *)imageURLForPictureMode:(FBSDKProfilePictureMode)mode size:(CGSize)size;
+		[Export ("imageURLForPictureMode:size:")]
+		NSUrl ImageUrl (ProfilePictureMode mode, CGSize size);
+
 		// -(NSString *)imagePathForPictureMode:(FBSDKProfilePictureMode)mode size:(CGSize)size;
+		[Obsolete ("Use ImageUrl method instead")]
 		[Export ("imagePathForPictureMode:size:")]
 		string ImagePath (ProfilePictureMode mode, CGSize size);
 
@@ -1118,6 +1133,7 @@ namespace Facebook.LoginKit
 		NSSet DeclinedPermissions { get; set; }
 
 		// -(instancetype)initWithToken:(FBSDKAccessToken *)token isCancelled:(BOOL)isCancelled grantedPermissions:(NSSet *)grantedPermissions declinedPermissions:(NSSet *)declinedPermissions __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
 		[Export ("initWithToken:isCancelled:grantedPermissions:declinedPermissions:")]
 		IntPtr Constructor ([NullAllowed] CoreKit.AccessToken token, bool isCancelled, [NullAllowed] NSSet grantedPermissions, [NullAllowed] NSSet declinedPermissions);
 	}
