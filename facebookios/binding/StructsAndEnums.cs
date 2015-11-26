@@ -187,7 +187,8 @@ namespace Facebook.ShareKit
 	{
 		Reserved = 200,
 		OpenGraph,
-		DialogNotAvailable
+		DialogNotAvailable,
+		Unknown
 	}
 
 	[Native]
