@@ -294,7 +294,7 @@ namespace FacebookiOSSample
 			ShowMessageBox (title, message, "Maybe Later", new [] { "Ok" }, () => {
 				// If they let you do things, ask for a new Access Token with the new permission
 				var login = new LoginManager ();
-				login.LogInWithPublishPermissions (permissions, (result, error) => {
+				login.LogInWithPublishPermissions (permissions, this, (result, error) => {
 					// Handle if something went wrong with the request
 					if (error != null) {
 						new UIAlertView ("Error...", error.Description, null, "Ok", null).Show ();
