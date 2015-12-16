@@ -1090,12 +1090,12 @@ namespace Facebook.LoginKit
 		// - (void)logInWithReadPermissions:(NSArray *)permissions fromViewController:(UIViewController *)fromViewController handler:(FBSDKLoginManagerRequestTokenHandler)handler;
 		[Async]
 		[Export ("logInWithReadPermissions:fromViewController:handler:")]
-		void LogInWithReadPermissions ([NullAllowed] string[] permissions, UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
+		void LogInWithReadPermissions ([NullAllowed] string[] permissions, [NullAllowed] UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
 
 		// - (void)logInWithPublishPermissions:(NSArray *)permissions fromViewController:(UIViewController *)fromViewController handler:(FBSDKLoginManagerRequestTokenHandler)handler;
 		[Async]
 		[Export ("logInWithPublishPermissions:fromViewController:handler:")]
-		void LogInWithPublishPermissions ([NullAllowed] string[] permissions, UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
+		void LogInWithPublishPermissions ([NullAllowed] string[] permissions, [NullAllowed] UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
 
 		// -(void)logOut;
 		[Export ("logOut")]
